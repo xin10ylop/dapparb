@@ -133,6 +133,24 @@ DOCS_LIST = [
     ("fourmeme-protocol-integration", "https://four-meme.gitbook.io/four.meme/protocol-integration",
      "Four.meme Protocol Integration", "Four.meme", "Q5;Q4"),
     ("flap-docs-home", "https://docs.flap.sh/", "Flap docs", "Flap", "Q5;Q4"),
+    # GitBook markdown exports (verbatim page source) for launchpad docs
+    ("fourmeme-integration-md", "https://four-meme.gitbook.io/four.meme/developer/fourmeme-integration.md",
+     "Four.meme Integration (TokenManager) - markdown export", "Four.meme", "Q5;Q4"),
+    ("fourmeme-how-it-works-md", "https://four-meme.gitbook.io/four.meme/guide/how-it-works.md",
+     "Four.meme How it works - markdown export", "Four.meme", "Q5;Q4"),
+    ("flap-deployed-addresses-md",
+     "https://docs.flap.sh/flap/developers/wallet-and-terminal-and-bot-developers/deployed-contract-addresses.md",
+     "Flap Deployed Contract Addresses - markdown export", "Flap", "Q5;Q4"),
+    ("flap-trade-tokens-md", "https://docs.flap.sh/flap/developers/wallet-and-terminal-and-bot-developers/trade-tokens.md",
+     "Flap Trade Tokens - markdown export", "Flap", "Q5;Q4"),
+    ("flap-bonding-curve-md", "https://docs.flap.sh/flap/developers/basic-and-mechanism/bonding-curve.md",
+     "Flap Bonding Curve - markdown export", "Flap", "Q5;Q4"),
+    ("flap-migrated-to-dex-md", "https://docs.flap.sh/flap/developers/basic-and-mechanism/list-on-dex.md",
+     "Flap Migrated To DEX - markdown export", "Flap", "Q5;Q4"),
+    ("flap-token-migration-md", "https://docs.flap.sh/flap/developers/wallet-and-terminal-and-bot-developers/token-migration.md",
+     "Flap Token Migration - markdown export", "Flap", "Q5;Q4"),
+    ("pancakeswap-infinity-hooks-md", "https://developer.pancakeswap.finance/contracts/infinity/overview/hooks",
+     "PancakeSwap Infinity hooks overview", "PancakeSwap developer docs", "Q1;Q4;Q5"),
 ]
 
 # (id, local path, repo url, path in repo, title, publisher, question lines)
@@ -200,9 +218,16 @@ def fetch(url):
 
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--only", help="comma-separated ids to (re)fetch; other rows of index.csv are kept")
+    a = ap.parse_args()
+    only = set(a.only.split(",")) if a.only else None
     os.makedirs(RAWD, exist_ok=True)
     rows = []
     for did, url, title, pub, ql in DOCS_LIST:
+        if only is not None and did not in only:
+            continue
         code, final, body, ctype = fetch(url)
         now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
         sha = hashlib.sha256(body).hexdigest()
@@ -243,6 +268,8 @@ def main():
         print(did, code, len(body), flush=True)
         time.sleep(1.0)
     for did, path, repo, rpath, title, pub, ql in LOCAL:
+        if only is not None and did not in only:
+            continue
         now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
         repo_dir = subprocess.check_output(["git", "-C", os.path.dirname(path), "rev-parse", "--show-toplevel"], text=True).strip()
         commit = subprocess.check_output(["git", "-C", repo_dir, "log", "-1", "--format=%H"], text=True).strip()
@@ -261,7 +288,15 @@ def main():
                      "date_stated": f"repo HEAD commit date {cdate}", "fetched_at": now, "http_status": "git",
                      "question_lines": ql, "text_file": did + ".txt", "raw_file": "raw/" + os.path.basename(rawf),
                      "raw_bytes": len(body), "raw_sha256": hashlib.sha256(body).hexdigest(), "note": ""})
-    with open(os.path.join(DOCS, "index.csv"), "w", newline="") as f:
+    idx = os.path.join(DOCS, "index.csv")
+    if only is not None and os.path.exists(idx):
+        old = list(csv.DictReader(open(idx)))
+        new_ids = {r["id"] for r in rows}
+        order = [d[0] for d in DOCS_LIST] + [d[0] for d in LOCAL]
+        merged = {r["id"]: r for r in old if r["id"] not in new_ids}
+        merged.update({r["id"]: r for r in rows})
+        rows = sorted(merged.values(), key=lambda r: order.index(r["id"]) if r["id"] in order else 10 ** 6)
+    with open(idx, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys()), lineterminator="\n")
         w.writeheader()
         w.writerows(rows)
