@@ -81,7 +81,7 @@ def get(url, min_gap=1.5, tries=6):
             f.write(json.dumps(rec) + '\n')
         if r.status_code == 429 or r.status_code >= 500:
             ra = r.headers.get('retry-after')
-            wait = int(ra) if ra and ra.isdigit() else delay
+            wait = min(int(ra), 900) if ra and ra.isdigit() else delay  # cap Retry-After; give up after `tries`
             log(f'  HTTP {r.status_code} {url}; retry in {wait}s')
             time.sleep(wait); delay = min(delay * 2, 120)
             continue
@@ -197,7 +197,8 @@ def meta(html):
 def fetch_arxiv(src):
     aid = src['id']
     files, texts, notes = [], [], []
-    r, rec = get(f'https://arxiv.org/abs/{aid}', min_gap=3)
+    pinned = f"v{src['version']}" if src.get('version') else ''
+    r, rec = get(f'https://arxiv.org/abs/{aid}{pinned}', min_gap=3)  # a pinned version gets that version's abs page (its abstract)
     if r.status_code != 200:
         raise RuntimeError(f'abs HTTP {r.status_code}')
     files.append(save_raw(src['slug'], 'abs', 'html', r.content))
@@ -247,14 +248,20 @@ def fetch_arxiv(src):
     }
 
 
+def html_text_from_bytes(src, content, final_url):
+    # decode from bytes so BeautifulSoup uses the document's own charset (requests' header-based guess can be wrong)
+    md = meta(content)
+    text = (f'Source URL: {src["url"]}\nFinal URL: {final_url}\nPage title: {md["title"]}\n\n'
+            + html_to_text(content, prefer_main=src.get('prefer_main', True)))
+    return md, text
+
+
 def fetch_html(src):
     r, rec = get(src['url'], min_gap=src.get('min_gap', 1.5))
     if r.status_code != 200:
         raise RuntimeError(f'HTTP {r.status_code}')
     files = [save_raw(src['slug'], 'page', 'html', r.content)]
-    md = meta(r.text)
-    text = (f'Source URL: {src["url"]}\nFinal URL: {r.url}\nPage title: {md["title"]}\n\n'
-            + html_to_text(r.text, prefer_main=src.get('prefer_main', True)))
+    md, text = html_text_from_bytes(src, r.content, r.url)
     texts = [save_text(f'{src["slug"]}.txt.gz', text)]
     return {'url': src['url'], 'title': md['title'], 'authors': md['authors'], 'date': md['date'],
             'raw_files': files, 'text_files': texts,
@@ -361,6 +368,7 @@ def main():
     ap.add_argument('--only', nargs='*')
     ap.add_argument('--force', action='store_true')
     ap.add_argument('--rebuild-csv', action='store_true')
+    ap.add_argument('--reextract-html', action='store_true', help='rebuild texts of html sources from raw/ (no network)')
     a = ap.parse_args()
     sources = json.load(open(SOURCES))
     slugs = [s['slug'] for s in sources]
@@ -368,6 +376,24 @@ def main():
     if dup:
         sys.exit(f'duplicate slugs: {dup}')
     state = load_state()
+    if a.reextract_html:
+        for src in sources:
+            if src['kind'] != 'html' or state.get(src['slug'], {}).get('status') != 'ok':
+                continue
+            rp = os.path.join(RAW, f"{src['slug']}.page.html.gz")
+            final = src['url']
+            for l in open(FLOG):
+                rec = json.loads(l)
+                if rec['url'] == src['url'] and rec['status'] == 200:
+                    final = rec['final_url']
+            content = gzip.open(rp).read()
+            md, text = html_text_from_bytes(src, content, final)
+            save_text(f"{src['slug']}.txt.gz", text)
+            st = state[src['slug']]
+            st['title'], st['authors'], st['date'] = md['title'], md['authors'], md['date']
+            log(f"re-extracted {src['slug']}")
+        json.dump(state, open(STATE, 'w'), indent=1)
+        a.rebuild_csv = True
     if not a.rebuild_csv:
         for src in sources:
             slug = src['slug']

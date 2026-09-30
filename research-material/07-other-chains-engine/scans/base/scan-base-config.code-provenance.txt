@@ -1,0 +1,57 @@
+captured_utc: 2026-09-30T22:15:27Z (captured 1 min after the run started at 2026-09-30T22:14:28Z; no bot/src file was modified after 22:10:07Z, so this is the code the run loaded)
+git_head: 1c1a93feee5cd05b5efc32ce39c35c39ba7ddd04
+git_status_bot_src (uncommitted changes present in the working tree when the run started):
+ M bot/src/main.ts
+ M bot/src/pools/v4.ts
+?? bot/src/pools/v4file.ts
+git_diff_stat_bot_src:
+ bot/src/main.ts     | 20 ++++++++++++++++++--
+ bot/src/pools/v4.ts | 33 +++++++++++++++++++--------------
+ 2 files changed, 37 insertions(+), 16 deletions(-)
+sha256 of bot/src/**/*.ts:
+bd1e6f833e006afc1da52bdf0760b39bd3cf63e1154accb11424f4ff6a115a87  bot/src/abi.ts
+ff61fa479fed7243eb15f2f07a1a2bf6cb6f2b6dc06d8e358446239a6733a0eb  bot/src/arb/depth.ts
+dddd344d77c8cfc79ef8a1ec79eb9cad1f9bd412e35349abb03ad9f11355aa65  bot/src/arb/incremental.bench.ts
+46ad2340ad479a1c32f9a12c855d2e076c3839f33ae8dc6cd357d0cf99ea3bef  bot/src/arb/incremental.ts
+37952e5753bf9316f75927de89036fd2a50b6a8f34b5ab1fd429c6b81c64c9d6  bot/src/arb/pipeline.fork.test.ts
+4c5a055dd07d1226bbc32c64bc26f38bee47cc62283551e709360606bc7baa77  bot/src/arb/pricing.ts
+56b4385225acd5aed6aacdde4958b7a7df141989a066d75de88f6e120d1ea467  bot/src/arb/quote.ts
+2fd6615e6a10441571065d75e779ad051cc26c89f2de17b717e71c941d46bb35  bot/src/arb/search.ts
+245911e76e84dc9a3b43b5efc4376fcf08b47393b9b595b4b07b77a91ead2297  bot/src/arb/triangles.ts
+a71c588f79dc8a5400198751dd599734000353da4a45eaf0dc5015e4311ec826  bot/src/cli/leverage.ts
+d8ac98eb8d97a819318ad98c68e43fc3cbe0548a9d40460dfc294267e630ae50  bot/src/cli/simroute.ts
+1408768b0342c42e2b93ac677d17f0a61e4395a8463e4af0786a178a9a0822bd  bot/src/config/chains.ts
+f67e14005a76e82c72455929bccb65b8113f1d66776a45b0808f9a37230c18ff  bot/src/exec/executor.ts
+4f4653d5848f20c41d859a87c290dceef00786514347d8c3105ad0dc40c4b03a  bot/src/exec/flashblocks.ts
+0df581e3e82feb32a14818277d7ba115436ac2765ab6b5866fc1bcd19fa21501  bot/src/exec/flashbots.ts
+96052d47acafcbe620b53b3946927a41ade49180d3033c87c60a23185e9a3d30  bot/src/main.ts
+01fb83af29598dfb3ae3527bc77f20d073c8334f3a6de884fd3825a8f4e516a5  bot/src/math/v2.test.ts
+42444e1859ca82bd4d93bda24cd8572ae552e328d68eb27134996b24936044cb  bot/src/math/v2.ts
+6a8964a3b19ac3a161109af97e122e850ab456ba26c0226b6ecea80f450f3f57  bot/src/math/v3.live.test.ts
+6487aa8c5aeee51500fbc4e7334643efc16fa7894905300fa700f0ebe0dc774e  bot/src/math/v3.ts
+68a429c65dd3a385c4fc21bd5c2fe632e16a0ab2ad65d3d7423f301708e8b9c5  bot/src/pools/discovery.ts
+da4f63d93799a806c7c5c66280223ba42af417af7e9382f5767fbb67d3715edd  bot/src/pools/enumerate.ts
+efe408d861d759de59a020cca47beb563a326d205b9e04110262dc60a88f9a10  bot/src/pools/events.live.test.ts
+4dde0ec29b1c72db7aa9cb2e3eff38f32a9321d811aba85fceb463644bde844d  bot/src/pools/events.ts
+acaf55dd758487939d0a5927014b12e585508cb92a20adff98a2c8d6607a9959  bot/src/pools/state.ts
+99c4f66a10aff43bdfd16f5cbbdcc5a4d31a25254a9356ecb09fd37514438c19  bot/src/pools/types.ts
+c6a30e5184d2eeca019e8d9223887e7b25fc13df69eaff19b022f2cd2da5b210  bot/src/pools/v4.ts
+a2b28ebb8620b114aede06c973625867e3a9fa9cdab7c70a294072a8113a3420  bot/src/pools/v4file.ts
+ea7824e8e051760934ece9d9c10abd24ff846230476062a177805a2aff10f1ac  bot/src/research/analyze-feetiming.ts
+85a57c1fd7d779fe51ea5ecbfc10c6812df9139f9e423ffd5f1d13a77b23032c  bot/src/research/analyze-leadlag-multi.ts
+90063cae07c4dfd9ef24dc79b112050be24b78b8b99be2eb00bc9ea56cacf44e  bot/src/research/analyze-leadlag.ts
+ece21a9b2d3138b97002383b7e3f0197098ed2a47921fa70cc42e422de185176  bot/src/research/analyze.ts
+1fade18d060fc391309f495c1e7f6fb9ce29617379a0f10a279719cedbd7b03c  bot/src/research/backtest-leadlag.ts
+9eda01d5596f7abb7db79d98e1fab53c1c9ab174eda6f123f387a3582d97e2d0  bot/src/research/carry.ts
+c1f7042f18651d951394437029e8f74fe79a3718cddfc5a1432410b790cc84bb  bot/src/research/cexcex.ts
+a91b1c57287fb7a36fabfd6a0de9d46777c930744c201c0e7ca74c77b5cbd8b9  bot/src/research/cextri.ts
+59cb4ee5fdfab0eaf9e1f0d60fa5cccc206c41a686b45126211ff4e2b1c885e4  bot/src/research/crosschain.ts
+1b033b6e296536188739b07166acf5873fa2a3fff3c1160c1b4fb7f8aa764b1e  bot/src/research/feetiming.ts
+8258ec747101295db34fdbb1405c13ac7f93f0159a4143a2008b8617443e10a8  bot/src/research/leadlag-multi.ts
+002c5b96ed1f8fc970dfd5a3794c90b1b9817157a12cb167f98b9e0eb11604f3  bot/src/research/leadlag.ts
+74ff9d711dd0dfd2102d93c394927aa7999061d1bb16a62a7f7858aa91bf3f3d  bot/src/research/scan.ts
+0a3b7dc40f149d075ca108c4236f5562ab7a3d8ee015bbe729f07948affff277  bot/src/research/tokens.ts
+e4178d0ce5dc8d58b5e6f82e37480ace74a66ff86f4f62414cf6d2b5cdc79a27  bot/src/util/client.ts
+ffd7b7a2012d6e3e38a903cd64d7178f82303c88c63a975d1e6c096db5c3f1b5  bot/src/util/log.ts
+6c3d324bf80bc1212bb44be1e119563f4114c7e1e0769b2e1178c70e390d8757  bot/src/util/multicall.ts
+node: v22.22.2; viem: 2.57.1; tsx: 4.23.15

@@ -315,24 +315,6 @@
   "status": "ok",
   "fetched_at": "2026-09-30T22:02:35Z"
  },
- "arxiv-2603.13830-bsc-meme-token-rug-pull-warning": {
-  "url": "https://arxiv.org/abs/2603.13830v1",
-  "title": "Early Rug Pull Warning for BSC Meme Tokens via Multi-Granularity Wash-Trading Pattern Profiling",
-  "authors": "Cao, Dingding; Jiao, Bianbian; Yang, Jingzong; Zhong, Yujing; Yang, Wei",
-  "date": "v1 2026/03/14; latest v1; history: Submission history From: Dingding Cao [ view email ] [v1] Sat, 14 Mar 2026 08:25:42 UTC (7,130 KB)",
-  "raw_files": [
-   "raw/arxiv-2603.13830-bsc-meme-token-rug-pull-warning.abs.html.gz",
-   "raw/arxiv-2603.13830-bsc-meme-token-rug-pull-warning.html-v1.html.gz",
-   "raw/arxiv-2603.13830-bsc-meme-token-rug-pull-warning.pdf-v1.pdf.gz"
-  ],
-  "text_files": [
-   "texts/arxiv-2603.13830-bsc-meme-token-rug-pull-warning.txt.gz",
-   "texts/arxiv-2603.13830-bsc-meme-token-rug-pull-warning.pdf.txt.gz"
-  ],
-  "access_notes": "html v1 ok; pdf v1 17 pages",
-  "status": "ok",
-  "fetched_at": "2026-09-30T22:02:46Z"
- },
  "arxiv-2604.00234-wang-saraf-heimbach-babel-zhang-blockspace-under-pressure": {
   "url": "https://arxiv.org/abs/2604.00234v2",
   "title": "Blockspace Under Pressure: An Analysis of Spam MEV on High-Throughput Blockchains",
@@ -567,17 +549,18 @@
  "flashbots-collective-dealing-with-spam-onchain-searching": {
   "url": "https://collective.flashbots.net/t/dealing-with-spam-caused-by-on-chain-searching/3381",
   "title": "Dealing with spam caused by on-chain searching",
-  "authors": "",
-  "date": "2024-05-02T01:15:34+00:00",
+  "authors": "Quintus Kilbourn (opening post) and forum participants",
+  "date": "topic created 2024-05-02T01:15:34.544Z",
   "raw_files": [
-   "raw/flashbots-collective-dealing-with-spam-onchain-searching.page.html.gz"
+   "raw/flashbots-collective-dealing-with-spam-onchain-searching.topic.json.gz",
+   "raw/flashbots-collective-dealing-with-spam-onchain-searching.raw.md.gz"
   ],
   "text_files": [
    "texts/flashbots-collective-dealing-with-spam-onchain-searching.txt.gz"
   ],
-  "access_notes": "HTTP 200, 197226 bytes",
+  "access_notes": "7 posts; stream ids 7",
   "status": "ok",
-  "fetched_at": "2026-09-30T22:04:40Z"
+  "fetched_at": "2026-09-30T22:16:46Z"
  },
  "docs-optimism-stake-based-priority-ordering": {
   "url": "https://docs.optimism.io/notices/stake-based-priority-ordering",
@@ -700,36 +683,6 @@
   "status": "ok",
   "fetched_at": "2026-09-30T22:04:49Z"
  },
- "docs-base-configuration-reference": {
-  "url": "https://docs.base.org/specifications/reference/configuration",
-  "title": "Configuration - Base Documentation",
-  "authors": "",
-  "date": "",
-  "raw_files": [
-   "raw/docs-base-configuration-reference.page.html.gz"
-  ],
-  "text_files": [
-   "texts/docs-base-configuration-reference.txt.gz"
-  ],
-  "access_notes": "HTTP 200, 340847 bytes",
-  "status": "ok",
-  "fetched_at": "2026-09-30T22:04:51Z"
- },
- "docs-base-launch-token": {
-  "url": "https://docs.base.org/get-started/launch-token",
-  "title": "Create an Asset Token - Base Documentation",
-  "authors": "",
-  "date": "",
-  "raw_files": [
-   "raw/docs-base-launch-token.page.html.gz"
-  ],
-  "text_files": [
-   "texts/docs-base-launch-token.txt.gz"
-  ],
-  "access_notes": "HTTP 200, 479219 bytes, redirected to https://docs.base.org/build-on-base/issue-rwa/create-an-asset-token",
-  "status": "ok",
-  "fetched_at": "2026-09-30T22:04:52Z"
- },
  "arxiv-2607.28424-demystifying-solana-bots": {
   "url": "https://arxiv.org/abs/2607.28424v2",
   "title": "Demystifying Solana Bots: From GitHub Blueprints to On-Chain Fingerprints",
@@ -814,24 +767,6 @@
   "status": "ok",
   "fetched_at": "2026-09-30T22:05:19Z"
  },
- "arxiv-2609.18975-sniper-cohorts-solana-memecoins": {
-  "url": "https://arxiv.org/abs/2609.18975v2",
-  "title": "Do Two On-Chain Observation Pipelines See the Same Tokens? Cross-Pipeline Coverage on the Solana pump.fun Launchpad",
-  "authors": "Kamat, Arati Uday",
-  "date": "v1 2026/07/16; latest v2; history: Submission history From: Arati Uday Kamat [ view email ] [v1] Thu, 16 Jul 2026 19:09:00 UTC (1,195 KB) [v2] Wed, 23 Sep 2026 22:58:00 UTC (359 KB)",
-  "raw_files": [
-   "raw/arxiv-2609.18975-sniper-cohorts-solana-memecoins.abs.html.gz",
-   "raw/arxiv-2609.18975-sniper-cohorts-solana-memecoins.html-v2.html.gz",
-   "raw/arxiv-2609.18975-sniper-cohorts-solana-memecoins.pdf-v2.pdf.gz"
-  ],
-  "text_files": [
-   "texts/arxiv-2609.18975-sniper-cohorts-solana-memecoins.txt.gz",
-   "texts/arxiv-2609.18975-sniper-cohorts-solana-memecoins.pdf.txt.gz"
-  ],
-  "access_notes": "html v2 ok; pdf v2 15 pages",
-  "status": "ok",
-  "fetched_at": "2026-09-30T22:05:28Z"
- },
  "arxiv-2507.01963-midsummer-memes-dream-meme-coin-manipulation": {
   "url": "https://arxiv.org/abs/2507.01963v2",
   "title": "A Midsummer Meme's Dream: Investigating Market Manipulations in the Meme Coin Ecosystem",
@@ -867,24 +802,6 @@
   "access_notes": "html v1 ok; pdf v1 11 pages",
   "status": "ok",
   "fetched_at": "2026-09-30T22:05:47Z"
- },
- "arxiv-2512.00377-measuring-memecoin-fragility": {
-  "url": "https://arxiv.org/abs/2512.00377v2",
-  "title": "Measuring Memecoin Fragility",
-  "authors": "Xiang, Yuexin; Fu, Qishuang; Li, Yuquan; Wang, Qin; Yuen, Tsz Hon; Yu, Jiangshan",
-  "date": "v1 2025/11/29; latest v2; history: Submission history From: Yuexin Xiang [ view email ] [v1] Sat, 29 Nov 2025 08:11:51 UTC (2,903 KB) [v2] Fri, 9 Jan 2026 03:14:38 UTC (2,903 KB)",
-  "raw_files": [
-   "raw/arxiv-2512.00377-measuring-memecoin-fragility.abs.html.gz",
-   "raw/arxiv-2512.00377-measuring-memecoin-fragility.html-v2.html.gz",
-   "raw/arxiv-2512.00377-measuring-memecoin-fragility.pdf-v2.pdf.gz"
-  ],
-  "text_files": [
-   "texts/arxiv-2512.00377-measuring-memecoin-fragility.txt.gz",
-   "texts/arxiv-2512.00377-measuring-memecoin-fragility.pdf.txt.gz"
-  ],
-  "access_notes": "html v2 ok; pdf v2 9 pages",
-  "status": "ok",
-  "fetched_at": "2026-09-30T22:05:57Z"
  },
  "arxiv-2603.24625-rug-pull-scams-solana": {
   "url": "https://arxiv.org/abs/2603.24625v2",
@@ -1005,5 +922,542 @@
   "access_notes": "HTTP 200, 143892 bytes",
   "status": "ok",
   "fetched_at": "2026-09-30T22:06:46Z"
+ },
+ "docs-uniswap-v4-poolmanager": {
+  "url": "https://developers.uniswap.org/docs/protocols/v4/concepts/poolmanager",
+  "title": "PoolManager | Uniswap Developers",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-uniswap-v4-poolmanager.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-uniswap-v4-poolmanager.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 311056 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:15:14Z"
+ },
+ "docs-uniswap-v4-hooks": {
+  "url": "https://developers.uniswap.org/docs/protocols/v4/concepts/hooks",
+  "title": "Uniswap v4 Hooks | Uniswap Developers",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-uniswap-v4-hooks.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-uniswap-v4-hooks.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 329685 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:15:16Z"
+ },
+ "arxiv-2509.22143v1-messias-torres-timeboost": {
+  "url": "https://arxiv.org/abs/2509.22143v1",
+  "title": "The Express Lane to Spam and Centralization: An Empirical Analysis of Arbitrum's Timeboost",
+  "authors": "Messias, Johnnatan; Torres, Christof Ferreira",
+  "date": "v1 2025/09/26; latest v1; history: Submission history From: Johnnatan Messias [ view email ] [v1] Fri, 26 Sep 2025 10:02:15 UTC (1,332 KB) [v2] Tue, 21 Jul 2026 09:37:26 UTC (2,784 KB)",
+  "raw_files": [
+   "raw/arxiv-2509.22143v1-messias-torres-timeboost.abs.html.gz",
+   "raw/arxiv-2509.22143v1-messias-torres-timeboost.html-v1.html.gz",
+   "raw/arxiv-2509.22143v1-messias-torres-timeboost.pdf-v1.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2509.22143v1-messias-torres-timeboost.txt.gz",
+   "texts/arxiv-2509.22143v1-messias-torres-timeboost.pdf.txt.gz"
+  ],
+  "access_notes": "html v1 ok; pdf v1 21 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:17:08Z"
+ },
+ "docs-uniswap-v4-dynamic-fees": {
+  "url": "https://raw.githubusercontent.com/Uniswap/docs/main/content/protocols/v4/concepts/dynamic-fees.mdx",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-uniswap-v4-dynamic-fees.body.mdx.gz"
+  ],
+  "text_files": [
+   "texts/docs-uniswap-v4-dynamic-fees.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 6390 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:15:41Z"
+ },
+ "docs-uniswap-v2-deployments": {
+  "url": "https://raw.githubusercontent.com/Uniswap/docs/main/content/protocols/v2/deployments.mdx",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-uniswap-v2-deployments.body.mdx.gz"
+  ],
+  "text_files": [
+   "texts/docs-uniswap-v2-deployments.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 3090 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:15:43Z"
+ },
+ "clanker-docs-v4": {
+  "url": "https://clanker.gitbook.io/documentation/references/core-contracts/v4.md",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/clanker-docs-v4.body.md.gz"
+  ],
+  "text_files": [
+   "texts/clanker-docs-v4.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 7087 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:15:43Z"
+ },
+ "clanker-docs-v4-clankerhook": {
+  "url": "https://clanker.gitbook.io/documentation/references/core-contracts/v4/clankerhook.md",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/clanker-docs-v4-clankerhook.body.md.gz"
+  ],
+  "text_files": [
+   "texts/clanker-docs-v4-clankerhook.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 2303 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:15:45Z"
+ },
+ "clanker-docs-v4-clankerhookdynamicfee": {
+  "url": "https://clanker.gitbook.io/documentation/references/core-contracts/v4/clankerhook/clankerhookdynamicfee.md",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/clanker-docs-v4-clankerhookdynamicfee.body.md.gz"
+  ],
+  "text_files": [
+   "texts/clanker-docs-v4-clankerhookdynamicfee.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 6343 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:15:47Z"
+ },
+ "clanker-docs-v4-clankerhookv2": {
+  "url": "https://clanker.gitbook.io/documentation/references/core-contracts/v4/clankerhookv2.md",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/clanker-docs-v4-clankerhookv2.body.md.gz"
+  ],
+  "text_files": [
+   "texts/clanker-docs-v4-clankerhookv2.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 2188 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:15:49Z"
+ },
+ "clanker-docs-v4-mev-modules": {
+  "url": "https://clanker.gitbook.io/documentation/references/core-contracts/v4/mev-modules.md",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/clanker-docs-v4-mev-modules.body.md.gz"
+  ],
+  "text_files": [
+   "texts/clanker-docs-v4-mev-modules.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 2473 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:15:51Z"
+ },
+ "clanker-docs-v4-mev-2blockdelay": {
+  "url": "https://clanker.gitbook.io/documentation/references/core-contracts/v4/mev-modules/clankermevmodule2blockdelay.md",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/clanker-docs-v4-mev-2blockdelay.body.md.gz"
+  ],
+  "text_files": [
+   "texts/clanker-docs-v4-mev-2blockdelay.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 1112 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:15:52Z"
+ },
+ "clanker-docs-v4-sniper-auction-v0": {
+  "url": "https://clanker.gitbook.io/documentation/references/core-contracts/v4/mev-modules/clankersniperauctionv0.md",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/clanker-docs-v4-sniper-auction-v0.body.md.gz"
+  ],
+  "text_files": [
+   "texts/clanker-docs-v4-sniper-auction-v0.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 7900 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:15:54Z"
+ },
+ "clanker-docs-v4-mev-descending-fees": {
+  "url": "https://clanker.gitbook.io/documentation/references/core-contracts/v4/mev-modules/clankermevdescendingfees.md",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/clanker-docs-v4-mev-descending-fees.body.md.gz"
+  ],
+  "text_files": [
+   "texts/clanker-docs-v4-mev-descending-fees.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 2701 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:15:56Z"
+ },
+ "clanker-docs-llms-index": {
+  "url": "https://clanker.gitbook.io/documentation/llms.txt",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/clanker-docs-llms-index.body.txt.gz"
+  ],
+  "text_files": [
+   "texts/clanker-docs-llms-index.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 9061 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:15:58Z"
+ },
+ "zora-docs-coins-hook": {
+  "url": "https://docs.zora.co/coins/contracts/hook",
+  "title": "Hook System",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/zora-docs-coins-hook.page.html.gz"
+  ],
+  "text_files": [
+   "texts/zora-docs-coins-hook.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 71268 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:15:59Z"
+ },
+ "virtuals-anti-sniper-protection": {
+  "url": "https://whitepaper.virtuals.io/about-virtuals/capital-formation-layer/anti-sniper-protection-for-token-launches",
+  "title": "Anti-Sniper Protection for Token Launches | Virtuals Protocol Whitepaper",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/virtuals-anti-sniper-protection.page.html.gz"
+  ],
+  "text_files": [
+   "texts/virtuals-anti-sniper-protection.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 472351 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:15:59Z"
+ },
+ "virtuals-launch-mechanics": {
+  "url": "https://whitepaper.virtuals.io/about-virtuals/capital-formation-layer/virtuals-launch-mechanics",
+  "title": "Virtuals Launch Mechanics | Virtuals Protocol Whitepaper",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/virtuals-launch-mechanics.page.html.gz"
+  ],
+  "text_files": [
+   "texts/virtuals-launch-mechanics.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 502857 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:16:02Z"
+ },
+ "flaunch-docs-home": {
+  "url": "https://docs.flaunch.gg/",
+  "title": "Flaunch the token launchpad | Flaunch Docs",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/flaunch-docs-home.page.html.gz"
+  ],
+  "text_files": [
+   "texts/flaunch-docs-home.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 578782 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:16:03Z"
+ },
+ "arxiv-2405.00138-torres-et-al-rolling-in-the-shadows": {
+  "url": "https://arxiv.org/abs/2405.00138v3",
+  "title": "Rolling in the Shadows: Analyzing the Extraction of MEV Across Layer-2 Rollups",
+  "authors": "Torres, Christof Ferreira; Mamuti, Albin; Weintraub, Ben; Nita-Rotaru, Cristina; Shinde, Shweta",
+  "date": "v1 2024/04/30; latest v3; history: Submission history From: Christof Ferreira Torres [ view email ] [v1] Tue, 30 Apr 2024 18:34:32 UTC (1,700 KB) [v2] Fri, 6 Sep 2024 00:27:00 UTC (2,230 KB) [v3] Thu, 4 Sep 2025 21:20:04 UTC (2,229 KB)",
+  "raw_files": [
+   "raw/arxiv-2405.00138-torres-et-al-rolling-in-the-shadows.abs.html.gz",
+   "raw/arxiv-2405.00138-torres-et-al-rolling-in-the-shadows.html-v3.html.gz",
+   "raw/arxiv-2405.00138-torres-et-al-rolling-in-the-shadows.pdf-v3.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2405.00138-torres-et-al-rolling-in-the-shadows.txt.gz",
+   "texts/arxiv-2405.00138-torres-et-al-rolling-in-the-shadows.pdf.txt.gz"
+  ],
+  "access_notes": "html v3 ok; pdf v3 16 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:16:10Z"
+ },
+ "docs-dune-dex-trades-overview": {
+  "url": "https://docs.dune.com/data-catalog/curated/dex-trades/overview",
+  "title": "DEX Data - Dune Docs",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-dune-dex-trades-overview.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-dune-dex-trades-overview.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 890072 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:16:10Z"
+ },
+ "dune-spellbook-dex-base-base-trades-sql": {
+  "url": "https://raw.githubusercontent.com/duneanalytics/spellbook/main/dbt_subprojects/dex/models/trades/base/dex_base_base_trades.sql",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/dune-spellbook-dex-base-base-trades-sql.body.sql.gz"
+  ],
+  "text_files": [
+   "texts/dune-spellbook-dex-base-base-trades-sql.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 2968 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:16:11Z"
+ },
+ "dune-spellbook-uniswap-v4-base-base-trades-sql": {
+  "url": "https://raw.githubusercontent.com/duneanalytics/spellbook/main/dbt_subprojects/dex/models/trades/base/platforms/uniswap_v4_base_base_trades.sql",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/dune-spellbook-uniswap-v4-base-base-trades-sql.body.sql.gz"
+  ],
+  "text_files": [
+   "texts/dune-spellbook-uniswap-v4-base-base-trades-sql.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 936 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:16:12Z"
+ },
+ "dune-spellbook-uniswap-v2-base-base-trades-sql": {
+  "url": "https://raw.githubusercontent.com/duneanalytics/spellbook/main/dbt_subprojects/dex/models/trades/base/platforms/uniswap_v2_base_base_trades.sql",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/dune-spellbook-uniswap-v2-base-base-trades-sql.body.sql.gz"
+  ],
+  "text_files": [
+   "texts/dune-spellbook-uniswap-v2-base-base-trades-sql.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 646 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:16:14Z"
+ },
+ "dune-spellbook-aerodrome-base-base-trades-sql": {
+  "url": "https://raw.githubusercontent.com/duneanalytics/spellbook/main/dbt_subprojects/dex/models/trades/base/platforms/aerodrome_base_base_trades.sql",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/dune-spellbook-aerodrome-base-base-trades-sql.body.sql.gz"
+  ],
+  "text_files": [
+   "texts/dune-spellbook-aerodrome-base-base-trades-sql.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 1994 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:16:15Z"
+ },
+ "dune-spellbook-dex-arbitrum-base-trades-sql": {
+  "url": "https://raw.githubusercontent.com/duneanalytics/spellbook/main/dbt_subprojects/dex/models/trades/arbitrum/dex_arbitrum_base_trades.sql",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/dune-spellbook-dex-arbitrum-base-trades-sql.body.sql.gz"
+  ],
+  "text_files": [
+   "texts/dune-spellbook-dex-arbitrum-base-trades-sql.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 2940 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:16:17Z"
+ },
+ "dune-spellbook-dex-optimism-base-trades-sql": {
+  "url": "https://raw.githubusercontent.com/duneanalytics/spellbook/main/dbt_subprojects/dex/models/trades/optimism/dex_optimism_base_trades.sql",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/dune-spellbook-dex-optimism-base-trades-sql.body.sql.gz"
+  ],
+  "text_files": [
+   "texts/dune-spellbook-dex-optimism-base-trades-sql.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 2011 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:16:19Z"
+ },
+ "dune-spellbook-dex-bnb-base-trades-sql": {
+  "url": "https://raw.githubusercontent.com/duneanalytics/spellbook/main/dbt_subprojects/dex/models/trades/bnb/dex_bnb_base_trades.sql",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/dune-spellbook-dex-bnb-base-trades-sql.body.sql.gz"
+  ],
+  "text_files": [
+   "texts/dune-spellbook-dex-bnb-base-trades-sql.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 2084 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:16:20Z"
+ },
+ "blog-uniswap-continuous-clearing-auctions": {
+  "url": "https://blog.uniswap.org/continuous-clearing-auctions",
+  "title": "Continuous Clearing Auctions: Bootstrapping Liquidity on Uniswap v4",
+  "authors": "",
+  "date": "2025-11-13T12:48:42.608Z",
+  "raw_files": [
+   "raw/blog-uniswap-continuous-clearing-auctions.page.html.gz"
+  ],
+  "text_files": [
+   "texts/blog-uniswap-continuous-clearing-auctions.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 180700 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:16:21Z"
+ },
+ "blog-uniswap-launch-aggregator": {
+  "url": "https://blog.uniswap.org/launch-aggregator-explore-top-uniswap-launchpads-in-one-place",
+  "title": "Launch Aggregator: Explore Top Uniswap Launchpads in One Place",
+  "authors": "",
+  "date": "2026-07-30T14:06:24.931Z",
+  "raw_files": [
+   "raw/blog-uniswap-launch-aggregator.page.html.gz"
+  ],
+  "text_files": [
+   "texts/blog-uniswap-launch-aggregator.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 172439 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:16:22Z"
+ },
+ "arxiv-2609.10246-meme-coin-factories-pump-fun": {
+  "url": "https://arxiv.org/abs/2609.10246v1",
+  "title": "Meme Coin Factories: Uncovering Large-Scale Manipulations on pump.fun",
+  "authors": "Szwajcok, Nicolas; Tsuchiya, Taro; Liu, Enze; Soska, Kyle; Payer, Mathias; Christin, Nicolas",
+  "date": "v1 2026/09/09; latest v1; history: Submission history From: Taro Tsuchiya [ view email ] [v1] Wed, 9 Sep 2026 14:35:18 UTC (1,016 KB)",
+  "raw_files": [
+   "raw/arxiv-2609.10246-meme-coin-factories-pump-fun.abs.html.gz",
+   "raw/arxiv-2609.10246-meme-coin-factories-pump-fun.html-v1.html.gz",
+   "raw/arxiv-2609.10246-meme-coin-factories-pump-fun.pdf-v1.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2609.10246-meme-coin-factories-pump-fun.txt.gz",
+   "texts/arxiv-2609.10246-meme-coin-factories-pump-fun.pdf.txt.gz"
+  ],
+  "access_notes": "html v1 ok; pdf v1 20 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:16:29Z"
+ },
+ "arxiv-1904.05234-daian-et-al-flash-boys-2": {
+  "url": "https://arxiv.org/abs/1904.05234v1",
+  "title": "Flash Boys 2.0: Frontrunning, Transaction Reordering, and Consensus Instability in Decentralized Exchanges",
+  "authors": "Daian, Philip; Goldfeder, Steven; Kell, Tyler; Li, Yunqi; Zhao, Xueyuan; Bentov, Iddo; Breidenbach, Lorenz; Juels, Ari",
+  "date": "v1 2019/04/10; latest v1; history: Submission history From: Philip Daian [ view email ] [v1] Wed, 10 Apr 2019 15:10:51 UTC (1,367 KB)",
+  "raw_files": [
+   "raw/arxiv-1904.05234-daian-et-al-flash-boys-2.abs.html.gz",
+   "raw/arxiv-1904.05234-daian-et-al-flash-boys-2.html-v1.html.gz",
+   "raw/arxiv-1904.05234-daian-et-al-flash-boys-2.pdf-v1.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-1904.05234-daian-et-al-flash-boys-2.txt.gz",
+   "texts/arxiv-1904.05234-daian-et-al-flash-boys-2.pdf.txt.gz"
+  ],
+  "access_notes": "html v1 ok; pdf v1 23 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:16:38Z"
+ },
+ "clanker-paragraph-v4-1-sniper-tech": {
+  "url": "https://paragraph.com/@clankerworld/clanker-v4_1-sniper-tech",
+  "title": "Clanker v4.1: Sniper Tech Update and Upgrade",
+  "authors": "0xC204...AB69",
+  "date": "2025-08-22T21:48:11.032Z",
+  "raw_files": [
+   "raw/clanker-paragraph-v4-1-sniper-tech.page.html.gz"
+  ],
+  "text_files": [
+   "texts/clanker-paragraph-v4-1-sniper-tech.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 202790 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:17:47Z"
+ },
+ "flaunch-docs-sniper-protection": {
+  "url": "https://docs.flaunch.gg/features/sniper-protection.md",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/flaunch-docs-sniper-protection.body.md.gz"
+  ],
+  "text_files": [
+   "texts/flaunch-docs-sniper-protection.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 2993 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:17:48Z"
+ },
+ "flaunch-docs-fixed-price-fair-launch": {
+  "url": "https://docs.flaunch.gg/features/fixed-price-fair-launch.md",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/flaunch-docs-fixed-price-fair-launch.body.md.gz"
+  ],
+  "text_files": [
+   "texts/flaunch-docs-fixed-price-fair-launch.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 3019 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:17:50Z"
+ },
+ "flaunch-docs-hooks": {
+  "url": "https://docs.flaunch.gg/references/hooks.md",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/flaunch-docs-hooks.body.md.gz"
+  ],
+  "text_files": [
+   "texts/flaunch-docs-hooks.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 8922 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:17:51Z"
  }
 }

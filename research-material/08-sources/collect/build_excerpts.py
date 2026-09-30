@@ -69,6 +69,24 @@ def main():
         except FileNotFoundError as e:
             fails.append({**sp, 'spec_line': n, 'error': f'text file missing: {e}'}); continue
         occ = int(sp.get('occurrence', 1))
+        if sp.get('abstract'):
+            # the arXiv abstract as printed on the abs page (copied verbatim into the text header by fetch_sources.py)
+            h = 'Abstract (from the abs page):\n'
+            ra = raw.find(h)
+            rb = raw.find('\n\n=== ', ra) if ra >= 0 else -1
+            if rb < 0:
+                rb = raw.find('\n=== page 1 ===', ra) if ra >= 0 else -1
+            if ra < 0 or rb < 0:
+                fails.append({**sp, 'spec_line': n, 'error': 'abstract header not found'}); continue
+            ra += len(h)
+            quote = raw[ra:rb].strip()
+            rb = ra + len(quote)
+            key = (sp['slug'], sp['question_line'], ra, rb)
+            if key not in seen:
+                seen.add(key)
+                out.append({'slug': sp['slug'], 'question_line': sp['question_line'], 'quote': quote,
+                            'location': sp.get('location', 'Abstract (arXiv abs page)'), 'text_file': rel, 'char_start': ra, 'char_end': rb})
+            continue
         if 'quote' in sp:
             q = norm(sp['quote'])
             a = find(nt, q, 0, occ)

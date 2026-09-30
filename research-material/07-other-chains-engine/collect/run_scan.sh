@@ -30,6 +30,7 @@ while :; do
   cd /home/user/dapparb/bot || { gap "cd bot failed"; exit 1; }
   FLAGS=(--chain "$CHAIN" --universe "$UNIVERSE" --blocks "$BLOCKS" --out "$JSONL" "${EXTRA[@]}")
   echo "# $(ts) attempt $ATTEMPT cmd: LOG_JSON=1 ${BASE_RPC_URL:+BASE_RPC_URL=$BASE_RPC_URL }node --import tsx --import $C/exit-flush.mjs src/research/scan.ts ${FLAGS[*]}  (time cap ${CAP} min after first scanned block)" > "$LOG"
+  bash "$C/provenance.sh" "$OUT/$NAME.code-provenance.txt"
   LOG_JSON=1 node --import tsx --import "$C/exit-flush.mjs" src/research/scan.ts "${FLAGS[@]}" >> "$LOG" 2>&1 < /dev/null &
   PID=$!
   echo "$PID" > "$STATE/$NAME.pid"

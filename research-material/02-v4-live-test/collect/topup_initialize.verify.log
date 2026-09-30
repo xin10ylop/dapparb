@@ -1,0 +1,5 @@
+2026-09-30T22:15:19Z pinned {'from_block': 52006303, 'to_block': 52008576, 'to_block_source': 'eth_blockNumber(publicnode) - 10', 'head_at_pin': 52008586, 'pinned_at_utc': '2026-09-30T22:15:19Z', 'v4init_block_to': 52006302, 'chunk_size': 1000, 'topic0': '0xdd466e674ea557f56295e2d0218a125ea4b4f0f6f3307b95f85e6110838d6438', 'address': '0x498581ff718922c3f8e6a244956af099b2652b2b'}
+2026-09-30T22:15:20Z chunk 52006303 52007302 rows 97 via publicnode
+2026-09-30T22:15:20Z chunk 52007303 52008302 rows 143 via publicnode
+2026-09-30T22:15:20Z chunk 52008303 52008576 rows 23 via publicnode
+2026-09-30T22:15:20Z done 263 rows 52006303 - 52008576 -> /home/user/dapparb/research-material/02-v4-live-test/initialize-topup.csv.gz

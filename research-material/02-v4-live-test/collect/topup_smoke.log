@@ -1,0 +1,3 @@
+2026-09-30T22:13:00Z pinned {'from_block': 52005303, 'to_block': 52006302, 'to_block_source': '--to argument', 'head_at_pin': None, 'pinned_at_utc': '2026-09-30T22:13:00Z', 'v4init_block_to': 52006302, 'chunk_size': 1000, 'topic0': '0xdd466e674ea557f56295e2d0218a125ea4b4f0f6f3307b95f85e6110838d6438', 'address': '0x498581ff718922c3f8e6a244956af099b2652b2b'}
+2026-09-30T22:13:00Z done 120 rows 52005303 - 52006302 -> /tmp/claude-0/-home-user-dapparb/f296d1c3-b967-5ea6-823b-d6cba43f1293/scratchpad/v4t/smoke-topup.csv.gz
+range 52005303 52006302 header_equal True smoke_rows 120 v4init_rows 120 identical True

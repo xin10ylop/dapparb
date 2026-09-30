@@ -1,0 +1,36 @@
+{
+ "pinned_block": 52008400,
+ "pinned_block_timestamp_formula": 1790806147,
+ "started_utc": "2026-09-30T22:15:17Z",
+ "seed": 20260930,
+ "sample_n": 60000,
+ "endpoints_eth_call": [
+  "https://base-mainnet.public.blastapi.io",
+  "https://base.drpc.org"
+ ],
+ "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+ "pinned_block_hash": "0x116f70d59e1c4a45476bc1e787fedab83c0e83f8896e9006610f979f3ef206d5",
+ "pinned_block_timestamp": 1790806147,
+ "work_items": 125197,
+ "rows_by_factory_group": {
+  "Aerodrome/all_indices": 29601,
+  "BaseSwap/all_indices": 8258,
+  "PancakeV2/all_indices": 15243,
+  "SushiV2/all_indices": 6095,
+  "UniswapV2/newest_6000_at_snapshot": 6000,
+  "UniswapV2/random_sample_older": 60000
+ },
+ "rows_total": 125197,
+ "pool_parts": 1,
+ "finished_utc": "2026-09-30T22:17:38Z",
+ "endpoint_stats": {
+  "https://base-mainnet.public.blastapi.io": {
+   "ok": 1560,
+   "err": 5
+  },
+  "https://base.drpc.org": {
+   "ok": 0,
+   "err": 0
+  }
+ }
+}

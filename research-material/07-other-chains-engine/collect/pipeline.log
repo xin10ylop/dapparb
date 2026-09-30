@@ -1,3 +1,13 @@
 [run_engine_detect 2026-09-30T22:08:49Z] smoke-engine-arbitrum started pid=15945 flags: --chain arbitrum --mode dry --contract  --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/smoke-engine-arbitrum.jsonl --source logs --universe all --max-per-factory 6000 --min-depth-eth 0.1 --min-profit-usd 0.01 --top 6
 [run_engine_detect 2026-09-30T22:08:49Z] smoke-engine-mainnet started pid=15949 flags: --chain mainnet --mode dry --contract  --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/smoke-engine-mainnet.jsonl --source logs --universe all --max-per-factory 6000 --min-depth-eth 0.1 --min-profit-usd 0.01 --top 6
 [run_engine_detect 2026-09-30T22:10:20Z] smoke-engine-arbitrum searcher ready; running 2 min
+[run_engine_detect 2026-09-30T22:11:55Z] smoke-engine-mainnet searcher ready; running 2 min
+[run_engine_detect 2026-09-30T22:12:26Z] smoke-engine-arbitrum done
+[run_engine_detect 2026-09-30T22:14:01Z] smoke-engine-mainnet done
+[run_all 2026-09-30T22:14:28Z] pipeline start
+[run_scan 2026-09-30T22:14:28Z] scan-arbitrum-config attempt 1 started pid=20658 flags: --chain arbitrum --universe config --blocks 7201 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-arbitrum-config.jsonl cap=31min
+[run_scan 2026-09-30T22:14:28Z] scan-mainnet-config attempt 1 started pid=20662 flags: --chain mainnet --universe config --blocks 151 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-mainnet-config.jsonl cap=31min
+[run_scan 2026-09-30T22:14:28Z] scan-base-config attempt 1 started pid=20666 flags: --chain base --universe config --blocks 901 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-base-config.jsonl cap=31min
+[run_scan 2026-09-30T22:14:53Z] scan-mainnet-config first block scanned
+[run_scan 2026-09-30T22:15:08Z] scan-arbitrum-config first block scanned
+[run_scan 2026-09-30T22:18:18Z] scan-base-config first block scanned

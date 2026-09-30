@@ -1,0 +1,42 @@
+2026-09-30T22:15:17Z pinned block 52008400 0x116f70d59e1c4a45476bc1e787fedab83c0e83f8896e9006610f979f3ef206d5 1790806147
+2026-09-30T22:15:21Z lenhist batches total 105 done 0 todo 105
+2026-09-30T22:15:23Z lenhist progress 50 / 105 elapsed 3s
+2026-09-30T22:15:26Z lenhist progress 100 / 105 elapsed 5s
+2026-09-30T22:15:26Z lenhist progress 105 / 105 elapsed 5s
+2026-09-30T22:15:26Z phase 1 done {'Aerodrome': 29601, 'UniswapV2': 3063708, 'SushiV2': 6095, 'PancakeV2': 15243, 'BaseSwap': 8258, 'AerodromeCL': 3648, 'AerodromeCL3': 2830, 'AerodromeCL2': 2260}
+2026-09-30T22:15:26Z work items 125197
+2026-09-30T22:15:26Z pairs batches total 126 done 0 todo 126
+2026-09-30T22:15:33Z pairs progress 50 / 126 elapsed 6s
+2026-09-30T22:15:39Z pairs progress 100 / 126 elapsed 13s
+2026-09-30T22:15:41Z pairs progress 126 / 126 elapsed 15s
+2026-09-30T22:15:41Z poolfields batches total 1252 done 0 todo 1252
+2026-09-30T22:15:47Z poolfields progress 50 / 1252 elapsed 6s
+2026-09-30T22:15:51Z poolfields progress 100 / 1252 elapsed 10s
+2026-09-30T22:15:56Z poolfields progress 150 / 1252 elapsed 15s
+2026-09-30T22:16:00Z poolfields progress 200 / 1252 elapsed 19s
+2026-09-30T22:16:05Z poolfields progress 250 / 1252 elapsed 24s
+2026-09-30T22:16:09Z poolfields progress 300 / 1252 elapsed 28s
+2026-09-30T22:16:14Z poolfields progress 350 / 1252 elapsed 33s
+2026-09-30T22:16:18Z poolfields progress 400 / 1252 elapsed 37s
+2026-09-30T22:16:22Z poolfields progress 450 / 1252 elapsed 41s
+2026-09-30T22:16:26Z poolfields progress 500 / 1252 elapsed 45s
+2026-09-30T22:16:30Z poolfields progress 550 / 1252 elapsed 49s
+2026-09-30T22:16:34Z poolfields progress 600 / 1252 elapsed 53s
+2026-09-30T22:16:38Z poolfields progress 650 / 1252 elapsed 57s
+2026-09-30T22:16:42Z poolfields progress 700 / 1252 elapsed 61s
+2026-09-30T22:16:46Z poolfields progress 750 / 1252 elapsed 65s
+2026-09-30T22:16:50Z poolfields progress 800 / 1252 elapsed 69s
+2026-09-30T22:16:54Z poolfields progress 850 / 1252 elapsed 73s
+2026-09-30T22:16:58Z poolfields progress 900 / 1252 elapsed 77s
+2026-09-30T22:17:06Z poolfields progress 950 / 1252 elapsed 85s
+2026-09-30T22:17:10Z poolfields progress 1000 / 1252 elapsed 89s
+2026-09-30T22:17:14Z poolfields progress 1050 / 1252 elapsed 93s
+2026-09-30T22:17:18Z poolfields progress 1100 / 1252 elapsed 97s
+2026-09-30T22:17:22Z poolfields progress 1150 / 1252 elapsed 101s
+2026-09-30T22:17:26Z poolfields progress 1200 / 1252 elapsed 105s
+2026-09-30T22:17:30Z poolfields progress 1250 / 1252 elapsed 109s
+2026-09-30T22:17:30Z poolfields progress 1252 / 1252 elapsed 109s
+2026-09-30T22:17:30Z aerofee batches total 60 done 0 todo 60
+2026-09-30T22:17:33Z aerofee progress 50 / 60 elapsed 3s
+2026-09-30T22:17:34Z aerofee progress 60 / 60 elapsed 4s
+2026-09-30T22:17:38Z snapshot done {"pinned_block": 52008400, "pinned_block_timestamp_formula": 1790806147, "started_utc": "2026-09-30T22:15:17Z", "seed": 20260930, "sample_n": 60000, "endpoints_eth_call": ["https://base-mainnet.public.blastapi.io", "https://base.drpc.org"], "multicall3": "0xca11bde05977b3631167028862be2a173976ca11", "pinned_block_hash": "0x116f70d59e1c4a45476bc1e787fedab83c0e83f8896e9006610f979f3ef206d5", "pinned_block_timestamp": 1790806147, "work_items": 125197, "rows_by_factory_group": {"Aerodrome/all_indices": 29601, "BaseSwap/all_indices": 8258, "PancakeV2/all_indices": 15243, "SushiV2/all_indices": 6095, "UniswapV2/newest_6000_at_snapshot": 6000, "UniswapV2/random_sample_older": 60000}, "rows_total": 125197, "pool_parts": 1, "finished_utc": "2026-09-30T22:17:38Z", "endpoint_stats": {"https://base-mainnet.public.blastapi.io": {"ok": 1560, "err": 5}, "https://base.drpc.org": {"ok": 0, "err": 0}}}

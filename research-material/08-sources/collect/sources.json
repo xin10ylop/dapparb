@@ -409,23 +409,6 @@
   "access_notes": "cited by arXiv 2606.00720 as [5]"
  },
  {
-  "slug": "docs-base-configuration-reference",
-  "kind": "html",
-  "url": "https://docs.base.org/specifications/reference/configuration",
-  "question_lines": [
-   "Q5-CONTEST"
-  ]
- },
- {
-  "slug": "docs-base-launch-token",
-  "kind": "html",
-  "url": "https://docs.base.org/get-started/launch-token",
-  "question_lines": [
-   "Q1-V4GAP",
-   "Q5-V4LAUNCH"
-  ]
- },
- {
   "slug": "arxiv-2607.28424-demystifying-solana-bots",
   "kind": "arxiv",
   "id": "2607.28424",
@@ -569,20 +552,24 @@
  },
  {
   "slug": "docs-uniswap-v4-dynamic-fees",
-  "kind": "html",
-  "url": "https://developers.uniswap.org/docs/protocols/v4/concepts/dynamic-fees",
+  "kind": "text",
+  "url": "https://raw.githubusercontent.com/Uniswap/docs/main/content/protocols/v4/concepts/dynamic-fees.mdx",
   "question_lines": [
    "Q1-V4GAP",
    "Q8-V4MEASURE"
-  ]
+  ],
+  "ext": "mdx",
+  "access_notes": "source file of the page https://developers.uniswap.org/docs/protocols/v4/concepts/dynamic-fees (that site answered HTTP 429 with Retry-After 3600 s)"
  },
  {
   "slug": "docs-uniswap-v2-deployments",
-  "kind": "html",
-  "url": "https://developers.uniswap.org/docs/protocols/v2/deployments",
+  "kind": "text",
+  "url": "https://raw.githubusercontent.com/Uniswap/docs/main/content/protocols/v2/deployments.mdx",
   "question_lines": [
    "Q2-OLDV2"
-  ]
+  ],
+  "ext": "mdx",
+  "access_notes": "source file of the page https://developers.uniswap.org/docs/protocols/v2/deployments (that site answered HTTP 429)"
  },
  {
   "slug": "clanker-docs-v4",
@@ -829,6 +816,55 @@
   "question_lines": [
    "Q5-V4LAUNCH",
    "Q2-OLDV2"
+  ]
+ },
+ {
+  "slug": "arxiv-1904.05234-daian-et-al-flash-boys-2",
+  "kind": "arxiv",
+  "id": "1904.05234",
+  "question_lines": [
+   "Q5-CONTEST"
+  ],
+  "access_notes": "2019 paper (outside 2025-2026); origin of the priority gas auction (PGA) measurements"
+ },
+ {
+  "slug": "clanker-paragraph-v4-1-sniper-tech",
+  "kind": "html",
+  "url": "https://paragraph.com/@clankerworld/clanker-v4_1-sniper-tech",
+  "question_lines": [
+   "Q5-V4LAUNCH",
+   "Q5-CONTEST",
+   "Q1-V4GAP"
+  ],
+  "access_notes": "Clanker team write-up linked from the ClankerMevDescendingFees doc page (\"v4 sniper activity writeup\")",
+  "authors_or_org": "Clanker (clankerworld on Paragraph)"
+ },
+ {
+  "slug": "flaunch-docs-sniper-protection",
+  "kind": "text",
+  "ext": "md",
+  "url": "https://docs.flaunch.gg/features/sniper-protection.md",
+  "question_lines": [
+   "Q5-V4LAUNCH"
+  ]
+ },
+ {
+  "slug": "flaunch-docs-fixed-price-fair-launch",
+  "kind": "text",
+  "ext": "md",
+  "url": "https://docs.flaunch.gg/features/fixed-price-fair-launch.md",
+  "question_lines": [
+   "Q5-V4LAUNCH",
+   "Q1-V4GAP"
+  ]
+ },
+ {
+  "slug": "flaunch-docs-hooks",
+  "kind": "text",
+  "ext": "md",
+  "url": "https://docs.flaunch.gg/references/hooks.md",
+  "question_lines": [
+   "Q1-V4GAP"
   ]
  }
 ]
