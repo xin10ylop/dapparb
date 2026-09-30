@@ -12,7 +12,9 @@ Read [`docs/ANALYSIS.md`](docs/ANALYSIS.md) first if you only care about the ans
 |---|---|---|
 | `ArbExecutor` — flash-swap arbitrage executor (Uniswap V2/V3/V4 & forks, Aerodrome V2/Slipstream, PancakeSwap V2/V3; Morpho/Aave/Balancer flash-loan fallback) | `contracts/src/ArbExecutor.sol` | 25 fork tests passing on Base |
 | `LeverageManager` — one-transaction leveraged long/short on Aave V3 (the "trade crypto you don't have" strategy) | `contracts/src/LeverageManager.sol` | 6 fork tests passing on Base |
-| Searcher bot — pool discovery, bit-exact local AMM math, 2-hop + triangular cycle search, Flashblocks (200 ms) state source, eth_call simulation, EIP-1559 / Flashbots submission | `bot/src` | validated end-to-end on an Anvil fork |
+| Searcher bot — pool discovery, bit-exact local AMM math, event-driven state from logs (exact), pool→cycle index with closed-form sizing (2 ms/block), 2-hop + triangular search, Flashblocks / logs / block state sources, eth_call simulation with ABI self-check, EIP-1559 / Flashbots submission | `bot/src` | validated end-to-end on an Anvil fork; log-state exactness verified live |
+| Research campaigns — block/flashblock scans, Slipstream fee timing, OKX↔Base lead-lag (ETH and long tail), funding/basis carry | `bot/src/research` | results in `docs/ANALYSIS.md` |
+| Infrastructure as code — co-located Base node (Flashblocks) + bot, Terraform + compose, latency probe | `infra/` | written from official docs, not executed here |
 | Empirical scanner — records every gross- and net-profitable cycle per block, with persistence analysis | `bot/src/research/scan.ts` | results in `docs/ANALYSIS.md` |
 | Leverage CLI — builds/sends `LeverageManager` calls with a Uniswap V3 route | `bot/src/cli/leverage.ts` | |
 
@@ -29,9 +31,11 @@ Uniswap V4 pools (hookless, static fee, incl. native-ETH pairs) are priced with 
 3. **Local, bit-exact pricing instead of on-chain quoters.** The bot ports Uniswap V3's `TickMath`/`SqrtPriceMath`/
    `SwapMath` to BigInt and walks the tick bitmap itself; `bot/src/math/v3.live.test.ts` checks it against every
    V3-style quoter on Base with zero mismatches. One RPC round-trip per tick, not one per quote.
-4. **Event listening is too slow.** By the time a `Swap` event reaches you the block is sealed and the arb was
-   back-run inside it. On Base the bot consumes the **Flashblocks** websocket (11 sub-blocks per 2 s block) and reads
-   `pending` state from the preconf RPC, giving ~200 ms state freshness. Sync + search fits in ~170 ms.
+4. **Polling state is too slow; events are exact.** Every supported AMM emits enough in its own events (V3 `Swap`
+   carries sqrtPrice, liquidity and tick; V2 `Sync` carries reserves; Mint/Burn carry the range and amount) to
+   reconstruct pricing state with no state reads at all. The engine applies a block's (or flashblock's) receipts and
+   re-evaluates only the cycles through the pools that changed: ~2 ms per block, verified identical to a full search.
+   Public endpoints only serve this at 2 s granularity; a local Flashblocks-aware node serves pending receipts at 200 ms.
 5. **Priority fee is the auction.** On OP-stack chains the base fee is ~0.006 gwei; ordering is decided by the
    priority fee, so the executor bids a configurable fraction of the *simulated* net profit.
 6. **Simulate before you send, and decode why it failed.** Every candidate is `eth_call`-simulated (with a bytecode
@@ -50,8 +54,9 @@ npx tsx src/research/scan.ts --chain base --blocks 60
 #    …or the long-tail universe from GeckoTerminal's top-volume pools
 npx tsx src/research/scan.ts --chain base --blocks 60 --universe top --pages 10 --max-tokens 250
 
-# 2) dry-run the live loop (Flashblocks source, simulation via bytecode override, nothing is sent)
-npx tsx src/main.ts --chain base --mode dry --source flashblocks --min-profit-usd 0.05
+# 2) dry-run the live loop (event-driven state from block receipts, simulation via bytecode override, nothing sent)
+npx tsx src/main.ts --chain base --mode dry --source logs --universe top --min-profit-usd 0.05
+#    on a flashblocks-aware node: --receipts-tag pending (200 ms state); public endpoints cannot sustain that rate
 
 # 3) deploy + go live (only after the dry run shows simulated net profit that you believe)
 cd ../contracts && forge script script/Deploy.s.sol --rpc-url base --broadcast --private-key $PRIVATE_KEY

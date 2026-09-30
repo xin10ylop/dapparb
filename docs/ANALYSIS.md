@@ -92,13 +92,61 @@ route after three consecutive reverts.
    which is paid to block builders and captured by a small number of operators with private infrastructure. None
    of it is visible to a public-RPC bot at block or flashblock granularity in these measurements.
 
-## 4. What is reproducible here
+## 4. Engineering results (phase 2)
+
+All measured live on Base on 2026-09-30 unless stated.
+
+| Component | Result |
+|---|---|
+| Event-driven state engine (`bot/src/pools/events.ts`) | State derived from Swap/Sync/Mint/Burn/ModifyLiquidity logs matches multicall state exactly: 37/37 touched pools over 3 blocks, 0 mismatches, including same-block Mint/Burn and Uniswap V4 |
+| Block log source | `eth_getBlockReceipts` ≈ 100 ms per block on a public node vs 11 s for a 600-address `eth_getLogs` filter; on a local node this is single-digit ms |
+| Pool→cycle index + closed-form sizing (`bot/src/arb/incremental.ts`, `search.ts`) | 2.3 ms per block to re-evaluate every cycle through the ~22 pools that trade in a typical block, identical results to the full search (111/111); full search 40 ms; the closed form is exact when no tick is crossed and seeds the search otherwise |
+| Uniswap V4 protocol fee | Base V4 pools charge lp + protocol fee (e.g. 625 pips effective vs 500 lp); the effective fee is direction-dependent and now taken from the packed `protocolFee` in `getSlot0` and from each Swap event |
+| Slipstream dynamic fees | 2,486 fee transitions in 484 blocks across 36 pools (e.g. AERO/cbBTC oscillating 750↔2700 pips every few blocks). Quoting uses the max fee over a recent window |
+| Public preconf RPC | ≈5 requests per 10 s before HTTP 429; unusable for sustained 200 ms state. Sync failures are now detected and the tick is skipped |
+| Executor self-check | On start the bot proves the deployed/injected bytecode and its ABI agree (an invalid route must revert with `BadRoute()`); a stale runtime artifact previously made every simulation fail silently |
+
+### 4.1 What the 2026 measurement literature says (sources in the agent reports, all publicly available)
+
+* Base, Jun 2025–Feb 2026: 21.4 M successful cyclic arbitrages by 4,365 bot addresses; 986 M spam transactions.
+  Success rate by architecture: off-chain discovery 42.5 %, on-chain evaluation 18.5 %, on-chain probing 4.6 %.
+  Flashblocks (Jul 2025) cut active bots from 983 to 462 in four weeks. (Wu & Öz, arXiv 2606.00720)
+* Base retains only 7.34 % of atomic-arbitrage revenue as priority fees (Ethereum: 28.8 %). Ordering is by arrival
+  time at 200 ms flashblock granularity, then by priority fee within the flashblock. (Entropy Advisors; docs.base.org)
+* Arbitrum atomic (DEX-DEX) arbitrage profit, Apr–Jul 2025: ≈ $503 K total across all searchers, ≈ $4.7 K/day, mean
+  $0.78 per arbitrage. (Messias & Torres, arXiv 2509.22143)
+* Once fees on failed transactions are counted, the share of profitable bots is 28 % on Base and 24 % on Optimism.
+  (arXiv 2607.24172)
+* Losses come from standing token approvals, unauthenticated callbacks and fake tokens/pools: 104 attacks, $2.76 M
+  (arXiv 2504.13398); JaredFromSubway drained of $7.5–15 M on 2026-06-20 via fake WETH/USDC/USDT and standing
+  approvals. `ArbExecutor` grants no standing approvals and authenticates every callback in transient storage.
+* Leverage: ETH fell 66–68 % peak-to-trough twice (2025, 2025–26); an Aave 2x loop liquidates near −40 %, with a 5 %
+  liquidation bonus on Base WETH. Aave liquidated $429 M in six days in Feb 2026.
+* CEX-DEX (non-atomic) arbitrage: top-3 operators ≈ 90 % of $233.8 M extracted; 1 of 19 labeled searchers net-negative.
+
+### 4.2 Capital-based strategies from the other videos (measured 2026-09-30)
+
+* Perp funding on OKX/Hyperliquid for the top-20 pairs sits at the 10.95 %/yr baseline (0.01 % per 8 h); cross-venue
+  differentials of 5–24 %/yr exist on volatile alts and flip sign. A spot+perp basis trade costs ≈ 0.30 % in taker
+  fees to open and close. On $5 K of capital that is tens of dollars per month, before exchange and liquidation risk
+  on the short leg.
+* Base ETH pools follow OKX's mid with a ~1 s lag (sign agreement 83–93 % at 1 s vs 66–69 % at 4 s), but the
+  ETH/USDC deviation around its median is ±5 bps at the 5th/95th percentiles and never exceeded 20 bps in 26 minutes:
+  inside the fee band. See §5 for long-tail tokens.
+
+## 5. What is reproducible here
 
 ```bash
 cd bot
 npx tsx src/research/scan.ts --chain base --blocks 60 --universe top --pages 10 --max-tokens 250
-npx tsx src/main.ts --chain base --mode dry --source flashblocks --universe top --min-profit-usd 0.01
+npx tsx src/main.ts --chain base --mode dry --source logs --universe top --min-profit-usd 0.01   # event-driven
 npx tsx src/research/analyze.ts data/live-base.jsonl
+npx tsx --test src/pools/events.live.test.ts          # log-derived state == multicall state
+npx tsx src/arb/incremental.bench.ts                  # incremental vs full search on live blocks
+npx tsx src/research/feetiming.ts --minutes 45        # Slipstream dynamic-fee study
+npx tsx src/research/leadlag.ts --minutes 45          # OKX vs Base ETH lead-lag
+npx tsx src/research/leadlag-multi.ts --minutes 30    # OKX vs Base long-tail tokens
+npx tsx src/research/carry.ts                         # funding / basis snapshot
 ```
 
 Raw records from the runs referenced above are not committed (they are in `bot/data/`, git-ignored) but the

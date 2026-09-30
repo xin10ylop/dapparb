@@ -126,6 +126,13 @@ async function main() {
       })
     : null;
 
+  if (executor) {
+    // any pool pair works as a sample route for the ABI/bytecode self-check
+    const a = pools[0]!;
+    const b = pools.find((p) => p !== a && p.token0 === a.token0 && p.token1 === a.token1) ?? pools[1]!;
+    await executor.selfCheck({ token: a.token1, hops: [{ pool: a, tokenIn: a.token1, tokenOut: a.token0, amountIn: 1n, amountOut: 1n, ticksCrossed: 0 }, { pool: b, tokenIn: b.token0, tokenOut: b.token1, amountIn: 1n, amountOut: 1n, ticksCrossed: 0 }], amountIn: 1n, amountOut: 1n, profit: 0n, gasEstimate: 0n, gapBps: 0 });
+  }
+
   // gas price cache (refreshed every ~10s)
   let gasPriceWei = await client.getGasPrice();
   let l1FeeWei = 0n;

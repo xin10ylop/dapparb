@@ -145,6 +145,25 @@ export class Executor {
       : null;
   }
 
+  /**
+   * Startup self-check: the injected/deployed bytecode must agree with the ABI this bot encodes. A route with a
+   * mismatched start/end token must revert with BadRoute(); anything else (dataless revert, wrong selector) means the
+   * runtime artifact is stale relative to the contract source and every simulation would fail silently.
+   */
+  async selfCheck(sample: Opportunity): Promise<void> {
+    const from = await this.fromAddress();
+    const stateOverride = this.opts.codeOverride ? [{ address: this.opts.contract, code: this.opts.codeOverride }] : undefined;
+    const bad = { ...sample, hops: [sample.hops[0]!, { ...sample.hops[0]!, tokenOut: sample.hops[0]!.tokenIn }] } as Opportunity; // ends in the wrong token
+    try {
+      await this.opts.client.call({ account: from, to: this.opts.contract, data: this.calldata(bad, 1n, 0n), blockTag: "latest", stateOverride });
+      throw new Error("self-check: invalid route did not revert");
+    } catch (e) {
+      const msg = decodeRevert(e);
+      if (!/BadRoute/.test(msg)) throw new Error(`self-check failed: expected BadRoute(), got "${msg}". The executor runtime/ABI are out of sync (re-run contracts/script/ExportRuntime.s.sol or redeploy).`);
+    }
+    log.info({ contract: this.opts.contract, override: !!this.opts.codeOverride }, "executor self-check passed (ABI ↔ bytecode consistent)");
+  }
+
   /** Address used as `from` for simulation: the hot wallet, or the contract owner in dry-run mode. */
   async fromAddress(): Promise<Address> {
     if (this.opts.codeOverride) return "0x0000000000000000000000000000000000000000";
