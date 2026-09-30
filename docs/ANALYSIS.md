@@ -148,6 +148,7 @@ All measured live on Base on 2026-09-30 unless stated.
 | Cross-chain DEX↔DEX | WETH/USDC Uniswap V3 0.05 % on Base, Arbitrum, Ethereum every 2 s, 450 samples | Spreads p5/p95 within ±5 bps, never >10 bps, before the 5 bps fee per leg and bridging |
 | Spot-perp funding carry (video 5) | OKX and Hyperliquid, top-20 perps | 10.95 %/yr baseline (0.01 % per 8 h) on the majors; cross-venue differentials 5-24 %/yr on volatile alts; 0.30 % fees to open and close |
 | Spot-futures basis (video 5) | OKX dated futures vs spot | 3.2-5.2 %/yr BTC, 3.2-4.5 %/yr ETH across all expiries, locked in at entry |
+| Flash-loan liquidations (not in the videos; the other common flash-loan use) | Aave V3 and Morpho Blue on Base, all liquidation events in the last 43,200 blocks (~24 h) | Aave: 2 events, $4,850 of debt repaid, ≈ $242 gross at the 5 % bonus for the entire day, 2 liquidators. Morpho: 1 event. Bursty: large only on crash days, when documented incumbents take it |
 
 ## 6. What is reproducible here
 
