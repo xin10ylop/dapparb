@@ -28,6 +28,7 @@ import { buildTokenUniverse } from "./research/tokens.js";
 import { isV2, type Pool } from "./pools/types.js";
 import { OP_GAS_ORACLE_ABI } from "./abi.js";
 import { discoverV4Pools } from "./pools/v4.js";
+import { enumerateUniverse } from "./pools/enumerate.js";
 import { applyLogs, fetchBlockLogsViaReceipts, PoolIndex } from "./pools/events.js";
 import { fetchTickData } from "./pools/state.js";
 import { CycleIndex } from "./arb/incremental.js";
@@ -46,7 +47,7 @@ const mode = arg("mode", "dry") as "dry" | "live";
 const cfg = getChain(chainName);
 const source = (arg("source", cfg.id === 8453 ? "flashblocks" : "blocks") ?? "blocks") as "blocks" | "flashblocks" | "logs";
 const receiptsTag = (arg("receipts-tag", "latest") ?? "latest") as "latest" | "pending"; // `pending` needs a flashblocks-aware node
-const universe = arg("universe", "config") as "config" | "top";
+const universe = arg("universe", "config") as "config" | "top" | "all";
 const minProfitUsd = Number(arg("min-profit-usd", "0.05"));
 const topK = Number(arg("top", "3"));
 const minDepthEth = Number(arg("min-depth-eth", "0.2"));
@@ -94,12 +95,20 @@ async function main() {
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
   const out = fs.createWriteStream(outFile, { flags: "a" });
 
-  const tokens = universe === "top" ? await buildTokenUniverse(client, cfg, Number(arg("pages", "5")), Number(arg("max-tokens", "200"))) : cfg.tokens;
+  let tokens: typeof cfg.tokens;
+  let pools: Pool[];
+  if (universe === "all") {
+    const u = await enumerateUniverse(client, cfg, { maxPerFactory: Number(arg("max-per-factory", "20000")) });
+    tokens = [...cfg.tokens, ...u.tokens.filter((t) => !cfg.tokens.some((c) => c.address.toLowerCase() === t.address.toLowerCase()))];
+    pools = u.pools;
+  } else {
+    tokens = universe === "top" ? await buildTokenUniverse(client, cfg, Number(arg("pages", "5")), Number(arg("max-tokens", "200"))) : cfg.tokens;
+    pools = await discoverPools(client, cfg, tokens, universe === "top" ? longTailPairs(cfg, tokens) : undefined);
+  }
   for (const t of tokens) {
     symbolOf.set(t.address.toLowerCase(), t.symbol);
     decimalsOf.set(t.address.toLowerCase(), t.decimals);
   }
-  let pools = await discoverPools(client, cfg, tokens, universe === "top" ? longTailPairs(cfg, tokens) : undefined);
   if (arg("v4", "1") !== "0") pools.push(...(await discoverV4Pools(client, cfg, tokens, universe === "top" ? 3 : 2)));
   await loadStaticMetadata(client, cfg, pools);
   await syncPools(client, cfg, pools, { force: true });
