@@ -70,16 +70,29 @@ minutes later. Slipstream fees are set per pool by a dynamic module and move wit
 price gaps open. The bot now quotes such pools with the maximum fee observed over a recent window and parks a
 route after three consecutive reverts.
 
+### 2.5 Reference run with the event-driven engine (exact state, decoded reverts)
+
+22 minutes, 657 pools, block-level receipts from a public node, every candidate simulated:
+
+| Metric | Value |
+|---|---|
+| Executable episodes (simulated net ≥ $0.01) | 24 → 65 per hour |
+| Sum of best simulated net | $1.75 → **$4.77/hour ceiling at 100 % capture** (≈ $115/day) |
+| Largest single episode | $0.51 (WETH/USDC, Uniswap V3 0.01 % ↔ PancakeSwap V3 0.01 %); next $0.43 (WETH/VIRTUAL) |
+| Median lifetime | 1 block (2 s): with correct state, opportunities close within the next block |
+| Where | XDP/USDC (21 of 24), WETH/USDC, WETH/VIRTUAL, USDC/PROS |
+| Simulated reverts | 69, now decoded: `TransferFailed` (token-side restrictions), `UniswapV2: K`, `CannotRepay` short by 0.03–0.5 % |
+
 ## 3. Conclusions
 
 1. **The architecture in the videos (listen for `Swap` events, then send a transaction) produces nothing.**
    At block boundaries, on every chain measured, the cross-DEX price gaps for liquid tokens are already inside
    the fee band.
-2. **With ~10 s state on Base (what public endpoints actually sustain), small opportunities exist.** They are
-   worth cents, not dollars: 14 verified episodes in 23 minutes, median $0.026 and largest $0.17 of simulated net
-   profit, $0.61 in total, with trade sizes between $140 and $2,700 (median $250). What 200 ms freshness would
-   add is unmeasured here. Breadth (more pools, Uniswap V4, more tokens) scales the count roughly linearly; it
-   does not change the per-episode size.
+2. **With exact block-level state on Base, small opportunities exist and are executable.** The best run:
+   65 episodes per hour, $4.77/hour ceiling if every race were won, largest $0.51, median lifetime one block.
+   Trade sizes were between $140 and $2,700; capital was never the constraint. What 200 ms state on a local
+   node adds is unmeasured here. Breadth scales the count; a full-factory enumeration run is reported in §2.6
+   when available.
 3. **Flash loans are not the constraint.** Capital was never the binding factor in any measured episode; the
    largest optimal trade size was well under $1,000. Flash swaps (zero fee) cover every case; Morpho Blue is the
    only Base flash-loan pool with meaningful zero-fee depth (Balancer V2 on Base holds ~29 WETH after the
