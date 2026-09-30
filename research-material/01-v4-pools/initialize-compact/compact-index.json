@@ -1,0 +1,97 @@
+{
+ "source_parts": [
+  "initialize-part-0001.csv.gz",
+  "initialize-part-0002.csv.gz",
+  "initialize-part-0003.csv.gz",
+  "initialize-part-0004.csv.gz",
+  "initialize-part-0005.csv.gz",
+  "initialize-part-0006.csv.gz",
+  "initialize-part-0007.csv.gz",
+  "initialize-part-0008.csv.gz",
+  "initialize-part-0009.csv.gz",
+  "initialize-part-0010.csv.gz",
+  "initialize-part-0011.csv.gz",
+  "initialize-part-0012.csv.gz",
+  "initialize-part-0013.csv.gz",
+  "initialize-part-0014.csv.gz",
+  "initialize-part-0015.csv.gz",
+  "initialize-part-0016.csv.gz",
+  "initialize-part-0017.csv.gz",
+  "initialize-part-0018.csv.gz",
+  "initialize-part-0019.csv.gz",
+  "initialize-part-0020.csv.gz",
+  "initialize-part-0021.csv.gz",
+  "initialize-part-0022.csv.gz"
+ ],
+ "total_rows": 15333247,
+ "pool_id_recomputed_mismatches": 0,
+ "block_logindex_order_violations": 0,
+ "distinct_hooks": 74887,
+ "parts": [
+  {
+   "file": "pools-part-0001.csv.gz",
+   "rows": 2200000,
+   "block_from": 25352561,
+   "block_to": 35017539,
+   "bytes": 89308765,
+   "sha256": "397645084abfabbd126039a12723858fc3ac31c5b85be1cf79ae9ab74d5fd58b"
+  },
+  {
+   "file": "pools-part-0002.csv.gz",
+   "rows": 2260000,
+   "block_from": 35017541,
+   "block_to": 37609078,
+   "bytes": 89919405,
+   "sha256": "5957ecb5a618cd25ef01cd960c313df5420a4d298f33459761cf789157194e9f"
+  },
+  {
+   "file": "pools-part-0003.csv.gz",
+   "rows": 2140000,
+   "block_from": 37609079,
+   "block_to": 40066629,
+   "bytes": 89247330,
+   "sha256": "5a0016c007593dc38b25e7d863536ca399621745a12de18d1f12af31e1c00348"
+  },
+  {
+   "file": "pools-part-0004.csv.gz",
+   "rows": 2040000,
+   "block_from": 40066631,
+   "block_to": 41220526,
+   "bytes": 89215148,
+   "sha256": "7a6df297c58e59b3b71c0998a991b5d7192a056fa9d6c637ce90bf6b87ed3da9"
+  },
+  {
+   "file": "pools-part-0005.csv.gz",
+   "rows": 2000000,
+   "block_from": 41220527,
+   "block_to": 42029596,
+   "bytes": 89511618,
+   "sha256": "1c8e878d734ad125201cdf125d02e57dc23f2695256b093ae5f33f4bd63abc29"
+  },
+  {
+   "file": "pools-part-0006.csv.gz",
+   "rows": 2160000,
+   "block_from": 42029597,
+   "block_to": 42970695,
+   "bytes": 89681238,
+   "sha256": "fa3256eaabc50af5d49cd45a1662ecf09b7b6424fd479216522614af8274f150"
+  },
+  {
+   "file": "pools-part-0007.csv.gz",
+   "rows": 2140000,
+   "block_from": 42970695,
+   "block_to": 47593862,
+   "bytes": 89787506,
+   "sha256": "461feb446635efa7ebedf280d4f55ad30ee5721055ef7f6ace2ec1db2deb40d7"
+  },
+  {
+   "file": "pools-part-0008.csv.gz",
+   "rows": 393247,
+   "block_from": 47593877,
+   "block_to": 52006295,
+   "bytes": 16358518,
+   "sha256": "c4d686fb6cf795d032eddefecc81f9ab4c76bdb8da00352a584d6e981f8d273f"
+  }
+ ],
+ "rebuild": "Lossless-by-reconstruction compact copy of the V4 Initialize dataset for git.\n\nInput : ../initialize-part-*.csv.gz (27 columns, see ../initialize-parts.json)\nOutput: ../initialize-compact/pools-part-NNNN.csv.gz  columns:\n          block_number, tx_index, log_index, currency0, currency1, fee_raw, tick_spacing, hook_id, sqrt_price_x96, tick\n        ../initialize-compact/hooks.csv  columns: hook_id, hooks (address), dynamic flags per hook (14 hf_* columns)\n        ../initialize-compact/compact-index.json  parts, rows, sha256, verification counts\nDropped columns and how to rebuild them exactly:\n  pool_id   = keccak256(abi.encode(currency0, currency1, uint24 fee_raw, int24 tick_spacing, hooks))  (verified here for EVERY row)\n  tx_hash   = eth_getTransactionByBlockNumberAndIndex(block_number, tx_index).hash on Base (verified on a sample)\n  hf_* flags= per hook address, in hooks.csv (they depend only on the hooks address)\n  dynamic_fee = (fee_raw == 8388608)\n"
+}

@@ -1,0 +1,16 @@
+1000000 rows, pool_id mismatches=0
+2000000 rows, pool_id mismatches=0
+3000000 rows, pool_id mismatches=0
+4000000 rows, pool_id mismatches=0
+5000000 rows, pool_id mismatches=0
+6000000 rows, pool_id mismatches=0
+7000000 rows, pool_id mismatches=0
+8000000 rows, pool_id mismatches=0
+9000000 rows, pool_id mismatches=0
+10000000 rows, pool_id mismatches=0
+11000000 rows, pool_id mismatches=0
+12000000 rows, pool_id mismatches=0
+13000000 rows, pool_id mismatches=0
+14000000 rows, pool_id mismatches=0
+15000000 rows, pool_id mismatches=0
+{"source_parts": ["initialize-part-0001.csv.gz", "initialize-part-0002.csv.gz", "initialize-part-0003.csv.gz", "initialize-part-0004.csv.gz", "initialize-part-0005.csv.gz", "initialize-part-0006.csv.gz", "initialize-part-0007.csv.gz", "initialize-part-0008.csv.gz", "initialize-part-0009.csv.gz", "initialize-part-0010.csv.gz", "initialize-part-0011.csv.gz", "initialize-part-0012.csv.gz", "initialize-part-0013.csv.gz", "initialize-part-0014.csv.gz", "initialize-part-0015.csv.gz", "initialize-part-0016.csv.gz", "initialize-part-0017.csv.gz", "initialize-part-0018.csv.gz", "initialize-part-0019.csv.gz", "initialize-part-0020.csv.gz", "initialize-part-0021.csv.gz", "initialize-part-0022.csv.gz"], "total_rows": 15333247, "pool_id_recomputed_mismatches": 0, "block_logindex_order_violations": 0, "distinct_hooks": 74887}

@@ -27,3 +27,5 @@ research-material/01-v4-pools/initialize-part-*.csv.gz
 # raw Solana getBlock dumps (540 MB) and per-slot part files; the processed Solana tables built from them are committed
 research-material/**/raw-slots/
 research-material/**/*.parts/
+# collector and engine-run logs are part of the research material
+!research-material/**/*.log
