@@ -1,8 +1,56 @@
 import type { Address } from "viem";
 import { isV2, pairKey, type Pool } from "../pools/types.js";
-import { optimalV2Cycle } from "../math/v2.js";
+import { isqrt, optimalV2Cycle } from "../math/v2.js";
 import { poolFee, quote, spotPrice } from "./quote.js";
 import { Q96 } from "../math/v3.js";
+import { isV3 } from "../pools/types.js";
+
+/**
+ * Virtual constant-product reserves of a concentrated-liquidity pool inside its current tick range:
+ * x = L / sqrtP, y = L * sqrtP (raw token units). Within the range the pool prices exactly like x*y=k with the
+ * pool fee on the input, so a two-pool cycle has the same closed-form optimum as V2 (`optimalV2Cycle`).
+ */
+export function virtualReserves(pool: Pool): { r0: bigint; r1: bigint; feeBps: number } | null {
+  if (!isV3(pool)) return isV2(pool) && !(pool.kind === "aero-v2" && pool.stable) ? { r0: pool.reserve0, r1: pool.reserve1, feeBps: pool.feeBps } : null;
+  const L = pool.state.liquidity;
+  const sp = pool.state.sqrtPriceX96;
+  if (L === 0n || sp === 0n) return null;
+  return { r0: (L * Q96) / sp, r1: (L * sp) / Q96, feeBps: pool.state.fee / 100 };
+}
+
+/**
+ * Closed-form candidate size for selling `token` into X then the proceeds into Y, valid when neither pool crosses a
+ * tick. Returns null when a closed form does not apply (stable curve, empty pool).
+ */
+export function closedFormSize(token: Address, X: Pool, Y: Pool): bigint | null {
+  const vx = virtualReserves(X);
+  const vy = virtualReserves(Y);
+  if (!vx || !vy) return null;
+  const xIn0 = token.toLowerCase() === X.token0.toLowerCase();
+  // pool1 reserves: (a1 = in-token reserve, b1 = out-token reserve); pool2: (b2 = in reserve of Y, a2 = out reserve)
+  const a1 = xIn0 ? vx.r0 : vx.r1;
+  const b1 = xIn0 ? vx.r1 : vx.r0;
+  const b2 = xIn0 ? vy.r1 : vy.r0;
+  const a2 = xIn0 ? vy.r0 : vy.r1;
+  // fee in bps may be fractional for V3 (e.g. 500 pips = 5 bps, 100 pips = 1 bp); scale to hundredths of a bp
+  const f1 = Math.round(vx.feeBps * 100);
+  const f2 = Math.round(vy.feeBps * 100);
+  return optimalV2CycleScaled(a1, b1, f1, b2, a2, f2);
+}
+
+/** optimalV2Cycle with fees in hundredths of a basis point (1e6 = 100%), for V3 fee tiers. */
+function optimalV2CycleScaled(a1: bigint, b1: bigint, f1: number, b2: bigint, a2: bigint, f2: number): bigint {
+  const D = 1_000_000n;
+  const g1 = D - BigInt(f1);
+  const g2 = D - BigInt(f2);
+  const A = g1 * g2 * a2 * b1;
+  const B = a1 * b2 * D * D;
+  const C = g1 * (b2 * D + g2 * b1);
+  if (A <= B) return 0n;
+  const root = isqrt(A * B);
+  const x = (root - B) / C;
+  return x > 0n ? x : 0n;
+}
 
 export interface CycleHop {
   pool: Pool;
@@ -88,6 +136,21 @@ export function optimizeAmount(token: Address, other: Address, buyPool: Pool, se
     const p = profitAt(x);
     if (p > best.profit) best = { amountIn: x, profit: p };
   };
+  // Fast path: closed-form optimum on virtual reserves. Exact when the resulting trade crosses no tick in either
+  // pool (the common case for small mispricings); then only a 2-point local check is needed.
+  const cf = closedFormSize(token, buyPool, sellPool);
+  if (cf !== null) {
+    if (cf <= 0n) return best; // no profitable size even before tick crossings
+    const x = cf < lo ? lo : cf > hi ? hi : cf;
+    const r = evalCycle(token, other, buyPool, sellPool, x);
+    if (r.valid && r.hops.every((h) => h.ticksCrossed === 0)) {
+      best = { amountIn: x, profit: r.amountOut - x };
+      consider((x * 98n) / 100n);
+      consider((x * 102n) / 100n);
+      return best;
+    }
+    seed = x; // crossed a tick: fall through to the search, seeded
+  }
   // Geometric grid, ratio 2.
   const grid: bigint[] = [];
   for (let x = lo; x <= hi; x *= 2n) grid.push(x);

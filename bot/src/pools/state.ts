@@ -99,10 +99,18 @@ export async function syncPools(client: PublicClient, cfg: ChainConfig, pools: P
       (pool as V3Pool).state.sqrtPriceX96 = sqrtP;
       (pool as V3Pool).state.tick = Number(tick);
     } else if (what === "slot0v4") {
-      const [sqrtP, tick, , lpFee] = r.result as [bigint, number, number, number];
-      (pool as V3Pool).state.sqrtPriceX96 = sqrtP;
-      (pool as V3Pool).state.tick = Number(tick);
-      (pool as V3Pool).state.fee = Number(lpFee);
+      const [sqrtP, tick, protocolFee, lpFee] = r.result as [bigint, number, number, number];
+      const st = (pool as V3Pool).state;
+      st.sqrtPriceX96 = sqrtP;
+      st.tick = Number(tick);
+      st.fee = Number(lpFee);
+      // V4 packs the protocol fee per direction (lower 12 bits: zeroForOne, upper 12 bits: oneForZero) and charges
+      // swapFee = protocolFee + lpFee - protocolFee*lpFee/1e6 on the input. Base pools run with it enabled.
+      const pf = Number(protocolFee);
+      const pf0 = pf & 0xfff;
+      const pf1 = pf >> 12;
+      const eff = (p: number) => p + Number(lpFee) - Math.floor((p * Number(lpFee)) / 1_000_000);
+      st.feeByDir = { zeroForOne: eff(pf0), oneForZero: eff(pf1) };
     } else if (what === "liquidity") (pool as V3Pool).state.liquidity = r.result as bigint;
     else if (what === "fee") {
       // Slipstream fees come from a per-pool dynamic module and can jump orders of magnitude between blocks
@@ -140,6 +148,7 @@ export async function fetchTickData(client: PublicClient, cfg: ChainConfig, pool
     const n = wordsNeeded(p.state.tickSpacing) + 1; // one extra word each side as a buffer
     p.state.bitmap = new Map();
     p.state.ticks = new Map();
+    p.state.ticksGross = new Map();
     p.state.wordRange = { min: center - n, max: center + n };
     for (let w = center - n; w <= center + n; w++) {
       if (isV4(p)) calls.push({ address: p.v4.stateView, abi: STATE_VIEW_ABI, functionName: "getTickBitmap", args: [p.v4.poolId, w] });
@@ -171,8 +180,9 @@ export async function fetchTickData(client: PublicClient, cfg: ChainConfig, pool
     res.forEach((r, i) => {
       const { pool, tick } = tickMap[i]!;
       if (r.status !== "success") return;
-      const [, liquidityNet] = r.result as [bigint, bigint];
+      const [liquidityGross, liquidityNet] = r.result as [bigint, bigint];
       pool.state.ticks.set(tick, liquidityNet);
+      pool.state.ticksGross!.set(tick, liquidityGross);
     });
   }
   log.debug({ pools: pools.length, words: calls.length, ticks: tickCalls.length }, "tick data refreshed");

@@ -58,5 +58,6 @@ export function spotPrice(pool: Pool): number {
 /** Round-trip fee of a pool as a fraction (0.003 = 0.3%). */
 export function poolFee(pool: Pool): number {
   if (isV2(pool)) return pool.feeBps / 10_000;
-  return pool.state.fee / 1_000_000;
+  const d = pool.state.feeByDir;
+  return (d ? Math.min(d.zeroForOne, d.oneForZero) : pool.state.fee) / 1_000_000;
 }

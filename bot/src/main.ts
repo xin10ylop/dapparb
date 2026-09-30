@@ -3,7 +3,9 @@
  *
  *   npx tsx src/main.ts --chain base --mode dry            # observe + simulate only
  *   npx tsx src/main.ts --chain base --mode live           # sign & send (needs PRIVATE_KEY, ARB_CONTRACT)
- *   --source blocks|flashblocks   state refresh trigger (default: flashblocks on Base, blocks elsewhere)
+ *   --source blocks|flashblocks|logs   state trigger. `logs` = event-driven: eth_getBlockReceipts per block (or pending
+ *                                     on a node that serves it), exact state from Swap/Sync/Mint/Burn logs, and an
+ *                                     incremental search over the pools that changed only.
  *   --universe config|top         token universe: hand-picked config list or GeckoTerminal top-volume tokens
  *   --min-profit-usd 0.05         minimum simulated net profit to act on
  *   --top 3                       max candidates simulated per tick
@@ -26,6 +28,10 @@ import { buildTokenUniverse } from "./research/tokens.js";
 import { isV2, type Pool } from "./pools/types.js";
 import { OP_GAS_ORACLE_ABI } from "./abi.js";
 import { discoverV4Pools } from "./pools/v4.js";
+import { applyLogs, fetchBlockLogsViaReceipts, PoolIndex } from "./pools/events.js";
+import { fetchTickData } from "./pools/state.js";
+import { CycleIndex } from "./arb/incremental.js";
+import { isV3 as isV3Pool, type V3Pool } from "./pools/types.js";
 import { log } from "./util/log.js";
 import { createPublicClient, http } from "viem";
 import { viemChain } from "./util/client.js";
@@ -38,7 +44,8 @@ function arg(name: string, def?: string): string | undefined {
 const chainName = arg("chain", "base")!;
 const mode = arg("mode", "dry") as "dry" | "live";
 const cfg = getChain(chainName);
-const source = (arg("source", cfg.id === 8453 ? "flashblocks" : "blocks") ?? "blocks") as "blocks" | "flashblocks";
+const source = (arg("source", cfg.id === 8453 ? "flashblocks" : "blocks") ?? "blocks") as "blocks" | "flashblocks" | "logs";
+const receiptsTag = (arg("receipts-tag", "latest") ?? "latest") as "latest" | "pending"; // `pending` needs a flashblocks-aware node
 const universe = arg("universe", "config") as "config" | "top";
 const minProfitUsd = Number(arg("min-profit-usd", "0.05"));
 const topK = Number(arg("top", "3"));
@@ -77,8 +84,10 @@ interface Stats {
   profitEth: number;
   gasSpentEth: number;
   staleTicks: number;
+  logsApplied: number;
+  touchedPools: number;
 }
-const stats: Stats = { ticks: 0, gross: 0, net: 0, simulated: 0, simOk: 0, sent: 0, landed: 0, failed: 0, profitEth: 0, gasSpentEth: 0, staleTicks: 0 };
+const stats: Stats = { ticks: 0, gross: 0, net: 0, simulated: 0, simOk: 0, sent: 0, landed: 0, failed: 0, profitEth: 0, gasSpentEth: 0, staleTicks: 0, logsApplied: 0, touchedPools: 0 };
 
 async function main() {
   if (mode === "live" && (!contract || !privateKey)) throw new Error("live mode needs ARB_CONTRACT and PRIVATE_KEY");
@@ -97,7 +106,9 @@ async function main() {
   pools = pruneEmpty(pools);
   let prices = buildEthPrices(cfg, pools);
   pools = filterByDepth(pools, prices, minDepthEth);
-  log.info({ tokens: tokens.length, pools: pools.length, minDepthEth, source, mode, contract: contract ?? "(none)", codeOverride: !!codeOverride }, "searcher ready");
+  const poolIndex = new PoolIndex(pools);
+  const cycleIndex = new CycleIndex(pools);
+  log.info({ tokens: tokens.length, pools: pools.length, cycles: cycleIndex.candidates.length, minDepthEth, source, mode, contract: contract ?? "(none)", codeOverride: !!codeOverride }, "searcher ready");
 
   const executor = contract
     ? new Executor({
@@ -156,20 +167,38 @@ async function main() {
       stats.ticks++;
       const usePending = source === "flashblocks";
       const stateClient = usePending ? preconf : client;
-      // In flashblocks mode we read `pending` state (no block pin); in block mode pin to the block.
-      await syncPools(stateClient as any, cfg, pools, usePending ? { pending: true, force: stats.ticks - lastForce > 200 } : { blockNumber: trigger.block, force: stats.ticks - lastForce > 30 });
-      if (stats.ticks - lastForce > (usePending ? 200 : 30)) lastForce = stats.ticks;
+      let touched: Set<string> | null = null;
+      if (source === "logs") {
+        // Event-driven: exact state from the block's logs; periodic full resync as a safety net.
+        if (stats.ticks - lastForce > 300 || stats.ticks === 1) {
+          await syncPools(client, cfg, pools, { blockNumber: trigger.block, force: true });
+          lastForce = stats.ticks;
+        } else {
+          const logs = await fetchBlockLogsViaReceipts(client, poolIndex, receiptsTag === "pending" ? "pending" : trigger.block);
+          const res = applyLogs(poolIndex, logs, trigger.block);
+          if (res.dirtyTicks.size > 0) await fetchTickData(client, cfg, pools.filter((p): p is V3Pool => isV3Pool(p) && res.dirtyTicks.has(p.address.toLowerCase())), trigger.block);
+          touched = res.touched;
+          stats.logsApplied += res.applied;
+        }
+      } else {
+        // In flashblocks mode we read `pending` state (no block pin); in block mode pin to the block.
+        await syncPools(stateClient as any, cfg, pools, usePending ? { pending: true, force: stats.ticks - lastForce > 200 } : { blockNumber: trigger.block, force: stats.ticks - lastForce > 30 });
+        if (stats.ticks - lastForce > (usePending ? 200 : 30)) lastForce = stats.ticks;
+      }
       const tSync = Date.now();
       // Never search on frozen state: a rejected sync (public endpoints rate-limit at a few requests per 10 s)
       // would otherwise re-emit the same stale candidates until the next successful refresh.
-      if (syncStats.chunkFailures > 0 || syncStats.stale > pools.length / 10) {
+      if (source !== "logs" && (syncStats.chunkFailures > 0 || syncStats.stale > pools.length / 10)) {
         stats.staleTicks++;
         if (stats.staleTicks % 25 === 1) log.warn({ chunkFailures: syncStats.chunkFailures, stalePools: syncStats.stale, staleTicks: stats.staleTicks }, "state refresh rejected by RPC; skipping tick (use a dedicated node for sustained 200 ms freshness)");
         return;
       }
       if (stats.ticks % 50 === 1) prices = buildEthPrices(cfg, pools);
       const ethUsd = 1 / (prices.get(cfg.usdc.toLowerCase()) ?? NaN);
-      const opps = [...findOpportunities(pools), ...(triangles ? findTriangles(pools, { startTokens: new Set([cfg.weth.toLowerCase(), cfg.usdc.toLowerCase()]) }) : [])].sort((a, b) => (b.profit > a.profit ? 1 : b.profit < a.profit ? -1 : 0));
+      const opps = touched
+        ? cycleIndex.search(touched, 150) // only cycles through pools that changed in this block
+        : [...findOpportunities(pools), ...(triangles ? findTriangles(pools, { startTokens: new Set([cfg.weth.toLowerCase(), cfg.usdc.toLowerCase()]) }) : [])].sort((a, b) => (b.profit > a.profit ? 1 : b.profit < a.profit ? -1 : 0));
+      if (touched) stats.touchedPools += touched.size;
       const tSearch = Date.now();
       stats.gross += opps.length;
 
@@ -309,7 +338,17 @@ async function main() {
     }
   }
 
-  if (source === "flashblocks") {
+  if (source === "logs" && receiptsTag === "pending") {
+    // A flashblocks-aware node serves pending receipts; poll it at the flashblock cadence.
+    let lastSig = "";
+    setInterval(async () => {
+      try {
+        const bn = await client.getBlockNumber();
+        void tick({ block: bn + 1n, index: 0 });
+      } catch {}
+    }, 200).unref();
+    void lastSig;
+  } else if (source === "flashblocks") {
     const fb = new FlashblocksClient(flashblocksUrl);
     fb.on("flashblock", (f) => void tick({ block: f.blockNumber, index: f.index }));
     fb.start();

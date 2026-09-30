@@ -263,6 +263,10 @@ export interface V3PoolState {
   bitmap: TickBitmapWords;
   /** tick -> liquidityNet for every initialized tick we have fetched. */
   ticks: Map<number, bigint>;
+  /** tick -> liquidityGross (needed to flip bitmap bits when Mint/Burn initialise or clear a tick). */
+  ticksGross?: Map<number, bigint>;
+  /** V4 with protocol fee: effective swap fee per direction (pips), overrides `fee`. */
+  feeByDir?: { zeroForOne: number; oneForZero: number };
   /** Word range we fetched; a swap that walks outside it is flagged `truncated`. */
   wordRange: { min: number; max: number };
   /** Dynamic-fee pools (Slipstream): recent fee readings; quotes use the max so a volatility spike is priced in. */
@@ -287,6 +291,7 @@ export interface SwapResult {
 export function simulateExactInput(pool: V3PoolState, zeroForOne: boolean, amountIn: bigint): SwapResult {
   if (amountIn <= 0n) throw new Error("amountIn must be > 0");
   const sqrtPriceLimitX96 = zeroForOne ? MIN_SQRT_RATIO + 1n : MAX_SQRT_RATIO - 1n;
+  const feePips = pool.feeByDir ? (zeroForOne ? pool.feeByDir.zeroForOne : pool.feeByDir.oneForZero) : pool.fee;
   let amountRemaining = amountIn;
   let amountOut = 0n;
   let sqrtPriceX96 = pool.sqrtPriceX96;
@@ -320,7 +325,7 @@ export function simulateExactInput(pool: V3PoolState, zeroForOne: boolean, amoun
         : sqrtPriceNextX96;
 
     // computeSwapStep handles liquidity == 0 exactly like the pool does (price jumps to target, nothing fills).
-    const step = computeSwapStep(sqrtPriceX96, target, liquidity, amountRemaining, pool.fee);
+    const step = computeSwapStep(sqrtPriceX96, target, liquidity, amountRemaining, feePips);
     sqrtPriceX96 = step.sqrtRatioNextX96;
     amountRemaining -= step.amountIn + step.feeAmount;
     amountOut += step.amountOut;

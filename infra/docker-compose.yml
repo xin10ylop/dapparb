@@ -1,0 +1,39 @@
+# Base full node (op-node + op-reth) with Flashblocks, and the searcher. Written from github.com/base/node docs;
+# validate on the target machine (not executed in this repository's CI).
+services:
+  execution:
+    image: ghcr.io/base/node-reth:latest
+    restart: unless-stopped
+    environment:
+      - OP_NODE_L1_ETH_RPC=${L1_RPC}
+      - OP_NODE_L1_BEACON=${L1_BEACON}
+      - RETH_FB_WEBSOCKET_URL=wss://mainnet.flashblocks.base.org/ws   # Flashblocks stream for pending state
+      - RETH_CHAIN=base
+      - RETH_SEQUENCER_HTTP=https://mainnet-sequencer.base.org
+    volumes:
+      - /data/reth:/data
+    ports:
+      - "127.0.0.1:8545:8545"
+      - "127.0.0.1:8546:8546"
+    ulimits: { nofile: { soft: 1000000, hard: 1000000 } }
+  node:
+    image: ghcr.io/base/node-op-node:latest
+    restart: unless-stopped
+    depends_on: [execution]
+    environment:
+      - OP_NODE_L1_ETH_RPC=${L1_RPC}
+      - OP_NODE_L1_BEACON=${L1_BEACON}
+      - OP_NODE_L2_ENGINE_RPC=http://execution:8551
+      - OP_NODE_NETWORK=base-mainnet
+    volumes:
+      - /data/op-node:/data
+  bot:
+    build: ../bot
+    restart: unless-stopped
+    depends_on: [execution]
+    env_file: ../bot/.env
+    environment:
+      - BASE_RPC_URL=http://execution:8545
+      - BASE_WS_URL=ws://execution:8546
+      - SUBMIT_RPC_URLS=https://mainnet-sequencer.base.org
+    command: ["npx", "tsx", "src/main.ts", "--chain", "base", "--mode", "dry", "--source", "logs", "--receipts-tag", "pending", "--universe", "top"]
