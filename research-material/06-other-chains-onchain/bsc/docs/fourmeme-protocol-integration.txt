@@ -1,0 +1,88 @@
+URL: https://four-meme.gitbook.io/four.meme/protocol-integration
+FINAL_URL: https://four-meme.gitbook.io/four.meme/developer/openfour-integration
+TITLE: Four.meme Protocol Integration
+PUBLISHER: Four.meme
+FETCHED_AT_UTC: 2026-09-30T21:23:51Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: ef51410bec013927d6e459dda58f2a39b706aea1fdf4fc9b73dfac325045ed49
+RAW_FILE: raw/fourmeme-protocol-integration.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+[Four.meme](</four.meme>)
+
+`⌘Ctrl``k`
+
+[Four.meme](</four.meme>)
+
+  * [Welcome to Four.meme](</four.meme>)
+  * Guide
+
+    * [📚How it works?](</four.meme/guide/how-it-works>)
+    * [Introducing Tax Tokens on Four.Meme](</four.meme/guide/introducing-tax-tokens-on-four.meme>)
+
+  * DEVELOPER
+
+    * [Four.meme Integration](</four.meme/developer/fourmeme-integration>)
+    * [OpenFour Integration](</four.meme/developer/openfour-integration>)
+
+  * Stock Meme
+
+    * [About Stock Meme](</four.meme/stock-meme/about-stock-meme-en>)
+    * [4Stock](</four.meme/stock-meme/4stock>)
+
+  * OpenFour
+
+    * [About OpenFour](</four.meme/openfour/about-openfour-en>)
+    * [Royalty](</four.meme/openfour/royalty-en>)
+    * [Universal Subscription](</four.meme/openfour/universal-subscription-en>)
+
+  * Wallet Guide
+
+    * [How to connect using Binance Wallet](</four.meme/wallet-guide/how-to-connect-using-binance-wallet>)
+    * [How to connect using SafePal](</four.meme/wallet-guide/how-to-connect-using-safepal>)
+    * [How to connect using TokenPocket](</four.meme/wallet-guide/how-to-connect-using-tokenpocket>)
+
+  * Product Update
+
+    * [#6 Product Update 25-10-30](</four.meme/product-update/6-product-update-25-10-30>)
+    * [#5 Product Update 25-10-18](</four.meme/product-update/5-product-update-25-10-18>)
+    * [#4 Product Update 25-06-04](</four.meme/product-update/4-product-update-25-06-04>)
+    * [#3 Product Update 25-03-31](</four.meme/product-update/3-product-update-25-03-31>)
+    * [#2 Product Update 25-01-20](</four.meme/product-update/2-product-update-25-01-20>)
+    * [#1 Product Update 24-09-19](</four.meme/product-update/1-product-update-24-09-19>)
+
+  * Brand
+
+    * [Brand Kit](</four.meme/brand/brand-kit>)
+    * [Accelerator Program](</four.meme/brand/accelerator-program>)
+    * [Salus Audit Report](</four.meme/brand/salus-audit-report>)
+    * [Community](</four.meme/brand/community>)
+    * [Contact Us](</four.meme/brand/contact-us>)
+
+
+
+
+[Powered by GitBook](<https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=MKYhtLfncF7vyCOOt0Ef&utm_content=site_m0EJr>)[](<https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=MKYhtLfncF7vyCOOt0Ef&utm_content=site_m0EJr>)
+
+On this page
+
+For the complete documentation index, see [llms.txt](<https://four-meme.gitbook.io/four.meme/llms.txt>). This page is also available as [Markdown](<https://four-meme.gitbook.io/four.meme/developer/openfour-integration.md>).
+
+Copy
+
+On this page
+
+  1. [DEVELOPER](</four.meme/developer>)
+
+
+
+# OpenFour Integration
+
+OpenFour is a new modular launch engine introduced by Four.Meme. It provides developers with a contract-level modular creative development and launch platform, enabling new gameplay modules, shared revenue, and a community-built ecosystem.
+
+Github repos: <https://github.com/four-meme-community/openfour-docs>[](<https://github.com/four-meme-community/openfour-docs>)
+
+[PreviousFour.meme Integration](</four.meme/developer/fourmeme-integration>)[NextAbout Stock Meme](</four.meme/stock-meme/about-stock-meme-en>)
+
+Last updated 1 month ago

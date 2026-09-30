@@ -1,6 +1,6 @@
 # OP Mainnet (Optimism): on-chain arbitrage census (raw material)
 
-Status: census COMPLETE (sentinel `.sentinels/EVM_CENSUS_OPTIMISM.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE. Ordering docs: COMPLETE (see docs/).
+Status: census COMPLETE (sentinel `.sentinels/EVM_CENSUS_OPTIMISM.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE (sentinel `.sentinels/EVM_TOKENPRICES_OPTIMISM.DONE`). Ordering docs: COMPLETE (see docs/).
 
 This directory holds collected data only. Nothing here is an analysis, estimate or conclusion.
 
@@ -73,6 +73,8 @@ All hex values are lowercase 0x-prefixed. Wei amounts and other integers that ca
 | prices-defillama-historical.jsonl.gz | 18 | 10025 |
 | native-price-chart-defillama.json | (JSON document) | 749 |
 | defillama-dexs.json | (JSON document) | 847743 |
+| defillama-dexs.fetch.json | (JSON document) | 139 |
+| token_prices.fetch.json | (JSON document) | 550 |
 | window.json | (JSON document) | 2614 |
 
 Candidate counts by criterion: A = 4914, B = 13144. Transactions: 62920; status-0 transactions: 1196; distinct topic0 keys: 714.

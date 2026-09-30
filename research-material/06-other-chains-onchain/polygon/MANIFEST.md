@@ -1,6 +1,6 @@
 # Polygon PoS: on-chain arbitrage census (raw material)
 
-Status: census COMPLETE (sentinel `.sentinels/EVM_CENSUS_POLYGON.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE.
+Status: census COMPLETE (sentinel `.sentinels/EVM_CENSUS_POLYGON.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE (sentinel `.sentinels/EVM_TOKENPRICES_POLYGON.DONE`).
 
 This directory holds collected data only. Nothing here is an analysis, estimate or conclusion.
 
@@ -70,6 +70,8 @@ All hex values are lowercase 0x-prefixed. Wei amounts and other integers that ca
 | prices-defillama-historical.jsonl.gz | 27 | 39960 |
 | native-price-chart-defillama.json | (JSON document) | 1518 |
 | defillama-dexs.json | (JSON document) | 1691089 |
+| defillama-dexs.fetch.json | (JSON document) | 139 |
+| token_prices.fetch.json | (JSON document) | 609 |
 | window.json | (JSON document) | 2640 |
 
 Candidate counts by criterion: A = 3235, B = 65208. Transactions: 176243; status-0 transactions: 7543; distinct topic0 keys: 1603.

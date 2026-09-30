@@ -1,0 +1,30 @@
+URL: https://docs.uniswap.org/contracts/v3/reference/deployments/bnb-deployments
+FINAL_URL: https://docs.uniswap.org/contracts/v3/reference/deployments/bnb-deployments
+TITLE: Uniswap v3 BNB deployments
+PUBLISHER: Uniswap docs
+FETCHED_AT_UTC: 2026-09-30T21:23:49Z
+HTTP_STATUS: 429
+CONTENT_TYPE: text/html; charset=UTF-8
+RAW_SHA256: 527780dac6a0e3068cb38ce175eb5c759aab71df2a84f98fb9d14959562c1664
+RAW_FILE: raw/uniswap-v3-bnb-deployments.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+Please enable cookies. 
+
+#  Error 1015
+
+Ray ID: a43649050f41eb77 • 2026-09-30 21:22:49 UTC
+
+##  You are being rate limited 
+
+##  What happened? 
+
+The owner of this website (docs.uniswap.org) has banned you temporarily from accessing this website.
+
+Please see <https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1015/> for more details. 
+
+Was this page helpful?  Yes  No 
+
+Thank you for your feedback! 
+
+Cloudflare Ray ID: **a43649050f41eb77** • Your IP: Click to reveal 160.79.106.135 • Performance & security by [Cloudflare](<https://www.cloudflare.com/5xx-error-landing>)

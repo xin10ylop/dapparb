@@ -1,0 +1,61 @@
+URL: https://docs.flap.sh/
+FINAL_URL: https://docs.flap.sh/flap
+TITLE: Flap docs
+PUBLISHER: Flap
+FETCHED_AT_UTC: 2026-09-30T21:23:53Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: 12b55362b05ecf707ee067811b412c0d4a18d32c7ddd46cb08cf920274946474
+RAW_FILE: raw/flap-docs-home.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+[Flap](</flap>)
+
+`⌘Ctrl``k`
+
+[App](<https://flap.sh>)
+
+More
+
+[Flap](</flap>)
+
+  * [🦋Brief Overview of Flap](</flap>)
+  * [🔗Flap Official Links](</flap/flap-official-links>)
+  * [Developers](</flap/developers>)
+  * [Audit Reports](</flap/audit-reports>)
+  * [Media Kit](</flap/media-kit>)
+  * [Flap Skills for AI Agents](</flap/skills>)
+
+
+
+[Powered by GitBook](<https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=5KujUBwRoHVjn8OZEgtZ&utm_content=site_RQslM>)[](<https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=5KujUBwRoHVjn8OZEgtZ&utm_content=site_RQslM>)
+
+On this page
+
+For the complete documentation index, see [llms.txt](<https://docs.flap.sh/flap/llms.txt>). This page is also available as [Markdown](<https://docs.flap.sh/flap/readme.md>).
+
+Copy
+
+On this page
+
+# 🦋Brief Overview of Flap
+
+The Ultimate Decentralized Token Creation Platform
+
+Flap is an on-chain token launch protocol on EVM, born out of an ETHGlobal hackathon victory. Flap's mission is to empower projects and creators with decentralized, on-chain tools to launch tokens and design customized token standards seamlessly.
+
+#### Rich Terminal & Wallets Support
+
+Tokens launched via Flap are supported by a broad ecosystem of wallets, trading platforms, and bots, including **OKX Wallet, Binance Wallet, GMGN, Debot, Ave.ai, Dragun** , **Axiom** and more—ensuring strong discoverability and liquidity from day one.
+
+#### Non-Tax & Tax Token Support
+
+Flap supports both **non-tax tokens** and **tax tokens**. For tax tokens, creators can customize trading tax fee rates at **1%, 3%, 5%, or 10%** , enabling flexible use cases such as community incentives, marketing, treasury funding, or charitable contributions.
+
+### Flap Tax Vaults
+
+Flap offers the ability for developers to create custom smart contracts for tax token management. By adhering to the provided vault specifications, enhanced insights and details can be accessed via our website and supported terminals. Developers can also build and deploy their own vault templates (Vault Factory), offering a monetization opportunity when users opt to utilize their templates.
+
+[NextFlap Official Links](</flap/flap-official-links>)
+
+Last updated 2 months ago

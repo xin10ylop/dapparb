@@ -1,6 +1,6 @@
 # Arbitrum One: on-chain arbitrage census (raw material)
 
-Status: census COMPLETE (sentinel `.sentinels/EVM_CENSUS_ARBITRUM.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE. Ordering docs: COMPLETE (see docs/).
+Status: census COMPLETE (sentinel `.sentinels/EVM_CENSUS_ARBITRUM.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE (sentinel `.sentinels/EVM_TOKENPRICES_ARBITRUM.DONE`). Ordering docs: COMPLETE (see docs/).
 
 This directory holds collected data only. Nothing here is an analysis, estimate or conclusion.
 
@@ -75,6 +75,8 @@ All hex values are lowercase 0x-prefixed. Wei amounts and other integers that ca
 | prices-defillama-historical.jsonl.gz | 21 | 24105 |
 | native-price-chart-defillama.json | (JSON document) | 749 |
 | defillama-dexs.json | (JSON document) | 2008705 |
+| defillama-dexs.fetch.json | (JSON document) | 140 |
+| token_prices.fetch.json | (JSON document) | 554 |
 | window.json | (JSON document) | 3067 |
 | arbitrum-chain-state.json | (JSON document) | 6920 |
 

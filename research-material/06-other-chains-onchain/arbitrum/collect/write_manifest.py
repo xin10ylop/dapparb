@@ -41,8 +41,8 @@ status_tp = "COMPLETE" if tp and tp.get("finished_at_utc") else "IN PROGRESS (to
 L = []
 A = L.append
 A("# %s: on-chain arbitrage census (raw material)\n" % NAMES[chain])
-A("Status: census COMPLETE (sentinel `.sentinels/%s.DONE`); DefiLlama DEX overview %s; token metadata + prices %s.%s\n" % (
-    w["config"]["sentinel"], "COMPLETE" if dl else "NOT FETCHED", status_tp,
+A("Status: census COMPLETE (sentinel `.sentinels/%s.DONE`); DefiLlama DEX overview %s; token metadata + prices %s (sentinel `.sentinels/EVM_TOKENPRICES_%s.DONE`).%s\n" % (
+    w["config"]["sentinel"], "COMPLETE" if dl else "NOT FETCHED", status_tp, chain.upper(),
     " Ordering docs: COMPLETE (see docs/)." if docs else ""))
 A("This directory holds collected data only. Nothing here is an analysis, estimate or conclusion.\n")
 A("## Question lines served (mapping only)\n")
@@ -115,7 +115,7 @@ A("| gaps.csv | %d | %d |" % (c["gap_blocks"], size("gaps.csv")))
 for extra in ["tokens-onchain-meta.csv.gz", "prices-defillama-historical.jsonl.gz"]:
     if os.path.exists(os.path.join(d, extra)):
         A("| %s | %d | %d |" % (extra, lines(os.path.join(d, extra)) - (1 if extra.endswith(".csv.gz") else 0), size(extra)))
-for extra in ["native-price-chart-defillama.json", "defillama-dexs.json", "window.json", "arbitrum-chain-state.json"]:
+for extra in ["native-price-chart-defillama.json", "defillama-dexs.json", "defillama-dexs.fetch.json", "token_prices.fetch.json", "window.json", "arbitrum-chain-state.json"]:
     if os.path.exists(os.path.join(d, extra)):
         A("| %s | (JSON document) | %d |" % (extra, size(extra)))
 A("\nCandidate counts by criterion: A = %d, B = %d. Transactions: %d; status-0 transactions: %d; distinct topic0 keys: %d.\n" % (

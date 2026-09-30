@@ -1,6 +1,6 @@
 # Ethereum mainnet: on-chain arbitrage census (raw material)
 
-Status: census COMPLETE (sentinel `.sentinels/EVM_CENSUS_ETHEREUM.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE.
+Status: census COMPLETE (sentinel `.sentinels/EVM_CENSUS_ETHEREUM.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE (sentinel `.sentinels/EVM_TOKENPRICES_ETHEREUM.DONE`).
 
 This directory holds collected data only. Nothing here is an analysis, estimate or conclusion.
 
@@ -71,6 +71,8 @@ All hex values are lowercase 0x-prefixed. Wei amounts and other integers that ca
 | prices-defillama-historical.jsonl.gz | 246 | 393291 |
 | native-price-chart-defillama.json | (JSON document) | 3634 |
 | defillama-dexs.json | (JSON document) | 2110354 |
+| defillama-dexs.fetch.json | (JSON document) | 140 |
+| token_prices.fetch.json | (JSON document) | 547 |
 | window.json | (JSON document) | 2625 |
 
 Candidate counts by criterion: A = 19288, B = 23462. Transactions: 534635; status-0 transactions: 7153; distinct topic0 keys: 5424.

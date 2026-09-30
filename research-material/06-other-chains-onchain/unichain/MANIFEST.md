@@ -1,6 +1,6 @@
 # Unichain: on-chain arbitrage census (raw material)
 
-Status: census COMPLETE (sentinel `.sentinels/EVM_CENSUS_UNICHAIN.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE. Ordering docs: COMPLETE (see docs/).
+Status: census COMPLETE (sentinel `.sentinels/EVM_CENSUS_UNICHAIN.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE (sentinel `.sentinels/EVM_TOKENPRICES_UNICHAIN.DONE`). Ordering docs: COMPLETE (see docs/).
 
 This directory holds collected data only. Nothing here is an analysis, estimate or conclusion.
 
@@ -73,6 +73,8 @@ All hex values are lowercase 0x-prefixed. Wei amounts and other integers that ca
 | prices-defillama-historical.jsonl.gz | 3 | 1312 |
 | native-price-chart-defillama.json | (JSON document) | 749 |
 | defillama-dexs.json | (JSON document) | 100466 |
+| defillama-dexs.fetch.json | (JSON document) | 139 |
+| token_prices.fetch.json | (JSON document) | 548 |
 | window.json | (JSON document) | 2639 |
 
 Candidate counts by criterion: A = 170, B = 169. Transactions: 30272; status-0 transactions: 123; distinct topic0 keys: 164.
