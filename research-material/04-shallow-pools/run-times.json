@@ -1,0 +1,90 @@
+{
+ "name": "SHALLOW_LIVE",
+ "status": "DONE",
+ "run_seconds_after_ready": 1200,
+ "attempts": [
+  {
+   "attempt": 1,
+   "min_depth_eth": 0.001,
+   "launch_utc": "2026-09-30T21:53:54.620Z",
+   "head_at_launch": {
+    "block": 52007943,
+    "endpoint": "https://base-rpc.publicnode.com",
+    "at_utc": "2026-09-30T21:53:55.033Z"
+   },
+   "cmd": "cd /home/user/dapparb/bot && LOG_JSON=1 npx tsx src/main.ts --chain base --mode dry --source logs --universe all --max-per-factory 6000 --min-depth-eth 0.001 --min-profit-usd 0.01 --top 6 --out /home/user/dapparb/research-material/04-shallow-pools/live-shallow.jsonl",
+   "engine_pid": 4723,
+   "ready_detected_utc": "2026-09-30T22:03:51.273Z",
+   "ready_detected_epoch": 1790805831.2733192,
+   "searcher_ready_line_verbatim": "{\"level\":30,\"time\":1790805830413,\"pid\":4747,\"hostname\":\"vm\",\"tokens\":33595,\"pools\":5234,\"cycles\":6422,\"minDepthEth\":0.001,\"source\":\"logs\",\"mode\":\"dry\",\"contract\":\"0x00000000000000000000000000000000000a4BB0\",\"codeOverride\":true,\"msg\":\"searcher ready\"}",
+   "ready_log_utc": "2026-09-30T22:03:50.413Z",
+   "searcher_ready_counts": {
+    "tokens": 33595,
+    "pools": 5234,
+    "cycles": 6422,
+    "minDepthEth": 0.001,
+    "source": "logs",
+    "mode": "dry",
+    "contract": "0x00000000000000000000000000000000000a4BB0",
+    "codeOverride": true
+   },
+   "head_at_ready": {
+    "block": 52008242,
+    "endpoint": "https://base-rpc.publicnode.com",
+    "at_utc": "2026-09-30T22:03:51.689Z"
+   },
+   "head_at_stop": {
+    "block": 52008842,
+    "endpoint": "https://base-rpc.publicnode.com",
+    "at_utc": "2026-09-30T22:23:51.758Z"
+   },
+   "stop_utc": "2026-09-30T22:23:51.758Z",
+   "stop_signals": "SIGINT",
+   "exit_utc": "2026-09-30T22:23:51.823Z",
+   "exit_code": -2,
+   "seconds_ready_to_stop": 1200.5
+  }
+ ],
+ "log_format": "LOG_JSON=1 (pino JSON lines, time = epoch ms)",
+ "cwd": "/home/user/dapparb/bot",
+ "out_jsonl": "/home/user/dapparb/research-material/04-shallow-pools/live-shallow.jsonl",
+ "log": "/home/user/dapparb/research-material/04-shallow-pools/live-shallow.log",
+ "launcher_pid": 4722,
+ "blocks": {
+  "heartbeat_count": 54,
+  "first_heartbeat_block": 52008269,
+  "last_heartbeat_block": 52008835,
+  "first_heartbeat_ticks": 10,
+  "last_heartbeat_ticks": 540,
+  "first_block_in_log_records": 52008242,
+  "last_block_in_log_records": 52008835,
+  "jsonl_candidate_rows": 42,
+  "first_block_in_jsonl": 52008242,
+  "last_block_in_jsonl": 52008815
+ },
+ "shutdown_stats_line": {
+  "level": 30,
+  "time": 1790807031759,
+  "pid": 4747,
+  "hostname": "vm",
+  "ticks": 547,
+  "gross": 21502,
+  "net": 178,
+  "simulated": 42,
+  "simOk": 11,
+  "sent": 0,
+  "landed": 0,
+  "failed": 0,
+  "profitEth": 0,
+  "gasSpentEth": 0,
+  "staleTicks": 0,
+  "logsApplied": 30006,
+  "touchedPools": 14862,
+  "msg": "shutting down"
+ },
+ "finished_utc": "2026-09-30T22:23:51.825Z",
+ "launch_utc": "2026-09-30T21:53:54.620Z",
+ "ready_utc": "2026-09-30T22:03:50.413Z",
+ "stop_utc": "2026-09-30T22:23:51.758Z",
+ "searcher_ready_line_verbatim": "{\"level\":30,\"time\":1790805830413,\"pid\":4747,\"hostname\":\"vm\",\"tokens\":33595,\"pools\":5234,\"cycles\":6422,\"minDepthEth\":0.001,\"source\":\"logs\",\"mode\":\"dry\",\"contract\":\"0x00000000000000000000000000000000000a4BB0\",\"codeOverride\":true,\"msg\":\"searcher ready\"}"
+}

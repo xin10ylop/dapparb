@@ -1,0 +1,17 @@
+{
+ "tokens": 111983,
+ "route_tokens": 6862,
+ "lookups": 247032,
+ "route_rows": 7640,
+ "finished_utc": "2026-09-30T22:23:43Z",
+ "endpoint_stats": {
+  "https://base-mainnet.public.blastapi.io": {
+   "ok": 1788,
+   "err": 0
+  },
+  "https://base.drpc.org": {
+   "ok": 0,
+   "err": 0
+  }
+ }
+}

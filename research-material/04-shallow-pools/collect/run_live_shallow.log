@@ -1,0 +1,3 @@
+2026-09-30T21:53:55.034Z launched 4723 cd /home/user/dapparb/bot && LOG_JSON=1 npx tsx src/main.ts --chain base --mode dry --source logs --universe all --max-per-factory 6000 --min-depth-eth 0.001 --min-profit-usd 0.01 --top 6 --out /home/user/dapparb/research-material/04-shallow-pools/live-shallow.jsonl
+2026-09-30T22:03:51.690Z searcher ready; running 1200 s
+2026-09-30T22:23:51.826Z finished DONE 

@@ -1,0 +1,26 @@
+2026-09-30T22:21:19Z tokens 111983 route tokens 6862
+2026-09-30T22:21:19Z meta batches 1120 todo 1120
+2026-09-30T22:21:28Z meta progress 100 / 1120 9s
+2026-09-30T22:21:36Z meta progress 200 / 1120 17s
+2026-09-30T22:21:44Z meta progress 300 / 1120 25s
+2026-09-30T22:21:53Z meta progress 400 / 1120 34s
+2026-09-30T22:22:03Z meta progress 500 / 1120 44s
+2026-09-30T22:22:12Z meta progress 600 / 1120 53s
+2026-09-30T22:22:21Z meta progress 700 / 1120 62s
+2026-09-30T22:22:30Z meta progress 800 / 1120 71s
+2026-09-30T22:22:38Z meta progress 900 / 1120 79s
+2026-09-30T22:22:47Z meta progress 1000 / 1120 88s
+2026-09-30T22:22:56Z meta progress 1100 / 1120 97s
+2026-09-30T22:22:57Z meta progress 1120 / 1120 98s
+2026-09-30T22:23:00Z lookups batches 572 todo 572
+2026-09-30T22:23:06Z lookups progress 100 / 572 6s
+2026-09-30T22:23:11Z lookups progress 200 / 572 11s
+2026-09-30T22:23:16Z lookups progress 300 / 572 17s
+2026-09-30T22:23:22Z lookups progress 400 / 572 22s
+2026-09-30T22:23:27Z lookups progress 500 / 572 28s
+2026-09-30T22:23:32Z lookups progress 572 / 572 32s
+2026-09-30T22:23:32Z route pools found (incl. lookup failures) 7640
+2026-09-30T22:23:32Z routestate batches 96 todo 96
+2026-09-30T22:23:43Z routestate progress 96 / 96 11s
+2026-09-30T22:23:43Z tokens done {'tokens': 111983, 'route_tokens': 6862, 'lookups': 247032, 'route_rows': 7640, 'finished_utc': '2026-09-30T22:23:43Z', 'endpoint_stats': {'https://base-mainnet.public.blastapi.io': {'ok': 1788, 'err': 0}, 'https://base.drpc.org': {'ok': 0, 'err': 0}}}
+finalize DONE {'V2OLD_SNAPSHOT': 'DONE', 'V2OLD_CENSUS': 'DONE', 'V2OLD_TOKENS': 'DONE'} 0
