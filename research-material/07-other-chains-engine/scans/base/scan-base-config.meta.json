@@ -1,0 +1,52 @@
+{
+ "name": "scan-base-config",
+ "finalized_utc": "2026-09-30T22:49:27Z",
+ "jsonl_files": [
+  "scan-base-config.jsonl.gz"
+ ],
+ "jsonl_rows": 65207,
+ "jsonl_unparseable_lines": 0,
+ "jsonl_distinct_blocks": 246,
+ "jsonl_first_block": 52008645,
+ "jsonl_last_block": 52009606,
+ "log_block_scanned_lines": 248,
+ "log_block_scanned_first_block": 52008645,
+ "log_block_scanned_last_block": 52009606,
+ "log_rows_announced_by_block_scanned_lines": 65207,
+ "log_heartbeat_lines": 0,
+ "first_block_scanned_utc": "2026-09-30T22:18:17.563Z",
+ "last_block_scanned_utc": "2026-09-30T22:49:22.659Z",
+ "searcher_ready": null,
+ "live_pools": {
+  "time": 1790806637883,
+  "live": 255,
+  "byDex": {
+   "UniswapV3": 80,
+   "AerodromeCL": 38,
+   "AerodromeCL3": 16,
+   "AerodromeCL2": 9,
+   "PancakeV3": 42,
+   "SushiV3": 13,
+   "Aerodrome": 37,
+   "UniswapV2": 7,
+   "SushiV2": 3,
+   "BaseSwap": 6,
+   "UniswapV4": 4
+  },
+  "msg": "live pools"
+ },
+ "exit_line": "exit=143 capped=1",
+ "signal_line": "[exit-flush] SIGTERM received at 2026-09-30T22:49:20.037Z; flushing for 5 s then exiting 143",
+ "summary_present": false,
+ "warn_lines": 1,
+ "error_lines": 0,
+ "window": {
+  "attempt": 1,
+  "exit": 143,
+  "time_capped": 1,
+  "cap_minutes": 31,
+  "blocks_flag": 901,
+  "first_block_scanned_seen_utc": "2026-09-30T22:18:18Z",
+  "ended_utc": "2026-09-30T22:49:26Z"
+ }
+}

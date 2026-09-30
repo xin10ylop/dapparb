@@ -1,6 +1,6 @@
 # 07-other-chains-engine: repository scanner and engine on Arbitrum and Ethereum, with a same-method Base scan
 
-Status: IN PROGRESS (counts last refreshed 2026-09-30T22:28:33Z; waiting for sentinels: SCANS, ENGINE_DETECT_ARBITRUM, ENGINE_DETECT_MAINNET).
+Status: IN PROGRESS (counts last refreshed 2026-09-30T22:48:33Z; waiting for sentinels: SCANS, ENGINE_DETECT_ARBITRUM, ENGINE_DETECT_MAINNET).
 
 Run notes: collectors were launched 2026-09-30T22:14:28Z (master PID in `collect/state/run_all.pid`, log `collect/run_all.log`,
 step log `collect/pipeline.log`). The Status line above and the "Counts" section are rewritten by `collect/fill_manifest.py`
@@ -197,20 +197,32 @@ the run window (attempt, exit code, time_capped, cap_minutes, blocks_flag, SIGIN
 ## Counts
 
 <!-- COUNTS:BEGIN -->
-Filled by `collect/fill_manifest.py` at 2026-09-30T22:28:33Z.
+Filled by `collect/fill_manifest.py` at 2026-09-30T22:48:33Z.
 
 Sentinels: `SCANS` missing, `ENGINE_DETECT_ARBITRUM` missing, `ENGINE_DETECT_MAINNET` missing, `ENGINE_LIVE_ARBITRUM.FAILED`, `ENGINE_LIVE_MAINNET.FAILED`
 
 | Dir / run | JSONL files | JSONL rows | rows announced in log (scan) | unparseable lines | block-scanned / heartbeat lines | first block | last block | window start (UTC) | window end (UTC) | pools after depth filter | exit | time-capped | SCAN SUMMARY present | warn / error log lines |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| scans/arbitrum/scan-arbitrum-config | scan-arbitrum-config.jsonl.gz | 132443 | 132443 | 0 | 645 | 510475000 | 510481479 | 2026-09-30T22:15:07.557Z | 2026-09-30T22:46:00.364Z | 151 | 143 | 1 | False | 2 / 0 |
+| scans/mainnet/scan-mainnet-config | scan-mainnet-config.jsonl.gz | 13385 | 13385 | 0 | 151 | 26093214 | 26093364 | 2026-09-30T22:14:50.493Z | 2026-09-30T22:45:04.686Z | 112 | 0 | 0 | True | 2 / 0 |
 
 Scan windows: first/last `block scanned` log time. Engine windows: `searcher ready` to SIGINT. Engine block range: first/last block among written rows (empty if no row was written).
 
 File sizes (bytes):
 
+- `scans/arbitrum/scan-arbitrum-config.blocks.csv.gz`: 11838
 - `scans/arbitrum/scan-arbitrum-config.code-provenance.txt`: 4800
+- `scans/arbitrum/scan-arbitrum-config.jsonl.gz`: 7627037
+- `scans/arbitrum/scan-arbitrum-config.log.gz`: 28144
+- `scans/arbitrum/scan-arbitrum-config.meta.json`: 1236
+- `scans/arbitrum/scan-arbitrum-top.code-provenance.txt`: 4656
 - `scans/base/scan-base-config.code-provenance.txt`: 4800
+- `scans/mainnet/scan-mainnet-config.blocks.csv.gz`: 4132
 - `scans/mainnet/scan-mainnet-config.code-provenance.txt`: 4800
+- `scans/mainnet/scan-mainnet-config.jsonl.gz`: 636074
+- `scans/mainnet/scan-mainnet-config.log.gz`: 11422
+- `scans/mainnet/scan-mainnet-config.meta.json`: 1170
+- `scans/mainnet/scan-mainnet-top.code-provenance.txt`: 4656
 
 `collect/gaps.jsonl`: 0 line(s).
 <!-- COUNTS:END -->

@@ -1,0 +1,46 @@
+{
+ "name": "scan-arbitrum-config",
+ "finalized_utc": "2026-09-30T22:46:18Z",
+ "jsonl_files": [
+  "scan-arbitrum-config.jsonl.gz"
+ ],
+ "jsonl_rows": 132443,
+ "jsonl_unparseable_lines": 0,
+ "jsonl_distinct_blocks": 645,
+ "jsonl_first_block": 510475000,
+ "jsonl_last_block": 510481479,
+ "log_block_scanned_lines": 645,
+ "log_block_scanned_first_block": 510475000,
+ "log_block_scanned_last_block": 510481479,
+ "log_rows_announced_by_block_scanned_lines": 132443,
+ "log_heartbeat_lines": 0,
+ "first_block_scanned_utc": "2026-09-30T22:15:07.557Z",
+ "last_block_scanned_utc": "2026-09-30T22:46:00.364Z",
+ "searcher_ready": null,
+ "live_pools": {
+  "time": 1790806494725,
+  "live": 151,
+  "byDex": {
+   "UniswapV3": 87,
+   "SushiV3": 16,
+   "PancakeV3": 28,
+   "SushiV2": 13,
+   "UniswapV4": 7
+  },
+  "msg": "live pools"
+ },
+ "exit_line": "exit=143 capped=1",
+ "signal_line": "[exit-flush] SIGTERM received at 2026-09-30T22:46:09.895Z; flushing for 5 s then exiting 143",
+ "summary_present": false,
+ "warn_lines": 2,
+ "error_lines": 0,
+ "window": {
+  "attempt": 1,
+  "exit": 143,
+  "time_capped": 1,
+  "cap_minutes": 31,
+  "blocks_flag": 7201,
+  "first_block_scanned_seen_utc": "2026-09-30T22:15:08Z",
+  "ended_utc": "2026-09-30T22:46:15Z"
+ }
+}

@@ -1,0 +1,257 @@
+{
+ "name": "SHALLOW_SNAPSHOT",
+ "started_utc": "2026-09-30T22:04:05.057Z",
+ "engine_sequence": "bot/src/main.ts lines ~95-120 (universe=all)",
+ "max_per_factory": 6000,
+ "v4_gt_pages": 2,
+ "rpc_urls": [
+  "https://base-rpc.publicnode.com",
+  "https://base.drpc.org",
+  "https://base-mainnet.public.blastapi.io",
+  "https://mainnet.base.org"
+ ],
+ "min_anchor_eth": 0.05,
+ "stages": {
+  "enumerate": {
+   "ms": 1781742,
+   "tokens_total": 33597,
+   "cfg_tokens": 19,
+   "enumerated_tokens": 33597,
+   "discovered_pools": 46134,
+   "pools_after_smoke_limit": 46134
+  },
+  "v4": {
+   "ms": 63619,
+   "v4_pools": 9,
+   "gt_requests": 16,
+   "gt_non200": 2
+  },
+  "static": {
+   "ms": 53870
+  },
+  "sync": {
+   "ms": 476637,
+   "block": 52008246,
+   "syncStats": {
+    "stale": 0,
+    "total": 46143,
+    "chunkFailures": 0
+   }
+  },
+  "prune_price": {
+   "pools_before_prune": 46143,
+   "pools_after_prune": 35734,
+   "pools_pruned": 10409,
+   "priced_tokens": 1732,
+   "pools_passing_filterByDepth_0_1": 3177
+  },
+  "extra_balances": {
+   "ms": 186050,
+   "balance_calls": 92275,
+   "failed": 0
+  },
+  "extra_token_meta": {
+   "ms": 128316,
+   "tokens": 33597
+  },
+  "extra_pruned_recheck": {
+   "ms": 31985,
+   "calls": 15807,
+   "failed": 0
+  }
+ },
+ "head_at_start": 52008249,
+ "pinned_block": 52008246,
+ "pinned_block_timestamp": 1790805839,
+ "pinned_block_time_utc": "2026-09-30T22:03:59.000Z",
+ "pinned_block_hash": "0x0876ef696f85aa9adc5dbd4766aec2da9b5b695e4115471c79e0666b14934afd",
+ "fn_stats": {
+  "allPools": {
+   "calls": 14737,
+   "ok": 14737,
+   "fail": 0
+  },
+  "allPairs": {
+   "calls": 24000,
+   "ok": 24000,
+   "fail": 0
+  },
+  "token0": {
+   "calls": 38737,
+   "ok": 38737,
+   "fail": 0
+  },
+  "token1": {
+   "calls": 38737,
+   "ok": 38737,
+   "fail": 0
+  },
+  "decimals": {
+   "calls": 33621,
+   "ok": 33597,
+   "fail": 24
+  },
+  "symbol": {
+   "calls": 33621,
+   "ok": 33596,
+   "fail": 25
+  },
+  "getPool": {
+   "calls": 1194464,
+   "ok": 1194464,
+   "fail": 0
+  },
+  "getPair": {
+   "calls": 149308,
+   "ok": 149308,
+   "fail": 0
+  },
+  "poolKeys": {
+   "calls": 20,
+   "ok": 20,
+   "fail": 0
+  },
+  "tickSpacing": {
+   "calls": 11640,
+   "ok": 11640,
+   "fail": 0
+  },
+  "fee": {
+   "calls": 18590,
+   "ok": 18590,
+   "fail": 0
+  },
+  "getFee": {
+   "calls": 7262,
+   "ok": 7262,
+   "fail": 0
+  },
+  "slot0": {
+   "calls": 17037,
+   "ok": 17037,
+   "fail": 0
+  },
+  "liquidity": {
+   "calls": 17037,
+   "ok": 17037,
+   "fail": 0
+  },
+  "getReserves": {
+   "calls": 39505,
+   "ok": 39505,
+   "fail": 0
+  },
+  "getSlot0": {
+   "calls": 10,
+   "ok": 10,
+   "fail": 0
+  },
+  "getLiquidity": {
+   "calls": 10,
+   "ok": 10,
+   "fail": 0
+  },
+  "tickBitmap": {
+   "calls": 89915,
+   "ok": 89915,
+   "fail": 0
+  },
+  "getTickBitmap": {
+   "calls": 137,
+   "ok": 137,
+   "fail": 0
+  },
+  "ticks": {
+   "calls": 95333,
+   "ok": 95333,
+   "fail": 0
+  },
+  "getTickInfo": {
+   "calls": 1326,
+   "ok": 1326,
+   "fail": 0
+  },
+  "balanceOf": {
+   "calls": 92275,
+   "ok": 92275,
+   "fail": 0
+  },
+  "name": {
+   "calls": 33597,
+   "ok": 33596,
+   "fail": 1
+  },
+  "totalSupply": {
+   "calls": 33597,
+   "ok": 33593,
+   "fail": 4
+  }
+ },
+ "chunk_throws_after_retries": 0,
+ "chunk_throws_by_stage": {},
+ "failed_calls_by_stage": {
+  "enumerate:decimals": 24,
+  "enumerate:symbol": 25,
+  "extra_token_meta:totalSupply": 4,
+  "extra_token_meta:name": 1
+ },
+ "head_at_end": 52009611,
+ "finished_utc": "2026-09-30T22:49:30.463Z",
+ "files": [
+  {
+   "file": "pools-prefilter.csv.gz",
+   "rows": 35734,
+   "bytes": 3159400
+  },
+  {
+   "file": "pools-pruned-empty.csv.gz",
+   "rows": 10409,
+   "bytes": 758897
+  },
+  {
+   "file": "cl-ticks-prefilter.csv.gz",
+   "rows": 96659,
+   "bytes": 1353843
+  },
+  {
+   "file": "prices.csv.gz",
+   "rows": 1732,
+   "bytes": 67745
+  },
+  {
+   "file": "tokens.csv.gz",
+   "rows": 33597,
+   "bytes": 1212031
+  },
+  {
+   "file": "enumerated-token-meta-calls.csv.gz",
+   "rows": 33621,
+   "bytes": 943008
+  },
+  {
+   "file": "v4-poolmanager-balances.csv.gz",
+   "rows": 8,
+   "bytes": 338
+  },
+  {
+   "file": "factory-enumeration.csv.gz",
+   "rows": 38737,
+   "bytes": 1951362
+  },
+  {
+   "file": "geckoterminal-responses.jsonl.gz",
+   "rows": 16,
+   "bytes": 76626
+  },
+  {
+   "file": "snapshot-failed-calls.jsonl.gz",
+   "rows": 54,
+   "bytes": 1071
+  },
+  {
+   "file": "snapshot-rpc-errors.jsonl.gz",
+   "rows": 0,
+   "bytes": 20
+  }
+ ]
+}

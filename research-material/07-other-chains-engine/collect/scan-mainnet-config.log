@@ -1,0 +1,943 @@
+# 2026-09-30T22:14:28Z attempt 1 cmd: LOG_JSON=1 node --import tsx --import /home/user/dapparb/research-material/07-other-chains-engine/collect/exit-flush.mjs src/research/scan.ts --chain mainnet --universe config --blocks 151 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-mainnet-config.jsonl  (time cap 31 min after first scanned block)
+{"level":30,"time":1790806469976,"pid":20662,"hostname":"vm","chain":"mainnet","tokens":12,"dexes":6,"msg":"discovering pools"}
+{"level":30,"time":1790806470418,"pid":20662,"hostname":"vm","candidates":990,"found":214,"msg":"pool discovery complete"}
+{"level":40,"time":1790806475490,"pid":20662,"hostname":"vm","status":404,"url":"https://api.geckoterminal.com/api/v2/networks/eth/dexes/uniswap-v3/pools?page=1&sort=h24_volume_usd_desc","msg":"geckoterminal request failed"}
+{"level":40,"time":1790806480684,"pid":20662,"hostname":"vm","status":404,"url":"https://api.geckoterminal.com/api/v2/networks/eth/dexes/uniswap-v2/pools?page=1&sort=h24_volume_usd_desc","msg":"geckoterminal request failed"}
+{"level":30,"time":1790806483230,"pid":20662,"hostname":"vm","requests":7,"pools":99,"msg":"geckoterminal pools fetched"}
+{"level":30,"time":1790806483231,"pid":20662,"hostname":"vm","listed":99,"v4":15,"dexes":["uniswap-v4-ethereum"],"msg":"uniswap v4 candidates"}
+{"level":30,"time":1790806483325,"pid":20662,"hostname":"vm","listed":15,"kept":6,"keyFailed":0,"unknownKey":0,"hooked":4,"outOfUniverse":5,"msg":"uniswap v4 pools discovered"}
+{"level":30,"time":1790806487151,"pid":20662,"hostname":"vm","live":112,"byDex":{"UniswapV3":56,"SushiV3":12,"PancakeV3":8,"UniswapV2":18,"SushiV2":10,"PancakeV2":2,"UniswapV4":6},"msg":"live pools"}
+{"level":30,"time":1790806490493,"pid":20662,"hostname":"vm","block":26093214,"gross":72,"net":0,"sumNetUsd":0,"gasPriceGwei":0.093596025,"txCostUsd":0.0627,"syncMs":3134,"searchMs":158,"msg":"block scanned"}
+{"level":30,"time":1790806490494,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.039"}
+{"level":30,"time":1790806490494,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.039"}
+{"level":30,"time":1790806490494,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.028"}
+{"level":30,"time":1790806490494,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@PancakeV3/2500 WETH>LINK@UniswapV3/500 in=0.3028 LINK gap=36.6bps profit=$0.001 net=$-0.050"}
+{"level":30,"time":1790806490494,"pid":20662,"hostname":"vm","msg":"  UNI>USDT@UniswapV2 USDT>UNI@UniswapV3/3000 in=0.1707 UNI gap=70.7bps profit=$0.001 net=$-0.039"}
+{"level":30,"time":1790806496938,"pid":20662,"hostname":"vm","block":26093215,"gross":72,"net":0,"sumNetUsd":0,"gasPriceGwei":0.098358957,"txCostUsd":0.0659,"syncMs":120,"searchMs":140,"msg":"block scanned"}
+{"level":30,"time":1790806496938,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.041"}
+{"level":30,"time":1790806496938,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.041"}
+{"level":30,"time":1790806496938,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.030"}
+{"level":30,"time":1790806496938,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@PancakeV3/2500 WETH>LINK@UniswapV3/500 in=0.3028 LINK gap=36.6bps profit=$0.001 net=$-0.053"}
+{"level":30,"time":1790806496938,"pid":20662,"hostname":"vm","msg":"  UNI>USDT@UniswapV2 USDT>UNI@UniswapV3/3000 in=0.1707 UNI gap=70.7bps profit=$0.001 net=$-0.041"}
+{"level":30,"time":1790806515586,"pid":20662,"hostname":"vm","block":26093216,"gross":86,"net":0,"sumNetUsd":0,"gasPriceGwei":0.091903313,"txCostUsd":0.0616,"syncMs":118,"searchMs":154,"msg":"block scanned"}
+{"level":30,"time":1790806515586,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.038"}
+{"level":30,"time":1790806515586,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.039"}
+{"level":30,"time":1790806515586,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.028"}
+{"level":30,"time":1790806515586,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@PancakeV3/2500 WETH>LINK@UniswapV3/500 in=0.3028 LINK gap=36.6bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790806515586,"pid":20662,"hostname":"vm","msg":"  UNI>USDT@UniswapV2 USDT>UNI@UniswapV3/3000 in=0.08202 UNI gap=65.4bps profit=$0.000 net=$-0.039"}
+{"level":30,"time":1790806528124,"pid":20662,"hostname":"vm","block":26093217,"gross":83,"net":0,"sumNetUsd":0,"gasPriceGwei":0.094983679,"txCostUsd":0.0636,"syncMs":131,"searchMs":139,"msg":"block scanned"}
+{"level":30,"time":1790806528124,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.040"}
+{"level":30,"time":1790806528124,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.040"}
+{"level":30,"time":1790806528124,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.029"}
+{"level":30,"time":1790806528124,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@PancakeV3/2500 WETH>LINK@UniswapV3/500 in=0.1860 LINK gap=34.1bps profit=$0.001 net=$-0.052"}
+{"level":30,"time":1790806528124,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.002747 WETH gap=57bps profit=$0.015 net=$-0.048"}
+{"level":30,"time":1790806540607,"pid":20662,"hostname":"vm","block":26093218,"gross":78,"net":0,"sumNetUsd":0,"gasPriceGwei":0.106756555,"txCostUsd":0.0715,"syncMs":113,"searchMs":141,"msg":"block scanned"}
+{"level":30,"time":1790806540607,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.045"}
+{"level":30,"time":1790806540607,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.045"}
+{"level":30,"time":1790806540607,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.032"}
+{"level":30,"time":1790806540607,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.002747 WETH gap=57bps profit=$0.015 net=$-0.056"}
+{"level":30,"time":1790806540607,"pid":20662,"hostname":"vm","msg":"  WETH>USDT@UniswapV3/100 USDT>WETH@PancakeV3/100 in=0.02126 WETH gap=7.1bps profit=$0.014 net=$-0.045"}
+{"level":30,"time":1790806553097,"pid":20662,"hostname":"vm","block":26093219,"gross":73,"net":0,"sumNetUsd":0,"gasPriceGwei":0.110117782,"txCostUsd":0.0738,"syncMs":106,"searchMs":154,"msg":"block scanned"}
+{"level":30,"time":1790806553097,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790806553097,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806553097,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.033"}
+{"level":30,"time":1790806553097,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.002747 WETH gap=57bps profit=$0.015 net=$-0.058"}
+{"level":30,"time":1790806553097,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@SushiV3/500 in=0.002433 WETH gap=57bps profit=$0.012 net=$-0.061"}
+{"level":30,"time":1790806565571,"pid":20662,"hostname":"vm","block":26093220,"gross":69,"net":0,"sumNetUsd":0,"gasPriceGwei":0.105529744,"txCostUsd":0.0707,"syncMs":102,"searchMs":163,"msg":"block scanned"}
+{"level":30,"time":1790806565571,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790806565571,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.045"}
+{"level":30,"time":1790806565571,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.032"}
+{"level":30,"time":1790806565571,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.002747 WETH gap=57bps profit=$0.015 net=$-0.055"}
+{"level":30,"time":1790806565571,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@PancakeV3/100 USDC>USDT@UniswapV4/7 USDT>WETH@PancakeV3/100 in=0.01955 WETH gap=5.2bps profit=$0.014 net=$-0.076"}
+{"level":30,"time":1790806578140,"pid":20662,"hostname":"vm","block":26093221,"gross":69,"net":0,"sumNetUsd":0,"gasPriceGwei":0.109963256,"txCostUsd":0.0737,"syncMs":133,"searchMs":195,"msg":"block scanned"}
+{"level":30,"time":1790806578140,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790806578140,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790806578140,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.033"}
+{"level":30,"time":1790806578140,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.002747 WETH gap=57bps profit=$0.015 net=$-0.058"}
+{"level":30,"time":1790806578140,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@SushiV3/500 in=0.002433 WETH gap=57bps profit=$0.012 net=$-0.061"}
+{"level":30,"time":1790806590723,"pid":20662,"hostname":"vm","block":26093222,"gross":81,"net":0,"sumNetUsd":0,"gasPriceGwei":0.115698415,"txCostUsd":0.0775,"syncMs":173,"searchMs":176,"msg":"block scanned"}
+{"level":30,"time":1790806590723,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790806590723,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790806590723,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.035"}
+{"level":30,"time":1790806590723,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>USDT@UniswapV4/7 USDT>WETH@PancakeV3/100 in=0.03086 WETH gap=7.2bps profit=$0.030 net=$-0.069"}
+{"level":30,"time":1790806590723,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>USDT@UniswapV4/10 USDT>WETH@PancakeV3/100 in=0.03070 WETH gap=7.2bps profit=$0.029 net=$-0.070"}
+{"level":30,"time":1790806603228,"pid":20662,"hostname":"vm","block":26093223,"gross":81,"net":0,"sumNetUsd":0,"gasPriceGwei":0.116873095,"txCostUsd":0.0783,"syncMs":115,"searchMs":155,"msg":"block scanned"}
+{"level":30,"time":1790806603229,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790806603229,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790806603229,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.035"}
+{"level":30,"time":1790806603229,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>USDT@UniswapV4/7 USDT>WETH@PancakeV3/100 in=0.03027 WETH gap=7.1bps profit=$0.029 net=$-0.071"}
+{"level":30,"time":1790806603229,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>USDT@UniswapV4/10 USDT>WETH@PancakeV3/100 in=0.03039 WETH gap=7.1bps profit=$0.029 net=$-0.071"}
+{"level":30,"time":1790806615911,"pid":20662,"hostname":"vm","block":26093224,"gross":84,"net":0,"sumNetUsd":0,"gasPriceGwei":0.118507014,"txCostUsd":0.0794,"syncMs":294,"searchMs":161,"msg":"block scanned"}
+{"level":30,"time":1790806615911,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.050"}
+{"level":30,"time":1790806615911,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.050"}
+{"level":30,"time":1790806615911,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.036"}
+{"level":30,"time":1790806615911,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>USDT@UniswapV4/7 USDT>WETH@PancakeV3/100 in=0.02913 WETH gap=6.8bps profit=$0.026 net=$-0.075"}
+{"level":30,"time":1790806615911,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>USDT@UniswapV4/10 USDT>WETH@PancakeV3/100 in=0.02892 WETH gap=6.8bps profit=$0.026 net=$-0.075"}
+{"level":30,"time":1790806622326,"pid":20662,"hostname":"vm","block":26093225,"gross":81,"net":0,"sumNetUsd":0,"gasPriceGwei":0.119213596,"txCostUsd":0.0799,"syncMs":115,"searchMs":161,"msg":"block scanned"}
+{"level":30,"time":1790806622326,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.050"}
+{"level":30,"time":1790806622326,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.050"}
+{"level":30,"time":1790806622326,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.036"}
+{"level":30,"time":1790806622326,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@SushiV3/500 in=0.002433 WETH gap=52.5bps profit=$0.012 net=$-0.067"}
+{"level":30,"time":1790806622326,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/500 in=0.002319 WETH gap=52.5bps profit=$0.011 net=$-0.069"}
+{"level":30,"time":1790806634875,"pid":20662,"hostname":"vm","block":26093226,"gross":82,"net":0,"sumNetUsd":0,"gasPriceGwei":0.111972393,"txCostUsd":0.075,"syncMs":140,"searchMs":157,"msg":"block scanned"}
+{"level":30,"time":1790806634875,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806634875,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806634875,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.034"}
+{"level":30,"time":1790806634875,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@SushiV3/500 in=0.002433 WETH gap=52.5bps profit=$0.012 net=$-0.062"}
+{"level":30,"time":1790806634875,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/500 in=0.002319 WETH gap=52.5bps profit=$0.011 net=$-0.064"}
+{"level":30,"time":1790806647429,"pid":20662,"hostname":"vm","block":26093227,"gross":89,"net":0,"sumNetUsd":0,"gasPriceGwei":0.111832481,"txCostUsd":0.075,"syncMs":124,"searchMs":184,"msg":"block scanned"}
+{"level":30,"time":1790806647429,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806647429,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806647429,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.034"}
+{"level":30,"time":1790806647429,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>WETH@PancakeV3/500 in=0.01049 WETH gap=15.9bps profit=$0.014 net=$-0.053"}
+{"level":30,"time":1790806647429,"pid":20662,"hostname":"vm","msg":"  WETH>USDT@UniswapV3/100 USDT>USDC@UniswapV4/8 USDC>WETH@PancakeV3/500 in=0.01020 WETH gap=28.6bps profit=$0.013 net=$-0.087"}
+{"level":30,"time":1790806659966,"pid":20662,"hostname":"vm","block":26093228,"gross":70,"net":0,"sumNetUsd":0,"gasPriceGwei":0.114248267,"txCostUsd":0.0766,"syncMs":139,"searchMs":156,"msg":"block scanned"}
+{"level":30,"time":1790806659966,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790806659966,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790806659966,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.035"}
+{"level":30,"time":1790806659966,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>WETH@PancakeV3/100 in=0.06029 WETH gap=4.2bps profit=$0.018 net=$-0.045"}
+{"level":30,"time":1790806659966,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@SushiV3/500 in=0.002433 WETH gap=52.5bps profit=$0.012 net=$-0.064"}
+{"level":30,"time":1790806675499,"pid":20662,"hostname":"vm","block":26093229,"gross":76,"net":0,"sumNetUsd":0,"gasPriceGwei":0.113987326,"txCostUsd":0.0764,"syncMs":3121,"searchMs":152,"msg":"block scanned"}
+{"level":30,"time":1790806675499,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790806675499,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790806675499,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.035"}
+{"level":30,"time":1790806675499,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV4/100 USDC>DAI@UniswapV3/100 DAI>WETH@UniswapV3/500 in=0.03748 WETH gap=6.4bps profit=$0.014 net=$-0.084"}
+{"level":30,"time":1790806675499,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV4/100 USDC>USDT@UniswapV4/7 USDT>WETH@SushiV3/500 in=0.01618 WETH gap=6bps profit=$0.013 net=$-0.092"}
+{"level":30,"time":1790806684976,"pid":20662,"hostname":"vm","block":26093230,"gross":76,"net":0,"sumNetUsd":0,"gasPriceGwei":0.114702443,"txCostUsd":0.0769,"syncMs":130,"searchMs":144,"msg":"block scanned"}
+{"level":30,"time":1790806684976,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790806684976,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790806684976,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.035"}
+{"level":30,"time":1790806684976,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV4/100 USDC>DAI@UniswapV3/100 DAI>WETH@UniswapV3/500 in=0.03748 WETH gap=6.4bps profit=$0.014 net=$-0.084"}
+{"level":30,"time":1790806684976,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV4/100 USDC>USDT@UniswapV4/7 USDT>WETH@SushiV3/500 in=0.01618 WETH gap=6bps profit=$0.013 net=$-0.093"}
+{"level":30,"time":1790806697535,"pid":20662,"hostname":"vm","block":26093231,"gross":66,"net":0,"sumNetUsd":0,"gasPriceGwei":0.103290553,"txCostUsd":0.0692,"syncMs":141,"searchMs":172,"msg":"block scanned"}
+{"level":30,"time":1790806697535,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790806697535,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790806697535,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.031"}
+{"level":30,"time":1790806697535,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@SushiV3/500 in=0.002433 WETH gap=52.5bps profit=$0.012 net=$-0.057"}
+{"level":30,"time":1790806697535,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.002206 WETH gap=52.5bps profit=$0.010 net=$-0.059"}
+{"level":30,"time":1790806710030,"pid":20662,"hostname":"vm","block":26093232,"gross":63,"net":0,"sumNetUsd":0,"gasPriceGwei":0.110827971,"txCostUsd":0.0743,"syncMs":142,"searchMs":145,"msg":"block scanned"}
+{"level":30,"time":1790806710031,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790806710031,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806710031,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.034"}
+{"level":30,"time":1790806710031,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@SushiV3/500 in=0.002433 WETH gap=52.5bps profit=$0.012 net=$-0.062"}
+{"level":30,"time":1790806710031,"pid":20662,"hostname":"vm","msg":"  WETH>USDT@UniswapV3/100 USDT>WETH@SushiV3/500 in=0.01530 WETH gap=11.6bps profit=$0.012 net=$-0.050"}
+{"level":30,"time":1790806722578,"pid":20662,"hostname":"vm","block":26093233,"gross":62,"net":0,"sumNetUsd":0,"gasPriceGwei":0.112126738,"txCostUsd":0.0752,"syncMs":112,"searchMs":189,"msg":"block scanned"}
+{"level":30,"time":1790806722578,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806722578,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806722578,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.034"}
+{"level":30,"time":1790806722578,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@SushiV3/500 in=0.002433 WETH gap=52.5bps profit=$0.012 net=$-0.062"}
+{"level":30,"time":1790806722578,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>USDT@UniswapV4/7 USDT>WETH@SushiV3/500 in=0.01535 WETH gap=5.5bps profit=$0.011 net=$-0.085"}
+{"level":30,"time":1790806735055,"pid":20662,"hostname":"vm","block":26093234,"gross":62,"net":0,"sumNetUsd":0,"gasPriceGwei":0.109864703,"txCostUsd":0.0736,"syncMs":116,"searchMs":139,"msg":"block scanned"}
+{"level":30,"time":1790806735055,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790806735055,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790806735055,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.033"}
+{"level":30,"time":1790806735055,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@SushiV3/500 in=0.002433 WETH gap=52.5bps profit=$0.012 net=$-0.061"}
+{"level":30,"time":1790806735055,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>USDT@UniswapV4/7 USDT>WETH@SushiV3/500 in=0.01520 WETH gap=5.5bps profit=$0.011 net=$-0.083"}
+{"level":30,"time":1790806747526,"pid":20662,"hostname":"vm","block":26093235,"gross":50,"net":0,"sumNetUsd":0,"gasPriceGwei":0.108612287,"txCostUsd":0.0728,"syncMs":125,"searchMs":126,"msg":"block scanned"}
+{"level":30,"time":1790806747526,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.045"}
+{"level":30,"time":1790806747526,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790806747526,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.033"}
+{"level":30,"time":1790806747526,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@UniswapV3/100 in=0.002050 WETH gap=45.8bps profit=$0.008 net=$-0.064"}
+{"level":30,"time":1790806747526,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/500 in=0.002041 WETH gap=45.8bps profit=$0.008 net=$-0.064"}
+{"level":30,"time":1790806753919,"pid":20662,"hostname":"vm","block":26093236,"gross":50,"net":0,"sumNetUsd":0,"gasPriceGwei":0.112549648,"txCostUsd":0.0754,"syncMs":132,"searchMs":131,"msg":"block scanned"}
+{"level":30,"time":1790806753919,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806753919,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790806753919,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.034"}
+{"level":30,"time":1790806753919,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@UniswapV3/100 in=0.002050 WETH gap=45.8bps profit=$0.008 net=$-0.067"}
+{"level":30,"time":1790806753919,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/500 in=0.002041 WETH gap=45.8bps profit=$0.008 net=$-0.067"}
+{"level":30,"time":1790806766379,"pid":20662,"hostname":"vm","block":26093237,"gross":56,"net":0,"sumNetUsd":0,"gasPriceGwei":0.109729995,"txCostUsd":0.0736,"syncMs":107,"searchMs":125,"msg":"block scanned"}
+{"level":30,"time":1790806766379,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790806766379,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790806766379,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.033"}
+{"level":30,"time":1790806766379,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@UniswapV3/100 in=0.002050 WETH gap=45.8bps profit=$0.008 net=$-0.065"}
+{"level":30,"time":1790806766379,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/500 in=0.002041 WETH gap=45.8bps profit=$0.008 net=$-0.065"}
+{"level":30,"time":1790806778913,"pid":20662,"hostname":"vm","block":26093238,"gross":50,"net":0,"sumNetUsd":0,"gasPriceGwei":0.114723683,"txCostUsd":0.0769,"syncMs":142,"searchMs":140,"msg":"block scanned"}
+{"level":30,"time":1790806778913,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790806778913,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790806778913,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.027e+5 SHIB gap=70.6bps profit=$0.000 net=$-0.035"}
+{"level":30,"time":1790806778913,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/500 in=0.002041 WETH gap=45.7bps profit=$0.008 net=$-0.068"}
+{"level":30,"time":1790806778913,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.001941 WETH gap=45.7bps profit=$0.008 net=$-0.069"}
+{"level":30,"time":1790806791425,"pid":20662,"hostname":"vm","block":26093239,"gross":54,"net":0,"sumNetUsd":0,"gasPriceGwei":0.116489617,"txCostUsd":0.0781,"syncMs":140,"searchMs":135,"msg":"block scanned"}
+{"level":30,"time":1790806791425,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790806791425,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790806791425,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=7.767e+4 SHIB gap=68.1bps profit=$0.000 net=$-0.035"}
+{"level":30,"time":1790806791425,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/500 in=0.002041 WETH gap=45.7bps profit=$0.008 net=$-0.069"}
+{"level":30,"time":1790806791425,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.001941 WETH gap=45.7bps profit=$0.008 net=$-0.070"}
+{"level":30,"time":1790806803942,"pid":20662,"hostname":"vm","block":26093240,"gross":52,"net":0,"sumNetUsd":0,"gasPriceGwei":0.114832734,"txCostUsd":0.077,"syncMs":156,"searchMs":137,"msg":"block scanned"}
+{"level":30,"time":1790806803942,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790806803942,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790806803942,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=7.767e+4 SHIB gap=68.1bps profit=$0.000 net=$-0.035"}
+{"level":30,"time":1790806803942,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/500 in=0.002041 WETH gap=45.7bps profit=$0.008 net=$-0.068"}
+{"level":30,"time":1790806803942,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.001941 WETH gap=45.7bps profit=$0.008 net=$-0.069"}
+{"level":30,"time":1790806816436,"pid":20662,"hostname":"vm","block":26093241,"gross":56,"net":0,"sumNetUsd":0,"gasPriceGwei":0.111679432,"txCostUsd":0.0749,"syncMs":117,"searchMs":140,"msg":"block scanned"}
+{"level":30,"time":1790806816436,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806816436,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806816436,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=7.767e+4 SHIB gap=68.1bps profit=$0.000 net=$-0.034"}
+{"level":30,"time":1790806816436,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/500 in=0.002041 WETH gap=45.7bps profit=$0.008 net=$-0.066"}
+{"level":30,"time":1790806816436,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.001941 WETH gap=45.7bps profit=$0.008 net=$-0.067"}
+{"level":30,"time":1790806828961,"pid":20662,"hostname":"vm","block":26093242,"gross":76,"net":0,"sumNetUsd":0,"gasPriceGwei":0.111965555,"txCostUsd":0.0751,"syncMs":144,"searchMs":153,"msg":"block scanned"}
+{"level":30,"time":1790806828961,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806828961,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806828961,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=7.767e+4 SHIB gap=68.1bps profit=$0.000 net=$-0.034"}
+{"level":30,"time":1790806828961,"pid":20662,"hostname":"vm","msg":"  WETH>USDT@UniswapV3/100 USDT>DAI@UniswapV3/100 DAI>WETH@UniswapV3/500 in=0.05622 WETH gap=10.2bps profit=$0.028 net=$-0.060"}
+{"level":30,"time":1790806828961,"pid":20662,"hostname":"vm","msg":"  WETH>USDT@UniswapV3/100 USDT>WETH@PancakeV3/500 in=0.05893 WETH gap=8.6bps profit=$0.021 net=$-0.041"}
+{"level":30,"time":1790806841560,"pid":20662,"hostname":"vm","block":26093243,"gross":76,"net":0,"sumNetUsd":0,"gasPriceGwei":0.116362893,"txCostUsd":0.078,"syncMs":180,"searchMs":164,"msg":"block scanned"}
+{"level":30,"time":1790806841560,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790806841560,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790806841560,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=7.767e+4 SHIB gap=68.1bps profit=$0.000 net=$-0.035"}
+{"level":30,"time":1790806841560,"pid":20662,"hostname":"vm","msg":"  WETH>USDT@UniswapV3/100 USDT>DAI@UniswapV3/100 DAI>WETH@UniswapV3/500 in=0.05622 WETH gap=10.2bps profit=$0.028 net=$-0.063"}
+{"level":30,"time":1790806841560,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>DAI@UniswapV3/100 DAI>WETH@UniswapV3/500 in=0.05763 WETH gap=10bps profit=$0.027 net=$-0.064"}
+{"level":30,"time":1790806857053,"pid":20662,"hostname":"vm","block":26093244,"gross":75,"net":0,"sumNetUsd":0,"gasPriceGwei":0.113925671,"txCostUsd":0.0764,"syncMs":3107,"searchMs":166,"msg":"block scanned"}
+{"level":30,"time":1790806857053,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790806857053,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790806857053,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=7.767e+4 SHIB gap=68.1bps profit=$0.000 net=$-0.035"}
+{"level":30,"time":1790806857053,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV4/100 USDC>DAI@UniswapV3/100 DAI>WETH@UniswapV3/500 in=0.04602 WETH gap=9.8bps profit=$0.021 net=$-0.077"}
+{"level":30,"time":1790806857053,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV4/100 USDC>DAI@PancakeV3/100 DAI>WETH@UniswapV3/500 in=0.04426 WETH gap=9.8bps profit=$0.020 net=$-0.078"}
+{"level":30,"time":1790806866526,"pid":20662,"hostname":"vm","block":26093245,"gross":66,"net":0,"sumNetUsd":0,"gasPriceGwei":0.111572474,"txCostUsd":0.0748,"syncMs":116,"searchMs":154,"msg":"block scanned"}
+{"level":30,"time":1790806866526,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806866526,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806866526,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=7.767e+4 SHIB gap=68.1bps profit=$0.000 net=$-0.034"}
+{"level":30,"time":1790806866526,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV4/100 USDC>DAI@UniswapV3/100 DAI>WETH@UniswapV3/500 in=0.04602 WETH gap=9.8bps profit=$0.021 net=$-0.075"}
+{"level":30,"time":1790806866526,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV4/100 USDC>DAI@PancakeV3/100 DAI>WETH@UniswapV3/500 in=0.04426 WETH gap=9.8bps profit=$0.020 net=$-0.076"}
+{"level":30,"time":1790806879005,"pid":20662,"hostname":"vm","block":26093246,"gross":71,"net":0,"sumNetUsd":0,"gasPriceGwei":0.110462013,"txCostUsd":0.0741,"syncMs":118,"searchMs":134,"msg":"block scanned"}
+{"level":30,"time":1790806879005,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790806879005,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.871e+5 SHIB gap=79.1bps profit=$0.001 net=$-0.033"}
+{"level":30,"time":1790806879005,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806879005,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV2 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/500 in=0.002167 WETH gap=44.9bps profit=$0.009 net=$-0.050"}
+{"level":30,"time":1790806879005,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV2 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.002168 WETH gap=44.9bps profit=$0.009 net=$-0.050"}
+{"level":30,"time":1790806885416,"pid":20662,"hostname":"vm","block":26093247,"gross":71,"net":0,"sumNetUsd":0,"gasPriceGwei":0.113014731,"txCostUsd":0.0758,"syncMs":128,"searchMs":136,"msg":"block scanned"}
+{"level":30,"time":1790806885416,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790806885416,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.871e+5 SHIB gap=79.1bps profit=$0.001 net=$-0.034"}
+{"level":30,"time":1790806885416,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790806885416,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV2 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/500 in=0.002167 WETH gap=44.9bps profit=$0.009 net=$-0.052"}
+{"level":30,"time":1790806885416,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV2 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.002168 WETH gap=44.9bps profit=$0.009 net=$-0.052"}
+{"level":30,"time":1790806897960,"pid":20662,"hostname":"vm","block":26093248,"gross":67,"net":0,"sumNetUsd":0,"gasPriceGwei":0.10865842,"txCostUsd":0.0729,"syncMs":154,"searchMs":136,"msg":"block scanned"}
+{"level":30,"time":1790806897960,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.045"}
+{"level":30,"time":1790806897960,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.871e+5 SHIB gap=79.1bps profit=$0.001 net=$-0.032"}
+{"level":30,"time":1790806897960,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790806897960,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV2 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.002168 WETH gap=44.9bps profit=$0.009 net=$-0.049"}
+{"level":30,"time":1790806897960,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV2 SHIB>USDT@UniswapV2 USDT>WETH@UniswapV3/100 in=0.001985 WETH gap=44.9bps profit=$0.008 net=$-0.051"}
+{"level":30,"time":1790806910467,"pid":20662,"hostname":"vm","block":26093249,"gross":71,"net":0,"sumNetUsd":0,"gasPriceGwei":0.10612974,"txCostUsd":0.0712,"syncMs":133,"searchMs":150,"msg":"block scanned"}
+{"level":30,"time":1790806910467,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790806910467,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.871e+5 SHIB gap=79.1bps profit=$0.001 net=$-0.031"}
+{"level":30,"time":1790806910467,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.045"}
+{"level":30,"time":1790806910467,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV2 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.002168 WETH gap=44.9bps profit=$0.009 net=$-0.048"}
+{"level":30,"time":1790806910467,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV2 SHIB>USDT@UniswapV2 USDT>WETH@UniswapV3/100 in=0.001985 WETH gap=44.9bps profit=$0.008 net=$-0.050"}
+{"level":30,"time":1790806922993,"pid":20662,"hostname":"vm","block":26093250,"gross":71,"net":0,"sumNetUsd":0,"gasPriceGwei":0.102252778,"txCostUsd":0.0686,"syncMs":128,"searchMs":143,"msg":"block scanned"}
+{"level":30,"time":1790806922994,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790806922994,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790806922994,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.243e+5 SHIB gap=72.8bps profit=$0.000 net=$-0.031"}
+{"level":30,"time":1790806922994,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.001941 WETH gap=44.9bps profit=$0.008 net=$-0.060"}
+{"level":30,"time":1790806922994,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.05241 DAI gap=7bps profit=$0.000 net=$-0.056"}
+{"level":30,"time":1790806935563,"pid":20662,"hostname":"vm","block":26093251,"gross":71,"net":0,"sumNetUsd":0,"gasPriceGwei":0.104209266,"txCostUsd":0.0699,"syncMs":173,"searchMs":139,"msg":"block scanned"}
+{"level":30,"time":1790806935563,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790806935563,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790806935563,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.243e+5 SHIB gap=72.8bps profit=$0.000 net=$-0.031"}
+{"level":30,"time":1790806935563,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.001941 WETH gap=44.9bps profit=$0.008 net=$-0.062"}
+{"level":30,"time":1790806935563,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.05241 DAI gap=7bps profit=$0.000 net=$-0.058"}
+{"level":30,"time":1790806948106,"pid":20662,"hostname":"vm","block":26093252,"gross":71,"net":0,"sumNetUsd":0,"gasPriceGwei":0.099686515,"txCostUsd":0.0668,"syncMs":139,"searchMs":148,"msg":"block scanned"}
+{"level":30,"time":1790806948107,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.042"}
+{"level":30,"time":1790806948107,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.552e+5 SHIB gap=75.9bps profit=$0.001 net=$-0.042"}
+{"level":30,"time":1790806948107,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.243e+5 SHIB gap=72.8bps profit=$0.000 net=$-0.030"}
+{"level":30,"time":1790806948107,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV3/3000 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.001941 WETH gap=44.9bps profit=$0.008 net=$-0.059"}
+{"level":30,"time":1790806948107,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.05241 DAI gap=7bps profit=$0.000 net=$-0.055"}
+{"level":30,"time":1790806960591,"pid":20662,"hostname":"vm","block":26093253,"gross":71,"net":0,"sumNetUsd":0,"gasPriceGwei":0.10369268,"txCostUsd":0.0695,"syncMs":128,"searchMs":139,"msg":"block scanned"}
+{"level":30,"time":1790806960591,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790806960591,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.243e+5 SHIB gap=72.8bps profit=$0.000 net=$-0.031"}
+{"level":30,"time":1790806960591,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.044"}
+{"level":30,"time":1790806960591,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.05241 DAI gap=7bps profit=$0.000 net=$-0.057"}
+{"level":30,"time":1790806960591,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV2 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.001752 WETH gap=44.9bps profit=$0.006 net=$-0.050"}
+{"level":30,"time":1790806973103,"pid":20662,"hostname":"vm","block":26093254,"gross":70,"net":0,"sumNetUsd":0,"gasPriceGwei":0.104133967,"txCostUsd":0.0698,"syncMs":147,"searchMs":143,"msg":"block scanned"}
+{"level":30,"time":1790806973103,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790806973103,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.243e+5 SHIB gap=72.8bps profit=$0.000 net=$-0.031"}
+{"level":30,"time":1790806973103,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.045"}
+{"level":30,"time":1790806973103,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.05241 DAI gap=7bps profit=$0.000 net=$-0.058"}
+{"level":30,"time":1790806973103,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV2 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/500 in=0.001537 WETH gap=41.4bps profit=$0.005 net=$-0.056"}
+{"level":30,"time":1790806985666,"pid":20662,"hostname":"vm","block":26093255,"gross":70,"net":0,"sumNetUsd":0,"gasPriceGwei":0.110197113,"txCostUsd":0.0739,"syncMs":220,"searchMs":142,"msg":"block scanned"}
+{"level":30,"time":1790806985666,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790806985666,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.243e+5 SHIB gap=72.8bps profit=$0.000 net=$-0.033"}
+{"level":30,"time":1790806985666,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.047"}
+{"level":30,"time":1790806985666,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.05241 DAI gap=7bps profit=$0.000 net=$-0.061"}
+{"level":30,"time":1790806985666,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV2 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/500 in=0.001537 WETH gap=41.4bps profit=$0.005 net=$-0.060"}
+{"level":30,"time":1790806998175,"pid":20662,"hostname":"vm","block":26093256,"gross":81,"net":0,"sumNetUsd":0,"gasPriceGwei":0.099311283,"txCostUsd":0.0666,"syncMs":128,"searchMs":143,"msg":"block scanned"}
+{"level":30,"time":1790806998175,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.041"}
+{"level":30,"time":1790806998176,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.030"}
+{"level":30,"time":1790806998176,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.043"}
+{"level":30,"time":1790806998176,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@PancakeV3/100 USDC>DAI@UniswapV3/100 DAI>WETH@UniswapV3/500 in=0.03074 WETH gap=14bps profit=$0.012 net=$-0.066"}
+{"level":30,"time":1790806998176,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@PancakeV3/100 USDC>DAI@PancakeV3/100 DAI>WETH@UniswapV3/500 in=0.02994 WETH gap=14bps profit=$0.012 net=$-0.067"}
+{"level":30,"time":1790807010735,"pid":20662,"hostname":"vm","block":26093257,"gross":76,"net":0,"sumNetUsd":0,"gasPriceGwei":0.111626869,"txCostUsd":0.0749,"syncMs":187,"searchMs":138,"msg":"block scanned"}
+{"level":30,"time":1790807010735,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790807010735,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.034"}
+{"level":30,"time":1790807010735,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.048"}
+{"level":30,"time":1790807010735,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.1451 DAI gap=8.7bps profit=$0.000 net=$-0.062"}
+{"level":30,"time":1790807010735,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@PancakeV3/100 USDC>WETH@PancakeV3/500 in=0.007490 WETH gap=13.4bps profit=$0.007 net=$-0.059"}
+{"level":30,"time":1790807023276,"pid":20662,"hostname":"vm","block":26093258,"gross":74,"net":0,"sumNetUsd":0,"gasPriceGwei":0.112645814,"txCostUsd":0.0756,"syncMs":151,"searchMs":141,"msg":"block scanned"}
+{"level":30,"time":1790807023276,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790807023276,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.034"}
+{"level":30,"time":1790807023276,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.048"}
+{"level":30,"time":1790807023276,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.1451 DAI gap=8.7bps profit=$0.000 net=$-0.062"}
+{"level":30,"time":1790807023276,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@PancakeV3/100 USDC>WETH@PancakeV3/500 in=0.007490 WETH gap=13.4bps profit=$0.007 net=$-0.060"}
+{"level":30,"time":1790807032624,"pid":20662,"hostname":"vm","block":26093259,"gross":90,"net":0,"sumNetUsd":0,"gasPriceGwei":0.111829514,"txCostUsd":0.075,"syncMs":3053,"searchMs":146,"msg":"block scanned"}
+{"level":30,"time":1790807032624,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790807032624,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.034"}
+{"level":30,"time":1790807032624,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.048"}
+{"level":30,"time":1790807032624,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.3403 DAI gap=12.3bps profit=$0.000 net=$-0.062"}
+{"level":30,"time":1790807032624,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>WETH@PancakeV3/500 in=0.009493 WETH gap=15bps profit=$0.011 net=$-0.055"}
+{"level":30,"time":1790807048195,"pid":20662,"hostname":"vm","block":26093260,"gross":70,"net":0,"sumNetUsd":0,"gasPriceGwei":0.117503791,"txCostUsd":0.0788,"syncMs":135,"searchMs":153,"msg":"block scanned"}
+{"level":30,"time":1790807048195,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790807048195,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.036"}
+{"level":30,"time":1790807048195,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.050"}
+{"level":30,"time":1790807048195,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.3403 DAI gap=12.3bps profit=$0.000 net=$-0.065"}
+{"level":30,"time":1790807048195,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV2 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.001285 WETH gap=39.5bps profit=$0.003 net=$-0.060"}
+{"level":30,"time":1790807054602,"pid":20662,"hostname":"vm","block":26093261,"gross":66,"net":0,"sumNetUsd":0,"gasPriceGwei":0.118822809,"txCostUsd":0.0797,"syncMs":136,"searchMs":139,"msg":"block scanned"}
+{"level":30,"time":1790807054602,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.050"}
+{"level":30,"time":1790807054602,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.036"}
+{"level":30,"time":1790807054602,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.051"}
+{"level":30,"time":1790807054602,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.3403 DAI gap=12.3bps profit=$0.000 net=$-0.066"}
+{"level":30,"time":1790807054602,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@PancakeV3/100 USDC>USDT@UniswapV4/7 USDT>WETH@UniswapV3/100 in=0.05262 WETH gap=2.2bps profit=$0.016 net=$-0.086"}
+{"level":30,"time":1790807067100,"pid":20662,"hostname":"vm","block":26093262,"gross":64,"net":0,"sumNetUsd":0,"gasPriceGwei":0.118138835,"txCostUsd":0.0793,"syncMs":122,"searchMs":145,"msg":"block scanned"}
+{"level":30,"time":1790807067100,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.050"}
+{"level":30,"time":1790807067100,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.036"}
+{"level":30,"time":1790807067100,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.051"}
+{"level":30,"time":1790807067100,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.3403 DAI gap=12.3bps profit=$0.000 net=$-0.065"}
+{"level":30,"time":1790807067100,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV2 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.001285 WETH gap=39.5bps profit=$0.003 net=$-0.061"}
+{"level":30,"time":1790807079653,"pid":20662,"hostname":"vm","block":26093263,"gross":65,"net":0,"sumNetUsd":0,"gasPriceGwei":0.112702138,"txCostUsd":0.0756,"syncMs":156,"searchMs":144,"msg":"block scanned"}
+{"level":30,"time":1790807079653,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790807079653,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.034"}
+{"level":30,"time":1790807079653,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.048"}
+{"level":30,"time":1790807079653,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.3403 DAI gap=12.3bps profit=$0.000 net=$-0.062"}
+{"level":30,"time":1790807079653,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV2 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.001285 WETH gap=39.5bps profit=$0.003 net=$-0.058"}
+{"level":30,"time":1790807092144,"pid":20662,"hostname":"vm","block":26093264,"gross":65,"net":0,"sumNetUsd":0,"gasPriceGwei":0.111221115,"txCostUsd":0.0746,"syncMs":120,"searchMs":134,"msg":"block scanned"}
+{"level":30,"time":1790807092145,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790807092145,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.034"}
+{"level":30,"time":1790807092145,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.048"}
+{"level":30,"time":1790807092145,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.3403 DAI gap=12.3bps profit=$0.000 net=$-0.061"}
+{"level":30,"time":1790807092145,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV2 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.001285 WETH gap=39.5bps profit=$0.003 net=$-0.057"}
+{"level":30,"time":1790807104715,"pid":20662,"hostname":"vm","block":26093265,"gross":68,"net":0,"sumNetUsd":0,"gasPriceGwei":0.108641839,"txCostUsd":0.0729,"syncMs":153,"searchMs":138,"msg":"block scanned"}
+{"level":30,"time":1790807104715,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.045"}
+{"level":30,"time":1790807104715,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.033"}
+{"level":30,"time":1790807104715,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.047"}
+{"level":30,"time":1790807104715,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.3403 DAI gap=12.3bps profit=$0.000 net=$-0.060"}
+{"level":30,"time":1790807104715,"pid":20662,"hostname":"vm","msg":"  WETH>SHIB@UniswapV2 SHIB>USDT@UniswapV2 USDT>WETH@PancakeV3/100 in=0.001285 WETH gap=39.5bps profit=$0.003 net=$-0.056"}
+{"level":30,"time":1790807117175,"pid":20662,"hostname":"vm","block":26093266,"gross":80,"net":0,"sumNetUsd":0,"gasPriceGwei":0.109746597,"txCostUsd":0.0736,"syncMs":120,"searchMs":141,"msg":"block scanned"}
+{"level":30,"time":1790807117175,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790807117175,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.033"}
+{"level":30,"time":1790807117175,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.047"}
+{"level":30,"time":1790807117175,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.3403 DAI gap=12.3bps profit=$0.000 net=$-0.061"}
+{"level":30,"time":1790807117175,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>USDT@UniswapV4/7 USDT>WETH@PancakeV3/100 in=0.01407 WETH gap=3.3bps profit=$0.006 net=$-0.088"}
+{"level":30,"time":1790807129659,"pid":20662,"hostname":"vm","block":26093267,"gross":80,"net":0,"sumNetUsd":0,"gasPriceGwei":0.112231442,"txCostUsd":0.0753,"syncMs":107,"searchMs":158,"msg":"block scanned"}
+{"level":30,"time":1790807129659,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790807129659,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.034"}
+{"level":30,"time":1790807129659,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.048"}
+{"level":30,"time":1790807129659,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.3403 DAI gap=12.3bps profit=$0.000 net=$-0.062"}
+{"level":30,"time":1790807129659,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>USDT@UniswapV4/7 USDT>WETH@PancakeV3/100 in=0.01200 WETH gap=2.8bps profit=$0.005 net=$-0.092"}
+{"level":30,"time":1790807142413,"pid":20662,"hostname":"vm","block":26093268,"gross":99,"net":0,"sumNetUsd":0,"gasPriceGwei":0.117386314,"txCostUsd":0.0788,"syncMs":347,"searchMs":179,"msg":"block scanned"}
+{"level":30,"time":1790807142413,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790807142413,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.036"}
+{"level":30,"time":1790807142413,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.050"}
+{"level":30,"time":1790807142413,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.3403 DAI gap=12.3bps profit=$0.000 net=$-0.065"}
+{"level":30,"time":1790807142413,"pid":20662,"hostname":"vm","msg":"  WETH>USDT@UniswapV3/100 USDT>WETH@PancakeV3/100 in=0.02090 WETH gap=7bps profit=$0.014 net=$-0.051"}
+{"level":30,"time":1790807154913,"pid":20662,"hostname":"vm","block":26093269,"gross":99,"net":0,"sumNetUsd":0,"gasPriceGwei":0.114990992,"txCostUsd":0.0772,"syncMs":114,"searchMs":157,"msg":"block scanned"}
+{"level":30,"time":1790807154914,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790807154914,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.035"}
+{"level":30,"time":1790807154914,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.049"}
+{"level":30,"time":1790807154914,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.3403 DAI gap=12.3bps profit=$0.000 net=$-0.063"}
+{"level":30,"time":1790807154914,"pid":20662,"hostname":"vm","msg":"  WETH>USDT@UniswapV3/100 USDT>DAI@UniswapV3/100 DAI>WETH@UniswapV3/500 in=0.04706 WETH gap=19.5bps profit=$0.020 net=$-0.071"}
+{"level":30,"time":1790807161334,"pid":20662,"hostname":"vm","block":26093270,"gross":103,"net":0,"sumNetUsd":0,"gasPriceGwei":0.111112453,"txCostUsd":0.0746,"syncMs":90,"searchMs":181,"msg":"block scanned"}
+{"level":30,"time":1790807161334,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790807161334,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.034"}
+{"level":30,"time":1790807161334,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.048"}
+{"level":30,"time":1790807161334,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.3403 DAI gap=12.3bps profit=$0.000 net=$-0.061"}
+{"level":30,"time":1790807161334,"pid":20662,"hostname":"vm","msg":"  WETH>USDT@UniswapV3/100 USDT>DAI@UniswapV3/100 DAI>WETH@UniswapV3/500 in=0.04606 WETH gap=19.4bps profit=$0.019 net=$-0.069"}
+{"level":30,"time":1790807173903,"pid":20662,"hostname":"vm","block":26093271,"gross":103,"net":0,"sumNetUsd":0,"gasPriceGwei":0.109742868,"txCostUsd":0.0736,"syncMs":132,"searchMs":156,"msg":"block scanned"}
+{"level":30,"time":1790807173903,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790807173903,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.033"}
+{"level":30,"time":1790807173903,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.047"}
+{"level":30,"time":1790807173903,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.3403 DAI gap=12.3bps profit=$0.000 net=$-0.061"}
+{"level":30,"time":1790807173903,"pid":20662,"hostname":"vm","msg":"  WETH>USDT@UniswapV3/100 USDT>DAI@UniswapV3/100 DAI>WETH@UniswapV3/500 in=0.04606 WETH gap=19.4bps profit=$0.019 net=$-0.068"}
+{"level":30,"time":1790807186431,"pid":20662,"hostname":"vm","block":26093272,"gross":130,"net":0,"sumNetUsd":0,"gasPriceGwei":0.099139056,"txCostUsd":0.0666,"syncMs":92,"searchMs":187,"msg":"block scanned"}
+{"level":30,"time":1790807186431,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.041"}
+{"level":30,"time":1790807186431,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=1.089e+5 SHIB gap=71.2bps profit=$0.000 net=$-0.030"}
+{"level":30,"time":1790807186431,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.043"}
+{"level":30,"time":1790807186431,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.054"}
+{"level":30,"time":1790807186431,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV2 WETH>DAI@UniswapV3/500 in=4.220 DAI gap=36bps profit=$0.000 net=$-0.042"}
+{"level":30,"time":1790807199028,"pid":20662,"hostname":"vm","block":26093273,"gross":129,"net":0,"sumNetUsd":0,"gasPriceGwei":0.102838709,"txCostUsd":0.069,"syncMs":207,"searchMs":182,"msg":"block scanned"}
+{"level":30,"time":1790807199028,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790807199028,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=4.037e+4 SHIB gap=64.3bps profit=$0.000 net=$-0.031"}
+{"level":30,"time":1790807199028,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.044"}
+{"level":30,"time":1790807199028,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.056"}
+{"level":30,"time":1790807199028,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV2 WETH>DAI@UniswapV3/500 in=4.220 DAI gap=36bps profit=$0.000 net=$-0.044"}
+{"level":30,"time":1790807214682,"pid":20662,"hostname":"vm","block":26093274,"gross":130,"net":0,"sumNetUsd":0,"gasPriceGwei":0.102383034,"txCostUsd":0.0687,"syncMs":3230,"searchMs":190,"msg":"block scanned"}
+{"level":30,"time":1790807214682,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790807214682,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=4.037e+4 SHIB gap=64.3bps profit=$0.000 net=$-0.031"}
+{"level":30,"time":1790807214682,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.044"}
+{"level":30,"time":1790807214682,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.056"}
+{"level":30,"time":1790807214682,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV2 WETH>DAI@UniswapV3/500 in=4.220 DAI gap=36bps profit=$0.000 net=$-0.044"}
+{"level":30,"time":1790807224210,"pid":20662,"hostname":"vm","block":26093275,"gross":130,"net":0,"sumNetUsd":0,"gasPriceGwei":0.108814557,"txCostUsd":0.073,"syncMs":139,"searchMs":192,"msg":"block scanned"}
+{"level":30,"time":1790807224210,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790807224210,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=4.037e+4 SHIB gap=64.3bps profit=$0.000 net=$-0.033"}
+{"level":30,"time":1790807224210,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.047"}
+{"level":30,"time":1790807224210,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.059"}
+{"level":30,"time":1790807224210,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV2 WETH>DAI@UniswapV3/500 in=4.220 DAI gap=36bps profit=$0.000 net=$-0.047"}
+{"level":30,"time":1790807236756,"pid":20662,"hostname":"vm","block":26093276,"gross":126,"net":0,"sumNetUsd":0,"gasPriceGwei":0.097567858,"txCostUsd":0.0655,"syncMs":125,"searchMs":212,"msg":"block scanned"}
+{"level":30,"time":1790807236756,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.041"}
+{"level":30,"time":1790807236756,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=4.037e+4 SHIB gap=64.3bps profit=$0.000 net=$-0.030"}
+{"level":30,"time":1790807236756,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.042"}
+{"level":30,"time":1790807236756,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.053"}
+{"level":30,"time":1790807236756,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV2 WETH>DAI@UniswapV3/500 in=4.220 DAI gap=36bps profit=$0.000 net=$-0.042"}
+{"level":30,"time":1790807249278,"pid":20662,"hostname":"vm","block":26093277,"gross":122,"net":0,"sumNetUsd":0,"gasPriceGwei":0.105591947,"txCostUsd":0.0709,"syncMs":103,"searchMs":175,"msg":"block scanned"}
+{"level":30,"time":1790807249278,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790807249278,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=4.037e+4 SHIB gap=64.3bps profit=$0.000 net=$-0.032"}
+{"level":30,"time":1790807249278,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.045"}
+{"level":30,"time":1790807249278,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.058"}
+{"level":30,"time":1790807249278,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV2 WETH>DAI@UniswapV3/500 in=4.220 DAI gap=36bps profit=$0.000 net=$-0.045"}
+{"level":30,"time":1790807261919,"pid":20662,"hostname":"vm","block":26093278,"gross":124,"net":0,"sumNetUsd":0,"gasPriceGwei":0.103681981,"txCostUsd":0.0696,"syncMs":170,"searchMs":235,"msg":"block scanned"}
+{"level":30,"time":1790807261919,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790807261919,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=4.037e+4 SHIB gap=64.3bps profit=$0.000 net=$-0.032"}
+{"level":30,"time":1790807261919,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.045"}
+{"level":30,"time":1790807261919,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.056"}
+{"level":30,"time":1790807261919,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV2 WETH>DAI@UniswapV3/500 in=4.220 DAI gap=36bps profit=$0.000 net=$-0.044"}
+{"level":30,"time":1790807274503,"pid":20662,"hostname":"vm","block":26093279,"gross":128,"net":0,"sumNetUsd":0,"gasPriceGwei":0.099849781,"txCostUsd":0.067,"syncMs":152,"searchMs":179,"msg":"block scanned"}
+{"level":30,"time":1790807274503,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.042"}
+{"level":30,"time":1790807274504,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=4.037e+4 SHIB gap=64.3bps profit=$0.000 net=$-0.031"}
+{"level":30,"time":1790807274504,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.043"}
+{"level":30,"time":1790807274504,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.054"}
+{"level":30,"time":1790807274504,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV2 WETH>DAI@UniswapV3/500 in=4.220 DAI gap=36bps profit=$0.000 net=$-0.043"}
+{"level":30,"time":1790807287009,"pid":20662,"hostname":"vm","block":26093280,"gross":110,"net":0,"sumNetUsd":0,"gasPriceGwei":0.108993319,"txCostUsd":0.0732,"syncMs":120,"searchMs":162,"msg":"block scanned"}
+{"level":30,"time":1790807287009,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790807287009,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV2 in=4.037e+4 SHIB gap=64.3bps profit=$0.000 net=$-0.033"}
+{"level":30,"time":1790807287009,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.047"}
+{"level":30,"time":1790807287009,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.059"}
+{"level":30,"time":1790807287009,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV2 WETH>DAI@UniswapV3/500 in=4.220 DAI gap=36bps profit=$0.000 net=$-0.047"}
+{"level":30,"time":1790807293433,"pid":20662,"hostname":"vm","block":26093281,"gross":110,"net":0,"sumNetUsd":0,"gasPriceGwei":0.11201337,"txCostUsd":0.0752,"syncMs":102,"searchMs":175,"msg":"block scanned"}
+{"level":30,"time":1790807293433,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/3000 in=6.049e+6 SHIB gap=64.5bps profit=$0.007 net=$-0.041"}
+{"level":30,"time":1790807293433,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.436e+5 SHIB gap=69.5bps profit=$0.002 net=$-0.046"}
+{"level":30,"time":1790807293433,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790807293433,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.048"}
+{"level":30,"time":1790807293433,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.061"}
+{"level":30,"time":1790807305938,"pid":20662,"hostname":"vm","block":26093282,"gross":110,"net":0,"sumNetUsd":0,"gasPriceGwei":0.115028627,"txCostUsd":0.0772,"syncMs":136,"searchMs":162,"msg":"block scanned"}
+{"level":30,"time":1790807305938,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/3000 in=6.049e+6 SHIB gap=64.5bps profit=$0.007 net=$-0.042"}
+{"level":30,"time":1790807305938,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.436e+5 SHIB gap=69.5bps profit=$0.002 net=$-0.047"}
+{"level":30,"time":1790807305938,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790807305938,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.049"}
+{"level":30,"time":1790807305938,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.063"}
+{"level":30,"time":1790807324536,"pid":20662,"hostname":"vm","block":26093283,"gross":104,"net":0,"sumNetUsd":0,"gasPriceGwei":0.120837742,"txCostUsd":0.0811,"syncMs":98,"searchMs":187,"msg":"block scanned"}
+{"level":30,"time":1790807324536,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/3000 in=6.049e+6 SHIB gap=64.5bps profit=$0.007 net=$-0.045"}
+{"level":30,"time":1790807324536,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.436e+5 SHIB gap=69.5bps profit=$0.002 net=$-0.050"}
+{"level":30,"time":1790807324536,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.051"}
+{"level":30,"time":1790807324536,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.052"}
+{"level":30,"time":1790807324536,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.066"}
+{"level":30,"time":1790807330980,"pid":20662,"hostname":"vm","block":26093284,"gross":100,"net":0,"sumNetUsd":0,"gasPriceGwei":0.119018926,"txCostUsd":0.0799,"syncMs":128,"searchMs":164,"msg":"block scanned"}
+{"level":30,"time":1790807330980,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/3000 in=6.049e+6 SHIB gap=64.5bps profit=$0.007 net=$-0.044"}
+{"level":30,"time":1790807330980,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.436e+5 SHIB gap=69.5bps profit=$0.002 net=$-0.049"}
+{"level":30,"time":1790807330980,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.050"}
+{"level":30,"time":1790807330980,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.051"}
+{"level":30,"time":1790807330980,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.065"}
+{"level":30,"time":1790807343465,"pid":20662,"hostname":"vm","block":26093285,"gross":87,"net":0,"sumNetUsd":0,"gasPriceGwei":0.109899342,"txCostUsd":0.0738,"syncMs":113,"searchMs":164,"msg":"block scanned"}
+{"level":30,"time":1790807343465,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.226e+5 SHIB gap=66.6bps profit=$0.002 net=$-0.045"}
+{"level":30,"time":1790807343465,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790807343465,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/3000 in=1.780e+6 SHIB gap=61.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790807343465,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/3000 in=1.133e+4 SHIB gap=61.4bps profit=$0.000 net=$-0.047"}
+{"level":30,"time":1790807343465,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.060"}
+{"level":30,"time":1790807355926,"pid":20662,"hostname":"vm","block":26093286,"gross":85,"net":0,"sumNetUsd":0,"gasPriceGwei":0.115752965,"txCostUsd":0.0777,"syncMs":104,"searchMs":158,"msg":"block scanned"}
+{"level":30,"time":1790807355926,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.226e+5 SHIB gap=66.6bps profit=$0.002 net=$-0.048"}
+{"level":30,"time":1790807355926,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790807355926,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.063"}
+{"level":30,"time":1790807355926,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@PancakeV3/100 USDC>WETH@PancakeV2 in=0.01250 WETH gap=30.9bps profit=$0.008 net=$-0.042"}
+{"level":30,"time":1790807355926,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@PancakeV3/100 USDC>wstETH@UniswapV3/500 wstETH>WETH@UniswapV3/100 in=0.002999 WETH gap=14.2bps profit=$0.006 net=$-0.086"}
+{"level":30,"time":1790807368492,"pid":20662,"hostname":"vm","block":26093287,"gross":80,"net":0,"sumNetUsd":0,"gasPriceGwei":0.116832215,"txCostUsd":0.0784,"syncMs":154,"searchMs":160,"msg":"block scanned"}
+{"level":30,"time":1790807368495,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.226e+5 SHIB gap=66.6bps profit=$0.002 net=$-0.048"}
+{"level":30,"time":1790807368495,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790807368495,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.064"}
+{"level":30,"time":1790807368495,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV4/100 USDC>wstETH@UniswapV3/500 wstETH>WETH@UniswapV3/100 in=0.002675 WETH gap=12.8bps profit=$0.005 net=$-0.095"}
+{"level":30,"time":1790807368495,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV4/100 USDC>UNI@UniswapV2 UNI>WETH@UniswapV3/500 in=0.001661 WETH gap=20.4bps profit=$0.005 net=$-0.081"}
+{"level":30,"time":1790807381042,"pid":20662,"hostname":"vm","block":26093288,"gross":86,"net":0,"sumNetUsd":0,"gasPriceGwei":0.121519037,"txCostUsd":0.0816,"syncMs":135,"searchMs":159,"msg":"block scanned"}
+{"level":30,"time":1790807381042,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.226e+5 SHIB gap=66.6bps profit=$0.002 net=$-0.050"}
+{"level":30,"time":1790807381042,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.051"}
+{"level":30,"time":1790807381042,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.066"}
+{"level":30,"time":1790807381042,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>WETH@PancakeV2 in=0.01328 WETH gap=30.8bps profit=$0.008 net=$-0.044"}
+{"level":30,"time":1790807381042,"pid":20662,"hostname":"vm","msg":"  WETH>USDT@UniswapV3/100 USDT>USDC@UniswapV4/10 USDC>WETH@PancakeV2 in=0.01309 WETH gap=47.3bps profit=$0.008 net=$-0.081"}
+{"level":30,"time":1790807396294,"pid":20662,"hostname":"vm","block":26093289,"gross":86,"net":0,"sumNetUsd":0,"gasPriceGwei":0.117628618,"txCostUsd":0.079,"syncMs":2876,"searchMs":150,"msg":"block scanned"}
+{"level":30,"time":1790807396294,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.226e+5 SHIB gap=66.6bps profit=$0.002 net=$-0.049"}
+{"level":30,"time":1790807396294,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790807396295,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.064"}
+{"level":30,"time":1790807396295,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>WETH@PancakeV2 in=0.01328 WETH gap=30.8bps profit=$0.008 net=$-0.042"}
+{"level":30,"time":1790807396295,"pid":20662,"hostname":"vm","msg":"  WETH>USDT@UniswapV3/100 USDT>USDC@UniswapV4/10 USDC>WETH@PancakeV2 in=0.01309 WETH gap=47.3bps profit=$0.008 net=$-0.078"}
+{"level":30,"time":1790807405769,"pid":20662,"hostname":"vm","block":26093290,"gross":76,"net":0,"sumNetUsd":0,"gasPriceGwei":0.105172767,"txCostUsd":0.0706,"syncMs":125,"searchMs":147,"msg":"block scanned"}
+{"level":30,"time":1790807405769,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.226e+5 SHIB gap=66.6bps profit=$0.002 net=$-0.043"}
+{"level":30,"time":1790807405769,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790807405769,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.057"}
+{"level":30,"time":1790807405769,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>WETH@PancakeV3/100 in=0.03848 WETH gap=3.4bps profit=$0.007 net=$-0.051"}
+{"level":30,"time":1790807405769,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>wstETH@UniswapV3/500 wstETH>WETH@UniswapV3/100 in=0.002930 WETH gap=14bps profit=$0.006 net=$-0.078"}
+{"level":30,"time":1790807418290,"pid":20662,"hostname":"vm","block":26093291,"gross":72,"net":0,"sumNetUsd":0,"gasPriceGwei":0.116237539,"txCostUsd":0.0781,"syncMs":128,"searchMs":144,"msg":"block scanned"}
+{"level":30,"time":1790807418290,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.226e+5 SHIB gap=66.6bps profit=$0.002 net=$-0.048"}
+{"level":30,"time":1790807418290,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.049"}
+{"level":30,"time":1790807418290,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.063"}
+{"level":30,"time":1790807418290,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>wstETH@UniswapV3/500 wstETH>WETH@UniswapV3/100 in=0.002848 WETH gap=13.4bps profit=$0.005 net=$-0.087"}
+{"level":30,"time":1790807418290,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>UNI@UniswapV2 UNI>WETH@UniswapV3/500 in=0.001664 WETH gap=20.4bps profit=$0.005 net=$-0.073"}
+{"level":30,"time":1790807430746,"pid":20662,"hostname":"vm","block":26093292,"gross":72,"net":0,"sumNetUsd":0,"gasPriceGwei":0.11976143,"txCostUsd":0.0804,"syncMs":107,"searchMs":145,"msg":"block scanned"}
+{"level":30,"time":1790807430747,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.226e+5 SHIB gap=66.6bps profit=$0.002 net=$-0.049"}
+{"level":30,"time":1790807430747,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.050"}
+{"level":30,"time":1790807430747,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9679 DAI gap=24bps profit=$0.001 net=$-0.065"}
+{"level":30,"time":1790807430747,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.02359 LINK gap=18.3bps profit=$0.000 net=$-0.066"}
+{"level":30,"time":1790807430747,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>wstETH@UniswapV3/500 wstETH>WETH@UniswapV3/100 in=0.002848 WETH gap=13.4bps profit=$0.005 net=$-0.089"}
+{"level":30,"time":1790807443331,"pid":20662,"hostname":"vm","block":26093293,"gross":72,"net":0,"sumNetUsd":0,"gasPriceGwei":0.121236546,"txCostUsd":0.0814,"syncMs":191,"searchMs":150,"msg":"block scanned"}
+{"level":30,"time":1790807443331,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.226e+5 SHIB gap=66.6bps profit=$0.002 net=$-0.050"}
+{"level":30,"time":1790807443331,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.051"}
+{"level":30,"time":1790807443331,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.066"}
+{"level":30,"time":1790807443331,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.02359 LINK gap=18.3bps profit=$0.000 net=$-0.067"}
+{"level":30,"time":1790807443331,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>wstETH@UniswapV3/500 wstETH>WETH@UniswapV3/100 in=0.002843 WETH gap=13.4bps profit=$0.005 net=$-0.091"}
+{"level":30,"time":1790807449758,"pid":20662,"hostname":"vm","block":26093294,"gross":80,"net":0,"sumNetUsd":0,"gasPriceGwei":0.121340319,"txCostUsd":0.0815,"syncMs":110,"searchMs":155,"msg":"block scanned"}
+{"level":30,"time":1790807449758,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.226e+5 SHIB gap=66.6bps profit=$0.002 net=$-0.050"}
+{"level":30,"time":1790807449758,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.051"}
+{"level":30,"time":1790807449758,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.066"}
+{"level":30,"time":1790807449758,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.02359 LINK gap=18.3bps profit=$0.000 net=$-0.067"}
+{"level":30,"time":1790807449758,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@PancakeV3/100 USDC>wstETH@UniswapV3/3000 wstETH>WETH@UniswapV3/100 in=0.02001 WETH gap=14.6bps profit=$0.007 net=$-0.089"}
+{"level":30,"time":1790807462276,"pid":20662,"hostname":"vm","block":26093295,"gross":81,"net":0,"sumNetUsd":0,"gasPriceGwei":0.118518985,"txCostUsd":0.0796,"syncMs":128,"searchMs":148,"msg":"block scanned"}
+{"level":30,"time":1790807462276,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.226e+5 SHIB gap=66.6bps profit=$0.002 net=$-0.049"}
+{"level":30,"time":1790807462276,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.050"}
+{"level":30,"time":1790807462276,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.065"}
+{"level":30,"time":1790807462276,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.02359 LINK gap=18.3bps profit=$0.000 net=$-0.065"}
+{"level":30,"time":1790807462276,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@PancakeV3/100 USDC>WETH@UniswapV3/100 in=0.05586 WETH gap=4.1bps profit=$0.015 net=$-0.050"}
+{"level":30,"time":1790807474763,"pid":20662,"hostname":"vm","block":26093296,"gross":105,"net":0,"sumNetUsd":0,"gasPriceGwei":0.114427405,"txCostUsd":0.0769,"syncMs":115,"searchMs":162,"msg":"block scanned"}
+{"level":30,"time":1790807474764,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.226e+5 SHIB gap=66.6bps profit=$0.002 net=$-0.047"}
+{"level":30,"time":1790807474764,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790807474764,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.062"}
+{"level":30,"time":1790807474764,"pid":20662,"hostname":"vm","msg":"  WETH>USDT@UniswapV3/100 USDT>WETH@SushiV3/3000 in=0.1158 WETH gap=34.3bps profit=$0.050 net=$-0.013"}
+{"level":30,"time":1790807474764,"pid":20662,"hostname":"vm","msg":"  WETH>USDT@UniswapV3/100 USDT>WETH@SushiV2 in=0.03960 WETH gap=37.9bps profit=$0.036 net=$-0.013"}
+{"level":30,"time":1790807487321,"pid":20662,"hostname":"vm","block":26093297,"gross":98,"net":0,"sumNetUsd":0,"gasPriceGwei":0.112890786,"txCostUsd":0.0758,"syncMs":150,"searchMs":168,"msg":"block scanned"}
+{"level":30,"time":1790807487321,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.226e+5 SHIB gap=66.6bps profit=$0.002 net=$-0.047"}
+{"level":30,"time":1790807487321,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790807487321,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.062"}
+{"level":30,"time":1790807487321,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>wstETH@UniswapV3/3000 wstETH>WETH@UniswapV3/100 in=0.05472 WETH gap=17bps profit=$0.037 net=$-0.052"}
+{"level":30,"time":1790807487321,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.02359 LINK gap=18.3bps profit=$0.000 net=$-0.062"}
+{"level":30,"time":1790807499814,"pid":20662,"hostname":"vm","block":26093298,"gross":86,"net":0,"sumNetUsd":0,"gasPriceGwei":0.114133045,"txCostUsd":0.0767,"syncMs":119,"searchMs":163,"msg":"block scanned"}
+{"level":30,"time":1790807499814,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=2.226e+5 SHIB gap=66.6bps profit=$0.002 net=$-0.047"}
+{"level":30,"time":1790807499814,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790807499814,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.062"}
+{"level":30,"time":1790807499814,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=0.8193 UNI gap=42.8bps profit=$0.003 net=$-0.046"}
+{"level":30,"time":1790807499814,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.02359 LINK gap=18.3bps profit=$0.000 net=$-0.063"}
+{"level":30,"time":1790807512379,"pid":20662,"hostname":"vm","block":26093299,"gross":81,"net":0,"sumNetUsd":0,"gasPriceGwei":0.121475643,"txCostUsd":0.0816,"syncMs":147,"searchMs":159,"msg":"block scanned"}
+{"level":30,"time":1790807512379,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.051"}
+{"level":30,"time":1790807512379,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.066"}
+{"level":30,"time":1790807512379,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=0.8193 UNI gap=42.8bps profit=$0.003 net=$-0.049"}
+{"level":30,"time":1790807512379,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.02359 LINK gap=18.3bps profit=$0.000 net=$-0.067"}
+{"level":30,"time":1790807512379,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@PancakeV3/100 USDC>wstETH@UniswapV3/3000 wstETH>WETH@UniswapV3/100 in=0.02719 WETH gap=15.4bps profit=$0.013 net=$-0.083"}
+{"level":30,"time":1790807524867,"pid":20662,"hostname":"vm","block":26093300,"gross":78,"net":0,"sumNetUsd":0,"gasPriceGwei":0.11327463,"txCostUsd":0.0761,"syncMs":116,"searchMs":145,"msg":"block scanned"}
+{"level":30,"time":1790807524867,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790807524867,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.062"}
+{"level":30,"time":1790807524867,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=0.8193 UNI gap=42.8bps profit=$0.003 net=$-0.046"}
+{"level":30,"time":1790807524867,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.02359 LINK gap=18.3bps profit=$0.000 net=$-0.063"}
+{"level":30,"time":1790807524867,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@PancakeV3/100 USDC>wstETH@UniswapV3/3000 wstETH>WETH@UniswapV3/100 in=0.02719 WETH gap=15.4bps profit=$0.013 net=$-0.077"}
+{"level":30,"time":1790807537377,"pid":20662,"hostname":"vm","block":26093301,"gross":72,"net":0,"sumNetUsd":0,"gasPriceGwei":0.112158407,"txCostUsd":0.0753,"syncMs":145,"searchMs":163,"msg":"block scanned"}
+{"level":30,"time":1790807537377,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790807537377,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.061"}
+{"level":30,"time":1790807537377,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.02995 LINK gap=20.5bps profit=$0.000 net=$-0.062"}
+{"level":30,"time":1790807537377,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=0.1041 UNI gap=36.1bps profit=$0.000 net=$-0.048"}
+{"level":30,"time":1790807537377,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@PancakeV3/100 USDC>wstETH@UniswapV3/500 wstETH>WETH@UniswapV3/100 in=0.002980 WETH gap=14.1bps profit=$0.006 net=$-0.083"}
+{"level":30,"time":1790807549953,"pid":20662,"hostname":"vm","block":26093302,"gross":72,"net":0,"sumNetUsd":0,"gasPriceGwei":0.112007396,"txCostUsd":0.0752,"syncMs":160,"searchMs":192,"msg":"block scanned"}
+{"level":30,"time":1790807549953,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790807549953,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.061"}
+{"level":30,"time":1790807549953,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.02995 LINK gap=20.5bps profit=$0.000 net=$-0.062"}
+{"level":30,"time":1790807549953,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=0.1041 UNI gap=36.1bps profit=$0.000 net=$-0.048"}
+{"level":30,"time":1790807549953,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@PancakeV3/100 USDC>wstETH@UniswapV3/500 wstETH>WETH@UniswapV3/100 in=0.002980 WETH gap=14.1bps profit=$0.006 net=$-0.083"}
+{"level":30,"time":1790807562487,"pid":20662,"hostname":"vm","block":26093303,"gross":68,"net":0,"sumNetUsd":0,"gasPriceGwei":0.111473977,"txCostUsd":0.0749,"syncMs":130,"searchMs":172,"msg":"block scanned"}
+{"level":30,"time":1790807562487,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790807562487,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.061"}
+{"level":30,"time":1790807562487,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.02995 LINK gap=20.5bps profit=$0.000 net=$-0.061"}
+{"level":30,"time":1790807562487,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=0.1041 UNI gap=36.1bps profit=$0.000 net=$-0.048"}
+{"level":30,"time":1790807562487,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>wstETH@UniswapV3/500 wstETH>WETH@UniswapV3/100 in=0.003284 WETH gap=15.6bps profit=$0.007 net=$-0.081"}
+{"level":30,"time":1790807578309,"pid":20662,"hostname":"vm","block":26093304,"gross":70,"net":0,"sumNetUsd":0,"gasPriceGwei":0.107110684,"txCostUsd":0.0719,"syncMs":3439,"searchMs":140,"msg":"block scanned"}
+{"level":30,"time":1790807578309,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.045"}
+{"level":30,"time":1790807578309,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.058"}
+{"level":30,"time":1790807578309,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.02995 LINK gap=20.5bps profit=$0.000 net=$-0.059"}
+{"level":30,"time":1790807578309,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=0.1041 UNI gap=36.1bps profit=$0.000 net=$-0.046"}
+{"level":30,"time":1790807578309,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV4/100 USDC>USDT@UniswapV4/7 USDT>WETH@PancakeV3/100 in=0.01127 WETH gap=2.7bps profit=$0.004 net=$-0.095"}
+{"level":30,"time":1790807587775,"pid":20662,"hostname":"vm","block":26093305,"gross":100,"net":0,"sumNetUsd":0,"gasPriceGwei":0.105057886,"txCostUsd":0.0706,"syncMs":127,"searchMs":147,"msg":"block scanned"}
+{"level":30,"time":1790807587775,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790807587775,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.057"}
+{"level":30,"time":1790807587775,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>WETH@PancakeV3/100 in=0.1060 WETH gap=5.9bps profit=$0.056 net=$-0.002"}
+{"level":30,"time":1790807587775,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.02995 LINK gap=20.5bps profit=$0.000 net=$-0.058"}
+{"level":30,"time":1790807587775,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>WETH@UniswapV2 in=0.2212 WETH gap=32.5bps profit=$0.040 net=$-0.005"}
+{"level":30,"time":1790807594164,"pid":20662,"hostname":"vm","block":26093306,"gross":80,"net":0,"sumNetUsd":0,"gasPriceGwei":0.108002551,"txCostUsd":0.0725,"syncMs":131,"searchMs":142,"msg":"block scanned"}
+{"level":30,"time":1790807594164,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.045"}
+{"level":30,"time":1790807594164,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.059"}
+{"level":30,"time":1790807594164,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.02995 LINK gap=20.5bps profit=$0.000 net=$-0.060"}
+{"level":30,"time":1790807594164,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=0.1041 UNI gap=36.1bps profit=$0.000 net=$-0.046"}
+{"level":30,"time":1790807594164,"pid":20662,"hostname":"vm","msg":"  WETH>USDT@UniswapV3/100 USDT>WETH@PancakeV3/100 in=0.01628 WETH gap=5.9bps profit=$0.008 net=$-0.051"}
+{"level":30,"time":1790807606703,"pid":20662,"hostname":"vm","block":26093307,"gross":86,"net":0,"sumNetUsd":0,"gasPriceGwei":0.108072562,"txCostUsd":0.0726,"syncMs":134,"searchMs":150,"msg":"block scanned"}
+{"level":30,"time":1790807606703,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.045"}
+{"level":30,"time":1790807606703,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.059"}
+{"level":30,"time":1790807606703,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.03822 LINK gap=23.4bps profit=$0.000 net=$-0.059"}
+{"level":30,"time":1790807606703,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=0.1041 UNI gap=36.1bps profit=$0.000 net=$-0.046"}
+{"level":30,"time":1790807606703,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>WETH@PancakeV3/100 in=0.05023 WETH gap=3.9bps profit=$0.012 net=$-0.047"}
+{"level":30,"time":1790807619181,"pid":20662,"hostname":"vm","block":26093308,"gross":80,"net":0,"sumNetUsd":0,"gasPriceGwei":0.103928492,"txCostUsd":0.0698,"syncMs":105,"searchMs":137,"msg":"block scanned"}
+{"level":30,"time":1790807619181,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790807619181,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.057"}
+{"level":30,"time":1790807619181,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.04876 LINK gap=27.1bps profit=$0.001 net=$-0.057"}
+{"level":30,"time":1790807619181,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=0.1041 UNI gap=36.1bps profit=$0.000 net=$-0.045"}
+{"level":30,"time":1790807619181,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>WETH@PancakeV3/100 in=0.04768 WETH gap=3.8bps profit=$0.011 net=$-0.046"}
+{"level":30,"time":1790807631759,"pid":20662,"hostname":"vm","block":26093309,"gross":81,"net":0,"sumNetUsd":0,"gasPriceGwei":0.099119606,"txCostUsd":0.0666,"syncMs":179,"searchMs":138,"msg":"block scanned"}
+{"level":30,"time":1790807631759,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.041"}
+{"level":30,"time":1790807631759,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.054"}
+{"level":30,"time":1790807631759,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=1.239 UNI gap=46.7bps profit=$0.006 net=$-0.036"}
+{"level":30,"time":1790807631759,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.04876 LINK gap=27.1bps profit=$0.001 net=$-0.054"}
+{"level":30,"time":1790807631759,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>UNI@UniswapV2 UNI>WETH@UniswapV3/500 in=0.002533 WETH gap=31.2bps profit=$0.011 net=$-0.055"}
+{"level":30,"time":1790807650400,"pid":20662,"hostname":"vm","block":26093310,"gross":81,"net":0,"sumNetUsd":0,"gasPriceGwei":0.108964259,"txCostUsd":0.0732,"syncMs":183,"searchMs":156,"msg":"block scanned"}
+{"level":30,"time":1790807650400,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790807650400,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.059"}
+{"level":30,"time":1790807650400,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=1.239 UNI gap=46.7bps profit=$0.006 net=$-0.041"}
+{"level":30,"time":1790807650400,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.04876 LINK gap=27.1bps profit=$0.001 net=$-0.060"}
+{"level":30,"time":1790807650400,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>UNI@UniswapV2 UNI>WETH@UniswapV3/500 in=0.002533 WETH gap=31.2bps profit=$0.011 net=$-0.062"}
+{"level":30,"time":1790807656932,"pid":20662,"hostname":"vm","block":26093311,"gross":87,"net":0,"sumNetUsd":0,"gasPriceGwei":0.107604124,"txCostUsd":0.0723,"syncMs":267,"searchMs":152,"msg":"block scanned"}
+{"level":30,"time":1790807656932,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.045"}
+{"level":30,"time":1790807656932,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.059"}
+{"level":30,"time":1790807656932,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=1.239 UNI gap=46.7bps profit=$0.006 net=$-0.040"}
+{"level":30,"time":1790807656932,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.04876 LINK gap=27.1bps profit=$0.001 net=$-0.059"}
+{"level":30,"time":1790807656932,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@PancakeV3/100 USDC>UNI@UniswapV2 UNI>WETH@UniswapV3/500 in=0.002551 WETH gap=31.4bps profit=$0.011 net=$-0.061"}
+{"level":30,"time":1790807669502,"pid":20662,"hostname":"vm","block":26093312,"gross":111,"net":0,"sumNetUsd":0,"gasPriceGwei":0.108645483,"txCostUsd":0.073,"syncMs":198,"searchMs":159,"msg":"block scanned"}
+{"level":30,"time":1790807669502,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790807669502,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.047"}
+{"level":30,"time":1790807669502,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.059"}
+{"level":30,"time":1790807669502,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=1.239 UNI gap=46.7bps profit=$0.006 net=$-0.040"}
+{"level":30,"time":1790807669502,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.04876 LINK gap=27.1bps profit=$0.001 net=$-0.060"}
+{"level":30,"time":1790807682026,"pid":20662,"hostname":"vm","block":26093313,"gross":111,"net":0,"sumNetUsd":0,"gasPriceGwei":0.105904557,"txCostUsd":0.0711,"syncMs":127,"searchMs":169,"msg":"block scanned"}
+{"level":30,"time":1790807682026,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790807682026,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.045"}
+{"level":30,"time":1790807682026,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.058"}
+{"level":30,"time":1790807682026,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=1.239 UNI gap=46.7bps profit=$0.006 net=$-0.039"}
+{"level":30,"time":1790807682026,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.07377 LINK gap=35.9bps profit=$0.001 net=$-0.057"}
+{"level":30,"time":1790807694592,"pid":20662,"hostname":"vm","block":26093314,"gross":89,"net":0,"sumNetUsd":0,"gasPriceGwei":0.110340734,"txCostUsd":0.0741,"syncMs":190,"searchMs":149,"msg":"block scanned"}
+{"level":30,"time":1790807694592,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790807694592,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.047"}
+{"level":30,"time":1790807694592,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.060"}
+{"level":30,"time":1790807694592,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=1.239 UNI gap=46.7bps profit=$0.006 net=$-0.041"}
+{"level":30,"time":1790807694592,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.07377 LINK gap=35.9bps profit=$0.001 net=$-0.060"}
+{"level":30,"time":1790807707135,"pid":20662,"hostname":"vm","block":26093315,"gross":87,"net":0,"sumNetUsd":0,"gasPriceGwei":0.11363481,"txCostUsd":0.0763,"syncMs":127,"searchMs":172,"msg":"block scanned"}
+{"level":30,"time":1790807707135,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790807707136,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.049"}
+{"level":30,"time":1790807707136,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=0.9588 DAI gap=23.9bps profit=$0.001 net=$-0.062"}
+{"level":30,"time":1790807707136,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=1.239 UNI gap=46.7bps profit=$0.006 net=$-0.043"}
+{"level":30,"time":1790807707136,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.07377 LINK gap=35.9bps profit=$0.001 net=$-0.062"}
+{"level":30,"time":1790807713563,"pid":20662,"hostname":"vm","block":26093316,"gross":90,"net":2,"sumNetUsd":0.023,"gasPriceGwei":0.103031575,"txCostUsd":0.0692,"syncMs":115,"searchMs":157,"msg":"block scanned"}
+{"level":30,"time":1790807713563,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790807713563,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.044"}
+{"level":30,"time":1790807713563,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.282 DAI gap=29.9bps profit=$0.002 net=$-0.056"}
+{"level":30,"time":1790807713563,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=1.128 UNI gap=45.7bps profit=$0.005 net=$-0.039"}
+{"level":30,"time":1790807713563,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.07312 LINK gap=35.7bps profit=$0.001 net=$-0.056"}
+{"level":30,"time":1790807726177,"pid":20662,"hostname":"vm","block":26093317,"gross":96,"net":0,"sumNetUsd":0,"gasPriceGwei":0.112831725,"txCostUsd":0.0758,"syncMs":204,"searchMs":153,"msg":"block scanned"}
+{"level":30,"time":1790807726177,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.047"}
+{"level":30,"time":1790807726177,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.048"}
+{"level":30,"time":1790807726177,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.306 DAI gap=30.3bps profit=$0.002 net=$-0.061"}
+{"level":30,"time":1790807726177,"pid":20662,"hostname":"vm","msg":"  UNI>WETH@UniswapV3/500 WETH>UNI@SushiV2 in=1.128 UNI gap=45.7bps profit=$0.005 net=$-0.043"}
+{"level":30,"time":1790807726177,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.07312 LINK gap=35.7bps profit=$0.001 net=$-0.061"}
+{"level":30,"time":1790807738686,"pid":20662,"hostname":"vm","block":26093318,"gross":91,"net":0,"sumNetUsd":0,"gasPriceGwei":0.114034767,"txCostUsd":0.0766,"syncMs":101,"searchMs":163,"msg":"block scanned"}
+{"level":30,"time":1790807738686,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.048"}
+{"level":30,"time":1790807738686,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.049"}
+{"level":30,"time":1790807738686,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.306 DAI gap=30.3bps profit=$0.002 net=$-0.062"}
+{"level":30,"time":1790807738686,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.07312 LINK gap=35.7bps profit=$0.001 net=$-0.062"}
+{"level":30,"time":1790807738686,"pid":20662,"hostname":"vm","msg":"  WETH>USDT@UniswapV3/100 USDT>WETH@PancakeV2 in=0.01327 WETH gap=30.6bps profit=$0.008 net=$-0.041"}
+{"level":30,"time":1790807753999,"pid":20662,"hostname":"vm","block":26093319,"gross":73,"net":0,"sumNetUsd":0,"gasPriceGwei":0.109590373,"txCostUsd":0.0736,"syncMs":2928,"searchMs":138,"msg":"block scanned"}
+{"level":30,"time":1790807753999,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790807753999,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.047"}
+{"level":30,"time":1790807753999,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.009e+4 SHIB gap=36.5bps profit=$0.000 net=$-0.061"}
+{"level":30,"time":1790807753999,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.306 DAI gap=30.3bps profit=$0.002 net=$-0.059"}
+{"level":30,"time":1790807753999,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.07312 LINK gap=35.7bps profit=$0.001 net=$-0.059"}
+{"level":30,"time":1790807763482,"pid":20662,"hostname":"vm","block":26093320,"gross":73,"net":0,"sumNetUsd":0,"gasPriceGwei":0.106245935,"txCostUsd":0.0714,"syncMs":122,"searchMs":145,"msg":"block scanned"}
+{"level":30,"time":1790807763482,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.045"}
+{"level":30,"time":1790807763482,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.046"}
+{"level":30,"time":1790807763482,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.009e+4 SHIB gap=36.5bps profit=$0.000 net=$-0.059"}
+{"level":30,"time":1790807763482,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.306 DAI gap=30.3bps profit=$0.002 net=$-0.057"}
+{"level":30,"time":1790807763482,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.07312 LINK gap=35.7bps profit=$0.001 net=$-0.057"}
+{"level":30,"time":1790807775983,"pid":20662,"hostname":"vm","block":26093321,"gross":79,"net":0,"sumNetUsd":0,"gasPriceGwei":0.105879628,"txCostUsd":0.0711,"syncMs":141,"searchMs":141,"msg":"block scanned"}
+{"level":30,"time":1790807775983,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790807775983,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.045"}
+{"level":30,"time":1790807775983,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.009e+4 SHIB gap=36.5bps profit=$0.000 net=$-0.059"}
+{"level":30,"time":1790807775983,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.306 DAI gap=30.3bps profit=$0.002 net=$-0.057"}
+{"level":30,"time":1790807775983,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.07312 LINK gap=35.7bps profit=$0.001 net=$-0.057"}
+{"level":30,"time":1790807788507,"pid":20662,"hostname":"vm","block":26093322,"gross":111,"net":22,"sumNetUsd":37.677,"gasPriceGwei":0.101795364,"txCostUsd":0.0684,"syncMs":99,"searchMs":194,"msg":"block scanned"}
+{"level":30,"time":1790807788507,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790807788507,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.044"}
+{"level":30,"time":1790807788507,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.009e+4 SHIB gap=36.5bps profit=$0.000 net=$-0.056"}
+{"level":30,"time":1790807788507,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.306 DAI gap=30.3bps profit=$0.002 net=$-0.055"}
+{"level":30,"time":1790807788507,"pid":20662,"hostname":"vm","msg":"  WETH>USDC@UniswapV3/100 USDC>USDT@UniswapV4/7 USDT>WETH@PancakeV3/500 in=0.8405 WETH gap=33.4bps profit=$3.774 net=$3.673"}
+{"level":30,"time":1790807800951,"pid":20662,"hostname":"vm","block":26093323,"gross":92,"net":3,"sumNetUsd":0.548,"gasPriceGwei":0.106986909,"txCostUsd":0.0719,"syncMs":117,"searchMs":152,"msg":"block scanned"}
+{"level":30,"time":1790807800951,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.045"}
+{"level":30,"time":1790807800951,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.046"}
+{"level":30,"time":1790807800951,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.009e+4 SHIB gap=36.5bps profit=$0.000 net=$-0.059"}
+{"level":30,"time":1790807800951,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.306 DAI gap=30.3bps profit=$0.002 net=$-0.058"}
+{"level":30,"time":1790807800951,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.04484 LINK gap=25.7bps profit=$0.001 net=$-0.059"}
+{"level":30,"time":1790807813473,"pid":20662,"hostname":"vm","block":26093324,"gross":98,"net":0,"sumNetUsd":0,"gasPriceGwei":0.095487845,"txCostUsd":0.0642,"syncMs":139,"searchMs":157,"msg":"block scanned"}
+{"level":30,"time":1790807813473,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.040"}
+{"level":30,"time":1790807813473,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.041"}
+{"level":30,"time":1790807813473,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.009e+4 SHIB gap=36.5bps profit=$0.000 net=$-0.053"}
+{"level":30,"time":1790807813473,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.306 DAI gap=30.3bps profit=$0.002 net=$-0.051"}
+{"level":30,"time":1790807813473,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.05961 LINK gap=30.9bps profit=$0.001 net=$-0.052"}
+{"level":30,"time":1790807826000,"pid":20662,"hostname":"vm","block":26093325,"gross":92,"net":0,"sumNetUsd":0,"gasPriceGwei":0.102202843,"txCostUsd":0.0687,"syncMs":121,"searchMs":148,"msg":"block scanned"}
+{"level":30,"time":1790807826000,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790807826000,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.044"}
+{"level":30,"time":1790807826000,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.009e+4 SHIB gap=36.5bps profit=$0.000 net=$-0.057"}
+{"level":30,"time":1790807826000,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.306 DAI gap=30.3bps profit=$0.002 net=$-0.055"}
+{"level":30,"time":1790807826000,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.05961 LINK gap=30.9bps profit=$0.001 net=$-0.056"}
+{"level":30,"time":1790807838586,"pid":20662,"hostname":"vm","block":26093326,"gross":95,"net":0,"sumNetUsd":0,"gasPriceGwei":0.104599242,"txCostUsd":0.0703,"syncMs":212,"searchMs":152,"msg":"block scanned"}
+{"level":30,"time":1790807838586,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790807838586,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.045"}
+{"level":30,"time":1790807838586,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.009e+4 SHIB gap=36.5bps profit=$0.000 net=$-0.058"}
+{"level":30,"time":1790807838586,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.328 DAI gap=30.7bps profit=$0.002 net=$-0.056"}
+{"level":30,"time":1790807838586,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.05961 LINK gap=30.9bps profit=$0.001 net=$-0.057"}
+{"level":30,"time":1790807851121,"pid":20662,"hostname":"vm","block":26093327,"gross":92,"net":0,"sumNetUsd":0,"gasPriceGwei":0.106309055,"txCostUsd":0.0714,"syncMs":120,"searchMs":159,"msg":"block scanned"}
+{"level":30,"time":1790807851121,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.045"}
+{"level":30,"time":1790807851121,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.046"}
+{"level":30,"time":1790807851121,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.059"}
+{"level":30,"time":1790807851121,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.328 DAI gap=30.7bps profit=$0.002 net=$-0.057"}
+{"level":30,"time":1790807851121,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.05961 LINK gap=30.9bps profit=$0.001 net=$-0.058"}
+{"level":30,"time":1790807857538,"pid":20662,"hostname":"vm","block":26093328,"gross":90,"net":0,"sumNetUsd":0,"gasPriceGwei":0.10348459,"txCostUsd":0.0695,"syncMs":133,"searchMs":147,"msg":"block scanned"}
+{"level":30,"time":1790807857538,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790807857538,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.044"}
+{"level":30,"time":1790807857538,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.057"}
+{"level":30,"time":1790807857538,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.328 DAI gap=30.7bps profit=$0.002 net=$-0.056"}
+{"level":30,"time":1790807857538,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.05961 LINK gap=30.9bps profit=$0.001 net=$-0.056"}
+{"level":30,"time":1790807876124,"pid":20662,"hostname":"vm","block":26093329,"gross":88,"net":0,"sumNetUsd":0,"gasPriceGwei":0.101357212,"txCostUsd":0.0681,"syncMs":107,"searchMs":157,"msg":"block scanned"}
+{"level":30,"time":1790807876124,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.042"}
+{"level":30,"time":1790807876124,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.043"}
+{"level":30,"time":1790807876124,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.056"}
+{"level":30,"time":1790807876124,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.328 DAI gap=30.7bps profit=$0.002 net=$-0.054"}
+{"level":30,"time":1790807876124,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.055"}
+{"level":30,"time":1790807888639,"pid":20662,"hostname":"vm","block":26093330,"gross":88,"net":0,"sumNetUsd":0,"gasPriceGwei":0.100128738,"txCostUsd":0.0673,"syncMs":123,"searchMs":159,"msg":"block scanned"}
+{"level":30,"time":1790807888639,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.042"}
+{"level":30,"time":1790807888639,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.043"}
+{"level":30,"time":1790807888639,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.055"}
+{"level":30,"time":1790807888639,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.328 DAI gap=30.7bps profit=$0.002 net=$-0.054"}
+{"level":30,"time":1790807888639,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.054"}
+{"level":30,"time":1790807895089,"pid":20662,"hostname":"vm","block":26093331,"gross":118,"net":0,"sumNetUsd":0,"gasPriceGwei":0.100106295,"txCostUsd":0.0673,"syncMs":125,"searchMs":180,"msg":"block scanned"}
+{"level":30,"time":1790807895089,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.042"}
+{"level":30,"time":1790807895089,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.043"}
+{"level":30,"time":1790807895089,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.055"}
+{"level":30,"time":1790807895089,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.328 DAI gap=30.7bps profit=$0.002 net=$-0.054"}
+{"level":30,"time":1790807895089,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.054"}
+{"level":30,"time":1790807907629,"pid":20662,"hostname":"vm","block":26093332,"gross":102,"net":0,"sumNetUsd":0,"gasPriceGwei":0.09748732,"txCostUsd":0.0655,"syncMs":123,"searchMs":181,"msg":"block scanned"}
+{"level":30,"time":1790807907629,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.041"}
+{"level":30,"time":1790807907629,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.042"}
+{"level":30,"time":1790807907629,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.054"}
+{"level":30,"time":1790807907629,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.328 DAI gap=30.7bps profit=$0.002 net=$-0.052"}
+{"level":30,"time":1790807907629,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.053"}
+{"level":30,"time":1790807920156,"pid":20662,"hostname":"vm","block":26093333,"gross":106,"net":0,"sumNetUsd":0,"gasPriceGwei":0.097518963,"txCostUsd":0.0655,"syncMs":123,"searchMs":165,"msg":"block scanned"}
+{"level":30,"time":1790807920156,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.041"}
+{"level":30,"time":1790807920156,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.042"}
+{"level":30,"time":1790807920156,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.054"}
+{"level":30,"time":1790807920156,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.328 DAI gap=30.7bps profit=$0.002 net=$-0.052"}
+{"level":30,"time":1790807920156,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.053"}
+{"level":30,"time":1790807935207,"pid":20662,"hostname":"vm","block":26093334,"gross":100,"net":0,"sumNetUsd":0,"gasPriceGwei":0.099479639,"txCostUsd":0.0669,"syncMs":2588,"searchMs":160,"msg":"block scanned"}
+{"level":30,"time":1790807935207,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.042"}
+{"level":30,"time":1790807935207,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.043"}
+{"level":30,"time":1790807935207,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.055"}
+{"level":30,"time":1790807935207,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.328 DAI gap=30.7bps profit=$0.002 net=$-0.053"}
+{"level":30,"time":1790807935207,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.054"}
+{"level":30,"time":1790807944716,"pid":20662,"hostname":"vm","block":26093335,"gross":104,"net":0,"sumNetUsd":0,"gasPriceGwei":0.100527243,"txCostUsd":0.0676,"syncMs":142,"searchMs":166,"msg":"block scanned"}
+{"level":30,"time":1790807944716,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.042"}
+{"level":30,"time":1790807944716,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.043"}
+{"level":30,"time":1790807944716,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.056"}
+{"level":30,"time":1790807944716,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.328 DAI gap=30.7bps profit=$0.002 net=$-0.054"}
+{"level":30,"time":1790807944716,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.054"}
+{"level":30,"time":1790807957204,"pid":20662,"hostname":"vm","block":26093336,"gross":108,"net":0,"sumNetUsd":0,"gasPriceGwei":0.104373968,"txCostUsd":0.0701,"syncMs":94,"searchMs":158,"msg":"block scanned"}
+{"level":30,"time":1790807957204,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790807957204,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.045"}
+{"level":30,"time":1790807957204,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.058"}
+{"level":30,"time":1790807957204,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.328 DAI gap=30.7bps profit=$0.002 net=$-0.056"}
+{"level":30,"time":1790807957204,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.057"}
+{"level":30,"time":1790807969725,"pid":20662,"hostname":"vm","block":26093337,"gross":110,"net":0,"sumNetUsd":0,"gasPriceGwei":0.101084584,"txCostUsd":0.0679,"syncMs":108,"searchMs":184,"msg":"block scanned"}
+{"level":30,"time":1790807969725,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.042"}
+{"level":30,"time":1790807969725,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.043"}
+{"level":30,"time":1790807969725,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.056"}
+{"level":30,"time":1790807969725,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.328 DAI gap=30.7bps profit=$0.002 net=$-0.054"}
+{"level":30,"time":1790807969725,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.055"}
+{"level":30,"time":1790807982254,"pid":20662,"hostname":"vm","block":26093338,"gross":108,"net":0,"sumNetUsd":0,"gasPriceGwei":0.104515636,"txCostUsd":0.0702,"syncMs":128,"searchMs":170,"msg":"block scanned"}
+{"level":30,"time":1790807982254,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790807982254,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.045"}
+{"level":30,"time":1790807982254,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.058"}
+{"level":30,"time":1790807982254,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.328 DAI gap=30.7bps profit=$0.002 net=$-0.056"}
+{"level":30,"time":1790807982254,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.057"}
+{"level":30,"time":1790807994765,"pid":20662,"hostname":"vm","block":26093339,"gross":100,"net":0,"sumNetUsd":0,"gasPriceGwei":0.102624857,"txCostUsd":0.069,"syncMs":115,"searchMs":159,"msg":"block scanned"}
+{"level":30,"time":1790807994766,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790807994766,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.044"}
+{"level":30,"time":1790807994766,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.057"}
+{"level":30,"time":1790807994766,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.328 DAI gap=30.7bps profit=$0.002 net=$-0.055"}
+{"level":30,"time":1790807994766,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.056"}
+{"level":30,"time":1790808001190,"pid":20662,"hostname":"vm","block":26093340,"gross":110,"net":0,"sumNetUsd":0,"gasPriceGwei":0.097839527,"txCostUsd":0.0658,"syncMs":115,"searchMs":160,"msg":"block scanned"}
+{"level":30,"time":1790808001190,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.041"}
+{"level":30,"time":1790808001190,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.042"}
+{"level":30,"time":1790808001190,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.054"}
+{"level":30,"time":1790808001190,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.169 DAI gap=27.8bps profit=$0.001 net=$-0.053"}
+{"level":30,"time":1790808001190,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.053"}
+{"level":30,"time":1790808013730,"pid":20662,"hostname":"vm","block":26093341,"gross":119,"net":3,"sumNetUsd":0.089,"gasPriceGwei":0.097502374,"txCostUsd":0.0655,"syncMs":113,"searchMs":187,"msg":"block scanned"}
+{"level":30,"time":1790808013730,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.041"}
+{"level":30,"time":1790808013730,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.042"}
+{"level":30,"time":1790808013730,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.054"}
+{"level":30,"time":1790808013730,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.169 DAI gap=27.8bps profit=$0.001 net=$-0.053"}
+{"level":30,"time":1790808013730,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.053"}
+{"level":30,"time":1790808032379,"pid":20662,"hostname":"vm","block":26093342,"gross":121,"net":0,"sumNetUsd":0,"gasPriceGwei":0.099264406,"txCostUsd":0.0667,"syncMs":120,"searchMs":198,"msg":"block scanned"}
+{"level":30,"time":1790808032379,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.042"}
+{"level":30,"time":1790808032379,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.043"}
+{"level":30,"time":1790808032379,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.055"}
+{"level":30,"time":1790808032379,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.169 DAI gap=27.8bps profit=$0.001 net=$-0.054"}
+{"level":30,"time":1790808032379,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.054"}
+{"level":30,"time":1790808038841,"pid":20662,"hostname":"vm","block":26093343,"gross":118,"net":0,"sumNetUsd":0,"gasPriceGwei":0.103841517,"txCostUsd":0.0698,"syncMs":121,"searchMs":193,"msg":"block scanned"}
+{"level":30,"time":1790808038841,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790808038841,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.045"}
+{"level":30,"time":1790808038841,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.058"}
+{"level":30,"time":1790808038841,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.688 DAI gap=37.4bps profit=$0.003 net=$-0.055"}
+{"level":30,"time":1790808038841,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.056"}
+{"level":30,"time":1790808051400,"pid":20662,"hostname":"vm","block":26093344,"gross":111,"net":0,"sumNetUsd":0,"gasPriceGwei":0.10310913,"txCostUsd":0.0693,"syncMs":121,"searchMs":192,"msg":"block scanned"}
+{"level":30,"time":1790808051400,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790808051400,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.044"}
+{"level":30,"time":1790808051400,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.057"}
+{"level":30,"time":1790808051400,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.054"}
+{"level":30,"time":1790808051400,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.056"}
+{"level":30,"time":1790808063961,"pid":20662,"hostname":"vm","block":26093345,"gross":116,"net":0,"sumNetUsd":0,"gasPriceGwei":0.102429148,"txCostUsd":0.0689,"syncMs":138,"searchMs":197,"msg":"block scanned"}
+{"level":30,"time":1790808063961,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790808063961,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.044"}
+{"level":30,"time":1790808063961,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.057"}
+{"level":30,"time":1790808063961,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.054"}
+{"level":30,"time":1790808063961,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.056"}
+{"level":30,"time":1790808076543,"pid":20662,"hostname":"vm","block":26093346,"gross":130,"net":0,"sumNetUsd":0,"gasPriceGwei":0.099265696,"txCostUsd":0.0667,"syncMs":147,"searchMs":189,"msg":"block scanned"}
+{"level":30,"time":1790808076543,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.042"}
+{"level":30,"time":1790808076543,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=5.986e+4 SHIB gap=43.5bps profit=$0.000 net=$-0.043"}
+{"level":30,"time":1790808076543,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.373e+4 SHIB gap=37bps profit=$0.000 net=$-0.055"}
+{"level":30,"time":1790808076543,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.052"}
+{"level":30,"time":1790808076543,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.054"}
+{"level":30,"time":1790808089090,"pid":20662,"hostname":"vm","block":26093347,"gross":119,"net":0,"sumNetUsd":0,"gasPriceGwei":0.100033198,"txCostUsd":0.0673,"syncMs":110,"searchMs":208,"msg":"block scanned"}
+{"level":30,"time":1790808089090,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.042"}
+{"level":30,"time":1790808089090,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=1.096e+5 SHIB gap=50.6bps profit=$0.000 net=$-0.043"}
+{"level":30,"time":1790808089090,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.016e+5 SHIB gap=49.4bps profit=$0.000 net=$-0.055"}
+{"level":30,"time":1790808089090,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.053"}
+{"level":30,"time":1790808089090,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.054"}
+{"level":30,"time":1790808101618,"pid":20662,"hostname":"vm","block":26093348,"gross":115,"net":0,"sumNetUsd":0,"gasPriceGwei":0.096981161,"txCostUsd":0.0652,"syncMs":124,"searchMs":184,"msg":"block scanned"}
+{"level":30,"time":1790808101618,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.041"}
+{"level":30,"time":1790808101618,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=1.096e+5 SHIB gap=50.6bps profit=$0.000 net=$-0.041"}
+{"level":30,"time":1790808101618,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.016e+5 SHIB gap=49.4bps profit=$0.000 net=$-0.053"}
+{"level":30,"time":1790808101618,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.051"}
+{"level":30,"time":1790808101618,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.053"}
+{"level":30,"time":1790808116983,"pid":20662,"hostname":"vm","block":26093349,"gross":113,"net":0,"sumNetUsd":0,"gasPriceGwei":0.096350464,"txCostUsd":0.0648,"syncMs":2946,"searchMs":169,"msg":"block scanned"}
+{"level":30,"time":1790808116983,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.040"}
+{"level":30,"time":1790808116983,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=1.096e+5 SHIB gap=50.6bps profit=$0.000 net=$-0.041"}
+{"level":30,"time":1790808116983,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.016e+5 SHIB gap=49.4bps profit=$0.000 net=$-0.053"}
+{"level":30,"time":1790808116983,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.051"}
+{"level":30,"time":1790808116983,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.052"}
+{"level":30,"time":1790808138641,"pid":20662,"hostname":"vm","block":26093350,"gross":109,"net":0,"sumNetUsd":0,"gasPriceGwei":0.097688795,"txCostUsd":0.0657,"syncMs":130,"searchMs":177,"msg":"block scanned"}
+{"level":30,"time":1790808138641,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.041"}
+{"level":30,"time":1790808138641,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=1.096e+5 SHIB gap=50.6bps profit=$0.000 net=$-0.042"}
+{"level":30,"time":1790808138641,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.016e+5 SHIB gap=49.4bps profit=$0.000 net=$-0.054"}
+{"level":30,"time":1790808138641,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.051"}
+{"level":30,"time":1790808138641,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06985 LINK gap=34.5bps profit=$0.001 net=$-0.053"}
+{"level":30,"time":1790808151219,"pid":20662,"hostname":"vm","block":26093351,"gross":109,"net":0,"sumNetUsd":0,"gasPriceGwei":0.106590475,"txCostUsd":0.0717,"syncMs":132,"searchMs":184,"msg":"block scanned"}
+{"level":30,"time":1790808151219,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.045"}
+{"level":30,"time":1790808151219,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.016e+5 SHIB gap=49.4bps profit=$0.000 net=$-0.059"}
+{"level":30,"time":1790808151219,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=7.328e+4 SHIB gap=45.4bps profit=$0.000 net=$-0.046"}
+{"level":30,"time":1790808151219,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.056"}
+{"level":30,"time":1790808151219,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06186 LINK gap=31.7bps profit=$0.001 net=$-0.058"}
+{"level":30,"time":1790808157684,"pid":20662,"hostname":"vm","block":26093352,"gross":127,"net":0,"sumNetUsd":0,"gasPriceGwei":0.110774789,"txCostUsd":0.0745,"syncMs":129,"searchMs":195,"msg":"block scanned"}
+{"level":30,"time":1790808157684,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.046"}
+{"level":30,"time":1790808157684,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.016e+5 SHIB gap=49.4bps profit=$0.000 net=$-0.061"}
+{"level":30,"time":1790808157684,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=7.328e+4 SHIB gap=45.4bps profit=$0.000 net=$-0.047"}
+{"level":30,"time":1790808157684,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.059"}
+{"level":30,"time":1790808157684,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06186 LINK gap=31.7bps profit=$0.001 net=$-0.060"}
+{"level":30,"time":1790808170240,"pid":20662,"hostname":"vm","block":26093353,"gross":113,"net":0,"sumNetUsd":0,"gasPriceGwei":0.104652422,"txCostUsd":0.0704,"syncMs":139,"searchMs":175,"msg":"block scanned"}
+{"level":30,"time":1790808170240,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790808170240,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.016e+5 SHIB gap=49.4bps profit=$0.000 net=$-0.058"}
+{"level":30,"time":1790808170240,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=8.409e+4 SHIB gap=47bps profit=$0.000 net=$-0.045"}
+{"level":30,"time":1790808170240,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.055"}
+{"level":30,"time":1790808170240,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06186 LINK gap=31.7bps profit=$0.001 net=$-0.057"}
+{"level":30,"time":1790808188941,"pid":20662,"hostname":"vm","block":26093354,"gross":119,"net":0,"sumNetUsd":0,"gasPriceGwei":0.105846154,"txCostUsd":0.0712,"syncMs":205,"searchMs":211,"msg":"block scanned"}
+{"level":30,"time":1790808188941,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.044"}
+{"level":30,"time":1790808188941,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.016e+5 SHIB gap=49.4bps profit=$0.000 net=$-0.058"}
+{"level":30,"time":1790808188941,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=8.409e+4 SHIB gap=47bps profit=$0.000 net=$-0.045"}
+{"level":30,"time":1790808188941,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.056"}
+{"level":30,"time":1790808188941,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06186 LINK gap=31.7bps profit=$0.001 net=$-0.058"}
+{"level":30,"time":1790808195453,"pid":20662,"hostname":"vm","block":26093355,"gross":117,"net":0,"sumNetUsd":0,"gasPriceGwei":0.102593766,"txCostUsd":0.069,"syncMs":130,"searchMs":205,"msg":"block scanned"}
+{"level":30,"time":1790808195453,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790808195453,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.016e+5 SHIB gap=49.4bps profit=$0.000 net=$-0.056"}
+{"level":30,"time":1790808195453,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=8.409e+4 SHIB gap=47bps profit=$0.000 net=$-0.044"}
+{"level":30,"time":1790808195453,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.054"}
+{"level":30,"time":1790808195453,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06186 LINK gap=31.7bps profit=$0.001 net=$-0.056"}
+{"level":30,"time":1790808207953,"pid":20662,"hostname":"vm","block":26093356,"gross":107,"net":0,"sumNetUsd":0,"gasPriceGwei":0.094711971,"txCostUsd":0.0637,"syncMs":100,"searchMs":177,"msg":"block scanned"}
+{"level":30,"time":1790808207953,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.040"}
+{"level":30,"time":1790808207953,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=8.409e+4 SHIB gap=47bps profit=$0.000 net=$-0.040"}
+{"level":30,"time":1790808207953,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=6.177e+4 SHIB gap=43.8bps profit=$0.000 net=$-0.052"}
+{"level":30,"time":1790808207953,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.050"}
+{"level":30,"time":1790808207953,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06186 LINK gap=31.7bps profit=$0.001 net=$-0.052"}
+{"level":30,"time":1790808220656,"pid":20662,"hostname":"vm","block":26093357,"gross":105,"net":0,"sumNetUsd":0,"gasPriceGwei":0.095588646,"txCostUsd":0.0643,"syncMs":141,"searchMs":191,"msg":"block scanned"}
+{"level":30,"time":1790808220656,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.040"}
+{"level":30,"time":1790808220656,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=8.409e+4 SHIB gap=47bps profit=$0.000 net=$-0.041"}
+{"level":30,"time":1790808220656,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=6.177e+4 SHIB gap=43.8bps profit=$0.000 net=$-0.053"}
+{"level":30,"time":1790808220656,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.050"}
+{"level":30,"time":1790808220656,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06186 LINK gap=31.7bps profit=$0.001 net=$-0.052"}
+{"level":30,"time":1790808233177,"pid":20662,"hostname":"vm","block":26093358,"gross":91,"net":0,"sumNetUsd":0,"gasPriceGwei":0.098428344,"txCostUsd":0.0662,"syncMs":126,"searchMs":175,"msg":"block scanned"}
+{"level":30,"time":1790808233177,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.041"}
+{"level":30,"time":1790808233177,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=8.409e+4 SHIB gap=47bps profit=$0.000 net=$-0.042"}
+{"level":30,"time":1790808233177,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=6.177e+4 SHIB gap=43.8bps profit=$0.000 net=$-0.054"}
+{"level":30,"time":1790808233177,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.052"}
+{"level":30,"time":1790808233177,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.06186 LINK gap=31.7bps profit=$0.001 net=$-0.054"}
+{"level":30,"time":1790808245641,"pid":20662,"hostname":"vm","block":26093359,"gross":89,"net":0,"sumNetUsd":0,"gasPriceGwei":0.09825801,"txCostUsd":0.0661,"syncMs":111,"searchMs":167,"msg":"block scanned"}
+{"level":30,"time":1790808245641,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.041"}
+{"level":30,"time":1790808245641,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=8.409e+4 SHIB gap=47bps profit=$0.000 net=$-0.042"}
+{"level":30,"time":1790808245642,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=6.177e+4 SHIB gap=43.8bps profit=$0.000 net=$-0.054"}
+{"level":30,"time":1790808245642,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.052"}
+{"level":30,"time":1790808245642,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.05163 LINK gap=28.1bps profit=$0.001 net=$-0.054"}
+{"level":30,"time":1790808258187,"pid":20662,"hostname":"vm","block":26093360,"gross":91,"net":0,"sumNetUsd":0,"gasPriceGwei":0.10373129,"txCostUsd":0.0697,"syncMs":127,"searchMs":163,"msg":"block scanned"}
+{"level":30,"time":1790808258187,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790808258187,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=8.409e+4 SHIB gap=47bps profit=$0.000 net=$-0.044"}
+{"level":30,"time":1790808258187,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=6.177e+4 SHIB gap=43.8bps profit=$0.000 net=$-0.057"}
+{"level":30,"time":1790808258187,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.055"}
+{"level":30,"time":1790808258187,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.05163 LINK gap=28.1bps profit=$0.001 net=$-0.057"}
+{"level":30,"time":1790808270822,"pid":20662,"hostname":"vm","block":26093361,"gross":89,"net":0,"sumNetUsd":0,"gasPriceGwei":0.101891974,"txCostUsd":0.0685,"syncMs":222,"searchMs":178,"msg":"block scanned"}
+{"level":30,"time":1790808270822,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.043"}
+{"level":30,"time":1790808270822,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=8.409e+4 SHIB gap=47bps profit=$0.000 net=$-0.044"}
+{"level":30,"time":1790808270822,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=6.177e+4 SHIB gap=43.8bps profit=$0.000 net=$-0.056"}
+{"level":30,"time":1790808270822,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.054"}
+{"level":30,"time":1790808270822,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.05163 LINK gap=28.1bps profit=$0.001 net=$-0.056"}
+{"level":30,"time":1790808277276,"pid":20662,"hostname":"vm","block":26093362,"gross":89,"net":0,"sumNetUsd":0,"gasPriceGwei":0.098889296,"txCostUsd":0.0665,"syncMs":128,"searchMs":179,"msg":"block scanned"}
+{"level":30,"time":1790808277276,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.041"}
+{"level":30,"time":1790808277276,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=8.409e+4 SHIB gap=47bps profit=$0.000 net=$-0.042"}
+{"level":30,"time":1790808277276,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=6.177e+4 SHIB gap=43.8bps profit=$0.000 net=$-0.055"}
+{"level":30,"time":1790808277276,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.052"}
+{"level":30,"time":1790808277276,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.05163 LINK gap=28.1bps profit=$0.001 net=$-0.054"}
+{"level":30,"time":1790808289806,"pid":20662,"hostname":"vm","block":26093363,"gross":89,"net":0,"sumNetUsd":0,"gasPriceGwei":0.095970145,"txCostUsd":0.0645,"syncMs":140,"searchMs":159,"msg":"block scanned"}
+{"level":30,"time":1790808289806,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.040"}
+{"level":30,"time":1790808289806,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.101e+5 SHIB gap=50.6bps profit=$0.000 net=$-0.053"}
+{"level":30,"time":1790808289806,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=4.719e+4 SHIB gap=41.8bps profit=$0.000 net=$-0.041"}
+{"level":30,"time":1790808289806,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.051"}
+{"level":30,"time":1790808289806,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.05828 LINK gap=30.4bps profit=$0.001 net=$-0.052"}
+{"level":30,"time":1790808304686,"pid":20662,"hostname":"vm","block":26093364,"gross":89,"net":0,"sumNetUsd":0,"gasPriceGwei":0.094221623,"txCostUsd":0.0633,"syncMs":2475,"searchMs":161,"msg":"block scanned"}
+
+================ SCAN SUMMARY ================
+chain=mainnet blocks=151 elapsed=1818s pools=112 ethUsd=2689
+gross-positive cycles: 13385  net-positive (after gas): 30
+distinct net-positive routes: 27  of which PERSISTENT (>=50% of blocks; suspect): 0
+upper-bound net USD if ALL transient opps were captured: $38.35 over 151 blocks
+upper-bound net USD from persistent (suspect) routes:      $0.00
+net profit distribution (USD): $0-0.001: 1 | $0.001-0.01: 4 | $0.01-0.1: 3 | $0.1-1: 10 | $1-10: 12 | $10-100: 0 | >$100: 0
+
+Top transient routes by total net USD:
+  USDC>USDT@UniswapV4/7 USDT>WETH@PancakeV3/500 WETH>USDC@UniswapV3/100: blocks=1 total=$3.676 max=$3.676
+  WETH>USDC@UniswapV3/100 USDC>USDT@UniswapV4/7 USDT>WETH@PancakeV3/500: blocks=1 total=$3.675 max=$3.675
+  USDC>USDT@UniswapV4/10 USDT>WETH@PancakeV3/500 WETH>USDC@UniswapV3/100: blocks=1 total=$3.640 max=$3.640
+  WETH>USDC@UniswapV3/100 USDC>USDT@UniswapV4/10 USDT>WETH@PancakeV3/500: blocks=1 total=$3.639 max=$3.639
+  USDT>WETH@PancakeV3/500 WETH>USDT@UniswapV3/100: blocks=1 total=$3.243 max=$3.243
+  WETH>USDT@UniswapV3/100 USDT>WETH@PancakeV3/500: blocks=1 total=$3.235 max=$3.235
+  WETH>USDC@UniswapV4/100 USDC>USDT@UniswapV4/7 USDT>WETH@PancakeV3/500: blocks=1 total=$2.460 max=$2.460
+  USDC>USDT@UniswapV4/7 USDT>WETH@PancakeV3/500 WETH>USDC@UniswapV4/100: blocks=1 total=$2.459 max=$2.459
+  WETH>USDC@UniswapV4/100 USDC>USDT@UniswapV4/10 USDT>WETH@PancakeV3/500: blocks=1 total=$2.434 max=$2.434
+  USDC>USDT@UniswapV4/10 USDT>WETH@PancakeV3/500 WETH>USDC@UniswapV4/100: blocks=1 total=$2.432 max=$2.432
+  USDT>WETH@PancakeV3/500 WETH>USDT@UniswapV3/500: blocks=1 total=$2.044 max=$2.044
+  WETH>USDT@UniswapV3/500 USDT>WETH@PancakeV3/500: blocks=1 total=$2.040 max=$2.040
+  WETH>DAI@UniswapV3/500 DAI>USDT@UniswapV3/100 USDT>WETH@PancakeV3/500: blocks=1 total=$0.636 max=$0.636
+  WETH>DAI@UniswapV3/500 DAI>USDT@UniswapV3/500 USDT>WETH@PancakeV3/500: blocks=1 total=$0.588 max=$0.588
+  USDT>USDC@UniswapV4/8 USDC>USDT@UniswapV4/7: blocks=2 total=$0.553 max=$0.278
+
+Persistent routes (verify manually; usually fee-on-transfer tokens, paused pools or stale data):
+{"level":30,"time":1790808304686,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@SushiV2 WETH>SHIB@UniswapV3/500 in=1.301e+5 SHIB gap=66.5bps profit=$0.001 net=$-0.039"}
+{"level":30,"time":1790808304686,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV3/3000 WETH>SHIB@UniswapV3/500 in=1.101e+5 SHIB gap=50.6bps profit=$0.000 net=$-0.052"}
+{"level":30,"time":1790808304686,"pid":20662,"hostname":"vm","msg":"  SHIB>WETH@UniswapV2 WETH>SHIB@UniswapV3/500 in=4.719e+4 SHIB gap=41.8bps profit=$0.000 net=$-0.040"}
+{"level":30,"time":1790808304686,"pid":20662,"hostname":"vm","msg":"  DAI>WETH@SushiV3/100 WETH>DAI@UniswapV3/500 in=1.679 DAI gap=37.3bps profit=$0.003 net=$-0.050"}
+{"level":30,"time":1790808304686,"pid":20662,"hostname":"vm","msg":"  LINK>WETH@UniswapV3/500 WETH>LINK@SushiV3/500 in=0.05828 LINK gap=30.4bps profit=$0.001 net=$-0.051"}
+exit=0 capped=0

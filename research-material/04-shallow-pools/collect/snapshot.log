@@ -1,0 +1,19 @@
+{"t":"2026-09-30T22:04:05.259Z","msg":"pinned","pin":52008246,"head":52008249}
+{"level":30,"time":1790805846152,"pid":11500,"hostname":"vm","dex":"AerodromeCL","total":3648,"enumerated":3648,"msg":"factory enumerated"}
+{"level":30,"time":1790805846851,"pid":11500,"hostname":"vm","dex":"AerodromeCL3","total":2829,"enumerated":2829,"msg":"factory enumerated"}
+{"level":30,"time":1790805847333,"pid":11500,"hostname":"vm","dex":"AerodromeCL2","total":2260,"enumerated":2260,"msg":"factory enumerated"}
+{"level":30,"time":1790805848658,"pid":11500,"hostname":"vm","dex":"Aerodrome","total":29601,"enumerated":6000,"msg":"factory enumerated"}
+{"level":30,"time":1790805850345,"pid":11500,"hostname":"vm","dex":"UniswapV2","total":3063708,"enumerated":6000,"msg":"factory enumerated"}
+{"level":30,"time":1790805851486,"pid":11500,"hostname":"vm","dex":"SushiV2","total":6095,"enumerated":6000,"msg":"factory enumerated"}
+{"level":30,"time":1790805852774,"pid":11500,"hostname":"vm","dex":"PancakeV2","total":15243,"enumerated":6000,"msg":"factory enumerated"}
+{"level":30,"time":1790805853854,"pid":11500,"hostname":"vm","dex":"BaseSwap","total":8258,"enumerated":6000,"msg":"factory enumerated"}
+{"level":30,"time":1790805937117,"pid":11500,"hostname":"vm","enumeratedPools":38737,"tokens":33597,"pairs":37327,"msg":"universe enumerated; resolving every venue per pair"}
+{"level":30,"time":1790807626963,"pid":11500,"hostname":"vm","candidates":1343772,"found":46134,"msg":"pool discovery complete"}
+{"t":"2026-09-30T22:33:47.001Z","msg":"enumerated","ms":1781742,"tokens_total":33597,"cfg_tokens":19,"enumerated_tokens":33597,"discovered_pools":46134,"pools_after_smoke_limit":46134}
+{"level":30,"time":1790807689695,"pid":11500,"hostname":"vm","requests":14,"pools":242,"msg":"geckoterminal pools fetched"}
+{"level":30,"time":1790807689696,"pid":11500,"hostname":"vm","listed":242,"v4":20,"dexes":["uniswap-v4-base"],"msg":"uniswap v4 candidates"}
+{"level":30,"time":1790807690621,"pid":11500,"hostname":"vm","listed":20,"kept":9,"keyFailed":0,"unknownKey":0,"hooked":2,"outOfUniverse":9,"msg":"uniswap v4 pools discovered"}
+{"t":"2026-09-30T22:34:50.621Z","msg":"v4","ms":63619,"v4_pools":9,"gt_requests":16,"gt_non200":2}
+{"t":"2026-09-30T22:43:41.128Z","msg":"synced","ms":476637,"block":52008246,"syncStats":{"stale":0,"total":46143,"chunkFailures":0}}
+{"t":"2026-09-30T22:43:41.204Z","msg":"pruned/priced","pools_before_prune":46143,"pools_after_prune":35734,"pools_pruned":10409,"priced_tokens":1732,"pools_passing_filterByDepth_0_1":3177}
+{"t":"2026-09-30T22:49:30.463Z","msg":"done","files":11}

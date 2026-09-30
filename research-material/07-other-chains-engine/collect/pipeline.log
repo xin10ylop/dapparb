@@ -18,3 +18,13 @@
 [run_engine_detect 2026-09-30T22:21:53Z] selftest-engine attempt 3 started pid=27155 flags: --chain selftestchain --mode dry --contract  --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/selftest-engine.jsonl --source logs
 [run_engine_detect 2026-09-30T22:21:58Z] GAP selftest-engine: attempt 3: engine exited before 'searcher ready' (exit=1; log collect/selftest-engine.attempt3.log)
 [run_engine_detect 2026-09-30T22:21:58Z] GAP selftest-engine: giving up after 3 attempts; last: engine exited before 'searcher ready'
+[run_scan 2026-09-30T22:45:10Z] scan-mainnet-config done (exit=0 capped=0)
+[run_scan 2026-09-30T22:45:10Z] scan-mainnet-top attempt 1 started pid=1011 flags: --chain mainnet --universe top --blocks 151 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-mainnet-top.jsonl cap=31min
+[run_scan 2026-09-30T22:46:09Z] scan-arbitrum-config time cap reached; SIGTERM
+[run_scan 2026-09-30T22:46:18Z] scan-arbitrum-config done (exit=143 capped=1)
+[run_scan 2026-09-30T22:46:18Z] scan-arbitrum-top attempt 1 started pid=1279 flags: --chain arbitrum --universe top --blocks 7201 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-arbitrum-top.jsonl cap=31min
+[run_scan 2026-09-30T22:48:30Z] scan-mainnet-top first block scanned
+[run_scan 2026-09-30T22:49:20Z] scan-base-config time cap reached; SIGTERM
+[run_scan 2026-09-30T22:49:27Z] scan-base-config done (exit=143 capped=1)
+[run_scan 2026-09-30T22:49:27Z] scan-base-top attempt 1 started pid=1938 flags: --chain base --universe top --blocks 901 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-base-top.jsonl cap=31min
+[run_scan 2026-09-30T22:49:48Z] scan-arbitrum-top first block scanned

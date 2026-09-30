@@ -1,0 +1,48 @@
+{
+ "name": "scan-mainnet-config",
+ "finalized_utc": "2026-09-30T22:45:10Z",
+ "jsonl_files": [
+  "scan-mainnet-config.jsonl.gz"
+ ],
+ "jsonl_rows": 13385,
+ "jsonl_unparseable_lines": 0,
+ "jsonl_distinct_blocks": 151,
+ "jsonl_first_block": 26093214,
+ "jsonl_last_block": 26093364,
+ "log_block_scanned_lines": 151,
+ "log_block_scanned_first_block": 26093214,
+ "log_block_scanned_last_block": 26093364,
+ "log_rows_announced_by_block_scanned_lines": 13385,
+ "log_heartbeat_lines": 0,
+ "first_block_scanned_utc": "2026-09-30T22:14:50.493Z",
+ "last_block_scanned_utc": "2026-09-30T22:45:04.686Z",
+ "searcher_ready": null,
+ "live_pools": {
+  "time": 1790806487151,
+  "live": 112,
+  "byDex": {
+   "UniswapV3": 56,
+   "SushiV3": 12,
+   "PancakeV3": 8,
+   "UniswapV2": 18,
+   "SushiV2": 10,
+   "PancakeV2": 2,
+   "UniswapV4": 6
+  },
+  "msg": "live pools"
+ },
+ "exit_line": "exit=0 capped=0",
+ "signal_line": null,
+ "summary_present": true,
+ "warn_lines": 2,
+ "error_lines": 0,
+ "window": {
+  "attempt": 1,
+  "exit": 0,
+  "time_capped": 0,
+  "cap_minutes": 31,
+  "blocks_flag": 151,
+  "first_block_scanned_seen_utc": "2026-09-30T22:14:53Z",
+  "ended_utc": "2026-09-30T22:45:09Z"
+ }
+}
