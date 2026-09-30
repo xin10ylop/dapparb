@@ -265,6 +265,8 @@ export interface V3PoolState {
   ticks: Map<number, bigint>;
   /** Word range we fetched; a swap that walks outside it is flagged `truncated`. */
   wordRange: { min: number; max: number };
+  /** Dynamic-fee pools (Slipstream): recent fee readings; quotes use the max so a volatility spike is priced in. */
+  feeHistory?: number[];
 }
 
 export interface SwapResult {

@@ -5,9 +5,12 @@ import { isV2, isV3, type Pool, type V2Pool, type V3Pool } from "./types.js";
 import { compressTick, tickPosition } from "../math/v3.js";
 import { log } from "../util/log.js";
 import { multicallChunked } from "../util/multicall.js";
+import { isV4, STATE_VIEW_ABI } from "./v4.js";
 
 /** How far (in price terms) we want fetched tick data to cover on each side of the current price. */
 const TICK_COVERAGE = 3000; // ~±35% price range at 1.0001^3000
+/** Number of recent syncs over which a dynamic fee is max-pooled (≈30 s in flashblock mode). */
+const FEE_WINDOW = Number(process.env.FEE_WINDOW ?? "150");
 
 function wordsNeeded(tickSpacing: number): number {
   return Math.max(1, Math.ceil(TICK_COVERAGE / (256 * tickSpacing)));
@@ -22,6 +25,7 @@ export async function loadStaticMetadata(client: PublicClient, cfg: ChainConfig,
   const map: Array<{ pool: Pool; what: string }> = [];
   const aeroFactory = cfg.dexes.find((d) => d.kind === "aero-v2")?.factory;
   for (const p of pools) {
+    if (isV4(p)) continue; // key already carries fee/tickSpacing
     if (isV3(p)) {
       calls.push({ address: p.address, abi: V3_POOL_ABI, functionName: "tickSpacing" });
       map.push({ pool: p, what: "tickSpacing" });
@@ -57,6 +61,11 @@ export async function syncPools(client: PublicClient, cfg: ChainConfig, pools: P
     if (isV2(p)) {
       calls.push({ address: p.address, abi: p.kind === "aero-v2" ? AERO_POOL_ABI : V2_PAIR_ABI, functionName: "getReserves" });
       map.push({ pool: p, what: "reserves" });
+    } else if (isV4(p)) {
+      calls.push({ address: p.v4.stateView, abi: STATE_VIEW_ABI, functionName: "getSlot0", args: [p.v4.poolId] });
+      map.push({ pool: p, what: "slot0v4" });
+      calls.push({ address: p.v4.stateView, abi: STATE_VIEW_ABI, functionName: "getLiquidity", args: [p.v4.poolId] });
+      map.push({ pool: p, what: "liquidity" });
     } else {
       calls.push({ address: p.address, abi: V3_POOL_ABI, functionName: "slot0" });
       map.push({ pool: p, what: "slot0" });
@@ -85,8 +94,21 @@ export async function syncPools(client: PublicClient, cfg: ChainConfig, pools: P
       const [sqrtP, tick] = r.result as [bigint, number];
       (pool as V3Pool).state.sqrtPriceX96 = sqrtP;
       (pool as V3Pool).state.tick = Number(tick);
+    } else if (what === "slot0v4") {
+      const [sqrtP, tick, , lpFee] = r.result as [bigint, number, number, number];
+      (pool as V3Pool).state.sqrtPriceX96 = sqrtP;
+      (pool as V3Pool).state.tick = Number(tick);
+      (pool as V3Pool).state.fee = Number(lpFee);
     } else if (what === "liquidity") (pool as V3Pool).state.liquidity = r.result as bigint;
-    else if (what === "fee") (pool as V3Pool).state.fee = Number(r.result);
+    else if (what === "fee") {
+      // Slipstream fees come from a per-pool dynamic module and can jump orders of magnitude between blocks
+      // (observed 0.01% → 10% on a volatile pool). Quote with the max of the recent window, not the instant value.
+      const st = (pool as V3Pool).state;
+      const h = (st.feeHistory ??= []);
+      h.push(Number(r.result));
+      if (h.length > FEE_WINDOW) h.shift();
+      st.fee = Math.max(...h);
+    }
   });
 
   // Tick data for V3 pools whose word window no longer covers the current tick (or on force).
@@ -113,7 +135,8 @@ export async function fetchTickData(client: PublicClient, cfg: ChainConfig, pool
     p.state.ticks = new Map();
     p.state.wordRange = { min: center - n, max: center + n };
     for (let w = center - n; w <= center + n; w++) {
-      calls.push({ address: p.address, abi: V3_POOL_ABI, functionName: "tickBitmap", args: [w] });
+      if (isV4(p)) calls.push({ address: p.v4.stateView, abi: STATE_VIEW_ABI, functionName: "getTickBitmap", args: [p.v4.poolId, w] });
+      else calls.push({ address: p.address, abi: V3_POOL_ABI, functionName: "tickBitmap", args: [w] });
       map.push({ pool: p, wordPos: w });
     }
   }
@@ -129,7 +152,8 @@ export async function fetchTickData(client: PublicClient, cfg: ChainConfig, pool
     for (let bit = 0; bit < 256; bit++) {
       if ((word >> BigInt(bit)) & 1n) {
         const tick = (wordPos * 256 + bit) * pool.state.tickSpacing;
-        tickCalls.push({ address: pool.address, abi: V3_POOL_ABI, functionName: "ticks", args: [tick] });
+        if (isV4(pool)) tickCalls.push({ address: pool.v4.stateView, abi: STATE_VIEW_ABI, functionName: "getTickInfo", args: [pool.v4.poolId, tick] });
+        else tickCalls.push({ address: pool.address, abi: V3_POOL_ABI, functionName: "ticks", args: [tick] });
         tickMap.push({ pool, tick });
       }
     }

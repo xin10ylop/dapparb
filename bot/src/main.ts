@@ -25,6 +25,7 @@ import { FlashblocksClient } from "./exec/flashblocks.js";
 import { buildTokenUniverse } from "./research/tokens.js";
 import { isV2, type Pool } from "./pools/types.js";
 import { OP_GAS_ORACLE_ABI } from "./abi.js";
+import { discoverV4Pools } from "./pools/v4.js";
 import { log } from "./util/log.js";
 import { createPublicClient, http } from "viem";
 import { viemChain } from "./util/client.js";
@@ -89,6 +90,7 @@ async function main() {
     decimalsOf.set(t.address.toLowerCase(), t.decimals);
   }
   let pools = await discoverPools(client, cfg, tokens, universe === "top" ? longTailPairs(cfg, tokens) : undefined);
+  if (arg("v4", "1") !== "0") pools.push(...(await discoverV4Pools(client, cfg, tokens, universe === "top" ? 3 : 2)));
   await loadStaticMetadata(client, cfg, pools);
   await syncPools(client, cfg, pools, { force: true });
   pools = pruneEmpty(pools);

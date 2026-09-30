@@ -51,6 +51,7 @@ export function estimateGas(hops: CycleHop[]): bigint {
   let g = GAS.base;
   for (const h of hops) {
     g += isV2(h.pool) ? GAS.v2Hop : GAS.v3Hop + BigInt(h.ticksCrossed) * GAS.tickCross;
+    if ((h.pool as any).v4) g += 25_000n; // unlock + settle/take overhead
   }
   return g;
 }

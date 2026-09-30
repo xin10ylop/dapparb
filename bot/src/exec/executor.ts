@@ -17,6 +17,7 @@ import type { ChainConfig } from "../config/chains.js";
 import { ARB_EXECUTOR_ABI } from "../abi.js";
 import type { Opportunity } from "../arb/search.js";
 import { isV2, type Pool } from "../pools/types.js";
+import { isV4 } from "../pools/v4.js";
 import { viemChain } from "../util/client.js";
 import { log } from "../util/log.js";
 
@@ -24,6 +25,7 @@ export const KIND_UNIV2 = 0;
 export const KIND_AERO_V2 = 1;
 export const KIND_V3 = 2;
 export const KIND_PANCAKE_V3 = 3;
+export const KIND_V4 = 4;
 
 export interface ContractHop {
   pool: Address;
@@ -53,19 +55,38 @@ export function contractKind(pool: Pool): number {
 }
 
 export function toContractHops(opp: Opportunity): ContractHop[] {
-  return opp.hops.map((h, i) => ({
-    pool: h.pool.address,
-    kind: contractKind(h.pool),
-    zeroForOne: h.tokenIn.toLowerCase() === h.pool.token0.toLowerCase(),
-    tokenIn: h.tokenIn,
-    tokenOut: h.tokenOut,
-    // Hop 0 on a V2-style pool: pass the exact output we computed so the pair sends it before the callback.
-    amountOut: i === 0 && isV2(h.pool) ? h.amountOut : 0n,
-    feeBps: isV2(h.pool) ? h.pool.feeBps : 0,
-    fee: 0,
-    tickSpacing: 0,
-    hooks: "0x0000000000000000000000000000000000000000",
-  }));
+  return opp.hops.map((h, i) => {
+    const zeroForOne = h.tokenIn.toLowerCase() === h.pool.token0.toLowerCase();
+    if (isV4(h.pool)) {
+      const k = h.pool.v4.key;
+      return {
+        pool: h.pool.v4.manager,
+        kind: KIND_V4,
+        zeroForOne,
+        // the contract bridges native ETH (address(0)) to/from WETH itself
+        tokenIn: zeroForOne ? k.currency0 : k.currency1,
+        tokenOut: zeroForOne ? k.currency1 : k.currency0,
+        amountOut: 0n,
+        feeBps: 0,
+        fee: k.fee,
+        tickSpacing: k.tickSpacing,
+        hooks: k.hooks,
+      };
+    }
+    return {
+      pool: h.pool.address,
+      kind: contractKind(h.pool),
+      zeroForOne,
+      tokenIn: h.tokenIn,
+      tokenOut: h.tokenOut,
+      // Hop 0 on a V2-style pool: pass the exact output we computed so the pair sends it before the callback.
+      amountOut: i === 0 && isV2(h.pool) ? h.amountOut : 0n,
+      feeBps: isV2(h.pool) ? h.pool.feeBps : 0,
+      fee: 0,
+      tickSpacing: 0,
+      hooks: "0x0000000000000000000000000000000000000000",
+    };
+  });
 }
 
 export interface SimResult {

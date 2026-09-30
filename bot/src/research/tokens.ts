@@ -21,16 +21,42 @@ export interface GtPool {
   quoteToken: Address;
 }
 
+/** GeckoTerminal DEX ids whose pools we can price locally (per chain). */
+const GT_DEXES: Record<number, string[]> = {
+  8453: ["uniswap-v4-base", "aerodrome-slipstream-3", "aerodrome-slipstream", "aerodrome-slipstream-2", "uniswap-v3-base", "pancakeswap-v3-base", "sushiswap-v3-base", "aerodrome-base", "uniswap-v2-base", "sushiswap-v2-base", "pancakeswap-v2-base", "baseswap"],
+  42161: ["uniswap-v3-arbitrum", "sushiswap-v3-arbitrum", "pancakeswap-v3-arbitrum", "sushiswap-arbitrum"],
+  1: ["uniswap-v3", "sushiswap-v3-ethereum", "pancakeswap-v3-ethereum", "uniswap-v2", "sushiswap"],
+};
+
+const gtCache = new Map<string, { at: number; pools: GtPool[] }>();
+
 export async function fetchTopPools(cfg: ChainConfig, pages = 5): Promise<GtPool[]> {
+  const cacheKey = `${cfg.id}:${pages}`;
+  const cached = gtCache.get(cacheKey);
+  if (cached && Date.now() - cached.at < 10 * 60_000) return cached.pools;
+  const pools = await fetchTopPoolsUncached(cfg, pages);
+  gtCache.set(cacheKey, { at: Date.now(), pools });
+  return pools;
+}
+
+async function fetchTopPoolsUncached(cfg: ChainConfig, pages: number): Promise<GtPool[]> {
   const net = GT_NETWORK[cfg.id];
   if (!net) throw new Error(`no GeckoTerminal network for chain ${cfg.id}`);
   const out: GtPool[] = [];
-  for (let page = 1; page <= pages; page++) {
-    const url = `https://api.geckoterminal.com/api/v2/networks/${net}/pools?page=${page}&sort=h24_volume_usd_desc`;
-    const res = await fetch(url, { headers: { accept: "application/json" } });
+  const urls: string[] = [];
+  for (let page = 1; page <= pages; page++) urls.push(`https://api.geckoterminal.com/api/v2/networks/${net}/pools?page=${page}&sort=h24_volume_usd_desc`);
+  // per-DEX listings reach much deeper into the long tail than the network-wide top list
+  const perDexPages = Math.max(1, Math.ceil(pages / 2));
+  for (const dex of GT_DEXES[cfg.id] ?? []) for (let page = 1; page <= perDexPages; page++) urls.push(`https://api.geckoterminal.com/api/v2/networks/${net}/dexes/${dex}/pools?page=${page}&sort=h24_volume_usd_desc`);
+  for (const url of urls) {
+    let res = await fetch(url, { headers: { accept: "application/json" } });
+    if (res.status === 429) {
+      await new Promise((r) => setTimeout(r, 15_000));
+      res = await fetch(url, { headers: { accept: "application/json" } });
+    }
     if (!res.ok) {
-      log.warn({ status: res.status, page }, "geckoterminal request failed");
-      break;
+      log.warn({ status: res.status, url }, "geckoterminal request failed");
+      continue;
     }
     const j = (await res.json()) as any;
     for (const p of j.data ?? []) {
@@ -48,9 +74,12 @@ export async function fetchTopPools(cfg: ChainConfig, pages = 5): Promise<GtPool
         quoteToken: getAddress(quote),
       });
     }
-    await new Promise((r) => setTimeout(r, 700)); // free-tier rate limit (30 req/min)
+    await new Promise((r) => setTimeout(r, 2100)); // free-tier rate limit (30 req/min)
   }
-  return out;
+  const seen = new Set<string>();
+  const dedup = out.filter((p) => (seen.has(p.address.toLowerCase()) ? false : (seen.add(p.address.toLowerCase()), true)));
+  log.info({ requests: urls.length, pools: dedup.length }, "geckoterminal pools fetched");
+  return dedup;
 }
 
 /** Distinct tokens from the top pools, with decimals/symbol read on-chain. Keeps the configured tokens first. */
