@@ -7,7 +7,9 @@ One process = one stream over a contiguous block range:
                 (fallback base-rpc.publicnode.com); added 2026-09-30 ~21:15Z because drpc throughput dropped (HTTP 429)
   --stream fw : follow the head from --start via base-rpc.publicnode.com (fallback base.drpc.org),
                 until the stop condition in state/config.json holds (see supervisor.py), then drain to stop_block.
-  --stream gf : re-fetch the block numbers listed in --blocks-file (gap fill), both endpoints.
+  --stream gf (gf1, ...): re-fetch the block numbers listed in --blocks-file (gap fill) via gateway.tenderly.co,
+                base.drpc.org (1 in-flight), base-rpc.publicnode.com; blocks already present in any blocks part are skipped
+                (listed in the checkpoint as skipped_already_present).
 
 Per block it writes (gzip members appended per chunk, parts rotated below PART_LIMIT bytes):
   blocks-<stream>-NNNN.csv.gz, txs-<stream>-NNNN.csv.gz, reverted-<stream>-NNNN.csv.gz, candidates-<stream>-NNNN.jsonl.gz
@@ -15,7 +17,7 @@ Resumable: state/<stream>.ckpt.json holds next block + byte size of every open p
 truncated back to the checkpointed size (drops any partially written member) and newer parts are deleted.
 Unrecoverable blocks are appended to gaps.csv (never silently skipped).
 """
-import argparse, csv, gzip, io, json, os, random, re, sys, threading, time
+import argparse, csv, gzip, io, json, os, random, re, sys, threading, time, zlib
 from concurrent.futures import ThreadPoolExecutor
 import requests
 
@@ -283,6 +285,20 @@ class PartWriter:
             st['size'] = f.tell()
 
 
+def blocks_present():
+    import glob
+    out = set()
+    for p in glob.glob(os.path.join(DATA, 'blocks-*-*.csv.gz')) + glob.glob(os.path.join(STATE, 'blocks-parts', 'blocks-*-*.csv.gz')):
+        try:
+            with gzip.open(p, 'rt') as f:
+                for row in csv.reader(f):
+                    if row and row[0] != 'block_number':
+                        out.add(int(row[0]))
+        except (EOFError, OSError, ValueError, zlib.error):
+            pass  # a part being appended by a running stream; its complete members were read
+    return out
+
+
 def save_json(p, obj):
     tmp = p + '.tmp'
     with open(tmp, 'w') as f:
@@ -321,14 +337,14 @@ def sentinel_stop(cfg):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--stream', required=True, help='bf | bf2, bf3, ... | fw | gf | smoke')
+    ap.add_argument('--stream', required=True, help='bf | bf2, bf3, ... | fw | gf, gf1, ... | smoke')
     ap.add_argument('--start', type=int)
     ap.add_argument('--end', type=int)
     ap.add_argument('--blocks-file')
     ap.add_argument('--chunk', type=int, default=40)
     ap.add_argument('--workers', type=int, default=3)
     args = ap.parse_args()
-    if not re.match(r'^(bf\d*|fw|gf|smoke)$', args.stream):
+    if not re.match(r'^(bf\d*|fw|gf\d*|smoke)$', args.stream):
         ap.error('bad --stream')
     os.makedirs(STATE, exist_ok=True); os.makedirs(DATA, exist_ok=True)
     topics = load_topics()
@@ -338,9 +354,13 @@ def main():
     ck = load_json(ckp, {})
     if not ck:
         ck = {'stream': stream, 'start': args.start, 'end': args.end, 'next': args.start, 'created_utc': utcnow(), 'topics_n': len(topics)}
-        if stream == 'gf':
+        if stream.startswith('gf'):
             with open(args.blocks_file) as f:
-                ck['todo'] = sorted({int(x) for x in f.read().split() if x.strip()})
+                req = sorted({int(x) for x in f.read().split() if x.strip()})
+            present = blocks_present()
+            ck['requested'] = req
+            ck['skipped_already_present'] = [n for n in req if n in present]
+            ck['todo'] = [n for n in req if n not in present]
             ck['next'] = 0
         save_json(ckp, ck)
     if ck.get('done'):
@@ -349,7 +369,7 @@ def main():
     first_seen = load_json(fs_p, {})
     pw = PartWriter(stream, ck)
     stats = {'ok': 0}
-    drpc = Endpoint(DRPC, max_inflight=args.workers if stream in ('bf', 'smoke', 'gf') else 1)
+    drpc = Endpoint(DRPC, max_inflight=args.workers if stream in ('bf', 'smoke') else 1)
     pn = Endpoint(PUBLICNODE, max_inflight=2, per_sec=2.0)
     if stream in ('bf', 'smoke'):
         eps, max_att = [drpc], 14
@@ -357,8 +377,8 @@ def main():
         eps, max_att = [Endpoint(TENDERLY, max_inflight=3), Endpoint(PUBLICNODE, max_inflight=1, per_sec=1.0)], 14
     elif stream == 'fw':
         eps, max_att = [pn, drpc], 16
-    else:
-        eps, max_att = [drpc, pn], 20
+    else:  # gf, gf1, ...: gap fill
+        eps, max_att = [Endpoint(TENDERLY, max_inflight=2), drpc, Endpoint(PUBLICNODE, max_inflight=1, per_sec=1.0)], 20
     pool = ThreadPoolExecutor(max_workers=args.workers)
     lag = cfg.get('head_lag', 10)
     t_last = time.time(); blocks_since = 0
@@ -375,7 +395,7 @@ def main():
 
     while True:
         # decide next chunk
-        if stream == 'gf':
+        if stream.startswith('gf'):
             todo = ck['todo']
             if ck['next'] >= len(todo):
                 break
@@ -416,7 +436,7 @@ def main():
             b, t, r, c = render(res[0], res[1], topics, first_seen)
             B.append(b); T.extend(t); R.extend(r); C.extend(c); P.append([n, res[2], res[3]])
         pw.append('blocks', B); pw.append('txs', T); pw.append('reverted', R); pw.append('candidates', C); pw.append('provenance', P)
-        if stream == 'gf':
+        if stream.startswith('gf'):
             ck['next'] += len(nums)
         else:
             ck['next'] = nums[-1] + 1
