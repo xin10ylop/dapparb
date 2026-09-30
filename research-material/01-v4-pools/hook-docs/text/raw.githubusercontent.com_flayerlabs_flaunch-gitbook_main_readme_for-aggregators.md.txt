@@ -1,0 +1,227 @@
+# url: https://raw.githubusercontent.com/flayerlabs/flaunch-gitbook/main/readme/for-aggregators.md
+# fetched_utc: 2026-09-30T21:17:59Z
+# http_status: 200
+
+---
+icon: arrow-progress
+---
+
+# For Aggregators
+
+Discoverability is vital for tokens that are Flaunched to ensure that they can be bought and sold across the blockchain, without the user having to solely interact with the Flaunch front end.
+
+We have worked with a number of routers, indexers and security researchers to ensure that our tokens are supported. These include:
+
+| KyberSwap   | Uniswap Router  | CoinGecko |
+| ----------- | --------------- | --------- |
+| DexScreener | 1inch           | Rainbow   |
+| Blockaid    | GoPlus Security | OpenOcean |
+| QuickIntel  | Honeypot.is     |           |
+
+## Uniswap V4 LP Hooks
+
+We use Uniswap V4 to power the Flaunch protocol, using hooked liquidity positions to provide beneficial logic for creators and traders. Due to ongoing upgrades to the protocol, we have a number of hooks that will need to be indexed for complete routing.
+
+### Base
+
+<table><thead><tr><th width="265.08203125">Contract</th><th>Address</th></tr></thead><tbody><tr><td>Position Manager V1</td><td>0x51bba15255406cfe7099a42183302640ba7dafdc</td></tr><tr><td>Position Manager V2</td><td>0xf785bb58059fab6fb19bdda2cb9078d9e546efdc</td></tr><tr><td>Position Manager V3</td><td>0xb903b0ab7bcee8f5e4d8c9b10a71aac7135d6fdc</td></tr><tr><td>Position Manager V4</td><td>0x23321f11a6d44fd1ab790044fdfde5758c902fdc</td></tr><tr><td>Any Position Manager V1</td><td>0x8dc3b85e1dc1c846ebf3971179a751896842e5dc</td></tr></tbody></table>
+
+### Base Sepolia
+
+<table><thead><tr><th width="265.08203125">Contract</th><th>Address</th></tr></thead><tbody><tr><td>Position Manager V1</td><td>0x9A7059cA00dA92843906Cb4bCa1D005cE848AFdC</td></tr><tr><td>Position Manager V2</td><td>0x24347e0dd16357059abfc1b321df354873552fdc</td></tr><tr><td>Position Manager V3</td><td>0x4e7cb1e6800a7b297b38bddcecaf9ca5b6616fdc</td></tr><tr><td>Any Position Manager V1</td><td>0xb4a535b9d35851972736495cc52fbfdacf32e5dc</td></tr></tbody></table>
+
+### Robinhood
+
+<table><thead><tr><th width="265.08203125">Contract</th><th>Address</th></tr></thead><tbody><tr><td>Position Manager</td><td>0x5cf8e499c7c466c7e2cf127bdf129f57151e65dc</td></tr><tr><td>Any Position Manager</td><td>0xb537f8eecfb8a03b6a8982b33331c6396b69a5dc</td></tr></tbody></table>
+
+### Routing Considerations
+
+When a token is launched on Flaunch, it is paired against [flETH](https://docs.flaunch.gg/for-builders/references/solidity-cookbook#what-is-fleth). This is a 1:1 wrapping of ETH and can be treated as such during any price calculations. There is zero chance of depegging as it is (un)wrapped.
+
+This does mean, however, that if you are transacting via ETH, which is the primary market, then it would require a multi-hop swap to traverse: ETH <=>  FLETH <=>  TOKEN.
+
+<table><thead><tr><th width="264.7421875">Chain</th><th>Contract Address</th></tr></thead><tbody><tr><td>Base</td><td>0x000000000d564d5be76f7f0d28fe52605afc7cf8</td></tr><tr><td>Base Sepolia</td><td>0x000000000d564d5be76f7f0d28fe52605afc7cf8</td></tr><tr><td>Robinhood</td><td>0x00000000043c1117dafa3a3d0c7148eb48b30130</td></tr></tbody></table>
+
+### Integration Examples
+
+{% hint style="warning" %}
+For onchain quoting, a full Uniswap V4 `swap` call against the `PoolManager` will have an estimated maximum gas cost of 150,000 when using our hooks. Please ensure that your quoter limits are set sufficiently to handle this.
+{% endhint %}
+
+#### KyberSwap
+
+{% embed url="https://github.com/KyberNetwork/kyberswap-dex-lib/tree/main/pkg/liquidity-source/uniswap/v4/hooks/flaunch" %}
+
+#### Uniswap Routing API
+
+{% embed url="https://github.com/Uniswap/routing-api/blob/main/lib/util/hooksAddressesAllowlist.ts#L9" %}
+
+***
+
+## Flaunch Token List API
+
+To help external platforms that are indexing Flaunch tokens, we created a RESTful API to query and retrieve a list of all tokens launched on the Flaunch platform on the Base blockchain (chain ID: 8453).
+
+This service aggregates token data from the Flaunch platform and provides it in a standardized format. It's designed for aggregators and developers who need to build comprehensive lists of all Flaunch tokens on Base.
+
+### Endpoints
+
+The Base URL is: `https://data.flayerlabs.xyz/`
+
+#### GET `/tokens`
+
+Returns a list of Flaunch tokens in JSON format.
+
+#### Query Parameters
+
+All parameters are optional and can be combined:
+
+<table><thead><tr><th width="99.60546875">Parameter</th><th width="89.72265625">Type</th><th width="109.9921875">Default</th><th>Description</th></tr></thead><tbody><tr><td><code>limit</code></td><td>integer</td><td><code>1000</code></td><td>Maximum number of tokens to return. Must be between 1 and 1000. Values above 1000 will be capped at 1000.</td></tr><tr><td><code>creator</code></td><td>string</td><td>(none)</td><td>Filter tokens by creator wallet address. Returns only tokens created by the specified address.</td></tr><tr><td><code>orderId</code></td><td>integer</td><td><code>0</code></td><td>Pagination parameter. Returns tokens with <code>orderId</code> greater than this value. Use this to fetch tokens created after a specific timestamp.</td></tr></tbody></table>
+
+**Response Format:**
+
+```json
+{
+  "code": 1,
+  "message": "",
+  "result": [
+    {
+      "chainId": 8453,
+      "address": "0x...",
+      "creator": "0x...",
+      "launchTime": 1234567890,
+      "orderId": 1234567890
+    }
+  ]
+}
+```
+
+**Response Fields:**
+
+* `code`  : Status code (1 = success, 0 = error)
+* `message`  : Error message (empty on success)
+* `result` : Array of token objects
+  * `chainId` : Always `8453` (Base Mainnet)
+  * `address` : Token contract address
+  * `creator` : Wallet address of the token creator
+  * `launchTime` : Unix timestamp of when the token was launched
+  * `orderId` : Order ID (same as `createdAt` timestamp, used for pagination)
+
+### Examples
+
+#### Get all tokens (up to 1000)
+
+```bash
+curl https://data.flayerlabs.xyz/tokens
+```
+
+#### Get tokens with a limit
+
+```bash
+curl https://data.flayerlabs.xyz/tokens?limit=100
+```
+
+#### Filter by creator address
+
+```bash
+curl https://data.flayerlabs.xyz/tokens?creator=0x1234567890123456789012345678901234567890
+```
+
+#### Pagination - Get tokens after a specific orderId
+
+```bash
+curl https://data.flayerlabs.xyz/tokens?orderId=1234567890&limit=1000
+```
+
+#### Combine parameters
+
+```bash
+curl https://data.flayerlabs.xyz/tokens?limit=500&creator=0x1234567890123456789012345678901234567890&orderId=1234567890
+```
+
+### Use Cases
+
+#### For Aggregators
+
+This API is designed to help aggregators build a complete list of all Flaunch tokens on Base (chain ID: 8453). To retrieve all tokens:
+
+1. **Initial Request**: Start with `GET /tokens?limit=1000` to get the first 1000 tokens
+2. **Pagination**: Use the highest `orderId` from the response as the `orderId` parameter in the next request
+3. **Repeat**: Continue fetching until you receive fewer tokens than the limit (indicating you've reached the end)
+
+**Example Pagination Flow:**
+
+```bash
+# First request
+curl /tokens?limit=1000
+# Response contains tokens with orderId up to 1234567890
+
+# Second request (get next batch)
+curl /tokens?limit=1000&orderId=1234567890
+# Response contains tokens with orderId up to 1234567891
+
+# Continue until response has fewer than 1000 tokens
+```
+
+#### For Developers
+
+* **Token Discovery**: Find all tokens launched on Flaunch
+* **Creator Analytics**: Filter tokens by creator to analyze specific wallets
+* **Integration**: Integrate Flaunch token data into your application or service
+* **Monitoring**: Track new token launches by polling with increasing `orderId` values
+
+### Response Codes
+
+* `200 OK`: Successful request
+* `404 Not Found`: Invalid endpoint path
+* `500 Internal Server Error`: Error fetching data from the GraphQL backend
+
+### Chain Information
+
+All tokens returned by this API are on:
+
+* **Chain ID**: `8453`
+* **Network**: Base Mainnet
+* **Explorer**: https://basescan.org
+
+### Technical Details
+
+* **Ordering**: Tokens are ordered by `createdAt` in ascending order
+* **Maximum Limit**: 1000 tokens per request
+
+***
+
+## Onchain PoolId ⇒ Token Data
+
+To help support onchain lookups, we have added onchain `PoolId` lookups that will return token information. This can help to facilitate the decoding of the `PoolId` that is emitted from subgraph events.
+
+<table><thead><tr><th width="264.7421875">Chain</th><th>Contract Address</th></tr></thead><tbody><tr><td>Base</td><td>0x7c6088c1185fbb770deb1ca7ddeed4ba57659663</td></tr><tr><td>Base Sepolia</td><td>0x9fa6c64c5fe954f7da1832dc190bbabc0c234989</td></tr><tr><td>Robinhood</td><td>0x06799f2fecf3fb2b83a2c8e04fd890ae4ada79bf</td></tr></tbody></table>
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-11-18 at 12.57.51.png" alt=""><figcaption></figcaption></figure>
+
+Each indexer will store the mapped information of all Flaunch tokens, regardless of the PositionManager that it was flaunched from.
+
+***
+
+## Custom Event Emission
+
+As our Flaunch events modify swaps and fees away from the standard Uniswap V4 flow, we follow the Uniswap V4 [Hook Data Standard](https://uniswapfoundation.mirror.xyz/KGKMZ2Gbc_I8IqySVUMrEenZxPnVnH9-Qe4BlN1qn0g) to ensure that data can be correctly indexed. These will be emitted from the `PositionManager` contract and will need to be indexed in conjunction with traditional Uniswap hooks.
+
+```solidity
+event HookSwap(
+    bytes32 indexed id,       // v4 pool id
+    address indexed sender,   // router of the swap
+    int128 amount0,
+    int128 amount1,
+    uint128 hookLPfeeAmount0,
+    uint128 hookLPfeeAmount1
+);
+
+event HookFee(
+    bytes32 indexed id,       // v4 pool id
+    address indexed sender,   // router of the swap
+    uint128 feeAmount0,
+    uint128 feeAmount1
+);
+
+```

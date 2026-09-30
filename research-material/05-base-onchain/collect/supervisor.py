@@ -2,6 +2,8 @@
 """Supervisor for the BASE_CENSUS collector.
 
 First start: pins launch head H (base-rpc.publicnode.com eth_blockNumber) and writes state/config.json:
+  config.json may also list extra_streams [{name: bf3, start, end}, ...] (same endpoints as bf2), used to move part of
+  the remaining bf range off drpc.
   bf range = [H - BACKFILL_BLOCKS, H - HEAD_LAG]   (base.drpc.org); if config has bf_split_end/bf2_start the upper
              part [bf2_start, H - HEAD_LAG] is done by stream bf2 (gateway.tenderly.co/public/base, fallback base.meowrpc.com)
   fw range = [H - HEAD_LAG + 1, stop_block]        (base-rpc.publicnode.com, fallback base.drpc.org)
@@ -10,6 +12,8 @@ First start: pins launch head H (base-rpc.publicnode.com eth_blockNumber) and wr
 Runs census.py --stream bf and --stream fw as child processes (restarted on non-zero exit, resume from checkpoint),
 then gap-fill (census.py --stream gf) for blocks listed in gaps.csv, then finalize.py, then writes the sentinel.
 Re-running supervisor.py resumes (config.json is kept).
+Env at first start: BACKFILL_BLOCKS (default 10800), BF2_BLOCKS (default 0; the 2026-09-30 run used the equivalent of 6400,
+set by editing config.json 10 minutes after launch).
 """
 import json, os, subprocess, sys, time
 
@@ -104,6 +108,10 @@ def main():
             'max_follow_seconds': MAX_FOLLOW_SECONDS, 'sentinel_dir': SENT,
             'bf_start': h - BACKFILL_BLOCKS, 'bf_end': h - HEAD_LAG, 'fw_start': h - HEAD_LAG + 1,
         }
+        bf2 = int(os.environ.get('BF2_BLOCKS', '0'))
+        if bf2 > 0:
+            cfg['bf_split_end'] = cfg['bf_end'] - bf2
+            cfg['bf2_start'] = cfg['bf_split_end'] + 1
         save_json(cp, cfg)
         log('pinned config', cfg)
     else:
@@ -112,7 +120,9 @@ def main():
         kids = [Child('bf', ['--start', str(cfg['bf_start']), '--end', str(cfg.get('bf_split_end', cfg['bf_end'])), '--chunk', '40', '--workers', '3']),
                 Child('fw', ['--start', str(cfg['fw_start']), '--chunk', '30', '--workers', '2'])]
         if cfg.get('bf2_start'):
-            kids.append(Child('bf2', ['--start', str(cfg['bf2_start']), '--end', str(cfg['bf_end']), '--chunk', '40', '--workers', '3']))
+            kids.append(Child('bf2', ['--start', str(cfg['bf2_start']), '--end', str(cfg.get('bf2_end', cfg['bf_end'])), '--chunk', '40', '--workers', '3']))
+        for x in cfg.get('extra_streams', []):
+            kids.append(Child(x['name'], ['--start', str(x['start']), '--end', str(x['end']), '--chunk', '40', '--workers', '3']))
         pending = list(kids)
         while pending:
             pending = [k for k in pending if not k.poll()]
@@ -122,7 +132,7 @@ def main():
         if os.path.exists(gaps_p) and not ckpt('gf').get('done'):
             import csv
             with open(gaps_p) as f:
-                nums = sorted({int(r['block_number']) for r in csv.DictReader(f) if r['stream'] in ('bf', 'bf2', 'fw')})
+                nums = sorted({int(r['block_number']) for r in csv.DictReader(f) if r['stream'] != 'gf'})
             if nums:
                 bfp = os.path.join(STATE, 'gf_blocks.txt')
                 if not os.path.exists(bfp):

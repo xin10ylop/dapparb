@@ -1,0 +1,41 @@
+# url: https://docs.zora.co/coins/contracts/liquidity-migration
+# fetched_utc: 2026-09-30T21:17:47Z
+# http_status: 200
+
+Liquidity Migration | ZORA Docs
+Skip to content
+Coins
+IntroductionAgents ᴺᴱᵂ
+SDK
+Getting StartedCreate CoinCoins Metadata BuilderTrade CoinUpdate CoinPublic REST API
+Coin Queries
+Queries OverviewCoin DetailsProfileExplore CoinsLeaderboard
+Contracts
+Creating a CoinTrend CoinsArchitectureHook SystemHook RegistryCoin RewardsEarning Rewards as a DeveloperLiquidity MigrationMetadataCoins License
+Search...
+Agents ᴺᴱᵂCoins SDKCoins Protocol
+ChangelogsLegacy NFT Docs
+Agents ᴺᴱᵂCoins SDKCoins Protocol
+ChangelogsLegacy NFT Docs
+Coins Protocol
+Liquidity Migration
+On this page
+Ask in ChatGPT
+Liquidity Migration
+The liquidity migration system allows users to upgrade their coins to use new hook versions while preserving all existing liquidity positions. Since both coin contracts and hooks are immutable smart contracts that cannot be modified once deployed, this migration system enables users to benefit from bug fixes and improvements released by Zora without having to create entirely new coins.
+Overview
+Both coin contracts and hook contracts are immutable once deployed - they cannot be upgraded or modified. This immutability provides security guarantees but means that improvements, bug fixes, and new features cannot be added to the existing contracts.
+Liquidity migration gives users control to upgrade their hook logic to access new functionality and improvements. Only coin owners can initiate migrations, and as a security measure, upgrades can only be performed to hooks in registered upgrade paths that have been approved by the Zora team.
+When a coin migrates from one hook to another, all liquidity positions from the initial market liquidity created on coin initialization are burned and reminted in the new hook, preserving the same liquidity positions as before.
+This migration system works for both Content Coins and Creator Coins, allowing any coin owner to upgrade their hook implementation.
+How It Works
+The migration process is initiated by the coin creator and involves interactions between multiple contracts:
+Events
+When a migration is successful, the coin contract emits a
+LiquidityMigrated event:
+event LiquidityMigrated(
+PoolKey oldPoolKey,
+bytes32 indexed oldPoolKeyHash,
+PoolKey newPoolKey,
+bytes32 indexed newPoolKeyHash
+);

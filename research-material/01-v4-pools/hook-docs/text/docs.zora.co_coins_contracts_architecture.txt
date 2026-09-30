@@ -1,0 +1,82 @@
+# url: https://docs.zora.co/coins/contracts/architecture
+# fetched_utc: 2026-09-30T21:17:46Z
+# http_status: 200
+
+Contract Architecture | ZORA Docs
+Skip to content
+Coins
+IntroductionAgents ᴺᴱᵂ
+SDK
+Getting StartedCreate CoinCoins Metadata BuilderTrade CoinUpdate CoinPublic REST API
+Coin Queries
+Queries OverviewCoin DetailsProfileExplore CoinsLeaderboard
+Contracts
+Creating a CoinTrend CoinsArchitectureHook SystemHook RegistryCoin RewardsEarning Rewards as a DeveloperLiquidity MigrationMetadataCoins License
+Search...
+Agents ᴺᴱᵂCoins SDKCoins Protocol
+ChangelogsLegacy NFT Docs
+Agents ᴺᴱᵂCoins SDKCoins Protocol
+ChangelogsLegacy NFT Docs
+Coins Protocol
+Architecture
+On this page
+Ask in ChatGPT
+Contract Architecture
+This page provides a technical overview of how the Coins protocol contracts work together to enable coin creation, trading, and automatic reward distribution.
+Architecture Overview
+Visual overview of how contracts work together in the Zora Coins system
+Core Components
+Coins Contracts
+BaseCoinV4 (Abstract)
+Base implementation for all coin types
+Integrates with Uniswap V4 PoolManager
+Handles liquidity migration between hook versions
+Manages pool key and basic coin functionality
+CreatorCoin
+One per creator, backed by ZORA tokens
+1 billion total supply with 5-year vesting schedule
+500M tokens vest to creator, 500M available for trading
+1% trading fee split across creator, referrers, protocol, and LP
+ContentCoin
+Multiple per creator, backed by creator's coin
+1 billion total supply with instant creator allocation
+10M tokens to creator immediately, 990M available for trading
+1% trading fee with the same reward split as Creator Coins
+TrendCoin
+Lightweight coins for trending topics and cultural moments
+1 billion total supply, 100% allocated to liquidity pool
+No creator allocation, no payout recipient, no platform referrer
+0.01% (1 bps) trading fee — 100x lower than Creator/Content Coins
+Sniper Tax: 99% fee at launch decaying to 0.01% over 10 seconds
+All fees go to protocol; no LP remint
+Unique, case-insensitive tickers enforced on-chain
+Factory Contract
+ZoraFactoryImpl
+Deploys new coins with deterministic addresses
+Supports custom pool configurations and post-deployment hooks
+Creates Uniswap V4 pools automatically with appropriate hook contracts
+Provides address prediction before deployment
+Key functions:
+deploy() - General coin deployment with full customization
+deployCreatorCoin() - Simplified Creator Coin deployment
+deployTrendCoin() - Trend Coin deployment with unique ticker enforcement
+coinAddress() - Predict deployment address for Content/Creator Coins
+trendCoinAddress() - Predict deployment address for Trend Coins
+Hook System
+The protocol uses a unified hook architecture:
+BaseZoraV4CoinHook (Abstract)
+Contains all shared hook functionality for both coin types
+Implements Uniswap V4 hook interface (
+afterSwap,
+afterInitialize)
+Handles pool initialization, fee collection, and currency conversion
+Supports migration to new hook versions while preserving liquidity
+Core functionality:
+Collects trading fees from liquidity positions
+Splits fees between LP rewards and market rewards
+Converts fees to backing currency via multi-hop swaps
+Distributes rewards based on coin type via unified logic
+History: Prior to v2.3.0 the protocol used two hooks (
+ContentCoinHook and
+CreatorCoinHook). This was consolidated into
+ZoraV4CoinHook for a single, unified implementation.

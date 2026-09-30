@@ -1,0 +1,12 @@
+URL: https://api.llama.fi/overview/dexs/bsc
+FINAL_URL: https://api.llama.fi/overview/dexs/bsc
+TITLE: DefiLlama DEX overview, chain=bsc (raw JSON)
+PUBLISHER: DefiLlama
+FETCHED_AT_UTC: 2026-09-30T21:18:33Z
+HTTP_STATUS: 200
+CONTENT_TYPE: application/json
+RAW_SHA256: 35c9cdffff95ca3e2d6926fae519c83d323cf3827a8bf1439b27b133d012a204
+RAW_FILE: raw/defillama-overview-dexs-bsc.json.gz
+CONVERSION: verbatim
+==============================================================================
+[large JSON body: see raw file; not duplicated as text]

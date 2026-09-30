@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Finalize the BASE_CENSUS output (integrity metadata only, no analysis).
 
-- merges data/blocks-{bf,bf2,fw,gf}-*.csv.gz into ../blocks.csv.gz (sorted, one row per block); the per-stream
+- merges data/blocks-{bf,bf2,bf3..,fw,gf}-*.csv.gz into ../blocks.csv.gz (sorted, one row per block); the per-stream
   blocks parts are moved to collect/state/blocks-parts/ afterwards
 - checks: every block of [bf_start, final_block] present; parent_hash(n) == block_hash(n-1); number of txs rows per
   block == tx_count; writes the lists of exceptions to ../integrity.json
@@ -34,7 +34,8 @@ def lj(p, d=None):
 
 def main():
     cfg = lj(os.path.join(STATE, 'config.json'))
-    ck = {s: lj(os.path.join(STATE, '%s.ckpt.json' % s), {}) for s in ('bf', 'bf2', 'fw', 'gf')}
+    streams = sorted({os.path.basename(p).split('.')[0] for p in glob.glob(os.path.join(STATE, '*.ckpt.json'))} | {'bf', 'fw', 'gf'})
+    ck = {s: lj(os.path.join(STATE, '%s.ckpt.json' % s), {}) for s in streams}
     first = cfg['bf_start']
     last = (ck['fw'].get('next') or cfg['fw_start']) - 1
     # 1. blocks
@@ -110,7 +111,7 @@ def main():
             w.writerow([n, 'recovered' if n in rows else 'unrecoverable', ' | '.join(gap_blocks.get(n, ['missing (no failure event recorded)']))])
     # 4. swap topics examples
     fs = {}
-    for s in ('bf', 'bf2', 'fw', 'gf'):
+    for s in streams:
         for t, v in (lj(os.path.join(STATE, 'first_seen_%s.json' % s), {}) or {}).items():
             if t not in fs or v['block_number'] < fs[t]['block_number']:
                 fs[t] = v

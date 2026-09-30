@@ -1,0 +1,60 @@
+# url: https://clanker.gitbook.io/documentation/references/core-contracts
+# fetched_utc: 2026-09-30T21:17:54Z
+# http_status: 200
+
+Core Contracts | Clanker Documentation
+Clanker Documentation
+⌘Ctrlk
+Clanker Documentation
+Introduction
+General
+Educational Resources
+FAQ
+Token Deployments
+Creator Rewards & Fees
+Clanker.world Warning Tags
+Unclaimed Rewards Balance
+Verifying the Social Context of Token Deploys
+Droids
+Overview
+Droid Funding & Runway
+Create a Droid
+Manage your Droid
+Writing a Droid Voice
+Droid Roadmap
+Droid FAQ
+Troubleshooting Droids
+Glossary
+API Reference
+Overview
+Public API
+Authenticated API
+User API
+SDK Reference
+Overview
+Core Utilities
+V4 — Clanker Class
+V3 — Clanker Class
+V4 Extensions
+Legacy Fee Claims
+References
+Core Contracts
+v4
+v3.1
+ClankerToken v3.1.0 and v4.0.0
+Brand Assets
+Audits
+Compatible Trading Platforms
+Deployed Contracts
+Supported Quote Tokens
+Core Team
+ContactPowered by GitBook
+On this page
+For the complete documentation index, see llms.txt. This page is also available as Markdown.
+CopyOn this page
+References
+Core Contracts
+https://github.com/clanker-devco/DOCS/blob/main/pages/fOTIabyVqIakp48nyHnV/README.mdhttps://github.com/clanker-devco/DOCS/blob/main/pages/JPda6c92ea2Zv7urf2y7/README.md
+PreviousLegacy Fee Claims
+Nextv4
+Last updated 3 months ago

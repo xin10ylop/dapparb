@@ -1,0 +1,12 @@
+URL: https://docs.blocksmith.org/bsc-builder/api/eth_sendbundle
+FINAL_URL: https://docs.blocksmith.org/bsc-builder/api/eth_sendbundle
+TITLE: Blocksmith eth_sendBundle
+PUBLISHER: Blocksmith
+FETCHED_AT_UTC: 2026-09-30T21:18:24Z
+HTTP_STATUS: None
+CONTENT_TYPE: 
+RAW_SHA256: d7b61dec985ebaea5a2ac89501167997bec28cbe34b7fa644405457e37dbf503
+RAW_FILE: raw/blocksmith-send-bundle.txt
+CONVERSION: verbatim
+==============================================================================
+ProxyError(MaxRetryError("HTTPSConnectionPool(host='docs.blocksmith.org', port=443): Max retries exceeded with url: /bsc-builder/api/eth_sendbundle (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 502 Bad Gateway')))"))

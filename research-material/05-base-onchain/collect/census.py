@@ -3,7 +3,7 @@
 
 One process = one stream over a contiguous block range:
   --stream bf : backfill [start, end] via base.drpc.org (eth_getBlockReceipts + eth_getBlockByNumber(n,false))
-  --stream bf2: backfill helper for the upper part of the backfill range via gateway.tenderly.co/public/base
+  --stream bf2 (bf3, ...): backfill helper for the upper part of the backfill range via gateway.tenderly.co/public/base
                 (fallback base-rpc.publicnode.com); added 2026-09-30 ~21:15Z because drpc throughput dropped (HTTP 429)
   --stream fw : follow the head from --start via base-rpc.publicnode.com (fallback base.drpc.org),
                 until the stop condition in state/config.json holds (see supervisor.py), then drain to stop_block.
@@ -15,7 +15,7 @@ Resumable: state/<stream>.ckpt.json holds next block + byte size of every open p
 truncated back to the checkpointed size (drops any partially written member) and newer parts are deleted.
 Unrecoverable blocks are appended to gaps.csv (never silently skipped).
 """
-import argparse, csv, gzip, io, json, os, random, sys, threading, time
+import argparse, csv, gzip, io, json, os, random, re, sys, threading, time
 from concurrent.futures import ThreadPoolExecutor
 import requests
 
@@ -321,13 +321,15 @@ def sentinel_stop(cfg):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--stream', required=True, choices=['bf', 'bf2', 'fw', 'gf', 'smoke'])
+    ap.add_argument('--stream', required=True, help='bf | bf2, bf3, ... | fw | gf | smoke')
     ap.add_argument('--start', type=int)
     ap.add_argument('--end', type=int)
     ap.add_argument('--blocks-file')
     ap.add_argument('--chunk', type=int, default=40)
     ap.add_argument('--workers', type=int, default=3)
     args = ap.parse_args()
+    if not re.match(r'^(bf\d*|fw|gf|smoke)$', args.stream):
+        ap.error('bad --stream')
     os.makedirs(STATE, exist_ok=True); os.makedirs(DATA, exist_ok=True)
     topics = load_topics()
     cfg = load_json(os.path.join(STATE, 'config.json'), {})
@@ -351,7 +353,7 @@ def main():
     pn = Endpoint(PUBLICNODE, max_inflight=2, per_sec=2.0)
     if stream in ('bf', 'smoke'):
         eps, max_att = [drpc], 14
-    elif stream == 'bf2':
+    elif re.match(r'^bf\d+$', stream):
         eps, max_att = [Endpoint(TENDERLY, max_inflight=3), Endpoint(PUBLICNODE, max_inflight=1, per_sec=1.0)], 14
     elif stream == 'fw':
         eps, max_att = [pn, drpc], 16

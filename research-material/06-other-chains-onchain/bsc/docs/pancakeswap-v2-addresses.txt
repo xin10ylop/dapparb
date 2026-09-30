@@ -1,0 +1,188 @@
+URL: https://developer.pancakeswap.finance/contracts/v2/addresses
+FINAL_URL: https://developer.pancakeswap.finance/contracts/v2/addresses
+TITLE: PancakeSwap v2 addresses
+PUBLISHER: PancakeSwap developer docs
+FETCHED_AT_UTC: 2026-09-30T21:18:35Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: da6d046aa18287da2329e1e065489ec1831bda56d02c4a23f9c0440a8bc1ad40
+RAW_FILE: raw/pancakeswap-v2-addresses.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+[Skip to content](</contracts/v2/addresses#vocs-content>)
+
+[](</>)
+
+PancakeSwap Infinity
+
+[Overview](</contracts/infinity/overview>)
+
+[Accounting Layer - Vault](</contracts/infinity/overview/accounting-layer-vault>)
+
+[AMM Layer - Pool Manager](</contracts/infinity/overview/amm-layer-poolmanager>)
+
+[Concentrated Liquidity](</contracts/infinity/overview/amm-layer/concentrated-liquidity>)[Liquidity Book](</contracts/infinity/overview/amm-layer/liquidity-book>)
+
+[Custom Layer - Hook](</contracts/infinity/overview/custom-layer-hook>)[Farms](</contracts/infinity/overview/farms>)
+
+Guides
+
+[Developing a hook](</contracts/infinity/guides/develop-a-hook>)
+
+Chevron Right
+
+[Manage Liquidity](</contracts/infinity/guides/manage-liquidity>)[Perform a swap](</contracts/infinity/guides/perform-a-swap>)
+
+Resources
+
+Chevron Right
+
+[FAQ](</contracts/infinity/faq>)
+
+Chevron Right
+
+PancakeSwap v3
+
+[Addresses](</contracts/v3/addresses>)[Github](</contracts/v3/github>)
+
+Technical Overview
+
+Chevron Right
+
+[FAQ](</contracts/v3/faq>)
+
+PancakeSwap v2
+
+[Addresses](</contracts/v2/addresses>)[Github](</contracts/v2/github>)
+
+Technical Overview
+
+Chevron Right
+
+[FAQ](</contracts/v2/faq>)
+
+Unified Swap API
+
+Chevron Right
+
+[Limit order](</contracts/limit-order/addresses>)
+
+Prediction
+
+Chevron Right
+
+[Pancake Gifts](</contracts/pancake-gifts/addresses>)[Crosschain](</contracts/crosschain/addresses>)[Universal Router](</contracts/universal-router/addresses>)[Aggregator](</contracts/aggregator>)
+
+Permit2
+
+Chevron Right
+
+PancakeSwap X
+
+Chevron Right
+
+StableSwap
+
+Chevron Right
+
+MasterChef
+
+Chevron Right
+
+[Syrup Pools](</contracts/syrup-pools>)
+
+Cake
+
+Chevron Right
+
+[IFO](</contracts/ifo>)
+
+Lottery
+
+Chevron Right
+
+Deprecated
+
+[veCake and Gauge voting](</contracts/vecake-and-gauge-voting>)[CAKE Syrup Pool](</contracts/fixed-term-staking-cake-pool>)[Farm Booster (bCAKE)](</contracts/farm-booster-bcake>)[Market Maker Pool](</contracts/market-maker-pool>)[NFT Market](</contracts/nft-market>)[Affiliate Program](</contracts/affiliate-program/overview>)
+
+Search
+
+[](</>)
+
+[EVM](</contracts/infinity/overview>)[Aptos](</contracts-aptos>)[APIs](</apis/subgraph>)[SDKs](</sdks/overview>)[Bug Bounty](</bug-bounty>)
+
+
+Sun
+
+Moon
+
+[](</>)
+
+[EVM](</contracts/infinity/overview>)[Aptos](</contracts-aptos>)[APIs](</apis/subgraph>)[SDKs](</sdks/overview>)[Bug Bounty](</bug-bounty>)
+
+
+[EVM](</contracts/infinity/overview>)
+
+Menu
+
+Addresses
+
+On this page
+
+Chevron Right
+
+# 
+
+PancakeSwap v2 Addresses[](</contracts/v2/addresses#pancakeswap-v2-addresses>)
+
+## 
+
+Core[](</contracts/v2/addresses#core>)
+
+**Contract name:** [View PancakeFactory.sol on GitHub](<https://github.com/pancakeswap/pancake-contracts/blob/master/projects/exchange-protocol/contracts/PancakeFactory.sol>).
+
+Mainnet
+
+Chain| Address  
+---|---  
+BSC| 0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73  
+ETH| 0x1097053Fd2ea711dad45caCcc45EfF7548fCB362  
+zkSync| 0xd03D8D566183F0086d8D09A84E1e30b58Dd5619d  
+Arbitrum| 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E  
+Linea| 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E  
+Base| 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E  
+opBNB| 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E  
+Monad| 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E  
+Robinhood| 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E  
+  
+Testnet
+
+Chain| Address  
+---|---  
+BSC Testnet| 0x6725F303b657a9451d8BA641348b6761A6CC7a17  
+  
+## 
+
+Periphery[](</contracts/v2/addresses#periphery>)
+
+**Contract name:** [View PancakeRouter.sol on GitHub](<https://github.com/pancakeswap/pancake-smart-contracts/blob/master/projects/exchange-protocol/contracts/PancakeRouter.sol>).
+
+Mainnet
+
+Chain| Address  
+---|---  
+BSC| 0x10ED43C718714eb63d5aA57B78B54704E256024E  
+ETH| 0xEfF92A263d31888d860bD50809A8D171709b7b1c  
+zkSync| 0x5aEaF2883FBf30f3D62471154eDa3C0c1b05942d  
+Arbitrum| 0x8cFe327CEc66d1C090Dd72bd0FF11d690C33a2Eb  
+Linea| 0x8cFe327CEc66d1C090Dd72bd0FF11d690C33a2Eb  
+Base| 0x8cFe327CEc66d1C090Dd72bd0FF11d690C33a2Eb  
+opBNB| 0x8cFe327CEc66d1C090Dd72bd0FF11d690C33a2Eb  
+Monad| 0xB1Bc24c34e88f7D43D5923034E3a14B24DaACfF9  
+Robinhood| 0x8cFe327CEc66d1C090Dd72bd0FF11d690C33a2Eb  
+  
+Testnet
+
+Chain| Address  
+---|---  
+BSC Testnet| 0xD99D1c33F9fC3444f8101754aBC46c52416550D1

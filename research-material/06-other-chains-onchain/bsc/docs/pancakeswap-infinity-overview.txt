@@ -1,0 +1,154 @@
+URL: https://developer.pancakeswap.finance/contracts/infinity/overview
+FINAL_URL: https://developer.pancakeswap.finance/contracts/infinity/overview
+TITLE: PancakeSwap Infinity overview
+PUBLISHER: PancakeSwap developer docs
+FETCHED_AT_UTC: 2026-09-30T21:18:40Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: 660f000ee7ce35f386d39cbe9810b39fb99190561f0597e95a2e815483c19edf
+RAW_FILE: raw/pancakeswap-infinity-overview.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+[Skip to content](</contracts/infinity/overview#vocs-content>)
+
+[](</>)
+
+PancakeSwap Infinity
+
+[Overview](</contracts/infinity/overview>)
+
+[Accounting Layer - Vault](</contracts/infinity/overview/accounting-layer-vault>)
+
+[AMM Layer - Pool Manager](</contracts/infinity/overview/amm-layer-poolmanager>)
+
+[Concentrated Liquidity](</contracts/infinity/overview/amm-layer/concentrated-liquidity>)[Liquidity Book](</contracts/infinity/overview/amm-layer/liquidity-book>)
+
+[Custom Layer - Hook](</contracts/infinity/overview/custom-layer-hook>)[Farms](</contracts/infinity/overview/farms>)
+
+Guides
+
+[Developing a hook](</contracts/infinity/guides/develop-a-hook>)
+
+Chevron Right
+
+[Manage Liquidity](</contracts/infinity/guides/manage-liquidity>)[Perform a swap](</contracts/infinity/guides/perform-a-swap>)
+
+Resources
+
+Chevron Right
+
+[FAQ](</contracts/infinity/faq>)
+
+Chevron Right
+
+PancakeSwap v3
+
+[Addresses](</contracts/v3/addresses>)[Github](</contracts/v3/github>)
+
+Technical Overview
+
+Chevron Right
+
+[FAQ](</contracts/v3/faq>)
+
+PancakeSwap v2
+
+[Addresses](</contracts/v2/addresses>)[Github](</contracts/v2/github>)
+
+Technical Overview
+
+Chevron Right
+
+[FAQ](</contracts/v2/faq>)
+
+Unified Swap API
+
+Chevron Right
+
+[Limit order](</contracts/limit-order/addresses>)
+
+Prediction
+
+Chevron Right
+
+[Pancake Gifts](</contracts/pancake-gifts/addresses>)[Crosschain](</contracts/crosschain/addresses>)[Universal Router](</contracts/universal-router/addresses>)[Aggregator](</contracts/aggregator>)
+
+Permit2
+
+Chevron Right
+
+PancakeSwap X
+
+Chevron Right
+
+StableSwap
+
+Chevron Right
+
+MasterChef
+
+Chevron Right
+
+[Syrup Pools](</contracts/syrup-pools>)
+
+Cake
+
+Chevron Right
+
+[IFO](</contracts/ifo>)
+
+Lottery
+
+Chevron Right
+
+Deprecated
+
+[veCake and Gauge voting](</contracts/vecake-and-gauge-voting>)[CAKE Syrup Pool](</contracts/fixed-term-staking-cake-pool>)[Farm Booster (bCAKE)](</contracts/farm-booster-bcake>)[Market Maker Pool](</contracts/market-maker-pool>)[NFT Market](</contracts/nft-market>)[Affiliate Program](</contracts/affiliate-program/overview>)
+
+Search
+
+[](</>)
+
+[EVM](</contracts/infinity/overview>)[Aptos](</contracts-aptos>)[APIs](</apis/subgraph>)[SDKs](</sdks/overview>)[Bug Bounty](</bug-bounty>)
+
+
+Sun
+
+Moon
+
+[](</>)
+
+[EVM](</contracts/infinity/overview>)[Aptos](</contracts-aptos>)[APIs](</apis/subgraph>)[SDKs](</sdks/overview>)[Bug Bounty](</bug-bounty>)
+
+
+EVM
+
+Chevron Down
+
+Menu
+
+Overview
+
+On this page
+
+Chevron Right
+
+# 
+
+Overview[](</contracts/infinity/overview#overview>)
+
+This is PancakeSwap Infinity development documentation.
+
+As of March 2025, PancakeSwap Infinity has completed audit.
+
+* * *
+
+PancakeSwap v3, launched in 2023, introduced the Concentrated Liquidity Automated Market Maker (CLAMM) model from Uniswap. This model allows liquidity providers to offer assets within specific price ranges, enhancing capital efficiency and providing deeper liquidity for traders.
+
+PancakeSwap Infinity, recognizing the need for adaptability and scalability, separates Accounting logic from AMM logic, implements a three-tiered modular architecture (see image below) that consists of the **[Vault](</contracts/infinity/overview/accounting-layer-vault>), [Pool Managers](</contracts/infinity/overview/amm-layer-poolmanager>), and [Hooks](</contracts/infinity/overview/custom-layer-hook>)**. This allows for easier integration of evolving AMM paradigms without requiring a complete protocol overhaul.
+
+In contrast to v3's limited flexibility, PancakeSwap Infinity takes a more open-ended approach, empowering pool creators with greater customization capabilities. The introduction of hooks enables the integration of custom features like bespoke oracles, dynamic fee components, active liquidity management strategies, diverse order types, and more. The non-upgradeable core ensures stability, while each pool can integrate its own hook smart contract at creation.
+
+Additionally, each AMM implementation/Pool Type has an independent Singleton implementation, optimizing gas efficiency for new pool deployment and multi-hop transactions.
+
+Flash Accounting complements the Singleton contract design by consolidating transaction settlement, computing net balances for a batch of transactions, and settling them collectively, reducing gas consumption.

@@ -1,0 +1,63 @@
+URL: https://jetbldr.xyz/
+FINAL_URL: https://jetbldr.xyz/
+TITLE: Jetbldr website
+PUBLISHER: Jetbldr
+FETCHED_AT_UTC: 2026-09-30T21:18:30Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html
+RAW_SHA256: d7967a602d0236de86ac760f56b97143935b1ed2cb01b393dad29456f03365cf
+RAW_FILE: raw/jetbldr-home.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+[ ](<.> "JetBldr")
+
+JetBldr 
+
+Home 
+
+[ ](<javascript:void\(0\)> "Share")
+
+Initializing search 
+
+
+
+
+  * [ Home ](<.>)
+  * [ BSC Builder API ](<api_bsc/>)
+
+
+
+[ ](<.> "JetBldr") JetBldr 
+
+  * [ Home  ](<.>)
+  * BSC Builder API  BSC Builder API 
+    * [ Overview  ](<api_bsc/>)
+    * [ Good Will Alliance  ](<api_bsc/good_will_alliance/>)
+    * [ eth_sendBundle  ](<api_bsc/eth_sendbundle/>)
+    * [ eth_sendRawTransaction  ](<api_bsc/eth_sendPrivateRawTransaction/>)
+
+
+
+JetBldr / BSC Builder Infrastructure
+
+# Neutral block builder on BSC.
+
+Private transactions, bundle execution, and block building for BNB Smart Chain. 
+
+[Read Documentation](<./api_bsc/>)
+
+Private & Secure **Protected from sandwich.**
+
+Bundle execution **Atomic builder handling.**
+
+Policy **Good Will Alliance stance.**
+
+Links
+
+[X](<https://twitter.com/jetblder>) [Telegram](<https://t.me/jetbldr_xyz>) [hi@jetbldr.xyz](<mailto:hi@jetbldr.xyz>)
+
+Back to top  [ Next  Overview  ](<api_bsc/>)
+
+Copyright (C) JetBLT Lab — Built for fair, fast, and private transaction ordering. 
+
+[ ](<https://twitter.com/jetblder> "JetBuilder on X") [ ](<https://t.me/jetbldr_xyz> "JetBuilder on Telegram") [ ](<mailto:hi@jetbldr.xyz> "Email us")

@@ -1,0 +1,21 @@
+{
+ "chain": "arbitrum",
+ "started_at_utc": "2026-09-30T21:13:30Z",
+ "rpc": [
+  "https://arbitrum-one-rpc.publicnode.com",
+  "https://arbitrum.drpc.org"
+ ],
+ "errors": [],
+ "n_tokens": 245,
+ "eth_call_block": "latest",
+ "eth_call_time_utc": "2026-09-30T21:13:37Z",
+ "defillama_requests": 21,
+ "price_timestamps_requested": [
+  1790798841,
+  1790800640,
+  1790802440
+ ],
+ "native_chart_url": "https://coins.llama.fi/chart/coingecko:ethereum?start=1790798841&span=13&period=5m",
+ "native_chart_http_status": 200,
+ "finished_at_utc": "2026-09-30T21:13:57Z"
+}

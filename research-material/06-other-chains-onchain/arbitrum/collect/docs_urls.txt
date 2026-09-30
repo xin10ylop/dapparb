@@ -12,3 +12,5 @@ https://docs.arbitrum.io/how-arbitrum-works/priority-gas-auction/use-fast-feed.m
 https://docs.arbitrum.io/launch-arbitrum-chain/chain-config/sequencer/pga.md
 https://docs.arbitrum.io/launch-arbitrum-chain/chain-config/sequencer/timeboost.md
 https://docs.arbitrum.io/launch-arbitrum-chain/chain-config/costs/priority-fees.md
+https://docs.arbitrum.io/arbitrum-essentials/precompiles/reference.md
+https://raw.githubusercontent.com/OffchainLabs/nitro/v3.11.3/precompiles/ArbSys.go

@@ -1,0 +1,232 @@
+URL: https://nodereal.io/api-marketplace/bsc-bundle-service-api
+FINAL_URL: https://nodereal.io/api-marketplace
+TITLE: NodeReal BSC MEV (Bundle Service) API
+PUBLISHER: NodeReal
+FETCHED_AT_UTC: 2026-09-30T21:18:28Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: a48564c0dea8a0e2782c926a19a8b9df6b897eeb50256eb735cfd70d855a94f1
+RAW_FILE: raw/nodereal-bundle-api-marketplace.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+[](</>)
+
+Products
+
+[MegaNodeFastest and Reliable API Service](</meganode>)
+
+[API MarketplaceBuild for Developers, by Developers](</api-marketplace>)
+
+[TraceRealExplorer as a Service](</tracereal>)
+
+[API Marketplace](</api-marketplace>)
+
+Solutions
+
+[One-Stop Solutions for Web3Custom Blockchain Solutions for All Industries](</solutions>)
+
+[Game SolutionThe Blockchain Scaling Solution for Web3 Gaming](</solutions/game-solution>)
+
+[Pricing](</pricing>)
+
+[Case Studies](<https://nodereal.io/blog/en/tag/case-study/>)
+
+Developers
+
+RESOURCES
+
+[DocumentationUp-to-date docs for developers](<https://docs.nodereal.io/docs/intro-nodereal>)
+
+[GitHubExplore our tech repositories](<https://github.com/node-real>)
+
+[TutorialsLearn how to get started with NodeReal](<https://nodereal.io/blog/en/tag/tutorials/>)
+
+TOOLS
+
+[DCellarStorage Console on BNB Greenfield](<http://dcellar.io/>)
+
+[GreenfieldScanBNB Greenfield Blockchain Explorer](<http://greenfieldscan.com/>)
+
+[BNB Chain ListA list of BNB Chain related networks](<https://www.bnbchainlist.org/>)
+
+[BSCTraceBSC Blockchain Explorer](<https://bsctrace.com/>)
+
+# One-Stop  
+Web3 API Marketplace
+
+## Explore the best Enhanced APIs in the Web3 world, say goodbye to complex and endless requests right now!
+
+[Explore all APIs](</api-marketplace/explore>)[Submit your API](</api-marketplace/submit-api>)
+
+## Most Popular [View All](</api-marketplace/explore?sort=popular>)
+
+### [BSC RPCDeveloped by **NodeReal** Our industry-leading BSC RPC nodes & APIs enable developers to access BNB Smart Chain (BSC) with high-performance infrastructure. Try our RPC endpoints for free now.**Freemium**](</api-marketplace/bsc-rpc>)### [Ethereum RPCDeveloped by **NodeReal** Build your dApps with the leading-industry Ethereum RPC nodes and APIs you can find in the Web3 world. Start to try our ETH RPC endpoints for free. **Freemium**](</api-marketplace/ethereum-rpc>)### [BNBBurn APIDeveloped by **NodeReal** While acquiring block rewards data is complex, our BNBBurn API makes it straightforward to retrieve the block rewards info you're looking for.**Free Now** $99.00/month](</api-marketplace/bnbburn-api>)### [Aptos Node APIDeveloped by **NodeReal** Powerful node infrastructure and RESTful APIs are provided for all Aptos developers on our platform. Start to try our Aptos endpoints for free. **Freemium**](</api-marketplace/aptos-node-api>)
+
+[View All](</api-marketplace/explore?sort=popular>)
+
+## Recently Updated [View All](</api-marketplace/explore?sort=updated>)
+
+### [BNB Chain Staking APIDeveloped by **NodeReal** This API package can help you get the staking statistics data from the official BNB Chain Staking Service.**Freemium**](</api-marketplace/bnb-chain-staking>)### [BNB Greenfield Mainnet Billing APIDeveloped by **NodeReal** This API package can help you get billing info instantly in BNB Greenfield Mainnet.**Freemium**](</api-marketplace/bnb-greenfield-mainnet-billing-api>)### [BNB Greenfield Mainnet Enhanced APIDeveloped by **NodeReal** This API package can help you get transactions, objects, buckets, and account info in BNB Greenfield Mainnet.**Freemium**](</api-marketplace/bnb-greenfield-mainnet-enhanced-api>)### [BNBBurn APIDeveloped by **NodeReal** While acquiring block rewards data is complex, our BNBBurn API makes it straightforward to retrieve the block rewards info you're looking for.**Free Now** $99.00/month](</api-marketplace/bnbburn-api>)
+
+[View All](</api-marketplace/explore?sort=updated>)
+
+Use Case
+
+### BSCTrace Explorer
+
+BSCTrace explorer utilizes our NFT, Fungible Tokens, Transaction Receipts, and other API packages to create an incredible Web3 explorer product.
+
+[NFT API](</api-marketplace/nft-bsc>)[Fungible Tokens](</api-marketplace/fungible-tokens-bsc>)[Transaction Receipts](</api-marketplace/transaction-receipts-bsc>)[Transaction Pool](</api-marketplace/transaction-pool-bsc>)
+
+[View Site](<https://bsctrace.com/>)
+
+### Infinite Possibility
+
+We encourage all Web3 developers to contribute to our Open Marketplace and share new ideas to our community.
+
+### High Performance
+
+Super fast with the latest data, scalability and 99.9%+ uptime to serve millions of users and high query per second.
+
+### Multi-chains
+
+Easily integrate as many chains as possible and support all potential Web3 customers in different blockchain ecosystems.
+
+## Wanna contribute to our  
+Open Marketplace ?
+
+### You have an idea for an API.
+
+You must be an experienced developer in Web3 world! Do you have a creative idea to better retrieve or utilize data from blockchains?
+
+### Please reach out to us now!
+
+You came to the right place! We can help you reach developers all around Web3 world. Please contact us for further collaboration!
+
+### What will you get in return?
+
+For one thing, we can help you reach developers much more easily and expand your influence within the Web3 ecosystem.
+
+For another, we will bring you considerable compensation through our customers’ continuous API subscriptions. STAY TUNED!
+
+[Submit your API](</api-marketplace/submit-api>)[Read our Guidance](<https://docs.nodereal.io/docs/how-to-list-your-apis-to-nodereal-web3-api-marketplace>)
+
+[](</>)
+
+The ultimate Web3 infrastructure solution
+
+[](<https://twitter.com/Nodereal_io>)
+
+[](<https://www.youtube.com/channel/UCbXBBCeGVZpz3NXp0dXuBqw>)
+
+SERVICES
+
+[RPC Service](</meganode>)
+
+[Web3 API Marketplace](</api-marketplace>)
+
+[Application Chain](</semita>)
+
+[Explorer as a Service](</tracereal>)
+
+[Solutions](</solutions>)
+
+[Pricing](</pricing>)
+
+CHAINS
+
+[BNB Chain](</bnb-chain>)
+
+RESOURCES
+
+[Documentation](<https://docs.nodereal.io/docs/intro-nodereal>)
+
+[GitHub](<https://github.com/node-real>)
+
+[Tutorials](<https://nodereal.io/blog/en/tag/tutorials/>)
+
+[FAQ](<https://docs.nodereal.io/docs/faq>)
+
+TOOLS
+
+[Greenfield Client](<http://dcellar.io/>)
+
+[Greenfield Explorer](<http://greenfieldscan.com/>)
+
+[BSC Explorer](<https://bsctrace.com/>)
+
+COMPANY
+
+[About Us](</about-us>)
+
+[Blog](</blog>)
+
+[Case Studies](<https://nodereal.io/blog/en/tag/case-study/>)
+
+[Careers](<https://jobs.lever.co/nodereal>)
+
+[Contact Us](<https://docs.google.com/forms/d/e/1FAIpQLSeIspro_XQvxTNuC8rBcRZBbH_C_gwBwHG0QPVPVjcAUhRYiA/viewform>)
+
+[Terms](</terms>)
+
+[Privacy Policy](</privacy-policy>)
+
+[AWS partnership](</AWS>)
+
+SERVICES
+
+[RPC Service](</meganode>)
+
+[Web3 API Marketplace](</api-marketplace>)
+
+[Application Chain](</semita>)
+
+[Explorer as a Service](</tracereal>)
+
+[Solutions](</solutions>)
+
+[Pricing](</pricing>)
+
+CHAINS
+
+[BNB Chain](</bnb-chain>)
+
+RESOURCES
+
+[Documentation](<https://docs.nodereal.io/docs/intro-nodereal>)
+
+[GitHub](<https://github.com/node-real>)
+
+[Tutorials](<https://nodereal.io/blog/en/tag/tutorials/>)
+
+[FAQ](<https://docs.nodereal.io/docs/faq>)
+
+TOOLS
+
+[Greenfield Client](<http://dcellar.io/>)
+
+[Greenfield Explorer](<http://greenfieldscan.com/>)
+
+[BSC Explorer](<https://bsctrace.com/>)
+
+COMPANY
+
+[About Us](</about-us>)
+
+[Blog](</blog>)
+
+[Case Studies](<https://nodereal.io/blog/en/tag/case-study/>)
+
+[Careers](<https://jobs.lever.co/nodereal>)
+
+[Contact Us](<https://docs.google.com/forms/d/e/1FAIpQLSeIspro_XQvxTNuC8rBcRZBbH_C_gwBwHG0QPVPVjcAUhRYiA/viewform>)
+
+[Terms](</terms>)
+
+[Privacy Policy](</privacy-policy>)
+
+[AWS partnership](</AWS>)
+
+* * *
+
+© 2026 NodeReal. All rights reserved.

@@ -1,0 +1,192 @@
+URL: https://docs.nodereal.io/docs/nodereal-builder
+FINAL_URL: https://docs.nodereal.io/docs/nodereal-builder
+TITLE: NodeReal Builder
+PUBLISHER: NodeReal
+FETCHED_AT_UTC: 2026-09-30T21:18:26Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: ef177aec8286518891f8465d445a2dcb9bb27d4c5c1ea736ec1402a8c90633ea
+RAW_FILE: raw/nodereal-builder.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+For AI agents: visit https://docs.nodereal.io/llms.txt for an index of all pages formatted in Markdown and endpoints in OpenAPI. Append .md to any documentation page URL to get its markdown version.
+
+Jump to Content
+
+[](</>)
+
+[ __Guides](</docs>)[ __API Reference](</reference>)[ __Changelog](</changelog>)
+
+* * *
+
+[](</>)
+
+ __Guides
+
+[ __Guides](</docs>)[ __API Reference](</reference>)[ __Changelog](</changelog>)
+
+NodeReal Builder
+
+## Introduction
+
+  * [NodeReal](</docs/intro-nodereal>)
+  * [Community](</docs/nodereal-community>)
+  * [Cookies Policy](</docs/cookie-policy>)
+
+
+
+## MegaNode
+
+  * [Overview](</docs/introduction>)
+  * [Getting Started __](</docs/getting-started>)
+    * [Migrating from Bscscan](</docs/migrating-from-bscscan>)
+  * [ Pricing Plan __](</docs/pricing-plan>)
+    * [Upgrade to Growth tier](</docs/upgrade-to-growth-tier>)
+    * [ Pay with PayPal](</docs/pay-with-paypal>)
+    * [Pay with credit card](</docs/pay-with-credit-card>)
+  * [Compute Units (CUs)](</docs/compute-units-cus>)
+  * [CUPS (Rate Limit)](</docs/cups-rate-limit>)
+  * [Archive Node](</docs/archive-node>)
+  * [Team Account](</docs/team-account>)
+  * [Connect to Wallet __](</docs/connect-to-wallet>)
+    * [BNB Smart Chain](</docs/bnb-smart-chain>)
+    * [ Ethereum](</docs/ethereum>)
+    * [Optimism](</docs/optimism>)
+    * [Aptos](</docs/connnect-to-aptos>)
+  * [Connect to Trust Wallet __](</docs/connect-to-trust-wallet>)
+    * [BNB Smart Chain](</docs/connect-to-trust-wallet-bnb-smart-chain>)
+    * [ Ethereum](</docs/connect-to-trust-wallet-ethereum>)
+    * [Optimism](</docs/connect-to-trust-wallet-optimism>)
+  * [JSON Web Token (JWT)](</docs/json-web-token-jwt>)
+  * [MegaNode FAQ __](</docs/faq>)
+    * [General FAQ](</docs/onboarding>)
+    * [ Pricing FAQ](</docs/pricing>)
+    * [API FAQ](</docs/technical-questions>)
+  * [Error code and Description __](</docs/support>)
+    * [Migrate from Goerli to Sepolia on Ethereum](</docs/migrate-from-goerli-to-sepolia-on-ethereum>)
+
+
+
+## BNB Greenfield
+
+  * [Introduction __](</docs/bnb-greenfield-introduction>)
+    * [How Greenfield Works](</docs/how-greenfield-works>)
+    * [ Greenfield Storage Solution](</docs/nodereal-powered-greenfield-storage-solution>)
+  * [DCellar __](</docs/dcellar-get-started>)
+    * [Getting Started](</docs/dcellar-get-started>)
+    * [ DCellar For Developers](</docs/dcellar-as-developer-tool>)
+    * [Roadmap](</docs/dcellar-roadmap>)
+    * [Release Note](</docs/release-note>)
+    * [FAQ](</docs/dcellar-faq>)
+    * [Intro to Development __](</docs/dcellar-open-source-developer-guide>)
+      * [DCellar Open Source Developer Guide](</docs/dcellar-open-source-developer-guide>)
+  * [ GreenfieldScan __](</docs/greenfieldscan-get-started>)
+    * [Get Started](</docs/greenfieldscan-get-started>)
+    * [ Roadmap](</docs/greenfieldscan-roadmap>)
+  * [SP Recommendation Engine __](</docs/sp-recommendation-engine>)
+    * [Getting Started](</docs/getting-started-1>)
+    * [ Roadmap](</docs/roadmap>)
+  * [Greenfield Bundle Service __](</docs/greenfield-bundle-service>)
+    * [Getting Started](</docs/greenfield-bundle-service-getting-started>)
+
+
+
+## MegaFuel (BETA)
+
+  * [MegaFuel Overview](</docs/megafuel-overview>)
+  * [How to use](</docs/wallet-integration-copy>)
+  * [Policy Management __](</docs/megafuel-policy-management>)
+    * [Private Policy](</docs/private-policy>)
+  * [ Sponsor Guidelines](</docs/megafuel-sponsor-guidelines>)
+  * [Terms of Use](</docs/megafuel-terms-of-use-gas-fee-sponsorship>)
+  * [MegaFuel ERC-4337 Paymaster __](</docs/megafuel-erc4337-paymaster>)
+    * [Onboard to ERC-4337 Gas Sponsorship](</docs/megafuel-erc4337-onboarding>)
+    * [ Integrate MegaFuel with an ERC-4337 Wallet](</docs/megafuel-erc4337-wallet-integration>)
+    * [ERC-4337 Paymaster and Bundler RPC Reference](</docs/megafuel-erc4337-rpc-reference>)
+    * [ERC-4337 Paymaster Troubleshooting](</docs/megafuel-erc4337-troubleshooting>)
+    * [10-Minute ERC-4337 Testnet Quickstart](</docs/megafuel-erc4337-quickstart>)
+    * [ERC-4337 Lifecycle and Client Rules](</docs/megafuel-erc4337-lifecycle>)
+    * [ERC-4337 Operating Limits and Policy Funding](</docs/megafuel-erc4337-operations-and-limits>)
+    * [SimpleAccount Reference Client](</docs/megafuel-erc4337-reference-client>)
+
+
+
+## BSC Builder
+
+  * [NodeReal Builder](</docs/nodereal-builder>)
+  * [Send Bundle](</docs/send-bundle>)
+  * [Send PrivateTransaction](</docs/send-privatetransaction>)
+
+
+
+## Resources
+
+  * [More tutorials __](<https://nodereal.io/tutorials/>)
+
+
+
+Powered by [](<https://readme.com?ref_src=hub&project=nodereal>)
+
+# NodeReal Builder
+
+# 
+
+NodeReal Builder
+
+### 
+
+Introduction
+
+**NodeReal Builder** is the leading block-building infrastructure provider in the **BNB Smart Chain (BSC)** ecosystem. It delivers secure and high-performance transaction routing services designed to protect users against **front-running** , **sandwich attacks** , and other MEV exploitation strategies.  
+NodeReal operates as a member of the **Good Will Alliance** , a collective initiative formed by top infrastructure providers to ensure fairness, transparency, and user protection across blockchain networks.  
+With its robust infrastructure and deep integration with the BSC validator set, NodeReal Builder is one of the most **critical building blocks** of the BSC ecosystem.
+
+### 
+
+Why NodeReal Builder?
+
+  * **Trusted Infrastructure Provider** : Powers numerous applications, exchanges, and protocols on BNB Smart Chain.
+  * **Transaction Security** : Submissions bypass the public mempool, eliminating exposure to malicious MEV strategies.
+  * **Alliance-Backed Protection** : Good Will Alliance membership ensures fair execution and user safety.
+  * **Optimized Performance** : Global infrastructure with minimal latency and fast propagation.
+
+
+
+### 
+
+Endpoint
+
+All requests are submitted via JSON-RPC to:  
+<https://bsc-mainnet-builder.nodereal.io>
+
+### 
+
+Security & Ecosystem Role
+
+  * **MEV Protection** : Direct routing to validators without public mempool exposure.
+  * **Censorship Resistance** : Fair inclusion of transactions across the validator landscape.
+  * **Ecosystem Impact** : Backbone for dApps, wallets, and trading protocols on BSC.
+
+
+
+__Updated about 1 year ago
+
+* * *
+
+[SimpleAccount Reference Client](</docs/megafuel-erc4337-reference-client>)[Send Bundle](</docs/send-bundle>)
+
+Did this page help you?
+
+__Yes
+
+ __No
+
+Copy Page
+
+  *     * NodeReal Builder
+    *       *         * Introduction
+        * Why NodeReal Builder?
+        * Endpoint
+        * Security & Ecosystem Role
+
+

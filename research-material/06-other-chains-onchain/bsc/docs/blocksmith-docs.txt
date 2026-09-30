@@ -1,0 +1,12 @@
+URL: https://docs.blocksmith.org/
+FINAL_URL: https://docs.blocksmith.org/
+TITLE: Blocksmith docs (General)
+PUBLISHER: Blocksmith
+FETCHED_AT_UTC: 2026-09-30T21:15:46Z
+HTTP_STATUS: None
+CONTENT_TYPE: 
+RAW_SHA256: d73d278d2eaf89040f480f03d46c3e31f5a9c838de37cfaddd0d1641bb18a78e
+RAW_FILE: raw/blocksmith-docs.txt
+CONVERSION: verbatim
+==============================================================================
+ProxyError(MaxRetryError("HTTPSConnectionPool(host='docs.blocksmith.org', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 502 Bad Gateway')))"))
