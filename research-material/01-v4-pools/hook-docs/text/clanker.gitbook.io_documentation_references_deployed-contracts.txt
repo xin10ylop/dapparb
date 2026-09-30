@@ -1,58 +1,58 @@
 # url: https://clanker.gitbook.io/documentation/references/deployed-contracts
-# fetched_utc: 2026-09-30T21:17:53Z
+# fetched_utc: 2026-09-30T21:21:31Z
 # http_status: 200
 
 Deployed Contracts | Clanker Documentation
-Clanker Documentation
+Clanker Documentation </documentation>
 ⌘Ctrlk
-Clanker Documentation
-Introduction
+Clanker Documentation </documentation>
+Introduction </documentation>
 General
-Educational Resources
-FAQ
-Token Deployments
-Creator Rewards & Fees
-Clanker.world Warning Tags
-Unclaimed Rewards Balance
-Verifying the Social Context of Token Deploys
+Educational Resources </documentation/general/educational-resources>
+FAQ </documentation/general/faq>
+Token Deployments </documentation/general/token-deployments>
+Creator Rewards & Fees </documentation/general/creator-rewards-and-fees>
+Clanker.world Warning Tags </documentation/general/clanker.world-warning-tags>
+Unclaimed Rewards Balance </documentation/general/unclaimed-rewards-balance>
+Verifying the Social Context of Token Deploys </documentation/general/verifying-the-social-context-of-token-deploys>
 Droids
-Overview
-Droid Funding & Runway
-Create a Droid
-Manage your Droid
-Writing a Droid Voice
-Droid Roadmap
-Droid FAQ
-Troubleshooting Droids
-Glossary
+Overview </documentation/droids/droids>
+Droid Funding & Runway </documentation/droids/funding>
+Create a Droid </documentation/droids/create>
+Manage your Droid </documentation/droids/manage>
+Writing a Droid Voice </documentation/droids/voice>
+Droid Roadmap </documentation/droids/roadmap>
+Droid FAQ </documentation/droids/faq>
+Troubleshooting Droids </documentation/droids/troubleshooting>
+Glossary </documentation/droids/glossary>
 API Reference
-Overview
-Public API
-Authenticated API
-User API
+Overview </documentation/api-reference/api-reference>
+Public API </documentation/api-reference/public>
+Authenticated API </documentation/api-reference/authenticated>
+User API </documentation/api-reference/user>
 SDK Reference
-Overview
-Core Utilities
-V4 — Clanker Class
-V3 — Clanker Class
-V4 Extensions
-Legacy Fee Claims
+Overview </documentation/sdk-reference/sdk-reference>
+Core Utilities </documentation/sdk-reference/index>
+V4 — Clanker Class </documentation/sdk-reference/v4>
+V3 — Clanker Class </documentation/sdk-reference/v3>
+V4 Extensions </documentation/sdk-reference/extensions>
+Legacy Fee Claims </documentation/sdk-reference/legacyfeeclaims>
 References
-Core Contracts
-Brand Assets
-Audits
-Compatible Trading Platforms
-Deployed Contracts
-Supported Quote Tokens
-Core Team
-ContactPowered by GitBook
+Core Contracts </documentation/references/core-contracts>
+Brand Assets </documentation/references/brand-assets>
+Audits </documentation/references/audits>
+Compatible Trading Platforms </documentation/references/compatible-trading-platforms>
+Deployed Contracts </documentation/references/deployed-contracts>
+Supported Quote Tokens </documentation/references/supported-quote-tokens>
+Core Team </documentation/references/core-team>
+Contact </documentation/references/contact>Powered by GitBook <https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=mb3xJRvIg7xvUwDkNt7y&utm_content=site_qQZj2> <https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=mb3xJRvIg7xvUwDkNt7y&utm_content=site_qQZj2>
 On this page
-For the complete documentation index, see llms.txt. This page is also available as Markdown.
+For the complete documentation index, see llms.txt <https://clanker.gitbook.io/documentation/llms.txt>. This page is also available as Markdown <https://clanker.gitbook.io/documentation/references/deployed-contracts.md>.
 CopyOn this page
-References
+References </documentation/references>
 Deployed Contracts
-Mainnet Deployments
-Base: 8453v4.1.0
+Mainnet Deployments <#mainnet-deployments>
+Base: 8453 <#base-8453>v4.1.0 <#v4.1.0>
 Contract
 Contract Address
 ClankerHookDynamicFeeV2
@@ -66,7 +66,7 @@ ClankerSniperUtilV2
 ClankerAirdropV2
 0xf652B3610D75D81871bf96DB50825d9af28391E0
 ClankerPoolExtensionAllowlist
-0xaa12bb11E9876FCAFc7c46dBEB985d3fA23832c9v4.0.0
+0xaa12bb11E9876FCAFc7c46dBEB985d3fA23832c9v4.0.0 <#v4.0.0>
 Contract
 Contract Address
 Clanker
@@ -92,7 +92,7 @@ ClankerHookDynamicFee
 ClankerHookStaticFee
 0xDd5EeaFf7BD481AD55Db083062b13a3cdf0A68CC
 ClankerLpLocker
-0x29d17C1A8D851d7d4cA97FAe97AcAdb398D9cCE0v3.1.0
+0x29d17C1A8D851d7d4cA97FAe97AcAdb398D9cCE0v3.1.0 <#v3.1.0>
 Contract
 Contract Address
 Clanker
@@ -100,7 +100,7 @@ Clanker
 LpLockerv2
 0x33e2Eda238edcF470309b8c6D228986A1204c8f9
 ClankerVault
-0x42A95190B4088C88Dd904d930c79deC1158bF09Dv3.0.0
+0x42A95190B4088C88Dd904d930c79deC1158bF09Dv3.0.0 <#v3.0.0>
 Contract
 Contract Address
 Clanker
@@ -108,30 +108,30 @@ Clanker
 ClankerPreSale
 0x71cDc0bDF30F5601fb0ac80Cf1d20B771342C035
 LPLockerv2
-0x5eC4f99F342038c67a312a166Ff56e6D70383D86v2.0.0
+0x5eC4f99F342038c67a312a166Ff56e6D70383D86v2.0.0 <#v2.0.0>
 Contract
 Contract Address
 Clanker
 0x732560fa1d1A76350b1A500155BA978031B53833
 LPLockerv2
-0x618A9840691334eE8d24445a4AdA4284Bf42417Dv1.0.0
+0x618A9840691334eE8d24445a4AdA4284Bf42417Dv1.0.0 <#v1.0.0>
 Contract
 Contract Address
 Clanker
 0x9B84fcE5Dcd9a38d2D01d5D72373F6b6b067c3e1
 LockerFactory
-0x18db5Fce22bE8814B7E31FBDA2f6488d607A1172v0.0.0
+0x18db5Fce22bE8814B7E31FBDA2f6488d607A1172v0.0.0 <#v0.0.0>
 Contract
 Contract Address
 SocialDexDeployer
 0x250c9FB2b411B48273f69879007803790A6AeA47
 LockerFactory
 0x515d45F06EdD179565aa2796388417ED65E88939
-Arbitrum One: 42161v4.1.0
+Arbitrum One: 42161 <#arbitrum-one-42161>v4.1.0 <#v4.1.0-1>
 Contract
 Contract Address
 ClankerAirdropV2
-0x8Cb6e0216e98A7ACF622DC2dD6a39F1b4FF37014v4.0.0
+0x8Cb6e0216e98A7ACF622DC2dD6a39F1b4FF37014v4.0.0 <#v4.0.0-1>
 Contract
 Contract Address
 Clanker
@@ -152,11 +152,11 @@ ClankerHookDynamicFee
 0xFd213BE7883db36e1049dC42f5BD6A0ec66B68cC
 ClankerHookStaticFee
 0xf7aC669593d2D9D01026Fa5B756DD5B4f7aAa8Cc
-Unichain: 130v4.1.0
+Unichain: 130 <#unichain-130>v4.1.0 <#v4.1.0-2>
 Contract
 Contract Address
 ClankerAirdropV2
-0xE143f9872A33c955F23cF442BB4B1EFB3A7402A2v4.0.0
+0xE143f9872A33c955F23cF442BB4B1EFB3A7402A2v4.0.0 <#v4.0.0-2>
 Contract
 Contract Address
 Clanker
@@ -181,11 +181,11 @@ ClankerSniperAuctionV0
 0x78B512C5074a1084bf3b8e6cbA8a1710d2a8d0A2
 ClankerSniperUtilV0
 0xA25e594869ddb46c33233A793E3c8b207CC719a2
-Mainnet: 1v4.1.0
+Mainnet: 1 <#mainnet-1>v4.1.0 <#v4.1.0-3>
 Contract
 Contract Address
 ClankerAirdropV2
-0x303470b6b6a35B06A5A05763A7caD776fbf27B71v4.0.0
+0x303470b6b6a35B06A5A05763A7caD776fbf27B71v4.0.0 <#v4.0.0-3>
 Contract
 Contract Address
 Clanker
@@ -210,11 +210,11 @@ ClankerSniperAuctionV0
 0x33e2Eda238edcF470309b8c6D228986A1204c8f9
 ClankerSniperUtilV0
 0x33e2Eda238edcF470309b8c6D228986A1204c8f9
-Binance: 97v4.1.0
+Binance: 97 <#binance-97>v4.1.0 <#v4.1.0-4>
 Contract
 Contract Address
 ClankerAirdropV2
-0xBB0f069b995e0205cD5F92C84a1dF056a3F47900v4.0.0
+0xBB0f069b995e0205cD5F92C84a1dF056a3F47900v4.0.0 <#v4.0.0-4>
 Contract
 Contract Address
 Clanker
@@ -239,7 +239,7 @@ mevModuleV2
 0xec1310cf227a2D671176000aE0849DE6417b175a
 mevModule
 0xEE2940CC010820B7F22DF627e081d707693989a6
-Monad: 143v4.1.0
+Monad: 143 <#monad-143>v4.1.0 <#v4.1.0-5>
 Contract
 Contract Address
 Clanker
@@ -264,12 +264,12 @@ mevModuleV2
 0x3231D1ddfdC4Ad585cF1939FfEcd9c88b338Dbf2
 mevModule
 0x3231D1ddfdC4Ad585cF1939FfEcd9c88b338Dbf2
-Solana
+Solana <#solana>
 Tag
 @clanker on Farcaster or
 @clanker_world on X to deploy a Meteora token on Solana.
-Testnet Deployments
-Base Sepolia: 84532v4.1.0
+Testnet Deployments <#testnet-deployments>
+Base Sepolia: 84532 <#base-sepolia-84532>v4.1.0 <#v4.1.0-6>
 Contract
 Contract Address
 ClankerHookDynamicFeeV2
@@ -283,7 +283,7 @@ ClankerSniperUtilV2
 ClankerAirdropV2
 0x5c68F1560a5913c176Fc5238038098970B567B19
 ClankerPoolExtensionAllowlist
-0x532d79D18F0F1782884662fCC1e74581A3289680v4.0.0
+0x532d79D18F0F1782884662fCC1e74581A3289680v4.0.0 <#v4.0.0-5>
 Contract
 Contract Address
 Clanker
@@ -309,7 +309,7 @@ ClankerSniperAuctionV0
 ClankerSniperUtilV0
 0x8806169969aE96bfaaDb3eFd4B10785BEEb321b3
 ClankerLpLockerFeeConversion
-0x824bB048a5EC6e06a09aEd115E9eEA4618DC2c8fv3.1.0
+0x824bB048a5EC6e06a09aEd115E9eEA4618DC2c8fv3.1.0 <#v3.1.0-1>
 Contract
 Contract Address
 Clanker
@@ -318,7 +318,7 @@ LpLockerv2
 0xa1da0600Eb4A9F3D4a892feAa2c2caf80A4A2f14
 ClankerVault
 0xA9C0a423f0092176fC48d7B50a1fCae8cf5BB441
-Monad Testnet: 10143v3.1.0
+Monad Testnet: 10143 <#monad-testnet-10143>v3.1.0 <#v3.1.0-2>
 Contract
 Contract Address
 Clanker
@@ -327,17 +327,17 @@ LpLockerv2
 0xcd89C55d36097a64f777066A6cc8F2c31B7541F7
 ClankerVault
 0x9505A57Bf782058890f078bE301575cD75045a9b
-PreviousCompatible Trading Platforms
-NextSupported Quote Tokens
+PreviousCompatible Trading Platforms </documentation/references/compatible-trading-platforms>
+NextSupported Quote Tokens </documentation/references/supported-quote-tokens>
 Last updated 3 months ago
-Mainnet Deployments
-Base: 8453
-Arbitrum One: 42161
-Unichain: 130
-Mainnet: 1
-Binance: 97
-Monad: 143
-Solana
-Testnet Deployments
-Base Sepolia: 84532
-Monad Testnet: 10143
+Mainnet Deployments <#mainnet-deployments>
+Base: 8453 <#base-8453>
+Arbitrum One: 42161 <#arbitrum-one-42161>
+Unichain: 130 <#unichain-130>
+Mainnet: 1 <#mainnet-1>
+Binance: 97 <#binance-97>
+Monad: 143 <#monad-143>
+Solana <#solana>
+Testnet Deployments <#testnet-deployments>
+Base Sepolia: 84532 <#base-sepolia-84532>
+Monad Testnet: 10143 <#monad-testnet-10143>

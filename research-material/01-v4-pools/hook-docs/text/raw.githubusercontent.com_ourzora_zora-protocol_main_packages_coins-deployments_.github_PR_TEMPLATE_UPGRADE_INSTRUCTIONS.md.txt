@@ -1,5 +1,5 @@
 # url: https://raw.githubusercontent.com/ourzora/zora-protocol/main/packages/coins-deployments/.github/PR_TEMPLATE_UPGRADE_INSTRUCTIONS.md
-# fetched_utc: 2026-09-30T21:17:51Z
+# fetched_utc: 2026-09-30T21:21:29Z
 # http_status: 200
 
 # Agent Instructions: Populating Upgrade PR Template

@@ -1,60 +1,60 @@
 # url: https://clanker.gitbook.io/documentation/references/core-contracts
-# fetched_utc: 2026-09-30T21:17:54Z
+# fetched_utc: 2026-09-30T21:21:32Z
 # http_status: 200
 
 Core Contracts | Clanker Documentation
-Clanker Documentation
+Clanker Documentation </documentation>
 ⌘Ctrlk
-Clanker Documentation
-Introduction
+Clanker Documentation </documentation>
+Introduction </documentation>
 General
-Educational Resources
-FAQ
-Token Deployments
-Creator Rewards & Fees
-Clanker.world Warning Tags
-Unclaimed Rewards Balance
-Verifying the Social Context of Token Deploys
+Educational Resources </documentation/general/educational-resources>
+FAQ </documentation/general/faq>
+Token Deployments </documentation/general/token-deployments>
+Creator Rewards & Fees </documentation/general/creator-rewards-and-fees>
+Clanker.world Warning Tags </documentation/general/clanker.world-warning-tags>
+Unclaimed Rewards Balance </documentation/general/unclaimed-rewards-balance>
+Verifying the Social Context of Token Deploys </documentation/general/verifying-the-social-context-of-token-deploys>
 Droids
-Overview
-Droid Funding & Runway
-Create a Droid
-Manage your Droid
-Writing a Droid Voice
-Droid Roadmap
-Droid FAQ
-Troubleshooting Droids
-Glossary
+Overview </documentation/droids/droids>
+Droid Funding & Runway </documentation/droids/funding>
+Create a Droid </documentation/droids/create>
+Manage your Droid </documentation/droids/manage>
+Writing a Droid Voice </documentation/droids/voice>
+Droid Roadmap </documentation/droids/roadmap>
+Droid FAQ </documentation/droids/faq>
+Troubleshooting Droids </documentation/droids/troubleshooting>
+Glossary </documentation/droids/glossary>
 API Reference
-Overview
-Public API
-Authenticated API
-User API
+Overview </documentation/api-reference/api-reference>
+Public API </documentation/api-reference/public>
+Authenticated API </documentation/api-reference/authenticated>
+User API </documentation/api-reference/user>
 SDK Reference
-Overview
-Core Utilities
-V4 — Clanker Class
-V3 — Clanker Class
-V4 Extensions
-Legacy Fee Claims
+Overview </documentation/sdk-reference/sdk-reference>
+Core Utilities </documentation/sdk-reference/index>
+V4 — Clanker Class </documentation/sdk-reference/v4>
+V3 — Clanker Class </documentation/sdk-reference/v3>
+V4 Extensions </documentation/sdk-reference/extensions>
+Legacy Fee Claims </documentation/sdk-reference/legacyfeeclaims>
 References
-Core Contracts
-v4
-v3.1
-ClankerToken v3.1.0 and v4.0.0
-Brand Assets
-Audits
-Compatible Trading Platforms
-Deployed Contracts
-Supported Quote Tokens
-Core Team
-ContactPowered by GitBook
+Core Contracts </documentation/references/core-contracts>
+v4 </documentation/references/core-contracts/v4>
+v3.1 </documentation/references/core-contracts/v3.1>
+ClankerToken v3.1.0 and v4.0.0 </documentation/references/core-contracts/clankertoken-v3.1.0-and-v4.0.0>
+Brand Assets </documentation/references/brand-assets>
+Audits </documentation/references/audits>
+Compatible Trading Platforms </documentation/references/compatible-trading-platforms>
+Deployed Contracts </documentation/references/deployed-contracts>
+Supported Quote Tokens </documentation/references/supported-quote-tokens>
+Core Team </documentation/references/core-team>
+Contact </documentation/references/contact>Powered by GitBook <https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=mb3xJRvIg7xvUwDkNt7y&utm_content=site_qQZj2> <https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=mb3xJRvIg7xvUwDkNt7y&utm_content=site_qQZj2>
 On this page
-For the complete documentation index, see llms.txt. This page is also available as Markdown.
+For the complete documentation index, see llms.txt <https://clanker.gitbook.io/documentation/llms.txt>. This page is also available as Markdown <https://clanker.gitbook.io/documentation/references/core-contracts.md>.
 CopyOn this page
-References
+References </documentation/references>
 Core Contracts
-https://github.com/clanker-devco/DOCS/blob/main/pages/fOTIabyVqIakp48nyHnV/README.mdhttps://github.com/clanker-devco/DOCS/blob/main/pages/JPda6c92ea2Zv7urf2y7/README.md
-PreviousLegacy Fee Claims
-Nextv4
+https://github.com/clanker-devco/DOCS/blob/main/pages/fOTIabyVqIakp48nyHnV/README.md <https://github.com/clanker-devco/DOCS/blob/main/pages/fOTIabyVqIakp48nyHnV/README.md>https://github.com/clanker-devco/DOCS/blob/main/pages/JPda6c92ea2Zv7urf2y7/README.md <https://github.com/clanker-devco/DOCS/blob/main/pages/JPda6c92ea2Zv7urf2y7/README.md>
+PreviousLegacy Fee Claims </documentation/sdk-reference/legacyfeeclaims>
+Nextv4 </documentation/references/core-contracts/v4>
 Last updated 3 months ago

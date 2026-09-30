@@ -1,5 +1,5 @@
 # url: https://raw.githubusercontent.com/Uniswap/routing-api/main/lib/util/hooksAddressesAllowlist.ts
-# fetched_utc: 2026-09-30T21:17:40Z
+# fetched_utc: 2026-09-30T21:21:18Z
 # http_status: 200
 
 import { ChainId } from '@uniswap/sdk-core'

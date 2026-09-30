@@ -37,8 +37,8 @@ Q-V4BASE is not served by these directories (Base only).
 | Arbitrum One | arbitrum/ | 60 min: 2026-09-30T20:07:21Z to 2026-09-30T21:07:20Z | 510447028 to 510460284 (13257) | 0.2715 s | EVM_CENSUS_ARBITRUM (DONE); EVM_TOKENPRICES_ARBITRUM (DONE) | census complete |
 | OP Mainnet | optimism/ | 60 min: 2026-09-30T20:07:23Z to 2026-09-30T21:07:21Z | 157600033 to 157601832 (1800) | 2.0000 s | EVM_CENSUS_OPTIMISM (DONE); EVM_TOKENPRICES_OPTIMISM (DONE) | census complete |
 | Unichain | unichain/ | 60 min: 2026-09-30T20:07:22Z to 2026-09-30T21:07:21Z | 60050483 to 60054082 (3600) | 1.0000 s | EVM_CENSUS_UNICHAIN (DONE); EVM_TOKENPRICES_UNICHAIN (DONE) | census complete |
-| Ethereum mainnet | ethereum/ | 6 h: 2026-09-30T15:06:59Z to 2026-09-30T21:06:47Z | 26091086 to 26092877 (1792) | 12.0536 s | EVM_CENSUS_ETHEREUM (DONE); EVM_TOKENPRICES_ETHEREUM (IN PROGRESS) | census complete |
-| Polygon PoS | polygon/ | 60 min: 2026-09-30T20:07:32Z to 2026-09-30T21:07:30Z | 94729141 to 94731540 (2400) | 1.4998 s | EVM_CENSUS_POLYGON (DONE); EVM_TOKENPRICES_POLYGON (IN PROGRESS) | census complete |
+| Ethereum mainnet | ethereum/ | 6 h: 2026-09-30T15:06:59Z to 2026-09-30T21:06:47Z | 26091086 to 26092877 (1792) | 12.0536 s | EVM_CENSUS_ETHEREUM (DONE); EVM_TOKENPRICES_ETHEREUM (DONE) | census complete |
+| Polygon PoS | polygon/ | 60 min: 2026-09-30T20:07:32Z to 2026-09-30T21:07:30Z | 94729141 to 94731540 (2400) | 1.4998 s | EVM_CENSUS_POLYGON (DONE); EVM_TOKENPRICES_POLYGON (DONE) | census complete |
 
 ## Per-chain contents (same layout in every chain directory)
 

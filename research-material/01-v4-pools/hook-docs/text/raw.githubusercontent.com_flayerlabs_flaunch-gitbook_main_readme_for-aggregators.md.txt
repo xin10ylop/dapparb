@@ -1,5 +1,5 @@
 # url: https://raw.githubusercontent.com/flayerlabs/flaunch-gitbook/main/readme/for-aggregators.md
-# fetched_utc: 2026-09-30T21:17:59Z
+# fetched_utc: 2026-09-30T21:21:37Z
 # http_status: 200
 
 ---

@@ -1,5 +1,5 @@
 # url: https://raw.githubusercontent.com/flayerlabs/flaunch-sdk/main/src/addresses.ts
-# fetched_utc: 2026-09-30T21:18:00Z
+# fetched_utc: 2026-09-30T21:21:38Z
 # http_status: 404
 
 404: Not Found

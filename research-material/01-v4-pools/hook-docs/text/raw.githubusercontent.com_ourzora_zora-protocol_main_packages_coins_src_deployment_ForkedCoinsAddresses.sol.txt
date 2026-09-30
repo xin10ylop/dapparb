@@ -1,5 +1,5 @@
 # url: https://raw.githubusercontent.com/ourzora/zora-protocol/main/packages/coins/src/deployment/ForkedCoinsAddresses.sol
-# fetched_utc: 2026-09-30T21:17:50Z
+# fetched_utc: 2026-09-30T21:21:28Z
 # http_status: 200
 
 // SPDX-License-Identifier: MIT

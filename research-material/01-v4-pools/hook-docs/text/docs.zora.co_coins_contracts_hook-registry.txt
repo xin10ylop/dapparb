@@ -1,29 +1,36 @@
 # url: https://docs.zora.co/coins/contracts/hook-registry
-# fetched_utc: 2026-09-30T21:17:43Z
+# fetched_utc: 2026-09-30T21:21:21Z
 # http_status: 200
 
 Hook Registry | ZORA Docs
-Skip to content
+Skip to content </coins/contracts/hook-registry#vocs-content>
+</>
 Coins
-IntroductionAgents ᴺᴱᵂ
+Introduction </coins>Agents ᴺᴱᵂ </agents>
 SDK
-Getting StartedCreate CoinCoins Metadata BuilderTrade CoinUpdate CoinPublic REST API
+Getting Started </coins/sdk>Create Coin </coins/sdk/create-coin>Coins Metadata Builder </coins/sdk/metadata-builder>Trade Coin </coins/sdk/trade-coin>Update Coin </coins/sdk/update-coin>Public REST API </coins/sdk/public-rest-api>
 Coin Queries
-Queries OverviewCoin DetailsProfileExplore CoinsLeaderboard
+Queries Overview </coins/sdk/queries>Coin Details </coins/sdk/queries/coin>Profile </coins/sdk/queries/profile>Explore Coins </coins/sdk/queries/explore>Leaderboard </coins/sdk/queries/leaderboard>
 Contracts
-Creating a CoinTrend CoinsArchitectureHook SystemHook RegistryCoin RewardsEarning Rewards as a DeveloperLiquidity MigrationMetadataCoins License
+Creating a Coin </coins/contracts/creating-a-coin>Trend Coins </coins/contracts/trend-coins>Architecture </coins/contracts/architecture>Hook System </coins/contracts/hook>Hook Registry </coins/contracts/hook-registry>Coin Rewards </coins/contracts/rewards>Earning Rewards as a Developer </coins/contracts/earning-referral-rewards>Liquidity Migration </coins/contracts/liquidity-migration>Metadata </coins/contracts/metadata>Coins License </coins/license>
+<https://github.com/ourzora/zora-protocol>
+<https://x.com/zoradevs>
 Search...
-Agents ᴺᴱᵂCoins SDKCoins Protocol
-ChangelogsLegacy NFT Docs
-Agents ᴺᴱᵂCoins SDKCoins Protocol
-ChangelogsLegacy NFT Docs
+</>
+Agents ᴺᴱᵂ </agents>Coins SDK </coins/sdk>Coins Protocol </coins>
+ChangelogsLegacy NFT Docs <https://nft-docs.zora.co>
+</>
+Agents ᴺᴱᵂ </agents>Coins SDK </coins/sdk>Coins Protocol </coins>
+ChangelogsLegacy NFT Docs <https://nft-docs.zora.co>
 Coins Protocol
 Hook Registry
 On this page
-Ask in ChatGPT
+Ask in ChatGPT <https://chatgpt.com?hints=search&q=>
 Hook Registry
+</coins/contracts/hook-registry#hook-registry>
 A canonical registry of Zora Uniswap V4 hook addresses to discover and track changes.
 Overview
+</coins/contracts/hook-registry#overview>
 Tracks Uniswap V4 hook contract addresses used by Zora Coins
 Onchain lookup of hooks, tags, and versions
 Emits events on add/remove (includes tag and version)
@@ -33,6 +40,7 @@ CREATOR)
 version is read via
 contractVersion() on the hook contract if it exists
 Deployment
+</coins/contracts/hook-registry#deployment>
 Chain |
 Chain ID |
 Hook Contract |
@@ -40,18 +48,22 @@ Address |
 Base |
 8453 |
 ZoraHookRegistry |
-0x777777C4c14b133858c3982D41Dbf02509fc18d7📋 |
+0x777777C4c14b133858c3982D41Dbf02509fc18d7 <https://basescan.org/address/0x777777C4c14b133858c3982D41Dbf02509fc18d7>📋 |
 Interface
+</coins/contracts/hook-registry#interface>
 Events
+</coins/contracts/hook-registry#events>
 event ZoraHookRegistered(address indexed hook, string tag, string version);
 event ZoraHookRemoved(address indexed hook, string tag, string version);
 Structs
+</coins/contracts/hook-registry#structs>
 struct ZoraHook {
 address hook;
 string tag;
 string version;
 }
 Read Functions
+</coins/contracts/hook-registry#read-functions>
 function isRegisteredHook(address hook) external view returns (bool);
 function getHooks() external view returns (ZoraHook[] memory);
 function getHookAddresses() external view returns (address[] memory);

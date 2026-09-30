@@ -1,43 +1,45 @@
 # url: https://docs.doppler.lol/advanced-features/doppler-hooks
-# fetched_utc: 2026-09-30T21:18:03Z
+# fetched_utc: 2026-09-30T21:21:41Z
 # http_status: 200
 
 Doppler Hooks | Doppler Docs
+</>
 ⌘Ctrlk
-Home
-Explainer
+</>
+Home </>
+Explainer </explainer>
 Core concepts
-Creation & initialization
-Price discovery auctions
-Supply curves
-Liquidity migration
+Creation & initialization </core-concepts/creation-and-initialization>
+Price discovery auctions </core-concepts/price-discovery-auctions>
+Supply curves </core-concepts/supply-curves>
+Liquidity migration </core-concepts/liquidity-migration-options>
 Advanced features
-Doppler Hooks
-Fee Rehypothecation
-Doppler404
+Doppler Hooks </advanced-features/doppler-hooks>
+Fee Rehypothecation </advanced-features/rehype-pools>
+Doppler404 </advanced-features/doppler404>
 Reference
-SDK API
-EVM SDK Examples
-SVM SDK Examples
-Data Indexing
-Indexer API
-Quotes & swaps
-Contract addresses
-Metadata standards
-Legacy SDK migration guide
-Security & bug bounties
-Roadmap
+SDK API </reference/api-reference>
+EVM SDK Examples </reference/examples>
+SVM SDK Examples </reference/svm-sdk-examples>
+Data Indexing </reference/overview>
+Indexer API </reference/api-usage>
+Quotes & swaps </reference/quotes-and-swaps>
+Contract addresses </reference/contract-addresses>
+Metadata standards </reference/metadata-standards>
+Legacy SDK migration guide </reference/legacy-sdks-and-migration-guides>
+Security & bug bounties </reference/security-and-bug-bounties>
+Roadmap </reference/roadmap>
 Links
-GitHub
-Demo application
-Doppler Whitepaper
-Multicurve WhitepaperPowered by GitBook
+GitHub <https://github.com/whetstoneresearch>
+Demo application <https://github.com/whetstoneresearch/doppler-demo-app>
+Doppler Whitepaper <https://github.com/whetstoneresearch/docs/blob/main/whitepapers/doppler/Dutch_auction_Dynamic_Bonding_Curves.pdf>
+Multicurve Whitepaper <https://github.com/whetstoneresearch/docs/blob/main/whitepapers/multicurve/Doppler_Multicurve.pdf>Powered by GitBook <https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=it0zR3kmdiX4qfUZmnKI&utm_content=site_SfxeS> <https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=it0zR3kmdiX4qfUZmnKI&utm_content=site_SfxeS>
 On this page
-For the complete documentation index, see llms.txt. This page is also available as Markdown.
+For the complete documentation index, see llms.txt <https://docs.doppler.lol/llms.txt>. This page is also available as Markdown <https://docs.doppler.lol/advanced-features/doppler-hooks.md>.
 CopyOn this page
-Advanced features
+Advanced features </advanced-features>
 Doppler Hooks
-Overview
+Overview <#overview>
 Doppler Hooks, aka dhooks, are a set of callback functions that can be called during the lifecycle of "locked" pools initialized by the
 DopplerHookInitializer contract.
 Three main events will trigger these hooks:
@@ -45,7 +47,7 @@ initialization: when a new pool is created
 swap: when a swap occurs in the pool
 graduation: when the pool reaches a certain price maturity
 Additionally, pools associated with a Doppler Hook can have their LP fee updated by the associated timelock governance contract or a delegated address.
-A couple of things to note:
+A couple of things to note: <#a-couple-of-things-to-note>
 A pool initialized without a Doppler Hook can opt-in to use one later via the
 setHook function
 A pool initialized with a Doppler Hook can opt-out of using it later by setting the hook address to
@@ -54,7 +56,7 @@ A pool can change its associated Doppler Hook to a different one at any time via
 setHook function
 Doppler Hooks are approved by the protocol multisig
 A pool without a Doppler Hook cannot be initialized with a dynamic LP fee
-Implementation
+Implementation <#implementation>
 Here are the different callback functions available for the Doppler Hooks.
 Note that they can be implemented selectively based on the use case:
 Callback Function
@@ -71,6 +73,6 @@ afterSwap before each swap happening in the Uniswap V4 pool
 onGraduation(address asset, PoolKey calldata key, bytes calldata data)
 graduate if the graduation conditions are met (e.g.
 farTick reached)
-PreviousLiquidity migration
-NextFee Rehypothecation
+PreviousLiquidity migration </core-concepts/liquidity-migration-options>
+NextFee Rehypothecation </advanced-features/rehype-pools>
 Last updated 8 months ago

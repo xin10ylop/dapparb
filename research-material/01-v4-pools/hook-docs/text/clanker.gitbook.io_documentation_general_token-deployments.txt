@@ -1,64 +1,64 @@
 # url: https://clanker.gitbook.io/documentation/general/token-deployments
-# fetched_utc: 2026-09-30T21:17:55Z
+# fetched_utc: 2026-09-30T21:21:33Z
 # http_status: 200
 
 Token Deployments | Clanker Documentation
-Clanker Documentation
+Clanker Documentation </documentation>
 ⌘Ctrlk
-Clanker Documentation
-Introduction
+Clanker Documentation </documentation>
+Introduction </documentation>
 General
-Educational Resources
-FAQ
-Token Deployments
-Farcaster Bot Deployments
-Clanker.world Deployments
-Preclank Deployments
-Alternative Interface Deployments
-Deploying a Token
-Legacy Deployments
-Creator Rewards & Fees
-Clanker.world Warning Tags
-Unclaimed Rewards Balance
-Verifying the Social Context of Token Deploys
+Educational Resources </documentation/general/educational-resources>
+FAQ </documentation/general/faq>
+Token Deployments </documentation/general/token-deployments>
+Farcaster Bot Deployments </documentation/general/token-deployments/farcaster-bot-deployments>
+Clanker.world Deployments </documentation/general/token-deployments/clanker.world-deployments>
+Preclank Deployments </documentation/general/token-deployments/preclank-deployments>
+Alternative Interface Deployments </documentation/general/token-deployments/alternative-interface-deployments>
+Deploying a Token </documentation/general/token-deployments/deploying-a-token>
+Legacy Deployments </documentation/general/token-deployments/legacy-deployments>
+Creator Rewards & Fees </documentation/general/creator-rewards-and-fees>
+Clanker.world Warning Tags </documentation/general/clanker.world-warning-tags>
+Unclaimed Rewards Balance </documentation/general/unclaimed-rewards-balance>
+Verifying the Social Context of Token Deploys </documentation/general/verifying-the-social-context-of-token-deploys>
 Droids
-Overview
-Droid Funding & Runway
-Create a Droid
-Manage your Droid
-Writing a Droid Voice
-Droid Roadmap
-Droid FAQ
-Troubleshooting Droids
-Glossary
+Overview </documentation/droids/droids>
+Droid Funding & Runway </documentation/droids/funding>
+Create a Droid </documentation/droids/create>
+Manage your Droid </documentation/droids/manage>
+Writing a Droid Voice </documentation/droids/voice>
+Droid Roadmap </documentation/droids/roadmap>
+Droid FAQ </documentation/droids/faq>
+Troubleshooting Droids </documentation/droids/troubleshooting>
+Glossary </documentation/droids/glossary>
 API Reference
-Overview
-Public API
-Authenticated API
-User API
+Overview </documentation/api-reference/api-reference>
+Public API </documentation/api-reference/public>
+Authenticated API </documentation/api-reference/authenticated>
+User API </documentation/api-reference/user>
 SDK Reference
-Overview
-Core Utilities
-V4 — Clanker Class
-V3 — Clanker Class
-V4 Extensions
-Legacy Fee Claims
+Overview </documentation/sdk-reference/sdk-reference>
+Core Utilities </documentation/sdk-reference/index>
+V4 — Clanker Class </documentation/sdk-reference/v4>
+V3 — Clanker Class </documentation/sdk-reference/v3>
+V4 Extensions </documentation/sdk-reference/extensions>
+Legacy Fee Claims </documentation/sdk-reference/legacyfeeclaims>
 References
-Core Contracts
-Brand Assets
-Audits
-Compatible Trading Platforms
-Deployed Contracts
-Supported Quote Tokens
-Core Team
-ContactPowered by GitBook
+Core Contracts </documentation/references/core-contracts>
+Brand Assets </documentation/references/brand-assets>
+Audits </documentation/references/audits>
+Compatible Trading Platforms </documentation/references/compatible-trading-platforms>
+Deployed Contracts </documentation/references/deployed-contracts>
+Supported Quote Tokens </documentation/references/supported-quote-tokens>
+Core Team </documentation/references/core-team>
+Contact </documentation/references/contact>Powered by GitBook <https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=mb3xJRvIg7xvUwDkNt7y&utm_content=site_qQZj2> <https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=mb3xJRvIg7xvUwDkNt7y&utm_content=site_qQZj2>
 On this page
-For the complete documentation index, see llms.txt. This page is also available as Markdown.
+For the complete documentation index, see llms.txt <https://clanker.gitbook.io/documentation/llms.txt>. This page is also available as Markdown <https://clanker.gitbook.io/documentation/general/token-deployments.md>.
 CopyOn this page
-General
+General </documentation/general>
 Token Deployments
 Live: The below outlines instructions for deployments on Clanker v4.0.0 that are now available across all Clanker platforms.
-General Token Deployment Info (Clanker v4.0.0)
+General Token Deployment Info (Clanker v4.0.0) <#general-token-deployment-info-clanker-v4.0.0>
 ERC-20 tokens with a total supply of 100 billion tokens.
 Tokens are not mintable post-deployment, so the max supply will always be 100 billion.
 Tokens are burnable using the
@@ -70,8 +70,8 @@ Airdrop: airdrop tokens to a list of recipients to then claim with configurable 
 The remaining tokens (up to 100% of the total supply if no extensions are used) are then allocated to up to 7 liquidity positions and placed into a Uniswap v4 pool for trading.
 When a new token is created, there's a brief "auction period" before normal trading opens to everyone. This auction is designed to capture value from MEV bots (sophisticated trading bots that try to profit from new token launches) and redirect some of the value back to the token's creator.
 Normal trading starts after 5 rounds of the auction have completed (roughly 22 seconds post token deployment) or immediately after a round of the auction that has no bidders. The maximum delay before normal trading can start is at block n+11.
-For additional detail, please refer to the ClankerSniperAuctionV0 documentation.
+For additional detail, please refer to the ClankerSniperAuctionV0 </documentation/references/core-contracts/v4/mev-modules/clankersniperauctionv0> documentation.
 The Airdrop extension contract is live and will soon be supported on the clanker.world UI.
-PreviousFAQ
-NextFarcaster Bot Deployments
+PreviousFAQ </documentation/general/faq>
+NextFarcaster Bot Deployments </documentation/general/token-deployments/farcaster-bot-deployments>
 Last updated 3 months ago

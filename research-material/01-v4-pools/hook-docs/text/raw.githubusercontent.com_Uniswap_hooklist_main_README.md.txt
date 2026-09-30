@@ -1,5 +1,5 @@
 # url: https://raw.githubusercontent.com/Uniswap/hooklist/main/README.md
-# fetched_utc: 2026-09-30T21:17:41Z
+# fetched_utc: 2026-09-30T21:21:19Z
 # http_status: 200
 
 # hooklist
