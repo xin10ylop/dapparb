@@ -57,6 +57,8 @@ npx tsx src/research/scan.ts --chain base --blocks 60 --universe top --pages 10 
 # 2) dry-run the live loop (event-driven state from block receipts, simulation via bytecode override, nothing sent)
 npx tsx src/main.ts --chain base --mode dry --source logs --universe top --min-profit-usd 0.05
 #    on a flashblocks-aware node: --receipts-tag pending (200 ms state); public endpoints cannot sustain that rate
+#    …or every pool the factories know about (46k found on Base, ~3.2k with ≥ 0.1 ETH of anchored depth; see docs/ANALYSIS.md §2.6)
+npx tsx src/main.ts --chain base --mode dry --source logs --universe all --max-per-factory 6000 --min-depth-eth 0.1 --min-profit-usd 0.01
 
 # 3) deploy + go live (only after the dry run shows simulated net profit that you believe)
 cd ../contracts && forge script script/Deploy.s.sol --rpc-url base --broadcast --private-key $PRIVATE_KEY

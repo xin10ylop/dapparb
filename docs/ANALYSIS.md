@@ -101,9 +101,12 @@ route after three consecutive reverts.
    (2,000 USDC own + 2,000 USDC borrowed → 1.483 WETH collateral, 2,000 USDC debt, health factor 1.66). The
    round trip costs about $5 in swap fees and the position is liquidated on roughly a 40 % drawdown of ETH.
    It is a way to take amplified directional risk in one transaction, nothing more.
-5. **The "$4 million in seven days" figure** is the aggregate of the whole ecosystem's atomic arbitrage, most of
-   which is paid to block builders and captured by a small number of operators with private infrastructure. None
-   of it is visible to a public-RPC bot at block or flashblock granularity in these measurements.
+5. **The "$4 million in seven days" figure** is the aggregate of the whole ecosystem's atomic arbitrage. Where
+   it goes is now measured rather than assumed (§2.6): the bot that closed a real $13 gap one block after this
+   searcher saw it kept $0.42 of it and paid $12.70 to the sequencer as priority fee; over its last 50
+   transactions it netted −$0.09. The four bots that share the most active pair in this universe net $0.66,
+   $1.99, $1.49 and $0.83 an hour, about $5/hour for the pair, which is the §2.5 ceiling seen from the other
+   side. The income is real, fully captured, split among incumbents, and worth tens of dollars a day each.
 
 ## 4. Engineering results (phase 2)
 
@@ -151,7 +154,7 @@ All measured live on Base on 2026-09-30 unless stated.
 
 | Angle | What was measured | Result |
 |---|---|---|
-| DEX↔DEX atomic, 2-hop (videos 1-3) | Base, 12 venues incl. Uniswap V4, block and flashblock state, flash-swap funded, on-chain simulation | Verified episodes are worth cents; see §2 and §6 |
+| DEX↔DEX atomic, 2-hop (videos 1-3) | Base, 12 venues incl. Uniswap V4, block and flashblock state, flash-swap funded, on-chain simulation; then every factory pool (46k found, 3,189 kept) | Verified episodes are worth cents; the incumbents that capture them net $0.7–2/hour each, measured from their own balances (§2.6) |
 | DEX triangular (3 pools) | Included in every scan/dry run (`findTriangles`) | No 3-hop cycle cleared $0.01 net in any run; the two candidates that did were simulated and reverted |
 | Slipstream dynamic-fee timing (own angle) | 209 pools, 1,041 blocks, 4,527 fee transitions | Best cycle through a pool after a fee drop averages $0.0001 vs $0.0005 baseline: nothing to time |
 | CEX→DEX lead-lag, ETH (statistical) | OKX ETH-USDT every 250 ms vs 3 Base pools every block, 45 min | Base follows OKX with ~1 s lag (sign agreement 80-90 % at 1 s vs 60-70 % at 4 s); deviation of the pool price from its median ±5 bps at p5/p95, never >20 bps. Backtest of "trade the lag" on the pool with the 4-5 bps fee: 7 signals, 0-14 % win rate, mean −4 to −9 bps per trade; on the 1 bp pool 4 signals, +2 to +4 bps mean (n=4, noise) |
