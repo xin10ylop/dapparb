@@ -12,7 +12,7 @@ import path from "node:path";
 import { formatUnits, type Address } from "viem";
 import { getChain } from "../config/chains.js";
 import { makeHttpClient } from "../util/client.js";
-import { discoverPools } from "../pools/discovery.js";
+import { discoverPools, longTailPairs } from "../pools/discovery.js";
 import { loadStaticMetadata, pruneEmpty, syncPools } from "../pools/state.js";
 import { findOpportunities, type Opportunity } from "../arb/search.js";
 import { findTriangles } from "../arb/triangles.js";
@@ -81,7 +81,7 @@ async function main() {
     decimalsOf.set(t.address.toLowerCase(), t.decimals);
     symbolOf.set(t.address.toLowerCase(), t.symbol);
   }
-  let pools = await discoverPools(client, cfg, tokens);
+  let pools = await discoverPools(client, cfg, tokens, universe === "top" ? longTailPairs(cfg, tokens) : undefined);
   await loadStaticMetadata(client, cfg, pools);
   await syncPools(client, cfg, pools, { force: true });
   pools = pruneEmpty(pools);

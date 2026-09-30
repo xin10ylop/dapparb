@@ -25,7 +25,7 @@ const WETH = "0x4200000000000000000000000000000000000006" as Address;
 const UNIV3_500 = "0xd0b53D9277642d899DF5C87A3966A349A798F224" as Address;
 
 test("searcher finds a manufactured opportunity and the contract simulation matches", async (t) => {
-  const anvil = spawn("anvil", ["--fork-url", process.env.FORK_RPC_URL ?? "https://base.drpc.org", "--port", "8552", "--silent"], { stdio: "ignore" });
+  const anvil = spawn("anvil", ["--fork-url", process.env.FORK_RPC_URL ?? "https://base-mainnet.public.blastapi.io", "--port", "8552", "--silent"], { stdio: "ignore" });
   t.after(() => anvil.kill());
   const client = createPublicClient({ chain: base, transport: http(RPC) });
   for (let i = 0; i < 60; i++) {
@@ -64,7 +64,13 @@ test("searcher finds a manufactured opportunity and the contract simulation matc
 
   // Search on the fork state (WETH/USDC universe only for speed).
   // archive-capable upstream + a small DEX subset keep Anvil's slot fetching (and the test) fast
-  const cfg = { ...BASE, rpcUrls: [RPC], dexes: BASE.dexes.filter((d) => ["UniswapV3", "AerodromeCL", "Aerodrome", "UniswapV2"].includes(d.name)) };
+  const cfg = {
+    ...BASE,
+    rpcUrls: [RPC],
+    dexes: BASE.dexes
+      .filter((d) => ["UniswapV3", "AerodromeCL", "Aerodrome", "UniswapV2"].includes(d.name))
+      .map((d) => (d.name === "UniswapV3" ? { ...d, tiers: [500] } : d.name === "AerodromeCL" ? { ...d, tiers: [100] } : d)),
+  };
   const weth = BASE.tokens.find((x) => x.symbol === "WETH")!;
   const usdc = BASE.tokens.find((x) => x.symbol === "USDC")!;
   let pools = await discoverPools(client as any, cfg, [weth, usdc]);

@@ -11,10 +11,10 @@
 import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
-import { formatUnits, type Address, type Hex } from "viem";
+import { formatUnits, getAddress, type Address, type Hex } from "viem";
 import { getChain } from "./config/chains.js";
 import { makeHttpClient, makeWsClient } from "./util/client.js";
-import { discoverPools } from "./pools/discovery.js";
+import { discoverPools, longTailPairs } from "./pools/discovery.js";
 import { loadStaticMetadata, pruneEmpty, syncPools } from "./pools/state.js";
 import { findOpportunities, type Opportunity } from "./arb/search.js";
 import { findTriangles } from "./arb/triangles.js";
@@ -43,7 +43,7 @@ const minProfitUsd = Number(arg("min-profit-usd", "0.05"));
 const topK = Number(arg("top", "3"));
 const minDepthEth = Number(arg("min-depth-eth", "0.2"));
 const triangles = arg("triangles", "1") !== "0";
-const contract = (process.env.ARB_CONTRACT ?? arg("contract") ?? (mode === "dry" ? "0x00000000000000000000000000000000000A4bb0" : undefined)) as Address | undefined;
+const contract = (process.env.ARB_CONTRACT ?? arg("contract") ?? (mode === "dry" ? getAddress("0x00000000000000000000000000000000000a4bb0") : undefined)) as Address | undefined;
 /** Dry-run with no deployment: inject the compiled runtime at a placeholder address via state override. */
 const codeOverride: Hex | undefined =
   mode === "dry" && !process.env.ARB_CONTRACT && cfg.id === 8453
@@ -88,7 +88,7 @@ async function main() {
     symbolOf.set(t.address.toLowerCase(), t.symbol);
     decimalsOf.set(t.address.toLowerCase(), t.decimals);
   }
-  let pools = await discoverPools(client, cfg, tokens);
+  let pools = await discoverPools(client, cfg, tokens, universe === "top" ? longTailPairs(cfg, tokens) : undefined);
   await loadStaticMetadata(client, cfg, pools);
   await syncPools(client, cfg, pools, { force: true });
   pools = pruneEmpty(pools);

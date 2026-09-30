@@ -187,10 +187,10 @@ export const ARBITRUM: ChainConfig = {
   opStack: false,
   multicall3: MULTICALL3,
   weth: "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
-  usdc: "0xAF88D065E77C8CC2239327C5eDb3A26d2Be2cB4B",
+  usdc: "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
   tokens: [
     { symbol: "WETH", address: "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1", decimals: 18 },
-    { symbol: "USDC", address: "0xAF88D065E77C8CC2239327C5eDb3A26d2Be2cB4B", decimals: 6 },
+    { symbol: "USDC", address: "0xaf88d065e77c8cC2239327C5EDb3A432268e5831", decimals: 6 },
     { symbol: "USDC.e", address: "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8", decimals: 6 },
     { symbol: "USDT", address: "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9", decimals: 6 },
     { symbol: "DAI", address: "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1", decimals: 18 },
@@ -234,13 +234,8 @@ export const ARBITRUM: ChainConfig = {
       feeBps: 30,
       callback: "uniswapV2Call",
     },
-    {
-      name: "Camelot",
-      kind: "univ2",
-      factory: "0x6EcCab422D763aC031210895C81787E87B43A652",
-      feeBps: 30,
-      callback: "uniswapV2Call",
-    },
+    // Camelot V2 is intentionally excluded: its pairs use per-direction fees (token0FeePercent/token1FeePercent)
+    // and an optional stable-swap curve, so the standard x*y=k quote is wrong for them.
   ],
   flash: {
     morphoBlue: "0x6c247b1F6182318877311737BaC0844bAa518F5e",

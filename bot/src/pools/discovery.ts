@@ -13,15 +13,35 @@ interface Candidate {
 }
 
 /**
+ * Long-tail universes: pairing every token with every other is quadratic, but long-tail tokens trade almost
+ * exclusively against WETH/USDC. Pair each extra token with the base tokens, and keep the full pairing among
+ * the hand-picked config tokens.
+ */
+export function longTailPairs(cfg: ChainConfig, tokens: TokenConfig[]): Array<[TokenConfig, TokenConfig]> {
+  const core = cfg.tokens;
+  const coreSet = new Set(core.map((t) => t.address.toLowerCase()));
+  const bases = core.filter((t) => t.address.toLowerCase() === cfg.weth.toLowerCase() || t.address.toLowerCase() === cfg.usdc.toLowerCase());
+  const pairs: Array<[TokenConfig, TokenConfig]> = [];
+  for (let i = 0; i < core.length; i++) for (let j = i + 1; j < core.length; j++) pairs.push([core[i]!, core[j]!]);
+  for (const t of tokens) {
+    if (coreSet.has(t.address.toLowerCase())) continue;
+    for (const b of bases) pairs.push([t, b]);
+  }
+  return pairs;
+}
+
+/**
  * Enumerate every pool that exists for each token pair across all configured DEXes.
  * Uses multicall so a full sweep of ~20 tokens x 9 DEXes is a handful of RPC round trips.
  */
-export async function discoverPools(client: PublicClient, cfg: ChainConfig, tokens: TokenConfig[] = cfg.tokens): Promise<Pool[]> {
+export async function discoverPools(client: PublicClient, cfg: ChainConfig, tokens: TokenConfig[] = cfg.tokens, pairs?: Array<[TokenConfig, TokenConfig]>): Promise<Pool[]> {
   const candidates: Candidate[] = [];
-  for (let i = 0; i < tokens.length; i++) {
-    for (let j = i + 1; j < tokens.length; j++) {
-      const tokenA = tokens[i]!;
-      const tokenB = tokens[j]!;
+  const pairList: Array<[TokenConfig, TokenConfig]> = pairs ?? [];
+  if (!pairs) {
+    for (let i = 0; i < tokens.length; i++) for (let j = i + 1; j < tokens.length; j++) pairList.push([tokens[i]!, tokens[j]!]);
+  }
+  {
+    for (const [tokenA, tokenB] of pairList) {
       for (const dex of cfg.dexes) {
         if (dex.kind === "univ2") candidates.push({ dex, tokenA, tokenB, tier: 0 });
         else if (dex.kind === "aero-v2") {

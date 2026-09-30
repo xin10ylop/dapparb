@@ -38,12 +38,13 @@ export interface SearchOptions {
   budgetMs?: number;
 }
 
+/** Calibrated on Base fork tests: V3→V2 118k, V2→V3 121k, V3→V3 ~205k + ~15-20k per initialized tick crossed. */
 export const GAS = {
-  base: 45_000n, // tx intrinsic + contract entry + profit check
-  v2Hop: 60_000n,
-  v3Hop: 95_000n,
-  tickCross: 22_000n,
-  flashLoanOverhead: 35_000n, // only when a flash-loan provider is used instead of a flash swap
+  base: 30_000n, // tx intrinsic + contract entry + profit check
+  v2Hop: 42_000n,
+  v3Hop: 88_000n,
+  tickCross: 16_000n,
+  flashLoanOverhead: 60_000n, // Morpho path measured at +~60k vs. a flash swap
 };
 
 export function estimateGas(hops: CycleHop[]): bigint {
