@@ -1,0 +1,28 @@
+0xd78ad95fa4 True 0xc974ac558c4a1360cf2534359b66898ad8b56c30 Swap(address,uint256,uint256,uint256,uint256,address)
+0xc42079f94a True 0x6a41179d270446ca0968baba9f5c64acefb91e50 Swap(address,address,int256,int256,uint160,uint128,int24)
+0x19b4727925 True 0x57cf8c65fd1e2b44ea9e8f8ea0784ac6d0b60624 Swap(address,address,int256,int256,uint160,uint128,int24,uin
+0xb3e2773606 True 0xebb280bc4ccb9ad662f7a8563fae91d13182105c Swap(address,address,uint256,uint256,uint256,uint256)
+0x40e9cecb9f True 0x28e2ea090877bf75740558f6bfb36a5ffee9e9df Swap(bytes32,address,int128,int128,uint160,uint128,int24,uin
+0x2170c741c4 True 0xa82f327bbbf0667356d2935c6532d164b06ceced Swap(bytes32,address,address,uint256,uint256)
+0x0874b2d545 False  Swap(address,address,address,uint256,uint256,uint256,uint256
+0x8b3e96f2b8 True 0xa5e0e46462970c9ee8c2ecadcde254c483748ec4 TokenExchange(address,int128,uint256,int128,uint256)
+0xb2e76ae997 True 0x3efebc418efb585248a0d2140cfb87afcc2c63dd TokenExchange(address,uint256,uint256,uint256,uint256)
+0x143f1f8e86 False  TokenExchange(address,uint256,uint256,uint256,uint256,uint25
+0xd013ca23e7 False  TokenExchangeUnderlying(address,int128,uint256,int128,uint25
+0x04206ad2b7 True 0xa0ffb9c1ce1fe56963b0321b32e7a0302114058b Swap(bytes32,address,int128,int128,uint160,uint128,int24,uin
+0x3e8aae37f8 True 0xc697d2898e0d09264376196696c51d7abbbaa4a9 Swap(bytes32,address,int128,int128,uint24,uint24,uint16)
+0x121cb44ee5 True 0x77fb3168b0a8077fe518493710242faf3631a05b Swap(address,address,int256,int256,uint160,uint128,int24,uin
+0xc2c0245e05 True 0xc335be3f920c50335b7327fe86f8ff5e375272cb DODOSwap(address,address,uint256,uint256,address,address)
+0xd8648b6ac5 False  SellBaseToken(address,uint256,uint256)
+0xe93ad76094 True 0xbe60d4c4250438344bec816ec2dec99925deb4c7 BuyBaseToken(address,uint256,uint256)
+0xad7d6f97ab False  Swap(address,address,uint24,bytes32,bytes32,uint24,bytes32,b
+0x54787c404b True 0x0520451b19ad0bb00ed35ef391086a692cfc74b2 Swap(address,address,address,uint256,uint256,address)
+0x0e8e403c2d True 0x5520385bfcf07ec87c4c53a7d8d65595dff69fa4 WooSwap(address,address,uint256,uint256,address,address,addr
+0x3b841dc9ab True 0x16b59c90561d93afffc2e489937ed4da7668d9ff Swap(address,address,bool,bool,uint256,uint256,int32)
+0x103ed084e9 True 0x0843924689e0451885633c31cd135658e2ec3eea PoolSwap(address,address,(uint256,bool,bool,int32),uint256,u
+0x0fe977d619 True 0x1ce3082de766ebfe1b4db39f616426631bbb29ac Swap(address,address,uint24,bool,uint256,uint256,int24)
+0xdc004dbca4 True 0x0b1a513ee24972daef112bc777a5610d4325c9e7 Swap(bool,uint256,uint256,address)
+0x7db52723a3 True 0x5c952063c7fc8610ffdb798152d69f0b9550762b TokenPurchase(address,address,uint256,uint256,uint256,uint25
+0x0a5575b364 True 0x5c952063c7fc8610ffdb798152d69f0b9550762b TokenSale(address,address,uint256,uint256,uint256,uint256,ui
+0xa800a20386 True 0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0 TokenBought(uint256,address,address,uint256,uint256,uint256,
+0x03a4693e59 True 0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0 TokenSold(uint256,address,address,uint256,uint256,uint256,ui

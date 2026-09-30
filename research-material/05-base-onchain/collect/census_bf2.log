@@ -1,0 +1,14 @@
+2026-09-30T21:13:17Z progress stream=bf2 next=52000440 blocks/s=7.33 stats={'ok': 440, '429': 2} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1, 'provenance': 1}
+2026-09-30T21:14:21Z progress stream=bf2 next=52000920 blocks/s=7.59 stats={'ok': 920, '429': 2} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1, 'provenance': 1}
+2026-09-30T21:15:25Z progress stream=bf2 next=52001440 blocks/s=8.08 stats={'ok': 1440, '429': 4} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1, 'provenance': 1}
+2026-09-30T21:16:27Z progress stream=bf2 next=52001960 blocks/s=8.32 stats={'ok': 1960, '429': 4} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1, 'provenance': 1}
+2026-09-30T21:17:29Z progress stream=bf2 next=52002480 blocks/s=8.43 stats={'ok': 2480, '429': 4} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1, 'provenance': 1}
+2026-09-30T21:18:32Z progress stream=bf2 next=52003000 blocks/s=8.23 stats={'ok': 3000, '429': 5} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1, 'provenance': 1}
+2026-09-30T21:19:34Z progress stream=bf2 next=52003520 blocks/s=8.38 stats={'ok': 3520, '429': 5} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 2, 'provenance': 1}
+2026-09-30T21:20:39Z progress stream=bf2 next=52004040 blocks/s=8.01 stats={'ok': 4040, '429': 5} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 2, 'provenance': 1}
+2026-09-30T21:21:42Z progress stream=bf2 next=52004520 blocks/s=7.64 stats={'ok': 4520, '429': 5} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 2, 'provenance': 1}
+2026-09-30T21:22:44Z progress stream=bf2 next=52005000 blocks/s=7.77 stats={'ok': 5000, '429': 6} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 2, 'provenance': 1}
+2026-09-30T21:23:47Z progress stream=bf2 next=52005520 blocks/s=8.23 stats={'ok': 5520, '429': 6} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 2, 'provenance': 1}
+2026-09-30T21:24:51Z progress stream=bf2 next=52006080 blocks/s=8.77 stats={'ok': 6080, '429': 6} parts={'blocks': 1, 'txs': 2, 'reverted': 1, 'candidates': 3, 'provenance': 1}
+2026-09-30T21:25:28Z stream done bf2 {'stream': 'bf2', 'start': 52000000, 'end': 52006399, 'next': 52006400, 'created_utc': '2026-09-30T21:12:17Z', 'topics_n': 26, 'parts': {'blocks': {'part': 1, 'size': 384225}, 'txs': {'part': 2, 'size': 11671888}, 'reverted': {'part': 1, 'size': 9526923}, 'candidates': {'part': 3, 'size': 14738382}, 'provenance': {'part': 1, 'size': 35866}}, 'last_written_utc': '2026-09-30T21:25:28Z', 'stats': {'ok': 6400, '429': 6}, 'done': True, 'done_utc': '2026-09-30T21:25:28Z'}
+2026-09-30T21:26:04Z stream already done bf2

@@ -1,0 +1,3 @@
+2026-09-30T21:20:12Z tokens 333
+2026-09-30T21:20:21Z onchain meta written
+2026-09-30T21:20:50Z done {"chain": "polygon", "started_at_utc": "2026-09-30T21:20:05Z", "rpc": ["https://polygon-bor-rpc.publicnode.com", "https://polygon.drpc.org"], "n_tokens": 333, "eth_call_block": "latest", "eth_call_time_utc": "2026-09-30T21:20:21Z", "defillama_requests": 27, "price_timestamps_requested": [1790798852, 1790800651, 1790802450], "native_chart_url": "https://coins.llama.fi/chart/coingecko:polygon-ecosystem-token,coingecko:matic-network,coingecko:ethereum?start=1790798852&span=13&period=5m", "native_chart_http_status": 200, "finished_at_utc": "2026-09-30T21:20:50Z"}

@@ -1,0 +1,236 @@
+2026-09-30T20:56:51Z pipeline start pid=2404
+{
+ "chain": "bsc",
+ "chain_id": 56,
+ "pinned_at_utc": "2026-09-30T20:56:55Z",
+ "heads_seen": {
+  "https://bsc-dataseed.bnbchain.org": 124976340,
+  "https://bsc-dataseed1.bnbchain.org": 124976341,
+  "https://bsc-dataseed2.bnbchain.org": 124976341
+ },
+ "safety_blocks_behind_head": 30,
+ "start_block": 124968311,
+ "end_block": 124976310,
+ "block_count": 8000,
+ "start_block_milliTimestamp": 1790798197750,
+ "end_block_milliTimestamp": 1790801797650,
+ "start_block_utc": "2026-09-30T19:56:37Z",
+ "end_block_utc": "2026-09-30T20:56:37Z",
+ "rule": "start_block = smallest block with milliTimestamp >= milliTimestamp(end_block) - 3600000",
+ "block_before_start_milliTimestamp": 1790798197300,
+ "header_samples": [
+  {
+   "number": 124976310,
+   "timestamp": 1790801797,
+   "milliTimestamp": 1790801797650,
+   "hash": "0x8ee68b11381b7b986fa7780881aebfa8151d062f05bcf6d3af5425049ca0df55",
+   "endpoint": "https://bsc-dataseed1.bnbchain.org"
+  },
+  {
+   "number": 124976210,
+   "timestamp": 1790801752,
+   "milliTimestamp": 1790801752650,
+   "hash": "0xbd89459a935a861228cfe3d0d71832e00d48c87a731450585bdb01456b15bae4",
+   "endpoint": "https://bsc-dataseed2.bnbchain.org"
+  },
+  {
+   "number": 124975310,
+   "timestamp": 1790801347,
+   "milliTimestamp": 1790801347300,
+   "hash": "0x91f4622ae2e9fc94ee6e898dbb48c5c9414635d5d55c94464bfae1f92a92e4d8",
+   "endpoint": "https://bsc-dataseed3.bnbchain.org"
+  },
+  {
+   "number": 124974310,
+   "timestamp": 1790800897,
+   "milliTimestamp": 1790800897300,
+   "hash": "0x66f882b1e658c9aff40fb5cc0a10021a722eb99a1a632f68bedc51e420a1cc74",
+   "endpoint": "https://bsc-dataseed4.bnbchain.org"
+  },
+  {
+   "number": 124972310,
+   "timestamp": 1790799997,
+   "milliTimestamp": 1790799997300,
+   "hash": "0xfbd15a64356bf822f6ff476b054b3f22b9144abfe55710c16ef530d4b45735db",
+   "endpoint": "https://bsc-dataseed1.defibit.io"
+  },
+  {
+   "number": 124970310,
+   "timestamp": 1790799097,
+   "milliTimestamp": 1790799097300,
+   "hash": "0x0f77f3b4aa8838dedf936aa3753605ad493eec4dd17ac3d7339a1aa17836e18b",
+   "endpoint": "https://bsc-dataseed1.ninicoin.io"
+  },
+  {
+   "number": 124968310,
+   "timestamp": 1790798197,
+   "milliTimestamp": 1790798197300,
+   "hash": "0x470556f29ab3f06b8d1cf4de5de9b2efb92ea1a0a33b8ce99a7070cf766b7b72",
+   "endpoint": "https://bsc-dataseed.bnbchain.org"
+  },
+  {
+   "number": 124966310,
+   "timestamp": 1790797296,
+   "milliTimestamp": 1790797296950,
+   "hash": "0xf68a79434daf463b61c92d8eaaa3225bdf44e4d5394a637995e16248acd993ab",
+   "endpoint": "https://bsc-dataseed1.bnbchain.org"
+  }
+ ],
+ "derived_interval_ms_over_window": 450.0437554694337,
+ "derived_interval_ms_over_header_samples": [
+  {
+   "from": 124976210,
+   "to": 124976310,
+   "ms_per_block": 450.0
+  },
+  {
+   "from": 124975310,
+   "to": 124976310,
+   "ms_per_block": 450.35
+  },
+  {
+   "from": 124974310,
+   "to": 124976310,
+   "ms_per_block": 450.175
+  },
+  {
+   "from": 124972310,
+   "to": 124976310,
+   "ms_per_block": 450.0875
+  },
+  {
+   "from": 124970310,
+   "to": 124976310,
+   "ms_per_block": 450.05833333333334
+  },
+  {
+   "from": 124968310,
+   "to": 124976310,
+   "ms_per_block": 450.04375
+  },
+  {
+   "from": 124966310,
+   "to": 124976310,
+   "ms_per_block": 450.07
+  }
+ ]
+}
+2026-09-30T20:56:55Z range 124968311 124976310 blocks 8000 endpoints ['https://bsc-dataseed.bnbchain.org', 'https://bsc-dataseed1.bnbchain.org', 'https://bsc-dataseed2.bnbchain.org', 'https://bsc-dataseed3.bnbchain.org', 'https://bsc-dataseed4.bnbchain.org', 'https://bsc-dataseed1.defibit.io', 'https://bsc-dataseed1.ninicoin.io']
+2026-09-30T20:57:05Z chunk 124968311-124968510 written (200 blocks); progress 200/8000; elapsed 10s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 58, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 57, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 57, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 57, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 57, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 57, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 57, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:57:09Z chunk 124968511-124968710 written (200 blocks); progress 400/8000; elapsed 14s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 115, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 115, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 114, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 114, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 114, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 114, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 114, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:57:15Z chunk 124968711-124968910 written (200 blocks); progress 600/8000; elapsed 20s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 172, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 172, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 172, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 171, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 171, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 171, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 171, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:57:20Z chunk 124968911-124969110 written (200 blocks); progress 800/8000; elapsed 25s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 229, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 229, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 229, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 229, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 228, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 228, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 228, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:57:25Z chunk 124969111-124969310 written (200 blocks); progress 1000/8000; elapsed 30s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 286, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 286, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 286, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 286, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 286, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 285, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 285, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:57:30Z chunk 124969311-124969510 written (200 blocks); progress 1200/8000; elapsed 35s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 343, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 343, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 343, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 343, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 343, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 343, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 342, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:57:35Z chunk 124969511-124969710 written (200 blocks); progress 1400/8000; elapsed 40s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 400, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 400, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 400, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 400, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 400, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 400, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 400, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:57:40Z chunk 124969711-124969910 written (200 blocks); progress 1600/8000; elapsed 45s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 458, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 457, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 457, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 457, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 457, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 457, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 457, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:57:44Z chunk 124969911-124970110 written (200 blocks); progress 1800/8000; elapsed 49s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 515, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 515, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 514, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 514, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 514, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 514, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 514, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:57:49Z chunk 124970111-124970310 written (200 blocks); progress 2000/8000; elapsed 54s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 572, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 572, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 572, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 571, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 571, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 571, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 571, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:57:53Z chunk 124970311-124970510 written (200 blocks); progress 2200/8000; elapsed 58s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 629, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 629, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 629, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 629, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 628, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 628, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 628, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:57:57Z chunk 124970511-124970710 written (200 blocks); progress 2400/8000; elapsed 62s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 686, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 686, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 686, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 686, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 686, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 685, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 685, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:58:01Z chunk 124970711-124970910 written (200 blocks); progress 2600/8000; elapsed 66s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 743, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 743, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 743, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 743, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 743, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 743, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 742, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:58:06Z chunk 124970911-124971110 written (200 blocks); progress 2800/8000; elapsed 71s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 800, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 800, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 800, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 800, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 800, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 800, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 800, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:58:10Z chunk 124971111-124971310 written (200 blocks); progress 3000/8000; elapsed 75s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 858, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 857, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 857, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 857, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 857, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 857, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 857, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:58:15Z chunk 124971311-124971510 written (200 blocks); progress 3200/8000; elapsed 80s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 915, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 915, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 914, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 914, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 914, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 914, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 914, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:58:20Z chunk 124971511-124971710 written (200 blocks); progress 3400/8000; elapsed 85s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 972, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 972, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 972, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 971, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 971, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 971, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 971, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:58:24Z chunk 124971711-124971910 written (200 blocks); progress 3600/8000; elapsed 89s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1029, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1029, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1029, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1029, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1028, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1028, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1028, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:58:28Z chunk 124971911-124972110 written (200 blocks); progress 3800/8000; elapsed 93s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1086, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1086, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1086, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1086, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1086, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1085, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1085, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:58:33Z chunk 124972111-124972310 written (200 blocks); progress 4000/8000; elapsed 98s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1143, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1143, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1143, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1143, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1143, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1143, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1142, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:58:38Z chunk 124972311-124972510 written (200 blocks); progress 4200/8000; elapsed 103s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1200, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1200, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1200, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1200, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1200, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1200, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1200, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:58:42Z chunk 124972511-124972710 written (200 blocks); progress 4400/8000; elapsed 107s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1258, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1257, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1257, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1257, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1257, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1257, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1257, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:58:47Z chunk 124972711-124972910 written (200 blocks); progress 4600/8000; elapsed 112s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1315, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1315, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1314, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1314, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1314, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1314, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1314, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:58:51Z chunk 124972911-124973110 written (200 blocks); progress 4800/8000; elapsed 116s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1372, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1372, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1372, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1371, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1371, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1371, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1371, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:58:55Z chunk 124973111-124973310 written (200 blocks); progress 5000/8000; elapsed 120s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1429, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1429, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1429, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1429, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1428, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1428, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1428, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:59:00Z chunk 124973311-124973510 written (200 blocks); progress 5200/8000; elapsed 125s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1486, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1486, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1486, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1486, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1486, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1485, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1485, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:59:04Z chunk 124973511-124973710 written (200 blocks); progress 5400/8000; elapsed 129s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1543, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1543, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1543, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1543, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1543, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1543, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1542, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:59:09Z chunk 124973711-124973910 written (200 blocks); progress 5600/8000; elapsed 134s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1600, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1600, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1600, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1600, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1600, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1600, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1600, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:59:14Z chunk 124973911-124974110 written (200 blocks); progress 5800/8000; elapsed 139s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1658, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1657, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1657, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1657, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1657, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1657, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1657, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:59:19Z chunk 124974111-124974310 written (200 blocks); progress 6000/8000; elapsed 144s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1715, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1715, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1714, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1714, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1714, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1714, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1714, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:59:23Z chunk 124974311-124974510 written (200 blocks); progress 6200/8000; elapsed 149s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1772, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1772, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1772, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1771, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1771, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1771, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1771, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:59:28Z chunk 124974511-124974710 written (200 blocks); progress 6400/8000; elapsed 153s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1829, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1829, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1829, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1829, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1828, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1828, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1828, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:59:32Z chunk 124974711-124974910 written (200 blocks); progress 6600/8000; elapsed 157s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1886, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1886, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1886, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1886, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1886, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1885, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1885, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:59:37Z chunk 124974911-124975110 written (200 blocks); progress 6800/8000; elapsed 162s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 1943, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 1943, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 1943, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 1943, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 1943, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 1943, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 1942, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:59:42Z chunk 124975111-124975310 written (200 blocks); progress 7000/8000; elapsed 167s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 2000, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 2000, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 2000, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 2000, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 2000, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 2000, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 2000, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:59:46Z chunk 124975311-124975510 written (200 blocks); progress 7200/8000; elapsed 171s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 2058, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 2057, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 2057, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 2057, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 2057, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 2057, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 2057, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:59:50Z chunk 124975511-124975710 written (200 blocks); progress 7400/8000; elapsed 176s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 2115, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 2115, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 2114, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 2114, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 2114, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 2114, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 2114, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:59:54Z chunk 124975711-124975910 written (200 blocks); progress 7600/8000; elapsed 179s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 2172, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 2172, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 2172, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 2171, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 2171, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 2171, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 2171, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T20:59:59Z chunk 124975911-124976110 written (200 blocks); progress 7800/8000; elapsed 184s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 2229, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 2229, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 2229, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 2229, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 2228, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 2228, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 2228, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T21:00:03Z chunk 124976111-124976310 written (200 blocks); progress 8000/8000; elapsed 188s; ep_stats={"bsc-dataseed.bnbchain.org": {"ok": 2286, "err": 0}, "bsc-dataseed1.bnbchain.org": {"ok": 2286, "err": 0}, "bsc-dataseed2.bnbchain.org": {"ok": 2286, "err": 0}, "bsc-dataseed3.bnbchain.org": {"ok": 2286, "err": 0}, "bsc-dataseed4.bnbchain.org": {"ok": 2286, "err": 0}, "bsc-dataseed1.defibit.io": {"ok": 2285, "err": 0}, "bsc-dataseed1.ninicoin.io": {"ok": 2285, "err": 0}, "bsc-rpc.publicnode.com": {"ok": 0, "err": 0}}
+2026-09-30T21:00:03Z download complete
+21:07:07 processed 500 blocks 33745 txs 4s
+21:07:11 processed 1000 blocks 69780 txs 8s
+21:07:16 processed 1500 blocks 105289 txs 13s
+21:07:20 processed 2000 blocks 134994 txs 16s
+21:07:23 processed 2500 blocks 163513 txs 20s
+21:07:26 processed 3000 blocks 193371 txs 23s
+21:07:30 processed 3500 blocks 226177 txs 27s
+21:07:35 processed 4000 blocks 255214 txs 32s
+21:07:40 processed 4500 blocks 284769 txs 37s
+21:07:44 processed 5000 blocks 315686 txs 41s
+21:07:48 processed 5500 blocks 346002 txs 45s
+21:07:53 processed 6000 blocks 382484 txs 50s
+21:07:57 processed 6500 blocks 414173 txs 54s
+21:08:01 processed 7000 blocks 447022 txs 58s
+21:08:05 processed 7500 blocks 474760 txs 62s
+21:08:09 processed 8000 blocks 502872 txs 66s
+{
+ "generated_at_utc": "2026-09-30T21:08:09Z",
+ "window": {
+  "start_block": 124968311,
+  "end_block": 124976310
+ },
+ "blocks_written": 8000,
+ "first_block": 124968311,
+ "last_block": 124976310,
+ "missing_blocks": [],
+ "tx_rows": 502872,
+ "reverted_rows": 13864,
+ "logs_seen": 3139184,
+ "candidates_criterion_A": 32557,
+ "candidates_criterion_B": 27433,
+ "distinct_topic0": 5207,
+ "files": {
+  "txs": {
+   "files": [
+    "txs-001.csv.gz"
+   ],
+   "rows_per_part": [
+    502872
+   ],
+   "rows": 502872
+  },
+  "reverted": {
+   "files": [
+    "reverted-001.csv.gz"
+   ],
+   "rows_per_part": [
+    13864
+   ],
+   "rows": 13864
+  },
+  "candidates": {
+   "files": [
+    "candidates-001.jsonl.gz",
+    "candidates-002.jsonl.gz"
+   ],
+   "rows_per_part": [
+    48094,
+    11896
+   ],
+   "rows": 59990
+  },
+  "builder_material": {
+   "files": [
+    "builder-material-001.jsonl.gz"
+   ],
+   "rows_per_part": [
+    8000
+   ],
+   "rows": 8000
+  }
+ },
+ "blocks_file": "blocks.csv.gz",
+ "topic0_inventory_file": "topic0-inventory.csv.gz",
+ "elapsed_s": 65.9
+}
+2026-09-30T21:08:09Z pipeline done

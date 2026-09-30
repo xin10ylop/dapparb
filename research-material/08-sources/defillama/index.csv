@@ -1,0 +1,13 @@
+file,url,http_status,bytes,sha256,fetched_at_utc
+overview-dexs-arbitrum.json.gz,https://api.llama.fi/overview/dexs/arbitrum?excludeTotalDataChart=false&excludeTotalDataChartBreakdown=false,200,2012505,e28df6f73a7a9db558fa7e3c815b57b66b2eabb9d5d9fd0e8431202f9cbbd5ff,2026-09-30T21:57:59Z
+overview-dexs-base.json.gz,https://api.llama.fi/overview/dexs/base?excludeTotalDataChart=false&excludeTotalDataChartBreakdown=false,200,1627257,41073faf987be8047e395654115801843ecb6f268362d536c6242e52eccb827f,2026-09-30T21:57:55Z
+overview-dexs-bsc.json.gz,https://api.llama.fi/overview/dexs/bsc?excludeTotalDataChart=false&excludeTotalDataChartBreakdown=false,200,2628989,5ac8fef2b1f089b50f35f8e7d598919547bf5f80914d35f2881499433c789b95,2026-09-30T21:58:17Z
+overview-dexs-ethereum.json.gz,https://api.llama.fi/overview/dexs/ethereum?excludeTotalDataChart=false&excludeTotalDataChartBreakdown=false,200,2128836,de52ef7a118fb52b7c6b304c61bdd6ed5d936ba89317e7c401c6afb646b833e9,2026-09-30T21:58:09Z
+overview-dexs-optimism.json.gz,https://api.llama.fi/overview/dexs/optimism?excludeTotalDataChart=false&excludeTotalDataChartBreakdown=false,200,847738,7277f2947a04f2bd3ce04e1cf401ad0424bf415b8eb2791d86bdc428c921bbbf,2026-09-30T21:58:02Z
+overview-dexs-polygon.json.gz,https://api.llama.fi/overview/dexs/polygon?excludeTotalDataChart=false&excludeTotalDataChartBreakdown=false,200,1691089,50fe3d9730a787af1c02ee345d8a1507233db49b916553e2a2de280a7c86f42e,2026-09-30T21:58:12Z
+overview-dexs-solana.json.gz,https://api.llama.fi/overview/dexs/solana?excludeTotalDataChart=false&excludeTotalDataChartBreakdown=false,200,1068370,d651e22ca26ae70f9ff173de7d0713b3d3b8de2235ee84a3bd3c91cd14559cb9,2026-09-30T21:58:20Z
+overview-dexs-unichain.json.gz,https://api.llama.fi/overview/dexs/unichain?excludeTotalDataChart=false&excludeTotalDataChartBreakdown=false,200,100467,4f9c4075839f5c6d638cd115886d65a75044af2c455aa6b1f14adf141d2ff4ad,2026-09-30T21:58:05Z
+summary-dexs-uniswap-v2.json.gz,https://api.llama.fi/summary/dexs/uniswap-v2,200,442094,4125788d5759a7d2396d429746955a8dcec1bdfed97a7e8f8b19e1cdb2a37b02,2026-09-30T21:58:27Z
+summary-dexs-uniswap-v3.json.gz,https://api.llama.fi/summary/dexs/uniswap-v3,200,1046286,6ff45a6386b206ac2d26806b5a8d1d4dfb5155e1769d3ee75dc461b2c18f2e0c,2026-09-30T21:58:30Z
+summary-dexs-uniswap-v4.json.gz,https://api.llama.fi/summary/dexs/uniswap-v4,200,316333,6925b74ba5be0cae831757ae92947ca7ef64433c7db02894fcdc508fd4d63234,2026-09-30T21:58:24Z
+summary-dexs-uniswap.json.gz,https://api.llama.fi/summary/dexs/uniswap,200,1589326,15cb03caa824b591b9c30994807aad5ccff3fcf40b86fb430023b457394b53da,2026-09-30T21:58:32Z

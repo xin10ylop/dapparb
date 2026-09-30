@@ -1,0 +1,225 @@
+{
+ "fetched_at_utc": "2026-09-30T21:18:21Z",
+ "window": [
+  510447028,
+  510460284
+ ],
+ "results": [
+  {
+   "at": "window_start_block",
+   "block_tag": "0x1e6ccdb4",
+   "endpoint": "https://arbitrum-one.public.blastapi.io",
+   "call": "ArbSys.arbOSVersion()",
+   "to": "0x0000000000000000000000000000000000000064",
+   "data": "0x051038f2",
+   "result_raw": "0x0000000000000000000000000000000000000000000000000000000000000074",
+   "error": null,
+   "decoded_derived": [
+    "116"
+   ],
+   "arbos_version_derived": "61"
+  },
+  {
+   "at": "window_start_block",
+   "block_tag": "0x1e6ccdb4",
+   "endpoint": "https://arbitrum-one.public.blastapi.io",
+   "call": "ArbOwnerPublic.getCollectTips()",
+   "to": "0x000000000000000000000000000000000000006b",
+   "data": "0x8e34a64d",
+   "result_raw": "0x0000000000000000000000000000000000000000000000000000000000000001",
+   "error": null,
+   "decoded_derived": [
+    "1"
+   ]
+  },
+  {
+   "at": "window_start_block",
+   "block_tag": "0x1e6ccdb4",
+   "endpoint": "https://arbitrum-one.public.blastapi.io",
+   "call": "ArbOwnerPublic.getScheduledUpgrade()",
+   "to": "0x000000000000000000000000000000000000006b",
+   "data": "0x81ef944c",
+   "result_raw": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "error": null,
+   "decoded_derived": [
+    "0",
+    "0"
+   ]
+  },
+  {
+   "at": "window_start_block",
+   "block_tag": "0x1e6ccdb4",
+   "endpoint": "https://arbitrum-one.public.blastapi.io",
+   "call": "ArbOwnerPublic.getNetworkFeeAccount()",
+   "to": "0x000000000000000000000000000000000000006b",
+   "data": "0x2d9125e9",
+   "result_raw": "0x00000000000000000000000032e7af5a8151934f3787d0cd59eb6edd0a736b1d",
+   "error": null,
+   "decoded_derived": [
+    "0x32e7af5a8151934f3787d0cd59eb6edd0a736b1d"
+   ]
+  },
+  {
+   "at": "window_end_block",
+   "block_tag": "0x1e6d017c",
+   "endpoint": "https://arbitrum-one.public.blastapi.io",
+   "call": "ArbSys.arbOSVersion()",
+   "to": "0x0000000000000000000000000000000000000064",
+   "data": "0x051038f2",
+   "result_raw": "0x0000000000000000000000000000000000000000000000000000000000000074",
+   "error": null,
+   "decoded_derived": [
+    "116"
+   ],
+   "arbos_version_derived": "61"
+  },
+  {
+   "at": "window_end_block",
+   "block_tag": "0x1e6d017c",
+   "endpoint": "https://arbitrum-one.public.blastapi.io",
+   "call": "ArbOwnerPublic.getCollectTips()",
+   "to": "0x000000000000000000000000000000000000006b",
+   "data": "0x8e34a64d",
+   "result_raw": "0x0000000000000000000000000000000000000000000000000000000000000001",
+   "error": null,
+   "decoded_derived": [
+    "1"
+   ]
+  },
+  {
+   "at": "window_end_block",
+   "block_tag": "0x1e6d017c",
+   "endpoint": "https://arbitrum-one.public.blastapi.io",
+   "call": "ArbOwnerPublic.getScheduledUpgrade()",
+   "to": "0x000000000000000000000000000000000000006b",
+   "data": "0x81ef944c",
+   "result_raw": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "error": null,
+   "decoded_derived": [
+    "0",
+    "0"
+   ]
+  },
+  {
+   "at": "window_end_block",
+   "block_tag": "0x1e6d017c",
+   "endpoint": "https://arbitrum-one.public.blastapi.io",
+   "call": "ArbOwnerPublic.getNetworkFeeAccount()",
+   "to": "0x000000000000000000000000000000000000006b",
+   "data": "0x2d9125e9",
+   "result_raw": "0x00000000000000000000000032e7af5a8151934f3787d0cd59eb6edd0a736b1d",
+   "error": null,
+   "decoded_derived": [
+    "0x32e7af5a8151934f3787d0cd59eb6edd0a736b1d"
+   ]
+  },
+  {
+   "at": "window_end_block",
+   "block_tag": "0x1e6d017c",
+   "endpoint": "https://arb1.arbitrum.io/rpc",
+   "call": "ArbSys.arbOSVersion()",
+   "to": "0x0000000000000000000000000000000000000064",
+   "data": "0x051038f2",
+   "result_raw": "0x0000000000000000000000000000000000000000000000000000000000000074",
+   "error": null,
+   "decoded_derived": [
+    "116"
+   ],
+   "arbos_version_derived": "61"
+  },
+  {
+   "at": "window_end_block",
+   "block_tag": "0x1e6d017c",
+   "endpoint": "https://arb1.arbitrum.io/rpc",
+   "call": "ArbOwnerPublic.getCollectTips()",
+   "to": "0x000000000000000000000000000000000000006b",
+   "data": "0x8e34a64d",
+   "result_raw": "0x0000000000000000000000000000000000000000000000000000000000000001",
+   "error": null,
+   "decoded_derived": [
+    "1"
+   ]
+  },
+  {
+   "at": "window_end_block",
+   "block_tag": "0x1e6d017c",
+   "endpoint": "https://arb1.arbitrum.io/rpc",
+   "call": "ArbOwnerPublic.getScheduledUpgrade()",
+   "to": "0x000000000000000000000000000000000000006b",
+   "data": "0x81ef944c",
+   "result_raw": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "error": null,
+   "decoded_derived": [
+    "0",
+    "0"
+   ]
+  },
+  {
+   "at": "window_end_block",
+   "block_tag": "0x1e6d017c",
+   "endpoint": "https://arb1.arbitrum.io/rpc",
+   "call": "ArbOwnerPublic.getNetworkFeeAccount()",
+   "to": "0x000000000000000000000000000000000000006b",
+   "data": "0x2d9125e9",
+   "result_raw": "0x00000000000000000000000032e7af5a8151934f3787d0cd59eb6edd0a736b1d",
+   "error": null,
+   "decoded_derived": [
+    "0x32e7af5a8151934f3787d0cd59eb6edd0a736b1d"
+   ]
+  },
+  {
+   "at": "latest",
+   "block_tag": "latest",
+   "endpoint": "https://arbitrum-one-rpc.publicnode.com",
+   "call": "ArbSys.arbOSVersion()",
+   "to": "0x0000000000000000000000000000000000000064",
+   "data": "0x051038f2",
+   "result_raw": "0x0000000000000000000000000000000000000000000000000000000000000074",
+   "error": null,
+   "decoded_derived": [
+    "116"
+   ],
+   "arbos_version_derived": "61"
+  },
+  {
+   "at": "latest",
+   "block_tag": "latest",
+   "endpoint": "https://arbitrum-one-rpc.publicnode.com",
+   "call": "ArbOwnerPublic.getCollectTips()",
+   "to": "0x000000000000000000000000000000000000006b",
+   "data": "0x8e34a64d",
+   "result_raw": "0x0000000000000000000000000000000000000000000000000000000000000001",
+   "error": null,
+   "decoded_derived": [
+    "1"
+   ]
+  },
+  {
+   "at": "latest",
+   "block_tag": "latest",
+   "endpoint": "https://arbitrum-one-rpc.publicnode.com",
+   "call": "ArbOwnerPublic.getScheduledUpgrade()",
+   "to": "0x000000000000000000000000000000000000006b",
+   "data": "0x81ef944c",
+   "result_raw": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "error": null,
+   "decoded_derived": [
+    "0",
+    "0"
+   ]
+  },
+  {
+   "at": "latest",
+   "block_tag": "latest",
+   "endpoint": "https://arbitrum-one-rpc.publicnode.com",
+   "call": "ArbOwnerPublic.getNetworkFeeAccount()",
+   "to": "0x000000000000000000000000000000000000006b",
+   "data": "0x2d9125e9",
+   "result_raw": "0x00000000000000000000000032e7af5a8151934f3787d0cd59eb6edd0a736b1d",
+   "error": null,
+   "decoded_derived": [
+    "0x32e7af5a8151934f3787d0cd59eb6edd0a736b1d"
+   ]
+  }
+ ]
+}

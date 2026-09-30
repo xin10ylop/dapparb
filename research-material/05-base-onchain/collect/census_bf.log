@@ -1,0 +1,27 @@
+2026-09-30T21:03:47Z progress stream=bf next=51995809 blocks/s=3.22 stats={'ok': 200, '429': 17} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1}
+2026-09-30T21:04:57Z progress stream=bf next=51995849 blocks/s=0.57 stats={'ok': 240, '429': 38} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1}
+2026-09-30T21:07:09Z progress stream=bf next=51996089 blocks/s=1.82 stats={'ok': 480, '429': 61} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1}
+2026-09-30T21:08:34Z progress stream=bf next=51996249 blocks/s=1.88 stats={'ok': 640, '429': 75} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1}
+2026-09-30T21:09:54Z progress stream=bf next=51996329 blocks/s=1.00 stats={'ok': 720, '429': 91} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1}
+2026-09-30T21:11:14Z progress stream=bf next=51996449 blocks/s=1.51 stats={'ok': 840, '429': 109} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1}
+2026-09-30T21:13:34Z progress stream=bf next=51996689 blocks/s=1.57 stats={'ok': 120, '429': 14} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:15:18Z progress stream=bf next=51996809 blocks/s=1.15 stats={'ok': 240, '429': 36} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:16:34Z progress stream=bf next=51997009 blocks/s=2.62 stats={'ok': 440, '429': 51} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:17:35Z progress stream=bf next=51997129 blocks/s=1.98 stats={'ok': 560, '429': 66} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:19:42Z progress stream=bf next=51997169 blocks/s=0.32 stats={'ok': 600, '429': 73} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:21:03Z progress stream=bf next=51997289 blocks/s=1.48 stats={'ok': 720, '429': 90} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:22:25Z progress stream=bf next=51997409 blocks/s=1.46 stats={'ok': 840, '429': 106} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:23:32Z progress stream=bf next=51997569 blocks/s=2.41 stats={'ok': 1000, '429': 117} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:24:44Z progress stream=bf next=51997689 blocks/s=1.65 stats={'ok': 1120, '429': 133} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:25:48Z progress stream=bf next=51997809 blocks/s=1.89 stats={'ok': 1240, '429': 148} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:27:23Z progress stream=bf next=51997889 blocks/s=1.02 stats={'ok': 80, '429': 17} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:28:36Z progress stream=bf next=51997969 blocks/s=1.10 stats={'ok': 160, '429': 29} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:30:08Z progress stream=bf next=51998129 blocks/s=1.73 stats={'ok': 320, '429': 53} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:31:34Z progress stream=bf next=51998209 blocks/s=0.93 stats={'ok': 400, '429': 69} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:32:54Z progress stream=bf next=51998289 blocks/s=1.00 stats={'ok': 480, '429': 86} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:34:31Z progress stream=bf next=51998409 blocks/s=1.23 stats={'ok': 600, '429': 111} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:35:43Z progress stream=bf next=51998489 blocks/s=1.11 stats={'ok': 680, '429': 128} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:37:32Z progress stream=bf next=51998569 blocks/s=0.74 stats={'ok': 760, '429': 154} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:46:46Z GAP 51998605 block 51998605 failed after 14 attempts: 429: http 429 via https://base.drpc.org
+2026-09-30T21:46:47Z progress stream=bf next=51998609 blocks/s=0.07 stats={'ok': 799, '429': 174} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:49:24Z stream done bf {'created_utc': '2026-09-30T21:02:45Z', 'end': 51998608, 'last_written_utc': '2026-09-30T21:46:47Z', 'next': 51998609, 'parts': {'blocks': {'part': 1, 'size': 181028}, 'candidates': {'part': 2, 'size': 13046151}, 'provenance': {'part': 1, 'size': 10500}, 'reverted': {'part': 1, 'size': 5586973}, 'txs': {'part': 1, 'size': 68710314}}, 'start': 51995609, 'stats': {'ok': 0}, 'stream': 'bf', 'topics_n': 26, 'done': True, 'done_utc': '2026-09-30T21:49:24Z'}

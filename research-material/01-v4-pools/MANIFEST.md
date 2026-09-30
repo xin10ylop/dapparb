@@ -1,6 +1,7 @@
 # 01-v4-pools: Uniswap V4 pools on Base (raw material)
 
-STATUS: IN PROGRESS (see "Collector status" at the bottom; counts marked TBD are filled in when the sentinels exist)
+STATUS: V4INIT, V4RECENT and V4STATE are COMPLETE (sentinels DONE). HOOKLABELS (item 4 refresh: Blockscout metadata for all hooks
+with >= 20 pools, launch-tx samples, rebuild of hooks.csv) is IN PROGRESS. See "Collector status" at the bottom.
 
 This directory contains collected data only. It holds no analysis, rankings or conclusions. Columns marked "derived" are
 deterministic, lossless decodings of the raw values.
@@ -26,7 +27,7 @@ The question lines are quoted from the user's text. The short keys are used in t
 | `v4-swap-part-NNNN.csv.gz`, `v4-modify-liquidity-part-NNNN.csv.gz`, `v4-donate-part-NNNN.csv.gz` + `recent-parts.json` (24 h of activity) | x | x | x | x |
 | `v4-initialize-7d-part-NNNN.csv.gz` (Initialize events of the last 7 days, same schema as the full set) | x | | x | x |
 | `state-snapshot.csv.gz`, `pool-keys-snapshot.csv.gz`, `token-metadata.csv.gz`, `state-index.json` | x | x | x | x |
-| `hooks.csv`, `hook-labels-long.csv`, `hook-docs/*` (hook and launchpad identification) | x | x | x | x |
+| `hooks.csv`, `hook-labels-long.csv`, `hook-pool-counts-all.csv.gz`, `hook-docs/*` (hook and launchpad identification) | x | x | x | x |
 | `timestamps-check.csv` (block to time formula check) | x | | x | x |
 
 Nothing here covers the other question lines (older V2 pairs, other chains, BSC ordering, chain-wide studies, the RSR trade).
@@ -35,7 +36,7 @@ Nothing here covers the other question lines (older V2 pairs, other chains, BSC 
 
 - Base block timestamp: `timestamp = 1686789347 + 2 * block_number` (UTC seconds). The genesis timestamp 1686789347 was read
   from block 0 (hash `0xf712aa9241cc24369b143cf6dce85f0902a9731e70d66818a3a5845b296c73dd`). The formula was checked against
-  `eth_getBlockByNumber` on 15 blocks from 0 to 52006302 (`timestamps-check.csv`, all `equal=1`). No per-row timestamps are stored.
+  `eth_getBlockByNumber` on 14 blocks from 0 to 52006302 (`timestamps-check.csv`, all `equal=1`). No per-row timestamps are stored.
 - PoolManager deployment block: 25,350,988 (2025-01-21T20:28:43Z). Method: binary search of `eth_getCode(PoolManager, block)` on
   base.drpc.org, cross-checked on base-mainnet.public.blastapi.io. There is no code at 25,350,987 and code at 25,350,988 on both endpoints.
   The deployment tx is `0x25f482fbd94cdea11b018732e455b8e9a940b933cabde3c0c5dd63ea65e85349`, sent from `0x2179a60856e37dfeaaca0ab043b931fe224b27b6`
@@ -90,8 +91,10 @@ a contiguous block range, listed in its index JSON together with its row count a
 ### `v4-swap-part-NNNN.csv.gz`
 block_number, tx_hash, tx_index, log_index, pool_id (topic1), sender (topic2), amount0 (int128), amount1 (int128), sqrt_price_x96 (uint160, after the swap),
 liquidity (uint128, in range after the swap), tick (int24, after the swap), fee (uint24, the LP fee applied, in 1e-6 units). All raw.
-v4-core IPoolManager sign convention: amounts are from the swapper's side, negative = paid in by the swapper, positive = received
-(the interface file is saved verbatim in hook-docs/raw/).
+Source references for sign semantics (not re-derived here): the IPoolManager natspec says "amount0 The delta of the currency0
+balance of the pool". PoolManager.sol emits `Swap(id, msg.sender, delta.amount0(), delta.amount1(), ...)`, where `delta` is the
+BalanceDelta returned to the caller. Both files are saved verbatim in `hook-docs/raw/` and `hook-docs/text/`
+(`..._v4-core_main_src_interfaces_IPoolManager.sol`, `..._v4-core_main_src_PoolManager.sol`).
 
 ### `v4-modify-liquidity-part-NNNN.csv.gz`
 block_number, tx_hash, tx_index, log_index, pool_id, sender, tick_lower (int24), tick_upper (int24), liquidity_delta (int256), salt (bytes32 hex). All raw.
@@ -111,7 +114,7 @@ Initialize in the 7-day window.
 | initialized_7d | 1 if the pool's Initialize is in the 7-day window |
 | snapshot_block | 52006432 |
 | slot0_ok | 1 if `StateView.getSlot0(poolId)` returned 4 words |
-| sqrt_price_x96, tick, protocol_fee, lp_fee | derived: decoded return of getSlot0 at snapshot_block (lossless). protocol_fee is the raw uint24 (two 12-bit values packed as in v4-core: lower 12 bits zeroForOne, upper 12 bits oneForZero). lp_fee is in 1e-6 units |
+| sqrt_price_x96, tick, protocol_fee, lp_fee | derived: decoded return of getSlot0 at snapshot_block (lossless). protocol_fee is the raw uint24. v4-core ProtocolFeeLibrary (saved in hook-docs/raw/) defines `getZeroForOneFee = self & 0xfff` and `getOneForZeroFee = self >> 12`. lp_fee is in 1e-6 units |
 | liquidity_ok, liquidity | derived: `StateView.getLiquidity(poolId)` at snapshot_block (uint128, in-range liquidity) |
 Method: Multicall3.aggregate3 (allowFailure=true), 250 pools (500 calls) per eth_call, `blockTag = 52006432`. Endpoints tried in
 random order: base-mainnet.public.blastapi.io, developer-access-mainnet.base.org, base.drpc.org, gateway.tenderly.co/public/base,
@@ -175,13 +178,38 @@ hook_address, source_kind (`document` / `zora_onchain_registry` / `uniswap_hookl
 | `launch-tx-samples-logs.csv.gz` | every log emitted by those sample txs: hook, sample_pool_id, block_number, tx_hash, log_index, log_address (emitter), topic0, n_topics, topics (`;`-joined), data, event_resolved_derived (`ContractName:EventSig` if topic0 equals keccak256 of an event in the emitter's, or its proxy implementation's, Blockscout-verified ABI; empty otherwise). This records which factory or deployer contract is called per launch and which events and topics it emits |
 
 Documents fetched (URL list in `collect/fetch_docs.py`, fetch results in `hook-docs/fetch-log.jsonl`): Uniswap v4-core `Hooks.sol`,
-`PoolId.sol`, `LPFeeLibrary.sol`, `IPoolManager.sol`; the Uniswap docs v4 deployments page (the docs.uniswap.org HTML returned
+`PoolId.sol`, `LPFeeLibrary.sol`, `IPoolManager.sol`, `PoolManager.sol`, `ProtocolFeeLibrary.sol`, and v4-periphery `StateView.sol`; the Uniswap docs v4 deployments page (the docs.uniswap.org HTML returned
 HTTP 429, so the GitHub source `Uniswap/docs content/protocols/v4/deployments.mdx` was fetched instead); the Uniswap routing-api
 hooks allowlist and the Uniswap hooklist README; Zora docs (llms.txt, hook-registry, hook, factory, architecture,
 liquidity-migration, creating-a-coin, coins changelog) and zora-protocol source files; Clanker docs (deployed-contracts,
 core-contracts, token-deployments) plus clanker-devco DOCS, v4-contracts README and clanker-sdk `clankers.ts`; Flaunch (flaunch-gitbook
 for-aggregators.md, flaunchgg-contracts README, flaunch-sdk `addresses.ts` at a pinned commit); Doppler docs (contract-addresses,
 doppler-hooks); Bunni v2 README; KyberSwap dex-lib Flaunch and Clanker hook constants.
+
+## Row counts and parts
+
+| file | rows | block range | notes |
+|---|---|---|---|
+| `initialize-part-0001..0022.csv.gz` | 15,333,247 total (per-part rows, block ranges, bytes and sha256 in `initialize-parts.json`) | 25,350,988-52,006,302 | 13,328 chunks of 2,000 blocks, 0 missing. The 22 parts cover contiguous block ranges. Largest part: 85.5 MB |
+| `v4-swap-part-0001.csv.gz` | 597,414 | 51,963,233-52,006,432 | 51.6 MB |
+| `v4-modify-liquidity-part-0001.csv.gz` | 157,066 | 51,963,233-52,006,432 | |
+| `v4-donate-part-0001.csv.gz` | 190 | 51,963,233-52,006,432 | |
+| `v4-initialize-7d-part-0001.csv.gz` | 29,900 | 51,704,033-52,006,432 | |
+| `state-snapshot.csv.gz` | 36,103 pools | block 52,006,432 | 12,117 rows with active_24h=1 and 29,900 with initialized_7d=1 (a pool can have both). slot0_ok=1 and liquidity_ok=1 on all rows |
+| `pool-keys-snapshot.csv.gz` | 36,103 | | key_source: 29,900 initialize_log_7d, 6,203 initialize_log_v4init, 0 unresolved |
+| `token-metadata.csv.gz` | 27,317 (27,316 ERC-20 addresses + 1 native row) | block 52,006,432 | all 4 calls returned success via the first multicall for all 27,316 addresses |
+| `timestamps-check.csv` | 14 | 0-52,006,302 | |
+| `hooks.csv` | 1,198 at 21:5xZ (rebuilt by the HOOKLABELS pipeline) | counts over 25,350,988-52,006,302 (count_source=v4init_final) and 7d window | |
+| `hook-labels-long.csv` | 1,320 at 21:5xZ (rebuilt by HOOKLABELS) | | |
+| `hook-pool-counts-all.csv.gz` | 74,887 | 25,350,988-52,006,302 | derived count of Initialize rows per hook address in the final V4INIT parts (sum = 15,333,247); columns hook_address, pool_count, first_init_block, last_init_block, count_block_range. Made by `collect/write_hook_pool_counts.py` after V4INIT.DONE |
+| `hook-docs/doc-address-excerpts.csv.gz` | 1,766 | | from 37 fetched documents (36 HTTP 200, 1 HTTP 429) |
+| `hook-docs/uniswap-hooklist-base.jsonl.gz` | 1,134 | | |
+| `hook-docs/zora-hook-registry-events.csv` | 16 (21 raw logs) | | |
+| `hook-docs/blockscout/index.jsonl.gz` | 79 addresses at 21:5xZ; HOOKLABELS adds 134 (hooks with >= 20 pools in the final data not yet queried) | | |
+
+Consistency check: blocks 51,704,033-52,006,302 are fetched independently by V4INIT (mainnet.base.org / Tenderly / developer-access,
+2,000-block chunks) and by V4RECENT (publicnode / developer-access / Tenderly, 2,000-block chunks aligned differently). Both give
+29,893 Initialize rows, and the two row sets are identical.
 
 ## Reproduce
 
@@ -194,13 +222,13 @@ setsid nohup python3 -u v4init_collector.py > v4init.log 2>&1 < /dev/null &     
 python3 verify_timestamps.py                 # needs state/v4init-pin.json
 python3 v4recent_collector.py --smoke        # optional
 setsid nohup python3 -u v4recent_collector.py > v4recent.log 2>&1 < /dev/null &  # V4RECENT + V4STATE (resumable)
-python3 hook_counts.py > /tmp/hc.json        # per-hook counts in the Initialize data available now
+python3 hook_counts.py > /tmp/hc.json        # per-hook counts in the Initialize data available now (JSON to stdout)
+python3 write_hook_pool_counts.py           # -> ../hook-pool-counts-all.csv.gz (after V4INIT.DONE)
 python3 hook_blockscout.py <addresses_file>  # Blockscout metadata for hook addresses (one per line)
 python3 fetch_docs.py                        # launchpad / Uniswap docs + address excerpts
 python3 uniswap_hooklist.py <scratch_clone_dir>
 python3 zora_hook_registry.py
-python3 launch_tx_samples.py state/hooks-candidates-1.txt
-python3 build_hooks_csv.py
+./hooks_pipeline.sh                          # hook_blockscout (candidates-2) + launch_tx_samples (candidates-all) + build_hooks_csv
 ```
 To re-pin to a new head, delete `collect/state/*-pin.json` and `collect/work/` (the old pins are kept in this manifest).
 Resumability: V4INIT and V4RECENT write one checkpoint file per completed chunk (`collect/work/v4init/c_<from>_<to>.csv.gz`, and
@@ -244,8 +272,16 @@ Endpoints used:
 - **Token metadata** covers only currencies of the snapshot pools, not every currency in the full Initialize set. Transfer
   restrictions or taxes of tokens were not probed.
 - **Hook labels.**
-  - Blockscout metadata was fetched only for the candidate list in `collect/state/hooks-candidates-*.txt` (hooks with at least 10
-    pools in the partial V4INIT data at about 21:05Z, plus hooks with at least 5 pools in the 7-day window). Some hooks are unverified or have no creator recorded on Blockscout.
+  - Blockscout metadata was fetched only for the candidate lists in `collect/state/`:
+    - `hooks-candidates-1.txt` (79): hooks with at least 10 pools in the partial V4INIT data at about 21:05Z (blocks
+      25,350,988-34,044,987), plus hooks with at least 5 pools in the 7-day window.
+    - `hooks-candidates-2.txt` (134): hooks with at least 20 pools in the final V4INIT data that were not in list 1.
+    - `hooks-candidates-all.txt` (213) is the union used for launch-tx samples.
+    Hooks with fewer pools are in hooks.csv only if another label source names them. Some hooks are unverified or have no
+    creator recorded on Blockscout. Per-hook counts for every hook address in the complete V4INIT data are in `hook-pool-counts-all.csv.gz`
+    (74,887 rows including address(0)).
+  - Launch-tx samples are at most 3 txs per hook (earliest, middle, latest Initialize). They record which contract each sampled
+    launch tx called and which events it emitted. They are not a full census of factory events.
   - The Uniswap hooklist is a third-party-maintained registry (entries by hook teams / Uniswap); it is recorded as is.
   - Doc excerpts are raw lines. An address on a docs page may refer to another chain (context lines kept).
   - Labels in `hooks.csv` follow the fixed precedence above. No manual reclassification was done.
@@ -253,4 +289,18 @@ Endpoints used:
 - **flaunch-sdk** `main/src/addresses.ts` returned 404. The file at commit `bef27f90b946a63fe3c215a409b487ad38b1c685` was saved instead.
 
 ## Collector status
-(filled in below)
+
+| name | sentinel | log | status at 2026-09-30 ~21:56Z |
+|---|---|---|---|
+| V4INIT | `/home/user/dapparb/research-material/.sentinels/V4INIT.DONE` | `collect/v4init.log` (and `collect/v4init.run1.log`) | DONE 21:44:30Z, 15,333,247 rows, 22 parts |
+| V4RECENT | `.sentinels/V4RECENT.DONE` | `collect/v4recent.log` (and `collect/v4recent.run1.log`) | DONE 21:12:21Z |
+| V4STATE | `.sentinels/V4STATE.DONE` | `collect/v4recent.log` | DONE 21:46:25Z |
+| HOOKLABELS (item 4 refresh) | `.sentinels/HOOKLABELS.DONE` / `.FAILED` | `collect/hooks_pipeline.log`, `collect/hook_blockscout.log`, `collect/launch_tx_samples.log`, `collect/build_hooks_csv.log` | RUNNING (detached `collect/hooks_pipeline.sh`). When it finishes, `hooks.csv`, `hook-labels-long.csv`, `hook-docs/blockscout/*` and `hook-docs/launch-tx-samples-*.csv.gz` are final; the counts in the table above for those files are then outdated. The next agent re-counts them. |
+
+Files in this directory NOT produced by the collectors described here: `initialize-compact/` (with its own `compact-index.json`),
+`collect/compact_initialize.py`, `collect/compact_initialize.log`, `collect/expand_initialize.py`. They appeared at about 21:46-21:57Z,
+written by another agent (a compact re-encoding of `initialize-part-*`; according to its log, the pool_id of every row was
+recomputed with 0 mismatches). They are not described or maintained by this manifest.
+
+Stable file layout for downstream readers: `initialize-parts.json` lists the V4INIT parts (`initialize-part-NNNN.csv.gz`, NNNN = 0001..0022).
+`recent-parts.json` lists the V4RECENT parts, and `state-index.json` lists the V4STATE files.

@@ -1,0 +1,255 @@
+{
+ "arxiv-2606.00720-wu-oz-to-wait-or-to-probe": {
+  "url": "https://arxiv.org/abs/2606.00720v2",
+  "title": "To Wait or To Probe: Arbitrage Competition on High-Throughput Blockchains",
+  "authors": "Wu, Fei; \u00d6z, Burak",
+  "date": "v1 2026/05/30; latest v2; history: Submission history From: Fei Wu [ view email ] [v1] Sat, 30 May 2026 13:07:24 UTC (1,302 KB) [v2] Tue, 4 Aug 2026 13:29:31 UTC (1,303 KB)",
+  "raw_files": [
+   "raw/arxiv-2606.00720-wu-oz-to-wait-or-to-probe.abs.html.gz",
+   "raw/arxiv-2606.00720-wu-oz-to-wait-or-to-probe.html-v2.html.gz",
+   "raw/arxiv-2606.00720-wu-oz-to-wait-or-to-probe.pdf-v2.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2606.00720-wu-oz-to-wait-or-to-probe.txt.gz",
+   "texts/arxiv-2606.00720-wu-oz-to-wait-or-to-probe.pdf.txt.gz"
+  ],
+  "access_notes": "html v2 ok; pdf v2 39 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T21:55:12Z"
+ },
+ "arxiv-2509.22143-messias-torres-timeboost": {
+  "url": "https://arxiv.org/abs/2509.22143v2",
+  "title": "The Express Lane to Spam and Centralization: An Empirical Analysis of Arbitrum's Timeboost",
+  "authors": "Messias, Johnnatan; Torres, Christof Ferreira",
+  "date": "v1 2025/09/26; latest v2; history: Submission history From: Johnnatan Messias [ view email ] [v1] Fri, 26 Sep 2025 10:02:15 UTC (1,332 KB) [v2] Tue, 21 Jul 2026 09:37:26 UTC (2,784 KB)",
+  "raw_files": [
+   "raw/arxiv-2509.22143-messias-torres-timeboost.abs.html.gz",
+   "raw/arxiv-2509.22143-messias-torres-timeboost.html-v2.html.gz",
+   "raw/arxiv-2509.22143-messias-torres-timeboost.pdf-v2.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2509.22143-messias-torres-timeboost.txt.gz",
+   "texts/arxiv-2509.22143-messias-torres-timeboost.pdf.txt.gz"
+  ],
+  "access_notes": "html v2 ok; pdf v2 23 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T21:55:23Z"
+ },
+ "arxiv-2607.24172-pahari-messias-torres-there-will-be-spam": {
+  "url": "https://arxiv.org/abs/2607.24172v1",
+  "title": "There Will Be Spam: Characterizing State-Invariant Transactions and Speculative MEV",
+  "authors": "Pahari, Vabuk; Messias, Johnnatan; Torres, Christof Ferreira",
+  "date": "v1 2026/07/27; latest v1; history: Submission history From: Johnnatan Messias [ view email ] [v1] Mon, 27 Jul 2026 08:54:55 UTC (656 KB)",
+  "raw_files": [
+   "raw/arxiv-2607.24172-pahari-messias-torres-there-will-be-spam.abs.html.gz",
+   "raw/arxiv-2607.24172-pahari-messias-torres-there-will-be-spam.html-v1.html.gz",
+   "raw/arxiv-2607.24172-pahari-messias-torres-there-will-be-spam.pdf-v1.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2607.24172-pahari-messias-torres-there-will-be-spam.txt.gz",
+   "texts/arxiv-2607.24172-pahari-messias-torres-there-will-be-spam.pdf.txt.gz"
+  ],
+  "access_notes": "html v1 ok; pdf v1 22 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T21:55:32Z"
+ },
+ "arxiv-2504.13398-yang-qin-yaish-zhang-insecurity-through-obscurity": {
+  "url": "https://arxiv.org/abs/2504.13398v6",
+  "title": "Insecurity Through Obscurity: Veiled Vulnerabilities in Closed-Source Contracts",
+  "authors": "Yang, Sen; Qin, Kaihua; Yaish, Aviv; Zhang, Fan",
+  "date": "v1 2025/04/18; latest v6; history: Submission history From: Sen Yang [ view email ] [v1] Fri, 18 Apr 2025 01:22:58 UTC (708 KB) [v2] Sun, 8 Jun 2025 23:23:25 UTC (522 KB) [v3] Sun, 7 Sep 2025 14:57:02 UTC (516 KB) [v4] Wed, 10 Jun 2026 17:59:28 UTC (727 KB) [v5] Tue, 4 Aug 2026 00:43:56 UTC (726 KB) [v6] Mon, 10 Aug 2026 00:49:13 UTC (726 KB)",
+  "raw_files": [
+   "raw/arxiv-2504.13398-yang-qin-yaish-zhang-insecurity-through-obscurity.abs.html.gz",
+   "raw/arxiv-2504.13398-yang-qin-yaish-zhang-insecurity-through-obscurity.html-v6.html.gz",
+   "raw/arxiv-2504.13398-yang-qin-yaish-zhang-insecurity-through-obscurity.pdf-v6.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2504.13398-yang-qin-yaish-zhang-insecurity-through-obscurity.txt.gz",
+   "texts/arxiv-2504.13398-yang-qin-yaish-zhang-insecurity-through-obscurity.pdf.txt.gz"
+  ],
+  "access_notes": "html v6 ok; pdf v6 20 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T21:55:42Z"
+ },
+ "arbitrum-forum-aip-pga-transition-incl-entropy-advisors-post7": {
+  "url": "https://forum.arbitrum.foundation/t/constitutional-aip-transition-arbitrum-one-ordering-policy-to-priority-gas-auctions-pga/30942",
+  "title": "[Constitutional] AIP: Transition Arbitrum One ordering policy to Priority Gas Auctions (PGA)",
+  "authors": "Offchain Labs (opening post); Entropy Advisors (post #7, 2026-06-16T19:47:18Z) and other forum participants",
+  "date": "topic created 2026-06-03T16:58:02.829Z",
+  "raw_files": [
+   "raw/arbitrum-forum-aip-pga-transition-incl-entropy-advisors-post7.topic.json.gz",
+   "raw/arbitrum-forum-aip-pga-transition-incl-entropy-advisors-post7.raw.md.gz"
+  ],
+  "text_files": [
+   "texts/arbitrum-forum-aip-pga-transition-incl-entropy-advisors-post7.txt.gz"
+  ],
+  "access_notes": "30 posts; stream ids 30",
+  "status": "ok",
+  "fetched_at": "2026-09-30T21:55:45Z"
+ },
+ "docs-base-llms-index": {
+  "url": "https://docs.base.org/llms.txt",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-base-llms-index.body.txt.gz"
+  ],
+  "text_files": [
+   "texts/docs-base-llms-index.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 46605 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T21:55:46Z"
+ },
+ "docs-base-transaction-ordering": {
+  "url": "https://docs.base.org/specifications/transactions/transaction-ordering",
+  "title": "Transaction Ordering - Base Documentation",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-base-transaction-ordering.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-base-transaction-ordering.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 330295 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T21:55:47Z"
+ },
+ "docs-base-flashblocks": {
+  "url": "https://docs.base.org/specifications/flashblocks",
+  "title": "Flashblocks - Base Documentation",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-base-flashblocks.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-base-flashblocks.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 408825 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T21:55:52Z"
+ },
+ "docs-base-network-fees": {
+  "url": "https://docs.base.org/specifications/transactions/network-fees",
+  "title": "Network Fees - Base Documentation",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-base-network-fees.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-base-network-fees.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 350128 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T21:55:56Z"
+ },
+ "docs-base-fees-ordering-lifecycle": {
+  "url": "https://docs.base.org/specifications/build-transaction/fees-ordering-and-lifecycle",
+  "title": "Fees, Ordering, and Lifecycle - Base Documentation",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-base-fees-ordering-lifecycle.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-base-fees-ordering-lifecycle.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 318613 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T21:55:58Z"
+ },
+ "docs-base-eth-maxpriorityfeepergas": {
+  "url": "https://docs.base.org/base-chain/api-reference/ethereum-json-rpc-api/eth_maxPriorityFeePerGas",
+  "title": "eth_maxPriorityFeePerGas - Base Documentation",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-base-eth-maxpriorityfeepergas.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-base-eth-maxpriorityfeepergas.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 347753 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T21:55:59Z"
+ },
+ "docs-base-denim-overview": {
+  "url": "https://docs.base.org/upgrades/denim/overview",
+  "title": "Overview - Base Documentation",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-base-denim-overview.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-base-denim-overview.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 325474 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T21:56:01Z"
+ },
+ "docs-base-denim-200ms-blocks": {
+  "url": "https://docs.base.org/upgrades/denim/200ms-blocks",
+  "title": "200ms Native Blocks - Base Documentation",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-base-denim-200ms-blocks.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-base-denim-200ms-blocks.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 422308 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T21:56:03Z"
+ },
+ "docs-base-denim-migrate-from-flashblocks": {
+  "url": "https://docs.base.org/upgrades/denim/migrate-from-flashblocks",
+  "title": "Migrate From Flashblocks - Base Documentation",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-base-denim-migrate-from-flashblocks.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-base-denim-migrate-from-flashblocks.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 329471 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T21:56:04Z"
+ },
+ "docs-base-jovian-exec-engine": {
+  "url": "https://docs.base.org/upgrades/jovian/exec-engine",
+  "title": "Jovian: Execution Engine - Base Documentation",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-base-jovian-exec-engine.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-base-jovian-exec-engine.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 416628 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T21:56:06Z"
+ },
+ "blog-base-accelerating-base-with-flashblocks": {
+  "url": "https://blog.base.dev/accelerating-base-with-flashblocks",
+  "title": "We\u2019re making Base 10x faster with Flashblocks",
+  "authors": "Base Engineering Team",
+  "date": "2025-05-15T16:49:07.978Z",
+  "raw_files": [
+   "raw/blog-base-accelerating-base-with-flashblocks.page.html.gz"
+  ],
+  "text_files": [
+   "texts/blog-base-accelerating-base-with-flashblocks.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 240609 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T21:56:09Z"
+ }
+}

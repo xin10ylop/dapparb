@@ -1,0 +1,3 @@
+2026-09-30T21:13:05Z tokens 215
+2026-09-30T21:13:11Z onchain meta written
+2026-09-30T21:13:30Z done {"chain": "optimism", "started_at_utc": "2026-09-30T21:13:03Z", "rpc": ["https://optimism-rpc.publicnode.com", "https://optimism.drpc.org"], "n_tokens": 215, "eth_call_block": "latest", "eth_call_time_utc": "2026-09-30T21:13:11Z", "defillama_requests": 18, "price_timestamps_requested": [1790798843, 1790800642, 1790802441], "native_chart_url": "https://coins.llama.fi/chart/coingecko:ethereum?start=1790798843&span=13&period=5m", "native_chart_http_status": 200, "finished_at_utc": "2026-09-30T21:13:30Z"}

@@ -1,0 +1,14 @@
+2026-09-30T21:11:55Z pin {"pinned_block": 52006432, "pinned_block_source": "eth_blockNumber(https://developer-access-mainnet.base.org) - 10 at launch; head was 52006442", "pinned_at_utc": "2026-09-30T21:03:52Z", "activity_window": [51963233, 52006432], "initialize_window": [51704033, 52006432], "snapshot_block": 52006432}
+2026-09-30T21:11:55Z chunk fail publicnode ('act', 51996233, 51996482) fails 0 RpcError('HTTP 403 Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode ')
+2026-09-30T21:11:55Z publicnode reached archive depth limit at block 51996233 - worker stops
+2026-09-30T21:11:55Z chunk fail publicnode ('init', 51996033, 51998032) fails 0 RpcError('HTTP 403 Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode ')
+2026-09-30T21:11:55Z publicnode reached archive depth limit at block 51996033 - worker stops
+2026-09-30T21:12:00Z log stage round 1 missing 0
+2026-09-30T21:12:21Z V4RECENT done {'swap': 597414, 'modify_liquidity': 157066, 'donate': 190, 'initialize_7d': 29900}
+2026-09-30T21:12:25Z snapshot pools 36103 active 12117 init7d 29900
+2026-09-30T21:13:02Z slot0/liquidity rows 36103
+2026-09-30T21:14:00Z keys resolved 33748 of 36103
+2026-09-30T21:14:49Z token metadata rows 25326
+2026-09-30T21:44:49Z V4INIT status DONE ; looking up keys
+2026-09-30T21:46:24Z token metadata rows 27316
+2026-09-30T21:46:25Z V4STATE done

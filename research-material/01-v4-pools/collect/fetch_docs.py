@@ -173,6 +173,9 @@ def rebuild_excerpts():
 
 
 EXTRA_URLS = [
+    "https://raw.githubusercontent.com/Uniswap/v4-core/main/src/PoolManager.sol",
+    "https://raw.githubusercontent.com/Uniswap/v4-core/main/src/libraries/ProtocolFeeLibrary.sol",
+    "https://raw.githubusercontent.com/Uniswap/v4-periphery/main/src/lens/StateView.sol",
     "https://raw.githubusercontent.com/Uniswap/docs/main/content/protocols/v4/deployments.mdx",
     "https://raw.githubusercontent.com/flayerlabs/flaunch-sdk/bef27f90b946a63fe3c215a409b487ad38b1c685/src/addresses.ts",
     "https://raw.githubusercontent.com/KyberNetwork/kyberswap-dex-lib/0867b088e490608f731e4e37eaf49ea72e7846b3/pkg/liquidity-source/uniswap/v4/hooks/flaunch/constant.go",
