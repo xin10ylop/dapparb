@@ -49,10 +49,15 @@ async function fetchTopPoolsUncached(cfg: ChainConfig, pages: number): Promise<G
   const perDexPages = Math.max(1, Math.ceil(pages / 2));
   for (const dex of GT_DEXES[cfg.id] ?? []) for (let page = 1; page <= perDexPages; page++) urls.push(`https://api.geckoterminal.com/api/v2/networks/${net}/dexes/${dex}/pools?page=${page}&sort=h24_volume_usd_desc`);
   for (const url of urls) {
-    let res = await fetch(url, { headers: { accept: "application/json" } });
-    if (res.status === 429) {
+    const fetchGt = () => fetch(url, { headers: { accept: "application/json" }, signal: AbortSignal.timeout(10_000) });
+    let res = await fetchGt().catch(() => null);
+    if (!res || res.status === 429) {
       await new Promise((r) => setTimeout(r, 15_000));
-      res = await fetch(url, { headers: { accept: "application/json" } });
+      res = await fetchGt().catch(() => null);
+    }
+    if (!res) {
+      log.warn({ url }, "geckoterminal request timed out twice");
+      continue;
     }
     if (!res.ok) {
       log.warn({ status: res.status, url }, "geckoterminal request failed");

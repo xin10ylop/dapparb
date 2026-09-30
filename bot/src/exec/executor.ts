@@ -8,6 +8,7 @@ import {
   http,
   encodeFunctionData,
   decodeErrorResult,
+  decodeAbiParameters,
   BaseError,
   ContractFunctionRevertedError,
   formatEther,
@@ -153,7 +154,8 @@ export class Executor {
   async selfCheck(sample: Opportunity): Promise<void> {
     const from = await this.fromAddress();
     const stateOverride = this.opts.codeOverride ? [{ address: this.opts.contract, code: this.opts.codeOverride }] : undefined;
-    const bad = { ...sample, hops: [sample.hops[0]!, { ...sample.hops[0]!, tokenOut: sample.hops[0]!.tokenIn }] } as Opportunity; // ends in the wrong token
+    // two copies of hop 0: the route ends in hop 0's output token, not its input token → must fail the route check
+    const bad = { ...sample, hops: [sample.hops[0]!, { ...sample.hops[0]! }] } as Opportunity;
     try {
       await this.opts.client.call({ account: from, to: this.opts.contract, data: this.calldata(bad, 1n, 0n), blockTag: "latest", stateOverride });
       throw new Error("self-check: invalid route did not revert");
@@ -266,19 +268,34 @@ async function rawSend(url: string, signed: Hex): Promise<Hex> {
 }
 
 export function decodeRevert(e: unknown): string {
+  // Walk the whole error chain for revert data; viem attaches it at different depths for call(), estimateGas()
+  // and simulateContract(), and plain call() never produces a ContractFunctionRevertedError.
+  let data: string | undefined;
   if (e instanceof BaseError) {
-    const revert = e.walk((err) => err instanceof ContractFunctionRevertedError) as ContractFunctionRevertedError | null;
-    if (revert?.data) return `${revert.data.errorName}(${(revert.data.args ?? []).map(String).join(",")})`;
-    const raw = (e as any).cause?.data ?? (e as any).data;
-    if (typeof raw === "string" && raw.startsWith("0x") && raw.length >= 10) {
+    const holder = e.walk((err: any) => typeof err?.data === "string" && /^0x[0-9a-fA-F]*$/.test(err.data) && err.data.length >= 10) as any;
+    data = holder?.data;
+    if (!data) {
+      const revert = e.walk((err) => err instanceof ContractFunctionRevertedError) as ContractFunctionRevertedError | null;
+      if (revert?.data) return `${revert.data.errorName}(${(revert.data.args ?? []).map(String).join(",")})`;
+    }
+  } else if (typeof (e as any)?.data === "string") data = (e as any).data;
+  if (data) {
+    const sel = data.slice(0, 10).toLowerCase();
+    if (sel === "0x08c379a0") {
       try {
-        const d = decodeErrorResult({ abi: ARB_EXECUTOR_ABI, data: raw as Hex });
-        return `${d.errorName}(${(d.args ?? []).map(String).join(",")})`;
+        return `Error(${decodeAbiParameters([{ type: "string" }], ("0x" + data.slice(10)) as Hex)[0]})`;
       } catch {
         /* fallthrough */
       }
     }
-    return e.shortMessage.slice(0, 200);
+    if (sel === "0x4e487b71") return `Panic(${BigInt("0x" + data.slice(10))})`;
+    try {
+      const d = decodeErrorResult({ abi: ARB_EXECUTOR_ABI, data: data as Hex });
+      return `${d.errorName}(${(d.args ?? []).map(String).join(",")})`;
+    } catch {
+      return `revert ${sel}`;
+    }
   }
+  if (e instanceof BaseError) return e.shortMessage.slice(0, 200);
   return String(e).slice(0, 200);
 }
