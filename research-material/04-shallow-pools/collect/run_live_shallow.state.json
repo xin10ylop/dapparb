@@ -1,0 +1,24 @@
+{
+ "name": "SHALLOW_LIVE",
+ "status": "RUNNING",
+ "run_seconds_after_ready": 1200,
+ "attempts": [
+  {
+   "attempt": 1,
+   "min_depth_eth": 0.001,
+   "launch_utc": "2026-09-30T21:53:54.620Z",
+   "head_at_launch": {
+    "block": 52007943,
+    "endpoint": "https://base-rpc.publicnode.com",
+    "at_utc": "2026-09-30T21:53:55.033Z"
+   },
+   "cmd": "cd /home/user/dapparb/bot && LOG_JSON=1 npx tsx src/main.ts --chain base --mode dry --source logs --universe all --max-per-factory 6000 --min-depth-eth 0.001 --min-profit-usd 0.01 --top 6 --out /home/user/dapparb/research-material/04-shallow-pools/live-shallow.jsonl",
+   "engine_pid": 4723
+  }
+ ],
+ "log_format": "LOG_JSON=1 (pino JSON lines, time = epoch ms)",
+ "cwd": "/home/user/dapparb/bot",
+ "out_jsonl": "/home/user/dapparb/research-material/04-shallow-pools/live-shallow.jsonl",
+ "log": "/home/user/dapparb/research-material/04-shallow-pools/live-shallow.log",
+ "launcher_pid": 4722
+}

@@ -9,10 +9,11 @@ This file only maps the data. It contains no findings, rankings or conclusions.
 
 <!-- AUTO-STATUS-BEGIN -->
 
-**Status: IN PROGRESS.** Collectors were still running when this manifest was written (2026-09-30 ~21:20Z).
+**Status: IN PROGRESS.** When this manifest was written (2026-09-30 ~21:55Z), the backfill (51995609-52006399) was complete and
+the forward stream `fw` and `verify_topics.py` were still running.
 When the census finishes, `collect/finalize.py` replaces this block with the final block range, per-file row counts and
 integrity counts. It also writes `/home/user/dapparb/research-material/.sentinels/BASE_CENSUS.DONE` (or `.FAILED`).
-Until then, live progress is in `collect/state/{bf,bf2,fw}.ckpt.json` (`next` = next block to write) and in `collect/census_*.log`.
+Until then, live progress is in `collect/state/fw.ckpt.json` (`next` = next block to write) and in `collect/census_fw.log`.
 
 <!-- AUTO-STATUS-END -->
 
@@ -51,14 +52,15 @@ The forward part of the census (`*-fw-*`) is timed to overlap the engine runs wh
 | use | endpoint | method(s) |
 |---|---|---|
 | backfill, lower part (`bf`) | https://base.drpc.org (public, free plan) | `eth_getBlockReceipts(n)`, `eth_getBlockByNumber(n,false)`; `eth_getTransactionReceipt` per tx only as fallback |
-| backfill, upper parts (`bf2`, `bf3`) | https://gateway.tenderly.co/public/base (<= 3 in-flight), fallback https://base-rpc.publicnode.com (1 in-flight, 1 req/s) | same |
+| backfill, upper parts (`bf2`, `bf3`, `bf4`) | https://gateway.tenderly.co/public/base (<= 3 in-flight), fallback https://base-rpc.publicnode.com (1 in-flight, 1 req/s) | same |
 | forward / head-following (`fw`) | https://base-rpc.publicnode.com (<= 2 req/s), fallback https://base.drpc.org (1 in-flight) | same, plus `eth_blockNumber` |
-| gap fill (`gf`, only if needed) | base.drpc.org, fallback base-rpc.publicnode.com | same |
+| gap fill (`gf1` at 21:49Z; final `gf` after fw ends, only for blocks still missing) | gateway.tenderly.co/public/base, then base.drpc.org (1 in-flight), then base-rpc.publicnode.com | same |
 | topic keccak | `cast keccak` (foundry) | |
 | topic verification | https://base.blockscout.com/api (module=logs, action=getLogs, topic0 filter); re-check via `eth_getTransactionReceipt` on gateway.tenderly.co / publicnode / drpc | |
 | RSR episode | https://base-mainnet.public.blastapi.io (blocks, txs, eth_call), https://base.drpc.org (receipts, debug traces) | see section 6 |
 
-Every endpoint was limited to <= 4 in-flight requests by this collector (drpc: bf 3 + fw fallback 1).
+This collector kept each endpoint at <= 4 in-flight requests (drpc: bf 3, plus 1 for either the fw fallback or the sequential RSR scripts).
+The one exception was a ~15 s finalize test at ~21:20Z, when drpc briefly had up to 5 in flight (bf 3 + test 2).
 
 Endpoint notes observed on 2026-09-30:
 - base.drpc.org returned HTTP 429 intermittently (bf ran at ~1-2.6 blocks/s). An address-less `eth_getLogs` over 100 blocks succeeded, but 500-, 1,000-,
@@ -72,13 +74,20 @@ Endpoint notes observed on 2026-09-30:
 - Launch (pinned in `collect/state/config.json`): 2026-09-30T21:02:45Z. Launch head `52006409` (from base-rpc.publicnode.com).
 - Backfill: `bf_start = 52006409 - 10800 = 51995609` (timestamp 1790780565 = 2026-09-30T15:02:45Z) through `bf_end = 52006399`.
   The backfill was **not** reduced: the full 6 hours (10,791 blocks) is collected.
-  - `bf` (drpc): 51995609-51998799. `bf3` (tenderly): 51998800-51999999. `bf2` (tenderly): 52000000-52006399.
+  - `bf` (drpc): 51995609-51998608, except block 51998605. `bf4` (tenderly): 51998609-51998799. `bf3` (tenderly): 51998800-51999999.
+    `bf2` (tenderly): 52000000-52006399. `gf1` (tenderly): block 51998605. After drpc returned HTTP 429 for 14 attempts, bf wrote
+    that block to `gaps.csv`; gf1 re-fetched it at 21:49Z.
+  - Stream block counts: bf 2,999 + bf2 6,400 + bf3 1,200 + bf4 191 + gf1 1 = 10,791.
+  - The backfill finished at 2026-09-30T21:49Z, 47 minutes after launch. A check at that time found 51995609-52006399 complete,
+    with no duplicate block rows and every `parent_hash` equal to the previous `block_hash`.
     - At 21:12Z the range was split into bf and bf2 (`bf_split_note` in config.json).
     - At 21:26Z bf was shortened again and bf3 was added (`bf3_split_note`).
-    - Both splits were made because base.drpc.org served only 0.3-2.6 blocks/s under HTTP 429.
-    - Each split was done by stopping only this collector's own processes. The checkpoint `end` was edited and `supervisor.py` restarted;
-      the streams resumed from their checkpoints (parts are truncated to the checkpointed size on restart, and no truncation was needed).
-    - The fw stream was paused for about 15 s at each restart; it resumes by block number, so no forward block was skipped.
+    - At 21:49Z bf was stopped at 51998608, and bf4 plus gap-fill gf1 were run as standalone processes (`bf4_split_note`).
+      bf4 is listed in `extra_streams`.
+    - All three changes were made because base.drpc.org served 0.07-2.6 blocks/s under HTTP 429.
+    - Each change was done by stopping only this collector's own processes and editing the checkpoint `end`. At 21:12Z and 21:26Z
+      `supervisor.py` was restarted; at 21:49Z only bf was stopped, and the supervisor restarted it. The streams resumed from their checkpoints (parts are truncated to the checkpointed size on restart, and no truncation was needed).
+    - The fw stream was paused for about 15 s at the 21:12Z and 21:26Z restarts; it resumes by block number, so no forward block was skipped.
 - Forward: `fw_start = 52006400` (timestamp 1790802147 = 2026-09-30T21:02:27Z) onward. The collector follows the head with a lag of
   10 blocks (20 s).
 - Forward stop rule: the stop is detected when (`V4LIVE.DONE` or `V4LIVE.FAILED`) AND (`SHALLOW_LIVE.DONE` or `SHALLOW_LIVE.FAILED`)
@@ -95,7 +104,10 @@ cd /home/user/dapparb/research-material/05-base-onchain/collect
 # swap topic list used by the census (static; regenerate topic0 with: cast keccak '<signature>')
 cat swap_topics_used.csv
 # main census: pins head, runs bf / bf2 / (extra bfN from config.json) / fw, gap fill, finalize, writes sentinel.
-# Resumable: re-run the same command. (This run: BF2_BLOCKS equivalent 6400, plus extra_streams bf3 added to config.json at 21:26Z.)
+# Resumable: re-run the same command. (This run: BF2_BLOCKS equivalent 6400, plus extra_streams bf3/bf4 added to config.json
+# at 21:26Z / 21:49Z; bf4 and gf1 were started by hand:)
+#   python3 -u census.py --stream bf4 --start 51998609 --end 51998799 --chunk 40 --workers 3
+#   echo 51998605 > state/gf1_blocks.txt; python3 -u census.py --stream gf1 --blocks-file state/gf1_blocks.txt --chunk 10 --workers 1
 BF2_BLOCKS=6400 setsid nohup python3 -u supervisor.py > supervisor.log 2>&1 < /dev/null &
 # topic verification (writes ../swap-topics.csv; finalize.py later adds census_first_seen_* columns)
 setsid nohup python3 -u verify_topics.py > verify_topics.log 2>&1 < /dev/null &
@@ -108,14 +120,15 @@ python3 finalize.py
 
 - A fresh run pins a new head, so it collects a different window. To re-collect **this** window, first write `state/config.json`
   with the values listed in section 3 (`launch_head` 52006409, `bf_start` 51995609, `bf_end` 52006399,
-  `bf2_start` 52000000, `bf2_end` 52006399, `bf_split_end` 51998799, `extra_streams` `[{"name":"bf3","start":51998800,"end":51999999}]`,
+  `bf2_start` 52000000, `bf2_end` 52006399, `bf_split_end` 51998608,
+  `extra_streams` `[{"name":"bf3","start":51998800,"end":51999999},{"name":"bf4","start":51998609,"end":51998799}]`,
   `fw_start` 52006400, plus the keys the supervisor writes). Then write `state/fw.ckpt.json` as
   `{"stream":"fw","start":52006400,"next":52006400,"stop_block":<final block>,"stop_reason":"reproduction"}`. Then start the supervisor.
 - Single streams can also be run by hand, e.g. `python3 census.py --stream bf --start A --end B --chunk 40 --workers 3`.
   The checkpoint goes to `state/bf.ckpt.json`.
 - Scripts: `census.py` (per-block fetch, validation, filtering, writing), `supervisor.py` (orchestration, restarts, sentinel),
   `finalize.py` (merge blocks, integrity lists, file index, manifest status), `verify_topics.py`, `rsr_episode.py`, `rsr_traces.py`.
-- Logs: `supervisor.log`, `census_{bf,bf2,fw,gf}.log`, `verify_topics.log`, `rsr_episode.log`, `rsr_traces.log`.
+- Logs: `supervisor.log`, `census_{bf,bf2,bf3,bf4,gf1,fw,gf}.log`, `verify_topics.log`, `rsr_episode.log`, `rsr_traces.log`.
 
 ### Fetch / validation / write rules (census.py)
 
@@ -125,10 +138,11 @@ python3 finalize.py
   Otherwise it retries.
 - Retries use exponential backoff (1 s up to 60 s, plus jitter) on HTTP 429/5xx, network errors, JSON-RPC errors and "not yet available".
   After a size error, or after 6 failed attempts, it switches to per-tx `eth_getTransactionReceipt`.
-  After 14 attempts (bf/bf2) or 16 attempts (fw), the block number is written to `gaps.csv` and the collector moves on.
-  The supervisor then re-fetches every block listed in `gaps.csv` in a gap-fill stream (`gf`, 20 attempts, both endpoints).
+  After 14 attempts (bf, bf2-bf4) or 16 attempts (fw), the block number is written to `gaps.csv` and the collector moves on.
+  The supervisor then re-fetches every block listed in `gaps.csv` in a gap-fill stream (`gf`, 20 attempts, three endpoints).
+  Blocks already present in some blocks part are skipped; they are listed in `state/gf.ckpt.json` under `skipped_already_present`.
   Blocks that still fail are listed as `unrecoverable` in `gaps-final.csv`.
-- Output is written per chunk (40 blocks for bf/bf2, up to 30 for fw), as one gzip member appended to the current part file.
+- Output is written per chunk (40 blocks for bf and bf2-bf4, up to 30 for fw, 10 for gap fill), as one gzip member appended to the current part file.
   Before a chunk is written, a part that is already >= 85 MiB is closed and the next part number is used.
   So every file stays well below 90 MB.
 - The checkpoint (`state/<stream>.ckpt.json`) stores the next block and the byte size of each open part. On restart, parts are
@@ -138,7 +152,7 @@ python3 finalize.py
 
 ## 5. Per-file schemas
 
-Stream tag in file names: `bf` = backfill via drpc, `bf2`/`bf3` = backfill via tenderly, `fw` = forward/head-following, `gf` = gap fill.
+Stream tag in file names: `bf` = backfill via drpc, `bf2`/`bf3`/`bf4` = backfill via tenderly, `gf1` = early gap fill of block 51998605, `fw` = forward/head-following, `gf` = gap fill.
 Part numbers `NNNN` start at 0001. Every CSV part starts with its own header row. Each gz file may contain several concatenated
 gzip members. `zcat`, Python `gzip`, and pandas `read_csv(compression='gzip')` all read the whole file.
 
@@ -230,7 +244,8 @@ The list was fixed before launch and was not changed during the run.
 `collect/verify_topics.py` was still running when this manifest was written, and base.blockscout.com was returning HTTP 429
 and timeouts. Until that script finishes, `verification_method` reads `pending: ...` (progress in `collect/verify_topics.log`).
 If a row ends as "no log found ... failed: <windows>", the Blockscout query failed; it does not mean the search completed with no result.
-Re-run `python3 verify_topics.py` to retry. It keeps any `census_*` columns.
+Re-run `python3 verify_topics.py` to retry. It rewrites the file after every topic, keeps rows that already have an example, and keeps any `census_*` columns.
+Search windows: the newest 1k, 16k, 500k and 10M blocks before the pinned head, with 6 tries each.
 
 ### `gaps.csv` / `gaps-final.csv` / `integrity.json` / `data/file_index.csv`
 
@@ -289,8 +304,9 @@ The pool state at the end of block 51998756 is the state before the first tx of 
   Such txs are in the candidates only if they meet criterion B. Listed topics with no Base example are marked "no log found" in `swap-topics.csv`.
 - **Criterion B** counts only 3-topic ERC-20 `Transfer` events. It misses native ETH movements (no logs), ERC-1155/721 transfers,
   and tokens with non-standard transfer events.
-- **Candidates are a filter, not a classification.** They include ordinary user swaps routed through several pools, and they miss
-  single-swap arbitrage legs. All txs remain in `txs-*` for re-filtering by `to`/`from`/position.
+- **Candidates are a filter, not a classification.** Membership is decided only by the log rule above and says nothing about a tx's
+  purpose. A tx with fewer than 2 listed swap logs and fewer than 3 qualifying Transfer logs is not in the candidates files,
+  whatever its purpose. All txs remain in `txs-*` for re-filtering by `to`/`from`/position.
 - **Receipt field sets depend on the endpoint.** tenderly and publicnode were identical on a tested block. drpc receipts had the same
   key set in the smoke test. meowrpc (fewer fields) was not used. See `provenance-*` for which endpoint served each block.
 - **drpc getLogs restriction**: address-less `eth_getLogs` on base.drpc.org was refused for ranges of 500 blocks and more on 2026-09-30 (100 blocks worked). Topic

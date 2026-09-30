@@ -7,12 +7,13 @@ Output: ../swap-topics.csv with columns
         topic0, signature, protocol, source_url, verified_example_tx, verified_example_block, verified_example_emitter,
         verified_example_log_index, verification_method
 Method: base.blockscout.com etherscan-compatible API module=logs&action=getLogs&topic0=<t> over block windows walking
-        back from a pinned head (1k, 16k, 100k, 500k, 2M, 10M blocks; 8 tries per window, 120 s timeout,
-        3 s pause before each request, backoff 5-120 s); the first returned log is then re-checked by fetching
+        back from a pinned head (1k, 16k, 500k, 10M blocks; 6 tries per window, 120 s timeout,
+        3 s pause before each request, backoff 5-90 s); the first returned log is then re-checked by fetching
         the tx receipt from gateway.tenderly.co/public/base (fallback base-rpc.publicnode.com / base.drpc.org) and
         confirming a log with that topic0 at that emitter exists in it. If nothing is found, the example columns stay
         empty and verification_method says which windows were searched.
-Sequential, 1 in-flight per endpoint, backoff on 429/5xx/timeouts.
+Sequential, 1 in-flight per endpoint, backoff on 429/5xx/timeouts. Writes ../swap-topics.csv after every topic;
+resumable (rows that already have verified_example_tx are kept and not re-queried).
 """
 import csv, json, os, sys, time
 import requests
@@ -23,7 +24,7 @@ UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chr
 S = requests.Session(); S.headers.update({'User-Agent': UA})
 BS = 'https://base.blockscout.com/api'
 RPCS = ['https://gateway.tenderly.co/public/base', 'https://base-rpc.publicnode.com', 'https://base.drpc.org']
-WINDOWS = [1000, 16000, 100000, 500000, 2000000, 10000000]
+WINDOWS = [1000, 16000, 500000, 10000000]
 
 
 def log(*a):
@@ -46,7 +47,7 @@ def rpc(method, params):
 
 def bs_logs(t, lo, hi):
     back = 5
-    for i in range(8):
+    for i in range(6):
         time.sleep(3)
         try:
             r = S.get(BS, params={'module': 'logs', 'action': 'getLogs', 'fromBlock': lo, 'toBlock': hi, 'topic0': t}, timeout=120)
@@ -60,8 +61,35 @@ def bs_logs(t, lo, hi):
                 return []
             raise RuntimeError(str(j)[:200])
         except Exception as e:
-            log('blockscout retry', t[:10], lo, hi, e); time.sleep(back); back = min(back * 2, 120)
+            log('blockscout retry', t[:10], lo, hi, e); time.sleep(back); back = min(back * 2, 90)
     return None
+
+
+COLS = ['topic0', 'signature', 'protocol', 'source_url', 'verified_example_tx', 'verified_example_block', 'verified_example_emitter', 'verified_example_log_index', 'verification_method']
+
+
+def write_out(rows_by_topic, order):
+    """Rewrite ../swap-topics.csv; keeps census_* columns already added by finalize.py."""
+    old = {}
+    if os.path.exists(OUT):
+        with open(OUT) as f:
+            for r in csv.DictReader(f):
+                old[r['topic0']] = r
+    extra = []
+    for r in old.values():
+        extra = [c for c in r.keys() if c.startswith('census_')]; break
+    with open(OUT + '.tmp', 'w', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=COLS + extra); w.writeheader()
+        for tr in order:
+            r = dict(rows_by_topic.get(tr['topic0']) or old.get(tr['topic0']) or tr)
+            for c in COLS:
+                r.setdefault(c, '')
+            if not r.get('verification_method'):
+                r['verification_method'] = 'pending: collect/verify_topics.py running'
+            for c in extra:
+                r[c] = old.get(tr['topic0'], {}).get(c, '')
+            w.writerow({k: r.get(k, '') for k in COLS + extra})
+    os.replace(OUT + '.tmp', OUT)
 
 
 def main():
@@ -69,9 +97,17 @@ def main():
     log('pinned head', head)
     with open(os.path.join(HERE, 'swap_topics_used.csv')) as f:
         topics = list(csv.DictReader(f))
-    rows = []
+    done = {}
+    if os.path.exists(OUT):  # resume: keep rows already verified
+        with open(OUT) as f:
+            for r in csv.DictReader(f):
+                if r.get('verified_example_tx'):
+                    done[r['topic0']] = {c: r.get(c, '') for c in COLS}
+    rows = dict(done)
     for tr in topics:
         t = tr['topic0']
+        if t in done:
+            log(t, 'already verified, kept'); continue
         ex = None; searched = []; errs = []
         for w in WINDOWS:
             lo = max(0, head - w + 1)
@@ -96,28 +132,15 @@ def main():
             if match:
                 out.update({'verified_example_tx': txh, 'verified_example_block': str(int(rc['blockNumber'], 16)), 'verified_example_emitter': emitter,
                             'verified_example_log_index': str(int(match['logIndex'], 16)),
-                            'verification_method': 'blockscout getLogs topic0 window %s; newest log re-checked in eth_getTransactionReceipt' % searched[-1]})
+                            'verification_method': 'blockscout getLogs topic0 window %s (head pinned %d); newest log re-checked in eth_getTransactionReceipt' % (searched[-1], head)})
             else:
                 out['verification_method'] = 'blockscout returned tx %s but receipt re-check failed' % txh
         else:
             out['verification_method'] = 'no log found; blockscout windows searched: %s%s' % (', '.join(searched) or 'none', ('; failed: ' + ', '.join(errs)) if errs else '')
         log(t, tr['signature'], out['verified_example_tx'] or out['verification_method'])
-        rows.append(out)
-    cols = ['topic0', 'signature', 'protocol', 'source_url', 'verified_example_tx', 'verified_example_block', 'verified_example_emitter', 'verified_example_log_index', 'verification_method']
-    # keep census columns if finalize.py already added them
-    old = {}
-    if os.path.exists(OUT):
-        with open(OUT) as f:
-            for r in csv.DictReader(f):
-                old[r['topic0']] = r
-    extra = [c for c in (next(iter(old.values())).keys() if old else []) if c.startswith('census_')]
-    with open(OUT + '.tmp', 'w', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=cols + extra); w.writeheader()
-        for r in rows:
-            for c in extra:
-                r[c] = old.get(r['topic0'], {}).get(c, '')
-            w.writerow({k: r.get(k, '') for k in cols + extra})
-    os.replace(OUT + '.tmp', OUT)
+        rows[t] = out
+        write_out(rows, topics)
+    write_out(rows, topics)
     log('wrote', OUT, 'pinned head', head)
 
 
