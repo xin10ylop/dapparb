@@ -134,7 +134,26 @@ All measured live on Base on 2026-09-30 unless stated.
   ETH/USDC deviation around its median is ±5 bps at the 5th/95th percentiles and never exceeded 20 bps in 26 minutes:
   inside the fee band. See §5 for long-tail tokens.
 
-## 5. What is reproducible here
+## 5. Every arbitrage angle in the videos, measured (2026-09-30, public data, no accounts)
+
+| Angle | What was measured | Result |
+|---|---|---|
+| DEX↔DEX atomic, 2-hop (videos 1-3) | Base, 12 venues incl. Uniswap V4, block and flashblock state, flash-swap funded, on-chain simulation | Verified episodes are worth cents; see §2 and §6 |
+| DEX triangular (3 pools) | Included in every scan/dry run (`findTriangles`) | No 3-hop cycle cleared $0.01 net in any run; the two candidates that did were simulated and reverted |
+| Slipstream dynamic-fee timing (own angle) | 209 pools, 1,041 blocks, 4,527 fee transitions | Best cycle through a pool after a fee drop averages $0.0001 vs $0.0005 baseline: nothing to time |
+| CEX→DEX lead-lag, ETH (statistical) | OKX ETH-USDT every 250 ms vs 3 Base pools every block, 45 min | Base follows OKX with ~1 s lag (sign agreement 80-90 % at 1 s vs 60-70 % at 4 s); deviation of the pool price from its median ±5 bps at p5/p95, never >20 bps. Backtest of "trade the lag" on the pool with the 4-5 bps fee: 7 signals, 0-14 % win rate, mean −4 to −9 bps per trade; on the 1 bp pool 4 signals, +2 to +4 bps mean (n=4, noise) |
+| CEX→DEX lead-lag, long tail | OKX vs deepest Base pool for VIRTUAL, DEGEN, ZORA, LINK, MORPHO, 30 min every block | Deviation from the median >30 bps in 0-4 % of blocks, never >60 bps |
+| CEX↔CEX spatial (videos 4-5) | OKX, Gate, Kraken; 2,350 cross-listed pairs; executable bid/ask spread net of base-tier taker fees every 2 s for 15 min | Genuine pairs net-positive in <2 % of samples at 1-11 bps. Every persistent "spread" was a ticker collision (LIT, EDGE = different tokens), a withdrawal-disabled asset (CT) or a slow-transfer asset (STX on Stacks, DOG on Runes) |
+| CEX triangular (video 4) | OKX and Gate, every A/USDT-B/USDT-A/B triangle, net of 3 taker fees, 15 min | see §5.1 |
+| Cross-chain DEX↔DEX | WETH/USDC Uniswap V3 0.05 % on Base, Arbitrum, Ethereum every 2 s, 15 min | see §5.1 |
+| Spot-perp funding carry (video 5) | OKX and Hyperliquid, top-20 perps | 10.95 %/yr baseline (0.01 % per 8 h) on the majors; cross-venue differentials 5-24 %/yr on volatile alts; 0.30 % fees to open and close |
+| Spot-futures basis (video 5) | OKX dated futures vs spot | 3.2-5.2 %/yr BTC, 3.2-4.5 %/yr ETH across all expiries, locked in at entry |
+
+### 5.1 Pending at time of writing
+
+CEX triangular and cross-chain results are filled in below once the 15-minute runs complete.
+
+## 6. What is reproducible here
 
 ```bash
 cd bot
