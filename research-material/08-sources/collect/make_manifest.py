@@ -91,13 +91,13 @@ def main():
     A('| Column | Meaning |\n|---|---|')
     A('| slug | identifier; also the file stem in `texts/` and `raw/` |')
     A('| url | URL fetched (arXiv: abs URL of the version fetched) |')
-    A('| title | title as stated (arXiv `citation_title`; HTML `og:title`/`<title>`; Discourse topic title; empty for plain text files) |')
-    A('| authors_or_org | arXiv `citation_author` list; HTML meta author; for Discourse the opening-post author and the post that holds the cited text |')
-    A('| publication_date_if_stated | arXiv: v1 date and full submission history; HTML: `article:published_time`/JSON-LD `datePublished` if present; empty if the page states none in metadata (a date in the body text is not copied here) |')
+    A('| title | title as stated (arXiv `citation_title`; HTML `og:title`/`<title>`; Discourse topic title; for text/markdown files the document\'s own heading, set in `collect/sources.json`) |')
+    A('| authors_or_org | arXiv `citation_author` list; HTML meta author; otherwise the publishing organisation (set in `collect/sources.json`); for Discourse the opening-post author and the post that holds the cited text |')
+    A('| publication_date_if_stated | arXiv: v1 date and full submission history; HTML: `article:published_time`/JSON-LD `datePublished` if present; Discourse: topic/post creation time; a date taken from the page body is marked "stated in page body"; empty otherwise |')
     A('| fetched_at_utc | time the fetch of that source finished (UTC) |')
     A('| access_notes | HTTP outcome, redirects, versions, pages; plus the collector\'s note on why the source was collected |')
     A('| question_lines | space-separated keys (table above) |')
-    A('| kind | arxiv, html, discourse, pdf, text |')
+    A('| kind | arxiv, html, discourse, pdf, text, json (json: body saved unchanged, used as its own text) |')
     A('| text_files | extracted text file(s) |')
     A('| raw_files | raw HTTP bodies (gzip) |')
     A('| status | `ok` or `failed: <reason>` |\n')
@@ -183,18 +183,22 @@ GAPS = [
     'pages (recorded in collect/fetch-log.jsonl). https://docs.base.org/get-started/launch-token now redirects to an unrelated B20 asset-token page and '
     'was dropped. The Base tweet on the minimum-base-fee increase cited by arXiv 2606.00720 [7] (x.com) was not fetched: x.com needs a login.',
     'arXiv 2509.22143 (Messias & Torres): both v2 (current, 2026-07-21) and v1 (2025-09-26) are saved. The text states totals (Table 3), per-arbitrage '
-    'means and the MEV-data period (2025-04-17 to 2025-07-31); a per-day figure is not stated verbatim in either version (text search for "per day", '
-    '"daily", "4.7", "4,7" in the arbitrage sections). The per-day figure in the question line is therefore not an excerpt.',
-    'arXiv 2607.24172 (Pahari, Messias, Torres): the 28 % figure is stated for Base over 2023-09-01 to 2025-07-31 and covers arbitrage and liquidation bots '
-    '(Table 6); arXiv 2606.00720 (Wu & Oz: 21.4 M arbitrages, 4,365 bots) covers 2025-06-01 to 2026-02-28. The two papers use different datasets and '
-    'detection methods; their method passages are excerpted under Q7-CHAINWIDE-METHOD.',
+    'means and the MEV-data period (2025-04-17 to 2025-07-31); neither version states a per-day arbitrage profit figure (text search of the HTML and PDF '
+    'texts for "per day", "a day", "/day", "4.7K", "4,7": the only hits are other numbers such as 14,796,548; "daily" occurs only for transaction counts). The per-day figure in the '
+    'question line therefore has no verbatim excerpt; the totals, period and per-arbitrage means are excerpted.',
+    'Scope of the Q7 figures as stated in the sources: arXiv 2607.24172 (Pahari, Messias, Torres) states the 82 % -> 28 % profitable-bot figure for Base '
+    'over 2023-09-01 to 2025-07-31, for speculative, non-speculative and hybrid arbitrage and liquidation bots (Table 6); arXiv 2606.00720 (Wu & Oz) states '
+    '21,374,434 arbitrages by 4,365 bot addresses for 2025-06-01 to 2026-02-28. Each paper\'s data period and detection method are excerpted '
+    '(Q7-CHAINWIDE-METHOD, Q7-PROFIT-28, Q7-BASE-21M).',
     'Detection coverage of the studies: arXiv 2606.00720 extends the method of arXiv 2506.14768, which reads swaps from Dune `dex.trades` and pool '
     'interactions from `dex.raw_pools`. The Dune Spellbook model files listing which DEX projects feed `dex.trades` on Base, Arbitrum, Optimism and BNB '
     'are saved as of fetch time (main branch; the commit hash could not be read: api.github.com answered HTTP 403 unauthenticated). The Spellbook '
     'history (which projects were included during each study window) was not collected.',
     'Text extraction: HTML and PDF are converted to text by collect/fetch_sources.py; formulas, tables and footnotes are flattened, figures are not '
     'captured (only captions). PDF text (texts/*.pdf.txt.gz) was not proof-read. The raw HTML/PDF bytes are kept in raw/ for re-extraction.',
-    'developers.uniswap.org answered HTTP 429 with Retry-After ~500 s; the collector waited and retried (see fetch logs).',
+    'developers.uniswap.org answered HTTP 429 (Retry-After 507 s, then 3600 s). The PoolManager and Hooks pages were fetched after waiting; the '
+    'collector was then stopped and the Dynamic Fees and v2 Deployments pages were taken from the site\'s source files on GitHub '
+    '(raw.githubusercontent.com/Uniswap/docs/main/content/protocols/..., kind text). The collector now caps Retry-After at 900 s.',
     'Discourse threads (Arbitrum forum, Flashbots collective) are saved as the /raw markdown of all posts; images embedded in posts are not saved.',
     'Sources fetched but dropped after reading because they did not relate to any question line: arXiv 2609.18975 (pump.fun pipeline coverage), '
     'arXiv 2512.00377 (memecoin fragility index), arXiv 2603.13830 (BSC rug-pull warning, 7 tokens), docs.base.org configuration reference, '
@@ -204,8 +208,10 @@ GAPS = [
     'specific to Clanker/Zora/Virtuals launch sniping on Base was found by the searches in searches.csv (launch-related sources saved are the platform '
     'docs, Wu & Oz Section 5.3, and Solana/cross-chain memecoin studies).',
     'Solana, BSC and other-L2 coverage in this folder is limited to published sources; on-chain data for those chains is in research-material/06-*.',
-    'Date fields: several web pages state no publication date in their metadata (publication_date_if_stated left empty); dates visible only in the '
-    'page body were not copied into sources.csv (they remain in the text files).',
+    'Date fields: several web pages state no publication date in their metadata (publication_date_if_stated left empty). Dates visible only in the '
+    'page body were copied only for the 0x post and the Uniswap Foundation post (marked "stated in page body"); for other pages they remain in the text files.',
+    'arXiv HTML artefact: in the LaTeXML HTML of arXiv 2509.22143v1, digit-group separators render as the word "true" (e.g. "11true613true936" for '
+    '11,613,936). Excerpts from v1 are therefore taken from the PDF text (texts/arxiv-2509.22143v1-...pdf.txt.gz); the HTML-derived v1 text is kept unchanged.',
 ]
 
 if __name__ == '__main__':

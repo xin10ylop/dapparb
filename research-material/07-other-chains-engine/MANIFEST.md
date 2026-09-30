@@ -33,7 +33,8 @@ scans/<chain>/scan-<chain>-<universe>.blocks.csv.gz     DERIVED: one row per "bl
 scans/<chain>/scan-<chain>-<universe>.meta.json         descriptive metadata (row counts, first/last block and time, exit, signal)
 scans/<chain>/scan-<chain>-<universe>.code-provenance.txt   git HEAD, uncommitted bot/src changes, sha256 of every bot/src/*.ts at launch
 engine-detect/<chain>/engine-detect-<chain>.{jsonl.gz,log.gz,heartbeats.csv.gz,meta.json,code-provenance.txt}
-collect/                                  collector scripts, logs, gaps.jsonl, smoke-test outputs (collect/smoke/)
+collect/                                  collector scripts, logs, gaps.jsonl (created only if a step fails)
+collect/smoke/                            smoke-test logs (scans: 4-45 blocks per config at 21:42-22:08Z; engine: 2 min per chain), failure-path self-test log
 collect/state/, collect/work/             transient working state (git-ignored); work/ holds the uncompressed JSONL while a run is live
 ```
 `<chain>` is arbitrum, mainnet or base; `<universe>` is config or top.
@@ -117,7 +118,9 @@ are the same code as the Base runs. There is no `eth_call` simulation, no revert
 - Window: 20 min, starting at the `searcher ready` log line and ending with SIGINT, which runs main.ts's own SIGINT handler (`shutting down`
   stats line). The exact times are in `meta.json` `window`.
 - Sentinels: `ENGINE_DETECT_ARBITRUM.DONE|FAILED`, `ENGINE_DETECT_MAINNET.DONE|FAILED`.
-- Smoke test of this mode, 2 min per chain at 22:08–22:14Z: `collect/smoke/smoke-engine-*.{log,jsonl}`.
+- Up to 3 attempts. An attempt that exits before `searcher ready` or before the window ends is recorded in `collect/gaps.jsonl`, its log is
+  kept as `collect/engine-detect-<chain>.attemptN.log`, and the run is redone from scratch.
+- Smoke test of this mode, 2 min per chain at 22:08–22:14Z: `collect/smoke/smoke-engine-*.{log,jsonl}`, with finalize outputs checked in scratch space.
 
 ## Exact commands to reproduce
 
@@ -218,7 +221,9 @@ File sizes (bytes):
   on-chain simulation, so it contains no revert data and no simulated profit.
 - **No chain beyond Base, Arbitrum and Ethereum can be run with this code:** `bot/src/config/chains.ts` `CHAINS` defines only `base`,
   `arbitrum` and `mainnet`; `bot/src/util/client.ts` `VIEM_CHAINS` only 8453, 42161 and 1; `bot/src/research/tokens.ts` `GT_NETWORK` only those
-  three; `bot/src/pools/v4.ts` `V4` only those three. No BSC, Solana, Optimism, Unichain, Polygon or other L2 data is produced here. The
+  three; `bot/src/pools/v4.ts` `V4` only those three. Any other `--chain` value throws at `bot/src/config/chains.ts:330` (evidence:
+  `collect/smoke/selftest-engine-unknown-chain.log`: `unknown chain 'selftestchain' (known: base, arbitrum, mainnet)`). No BSC, Solana,
+  Optimism, Unichain, Polygon or other L2 data is produced here. The
   on-chain transaction censuses for those chains are in `../06-other-chains-onchain/`.
 - **DEX coverage is the chains.ts configuration.** Arbitrum: UniswapV3, SushiV3, PancakeV3, SushiV2, plus GeckoTerminal-listed Uniswap V4
   pools. Camelot is excluded in chains.ts; no Balancer, Curve, Trader Joe, Ramses or other venues. Ethereum: UniswapV3, SushiV3,

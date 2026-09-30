@@ -68,7 +68,8 @@
    "Q7-ARB-4700",
    "Q4-OTHERCHAINS"
   ],
-  "access_notes": "Entropy Advisors figure (1.74% Arbitrum / 28.83% Ethereum / 7.34% Base) is in post #7 by user 'Entropy' (Entropy Advisors); located via search, see searches.csv"
+  "access_notes": "Entropy Advisors figure (1.74% Arbitrum / 28.83% Ethereum / 7.34% Base) is in post #7 by user 'Entropy' (Entropy Advisors); located via search, see searches.csv",
+  "publication_date": "topic created 2026-06-03T16:58:02Z; Entropy post #7 created 2026-06-16T19:47:18Z"
  },
  {
   "slug": "docs-base-llms-index",
@@ -77,7 +78,9 @@
   "question_lines": [
    "Q5-CONTEST"
   ],
-  "access_notes": "docs.base.org page index used to locate the Base docs pages below"
+  "access_notes": "docs.base.org page index used to locate the Base docs pages below",
+  "title": "docs.base.org llms.txt (documentation index)",
+  "authors_or_org": "Base"
  },
  {
   "slug": "docs-base-transaction-ordering",
@@ -88,7 +91,8 @@
    "Q5-V4LAUNCH",
    "Q6-BSCORDER"
   ],
-  "access_notes": "the older URLs https://docs.base.org/base-chain/network-information/transaction-ordering and https://docs.base.org/base-chain/network-information/block-building both redirected here on 2026-09-30 (collect/fetch-log.jsonl)"
+  "access_notes": "the older URLs https://docs.base.org/base-chain/network-information/transaction-ordering and https://docs.base.org/base-chain/network-information/block-building both redirected here on 2026-09-30 (collect/fetch-log.jsonl)",
+  "authors_or_org": "Base"
  },
  {
   "slug": "docs-base-flashblocks",
@@ -97,7 +101,8 @@
   "question_lines": [
    "Q5-CONTEST"
   ],
-  "access_notes": "the older URL https://docs.base.org/base-chain/flashblocks/faq redirected here on 2026-09-30 (collect/fetch-log.jsonl)"
+  "access_notes": "the older URL https://docs.base.org/base-chain/flashblocks/faq redirected here on 2026-09-30 (collect/fetch-log.jsonl)",
+  "authors_or_org": "Base"
  },
  {
   "slug": "docs-base-network-fees",
@@ -105,7 +110,8 @@
   "url": "https://docs.base.org/specifications/transactions/network-fees",
   "question_lines": [
    "Q5-CONTEST"
-  ]
+  ],
+  "authors_or_org": "Base"
  },
  {
   "slug": "docs-base-fees-ordering-lifecycle",
@@ -113,7 +119,8 @@
   "url": "https://docs.base.org/specifications/build-transaction/fees-ordering-and-lifecycle",
   "question_lines": [
    "Q5-CONTEST"
-  ]
+  ],
+  "authors_or_org": "Base"
  },
  {
   "slug": "docs-base-eth-maxpriorityfeepergas",
@@ -121,7 +128,8 @@
   "url": "https://docs.base.org/base-chain/api-reference/ethereum-json-rpc-api/eth_maxPriorityFeePerGas",
   "question_lines": [
    "Q5-CONTEST"
-  ]
+  ],
+  "authors_or_org": "Base"
  },
  {
   "slug": "docs-base-denim-overview",
@@ -130,7 +138,9 @@
   "question_lines": [
    "Q5-CONTEST",
    "Q8-V4MEASURE"
-  ]
+  ],
+  "title": "Denim Overview - Base Documentation",
+  "authors_or_org": "Base"
  },
  {
   "slug": "docs-base-denim-200ms-blocks",
@@ -139,7 +149,8 @@
   "question_lines": [
    "Q5-CONTEST",
    "Q8-V4MEASURE"
-  ]
+  ],
+  "authors_or_org": "Base"
  },
  {
   "slug": "docs-base-denim-migrate-from-flashblocks",
@@ -147,7 +158,8 @@
   "url": "https://docs.base.org/upgrades/denim/migrate-from-flashblocks",
   "question_lines": [
    "Q5-CONTEST"
-  ]
+  ],
+  "authors_or_org": "Base"
  },
  {
   "slug": "docs-base-jovian-exec-engine",
@@ -155,7 +167,8 @@
   "url": "https://docs.base.org/upgrades/jovian/exec-engine",
   "question_lines": [
    "Q5-CONTEST"
-  ]
+  ],
+  "authors_or_org": "Base"
  },
  {
   "slug": "blog-base-accelerating-base-with-flashblocks",
@@ -181,7 +194,8 @@
   "question_lines": [
    "Q6-BSCORDER",
    "Q4-OTHERCHAINS"
-  ]
+  ],
+  "authors_or_org": "BlockSec"
  },
  {
   "slug": "docs-bnbchain-mev-overview",
@@ -339,7 +353,9 @@
   "question_lines": [
    "Q4-OTHERCHAINS"
   ],
-  "access_notes": "cited by arXiv 2606.00720 as [24]"
+  "access_notes": "cited by arXiv 2606.00720 as [24]",
+  "title": "Stake-based priority ordering on OP Mainnet (Optimism Documentation, archived notice)",
+  "authors_or_org": "Optimism"
  },
  {
   "slug": "blog-uniswap-flashblocks-are-live-unichain",
@@ -347,7 +363,8 @@
   "url": "https://blog.uniswap.org/flashblocks-are-live",
   "question_lines": [
    "Q4-OTHERCHAINS"
-  ]
+  ],
+  "authors_or_org": "Uniswap Labs"
  },
  {
   "slug": "blog-uniswap-rollup-boost-live-on-unichain",
@@ -356,7 +373,8 @@
   "question_lines": [
    "Q4-OTHERCHAINS"
   ],
-  "access_notes": "cited by arXiv 2606.00720 as [34]"
+  "access_notes": "cited by arXiv 2606.00720 as [34]",
+  "authors_or_org": "Uniswap Labs"
  },
  {
   "slug": "blog-arbitrum-competing-for-transaction-priority",
@@ -383,7 +401,8 @@
   "question_lines": [
    "Q4-OTHERCHAINS"
   ],
-  "access_notes": "cited by arXiv 2606.00720 as [23]"
+  "access_notes": "cited by arXiv 2606.00720 as [23]",
+  "authors_or_org": "Offchain Labs / Arbitrum docs"
  },
  {
   "slug": "arbitrum-forum-entropy-advisors-data-dashboards-catalog",
@@ -406,7 +425,8 @@
    "Q5-CONTEST",
    "Q7-BASE-21M"
   ],
-  "access_notes": "cited by arXiv 2606.00720 as [5]"
+  "access_notes": "cited by arXiv 2606.00720 as [5]",
+  "authors_or_org": "Base"
  },
  {
   "slug": "arxiv-2607.28424-demystifying-solana-bots",
@@ -431,7 +451,8 @@
   "url": "https://www.helius.dev/blog/solana-mev-report",
   "question_lines": [
    "Q4-OTHERCHAINS"
-  ]
+  ],
+  "authors_or_org": "Helius (author shown on page: Lostin)"
  },
  {
   "slug": "docs-jito-low-latency-txn-send",
@@ -439,7 +460,8 @@
   "url": "https://docs.jito.wtf/lowlatencytxnsend/",
   "question_lines": [
    "Q4-OTHERCHAINS"
-  ]
+  ],
+  "authors_or_org": "Jito Labs"
  },
  {
   "slug": "arxiv-2602.13480-melt-memecoin-launch-trace-solana",
@@ -521,7 +543,9 @@
    "Q1-V4GAP",
    "Q3-SMALLPOOLS",
    "Q8-V4MEASURE"
-  ]
+  ],
+  "authors_or_org": "0x",
+  "publication_date": "September 14, 2026 (stated in page body)"
  },
  {
   "slug": "uniswap-foundation-how-to-navigate-v4-data",
@@ -530,7 +554,9 @@
   "question_lines": [
    "Q8-V4MEASURE",
    "Q1-V4GAP"
-  ]
+  ],
+  "authors_or_org": "Uniswap Foundation (byline: Agaperste)",
+  "publication_date": "2.3.2025 (stated in page body byline)"
  },
  {
   "slug": "docs-uniswap-v4-poolmanager",
@@ -539,7 +565,8 @@
   "question_lines": [
    "Q8-V4MEASURE",
    "Q1-V4GAP"
-  ]
+  ],
+  "authors_or_org": "Uniswap Labs (developers.uniswap.org)"
  },
  {
   "slug": "docs-uniswap-v4-hooks",
@@ -548,7 +575,8 @@
   "question_lines": [
    "Q1-V4GAP",
    "Q8-V4MEASURE"
-  ]
+  ],
+  "authors_or_org": "Uniswap Labs (developers.uniswap.org)"
  },
  {
   "slug": "docs-uniswap-v4-dynamic-fees",
@@ -559,7 +587,9 @@
    "Q8-V4MEASURE"
   ],
   "ext": "mdx",
-  "access_notes": "source file of the page https://developers.uniswap.org/docs/protocols/v4/concepts/dynamic-fees (that site answered HTTP 429 with Retry-After 3600 s)"
+  "access_notes": "source file of the page https://developers.uniswap.org/docs/protocols/v4/concepts/dynamic-fees (that site answered HTTP 429 with Retry-After 3600 s)",
+  "title": "Dynamic Fees (Uniswap docs source file dynamic-fees.mdx)",
+  "authors_or_org": "Uniswap Labs (github.com/Uniswap/docs)"
  },
  {
   "slug": "docs-uniswap-v2-deployments",
@@ -569,7 +599,9 @@
    "Q2-OLDV2"
   ],
   "ext": "mdx",
-  "access_notes": "source file of the page https://developers.uniswap.org/docs/protocols/v2/deployments (that site answered HTTP 429)"
+  "access_notes": "source file of the page https://developers.uniswap.org/docs/protocols/v2/deployments (that site answered HTTP 429)",
+  "title": "Uniswap v2 deployments (Uniswap docs source file deployments.mdx)",
+  "authors_or_org": "Uniswap Labs (github.com/Uniswap/docs)"
  },
  {
   "slug": "clanker-docs-v4",
@@ -579,7 +611,9 @@
    "Q1-V4GAP",
    "Q5-V4LAUNCH"
   ],
-  "ext": "md"
+  "ext": "md",
+  "title": "v4 (Clanker Documentation)",
+  "authors_or_org": "Clanker"
  },
  {
   "slug": "clanker-docs-v4-clankerhook",
@@ -589,7 +623,9 @@
    "Q1-V4GAP",
    "Q5-V4LAUNCH"
   ],
-  "ext": "md"
+  "ext": "md",
+  "title": "ClankerHook (Clanker Documentation)",
+  "authors_or_org": "Clanker"
  },
  {
   "slug": "clanker-docs-v4-clankerhookdynamicfee",
@@ -599,7 +635,9 @@
    "Q1-V4GAP",
    "Q5-V4LAUNCH"
   ],
-  "ext": "md"
+  "ext": "md",
+  "title": "ClankerHookDynamicFee (Clanker Documentation)",
+  "authors_or_org": "Clanker"
  },
  {
   "slug": "clanker-docs-v4-clankerhookv2",
@@ -609,7 +647,9 @@
    "Q1-V4GAP",
    "Q5-V4LAUNCH"
   ],
-  "ext": "md"
+  "ext": "md",
+  "title": "ClankerHookV2 (Clanker Documentation)",
+  "authors_or_org": "Clanker"
  },
  {
   "slug": "clanker-docs-v4-mev-modules",
@@ -619,7 +659,9 @@
    "Q5-V4LAUNCH",
    "Q5-CONTEST"
   ],
-  "ext": "md"
+  "ext": "md",
+  "title": "MEV Modules (Clanker Documentation)",
+  "authors_or_org": "Clanker"
  },
  {
   "slug": "clanker-docs-v4-mev-2blockdelay",
@@ -629,7 +671,9 @@
    "Q5-V4LAUNCH",
    "Q5-CONTEST"
   ],
-  "ext": "md"
+  "ext": "md",
+  "title": "ClankerMevModule2BlockDelay (Clanker Documentation)",
+  "authors_or_org": "Clanker"
  },
  {
   "slug": "clanker-docs-v4-sniper-auction-v0",
@@ -639,7 +683,9 @@
    "Q5-V4LAUNCH",
    "Q5-CONTEST"
   ],
-  "ext": "md"
+  "ext": "md",
+  "title": "ClankerSniperAuctionV0 (Clanker Documentation)",
+  "authors_or_org": "Clanker"
  },
  {
   "slug": "clanker-docs-v4-mev-descending-fees",
@@ -649,7 +695,9 @@
    "Q5-V4LAUNCH",
    "Q5-CONTEST"
   ],
-  "ext": "md"
+  "ext": "md",
+  "title": "ClankerMevDescendingFees (Clanker Documentation)",
+  "authors_or_org": "Clanker"
  },
  {
   "slug": "clanker-docs-llms-index",
@@ -658,7 +706,9 @@
   "question_lines": [
    "Q1-V4GAP"
   ],
-  "ext": "txt"
+  "ext": "txt",
+  "title": "Clanker Documentation llms.txt (index)",
+  "authors_or_org": "Clanker"
  },
  {
   "slug": "zora-docs-coins-hook",
@@ -668,7 +718,9 @@
    "Q1-V4GAP",
    "Q5-V4LAUNCH"
   ],
-  "access_notes": "more Zora docs were saved in research-material/01-v4-pools/hook-docs/"
+  "access_notes": "more Zora docs were saved in research-material/01-v4-pools/hook-docs/",
+  "title": "Hook System (ZORA Docs)",
+  "authors_or_org": "Zora"
  },
  {
   "slug": "virtuals-anti-sniper-protection",
@@ -676,7 +728,8 @@
   "url": "https://whitepaper.virtuals.io/about-virtuals/capital-formation-layer/anti-sniper-protection-for-token-launches",
   "question_lines": [
    "Q5-V4LAUNCH"
-  ]
+  ],
+  "authors_or_org": "Virtuals Protocol"
  },
  {
   "slug": "virtuals-launch-mechanics",
@@ -685,7 +738,8 @@
   "question_lines": [
    "Q5-V4LAUNCH",
    "Q1-V4GAP"
-  ]
+  ],
+  "authors_or_org": "Virtuals Protocol"
  },
  {
   "slug": "flaunch-docs-home",
@@ -694,7 +748,8 @@
   "question_lines": [
    "Q5-V4LAUNCH",
    "Q1-V4GAP"
-  ]
+  ],
+  "authors_or_org": "Flaunch"
  },
  {
   "slug": "arxiv-2405.00138-torres-et-al-rolling-in-the-shadows",
@@ -712,7 +767,8 @@
   "question_lines": [
    "Q7-CHAINWIDE-METHOD"
   ],
-  "access_notes": "Dune dex.trades is the swap table used by arXiv 2506.14768, which arXiv 2606.00720 extends"
+  "access_notes": "Dune dex.trades is the swap table used by arXiv 2506.14768, which arXiv 2606.00720 extends",
+  "authors_or_org": "Dune"
  },
  {
   "slug": "dune-spellbook-dex-base-base-trades-sql",
@@ -723,7 +779,9 @@
    "Q7-CHAINWIDE-METHOD",
    "Q1-V4GAP"
   ],
-  "access_notes": "Dune Spellbook (main branch at fetch time): the list of DEX project models unioned into dex.trades for Base"
+  "access_notes": "Dune Spellbook (main branch at fetch time): the list of DEX project models unioned into dex.trades for Base",
+  "title": "dex_base_base_trades.sql (Dune Spellbook)",
+  "authors_or_org": "Dune (duneanalytics/spellbook)"
  },
  {
   "slug": "dune-spellbook-uniswap-v4-base-base-trades-sql",
@@ -734,7 +792,9 @@
    "Q7-CHAINWIDE-METHOD",
    "Q1-V4GAP"
   ],
-  "access_notes": "Dune Spellbook (main branch at fetch time)"
+  "access_notes": "Dune Spellbook (main branch at fetch time)",
+  "title": "uniswap_v4_base_base_trades.sql (Dune Spellbook)",
+  "authors_or_org": "Dune (duneanalytics/spellbook)"
  },
  {
   "slug": "dune-spellbook-uniswap-v2-base-base-trades-sql",
@@ -745,7 +805,9 @@
    "Q7-CHAINWIDE-METHOD",
    "Q2-OLDV2"
   ],
-  "access_notes": "Dune Spellbook (main branch at fetch time)"
+  "access_notes": "Dune Spellbook (main branch at fetch time)",
+  "title": "uniswap_v2_base_base_trades.sql (Dune Spellbook)",
+  "authors_or_org": "Dune (duneanalytics/spellbook)"
  },
  {
   "slug": "dune-spellbook-aerodrome-base-base-trades-sql",
@@ -755,7 +817,9 @@
   "question_lines": [
    "Q7-CHAINWIDE-METHOD"
   ],
-  "access_notes": "Dune Spellbook (main branch at fetch time)"
+  "access_notes": "Dune Spellbook (main branch at fetch time)",
+  "title": "aerodrome_base_base_trades.sql (Dune Spellbook)",
+  "authors_or_org": "Dune (duneanalytics/spellbook)"
  },
  {
   "slug": "dune-spellbook-dex-arbitrum-base-trades-sql",
@@ -766,7 +830,9 @@
    "Q7-CHAINWIDE-METHOD",
    "Q4-OTHERCHAINS"
   ],
-  "access_notes": "Dune Spellbook (main branch at fetch time)"
+  "access_notes": "Dune Spellbook (main branch at fetch time)",
+  "title": "dex_arbitrum_base_trades.sql (Dune Spellbook)",
+  "authors_or_org": "Dune (duneanalytics/spellbook)"
  },
  {
   "slug": "dune-spellbook-dex-optimism-base-trades-sql",
@@ -777,7 +843,9 @@
    "Q7-CHAINWIDE-METHOD",
    "Q4-OTHERCHAINS"
   ],
-  "access_notes": "Dune Spellbook (main branch at fetch time)"
+  "access_notes": "Dune Spellbook (main branch at fetch time)",
+  "title": "dex_optimism_base_trades.sql (Dune Spellbook)",
+  "authors_or_org": "Dune (duneanalytics/spellbook)"
  },
  {
   "slug": "dune-spellbook-dex-bnb-base-trades-sql",
@@ -789,7 +857,9 @@
    "Q4-OTHERCHAINS",
    "Q6-BSCORDER"
   ],
-  "access_notes": "Dune Spellbook (main branch at fetch time)"
+  "access_notes": "Dune Spellbook (main branch at fetch time)",
+  "title": "dex_bnb_base_trades.sql (Dune Spellbook)",
+  "authors_or_org": "Dune (duneanalytics/spellbook)"
  },
  {
   "slug": "blog-uniswap-continuous-clearing-auctions",
@@ -798,7 +868,8 @@
   "question_lines": [
    "Q5-V4LAUNCH",
    "Q1-V4GAP"
-  ]
+  ],
+  "authors_or_org": "Uniswap Labs"
  },
  {
   "slug": "blog-uniswap-launch-aggregator",
@@ -807,7 +878,8 @@
   "question_lines": [
    "Q1-V4GAP",
    "Q5-V4LAUNCH"
-  ]
+  ],
+  "authors_or_org": "Uniswap Labs"
  },
  {
   "slug": "arxiv-2609.10246-meme-coin-factories-pump-fun",
@@ -846,7 +918,9 @@
   "url": "https://docs.flaunch.gg/features/sniper-protection.md",
   "question_lines": [
    "Q5-V4LAUNCH"
-  ]
+  ],
+  "title": "Sniper Protection (Flaunch Docs)",
+  "authors_or_org": "Flaunch"
  },
  {
   "slug": "flaunch-docs-fixed-price-fair-launch",
@@ -856,7 +930,9 @@
   "question_lines": [
    "Q5-V4LAUNCH",
    "Q1-V4GAP"
-  ]
+  ],
+  "title": "Fixed Price Fair Launch (Flaunch Docs)",
+  "authors_or_org": "Flaunch"
  },
  {
   "slug": "flaunch-docs-hooks",
@@ -865,6 +941,21 @@
   "url": "https://docs.flaunch.gg/references/hooks.md",
   "question_lines": [
    "Q1-V4GAP"
-  ]
+  ],
+  "title": "Hooks (Flaunch Docs)",
+  "authors_or_org": "Flaunch"
+ },
+ {
+  "slug": "geckoterminal-api-v2-swagger",
+  "kind": "json",
+  "ext": "json",
+  "url": "https://api.geckoterminal.com/docs/v2/swagger.json",
+  "question_lines": [
+   "Q1-V4GAP",
+   "Q8-V4MEASURE"
+  ],
+  "title": "GeckoTerminal Public API v2 (OpenAPI/Swagger definition)",
+  "authors_or_org": "GeckoTerminal (CoinGecko)",
+  "access_notes": "the engine's V4 pool list came from GeckoTerminal pool listings (bot/src/research/tokens.ts, bot/src/pools/v4file.ts); this is the API definition incl. pagination and rate-limit text"
  }
 ]

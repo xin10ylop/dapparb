@@ -11,3 +11,10 @@
 [run_scan 2026-09-30T22:14:53Z] scan-mainnet-config first block scanned
 [run_scan 2026-09-30T22:15:08Z] scan-arbitrum-config first block scanned
 [run_scan 2026-09-30T22:18:18Z] scan-base-config first block scanned
+[run_engine_detect 2026-09-30T22:19:43Z] selftest-engine attempt 1 started pid=26230 flags: --chain selftestchain --mode dry --contract  --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/selftest-engine.jsonl --source logs
+[run_engine_detect 2026-09-30T22:19:48Z] GAP selftest-engine: attempt 1: engine exited before 'searcher ready' (exit=1; log collect/selftest-engine.attempt1.log)
+[run_engine_detect 2026-09-30T22:20:48Z] selftest-engine attempt 2 started pid=26666 flags: --chain selftestchain --mode dry --contract  --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/selftest-engine.jsonl --source logs
+[run_engine_detect 2026-09-30T22:20:53Z] GAP selftest-engine: attempt 2: engine exited before 'searcher ready' (exit=1; log collect/selftest-engine.attempt2.log)
+[run_engine_detect 2026-09-30T22:21:53Z] selftest-engine attempt 3 started pid=27155 flags: --chain selftestchain --mode dry --contract  --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/selftest-engine.jsonl --source logs
+[run_engine_detect 2026-09-30T22:21:58Z] GAP selftest-engine: attempt 3: engine exited before 'searcher ready' (exit=1; log collect/selftest-engine.attempt3.log)
+[run_engine_detect 2026-09-30T22:21:58Z] GAP selftest-engine: giving up after 3 attempts; last: engine exited before 'searcher ready'

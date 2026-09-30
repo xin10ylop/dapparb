@@ -1459,5 +1459,20 @@
   "access_notes": "HTTP 200, 8922 bytes, saved unchanged",
   "status": "ok",
   "fetched_at": "2026-09-30T22:17:51Z"
+ },
+ "geckoterminal-api-v2-swagger": {
+  "url": "https://api.geckoterminal.com/docs/v2/swagger.json",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/geckoterminal-api-v2-swagger.body.json.gz"
+  ],
+  "text_files": [
+   "texts/geckoterminal-api-v2-swagger.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 60383 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:21:45Z"
  }
 }

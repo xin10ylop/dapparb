@@ -1,0 +1,14 @@
+# 2026-09-30T22:19:43Z attempt 1 cmd: LOG_JSON=1 node --import tsx --import /home/user/dapparb/research-material/07-other-chains-engine/collect/exit-flush.mjs src/main.ts --chain selftestchain --mode dry --contract  --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/selftest-engine.jsonl --source logs  (SIGINT 1 min after 'searcher ready')
+/home/user/dapparb/bot/src/config/chains.ts:330
+  if (!c) throw new Error(`unknown chain '${name}' (known: ${Object.keys(CHAINS).join(", ")})`);
+                ^
+
+Error: unknown chain 'selftestchain' (known: base, arbitrum, mainnet)
+    at getChain (/home/user/dapparb/bot/src/config/chains.ts:330:17)
+    at <anonymous> (/home/user/dapparb/bot/src/main.ts:50:13)
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:665:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+
+Node.js v22.22.2
+exit=1
