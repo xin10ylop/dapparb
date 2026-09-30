@@ -88,7 +88,9 @@ export async function discoverV4Pools(client: PublicClient, cfg: ChainConfig, to
   if (!a) return [];
   const universe = new Map(tokens.map((t) => [t.address.toLowerCase(), t] as const));
   const weth = tokens.find((t) => t.address.toLowerCase() === cfg.weth.toLowerCase());
-  const gt = (await fetchTopPools(cfg, pages)).filter((p) => p.dex.startsWith("uniswap-v4") && /^0x[0-9a-f]{64}$/i.test(p.address));
+  const all = await fetchTopPools(cfg, pages);
+  const gt = all.filter((p) => p.dex.startsWith("uniswap-v4") && /^0x[0-9a-f]{64}$/i.test(p.address));
+  log.info({ listed: all.length, v4: gt.length, dexes: [...new Set(all.map((p) => p.dex))].filter((d) => d.includes("v4")) }, "uniswap v4 candidates");
   if (gt.length === 0) return [];
   const keys = await multicallChunked(
     client,

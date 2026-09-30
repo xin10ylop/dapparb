@@ -63,9 +63,10 @@ async function fetchTopPoolsUncached(cfg: ChainConfig, pages: number): Promise<G
       const a = p.attributes;
       const base = String(p.relationships?.base_token?.data?.id ?? "").split("_")[1];
       const quote = String(p.relationships?.quote_token?.data?.id ?? "").split("_")[1];
-      if (!base || !quote || !isAddress(base) || !isAddress(quote) || !isAddress(a.address)) continue;
+      const isV4Id = /^0x[0-9a-f]{64}$/i.test(String(a.address));
+      if (!base || !quote || !isAddress(base) || !isAddress(quote) || (!isAddress(a.address) && !isV4Id)) continue;
       out.push({
-        address: getAddress(a.address),
+        address: (isV4Id ? String(a.address).toLowerCase() : getAddress(a.address)) as Address,
         name: a.name,
         dex: p.relationships?.dex?.data?.id ?? "?",
         volume24h: Number(a.volume_usd?.h24 ?? 0),
