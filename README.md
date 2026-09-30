@@ -10,13 +10,14 @@ Read [`docs/ANALYSIS.md`](docs/ANALYSIS.md) first if you only care about the ans
 
 | Component | Path | Status |
 |---|---|---|
-| `ArbExecutor` — flash-swap arbitrage executor (Uniswap V2/V3 & forks, Aerodrome V2/Slipstream, PancakeSwap V2/V3; Morpho/Aave/Balancer flash-loan fallback) | `contracts/src/ArbExecutor.sol` | 21 fork tests passing on Base |
+| `ArbExecutor` — flash-swap arbitrage executor (Uniswap V2/V3/V4 & forks, Aerodrome V2/Slipstream, PancakeSwap V2/V3; Morpho/Aave/Balancer flash-loan fallback) | `contracts/src/ArbExecutor.sol` | 25 fork tests passing on Base |
 | `LeverageManager` — one-transaction leveraged long/short on Aave V3 (the "trade crypto you don't have" strategy) | `contracts/src/LeverageManager.sol` | 6 fork tests passing on Base |
 | Searcher bot — pool discovery, bit-exact local AMM math, 2-hop + triangular cycle search, Flashblocks (200 ms) state source, eth_call simulation, EIP-1559 / Flashbots submission | `bot/src` | validated end-to-end on an Anvil fork |
 | Empirical scanner — records every gross- and net-profitable cycle per block, with persistence analysis | `bot/src/research/scan.ts` | results in `docs/ANALYSIS.md` |
 | Leverage CLI — builds/sends `LeverageManager` calls with a Uniswap V3 route | `bot/src/cli/leverage.ts` | |
 
 Supported chains out of the box: **Base** (primary; Flashblocks + preconf RPC), Arbitrum, Ethereum mainnet (Flashbots).
+Uniswap V4 pools (hookless, static fee, incl. native-ETH pairs) are priced with the same engine via `StateView` and executed through the PoolManager's flash accounting.
 
 ## Design decisions that differ from the videos (and why)
 
@@ -80,7 +81,7 @@ is liquidated at roughly a 40 % drawdown; see the risk notes in `docs/ANALYSIS.m
 ## Tests
 
 ```bash
-cd contracts && forge test -vv                               # 27 fork tests (Base)
+cd contracts && forge test -vv                               # 31 fork tests (Base)
 cd bot && npx tsx --test src/math/v2.test.ts                 # integer math
 cd bot && npx tsx --test src/math/v3.live.test.ts            # local V3 sim vs on-chain quoters (live)
 cd bot && npx tsx --test src/arb/pipeline.fork.test.ts       # push a pool on Anvil → search → simulate → send
