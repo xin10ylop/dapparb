@@ -67,7 +67,7 @@ export const OP_GAS_ORACLE_ABI = parseAbi([
 ]);
 
 export const ARB_EXECUTOR_ABI = parseAbi([
-  "struct Hop { address pool; uint8 kind; bool zeroForOne; address tokenIn; address tokenOut; uint256 amountOut; uint16 feeBps; }",
+  "struct Hop { address pool; uint8 kind; bool zeroForOne; address tokenIn; address tokenOut; uint256 amountOut; uint16 feeBps; uint24 fee; int24 tickSpacing; address hooks; }",
   "function execute(Hop[] hops, uint256 amountIn, uint256 minProfit, uint256 maxBlock) returns (uint256 profit)",
   "function executeFlashLoan(uint8 provider, Hop[] hops, uint256 amountIn, uint256 minProfit, uint256 maxBlock) returns (uint256 profit)",
   "function withdraw(address token, uint256 amount, address to)",

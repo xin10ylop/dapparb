@@ -35,7 +35,7 @@ contract ArbExecutorTest is Test {
     function setUp() public {
         string memory rpc = vm.envOr("BASE_RPC_URL", string("https://base-rpc.publicnode.com"));
         vm.createSelectFork(rpc);
-        exec = new ArbExecutor(MORPHO, AAVE, BALANCER);
+        exec = new ArbExecutor(MORPHO, AAVE, BALANCER, WETH);
         exec.setExecutor(bot, true);
         // WETH/USDC token ordering: WETH (0x42..) < USDC (0x83..) so WETH is token0 in every pool.
         assertEq(IV3Pool(UNIV3_500).token0(), WETH);
@@ -79,7 +79,7 @@ contract ArbExecutorTest is Test {
     }
 
     function _hop(address pool, uint8 kind, bool z4o, address tIn, address tOut, uint16 fee) internal pure returns (ArbExecutor.Hop memory) {
-        return ArbExecutor.Hop({pool: pool, kind: kind, zeroForOne: z4o, tokenIn: tIn, tokenOut: tOut, amountOut: 0, feeBps: fee});
+        return ArbExecutor.Hop({pool: pool, kind: kind, zeroForOne: z4o, tokenIn: tIn, tokenOut: tOut, amountOut: 0, feeBps: fee, fee: 0, tickSpacing: 0, hooks: address(0)});
     }
 
     /// @dev After pushing WETH into `cheap` (ETH is now cheaper there), the arb is:

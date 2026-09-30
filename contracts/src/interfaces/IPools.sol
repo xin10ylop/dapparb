@@ -45,3 +45,31 @@ interface IAaveV3Pool {
 interface IBalancerVault {
     function flashLoan(address recipient, address[] memory tokens, uint256[] memory amounts, bytes memory userData) external;
 }
+
+/// @dev Uniswap V4 PoolManager (singleton, flash accounting via unlock/settle/take).
+interface IPoolManager {
+    struct PoolKey {
+        address currency0;
+        address currency1;
+        uint24 fee;
+        int24 tickSpacing;
+        address hooks;
+    }
+
+    struct SwapParams {
+        bool zeroForOne;
+        int256 amountSpecified; // negative = exact input
+        uint160 sqrtPriceLimitX96;
+    }
+
+    function unlock(bytes calldata data) external returns (bytes memory);
+    function swap(PoolKey memory key, SwapParams memory params, bytes calldata hookData) external returns (int256 balanceDelta);
+    function sync(address currency) external;
+    function settle() external payable returns (uint256);
+    function take(address currency, address to, uint256 amount) external;
+}
+
+interface IWETH9 {
+    function deposit() external payable;
+    function withdraw(uint256) external;
+}

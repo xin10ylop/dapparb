@@ -133,6 +133,14 @@ async function main() {
   let pendingTrigger: { block: bigint; index: number } | null = null;
   let lastForce = 0;
   const inFlight = new Map<string, number>(); // route key -> tick index when sent (avoid double-sending)
+  /** Routes whose simulation reverted repeatedly (transfer-restricted tokens, paused pools, mispriced pools). */
+  const revertCount = new Map<string, number>();
+  const blacklistUntil = new Map<string, number>(); // route key or token -> tick index
+  const isBlacklisted = (routeKey: string, tokens: string[]) => {
+    const now = stats.ticks;
+    if ((blacklistUntil.get(routeKey) ?? -1) > now) return true;
+    return tokens.some((t) => (blacklistUntil.get(t) ?? -1) > now);
+  };
 
   async function tick(trigger: { block: bigint; index: number }) {
     if (busy) {
@@ -198,16 +206,37 @@ async function main() {
           continue;
         }
         const routeKey = rec.pools.join("|");
+        const routeTokens = c.o.hops.map((h) => h.tokenIn.toLowerCase());
+        if (isBlacklisted(routeKey, routeTokens)) continue;
         if ((inFlight.get(routeKey) ?? -10) > stats.ticks - 3) continue; // sent recently, wait for outcome
         stats.simulated++;
         const minProfit = 1n; // the contract enforces > 0; we decide on simulated numbers below
-        const sim = await executor.simulate(c.o, minProfit, usePending ? "pending" : "latest");
+        let sim = await executor.simulate(c.o, minProfit, usePending ? "pending" : "latest");
         rec.sim = sim.ok ? { profitUsd: +(toEth(prices, c.o.token, sim.profit!, decimalsOf.get(c.o.token.toLowerCase()) ?? 18) * ethUsd).toFixed(4), gas: Number(sim.gasUsed), ms: sim.latencyMs } : { error: sim.error, ms: sim.latencyMs };
+        if (!sim.ok && usePending && /unknown reason/.test(sim.error ?? "")) {
+          // Dataless revert at `pending` on the preconf endpoint: cross-check at `latest` on the main RPC to separate
+          // an endpoint artifact (pending block being rebuilt) from a real revert.
+          const again = await executor.simulateWith(client, c.o, minProfit, "latest");
+          rec.simLatest = again.ok ? { profitUsd: +(toEth(prices, c.o.token, again.profit!, decimalsOf.get(c.o.token.toLowerCase()) ?? 18) * ethUsd).toFixed(4), ms: again.latencyMs } : { error: again.error, ms: again.latencyMs };
+          if (again.ok) sim = again;
+        }
         if (!sim.ok) {
+          const n = (revertCount.get(routeKey) ?? 0) + 1;
+          revertCount.set(routeKey, n);
+          // Three strikes: park the route for ~10 minutes of ticks. A dataless revert is almost always a token that
+          // blocks contract transfers; park the non-base token too so its other routes stop wasting simulations.
+          if (n >= 3) {
+            blacklistUntil.set(routeKey, stats.ticks + 3000);
+            if (/unknown reason|0x$/.test(sim.error ?? "")) {
+              for (const t of routeTokens) if (t !== cfg.weth.toLowerCase() && t !== cfg.usdc.toLowerCase()) blacklistUntil.set(t, stats.ticks + 3000);
+            }
+            rec.blacklisted = true;
+          }
           log.info(rec, "simulation reverted");
           out.write(JSON.stringify(rec) + "\n");
           continue;
         }
+        revertCount.delete(routeKey);
         stats.simOk++;
         const simProfitEth = toEth(prices, c.o.token, sim.profit!, decimalsOf.get(c.o.token.toLowerCase()) ?? 18);
         const gasUsed = sim.gasUsed && sim.gasUsed > 0n ? sim.gasUsed : c.o.gasEstimate;

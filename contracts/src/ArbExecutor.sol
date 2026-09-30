@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
-import {IERC20, IV3Pool, IV2Pair, IAeroPool, IMorpho, IAaveV3Pool, IBalancerVault} from "./interfaces/IPools.sol";
+import {IERC20, IV3Pool, IV2Pair, IAeroPool, IMorpho, IAaveV3Pool, IBalancerVault, IPoolManager, IWETH9} from "./interfaces/IPools.sol";
 
 /// @title ArbExecutor
 /// @notice Atomic multi-hop DEX arbitrage executor.
@@ -24,6 +24,7 @@ contract ArbExecutor {
     uint8 internal constant KIND_AERO_V2 = 1; // pool.getAmountOut(), callback hook
     uint8 internal constant KIND_V3 = 2; // uniswapV3SwapCallback (UniV3, SushiV3, Slipstream)
     uint8 internal constant KIND_PANCAKE_V3 = 3; // pancakeV3SwapCallback
+    uint8 internal constant KIND_V4 = 4; // Uniswap V4 PoolManager: pool = manager, key from (fee, tickSpacing, hooks)
 
     uint8 internal constant PROVIDER_MORPHO = 0;
     uint8 internal constant PROVIDER_AAVE = 1;
@@ -32,15 +33,19 @@ contract ArbExecutor {
     struct Hop {
         address pool;
         uint8 kind;
-        bool zeroForOne; // tokenIn == token0
-        address tokenIn;
+        bool zeroForOne; // tokenIn == token0 / currency0
+        address tokenIn; // V4: the pool currency (address(0) = native ETH, bridged from/to WETH by this contract)
         address tokenOut;
         uint256 amountOut; // V2 hop 0 only: exact output to request (computed off-chain); otherwise 0
         uint16 feeBps; // KIND_UNIV2 only: LP fee in bps (30 = 0.30%)
+        uint24 fee; // KIND_V4 only: pool key fee
+        int24 tickSpacing; // KIND_V4 only
+        address hooks; // KIND_V4 only
     }
 
     uint8 internal constant MODE_FLASH = 1; // hop-0 callback: run remaining hops then repay
     uint8 internal constant MODE_PAY = 2; // nested V3 hop callback: just pay what the pool asks
+    uint8 internal constant MODE_V4_SWAP = 3; // V4 unlock callback for a single nested hop
 
     uint160 internal constant MIN_SQRT_RATIO_PLUS_ONE = 4295128740;
     uint160 internal constant MAX_SQRT_RATIO_MINUS_ONE = 1461446703485210103287273052203988822378723970341;
@@ -78,6 +83,7 @@ contract ArbExecutor {
     address public immutable MORPHO;
     address public immutable AAVE_POOL;
     address public immutable BALANCER_VAULT;
+    address public immutable WETH;
 
     modifier onlyOwner() {
         if (msg.sender != owner) revert NotOwner();
@@ -89,12 +95,13 @@ contract ArbExecutor {
         _;
     }
 
-    constructor(address morpho, address aavePool, address balancerVault) {
+    constructor(address morpho, address aavePool, address balancerVault, address weth) {
         owner = msg.sender;
         executors[msg.sender] = true;
         MORPHO = morpho;
         AAVE_POOL = aavePool;
         BALANCER_VAULT = balancerVault;
+        WETH = weth;
     }
 
     receive() external payable {}
@@ -144,16 +151,19 @@ contract ArbExecutor {
     {
         if (maxBlock != 0 && block.number > maxBlock) revert Expired(block.number, maxBlock);
         uint256 n = hops.length;
-        if (n < 2 || hops[0].tokenIn != hops[n - 1].tokenOut) revert BadRoute();
+        if (n < 2 || _norm(hops[0].tokenIn) != _norm(hops[n - 1].tokenOut)) revert BadRoute();
 
-        address token = hops[0].tokenIn;
+        address token = _norm(hops[0].tokenIn);
         uint256 balBefore = IERC20(token).balanceOf(address(this));
 
         Hop calldata h0 = hops[0];
         bytes memory data = abi.encode(MODE_FLASH, hops, amountIn);
         _tstore(T_EXPECTED_CALLER, bytes32(uint256(uint160(h0.pool))));
 
-        if (h0.kind == KIND_V3 || h0.kind == KIND_PANCAKE_V3) {
+        if (h0.kind == KIND_V4) {
+            // V4 flash accounting: take the output inside unlock, run the rest, settle the input at the end.
+            IPoolManager(h0.pool).unlock(data);
+        } else if (h0.kind == KIND_V3 || h0.kind == KIND_PANCAKE_V3) {
             IV3Pool(h0.pool).swap(
                 address(this),
                 h0.zeroForOne,
@@ -184,8 +194,8 @@ contract ArbExecutor {
     {
         if (maxBlock != 0 && block.number > maxBlock) revert Expired(block.number, maxBlock);
         uint256 n = hops.length;
-        if (n < 2 || hops[0].tokenIn != hops[n - 1].tokenOut) revert BadRoute();
-        address token = hops[0].tokenIn;
+        if (n < 2 || _norm(hops[0].tokenIn) != _norm(hops[n - 1].tokenOut)) revert BadRoute();
+        address token = _norm(hops[0].tokenIn);
         uint256 balBefore = IERC20(token).balanceOf(address(this));
         bytes memory data = abi.encode(hops, amountIn);
 
@@ -274,6 +284,76 @@ contract ArbExecutor {
         _v2Callback(amount0, amount1, data);
     }
 
+    /// @dev Uniswap V4 unlock callback. MODE_FLASH: hop 0 is a V4 pool (flash accounting). MODE_V4_SWAP: a single
+    ///      nested V4 hop executed while another pool's callback is on the stack.
+    function unlockCallback(bytes calldata data) external returns (bytes memory) {
+        _checkCaller();
+        uint8 mode = abi.decode(data, (uint8));
+        IPoolManager pm = IPoolManager(msg.sender);
+        if (mode == MODE_V4_SWAP) {
+            (, Hop memory h, uint256 amountIn) = abi.decode(data, (uint8, Hop, uint256));
+            uint256 out = _v4Swap(pm, h, amountIn);
+            _v4Settle(pm, h.tokenIn, amountIn);
+            _v4Take(pm, h.tokenOut, out);
+            return abi.encode(out);
+        }
+        (, Hop[] memory hops, uint256 amountIn) = abi.decode(data, (uint8, Hop[], uint256));
+        Hop memory h0 = hops[0];
+        uint256 received = _v4Swap(pm, h0, amountIn);
+        _v4Take(pm, h0.tokenOut, received); // output first (flash), input settled after the other hops
+        _runRest(hops, received);
+        uint256 have = IERC20(_norm(h0.tokenIn)).balanceOf(address(this));
+        if (have < amountIn) revert CannotRepay(have, amountIn);
+        _v4Settle(pm, h0.tokenIn, amountIn);
+        return "";
+    }
+
+    function _v4Swap(IPoolManager pm, Hop memory h, uint256 amountIn) internal returns (uint256 amountOut) {
+        IPoolManager.PoolKey memory key = IPoolManager.PoolKey({
+            currency0: h.zeroForOne ? h.tokenIn : h.tokenOut,
+            currency1: h.zeroForOne ? h.tokenOut : h.tokenIn,
+            fee: h.fee,
+            tickSpacing: h.tickSpacing,
+            hooks: h.hooks
+        });
+        int256 delta = pm.swap(
+            key,
+            IPoolManager.SwapParams({
+                zeroForOne: h.zeroForOne,
+                amountSpecified: -int256(amountIn),
+                sqrtPriceLimitX96: h.zeroForOne ? MIN_SQRT_RATIO_PLUS_ONE : MAX_SQRT_RATIO_MINUS_ONE
+            }),
+            ""
+        );
+        int128 a0 = int128(delta >> 128);
+        int128 a1 = int128(delta);
+        int128 outDelta = h.zeroForOne ? a1 : a0;
+        if (outDelta <= 0) revert BadRoute();
+        amountOut = uint256(uint128(outDelta));
+    }
+
+    /// @dev Pay `amount` of `currency` to the PoolManager; native ETH is sourced by unwrapping WETH.
+    function _v4Settle(IPoolManager pm, address currency, uint256 amount) internal {
+        if (currency == address(0)) {
+            IWETH9(WETH).withdraw(amount);
+            pm.settle{value: amount}();
+        } else {
+            pm.sync(currency);
+            _safeTransfer(currency, address(pm), amount);
+            pm.settle();
+        }
+    }
+
+    /// @dev Receive `amount` of `currency` from the PoolManager; native ETH is wrapped to WETH.
+    function _v4Take(IPoolManager pm, address currency, uint256 amount) internal {
+        pm.take(currency, address(this), amount);
+        if (currency == address(0)) IWETH9(WETH).deposit{value: amount}();
+    }
+
+    function _norm(address currency) internal view returns (address) {
+        return currency == address(0) ? WETH : currency;
+    }
+
     // ---------------------------------------------------------------------------------------------
     // Internals
     // ---------------------------------------------------------------------------------------------
@@ -322,7 +402,11 @@ contract ArbExecutor {
     }
 
     function _swap(Hop memory h, uint256 amountIn) internal returns (uint256 amountOut) {
-        if (h.kind == KIND_V3 || h.kind == KIND_PANCAKE_V3) {
+        if (h.kind == KIND_V4) {
+            _tstore(T_EXPECTED_CALLER, bytes32(uint256(uint160(h.pool))));
+            bytes memory ret = IPoolManager(h.pool).unlock(abi.encode(MODE_V4_SWAP, h, amountIn));
+            amountOut = abi.decode(ret, (uint256));
+        } else if (h.kind == KIND_V3 || h.kind == KIND_PANCAKE_V3) {
             _tstore(T_EXPECTED_CALLER, bytes32(uint256(uint160(h.pool))));
             (int256 a0, int256 a1) = IV3Pool(h.pool).swap(
                 address(this),

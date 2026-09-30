@@ -39,10 +39,17 @@ contract Deploy is Script {
         revert("unsupported chain");
     }
 
+    function weth(uint256 chainId) internal pure returns (address) {
+        if (chainId == 8453) return 0x4200000000000000000000000000000000000006;
+        if (chainId == 42161) return 0x82aF49447D8a07e3bd95BD0d56f35241523fBab1;
+        if (chainId == 1) return 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
+        revert("unsupported chain");
+    }
+
     function run() external {
         Providers memory p = providers(block.chainid);
         vm.startBroadcast();
-        ArbExecutor exec = new ArbExecutor(p.morpho, p.aave, p.balancer);
+        ArbExecutor exec = new ArbExecutor(p.morpho, p.aave, p.balancer, weth(block.chainid));
         address bot = vm.envOr("EXECUTOR_BOT", address(0));
         if (bot != address(0)) exec.setExecutor(bot, true);
         vm.stopBroadcast();
