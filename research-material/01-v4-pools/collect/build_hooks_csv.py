@@ -9,8 +9,8 @@ Counts: pool_count_so_far = Initialize events per hook in the Initialize data av
 contiguous block ranges covered. pool_count_7d = same count over the V4RECENT 7-day Initialize window (complete for that window).
 Label precedence for the single 'label' column (deterministic, no judgement): (1) the launchpad's own docs/repositories
 (Zora, Clanker, Flaunch, Doppler, Bunni), (2) Zora on-chain ZoraHookRegistry event, (3) Uniswap hooklist entry, (4) third-party
-code lists (Uniswap routing-api allowlist, KyberSwap dex-lib), (5) Blockscout verified contract name. All sources are kept in
-hook-labels-long.csv with verbatim evidence."""
+code lists (Uniswap routing-api allowlist, KyberSwap dex-lib, Uniswap docs), (5) Blockscout verified contract name. All sources are
+kept in hook-labels-long.csv with verbatim evidence. address(0) gets no labels (document mentions of the zero address are ignored)."""
 import csv, gzip, json, os, re, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import HOOK_FLAG_COLUMNS, hook_flags
@@ -50,11 +50,12 @@ if os.path.exists(zp):
     for r in csv.DictReader(open(zp)):
         zr.setdefault(r["hook"], []).append(r)
 
-PROJECT = [
-    (r"docs\.zora\.co|/ourzora/", "Zora", 1), (r"clanker\.gitbook\.io|/clanker-devco/", "Clanker", 1),
-    (r"flaunch|/flayerlabs/", "Flaunch", 1), (r"docs\.doppler\.lol", "Doppler", 1), (r"/Bunniapp/", "Bunni", 1),
+PROJECT = [  # first match wins; third-party sources are matched first so that e.g. ".../hooks/flaunch/..." in a KyberSwap path is not
+    # attributed to the launchpad itself
     (r"/Uniswap/routing-api/", "Uniswap routing-api allowlist", 4), (r"/KyberNetwork/", "KyberSwap dex-lib", 4),
-    (r"/Uniswap/docs/|docs\.uniswap\.org|/Uniswap/v4-core/", "Uniswap docs", 4),
+    (r"/Uniswap/docs/|docs\.uniswap\.org|/Uniswap/v4-core/|/Uniswap/v4-periphery/", "Uniswap docs", 4),
+    (r"docs\.zora\.co|/ourzora/", "Zora", 1), (r"clanker\.gitbook\.io|/clanker-devco/", "Clanker", 1),
+    (r"docs\.flaunch\.gg|/flayerlabs/", "Flaunch", 1), (r"docs\.doppler\.lol", "Doppler", 1), (r"/Bunniapp/", "Bunni", 1),
 ]
 docs = {}
 with gzip.open(os.path.join(D, "doc-address-excerpts.csv.gz"), "rt", newline="") as f:
@@ -78,7 +79,7 @@ long_rows, out_rows = [], []
 for h in sorted(hooks, key=lambda x: (-counts.get(x, (0,))[0], -c7.get(x, 0), x)):
     labels = []  # (prio, label, url, evidence, source_kind)
     b = bs.get(h, {})
-    for r in docs.get(h, []):
+    for r in (docs.get(h, []) if h != ZERO else []):  # address(0) = no hook: document mentions of 0x0 are not hook labels
         name, prio = proj(r["url"])
         labels.append((prio, name + ((" (" + b["name"] + ")") if b.get("name") else ""), r["url"], r["line_verbatim"], "document"))
     for r in zr.get(h, []):
