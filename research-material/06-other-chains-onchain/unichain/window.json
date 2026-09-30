@@ -1,0 +1,109 @@
+{
+ "chain": "unichain",
+ "head_at_pin": 60054092,
+ "end_tag": "latest",
+ "head_margin": 10,
+ "start_block": 60050483,
+ "end_block": 60054082,
+ "start_timestamp": 1790798842,
+ "end_timestamp": 1790802441,
+ "window_rule": "all blocks with timestamp in (end_timestamp - 3600 s, end_timestamp]",
+ "window_seconds_requested": 3600,
+ "pinned_at_utc": "2026-09-30T21:07:32Z",
+ "chain_id": 130,
+ "endpoints": {
+  "primary": "https://unichain-rpc.publicnode.com",
+  "fallbacks": [
+   "https://unichain.drpc.org",
+   "https://mainnet.unichain.org"
+  ]
+ },
+ "config": {
+  "chain_id": 130,
+  "window_s": 3600,
+  "end_tag": "latest",
+  "head_margin": 10,
+  "batch": 8,
+  "seg_blocks": 600,
+  "nominal_interval": 1.0,
+  "sentinel": "EVM_CENSUS_UNICHAIN",
+  "extra_logs": {},
+  "extra_data_text": false
+ },
+ "status": "complete",
+ "collector": "census.py",
+ "finalized_at_utc": "2026-09-30T21:07:44Z",
+ "n_blocks_in_window": 3600,
+ "measured_block_interval_s": 1.0,
+ "measured_block_interval_note": "(end_timestamp - start_timestamp) / (end_block - start_block); timestamps have 1 s resolution",
+ "counts": {
+  "blocks_written": 3600,
+  "txs": 30272,
+  "reverted": 123,
+  "candidates_A": 170,
+  "candidates_B": 169,
+  "extra": {},
+  "receipts_not_in_block_tx_list": 0,
+  "distinct_topic0_keys": 164,
+  "gap_blocks": 0
+ },
+ "files": {
+  "blocks": {
+   "files": [
+    "blocks.csv.gz"
+   ],
+   "lines_including_headers": 3601,
+   "sizes_bytes": {
+    "blocks.csv.gz": 187562
+   }
+  },
+  "txs": {
+   "files": [
+    "txs-001.csv.gz"
+   ],
+   "lines_including_headers": 30273,
+   "sizes_bytes": {
+    "txs-001.csv.gz": 1441318
+   }
+  },
+  "reverted": {
+   "files": [
+    "reverted-001.csv.gz"
+   ],
+   "lines_including_headers": 124,
+   "sizes_bytes": {
+    "reverted-001.csv.gz": 10246
+   }
+  },
+  "candidates": {
+   "files": [
+    "candidates-001.jsonl.gz"
+   ],
+   "lines_including_headers": 339,
+   "sizes_bytes": {
+    "candidates-001.jsonl.gz": 193589
+   }
+  }
+ },
+ "checks": {
+  "parent_hash_breaks_at": [],
+  "blocks_missing_from_blocks_csv": [],
+  "n_blocks_missing": 0,
+  "canonical_recheck": {
+   "60050483": {
+    "rpc_hash": "0xf28b5ba0bbed9f96893143a4c5dd241f5bc0272e3527bca14edc047aa1295523",
+    "stored_hash": "0xf28b5ba0bbed9f96893143a4c5dd241f5bc0272e3527bca14edc047aa1295523",
+    "match": true
+   },
+   "60054082": {
+    "rpc_hash": "0x4e44fd41d9f0da9a80c32dd4cfe270bbf4a30760966931dac4f0974c91676778",
+    "stored_hash": "0x4e44fd41d9f0da9a80c32dd4cfe270bbf4a30760966931dac4f0974c91676778",
+    "match": true
+   }
+  }
+ },
+ "rpc_requests_by_endpoint": {
+  "https://unichain-rpc.publicnode.com": 450
+ },
+ "rpc_errors_by_endpoint_kind": {}
+}
