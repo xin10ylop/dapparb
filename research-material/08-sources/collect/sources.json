@@ -201,16 +201,6 @@
   ]
  },
  {
-  "slug": "arxiv-2603.13830-bsc-meme-token-rug-pull-warning",
-  "kind": "arxiv",
-  "id": "2603.13830",
-  "question_lines": [
-   "Q2-OLDV2",
-   "Q3-SMALLPOOLS",
-   "Q4-OTHERCHAINS"
-  ]
- },
- {
   "slug": "arxiv-2604.00234-wang-saraf-heimbach-babel-zhang-blockspace-under-pressure",
   "kind": "arxiv",
   "id": "2604.00234",
@@ -331,13 +321,16 @@
  },
  {
   "slug": "flashbots-collective-dealing-with-spam-onchain-searching",
-  "kind": "html",
+  "kind": "discourse",
   "url": "https://collective.flashbots.net/t/dealing-with-spam-caused-by-on-chain-searching/3381",
   "question_lines": [
    "Q5-CONTEST",
    "Q7-PROFIT-28"
   ],
-  "access_notes": "cited by arXiv 2606.00720 as [31]"
+  "access_notes": "cited by arXiv 2606.00720 as [31]; fetched through the Discourse /raw and .json endpoints (the HTML page renders its posts client-side)",
+  "base": "https://collective.flashbots.net",
+  "topic_id": 3381,
+  "authors": "Quintus Kilbourn (opening post) and forum participants"
  },
  {
   "slug": "docs-optimism-stake-based-priority-ordering",
@@ -475,14 +468,6 @@
   ]
  },
  {
-  "slug": "arxiv-2609.18975-sniper-cohorts-solana-memecoins",
-  "kind": "arxiv",
-  "id": "2609.18975",
-  "question_lines": [
-   "Q5-V4LAUNCH"
-  ]
- },
- {
   "slug": "arxiv-2507.01963-midsummer-memes-dream-meme-coin-manipulation",
   "kind": "arxiv",
   "id": "2507.01963",
@@ -499,14 +484,6 @@
    "Q2-OLDV2",
    "Q3-SMALLPOOLS",
    "Q5-V4LAUNCH"
-  ]
- },
- {
-  "slug": "arxiv-2512.00377-measuring-memecoin-fragility",
-  "kind": "arxiv",
-  "id": "2512.00377",
-  "question_lines": [
-   "Q2-OLDV2"
   ]
  },
  {
@@ -730,6 +707,128 @@
   "question_lines": [
    "Q5-V4LAUNCH",
    "Q1-V4GAP"
+  ]
+ },
+ {
+  "slug": "arxiv-2405.00138-torres-et-al-rolling-in-the-shadows",
+  "kind": "arxiv",
+  "id": "2405.00138",
+  "question_lines": [
+   "Q7-CHAINWIDE-METHOD"
+  ],
+  "access_notes": "arbitrage detection method that arXiv 2509.22143 and 2607.24172 state they build on (2024 paper)"
+ },
+ {
+  "slug": "docs-dune-dex-trades-overview",
+  "kind": "html",
+  "url": "https://docs.dune.com/data-catalog/curated/dex-trades/overview",
+  "question_lines": [
+   "Q7-CHAINWIDE-METHOD"
+  ],
+  "access_notes": "Dune dex.trades is the swap table used by arXiv 2506.14768, which arXiv 2606.00720 extends"
+ },
+ {
+  "slug": "dune-spellbook-dex-base-base-trades-sql",
+  "kind": "text",
+  "ext": "sql",
+  "url": "https://raw.githubusercontent.com/duneanalytics/spellbook/main/dbt_subprojects/dex/models/trades/base/dex_base_base_trades.sql",
+  "question_lines": [
+   "Q7-CHAINWIDE-METHOD",
+   "Q1-V4GAP"
+  ],
+  "access_notes": "Dune Spellbook (main branch at fetch time): the list of DEX project models unioned into dex.trades for Base"
+ },
+ {
+  "slug": "dune-spellbook-uniswap-v4-base-base-trades-sql",
+  "kind": "text",
+  "ext": "sql",
+  "url": "https://raw.githubusercontent.com/duneanalytics/spellbook/main/dbt_subprojects/dex/models/trades/base/platforms/uniswap_v4_base_base_trades.sql",
+  "question_lines": [
+   "Q7-CHAINWIDE-METHOD",
+   "Q1-V4GAP"
+  ],
+  "access_notes": "Dune Spellbook (main branch at fetch time)"
+ },
+ {
+  "slug": "dune-spellbook-uniswap-v2-base-base-trades-sql",
+  "kind": "text",
+  "ext": "sql",
+  "url": "https://raw.githubusercontent.com/duneanalytics/spellbook/main/dbt_subprojects/dex/models/trades/base/platforms/uniswap_v2_base_base_trades.sql",
+  "question_lines": [
+   "Q7-CHAINWIDE-METHOD",
+   "Q2-OLDV2"
+  ],
+  "access_notes": "Dune Spellbook (main branch at fetch time)"
+ },
+ {
+  "slug": "dune-spellbook-aerodrome-base-base-trades-sql",
+  "kind": "text",
+  "ext": "sql",
+  "url": "https://raw.githubusercontent.com/duneanalytics/spellbook/main/dbt_subprojects/dex/models/trades/base/platforms/aerodrome_base_base_trades.sql",
+  "question_lines": [
+   "Q7-CHAINWIDE-METHOD"
+  ],
+  "access_notes": "Dune Spellbook (main branch at fetch time)"
+ },
+ {
+  "slug": "dune-spellbook-dex-arbitrum-base-trades-sql",
+  "kind": "text",
+  "ext": "sql",
+  "url": "https://raw.githubusercontent.com/duneanalytics/spellbook/main/dbt_subprojects/dex/models/trades/arbitrum/dex_arbitrum_base_trades.sql",
+  "question_lines": [
+   "Q7-CHAINWIDE-METHOD",
+   "Q4-OTHERCHAINS"
+  ],
+  "access_notes": "Dune Spellbook (main branch at fetch time)"
+ },
+ {
+  "slug": "dune-spellbook-dex-optimism-base-trades-sql",
+  "kind": "text",
+  "ext": "sql",
+  "url": "https://raw.githubusercontent.com/duneanalytics/spellbook/main/dbt_subprojects/dex/models/trades/optimism/dex_optimism_base_trades.sql",
+  "question_lines": [
+   "Q7-CHAINWIDE-METHOD",
+   "Q4-OTHERCHAINS"
+  ],
+  "access_notes": "Dune Spellbook (main branch at fetch time)"
+ },
+ {
+  "slug": "dune-spellbook-dex-bnb-base-trades-sql",
+  "kind": "text",
+  "ext": "sql",
+  "url": "https://raw.githubusercontent.com/duneanalytics/spellbook/main/dbt_subprojects/dex/models/trades/bnb/dex_bnb_base_trades.sql",
+  "question_lines": [
+   "Q7-CHAINWIDE-METHOD",
+   "Q4-OTHERCHAINS",
+   "Q6-BSCORDER"
+  ],
+  "access_notes": "Dune Spellbook (main branch at fetch time)"
+ },
+ {
+  "slug": "blog-uniswap-continuous-clearing-auctions",
+  "kind": "html",
+  "url": "https://blog.uniswap.org/continuous-clearing-auctions",
+  "question_lines": [
+   "Q5-V4LAUNCH",
+   "Q1-V4GAP"
+  ]
+ },
+ {
+  "slug": "blog-uniswap-launch-aggregator",
+  "kind": "html",
+  "url": "https://blog.uniswap.org/launch-aggregator-explore-top-uniswap-launchpads-in-one-place",
+  "question_lines": [
+   "Q1-V4GAP",
+   "Q5-V4LAUNCH"
+  ]
+ },
+ {
+  "slug": "arxiv-2609.10246-meme-coin-factories-pump-fun",
+  "kind": "arxiv",
+  "id": "2609.10246",
+  "question_lines": [
+   "Q5-V4LAUNCH",
+   "Q2-OLDV2"
   ]
  }
 ]

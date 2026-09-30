@@ -831,5 +831,179 @@
   "access_notes": "html v2 ok; pdf v2 15 pages",
   "status": "ok",
   "fetched_at": "2026-09-30T22:05:28Z"
+ },
+ "arxiv-2507.01963-midsummer-memes-dream-meme-coin-manipulation": {
+  "url": "https://arxiv.org/abs/2507.01963v2",
+  "title": "A Midsummer Meme's Dream: Investigating Market Manipulations in the Meme Coin Ecosystem",
+  "authors": "Mongardini, Alberto Maria; Mei, Alessandro",
+  "date": "v1 2025/04/16; latest v2; history: Submission history From: Alberto Maria Mongardini [ view email ] [v1] Wed, 16 Apr 2025 13:54:42 UTC (1,181 KB) [v2] Fri, 2 Jan 2026 09:49:45 UTC (258 KB)",
+  "raw_files": [
+   "raw/arxiv-2507.01963-midsummer-memes-dream-meme-coin-manipulation.abs.html.gz",
+   "raw/arxiv-2507.01963-midsummer-memes-dream-meme-coin-manipulation.html-v2.html.gz",
+   "raw/arxiv-2507.01963-midsummer-memes-dream-meme-coin-manipulation.pdf-v2.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2507.01963-midsummer-memes-dream-meme-coin-manipulation.txt.gz",
+   "texts/arxiv-2507.01963-midsummer-memes-dream-meme-coin-manipulation.pdf.txt.gz"
+  ],
+  "access_notes": "html v2 ok; pdf v2 19 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:05:37Z"
+ },
+ "arxiv-2601.22185-memechain-cross-chain-meme-coin-dataset": {
+  "url": "https://arxiv.org/abs/2601.22185v1",
+  "title": "MemeChain: A Multimodal Cross-Chain Dataset for Meme Coin Forensics and Risk Analysis",
+  "authors": "Mongardini, Alberto Maria; Mei, Alessandro",
+  "date": "v1 2026/01/28; latest v1; history: Submission history From: Alberto Maria Mongardini [ view email ] [v1] Wed, 28 Jan 2026 14:42:02 UTC (212 KB)",
+  "raw_files": [
+   "raw/arxiv-2601.22185-memechain-cross-chain-meme-coin-dataset.abs.html.gz",
+   "raw/arxiv-2601.22185-memechain-cross-chain-meme-coin-dataset.html-v1.html.gz",
+   "raw/arxiv-2601.22185-memechain-cross-chain-meme-coin-dataset.pdf-v1.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2601.22185-memechain-cross-chain-meme-coin-dataset.txt.gz",
+   "texts/arxiv-2601.22185-memechain-cross-chain-meme-coin-dataset.pdf.txt.gz"
+  ],
+  "access_notes": "html v1 ok; pdf v1 11 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:05:47Z"
+ },
+ "arxiv-2512.00377-measuring-memecoin-fragility": {
+  "url": "https://arxiv.org/abs/2512.00377v2",
+  "title": "Measuring Memecoin Fragility",
+  "authors": "Xiang, Yuexin; Fu, Qishuang; Li, Yuquan; Wang, Qin; Yuen, Tsz Hon; Yu, Jiangshan",
+  "date": "v1 2025/11/29; latest v2; history: Submission history From: Yuexin Xiang [ view email ] [v1] Sat, 29 Nov 2025 08:11:51 UTC (2,903 KB) [v2] Fri, 9 Jan 2026 03:14:38 UTC (2,903 KB)",
+  "raw_files": [
+   "raw/arxiv-2512.00377-measuring-memecoin-fragility.abs.html.gz",
+   "raw/arxiv-2512.00377-measuring-memecoin-fragility.html-v2.html.gz",
+   "raw/arxiv-2512.00377-measuring-memecoin-fragility.pdf-v2.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2512.00377-measuring-memecoin-fragility.txt.gz",
+   "texts/arxiv-2512.00377-measuring-memecoin-fragility.pdf.txt.gz"
+  ],
+  "access_notes": "html v2 ok; pdf v2 9 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:05:57Z"
+ },
+ "arxiv-2603.24625-rug-pull-scams-solana": {
+  "url": "https://arxiv.org/abs/2603.24625v2",
+  "title": "From Hype to Collapse: Investigating Rug Pull Scams on Solana",
+  "authors": "Chen, Jiaxin; Li, Ziwei; Jiang, Zigui; He, Ruihong; Zhou, Yantong; Wu, Jiajing; Zheng, Zibin",
+  "date": "v1 2026/03/25; latest v2; history: Submission history From: Jiaxin Chen [ view email ] [v1] Wed, 25 Mar 2026 02:31:31 UTC (2,555 KB) [v2] Sun, 31 May 2026 10:48:32 UTC (3,868 KB)",
+  "raw_files": [
+   "raw/arxiv-2603.24625-rug-pull-scams-solana.abs.html.gz",
+   "raw/arxiv-2603.24625-rug-pull-scams-solana.html-v2.html.gz",
+   "raw/arxiv-2603.24625-rug-pull-scams-solana.pdf-v2.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2603.24625-rug-pull-scams-solana.txt.gz",
+   "texts/arxiv-2603.24625-rug-pull-scams-solana.pdf.txt.gz"
+  ],
+  "access_notes": "html v2 ok; pdf v2 13 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:06:06Z"
+ },
+ "arxiv-2502.10512-naviglio-tarantelli-lillo-price-manipulation-new-tokens": {
+  "url": "https://arxiv.org/abs/2502.10512v2",
+  "title": "Price manipulation schemes of new crypto-tokens in decentralized exchanges",
+  "authors": "Naviglio, Manuel; Tarantelli, Francesco; Lillo, Fabrizio",
+  "date": "v1 2025/02/14; latest v2; history: Submission history From: Francesco Tarantelli [ view email ] [v1] Fri, 14 Feb 2025 19:18:39 UTC (2,755 KB) [v2] Wed, 26 Nov 2025 13:04:59 UTC (1,165 KB)",
+  "raw_files": [
+   "raw/arxiv-2502.10512-naviglio-tarantelli-lillo-price-manipulation-new-tokens.abs.html.gz",
+   "raw/arxiv-2502.10512-naviglio-tarantelli-lillo-price-manipulation-new-tokens.html-v2.html.gz",
+   "raw/arxiv-2502.10512-naviglio-tarantelli-lillo-price-manipulation-new-tokens.pdf-v2.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2502.10512-naviglio-tarantelli-lillo-price-manipulation-new-tokens.txt.gz",
+   "texts/arxiv-2502.10512-naviglio-tarantelli-lillo-price-manipulation-new-tokens.pdf.txt.gz"
+  ],
+  "access_notes": "html v2 ok; pdf v2 22 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:06:16Z"
+ },
+ "arxiv-2503.04850-slow-liquidity-drain-scams": {
+  "url": "https://arxiv.org/abs/2503.04850v3",
+  "title": "Slow is Fast! Dissecting Ethereum's Slow Liquidity Drain Scams",
+  "authors": "Tran, Minh Trung; Sohrabi, Nasrin; Tari, Zahir; Wang, Qin; Xue, Minhui; Xia, Xiaoyu",
+  "date": "v1 2025/03/06; latest v3; history: Submission history From: Minh Trung Tran [ view email ] [v1] Thu, 6 Mar 2025 02:24:35 UTC (2,771 KB) [v2] Mon, 10 Mar 2025 05:01:22 UTC (2,770 KB) [v3] Wed, 6 Aug 2025 05:40:11 UTC (2,000 KB)",
+  "raw_files": [
+   "raw/arxiv-2503.04850-slow-liquidity-drain-scams.abs.html.gz",
+   "raw/arxiv-2503.04850-slow-liquidity-drain-scams.html-v3.html.gz",
+   "raw/arxiv-2503.04850-slow-liquidity-drain-scams.pdf-v3.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2503.04850-slow-liquidity-drain-scams.txt.gz",
+   "texts/arxiv-2503.04850-slow-liquidity-drain-scams.pdf.txt.gz"
+  ],
+  "access_notes": "html v3 ok; pdf v3 21 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:06:26Z"
+ },
+ "arxiv-2309.04700-trapdoor-tokens-uniswap": {
+  "url": "https://arxiv.org/abs/2309.04700v4",
+  "title": "From Programming Bugs to Multimillion-Dollar Scams: An Analysis of Trapdoor Tokens on Uniswap",
+  "authors": "Huynh, Phuong Duy; De Silva, Thisal; Dau, Son Hoang; Li, Xiaodong; Gondal, Iqbal; Viterbo, Emanuele",
+  "date": "v1 2023/09/09; latest v4; history: Submission history From: Phuong Duy Huynh Mr. [ view email ] [v1] Sat, 9 Sep 2023 06:47:23 UTC (1,467 KB) [v2] Tue, 19 Sep 2023 14:17:21 UTC (1,482 KB) [v3] Thu, 21 Sep 2023 13:30:24 UTC (2,197 KB) [v4] Thu, 19 Dec 2024 12:36:39 UTC (1,266 KB)",
+  "raw_files": [
+   "raw/arxiv-2309.04700-trapdoor-tokens-uniswap.abs.html.gz",
+   "raw/arxiv-2309.04700-trapdoor-tokens-uniswap.html-v4.html.gz",
+   "raw/arxiv-2309.04700-trapdoor-tokens-uniswap.pdf-v4.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2309.04700-trapdoor-tokens-uniswap.txt.gz",
+   "texts/arxiv-2309.04700-trapdoor-tokens-uniswap.pdf.txt.gz"
+  ],
+  "access_notes": "html v4 ok; pdf v4 18 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:06:35Z"
+ },
+ "arxiv-2305.14604-milionis-moallemi-roughgarden-arbitrage-profits-fees": {
+  "url": "https://arxiv.org/abs/2305.14604v2",
+  "title": "Automated Market Making and Arbitrage Profits in the Presence of Fees",
+  "authors": "Milionis, Jason; Moallemi, Ciamac C.; Roughgarden, Tim",
+  "date": "v1 2023/05/24; latest v2; history: Submission history From: Jason Milionis [ view email ] [v1] Wed, 24 May 2023 00:59:32 UTC (173 KB) [v2] Wed, 23 Jul 2025 15:39:32 UTC (72 KB)",
+  "raw_files": [
+   "raw/arxiv-2305.14604-milionis-moallemi-roughgarden-arbitrage-profits-fees.abs.html.gz",
+   "raw/arxiv-2305.14604-milionis-moallemi-roughgarden-arbitrage-profits-fees.html-v2.html.gz",
+   "raw/arxiv-2305.14604-milionis-moallemi-roughgarden-arbitrage-profits-fees.pdf-v2.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2305.14604-milionis-moallemi-roughgarden-arbitrage-profits-fees.txt.gz",
+   "texts/arxiv-2305.14604-milionis-moallemi-roughgarden-arbitrage-profits-fees.pdf.txt.gz"
+  ],
+  "access_notes": "html v2 ok; pdf v2 47 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:06:44Z"
+ },
+ "0x-uniswap-v4-hooks-were-a-mistake": {
+  "url": "https://0x.org/post/uniswap-v4-hooks-were-a-mistake",
+  "title": "Uniswap v4 hooks were a mistake",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/0x-uniswap-v4-hooks-were-a-mistake.page.html.gz"
+  ],
+  "text_files": [
+   "texts/0x-uniswap-v4-hooks-were-a-mistake.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 71688 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:06:45Z"
+ },
+ "uniswap-foundation-how-to-navigate-v4-data": {
+  "url": "https://www.uniswapfoundation.org/blog/how-to-navigate-uniswap-v4-data",
+  "title": "Uniswap Foundation | How to Navigate Uniswap v4 Data",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/uniswap-foundation-how-to-navigate-v4-data.page.html.gz"
+  ],
+  "text_files": [
+   "texts/uniswap-foundation-how-to-navigate-v4-data.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 143892 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:06:46Z"
  }
 }

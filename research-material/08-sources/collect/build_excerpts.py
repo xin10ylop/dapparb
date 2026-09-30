@@ -20,6 +20,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.dirname(HERE)
 SPECS = os.path.join(HERE, 'excerpt-specs.jsonl')
 _cache = {}
+# Typographic quotes/dashes/nbsp are matched as their ASCII look-alikes (one char to one char, so offsets are unaffected);
+# the quote written out is still the exact original substring.
+_TR = str.maketrans({'\u2019': "'", '\u2018': "'", '\u201c': '"', '\u201d': '"', '\u2013': '-', '\u2014': '-', '\u00a0': ' '})
 
 
 def load(slug, which):
@@ -38,12 +41,12 @@ def load(slug, which):
                 norm_chars.append(' '); idx.append(i); prev_space = True
             else:
                 norm_chars.append(ch); idx.append(i); prev_space = False
-        _cache[p] = (raw, ''.join(norm_chars), idx, os.path.relpath(p, OUT))
+        _cache[p] = (raw, ''.join(norm_chars).translate(_TR), idx, os.path.relpath(p, OUT))
     return _cache[p]
 
 
 def norm(s):
-    return re.sub(r'\s+', ' ', s).strip()
+    return re.sub(r'\s+', ' ', s.translate(_TR)).strip()
 
 
 def find(norm_text, needle, start=0, occurrence=1):

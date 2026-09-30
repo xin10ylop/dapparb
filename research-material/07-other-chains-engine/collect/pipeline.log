@@ -1,0 +1,3 @@
+[run_engine_detect 2026-09-30T22:08:49Z] smoke-engine-arbitrum started pid=15945 flags: --chain arbitrum --mode dry --contract  --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/smoke-engine-arbitrum.jsonl --source logs --universe all --max-per-factory 6000 --min-depth-eth 0.1 --min-profit-usd 0.01 --top 6
+[run_engine_detect 2026-09-30T22:08:49Z] smoke-engine-mainnet started pid=15949 flags: --chain mainnet --mode dry --contract  --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/smoke-engine-mainnet.jsonl --source logs --universe all --max-per-factory 6000 --min-depth-eth 0.1 --min-profit-usd 0.01 --top 6
+[run_engine_detect 2026-09-30T22:10:20Z] smoke-engine-arbitrum searcher ready; running 2 min
