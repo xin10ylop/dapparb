@@ -1,0 +1,95 @@
+SOURCE_URL: https://developers.uniswap.org/docs/unichain.md
+FINAL_URL: https://developers.uniswap.org/docs/unichain.md
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:11:03Z
+EXTRACTION: raw markdown/plain-text body, unmodified; gzip copy in the .raw.gz file next to this one
+
+# Unichain Overview (/docs/unichain)
+
+Learn what Unichain is and how it supports faster, lower-cost onchain liquidity and cross-chain interoperability.
+
+## What is Unichain?
+Unichain is a DeFi-focused Ethereum L2 designed for fast blocks, lower costs, and efficient onchain liquidity across chains.
+
+## Stage 1 rollup
+Unichain is an Ethereum L2 with a permissionless fault-proof system designed for trust-minimized security.
+
+## Instant transactions
+Unichain supports 1-second block times, with 200 ms preconfirmations available through Flashblocks. Lower latency improves market efficiency by increasing arbitrage frequency and reducing value lost to MEV.
+
+## Reduced costs and further decentralization
+Unichain is designed to align with Ethereum's scaling roadmap by moving execution to an L2. This can reduce transaction costs significantly over time. While Unichain uses a sequencer for execution efficiency, full nodes can verify blocks independently.
+
+## Cross-chain liquidity
+Unichain supports interoperability across multiple chains. As part of the Superchain, Unichain supports native [interoperability](https://docs.optimism.io/get-started/interop) and cross-chain liquidity access.
+
+## FAQ
+<details>
+  <summary>
+    How is Unichain different from other Ethereum L2s?
+  </summary>
+
+    Unichain is a DeFi-focused Ethereum L2 built on the OP Stack and part of the [Superchain](https://docs.optimism.io/superchain/superchain-explainer), so it shares standards, tooling, and native [interoperability](https://docs.optimism.io/get-started/interop) with other OP Stack chains. It is a Stage 1 rollup with a permissionless fault-proof system for trust-minimized security.
+
+    Compared with a general-purpose L2, Unichain targets fast, low-cost onchain liquidity:
+
+    * 1-second block times, with 200 ms preconfirmations through [Flashblocks](/docs/unichain/technical-information/flashblocks)
+    * Lower latency designed to increase arbitrage frequency and reduce value lost to MEV
+</details>
+
+<details>
+  <summary>
+    What are Flashblocks and how do I use them?
+  </summary>
+
+    [Flashblocks](/docs/unichain/technical-information/flashblocks) provide transaction preconfirmations in about 200 milliseconds, so apps can show faster feedback than the 1-second block time. They are an out-of-protocol extension that streams partial block updates and does not change Unichain's core consensus.
+
+    Most apps can benefit with minimal changes. Use the `pending` block tag with standard Ethereum JSON-RPC methods such as `eth_getBlockByNumber`, `eth_call`, `eth_getBalance`, and `eth_getTransactionCount`. The public RPC endpoints are Flashblocks-aware but rate limited, so use a [node provider](/docs/unichain/tools/node-providers) that supports Flashblocks for production.
+</details>
+
+<details>
+  <summary>
+    What are the chain ID and RPC URL for Unichain?
+  </summary>
+
+    | Network          | Chain ID | Public RPC URL                 | Block Explorer                                     |
+    | :--------------- | :------- | :----------------------------- | :------------------------------------------------- |
+    | Unichain Mainnet | `130`    | `https://mainnet.unichain.org` | [uniscan.xyz](https://uniscan.xyz)                 |
+    | Unichain Sepolia | `1301`   | `https://sepolia.unichain.org` | [sepolia.uniscan.xyz](https://sepolia.uniscan.xyz) |
+
+    Both public RPC URLs are rate limited and not intended for production. Use a [node provider](/docs/unichain/tools/node-providers) for production workloads. See [Network Information](/docs/unichain/technical-information/network-information) for full parameters.
+</details>
+
+<details>
+  <summary>
+    How do I bridge assets to Unichain?
+  </summary>
+
+    You can bridge ETH and other supported assets from Ethereum L1 to Unichain through [Superbridge](https://superbridge.app), which supports both [Unichain Mainnet](https://superbridge.app/unichain) and [Unichain Sepolia](https://superbridge.app/unichain-sepolia).
+
+    Several third-party bridges also support Unichain, including Across, Brid.gg, Allbridge, Synapse, thirdweb, Relay, and Orbiter Finance. See the [Bridges](/docs/unichain/tools/bridges) reference for the full list and supported networks.
+</details>
+
+<details>
+  <summary>
+    Can I use my existing Ethereum tooling on Unichain?
+  </summary>
+
+    Yes. As an OP Stack chain, Unichain is [EVM-equivalent](/docs/unichain/technical-information/evm-equivalence) with minimal changes to standard Ethereum behavior, so existing tooling such as Hardhat and Foundry works after you point it at a Unichain RPC URL.
+
+    The main differences are network parameters: Unichain uses a 1-second block time and OP Stack EIP-1559 settings rather than Ethereum mainnet values. See [EVM Equivalence](/docs/unichain/technical-information/evm-equivalence) and [Network Information](/docs/unichain/technical-information/network-information) for details.
+</details>
+
+<details>
+  <summary>
+    What is the difference between Unichain Mainnet and Unichain Sepolia?
+  </summary>
+
+    Unichain Mainnet is the production network where real value is at stake. Unichain Sepolia is the public testnet, used to test contracts and integrations with test funds before deploying to mainnet. Both share the same OP Stack architecture and Flashblocks support, so behavior on Sepolia closely matches mainnet. See [Network Information](/docs/unichain/technical-information/network-information) for chain IDs, RPC URLs, and explorers.
+</details>
+
+## Where to Go Next
+* [Read the Unichain Whitepaper](/whitepaper_unichain.pdf)
+* [Get started with wallets, funds, and nodes](/docs/unichain/getting-started/setting-up-a-wallet)
+* [Build apps and contracts on Unichain](/docs/unichain/guides/deploy-a-smart-contract)
+* [Review network and contract reference docs](/docs/unichain/technical-information/network-information)

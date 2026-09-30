@@ -1,0 +1,314 @@
+SOURCE_URL: https://docs.optimism.io/op-stack/transactions/transaction-flow
+FINAL_URL: https://docs.optimism.io/op-stack/transactions/transaction-flow
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:11:11Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* Optimism Documentation
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+
+## Documentation Index
+Fetch the complete documentation index at: /llms.txt
+Use this file to discover all available pages before exploring further.
+
+Skip to main content
+Optimism Documentation home page
+
+Search...
+
+⌘ K Ask Assistant ⌘ I
+
+* Blog
+
+* GitHub
+
+Search...
+
+Navigation
+Transactions
+Transaction flow
+
+Get Started
+Chain Operators
+Node Operators
+App Developers
+Protocol
+OP Mainnet
+Governance
+Notices
+
+*
+Status
+
+*
+Faucet
+
+*
+Bridge
+
+## Get started
+
+* The OP Stack
+
+* OP Stack architecture
+
+* Fact sheet
+
+* Learn the OP Stack
+
+## How the protocol works
+
+* Overview
+
+* Design philosophy & principles
+
+* Differences from Ethereum
+
+* OP Stack components
+
+* Derivation pipeline
+
+* Smart Contract overview
+
+* The Blockspace and Standard Rollup Charters
+
+* Sequencer outages
+
+* Block time research
+
+* Transactions
+
+* Transaction fees on OP Mainnet
+
+* Fee vaults
+
+* Forced Transaction
+
+* Transaction finality
+
+* Transaction flow
+
+* Bridging
+
+* Fault Proofs
+
+* Interoperability
+
+## Security
+
+* Privileged Roles in OP Stack Chains
+
+* OP Stack security model
+
+* Security policy and bug bounty program
+
+* Audit reports
+
+* Pausing the bridge
+
+* Crosschain security measures for safe interoperability
+
+## Features
+
+* Subblocks
+
+* Sequencer Defined Metering
+
+* Custom Gas Token
+
+* Bridged USDC Standard on OP Stack
+
+* Span Batches
+
+* SendRawTransactionConditional explainer
+
+* L2 Contract Manager
+
+* Osaka on L2
+
+* OP Stack preinstalls
+
+* Alt-DA Mode Explainer
+
+## Reference
+
+* Stack Components
+
+* Network upgrades
+
+* The superchain-registry
+
+* Glossary
+
+## On this page
+
+* Writing the transaction to L1
+* Compression
+
+* Posting to L1
+
+* Determining the status of a transaction
+
+* State processing
+* State changes
+
+* State root proposals
+
+Transactions
+
+## Transaction flow
+Copy page Copy page
+
+Learn the transaction flow process for rollup transactions.
+
+Copy page Copy page
+
+Learn the OP Stack — stop 7 of 14.
+You’ve deployed a chain and started its components. This page replays
+what you just ran as the life of a single transaction, from submission
+to finality on Ethereum. When you’re done, continue to
+Transaction fees on OP Mainnet .
+
+This guide explains the transaction flow process for rollup transactions. The process for a rollup transaction has two requirements.
+
+*
+The transaction needs to be written to L1 (Ethereum).
+This is typically performed by op-batcher , but any user can send an L1 transaction to submit an L2 transaction, in which case op-batcher is bypassed.
+
+*
+The transaction needs to be executed to modify the state (by the execution client, op-reth by default).
+Afterwards, op-proposer writes a commitment to the post-transaction state to L1.
+Note that op-proposer does not need to write a commitment after each transaction to L1; it is OK to commit to the state after a block of transactions.
+
+## ​
+
+Writing the transaction to L1
+
+op-batcher has two main jobs:
+
+* Compress transactions into batches.
+
+* Post those batches to L1 to ensure availability and integrity.
+
+## ​
+
+Compression
+
+The batcher aggregates sequencer batches into channels .
+This allows for more data per compression frame, and therefore a better compression ratio.
+You can read more about this process in the specs .
+When a channel is full or times out it is compressed and written.
+The maximum time that a channel can be open, from the first transaction to the last, is specified in units of L1 block time (so a value of 5 means 5*12=60 seconds).
+You can specify it either as an environment variable ( OP_BATCHER_MAX_CHANNEL_DURATION ) or a command line parameter ( --max-channel-duration ).
+Alternatively, you can set it to zero (the default) to avoid posting smaller, less cost efficient transactions.
+A channel is full when the anticipated compressed size is the target L1 transaction size.
+This is controlled by two parameters:
+
+*
+The target L1 transaction size, which you can specify in bytes on the command line ( --target-l1-tx-size-bytes ) or as an environment variable ( OP_BATCHER_TARGET_L1_TX_SIZE_BYTES )
+
+*
+The expected compression ratio, which you can specify as a decimal value, again either on the command line ( --approx-compr-ratio ) or as an environment variable ( OP_BATCHER_APPROX_COMPR_RATIO ).
+
+You can see the code that implements this process in channel_manager.go and channel_builder.go .
+
+## ​
+
+Posting to L1
+
+When a channel is full it is posted, either as a single transaction or as multiple transactions (depending on data size) to L1.
+Writing to L1 is what moves a processed L2 transaction through the protocol’s finality states: unsafe (processed, but not written to L1 yet), safe (written to L1), and finalized (the L1 block containing it has been finalized by Ethereum).
+For what these states mean and when you can rely on a transaction being irreversible, see Transaction finality .
+You can see the code that builds the channels to be written to L1 in channel_out.go and channel_builder.go .
+The transactions themselves are sent in op-batcher ’s main loop , which calls publishStateToL1
+
+## ​
+
+Determining the status of a transaction
+
+This is the procedure to see a transaction’s status.
+The directions here are for Foundry , but the concept is the same regardless of the method you use.
+
+*
+Get the number of the L2 block in which the transaction is recorded.
+
+export ETH_RPC_URL =< URL to Optimism network >
+cast tx < transaction has h > blockNumber
+
+*
+Get the number of the latest finalized block.
+If the result is greater than or equal to the block number of the transaction, the transaction is finalized.
+
+cast block finalized --field number
+
+*
+Get the number of the latest safe block.
+If the result is greater than or equal to the block number of the transaction, the transaction is safe.
+
+cast block safe --field number
+
+*
+If the transaction isn’t finalized or safe, it’s unsafe.
+
+## ​
+
+State processing
+
+State processing can be divided into two steps:
+
+*
+Applying the transaction to the old state to produce the new state, which is performed by the execution client ( op-reth by default).
+
+*
+Proposing the new Merkle root of the state.
+Merkle roots are used because the actual state is long and would cost too much to write to L1.
+This step is performed by op-proposer .
+
+## ​
+
+State changes
+
+The state is stored and modified by the execution client. The default is op-reth .
+
+op-geth has reached end-of-support (2026-05-31) and does not support the now-active Karst hardfork, so op-geth nodes can no longer follow the canonical chain. Migrate to op-reth, the primary supported execution client. See the op-geth deprecation notice for the full migration plan.
+
+## ​
+
+State root proposals
+
+The state root proposals are posted by op-proposer to the DisputeGameFactory on L1, which creates a dispute game holding the proposal.
+On chains that predate fault proofs, proposals went to the permissioned L2OutputOracle instead; see OP Stack smart contracts for that history.
+Output proposals are not immediately valid.
+They can only be considered authoritative once the fault challenge period has passed; see Withdrawal flow for how output roots are used to prove and finalize withdrawals.
+Was this page helpful?
+Yes No
+
+Transaction finality
+Cross-Domain Overview
+
+twitter github
+
+Assistant
+
+Responses are generated using AI and may contain mistakes.

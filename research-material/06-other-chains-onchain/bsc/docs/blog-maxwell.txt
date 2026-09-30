@@ -1,0 +1,459 @@
+URL: https://www.bnbchain.org/en/blog/bnb-chain-announces-maxwell-hardfork-bsc-moves-to-0-75-second-block-times
+FINAL_URL: https://www.bnbchain.org/en/blog/bnb-chain-announces-maxwell-hardfork-bsc-moves-to-0-75-second-block-times
+TITLE: BNB Chain Announces Maxwell Hardfork: BSC Moves to 0.75-Second Block Times
+PUBLISHER: BNB Chain Blog
+FETCHED_AT_UTC: 2026-09-30T21:12:43Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: 20608ae6169bbdf6d1cf370e7f17a94a8d53bad670bc3a19d3eb71f6192b3d79
+RAW_FILE: raw/blog-maxwell.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+](<https://www.bnbchain.org/en>)
+
+Chains
+
+MAIN CHAINS
+
+BNB Smart ChainFast. Affordable. EVM-Compatible](<https://www.bnbchain.org/en/bnb-smart-chain>)
+
+[opBNBBuilt with the OP Stack](<https://opbnb.bnbchain.org/en>)
+
+[BNB GreenfieldDecentralized data storage & economy](<https://greenfield.bnbchain.org/en>)
+
+BNB Beacon Chain
+
+Sunset Complete
+
+BNB ecosystem’s staking & governance layer
+
+SHAPE THE CHAIN
+
+Staking
+
+Earn rewards by securing the network
+
+[GovernanceSubmit proposals & participate in on-chain governance](<https://www.bnbchain.org/en/bnb-chain-governance>)
+
+[Documentation](<https://docs.bnbchain.org/bnb-smart-chain/>)[Faucet](<https://www.bnbchain.org/en/testnet-faucet>)[BscScan](<https://bscscan.com>)[BSCTrace](<https://bsctrace.com>)[Documentation](<https://docs.bnbchain.org/bnb-opbnb/>)[Faucet](<https://docs.bnbchain.org/bnb-opbnb/developers/network-faucet/>)[Bridge](<https://opbnb-bridge.bnbchain.org>)[opBNBScan](<https://opbnbscan.com>)[Documentation](<https://docs.bnbchain.org/bnb-greenfield/>)[Faucet](<https://docs.bnbchain.org/bnb-greenfield/getting-started/get-test-bnb/>)[Bridge](<https://greenfield.bnbchain.org/en/bridge>)[GreenfieldScan](<https://greenfieldscan.com>)[DCellar](<https://dcellar.io/>)[Learn more about Fusion](<https://www.bnbchain.org/en/bnb-chain-fusion>)[Token Recovery Tool](<https://www.bnbchain.org/en/token-recovery>)[Beacon Chain Explorer](<https://explorer.bnbchain.org>)[Native Staking](<https://www.bnbchain.org/en/bnb-staking>)[Liquid Staking](<https://www.bnbchain.org/en/liquid-staking>)
+
+Build
+
+GET STARTED
+
+WalletsYour gateway to BNB Chain](<https://www.bnbchain.org/en/wallets>)
+
+Examples & TutorialsStart with example and tutorials](<https://www.bnbchain.org/en/cookbook>)
+
+Networks and RPCA list of BNB Chain related networks](<https://www.bnbchainlist.org>)
+
+FaucetPilot tokens on BNB Smart Chain](<https://www.bnbchain.org/en/testnet-faucet>)
+
+ADVANCED
+
+DocumentationFull technical documentation](<https://docs.bnbchain.org/>)
+
+ToolsEssential tools for builders](<https://www.bnbchain.org/en/dev-tools>)
+
+EXPLORERS
+
+BscScan](<https://bscscan.com>)
+
+[opBNBScan](<https://opbnbscan.com>)
+
+[GreenfieldScan](<https://greenfieldscan.com>)
+
+SOLUTIONS
+
+[CAS20](<https://www.bnbchain.org/en/cas20>)
+
+[Institutional Finance](<https://www.bnbchain.org/en/solutions/institutions>)
+
+[Privacy](<https://www.bnbchain.org/en/solutions/privacy>)
+
+[Agent Infrastructure](<https://www.bnbchain.org/en/solutions/ai-agent>)
+
+[Real World Assets Tokenization](<https://www.bnbchain.org/en/solutions/tokenization/rwa-tokenization>)
+
+[Stablecoin](<https://www.bnbchain.org/en/solutions/stablecoin>)
+
+[Payment](<https://www.bnbchain.org/en/payment>)
+
+[BNB Agent Studio](<https://www.bnbchain.org/en/bnb-agent-studio>)
+
+Submit dApps](<https://docs.bnbchain.org/join-ecosystem>)
+
+Explore
+
+Release NoteStrategic updates for your advantage](<https://www.bnbchain.org/en/releases>)
+
+BlogFollow our blog for the latest updates](<https://www.bnbchain.org/en/blog>)
+
+[WalletsSecurely connect to funds & dApps](<https://www.bnbchain.org/en/wallets>)
+
+Explore dApps Explore dApps on BNB Chain](<https://dappbay.bnbchain.org?utm_source=Org&utm_medium=Channel&utm_campaign=homepage_240124&utm_content=homepage>)
+
+BridgeCross-chain transfer between networks](<https://www.bnbchain.org/en/bnb-chain-bridge>)
+
+Get BNBGet BNB & explore use cases](<https://www.bnbchain.org/en/what-is-bnb>)
+
+Accelerate
+
+Ideation
+
+[BNB HackExplore online & offline hackathons on BNB Chain](<https://www.bnbchain.org/en/hackathons>)
+
+[BNB Incubation Alliance (BIA)Building together to fast-track your Web3 journey](<https://www.bnbchain.org/en/programs/bnb-incubation-alliance>)
+
+[Most Valuable Builder Accelerator Program (MVB)Incubation for top Web3 projects](<https://www.bnbchain.org/en/programs/mvb>)
+
+Deployment
+
+[BNB Chain GrantsGrants for ecosystem builders](<https://www.bnbchain.org/en/grants>)
+
+[KickstartExplore essential tools & support](<https://www.bnbchain.org/en/programs/kickstart>)
+
+Space
+
+[Builder BunkerA Workspace to Meet & Build](<https://www.bnbchain.org/en/builder-bunker>)
+
+[See All Programs](<https://www.bnbchain.org/en/programs>)
+
+Connect
+
+Community
+
+Community HubConnect with the community](<https://www.bnbchain.org/en/community>)
+
+Build N’ Build ForumA public, community-driven dev forum](<https://forum.bnbchain.org>)
+
+in Real Life
+
+EventsGlobal and local meetups, conferences, and hackathons](<https://www.bnbchain.org/en/events>)
+
+Join us
+
+Careers🔥
+
+Explore Opportunities on BNB Chain](<https://twitter.com/BNBChain>)[](<https://discord.gg/bnbchain>)
+
+Announcement](<https://t.me/bnbchain>)[Discussion](<https://t.me/BNBchaincommunity>)
+
+[](<https://github.com/bnb-chain>)
+
+Connect with BD
+
+Telegram](<https://t.me/BNBChainBDBot>)[Contact Form](<https://forms.monday.com/forms/f4222863ea10c9ca8b44068d8ba8047d?r=euc1>)
+
+[BNB Chain Careers](<https://jobs.bnbchain.org/companies/bnb-chain#content>)[Ecosystem Jobs](<https://jobs.bnbchain.org/jobs>)
+
+Ask AI
+
+English](<https://www.bnbchain.org/en>)](<https://www.bnbchain.org/en>)
+
+# BNB Chain Announces Maxwell Hardfork: BSC Moves to 0.75-Second Block Times
+
+2025.5.22 • 3 min read
+
+BNB Chain is accelerating again. The Maxwell hardfork brings a major upgrade to BNB Smart Chain (BSC), reducing block times from 1.5 seconds to 0.75 seconds. This marks the next step in our mission to improve network responsiveness, transaction speed, and validator performance.
+
+The Maxwell upgrade is powered by three key proposals—BEP-524, BEP-563, and BEP-564—each designed to improve core aspects of the chain’s speed and reliability.
+
+# What’s Changing?
+
+With Maxwell, BSC will:
+
+  * Reduce block interval to 0.75 seconds
+  * Improve validator communication across the network
+  * Speed up block syncing between nodes
+
+
+
+These enhancements will benefit all network participants—from users and developers to validators and node operators.
+
+# From Lorentz to Maxwell: A Continuous Push for Speed
+
+The Lorentz hardfork reduced BSC block times from 3 seconds to 1.5 seconds—laying the groundwork for faster DeFi, smoother UX, and stronger validator performance.
+
+Since then, BNB Chain has:
+
+  * Delivered an average transaction fee of just $0.04, according to [_Dune_](<https://dune.com/bnbchain/major-chain-gas-fee-comparison>).
+  * Achieved the #1 rank in daily DEX volume, according to [_Dune_](<https://dune.com/bnbchain/daily-dex-comparison>).
+
+
+
+These improvements prove that a faster, cheaper network directly drives user growth and adoption.
+
+In addition to reducing block times from 3s to 1.5s, Lorentz significantly improved BSC’s network stability:
+
+  * Reorg frequency dropped from ~5/day to ~2/day
+  * Block finality became more consistent across validators
+  * Validator memory usage and block processing latency also decreased
+
+
+
+Now with Maxwell, BSC is going sub-second—bringing block times down to 0.75 seconds.
+
+> Image Source: [_Dune_](<https://dune.com/bnbchain/daily-dex-comparison>)
+
+# Key BEPs in the Maxwell Hardfork
+
+## BEP-524: 0.75-Second Block Intervals
+
+BEP-524 introduces a new block interval of 0.75 seconds, building on the improvements from the Lorentz hardfork (which cut block time from 3 seconds to 1.5 seconds).
+
+This change will:
+
+  * Accelerate transaction confirmations
+  * Improve dApp responsiveness
+  * Enable smoother DeFi and GameFi interactions
+
+
+
+Read the full information about BEP-524 on our [_GitHub_](<https://github.com/bnb-chain/BEPs/blob/master/BEPs/BEP-524.md>) page.
+
+## BEP-563: Enhanced Validator Network
+
+With faster blocks, validators need to reach consensus more efficiently. BEP-563 improves peer-to-peer messaging between validators, allowing for:
+
+  * Faster block proposal communication
+  * Reduced risk of missed votes or sync delays
+  * A more stable validator network under faster conditions
+
+
+
+Read the full information about BEP-563 on our [_GitHub_](<https://github.com/bnb-chain/BEPs/blob/master/BEPs/BEP-563.md>) page.
+
+## BEP-564: Smarter Block Fetching
+
+BEP-564 introduces two new message types in the bsc/2 protocol:
+
+  * GetBlocksByRangeMsg – Request multiple recent blocks in a single call
+  * RangeBlocksMsg – Return all requested blocks in one response
+  * This significantly improves sync speeds across the network.
+
+
+
+Read the full information about BEP-564 on our [_GitHub_](<https://github.com/bnb-chain/BEPs/blob/master/BEPs/BEP-564.md>) page.
+
+# Why This Matters
+
+## For Users
+
+Transactions will feel nearly instant. From swaps to mints, every dApp interaction becomes smoother.
+
+## For Developers
+
+Lower latency unlocks new design space for dApps—but devs must update time-based logic to avoid race conditions or syncing issues. 
+
+## For Validators & Node Operators
+
+Expect slightly increased compute demand. With improved P2P messaging and block syncing, Maxwell ensures stable validator operations even under higher load.
+
+To support faster blocks, several consensus parameters are being adjusted under Maxwell:
+
+  * Epoch length is increasing from 500 to 1000
+  * TurnLength is increasing from 8 blocks to 16 blocks (which still equals 12 seconds per validator turn at 0.75s/block)
+  * Fast Finality is now achievable in ~1.875 seconds, improving confirmation time and consistency
+
+
+
+## For MEV
+
+A tighter block window changes the game for MEV searchers. MEV builders must adapt to the reduced time window to submit bids—less than one second per block. Some strategies may no longer be viable in a 0.75s block environment.
+
+# Timeline: What You Need to Know
+
+  * Testnet Hardfork: May 26, 2025
+  * Release Available: May 20, 2025
+  * Mainnet Hardfork: June 30, 2025
+  * [ _Implementation PR_](<https://github.com/bnb-chain/bsc/pull/3094>)
+
+
+
+What to do now:
+
+  * **Node operators** should upgrade their software before the testnet hardfork on May 26 to begin testing infrastructure compatibility.
+  * **Developers** should audit and test their dApps to ensure compatibility with 0.75-second block intervals.
+  * **Validators** should assess system performance and prepare for increased block frequency.
+
+
+
+More details, including full upgrade instructions and mainnet release notes, will be shared in the coming weeks.
+
+# Testnet Exit Criteria
+
+Before Maxwell can be deployed to mainnet, the following criteria must be met:
+
+  * Stable block production at 0.75s across testnet validators
+  * No increase in reorg frequency compared to Lorentz
+  * Validators must reach consensus without sync delays
+  * Explorers, RPCs, and indexers must confirm compatibility and performance
+  * MEV bidding and block proposal logic must be tested and stable under new TurnLength
+  * Epoch and finality configurations must run reliably for multiple sessions on testnet
+
+
+
+### **Follow us to stay updated on everything BNB Chain**
+
+[ _Website_](<https://www.bnbchain.org/en?ref=binance.ghost.io>) | [_Twitter_](<https://twitter.com/BNBCHAIN?ref=binance.ghost.io>) | [_Telegram_](<https://t.me/bnbchain?ref=binance.ghost.io>) | [_Facebook_](<https://www.facebook.com/profile.php?id=61550857610291>) | [_dApp Store_](<https://dappbay.bnbchain.org/?ref=binance.ghost.io>) | [_YouTube_](<https://www.youtube.com/@BNBChainOfficial?ref=binance.ghost.io>) | [_Discord_](<https://discord.gg/bnbchain?ref=bnbchain.ghost.io>) | [_LinkedIn_](<https://www.linkedin.com/company/bnbchaininnovation/?ref=binance.ghost.io>) | [_Build N' Build Forum_](<https://www.buildnbuild.dev/?ref=binance.ghost.io>)
+
+Share
+
+[](<https://twitter.com/intent/tweet?url=&text=BNB%20Chain%20Announces%20Maxwell%20Hardfork%3A%20BSC%20Moves%20to%200.75-Second%20Block%20Times>)[](<http://www.linkedin.com/shareArticle?mini=true&url=&title=BNB%20Chain%20Announces%20Maxwell%20Hardfork%3A%20BSC%20Moves%20to%200.75-Second%20Block%20Times>)[](<https://t.me/share/url?url=&text=BNB%20Chain%20Announces%20Maxwell%20Hardfork%3A%20BSC%20Moves%20to%200.75-Second%20Block%20Times>)[](<http://www.reddit.com/submit?url=&title=BNB%20Chain%20Announces%20Maxwell%20Hardfork%3A%20BSC%20Moves%20to%200.75-Second%20Block%20Times>)](<https://www.bnbchain.org/en>)](<https://twitter.com/BNBChain>)
+
+Telegram (Announcement)](<https://t.me/bnbchain>)[Telegram (Discussion)](<https://t.me/BNBchaincommunity>)
+
+[](<https://discord.gg/bnbchain>)[](<https://github.com/bnb-chain>)[](<https://www.buildnbuild.dev/>)[](<https://coinmarketcap.com/community/profile/BNBChain>)[](<https://www.youtube.com/channel/UCG9fZu6D4I83DStktBV0Ryw>)[](<https://www.linkedin.com/company/bnbchain>)[](<https://www.instagram.com/bnbchain/>)
+
+Chains
+
+  * [BNB Smart Chain](<https://www.bnbchain.org/en/bnb-smart-chain>)
+  * [BNB Greenfield](<https://greenfield.bnbchain.org/en>)
+  * [opBNB](<https://opbnb.bnbchain.org/en>)
+
+](<https://www.bsigroup.com/en-US/products-and-services/assessment-and-certification/validation-and-verification/client-directory-certificate/IS%20843143/>)[](<https://www.bsigroup.com/en-US/products-and-services/assessment-and-certification/validation-and-verification/client-directory-certificate/PM%20843144/>)
+
+Use BNB Chain
+
+  * [Download Wallet](<https://www.bnbchain.org/en/wallets>)
+  * [Get BNB](<https://www.bnbchain.org/en/what-is-bnb>)
+  * [Stake BNB](<https://www.bnbchain.org/en/bnb-staking>)
+  * [Bridge Assets](<https://www.bnbchain.org/en/bnb-chain-bridge>)
+  * [Explore dApps](<https://dappbay.bnbchain.org?utm_source=Org&utm_medium=Channel&utm_campaign=homepage_240124&utm_content=homepage>)
+  * [Pay by Crypto](<https://www.bnbchain.org/en/payment>)
+  * [Earn by Liquid Staking](<https://www.bnbchain.org/en/liquid-staking>)
+
+
+
+Build
+
+  * [Demos & Tutorials](<https://www.bnbchain.org/en/cookbook>)
+  * [Documentations](<https://docs.bnbchain.org>)
+  * [Faucet](<https://www.bnbchain.org/en/testnet-faucet>)
+  * [Dev Tools](<https://www.bnbchain.org/en/dev-tools>)
+  * [Submit dApp](<https://dappbay.bnbchain.org/submit-dapp>)
+  * [Greenfield Console](<https://dcellar.io/>)
+  * [BNBChain List](<https://www.bnbchainlist.org>)
+  * [Whitepaper](<https://github.com/bnb-chain/whitepaper>)
+
+
+
+Participate
+
+  * [Events](<https://www.bnbchain.org/en/events>)
+  * [Hackathon](<https://www.bnbchain.org/en/hackathons>)
+  * [MVB Program](<https://www.bnbchain.org/en/programs/mvb>)
+  * [Builder Support Programs](<https://www.bnbchain.org/en/programs>)
+  * [Governance](<https://www.bnbchain.org/en/bnb-chain-governance>)
+  * [Bug Bounty](<https://bugbounty.bnbchain.org>)
+  * [Get Workspace](<https://www.bnbchain.org/en/builder-bunker>)
+  * [Ecosystem Jobs](<https://jobs.bnbchain.org/jobs>)
+
+
+
+About
+
+  * [Blog](<https://www.bnbchain.org/en/blog>)
+  * [Careers](<https://jobs.bnbchain.org/companies/bnb-chain#content>)
+  * [BNB Chain Verify](<https://www.bnbchain.org/en/official-verification>)
+  * [Red Alarm](<https://dappbay.bnbchain.org/red-alarm/dapp>)
+  * [Privacy Policy](<https://www.bnbchain.org/en/privacy-policy>)
+  * [Disclaimer](<https://www.bnbchain.org/en/disclaimer>)
+  * [Contact Us](<https://www.bnbchain.org/en/contact>)
+  * [Brand Guidelines](<https://www.bnbchain.org/en/brand-guidelines>)
+
+
+
+[](<https://www.bsigroup.com/en-US/products-and-services/assessment-and-certification/validation-and-verification/client-directory-certificate/IS%20843143/>)[](<https://www.bsigroup.com/en-US/products-and-services/assessment-and-certification/validation-and-verification/client-directory-certificate/PM%20843144/>)
+
+Chains
+
+  * [BNB Smart Chain](<https://www.bnbchain.org/en/bnb-smart-chain>)
+  * [BNB Greenfield](<https://greenfield.bnbchain.org/en>)
+  * [opBNB](<https://opbnb.bnbchain.org/en>)
+
+
+
+Use BNB Chain
+
+  * [Download Wallet](<https://www.bnbchain.org/en/wallets>)
+  * [Get BNB](<https://www.bnbchain.org/en/what-is-bnb>)
+  * [Stake BNB](<https://www.bnbchain.org/en/bnb-staking>)
+  * [Bridge Assets](<https://www.bnbchain.org/en/bnb-chain-bridge>)
+  * [Explore dApps](<https://dappbay.bnbchain.org?utm_source=Org&utm_medium=Channel&utm_campaign=homepage_240124&utm_content=homepage>)
+  * [Pay by Crypto](<https://www.bnbchain.org/en/payment>)
+  * [Earn by Liquid Staking](<https://www.bnbchain.org/en/liquid-staking>)
+
+
+
+Build
+
+  * [Demos & Tutorials](<https://www.bnbchain.org/en/cookbook>)
+  * [Documentations](<https://docs.bnbchain.org>)
+  * [Faucet](<https://www.bnbchain.org/en/testnet-faucet>)
+  * [Dev Tools](<https://www.bnbchain.org/en/dev-tools>)
+  * [Submit dApp](<https://dappbay.bnbchain.org/submit-dapp>)
+  * [Greenfield Console](<https://dcellar.io/>)
+  * [BNBChain List](<https://www.bnbchainlist.org>)
+  * [Whitepaper](<https://github.com/bnb-chain/whitepaper>)
+
+
+
+Participate
+
+  * [Events](<https://www.bnbchain.org/en/events>)
+  * [Hackathon](<https://www.bnbchain.org/en/hackathons>)
+  * [MVB Program](<https://www.bnbchain.org/en/programs/mvb>)
+  * [Builder Support Programs](<https://www.bnbchain.org/en/programs>)
+  * [Governance](<https://www.bnbchain.org/en/bnb-chain-governance>)
+  * [Bug Bounty](<https://bugbounty.bnbchain.org>)
+  * [Get Workspace](<https://www.bnbchain.org/en/builder-bunker>)
+  * [Ecosystem Jobs](<https://jobs.bnbchain.org/jobs>)
+
+
+
+About
+
+  * [Blog](<https://www.bnbchain.org/en/blog>)
+  * [Careers](<https://jobs.bnbchain.org/companies/bnb-chain#content>)
+  * [BNB Chain Verify](<https://www.bnbchain.org/en/official-verification>)
+  * [Red Alarm](<https://dappbay.bnbchain.org/red-alarm/dapp>)
+  * [Privacy Policy](<https://www.bnbchain.org/en/privacy-policy>)
+  * [Disclaimer](<https://www.bnbchain.org/en/disclaimer>)
+  * [Contact Us](<https://www.bnbchain.org/en/contact>)
+  * [Brand Guidelines](<https://www.bnbchain.org/en/brand-guidelines>)
+
+
+
+[](<https://www.bsigroup.com/en-US/products-and-services/assessment-and-certification/validation-and-verification/client-directory-certificate/IS%20843143/>)[](<https://www.bsigroup.com/en-US/products-and-services/assessment-and-certification/validation-and-verification/client-directory-certificate/PM%20843144/>)
+
+© 2026 [BNB Chain](<https://www.bnbchain.org>). All rights reserved.
+
+Cookies
+
+Cookie Preferences
+
+English
+
+English
+
+Bahasa Indonesia
+
+Español (Latinoamérica)
+
+Français
+
+Português (Brasil)
+
+Tiếng Việt
+
+Türkçe
+
+Русский
+
+简体中文
+
+繁體中文
+
+한국어

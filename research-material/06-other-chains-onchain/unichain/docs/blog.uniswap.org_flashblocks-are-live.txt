@@ -1,0 +1,181 @@
+SOURCE_URL: https://blog.uniswap.org/flashblocks-are-live
+FINAL_URL: https://blog.uniswap.org/flashblocks-are-live
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:11:09Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+Unichain Hits 200ms Sub-Blocks Inside Trusted Execution Environments
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* Blog
+Topics
+
+Search blog
+/
+
+Launch App
+
+Search blog
+/
+
+Launch App
+
+All Stories #Unichain
+
+August 14, 2025
+
+## Unichain Hits 200ms Sub-Blocks Inside Trusted Execution Environments
+#Unichain
+
+Flashblocks are here. Unichain now confirms transactions every 200 milliseconds, making it one of the fastest chains out there. But speed alone isn’t enough. Flashblocks on Unichain were designed by Uniswap Labs and Flashbots to run inside Trusted Execution Environments (TEEs) .
+
+This makes Unichain the first chain to pair sub-second latency with provable ordering — delivering the speed users expect and integrity developers can build on. It’s Flashblocks as they were originally envisioned: fast, verifiable, and built for DeFi.
+
+## How 200ms sub-blocks and TEEs work on Unichain
+
+With Flashblocks, Unichain streams and confirms transactions every 200ms, no need to wait for full blocks to form. Each sub-block is sequenced inside TEEs, which enforce a transparent, provable ruleset.
+
+On Unichain, that ruleset is priority ordering. Transactions are ordered based on how much users are willing to pay in fees. It’s a simple, predictable system that makes block building fair and transparent. This kind of predictability strengthens the guarantees developers can rely on to build value-capture mechanisms like MEV taxes — returning value to users instead of leaking it to searchers.
+
+## Faster blocks, better markets
+
+For swappers, transactions confirm almost instantly, so there’s no more watching a pending swap or waiting to see if a transaction went through. Shorter block times also keep prices fresh and help make sure execution is more accurate, reducing slippage and keeping markets competitive.
+
+For LPs, shorter blocks shrink the window for stale prices, minimizing loss versus rebalancing. And with gas costs often under a cent on Unichain, LPs can rebalance more often, concentrate liquidity more precisely, and respond to markets in real time. Uniswap Labs research shows that LPs on faster chains earn around 20% more in adjusted returns than on Ethereum mainnet.
+
+## Flashblocks are live today
+
+Whether you're swapping, LPing, lending, borrowing, or launching tokens here's how to start using 200ms sub-blocks on Unichain:
+
+* Swappers and LPs. If you’re using the Uniswap Web App or Uniswap Wallet , you’re already benefiting from faster transactions on Unichain. The experience is especially fast in the Uniswap Wallet, where signing and submission happen in one tap.
+
+* Unichain users. Apps and wallets like Matcha, Odos, OKX and Zerion are supporting Flashblocks on Unichain on day one.
+
+* Developers. Supporting Flashblocks in your wallet or app requires just one line of code, and Ethereum JSON-RPC remains unchanged. Learn more about how to support Flashblocks in the Unichain docs .
+
+Faster blocks on Unichain make DeFi operate the way it should — near-instant, efficient, and transparent. Experience the speed and start swapping on Unichain today . Follow @Unichain for more updates.
+Share
+
+*
+
+*
+
+*
+
+*
+
+*
+
+## Explore, swap and LP tokens on the world’s largest DEX.
+Launch web app
+
+## Sign up for research and updates from the Uniswap Labs team
+
+Submit
+
+## Explore, swap and LP tokens on the world’s largest DEX.
+Launch web app
+
+On this Page
+
+* How 200ms sub-blocks and TEEs work on Unichain
+
+* Faster blocks, better markets
+
+* Flashblocks are live today
+
+Share
+
+*
+
+*
+
+*
+
+*
+
+*
+
+## Sign up for research and updates from the Uniswap Labs team
+
+Submit
+
+## Related Posts
+
+## Beyond Speed: Building for Efficient Onchain Markets
+Chains need to be fast, fair and verifiable, and interoperable – and that’s exactly how we’re building Unichain.
+
+May 04, 2025
+#Unichain
+
+## Live on Unichain: Fair Transaction Ordering and MEV Protection
+Unichain is now the first L2 to build blocks inside a trusted execution environment (TEE) – this upgrade brings more transparency to block building, ensures priority ordering, mitigates extractive MEV, and introduces support for revert protection.
+
+May 02, 2025
+#Unichain
+
+## Crypto: The Game Season 3 is Here and Live on Unichain
+CTG is a viral, onchain survival game that is now live on Unichain.
+
+March 06, 2025
+#Unichain
+
+## Footer
+Uniswap Labs
+
+## Topics
+
+* Protocols
+
+* Company
+
+* Products
+
+* Research
+
+* Unichain
+
+* Basics
+
+## Products
+
+* Uniswap App
+
+* Wallet
+
+* Documentation
+
+## Company
+
+* Careers
+
+* Brand Assets
+
+* Terms & Privacy
+
+* Trademark Policy
+
+## Need Help?
+
+* Help Center
+
+* Contact Us
+
+@ 2026 Uniswap Labs
+
+*

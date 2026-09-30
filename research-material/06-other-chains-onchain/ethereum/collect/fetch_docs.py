@@ -68,7 +68,10 @@ for u in sys.argv[2:]:
         else:
             open(os.path.join(out, s + ".html.gz"), "wb").write(gzip.compress(r.content))
             txt = text_of(r.content.decode("utf-8", errors="replace"))
-        hdr = "SOURCE_URL: %s\nFINAL_URL: %s\nHTTP_STATUS: %s\nFETCHED_AT_UTC: %s\nEXTRACTION: verbatim visible text (tags stripped); raw body in the .html.gz/.pdf file next to this one\n\n" % (u, final, st, t)
+        kind = ("PDF text extracted page by page with PyMuPDF; original PDF stored next to this file" if ("pdf" in ctype or u.lower().endswith(".pdf"))
+                else "raw markdown/plain-text body, unmodified; gzip copy in the .raw.gz file next to this one" if (u.endswith(".md") or "text/markdown" in ctype or "text/plain" in ctype)
+                else "verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one")
+        hdr = "SOURCE_URL: %s\nFINAL_URL: %s\nHTTP_STATUS: %s\nFETCHED_AT_UTC: %s\nEXTRACTION: %s\n\n" % (u, final, st, t, kind)
         if txt:
             open(os.path.join(out, s + ".txt"), "w").write(hdr + txt)
     rows = [x for x in rows if x["url"] != u]

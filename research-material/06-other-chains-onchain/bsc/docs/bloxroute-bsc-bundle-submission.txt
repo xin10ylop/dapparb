@@ -1,0 +1,236 @@
+URL: https://docs.bloxroute.com/bsc/submit-bundles/bsc-bundle-submission
+FINAL_URL: https://docs.bloxroute.com/bsc/submit-bundles/bsc-bundle-submission
+TITLE: bloXroute BSC Bundle Submission
+PUBLISHER: bloXroute
+FETCHED_AT_UTC: 2026-09-30T21:13:07Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: 0a91405516b1b1be8e81a69ae0ebe70488e75f306bf380dba9fe0999efb67e64
+RAW_FILE: raw/bloxroute-bsc-bundle-submission.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+[bloXroute Documentation](</>)
+
+`⌘Ctrl``k`
+
+[Website](<https://www.bloxroute.com>)[Blog](<https://bloxroutelabs.medium.com/>)[Twitter](<https://twitter.com/bloXroute>)[Discord](<https://discordapp.com/invite/mB95H7s>)
+
+More
+
+[bloXroute Documentation](</>)
+
+  * Introduction
+
+    * [Welcome to bloXroute](</>)
+    * [Why bloXroute?](</introduction/why-use-bloxroute>)
+    * [Products](</introduction/products>)
+    * [Contact Us](</introduction/contact-us>)
+
+  * AI & Agents
+
+  * [bloXroute MCP](</bloxroute-mcp>)
+  * GETTING STARTED
+
+    * [Create An Account](</getting-started/register-an-account>)
+    * [Authorization](</getting-started/authorization-headers>)
+    * [Pricing](</getting-started/pricing>)
+    * [Technical Support](</getting-started/technical-support>)
+
+  * CORE SOLUTIONS
+
+    * [Blockchain Distribution Network (BDN)](</core-solutions/blockchain-distribution-network-bdn>)
+    * [Accessing the BDN](</core-solutions/accessing-the-bdn>)
+    * [Solana Core Solutions](</core-solutions/solana-core-solutions>)
+    * [RPC Service](</core-solutions/rpc-service>)
+
+  * SOLANA
+
+    * [Overview](</solana/overview>)
+    * [Trader API](</solana/trader-api>)
+    * [Optimized Feed Relay (OFR)](</solana/optimized-feed-relay>)
+
+  * Backrunme Program
+
+    * [Overview](</backrunme-program/overview>)
+    * [arbOnlyMEV Stream](</backrunme-program/arbonlymev>)
+    * [Submission](</backrunme-program/submission>)
+
+  * BSC
+
+    * [Overview](</bsc/overview>)
+    * [Running a Gateway](</bsc/gateway>)
+    * [Submit Transactions](</bsc/submit-transactions>)
+    * [Submit Bundles](</bsc/submit-bundles>)
+
+      * [Bundle Submission](</bsc/submit-bundles/bsc-bundle-submission>)
+      * [PropAMM Bundle Submission](</bsc/submit-bundles/pamm-bundle-submission>)
+      * [Speed Boost](</bsc/submit-bundles/speed-boost>)
+      * [Bundle Trace](</bsc/submit-bundles/bsc-bundle-trace>)
+      * [Bundle Mechanics & Fees](</bsc/submit-bundles/bundle-mechanics-and-fees>)
+
+    * [Streams](</bsc/streams>)
+    * [BSC Block Explorer](</bsc/block-explorer>)
+
+  * ETH
+
+    * [Overview](</eth/overview>)
+    * [Running a Gateway](</eth/gateway>)
+    * [Submit Transactions](</eth/sending-transactions>)
+    * [Submit Bundles](</eth/submit-bundles>)
+    * [Streams](</eth/streams>)
+    * [Builders and Validators](</eth/block-builders-and-validators>)
+
+  * Base
+
+    * [Overview](</base/overview>)
+    * [Submit Transactions](</base/submit-transactions>)
+    * [Streams](</base/streams>)
+
+  * ROBINHOOD
+
+    * [Overview](</robinhood/overview>)
+    * [Submit Transactions](</robinhood/submit-transactions>)
+    * [Sequencer Feed](</robinhood/sequencer-feed>)
+
+  * Hyperliquid
+
+    * [Overview](</hyperliquid/overview>)
+    * [Submit Transactions](</hyperliquid/submit-transactions>)
+
+  * POLYGON
+
+    * [Overview](</polygon/overview>)
+    * [Submit Transactions](</polygon/submit-transactions>)
+
+  * ARC CHAIN
+
+    * [Overview](</arc-chain/overview>)
+    * [Submit Transactions](</arc-chain/submit-transactions>)
+
+
+
+
+[Powered by GitBook](<https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=ZgMW6iwGsmn9ejYuG9vP&utm_content=site_RQjAz>)[](<https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=ZgMW6iwGsmn9ejYuG9vP&utm_content=site_RQjAz>)
+
+On this page
+
+For the complete documentation index, see [llms.txt](<https://docs.bloxroute.com/llms.txt>). This page is also available as [Markdown](<https://docs.bloxroute.com/bsc/submit-bundles/bsc-bundle-submission.md>).
+
+Copy
+
+On this page
+
+  1. [BSC](</bsc>)
+  2. [Submit Bundles](</bsc/submit-bundles>)
+
+
+
+# Bundle Submission
+
+Searchers can submit **MEV bundles** to the **Cloud API** , where they are validated and forwarded to **Builders** that are connected to BSC validators participating in Bloxroute’s MEV solution. Bundles are optimized to maximize validator rewards, ensuring efficient MEV extraction.
+
+This service is available via **Cloud API** only.
+
+[Purchase the **Bundle Size Add-on**](<https://portal.bloxroute.com/pricing>) to **send bundles with more than 2 transactions.**
+
+##  Submission Endpoint
+
+  * Method: `blxr_submit_bundle`
+
+  * Endpoint: `api.blxrbdn.com`
+
+  * Request type: `_HTTPS,WSS_`
+
+
+
+
+### **Parameters**
+
+`txs`
+
+A list of raw transaction bytes without a 0x prefix, separated by a comma.
+
+`blockchain_network`
+
+Blockchain network name. Must be BSC-Mainnet.
+
+`max_block_number`
+
+ _[Optional]_ Default: current block number + 40
+
+`reverting_tx_hashes`
+
+ _[Optional]_ A list of transaction hashes within the bundle that are allowed to revert. Default is empty list: the whole bundle would be excluded if any transaction reverts.
+
+`max_timestamp`
+
+ _[Optional]_ The maximum timestamp that the bundle is valid on, an integer in unix epoch format. Default value is None.
+
+`mev_builders`
+
+ _[Optional, default:_`_bloxroute_` _builder]_ A dictionary of MEV builders that should receive the bundle without delay. For each MEV builder, a signature (which can be an empty string) is required. Possible MEV builders are:
+
+  * `bloxroute`: bloXroute internal builder (always enabled for all MEV bundle submission requests)
+
+  * `all`: all builders
+
+  * Other options: `48club`, `blockrazor`, `jetbldr`, `nodereal`
+
+
+
+
+`no_merge`
+
+ _[Optional, default: False]_ Bundle merge can increase block value and inclusion rate.
+
+`backrunme_reward_address`
+
+ _[Optional]_ When the bundle is enrolled in the BackRunMe service, the transaction's from address collects backrun reward by default. The reward address can be overwritten with this parameter.
+
+### **Examples**
+
+HTTPS
+
+wscat
+
+#### Response:
+
+[PreviousSubmit Bundles](</bsc/submit-bundles>)[NextPropAMM Bundle Submission](</bsc/submit-bundles/pamm-bundle-submission>)
+
+Last updated 2 months ago
+
+  * Submission Endpoint
+  * Parameters
+  * Examples
+
+
+
+Copy
+    
+    
+    curl https://api.blxrbdn.com \
+        -X POST \
+        -H "Content-Type: application/json" \
+        -H "Authorization: <YOUR-AUTHORIZATION-HEADER>" \
+        -d '{
+             "id": "1", 
+             "method": "blxr_submit_bundle", 
+             "params": {
+                "txs": ["ab..ab", "cd..cd"],
+                "blockchain_network": "BSC-Mainnet",
+                "mev_builders": {
+                    "all": ""
+                }
+              }
+            }'
+
+Copy
+    
+    
+    wscat -c wss://api.blxrbdn.com/ws --header "Authorization: <YOUR-AUTHORIZATION-HEADER>"
+    > {"id": "1", "method": "blxr_submit_bundle", "params": {"txs": ["ab..ab", "cd..cd"], "blockchain_network": "BSC-Mainnet", "mev_builders": {"all": ""}}}
+
+Copy
+    
+    
+    {"id":"1","result":{"bundleHash":"0x4d44c34201452e4799d309f94b2e95c7cfb1599f9be33d60085f4b5808c52bb6"},"jsonrpc":"2.0"}

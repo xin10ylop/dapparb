@@ -1,0 +1,217 @@
+URL: https://docs.bnbchain.org/bnb-smart-chain/validator/mev/user-guide/
+FINAL_URL: https://docs.bnbchain.org/bnb-smart-chain/validator/mev/user-guide/
+TITLE: User Guide - BSC MEV
+PUBLISHER: BNB Chain docs
+FETCHED_AT_UTC: 2026-09-30T21:11:44Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: 9197e88f6ee5cbf0342238366b2a6217131745c804844cb2b1f35d231ef274b0
+RAW_FILE: raw/bnbdocs-mev-user-guide.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+Skip to content 
+
+[ ](<https://www.bnbchain.org> "Documentation")
+
+Documentation 
+
+[ ](<javascript:void\(0\)> "Share")
+
+Initializing search 
+
+
+
+
+[ BNB Chain GitHub  ](<https://github.com/bnb-chain/bnb-chain.github.io> "Go to repository")
+
+  * [ Home ](<../../../..>)
+  * [ Announcements ](<../../../../announce/>)
+  * [ BNB Smart Chain ](<../../../>)
+  * [ opBNB ](<../../../../bnb-opbnb/>)
+  * [ BNB Greenfield ](<../../../../bnb-greenfield/>)
+  * [ Developer Kit ](<../../../../developer-kit/>)
+  * [ BNB Chain Fusion ](<../../../../bc-fusion/>)
+  * [ FAQ ](<../../../../faq/>)
+
+
+
+[ ](<https://www.bnbchain.org> "Documentation") Documentation 
+
+[ BNB Chain GitHub  ](<https://github.com/bnb-chain/bnb-chain.github.io> "Go to repository")
+
+  * [ Home  ](<../../../..>)
+  * [ Announcements  ](<../../../../announce/>)
+  * [ BNB Smart Chain  ](<../../../>)
+
+BNB Smart Chain 
+    * [ Overview  ](<../../../overview/>)
+    * [ Introduction  ](<../../../introduction/>)
+    * [ Ecosystem  ](<https://dappbay.bnbchain.org/>)
+    * [ Developers  ](<../../../../developer-kit/>)
+
+Developers 
+      * [ Quick Guide  ](<../../../developers/quick-guide/>)
+      * [ Dev-Tools  ](<https://www.bnbchain.org/en/dev-tools>)
+      * [ JSON-RPC  ](<../../../developers/json_rpc/json-rpc-endpoint/>)
+      * [ Faucet  ](<../../../developers/faucet/>)
+      * [ Node Operators  ](<../../../developers/node_operators/node_best_practices/>)
+      * [ EOA Paymaster  ](<../../../developers/paymaster/overview/>)
+    * Staking  Staking 
+      * [ Overview  ](<../../../staking/overview/>)
+      * [ User Guide  ](<../../../staking/user-guide/>)
+      * [ Build Staking dApps  ](<../../../staking/developer-guide/>)
+    * Governance  Governance 
+      * [ Overview  ](<../../../governance/overview/>)
+      * [ User Guide  ](<../../../governance/user-guide/>)
+      * [ BNB Advocate`s Guide  ](<../../../governance/bnb-kol/>)
+      * [ Temperature Check  ](<../../../governance/temp-check/>)
+      * [ Governance APIs  ](<../../../governance/apis/>)
+    * Validator  Validator 
+      * [ Overview  ](<../../overview/>)
+      * [ Run Validator  ](<../../run-val/>)
+      * [ Create Validator  ](<../../create-val/>)
+      * [ Secure Validator  ](<../../security/>)
+      * [ Key Management  ](<../../manage-keys/>)
+      * MEV  MEV 
+        * [ Overview  ](<../overview/>)
+        * [ Validator Guide  ](<../validator-integration/>)
+        * [ Builder Guide  ](<../builder-integration/>)
+        * User Guide  [ User Guide  ](<./>) Table of contents 
+          * For Retail Traders 
+            * Builder Proxies 
+          * For Professional Traders and Service Providers 
+        * [ FAQs  ](<../faqs/>)
+      * [ EVN  ](<../../evn/overview/>)
+    * Slashing  Slashing 
+      * [ Overview  ](<../../../slashing/overview/>)
+      * [ Slash Rules  ](<../../../slashing/slash-rules/>)
+      * [ Slash Monitor  ](<../../../slashing/monitor/>)
+    * [ Cross Chain Bridge  ](<../../../cross-chain-bridge/>)
+    * [ Benchmark  ](<../../../benchmark/design-reference/>)
+    * [ FAQ  ](<../../../faq/>)
+  * [ opBNB  ](<../../../../bnb-opbnb/>)
+  * [ BNB Greenfield  ](<../../../../bnb-greenfield/>)
+  * [ Developer Kit  ](<../../../../developer-kit/>)
+  * [ BNB Chain Fusion  ](<../../../../bc-fusion/>)
+  * [ FAQ  ](<../../../../faq/>)
+
+
+
+Table of contents 
+
+  * For Retail Traders 
+    * Builder Proxies 
+  * For Professional Traders and Service Providers 
+
+
+
+  1. [ Home  ](<../../../..>)
+  2. [ BNB Smart Chain  ](<../../../>)
+  3. [ Validator  ](<../../overview/>)
+  4. [ MEV  ](<../overview/>)
+
+[ ](<https://github.com/bnb-chain/bnb-chain.github.io/edit/main/docs/bnb-smart-chain/validator/mev/user-guide.md> "Edit this page")
+
+# User Guide¶
+
+PBS(Proposer-Builder Separation) framework offers several advantages for BNB Chain users:
+
+  * Users are less likely to have their transactions front-run or sandwiched. 
+  * Increased competition among block builders can lead to more efficient markets and potentially lower gas prices. 
+  * Enhanced transaction privacy: Users’ transactions are exposed to fewer parties before being included in a block. 
+  * Faster transaction processing: More efficient block construction can lead to quicker transaction confirmations.
+
+
+
+## For Retail Traders¶
+
+When you trade on a decentralized exchange (DEX), you risk being targeted by bots that can front-run your trades, meaning they see your transaction in the public mempool and execute a similar trade first, profiting from the price change you were going to cause. This can result in you getting a worse price or even losing money. Private RPCs offer a solution to this problem. They route your transactions through a private mempool(Provided by builders), hiding them from bots. This means your trades are less likely to be front-run, and you’re more likely to get the price you expect.
+
+Some DEX protocols or builder providers are keen to provide free protection features, and the average transaction confirmation time is around 4-5 seconds, and it may fluctuate according to the network conditions. 
+
+Role | Status and Comments  
+---|---  
+Free Privacy Protecting RPCs | 
+
+  * [Pancake Swap Private RPC](<https://docs.pancakeswap.finance/products/pancakeswap-private-rpc>)
+  * [48 Club Private RPC](<https://docs.48.club/privacy-rpc>)
+  * [Merkle Free BSC Private RPC](<https://merkle.io/free-bsc-rpc>)
+  * [BlockRazor Private RPC with Refund](<https://rpc.blockrazor.io/>)
+
+  
+  
+### Builder Proxies¶
+
+The builder proxies act as a transaction broadcaster for builders. Instead of users’ transactions being limited to a smaller set of pre-registered validators or specific builders, the proxies take each submitted transaction and broadcasts it to all registered builders across the network. This broader dissemination benefits users by significantly increasing the chances of their transaction being picked up by a builder and included in the next block, leading to faster transaction confirmation times. Furthermore, the increased competition among builders, who now have access to a larger pool of transactions, can potentially result in more efficient block construction and, indirectly, potentially lower transaction fees and improved censorship resistance for users.
+
+A transaction proxy sample code is built by NodeReal, You can find it in the open-source git repo here <https://github.com/node-real/private-tx-sender>
+
+Builder Proxy | Associated Builders | Link  
+---|---|---  
+Blockrazor | 48Club, BloXroute, NodeReal | <https://blockrazor.gitbook.io/blockrazor/builder/bsc>  
+Merkle | 48Club, BlockRazor | <https://www.merkle.io/bsc-rpc>  
+  
+**Wallets with Manual MEV Protection:**
+
+Several wallets now offer built-in protection against malicious MEV (Miner Extractable Value) attacks, enhancing the security and fairness of users’ transactions. This protection is often available as a feature that users can manually enable during their swap or trading activities.
+
+  * **Private Transaction Relays:** These relays hide transaction details from malicious actors, preventing them from front-running or sandwich attacking the user’s trade.
+  * **Specialized Builders:** Some wallets utilize builders that prioritize user protection and fair ordering of transactions, minimizing the potential for MEV exploitation.
+
+Type | Name | Status | How to enable  
+---|---|---|---  
+Wallet | Trust Wallet | Supported | [TrustWallet Swap MEV Protection](<https://trustwallet.com/blog/introducing-mev-protection-secure-your-swaps-with-trust-wallet>)  
+Wallet | Binance Web3 Wallet | Supported | [Binance Alpha tokens MEV Protection](<https://www.binance.com/en/support/announcement/introducing-binance-alpha-discover-emerging-crypto-projects-c6499e95c15e408ca44ca5f6db975d4d>)  
+Wallet | OKX Wallet | Supported | [OKX Wallet Enable Swap MEV Protection](<https://www.okx.com/help/okx-wallet-supports-flashbot-to-prevent-mev-attack>)  
+Wallet | TokenPocket Wallet | Supported | [TokenPocket Swap MEV Protection](<https://help.tokenpocket.pro/en/security-knowledge/security-measure/mev-protection-tutorial>)  
+Wallet | Safepal Wallet | Supported | [Safepal Swap MEV Protection](<https://safepalsupport.zendesk.com/hc/en-us/articles/33892098077851-Use-SafePal-to-Protect-Your-Swaps-from-MEV-Attacks>)  
+Wallet | Math Wallet | Supported | [Mathwallet Swap MEV Protection](<https://blog.mathwallet.org/?p=4799>)  
+  
+## For Professional Traders and Service Providers¶
+
+While free private RPCs offer a good level of protection, you can opt for even stronger safeguards with premium private RPC services. These services often provide advanced features and dedicated infrastructure for enhanced security and performance.
+
+Role | Status and Comments  
+---|---  
+5 Builders (Private privacy protecting RPC service providers) | 
+
+  * [BloxRoute](<https://bloxroute.com/products/protected-transactions/>)
+  * [JetBuilder](<https://jetbldr.xyz/api_bsc/>)
+  * [Nodereal](<https://docs.nodereal.io/reference/bsc-bundle-service-api#overview>)
+  * [Blockrazor](<https://blockrazor.gitbook.io/blockrazor/mev-service/bsc>)
+  * [Puissant](<https://docs.48.club/>)
+
+  
+  
+There are two aspects that may impact the transaction inclusion speed. 
+
+  1. Validator Network: Providers with a larger network of integrated validators can often offer faster inclusion speeds. More validators mean more opportunities for your transaction to be picked up and added to a block.
+  2. Builder Usage: Higher usage of a builder’s service generally leads to faster inclusion. Increased usage makes the builder’s block proposals more valuable to validators, incentivizing them to prioritize those blocks.
+
+
+
+You can view the latest MEV builder data (MEV_Blocks_by_Builders) from the [Dune dashboard](<https://dune.com/bnbchain/bnb-smart-chain-mev-stats>), and select the appropriate builders to broadcast transactions. The contacts of each builder are listed above in Table 1. 
+
+You can check the number of validators integrated and the number of blocks of each builder, as mentioned above.
+
+  1. The more validators are integrated, the faster the builder can be. 
+  2. The more blocks that are produced, the faster the builder can be. 
+
+
+
+May 29, 2026
+
+Back to top 
+
+Ask AI 
+
+#### Cookie consent
+
+We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.
+
+  * Google Analytics 
+  * GitHub 
+
+
+
+Accept Manage settings

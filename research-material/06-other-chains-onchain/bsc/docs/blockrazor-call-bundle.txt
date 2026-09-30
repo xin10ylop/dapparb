@@ -1,0 +1,290 @@
+URL: https://blockrazor.gitbook.io/blockrazor/builder/bsc/call-bundle
+FINAL_URL: https://docs.blockrazor.io/transaction-submission/block-builder/call-bundle
+TITLE: BlockRazor: Call Bundle
+PUBLISHER: BlockRazor
+FETCHED_AT_UTC: 2026-09-30T21:13:03Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: 25e0c128f82a3c26dc5903729735cd59596f7b809bdf63a6fd890d0dfcc6f245
+RAW_FILE: raw/blockrazor-call-bundle.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+[Robinhood Chain Sequencer Feed & Transaction Sending are now live—receive data earlier, send transactions faster!Get Started](<https://blockrazor.io/chains/robinhood/>)
+
+[](<https://blockrazor.io/>)
+
+`⌘Ctrl``k`
+
+[Join Community](<https://discord.com/invite/qqJuwRb8Nh>)[Dashboard](<https://blockrazor.io/#/portal/services/account>)[Create Account](<https://blockrazor.io/#/register?redirect=onboarding>)
+
+More
+
+English
+
+[](<https://blockrazor.io/>)English
+
+  * Get Started
+
+    * [Overview](</>)
+    * [Supported Chains](</get-started/supported-chains>)
+    * [Start for Free](</get-started/start-for-free>)
+    * [Pricing](</get-started/pricing>)
+    * [Obtain Auth Token](</get-started/authentication>)
+    * [Use Cases](</get-started/use-cases>)
+
+  * Streams
+
+    * [Overview](</streams/overview>)
+    * [Public Mempool](</streams/public-mempool>)
+    * [Private Mempool](</streams/private-mempool>)
+    * [Block Stream](</streams/block-stream>)
+    * [Node Stream](</streams/node-stream>)
+    * [Network Fee Stream](</streams/network-fee-stream>)
+
+  * Transaction Submission
+
+    * [Overview](</transaction-submission/overview>)
+    * [RPC](</transaction-submission/rpc>)
+    * [Block Builder](</transaction-submission/block-builder>)
+
+      * [Endpoint](</transaction-submission/block-builder/endpoint>)
+      * [Fast Submit](</transaction-submission/block-builder/fast-submit>)
+      * [Send Bundle](</transaction-submission/block-builder/send-bundle>)
+      * [Send PrivateTransaction](</transaction-submission/block-builder/send-privatetransaction>)
+      * [Trace Bundle](</transaction-submission/block-builder/trace-bundle>)
+      * [Bundle Explorer](</transaction-submission/block-builder/bundle-explorer>)
+      * [Call Bundle](</transaction-submission/block-builder/call-bundle>)
+
+    * [Transaction Sending](</transaction-submission/transaction-sending>)
+    * [Gas Sponsor](</transaction-submission/gas-sponsor>)
+
+  * Core Technology
+
+    * [Blockchain Edge Fabric](</core-technology/blockchain-edge-fabric>)
+
+  * 📄Statement
+
+    * [User Agreement](</statement/user-agreement>)
+    * [Privacy Statement](</statement/privacy-statement>)
+
+
+
+
+[Powered by GitBook](<https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=jbyfG8gOgcdsK3wVxNdQ&utm_content=site_j7YxF>)[](<https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=jbyfG8gOgcdsK3wVxNdQ&utm_content=site_j7YxF>)
+
+On this page
+
+For the complete documentation index, see [llms.txt](<https://docs.blockrazor.io/llms.txt>). This page is also available as [Markdown](<https://docs.blockrazor.io/transaction-submission/block-builder/call-bundle.md>).
+
+Copy
+
+On this page
+
+  1. [Transaction Submission](</transaction-submission>)
+  2. [BSC Block Builder APIs & Integration](</transaction-submission/block-builder>)
+
+
+
+# BSC Block Builder Call Bundle API Reference
+
+Use the BlockRazor BSC Block Builder Trace Bundle API. Review the endpoint, parameters, request format, response fields, and integration example.
+
+### Introduction
+
+This API is used to receive requests for simulating bundles. The method name is `eth_callBundle`.
+
+### Price
+
+Payment
+
+Price
+
+Action
+
+Personalized
+
+**$20** / day
+
+[訂閱](<https://blockrazor.io/#/portal/pricing?purchaseMode=personalized&chain=bsc&serviceId=bsc_call_bundle&billing=day>)
+
+Package
+
+**$1250** / month bundled with other essential services for more value
+
+[訂閱](<https://blockrazor.io/#/portal/pricing?redirect=pricing&purchaseMode=package&billing=month>)
+
+### Rate Limit
+
+1 TPS
+
+### Request Parameter
+
+Parameters
+
+Mandatory
+
+Format
+
+Example
+
+Description
+
+txs
+
+Mandatory
+
+array[hex]
+
+["0x…4b", "0x…5c"]
+
+List of signed raw transactions
+
+blockNumber
+
+Mandatory
+
+number
+
+39177941
+
+Current block number + 1
+
+### Request Example
+
+HTTPS
+
+Copy
+    
+    
+    curl https://virginia.builder.blockrazor.io \
+      -H 'content-type: application/json' \
+      -H 'Authorization: <auth-token>' \
+      --data '{
+      "jsonrpc": "2.0",
+      "id": "1",
+      "method": "eth_callBundle",
+      "params": [
+        {
+          "txs":["0x…4b"],
+          "blockNumber":39177941
+        }
+      ]
+      }'
+
+### Response Example
+
+**Success**
+
+**Error**
+
+[ PreviousBundle Explorer](</transaction-submission/block-builder/bundle-explorer>)[NextTransaction Sending](</transaction-submission/transaction-sending>)
+
+Last updated 5 days ago
+
+Was this helpful?
+
+[x-twitter](<https://x.com/BlockRazor_Inc>)[linkedin](<https://linkedin.com/company/blockrazor>)[](<https://github.com/BlockRazorinc>)[discord](<https://discord.com/invite/qqJuwRb8Nh>)[medium](<https://medium.com/@blockrazor>)
+
+Copyright © 2026 BlockRazor All Rights Reserved.
+
+  * Introduction
+  * Price
+  * Rate Limit
+  * Request Parameter
+  * Request Example
+  * Response Example
+
+
+
+Was this helpful?
+
+Copy
+    
+    
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "bundleHash": "0xb13bb92ebee57b42b7e8e91b41891e1693a449dcdb8530c6bffe684157e988da",
+        "ethSentToBuilder": "63003000000000",
+        "gasFees": "21000000000000",
+        "results": [
+          {
+            "ethSentToBuilder": "63003000000000",
+            "fromAddress": "0x12994B3004Daab21035EDa1D4b31F7F63D606128",
+            "gasFees": "21000000000000",
+            "gasPrice": "4000142857",
+            "gasUsed": 21000,
+            "toAddress": "0x1266C6bE60392A8Ff346E8d5ECCd3E69dD9c5F20",
+            "txHash": "0x0fbaa913aa0ffc22bba63a81ca2958ad14d630928c5a5240130fec7037605648",
+            "value": "0x"
+          }
+        ],
+        "stateBlockNumber": 756983,
+        "totalGasUsed": 21000
+      }
+    }
+
+Copy
+    
+    
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "error": {
+        "code": -32000,
+        "message": "missing auth token"
+      }
+    }
+
+Copy
+    
+    
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "error": {
+        "code": -32000,
+        "message": "rate limit exceeded, try again later"
+      }
+    }
+
+Copy
+    
+    
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "error": {
+        "code": -32000,
+        "message": "err: nonce too low: address 0x6c85F133fa06Fe5eb185743FB6c79f4a7cb9C076, tx: 28 state: 29; txhash 0x300c95d2b3086ddc1836de1e8c87878916d332ff42e8312cd404264ab8cdcd18"
+      }
+    }
+
+Copy
+    
+    
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "bundleHash": "0x592da70a510720d149567bfbc5935a05780963607c3c75b93a9190bb60818f21",
+        "ethSentToBuilder": "0",
+        "gasFees": "218070000000000",
+        "results": [
+          {
+            "error": "execution reverted",
+            "ethSentToBuilder": "0",
+            "fromAddress": "0xb0b10B09780aa6A315158EF724404aa1497e9E6E",
+            "gasFees": "218070000000000",
+            "gasPrice": "10000000000",
+            "gasUsed": 21807,
+            "revert": "unlock error: locked",
+            "toAddress": "0xdA51Cf6ed22740FD8fAfbBe61577A577915e7526",
+            "txHash": "0xa09745617e0a212c5da379ea066f64e33f5215ce235d653bbbc1359b38d78baa",
+          }
+        ],
+        "stateBlockNumber": 29115,
+        "totalGasUsed": 21807
+      }
+    }

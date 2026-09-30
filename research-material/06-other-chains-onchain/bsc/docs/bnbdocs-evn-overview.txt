@@ -1,0 +1,169 @@
+URL: https://docs.bnbchain.org/bnb-smart-chain/validator/evn/overview/
+FINAL_URL: https://docs.bnbchain.org/bnb-smart-chain/validator/evn/overview/
+TITLE: Enhanced Validator Network overview
+PUBLISHER: BNB Chain docs
+FETCHED_AT_UTC: 2026-09-30T21:11:51Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: 5298447a261c14bb23bd88f96df88a257870236aeda77d8a180d79bddc8f6288
+RAW_FILE: raw/bnbdocs-evn-overview.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+Skip to content 
+
+[ ](<https://www.bnbchain.org> "Documentation")
+
+Documentation 
+
+[ ](<javascript:void\(0\)> "Share")
+
+Initializing search 
+
+
+
+
+[ BNB Chain GitHub  ](<https://github.com/bnb-chain/bnb-chain.github.io> "Go to repository")
+
+  * [ Home ](<../../../..>)
+  * [ Announcements ](<../../../../announce/>)
+  * [ BNB Smart Chain ](<../../../>)
+  * [ opBNB ](<../../../../bnb-opbnb/>)
+  * [ BNB Greenfield ](<../../../../bnb-greenfield/>)
+  * [ Developer Kit ](<../../../../developer-kit/>)
+  * [ BNB Chain Fusion ](<../../../../bc-fusion/>)
+  * [ FAQ ](<../../../../faq/>)
+
+
+
+[ ](<https://www.bnbchain.org> "Documentation") Documentation 
+
+[ BNB Chain GitHub  ](<https://github.com/bnb-chain/bnb-chain.github.io> "Go to repository")
+
+  * [ Home  ](<../../../..>)
+  * [ Announcements  ](<../../../../announce/>)
+  * [ BNB Smart Chain  ](<../../../>)
+
+BNB Smart Chain 
+    * [ Overview  ](<../../../overview/>)
+    * [ Introduction  ](<../../../introduction/>)
+    * [ Ecosystem  ](<https://dappbay.bnbchain.org/>)
+    * [ Developers  ](<../../../../developer-kit/>)
+
+Developers 
+      * [ Quick Guide  ](<../../../developers/quick-guide/>)
+      * [ Dev-Tools  ](<https://www.bnbchain.org/en/dev-tools>)
+      * [ JSON-RPC  ](<../../../developers/json_rpc/json-rpc-endpoint/>)
+      * [ Faucet  ](<../../../developers/faucet/>)
+      * [ Node Operators  ](<../../../developers/node_operators/node_best_practices/>)
+      * [ EOA Paymaster  ](<../../../developers/paymaster/overview/>)
+    * Staking  Staking 
+      * [ Overview  ](<../../../staking/overview/>)
+      * [ User Guide  ](<../../../staking/user-guide/>)
+      * [ Build Staking dApps  ](<../../../staking/developer-guide/>)
+    * Governance  Governance 
+      * [ Overview  ](<../../../governance/overview/>)
+      * [ User Guide  ](<../../../governance/user-guide/>)
+      * [ BNB Advocate`s Guide  ](<../../../governance/bnb-kol/>)
+      * [ Temperature Check  ](<../../../governance/temp-check/>)
+      * [ Governance APIs  ](<../../../governance/apis/>)
+    * Validator  Validator 
+      * [ Overview  ](<../../overview/>)
+      * [ Run Validator  ](<../../run-val/>)
+      * [ Create Validator  ](<../../create-val/>)
+      * [ Secure Validator  ](<../../security/>)
+      * [ Key Management  ](<../../manage-keys/>)
+      * [ MEV  ](<../../mev/overview/>)
+      * EVN  EVN 
+        * Overview  [ Overview  ](<./>) Table of contents 
+          * Background 
+          * How EVN Works 
+            * NodeID Registration 
+            * EVN Peer Identification 
+            * Broadcast Optimization 
+            * EVN Whitelist 
+            * EVN Peer Connection 
+        * [ Best Practice  ](<../best-practice/>)
+        * [ Network Monitor  ](<../network-monitor/>)
+        * [ FAQs  ](<../faqs/>)
+    * Slashing  Slashing 
+      * [ Overview  ](<../../../slashing/overview/>)
+      * [ Slash Rules  ](<../../../slashing/slash-rules/>)
+      * [ Slash Monitor  ](<../../../slashing/monitor/>)
+    * [ Cross Chain Bridge  ](<../../../cross-chain-bridge/>)
+    * [ Benchmark  ](<../../../benchmark/design-reference/>)
+    * [ FAQ  ](<../../../faq/>)
+  * [ opBNB  ](<../../../../bnb-opbnb/>)
+  * [ BNB Greenfield  ](<../../../../bnb-greenfield/>)
+  * [ Developer Kit  ](<../../../../developer-kit/>)
+  * [ BNB Chain Fusion  ](<../../../../bc-fusion/>)
+  * [ FAQ  ](<../../../../faq/>)
+
+
+
+Table of contents 
+
+  * Background 
+  * How EVN Works 
+    * NodeID Registration 
+    * EVN Peer Identification 
+    * Broadcast Optimization 
+    * EVN Whitelist 
+    * EVN Peer Connection 
+
+
+
+  1. [ Home  ](<../../../..>)
+  2. [ BNB Smart Chain  ](<../../../>)
+  3. [ Validator  ](<../../overview/>)
+  4. [ EVN  ](<./>)
+
+[ ](<https://github.com/bnb-chain/bnb-chain.github.io/edit/main/docs/bnb-smart-chain/validator/evn/overview.md> "Edit this page")
+
+# Overview
+
+## Background¶
+
+After [Maxwell Hardfork](<https://www.bnbchain.org/en/blog/bnb-chain-announces-maxwell-hardfork-bsc-moves-to-0-75-second-block-times>), the block interval has be reduced to 0.75s, which is a huge improvement in user experience for BSC, and at the same time has greater performance requirements for the client’s network, execution and other components. 
+
+BSC introduced a new network layer optimization, Enhanced Validator Network, aka EVN. It is not a new P2P network, but based on the current P2P network to optimize the validator network and reduce the latency of core consensus messages as much as possible. You can also check [BEP-563](<https://github.com/bnb-chain/BEPs/blob/master/BEPs/BEP-563.md>) and [BEP-564](<https://github.com/bnb-chain/BEPs/blob/master/BEPs/BEP-564.md>) for more details.
+
+## How EVN Works¶
+
+### NodeID Registration¶
+
+Node operator could add the validator’s EVN NodeIDs through the configuration file(config.toml), then the node will automatically sign a registration tx to register the node id on chain.
+
+It establishes the identity mapping from the consensus layer to the network layer.
+
+### EVN Peer Identification¶
+
+All validators/sentry will pull the on-chain registration information, identify whether the connected P2P Peer belongs to the NodeID of a validator, and mark it as an EVN Peer.
+
+### Broadcast Optimization¶
+
+Transaction broadcast is disabled between all EVN Peers, and mined blocks are broadcast to all connected EVN Peers. Non-mined blocks still use the old gossip broadcast mechanism.
+
+### EVN Whitelist¶
+
+This is an EVN whitelist that takes effect on this node. It will consider the whitelisted Peers to be EVN Peers as well and apply the EVN broadcast algorithm.
+
+### EVN Peer Connection¶
+
+Currently, EVN Peers are mainly connected directly through static nodes, allowing most EVN Peers to connect directly to each other.
+
+July 3, 2025
+
+Back to top 
+
+Ask AI 
+
+#### Cookie consent
+
+We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.
+
+  * Google Analytics 
+  * GitHub 
+
+
+
+Accept Manage settings

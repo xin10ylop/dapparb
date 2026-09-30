@@ -5,7 +5,7 @@ For each URL writes:
   <slug>.html.gz   raw response body (gzip), unmodified
   <slug>.txt       verbatim visible text of the page (HTML tags removed, scripts/styles dropped, entities decoded,
                    whitespace collapsed per line), preceded by a header with URL, final URL, HTTP status, UTC fetch time
-PDF responses are stored as <slug>.pdf plus <slug>.txt from `pdftotext -layout` when available.
+PDF responses are stored as <slug>.pdf plus <slug>.txt extracted with PyMuPDF (fitz) page by page.
 index.csv lists every URL attempted with status (including failures)."""
 import csv, datetime, gzip, html, os, re, subprocess, sys, time, requests
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
@@ -47,20 +47,31 @@ for u in sys.argv[2:]:
         except requests.RequestException as ex:
             note = str(ex)[:200]; time.sleep(3 * (i + 1))
     s = slug(u)
-    if r is not None:
+    if r is not None and not (200 <= r.status_code < 300):
+        st, final = r.status_code, r.url
+        note = (note + " non-2xx response; body not stored").strip()
+    elif r is not None:
         st, final = r.status_code, r.url
         ctype = r.headers.get("content-type", "")
         if "pdf" in ctype or u.lower().endswith(".pdf"):
             p = os.path.join(out, s if s.endswith(".pdf") else s + ".pdf")
             open(p, "wb").write(r.content)
             try:
-                txt = subprocess.run(["pdftotext", "-layout", p, "-"], capture_output=True, text=True, timeout=120).stdout
+                import fitz  # PyMuPDF
+                doc = fitz.open(p)
+                txt = "".join("\n\n[page %d]\n" % (i + 1) + pg.get_text() for i, pg in enumerate(doc))
             except Exception as ex:  # noqa
-                txt = ""; note = "pdftotext unavailable: %s" % ex
+                txt = ""; note = "pdf text extraction failed: %s" % ex
+        elif u.endswith(".md") or "text/markdown" in ctype or "text/plain" in ctype:
+            open(os.path.join(out, s + ".raw.gz"), "wb").write(gzip.compress(r.content))
+            txt = r.content.decode("utf-8", errors="replace")  # already plain text / markdown: kept as is
         else:
             open(os.path.join(out, s + ".html.gz"), "wb").write(gzip.compress(r.content))
-            txt = text_of(r.content.decode(r.encoding or "utf-8", errors="replace"))
-        hdr = "SOURCE_URL: %s\nFINAL_URL: %s\nHTTP_STATUS: %s\nFETCHED_AT_UTC: %s\nEXTRACTION: verbatim visible text (tags stripped); raw body in the .html.gz/.pdf file next to this one\n\n" % (u, final, st, t)
+            txt = text_of(r.content.decode("utf-8", errors="replace"))
+        kind = ("PDF text extracted page by page with PyMuPDF; original PDF stored next to this file" if ("pdf" in ctype or u.lower().endswith(".pdf"))
+                else "raw markdown/plain-text body, unmodified; gzip copy in the .raw.gz file next to this one" if (u.endswith(".md") or "text/markdown" in ctype or "text/plain" in ctype)
+                else "verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one")
+        hdr = "SOURCE_URL: %s\nFINAL_URL: %s\nHTTP_STATUS: %s\nFETCHED_AT_UTC: %s\nEXTRACTION: %s\n\n" % (u, final, st, t, kind)
         if txt:
             open(os.path.join(out, s + ".txt"), "w").write(hdr + txt)
     rows = [x for x in rows if x["url"] != u]

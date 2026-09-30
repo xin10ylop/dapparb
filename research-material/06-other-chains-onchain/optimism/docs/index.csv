@@ -1,0 +1,9 @@
+url,final_url,http_status,fetched_at_utc,file_stem,note
+https://docs.optimism.io/op-stack/transactions/fees,https://docs.optimism.io/op-stack/transactions/fees,200,2026-09-30T21:11:10Z,docs.optimism.io_op-stack_transactions_fees,
+https://docs.optimism.io/op-stack/transactions/transaction-flow,https://docs.optimism.io/op-stack/transactions/transaction-flow,200,2026-09-30T21:11:11Z,docs.optimism.io_op-stack_transactions_transaction-flow,
+https://docs.optimism.io/op-stack/protocol/differences,https://docs.optimism.io/op-stack/protocol/differences,200,2026-09-30T21:11:11Z,docs.optimism.io_op-stack_protocol_differences,
+https://docs.optimism.io/chain-operators/guides/management/transaction-fees-101,https://docs.optimism.io/chain-operators/guides/management/transaction-fees-101,200,2026-09-30T21:11:12Z,docs.optimism.io_chain-operators_guides_management_transaction-fees-101,
+https://specs.optimism.io/protocol/overview.html,https://specs.optimism.io/protocol/overview.html,200,2026-09-30T21:11:12Z,specs.optimism.io_protocol_overview.html,
+https://optimism.io/blog/flashblocks-deep-dive-250ms-preconfirmations-on-op-mainnet,https://optimism.io/blog/flashblocks-deep-dive-250ms-preconfirmations-on-op-mainnet,200,2026-09-30T21:11:13Z,optimism.io_blog_flashblocks-deep-dive-250ms-preconfirmations-on-op-mainnet,
+https://www.optimism.io/blog/optimism-partners-with-flashbots,https://optimism.io/blog/optimism-partners-with-flashbots,200,2026-09-30T21:11:14Z,www.optimism.io_blog_optimism-partners-with-flashbots,
+https://raw.githubusercontent.com/flashbots/rollup-boost/main/specs/flashblocks.md,https://raw.githubusercontent.com/flashbots/rollup-boost/main/specs/flashblocks.md,200,2026-09-30T21:11:15Z,raw.githubusercontent.com_flashbots_rollup-boost_main_specs_flashblocks.md,

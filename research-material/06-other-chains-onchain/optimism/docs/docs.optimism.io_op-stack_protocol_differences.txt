@@ -1,0 +1,300 @@
+SOURCE_URL: https://docs.optimism.io/op-stack/protocol/differences
+FINAL_URL: https://docs.optimism.io/op-stack/protocol/differences
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:11:11Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+*
+*
+*
+*
+*
+*
+*
+* Optimism Documentation
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+
+## Documentation Index
+Fetch the complete documentation index at: /llms.txt
+Use this file to discover all available pages before exploring further.
+
+Skip to main content
+Optimism Documentation home page
+
+Search...
+
+⌘ K Ask Assistant ⌘ I
+
+* Blog
+
+* GitHub
+
+Search...
+
+Navigation
+How the protocol works
+Differences from Ethereum
+
+Get Started
+Chain Operators
+Node Operators
+App Developers
+Protocol
+OP Mainnet
+Governance
+Notices
+
+*
+Status
+
+*
+Faucet
+
+*
+Bridge
+
+## Get started
+
+* The OP Stack
+
+* OP Stack architecture
+
+* Fact sheet
+
+* Learn the OP Stack
+
+## How the protocol works
+
+* Overview
+
+* Design philosophy & principles
+
+* Differences from Ethereum
+
+* OP Stack components
+
+* Derivation pipeline
+
+* Smart Contract overview
+
+* The Blockspace and Standard Rollup Charters
+
+* Sequencer outages
+
+* Block time research
+
+* Transactions
+
+* Bridging
+
+* Fault Proofs
+
+* Interoperability
+
+## Security
+
+* Privileged Roles in OP Stack Chains
+
+* OP Stack security model
+
+* Security policy and bug bounty program
+
+* Audit reports
+
+* Pausing the bridge
+
+* Crosschain security measures for safe interoperability
+
+## Features
+
+* Subblocks
+
+* Sequencer Defined Metering
+
+* Custom Gas Token
+
+* Bridged USDC Standard on OP Stack
+
+* Span Batches
+
+* SendRawTransactionConditional explainer
+
+* L2 Contract Manager
+
+* Osaka on L2
+
+* OP Stack preinstalls
+
+* Alt-DA Mode Explainer
+
+## Reference
+
+* Stack Components
+
+* Network upgrades
+
+* The superchain-registry
+
+* Glossary
+
+## On this page
+
+* Bridging
+* Bridging - Deposit Transactions
+
+* Bridging - Withdrawal Transactions and Fault Proofs
+
+* Opcodes
+* Address aliasing
+
+* Transactions
+* Transaction fees
+
+* EIP-1559 parameters
+
+* Mempool rules
+
+* Chain Finality
+
+* What’s Next
+
+How the protocol works
+
+## Differences from Ethereum
+Copy page Copy page
+
+Learn the minor differences between the behavior of Ethereum and the OP Stack.
+
+Copy page Copy page
+
+Learn the OP Stack — stop 4 of 14.
+You know what the stack is and the principles behind it. This page
+grounds what “EVM equivalent” means in practice: the small set of
+behaviors where OP Stack chains differ from Ethereum. When you’re done,
+continue to OP Stack components .
+
+OP Stack chains are designed to be EVM equivalent and introduces as few changes as possible to the Ethereum protocol.
+However, there are some minor differences between the behavior of Ethereum and OP Stack chains that developers should be aware of.
+
+## ​
+
+Bridging
+
+## ​
+
+Bridging - Deposit Transactions
+
+Deposit transactions don’t exist on L1s, and are how transactions on an L2 can be initiated from the L1. Importantly, this is how bridge applications can get L1 ETH or tokens into an L2 OP Stack chain. You can read more on deposit transactions here .
+
+## ​
+
+Bridging - Withdrawal Transactions and Fault Proofs
+
+Withdrawal transactions are how the state of the L2 rollup can be proven to the L1. Often this involves users withdrawing tokens or ETH to the L1. Fault proofs are the mechanism by which withdrawal transactions are currently proven to the L1. You can read more about fault proofs here .
+
+## ​
+
+Opcodes
+
+Opcode Solidity Equivalent Behavior
+COINBASE block.coinbase Returns the address of the current Sequencer’s fee wallet. Effectively the same as Ethereum with the caveat that the value typically does not change from block to block.
+PREVRANDAO block.prevrandao Returns the PREVRANDAO (the most recent RANDAO ) value of L1 at the current L1 origin block.
+ORIGIN tx.origin If the transaction is an L1 ⇒ L2 transaction triggered by a smart contract on L1, then tx.origin is set to the aliased address of the address that triggered the L1 ⇒ L2 transaction. Otherwise, this opcode behaves normally.
+CALLER msg.sender If the transaction is an L1 ⇒ L2 transaction triggered by a smart contract on L1, and this is the first call frame (rather than an internal transaction from one contract to another), the same address aliasing behavior applies.
+
+## ​
+
+Address aliasing
+
+Address aliasing is an important security feature that impacts the behavior of transactions sent from L1 to L2 by smart contracts.
+Make sure to read this section carefully if you are working with cross-chain transactions.
+Note that the CrossChainMessenger contracts will handle address aliasing internally on your behalf.
+
+When transactions are sent from L1 to L2 by an Externally Owned Account, the address of the sender of the transaction on L2 will be set to the address of the sender of the transaction on L1.
+However, the address of the sender of a transaction on L2 will be different if the transaction was triggered by a smart contract on L1 .
+Because of the behavior of the CREATE opcode, it is possible to create a contract on both L1 and on L2 that share the same address but have different bytecode.
+Even though these contracts share the same address, they are fundamentally two different smart contracts and cannot be treated as the same contract.
+As a result, the sender of a transaction sent from L1 to L2 by a smart contract cannot be the address of the smart contract on L1 or the smart contract on L1 could act as if it were the smart contract on L2 (because the two contracts share the same address).
+To prevent this sort of impersonation, the sender of a transaction is slightly modified by the OptimismPortal when a smart contract calls depositTransaction to send a transaction from L1 to L2.
+This alias is applied when the caller has code, and that code is not a valid EIP-7702 delegation.
+When the address has no code, or the code present at the address is a valid EIP-7702 delegation, the sender is not modified.
+Note that ephemeral contracts (those that are created and self-destructed in the same transaction) WILL be aliased, despite having no code at the start or end of transaction execution.
+Instead of appearing to be sent from the actual L1 contract address, the L2 transaction is sent from an “aliased” version of the L1 contract address.
+This aliased address is produced by treating the address as a 160-bit integer, adding a constant offset with overflows allowed, and then truncating the result to a 20-byte address.
+The address hashing function ensures that aliased address will never conflict with any other address on L2.
+The simple offset original L1 address can easily be recovered from the aliased address.
+The OptimismPortal applies this change only to L2 transactions sent by L1 smart contracts.
+In all other cases, the transaction sender address is set according to the same rules used by Ethereum.
+Transaction Source Sender Address
+L2 user (Externally Owned, or EIP-7702 Delegated Account) The user’s address (same as in Ethereum)
+L1 user (Externally Owned, or EIP-7702 Delegated Account) The user’s address (same as in Ethereum)
+L1 contract (using OptimismPortal.depositTransaction ) uint160(L1_contract_address) + 0x1111000000000000000000000000000000001111
+
+## ​
+
+Transactions
+
+## ​
+
+Transaction fees
+
+Transactions on OP Stack chains must pay for an L1 data fee on top of the standard execution gas fee you would expect on Ethereum.
+Refer to the guide on OP Stack Transaction Fees for more information.
+You can use the JS library viem to estimate the entire transaction gas costs, including the L1 Data Fee.
+
+## ​
+
+EIP-1559 parameters
+
+The base fee on OP Stack is, like Ethereum, computed via the EIP-1559 mechanism.
+The EIP-1559 parameters used by OP Stack differ per chain.
+
+## ​
+
+Mempool rules
+
+Unlike Ethereum, OP Stack chains do not have a public mempool.
+The OP Stack mempool is currently only visible to the Sequencer.
+The Sequencer executes transactions from the mempool in priority fee order (highest fee first).
+
+## ​
+
+Chain Finality
+
+Unlike L1s such as Ethereum, OP Stack chains have Unsafe, Safe, and Finalized Heads which indicate the state of finality for a given L2 block. Fault proofs do not impact the finalization of the L2 rollup, only the finalization of withdrawal transactions to the L1. You can read more about these in the docs glossary .
+
+## ​
+
+What’s Next
+
+There are various useful tools linked above. Here are a few more tools and links you may want to check out:
+
+*
+OP-viem : JS framework that can handle many of these unique functions on OP Chains. It is similar to Ethers.js for OP Stack chains.
+
+*
+Specs : For more in-depth technical explanations and examples.
+
+Was this page helpful?
+Yes No
+
+Design philosophy & principles
+OP Stack components
+
+twitter github
+
+Assistant
+
+Responses are generated using AI and may contain mistakes.

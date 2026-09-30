@@ -1,0 +1,193 @@
+URL: https://blockrazor.gitbook.io/blockrazor/bsc/block-builder
+FINAL_URL: https://docs.blockrazor.io/transaction-submission/block-builder
+TITLE: BlockRazor: BSC Block Builder
+PUBLISHER: BlockRazor
+FETCHED_AT_UTC: 2026-09-30T21:12:56Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: 140c445bea8570955c29a4255a0c90f31d95095ebcf988495a60103483263cea
+RAW_FILE: raw/blockrazor-bsc-block-builder.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+[Robinhood Chain Sequencer Feed & Transaction Sending are now live—receive data earlier, send transactions faster!Get Started](<https://blockrazor.io/chains/robinhood/>)
+
+[](<https://blockrazor.io/>)
+
+`⌘Ctrl``k`
+
+[Join Community](<https://discord.com/invite/qqJuwRb8Nh>)[Dashboard](<https://blockrazor.io/#/portal/services/account>)[Create Account](<https://blockrazor.io/#/register?redirect=onboarding>)
+
+More
+
+English
+
+[](<https://blockrazor.io/>)English
+
+  * Get Started
+
+    * [Overview](</>)
+    * [Supported Chains](</get-started/supported-chains>)
+    * [Start for Free](</get-started/start-for-free>)
+    * [Pricing](</get-started/pricing>)
+    * [Obtain Auth Token](</get-started/authentication>)
+    * [Use Cases](</get-started/use-cases>)
+
+  * Streams
+
+    * [Overview](</streams/overview>)
+    * [Public Mempool](</streams/public-mempool>)
+    * [Private Mempool](</streams/private-mempool>)
+    * [Block Stream](</streams/block-stream>)
+    * [Node Stream](</streams/node-stream>)
+    * [Network Fee Stream](</streams/network-fee-stream>)
+
+  * Transaction Submission
+
+    * [Overview](</transaction-submission/overview>)
+    * [RPC](</transaction-submission/rpc>)
+    * [Block Builder](</transaction-submission/block-builder>)
+
+      * [Endpoint](</transaction-submission/block-builder/endpoint>)
+      * [Fast Submit](</transaction-submission/block-builder/fast-submit>)
+      * [Send Bundle](</transaction-submission/block-builder/send-bundle>)
+      * [Send PrivateTransaction](</transaction-submission/block-builder/send-privatetransaction>)
+      * [Trace Bundle](</transaction-submission/block-builder/trace-bundle>)
+      * [Bundle Explorer](</transaction-submission/block-builder/bundle-explorer>)
+      * [Call Bundle](</transaction-submission/block-builder/call-bundle>)
+
+    * [Transaction Sending](</transaction-submission/transaction-sending>)
+    * [Gas Sponsor](</transaction-submission/gas-sponsor>)
+
+  * Core Technology
+
+    * [Blockchain Edge Fabric](</core-technology/blockchain-edge-fabric>)
+
+  * 📄Statement
+
+    * [User Agreement](</statement/user-agreement>)
+    * [Privacy Statement](</statement/privacy-statement>)
+
+
+
+
+[Powered by GitBook](<https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=jbyfG8gOgcdsK3wVxNdQ&utm_content=site_j7YxF>)[](<https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=jbyfG8gOgcdsK3wVxNdQ&utm_content=site_j7YxF>)
+
+On this page
+
+For the complete documentation index, see [llms.txt](<https://docs.blockrazor.io/llms.txt>). This page is also available as [Markdown](<https://docs.blockrazor.io/transaction-submission/block-builder.md>).
+
+Copy
+
+On this page
+
+  1. [Transaction Submission](</transaction-submission>)
+
+
+
+# BSC Block Builder APIs & Integration
+
+Explore BlockRazor Block Builder: Who is it suitable for? What capabilities does it provide? And how to choose endpoint?. See the full developer guide.
+
+### What is Block Builder?
+
+Block Builder is a BSC block building service provided by BlockRazor. It maintains competitive block building and high block production success rate based on [BEF](</core-technology/blockchain-edge-fabric>) and Flow Coordination Engine. Block Builder currently ranks first in block production rate across the entire BSC chain. Real-time block production rate can be viewed at <https://dune.com/bnbchain/bnb-smart-chain-mev-stats>[](<https://dune.com/bnbchain/bnb-smart-chain-mev-stats>).
+
+Block Builder is designed for users who require high-quality BSC transaction execution. Its core value includes:
+
+  * Higher win rate block building capability
+
+  * Low-latency access capabilities for global deployment
+
+  * Supports multiple transaction submission modes to adapt to different execution needs.
+
+  * Provide more suitable submission paths for latency-sensitive, privacy-sensitive, and sequence-sensitive scenarios.
+
+
+
+
+### Who is Block Builder suitable for?
+
+  * **Searcher** : Users who need to submit bundles, capture MEV opportunities, and pay attention to the order of transactions and the timing of execution.
+
+  * **Trading Bot / Quant Team** : Team with specific requirements for latency, execution stability, and cross-regional performance.
+
+  * **Wallets / DEXs** : Teams that need a better trade execution experience, privacy protection, or a better submission path.
+
+
+
+
+### What capabilities does Block Builder provide?
+
+Block Builder currently supports the following core capabilities:
+
+  * **Send Bundle** : Suitable for scenarios that require transaction order, atomicity, and execution within the same block.
+
+  * **Send PrivateTransaction** : Suitable for scenarios where you want to avoid exposing transactions to the public mempool and reduce the risk of being preempted or maliciously observed.
+
+  * **Trace Bundle** : Suitable for scenarios that track and analyze Bundle submission results and execution performance. Combined with Bundle Explorer, it can help users observe the performance of Bundle in the Builder chain in a more granular way, providing a reference for strategy optimization, problem investigation and effect review.
+
+
+
+
+### Quick Start
+
+1
+
+Apply for auth
+
+For details, see [Authentication](</get-started/authentication>)
+
+2
+
+Select the appropriate capabilities and endpoints based on the scenario and requirements.
+
+  * [Send Bundle](</transaction-submission/block-builder/send-bundle>)
+
+  * [Send PrivateTransaction](</transaction-submission/block-builder/send-privatetransaction>)
+
+  * [Trace Bundle](</transaction-submission/block-builder/trace-bundle>)
+
+  * [Call Bundle](</transaction-submission/block-builder/call-bundle>)
+
+
+
+
+3
+
+Verify latency and stability performance in the real deployment area.
+
+### FAQ
+
+What is the difference between submitting a Bundle to an RPC and submitting a Bundle to a Block Builder?
+
+The core difference between the two lies in the different submission paths and final destinations of the Bundle.
+
+When submitting a Bundle to BlockRazor RPC, BlockRazor RPC forwards the Bundle to mainstream builders with low latency. This approach is more suitable as a unified access point, allowing users to submit Bundles without having to connect to different builders individually.
+
+When you submit a Bundle to Block Builder, the Bundle is sent directly to BlockRazor Builder. This is more suitable for scenarios where you explicitly want to use BlockRazor Builder capabilities and the access path.
+
+**How to understand that the average gas price of a bundle must not be less than 0.05 gwei?**
+
+Assume a bundle contains three transactions: `{tx1, tx2, tx3}`. Since `tx1` comes from the mempool, BlockRazor Builder excludes it and calculates the average gas price using only `tx2` and `tx3`. If `tx3` includes an additional tip paid to the Builder, the tip amount is added to the numerator, while the denominator still includes only the gas used by `tx2` and `tx3`. The formula is:
+
+`(tx2.gasPrice × tx2.gasUsed + tx3.gasPrice × tx3.gasUsed + tx3.tip) / (tx2.gasUsed + tx3.gasUsed)`
+
+[Previouseth_sendBundle](</transaction-submission/rpc/ethereum/eth_sendbundle>)[NextEndpoint](</transaction-submission/block-builder/endpoint>)
+
+Last updated 1 month ago
+
+Was this helpful?
+
+[x-twitter](<https://x.com/BlockRazor_Inc>)[linkedin](<https://linkedin.com/company/blockrazor>)[](<https://github.com/BlockRazorinc>)[discord](<https://discord.com/invite/qqJuwRb8Nh>)[medium](<https://medium.com/@blockrazor>)
+
+Copyright © 2026 BlockRazor All Rights Reserved.
+
+  * What is Block Builder?
+  * Who is Block Builder suitable for?
+  * What capabilities does Block Builder provide?
+  * Quick Start
+  * FAQ
+
+
+
+Was this helpful?

@@ -1,0 +1,167 @@
+URL: https://docs.bloxroute.com/bsc/overview
+FINAL_URL: https://docs.bloxroute.com/bsc/overview
+TITLE: bloXroute BSC Overview
+PUBLISHER: bloXroute
+FETCHED_AT_UTC: 2026-09-30T21:13:05Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: 07c8a91efdf2309338c79f124b4b6d0a43ce4a7d6cc69ebe6b651909f5ea61ee
+RAW_FILE: raw/bloxroute-bsc-overview.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+[bloXroute Documentation](</>)
+
+`⌘Ctrl``k`
+
+[Website](<https://www.bloxroute.com>)[Blog](<https://bloxroutelabs.medium.com/>)[Twitter](<https://twitter.com/bloXroute>)[Discord](<https://discordapp.com/invite/mB95H7s>)
+
+More
+
+[bloXroute Documentation](</>)
+
+  * Introduction
+
+    * [Welcome to bloXroute](</>)
+    * [Why bloXroute?](</introduction/why-use-bloxroute>)
+    * [Products](</introduction/products>)
+    * [Contact Us](</introduction/contact-us>)
+
+  * AI & Agents
+
+  * [bloXroute MCP](</bloxroute-mcp>)
+  * GETTING STARTED
+
+    * [Create An Account](</getting-started/register-an-account>)
+    * [Authorization](</getting-started/authorization-headers>)
+    * [Pricing](</getting-started/pricing>)
+    * [Technical Support](</getting-started/technical-support>)
+
+  * CORE SOLUTIONS
+
+    * [Blockchain Distribution Network (BDN)](</core-solutions/blockchain-distribution-network-bdn>)
+    * [Accessing the BDN](</core-solutions/accessing-the-bdn>)
+    * [Solana Core Solutions](</core-solutions/solana-core-solutions>)
+    * [RPC Service](</core-solutions/rpc-service>)
+
+  * SOLANA
+
+    * [Overview](</solana/overview>)
+    * [Trader API](</solana/trader-api>)
+    * [Optimized Feed Relay (OFR)](</solana/optimized-feed-relay>)
+
+  * Backrunme Program
+
+    * [Overview](</backrunme-program/overview>)
+    * [arbOnlyMEV Stream](</backrunme-program/arbonlymev>)
+    * [Submission](</backrunme-program/submission>)
+
+  * BSC
+
+    * [Overview](</bsc/overview>)
+    * [Running a Gateway](</bsc/gateway>)
+    * [Submit Transactions](</bsc/submit-transactions>)
+    * [Submit Bundles](</bsc/submit-bundles>)
+    * [Streams](</bsc/streams>)
+    * [BSC Block Explorer](</bsc/block-explorer>)
+
+  * ETH
+
+    * [Overview](</eth/overview>)
+    * [Running a Gateway](</eth/gateway>)
+    * [Submit Transactions](</eth/sending-transactions>)
+    * [Submit Bundles](</eth/submit-bundles>)
+    * [Streams](</eth/streams>)
+    * [Builders and Validators](</eth/block-builders-and-validators>)
+
+  * Base
+
+    * [Overview](</base/overview>)
+    * [Submit Transactions](</base/submit-transactions>)
+    * [Streams](</base/streams>)
+
+  * ROBINHOOD
+
+    * [Overview](</robinhood/overview>)
+    * [Submit Transactions](</robinhood/submit-transactions>)
+    * [Sequencer Feed](</robinhood/sequencer-feed>)
+
+  * Hyperliquid
+
+    * [Overview](</hyperliquid/overview>)
+    * [Submit Transactions](</hyperliquid/submit-transactions>)
+
+  * POLYGON
+
+    * [Overview](</polygon/overview>)
+    * [Submit Transactions](</polygon/submit-transactions>)
+
+  * ARC CHAIN
+
+    * [Overview](</arc-chain/overview>)
+    * [Submit Transactions](</arc-chain/submit-transactions>)
+
+
+
+
+[Powered by GitBook](<https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=ZgMW6iwGsmn9ejYuG9vP&utm_content=site_RQjAz>)[](<https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=ZgMW6iwGsmn9ejYuG9vP&utm_content=site_RQjAz>)
+
+On this page
+
+For the complete documentation index, see [llms.txt](<https://docs.bloxroute.com/llms.txt>). This page is also available as [Markdown](<https://docs.bloxroute.com/bsc/overview.md>).
+
+Copy
+
+On this page
+
+  1. [BSC](</bsc>)
+
+
+
+# Overview
+
+This page summarizes the services available on BSC and links to the relevant sections
+
+bloXroute provides execution and data services for BNB Smart Chain (BSC), optimized for low-latency and predictable transaction propagation using the Blockchain Distribution Network (BDN).
+
+### Available services
+
+#### Execution services
+
+bloXroute supports transaction and bundle submission on BSC, enabling faster and more reliable propagation for latency-sensitive execution workflows.
+
+Execution capabilities include:
+
+  * **Submit transactions** Low-latency submission of individual BSC transactions with optimized propagation paths. → See: [Submit Transactions](</bsc/submit-transactions>)
+
+  * **Submit bundles** Support for bundled transaction submission for advanced execution and strategy workflows. → See: [Submit Bundles](</bsc/submit-bundles>)
+
+  * **Backrun arbitrage** Execution primitives designed for backrun and MEV-aware strategies on BSC.
+
+  * **Running a local gateway** Operate a local bloXroute gateway for direct network access and improved execution control. → See: [Running a Gateway](</bsc/gateway>)
+
+
+
+
+#### Data services
+
+bloXroute provides low-latency access to real-time BSC data for execution logic and decision-making.
+
+Data capabilities include:
+
+  * **Streams** Access live BSC transaction, block, and event data with minimal delay. → See: [Streams](</bsc/streams>)
+
+
+
+
+#### Utilities
+
+bloXroute provides additional tools for interacting with and inspecting BSC activity.
+
+  * **BSC Block Explorer** Explore BSC blocks, transactions, and network activity. → See: [BSC Block Explorer](</bsc/block-explorer>)
+
+
+
+
+[PreviousSubmission](</backrunme-program/submission>)[NextRunning a Gateway](</bsc/gateway>)
+
+Last updated 4 months ago

@@ -1,0 +1,8 @@
+https://docs.optimism.io/op-stack/transactions/fees
+https://docs.optimism.io/op-stack/transactions/transaction-flow
+https://docs.optimism.io/op-stack/protocol/differences
+https://docs.optimism.io/chain-operators/guides/management/transaction-fees-101
+https://specs.optimism.io/protocol/overview.html
+https://optimism.io/blog/flashblocks-deep-dive-250ms-preconfirmations-on-op-mainnet
+https://www.optimism.io/blog/optimism-partners-with-flashbots
+https://raw.githubusercontent.com/flashbots/rollup-boost/main/specs/flashblocks.md

@@ -1,0 +1,190 @@
+URL: https://docs.bnbchain.org/bnb-smart-chain/validator/mev/builder-integration/
+FINAL_URL: https://docs.bnbchain.org/bnb-smart-chain/validator/mev/builder-integration/
+TITLE: Integration Guide for Builder - BSC MEV
+PUBLISHER: BNB Chain docs
+FETCHED_AT_UTC: 2026-09-30T21:11:48Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: 8d8447251c0412d01f8a6ddabdf280d1ee5cd8807eb71efa77baded81bfc42cf
+RAW_FILE: raw/bnbdocs-mev-builder-integration.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+Skip to content 
+
+[ ](<https://www.bnbchain.org> "Documentation")
+
+Documentation 
+
+[ ](<javascript:void\(0\)> "Share")
+
+Initializing search 
+
+
+
+
+[ BNB Chain GitHub  ](<https://github.com/bnb-chain/bnb-chain.github.io> "Go to repository")
+
+  * [ Home ](<../../../..>)
+  * [ Announcements ](<../../../../announce/>)
+  * [ BNB Smart Chain ](<../../../>)
+  * [ opBNB ](<../../../../bnb-opbnb/>)
+  * [ BNB Greenfield ](<../../../../bnb-greenfield/>)
+  * [ Developer Kit ](<../../../../developer-kit/>)
+  * [ BNB Chain Fusion ](<../../../../bc-fusion/>)
+  * [ FAQ ](<../../../../faq/>)
+
+
+
+[ ](<https://www.bnbchain.org> "Documentation") Documentation 
+
+[ BNB Chain GitHub  ](<https://github.com/bnb-chain/bnb-chain.github.io> "Go to repository")
+
+  * [ Home  ](<../../../..>)
+  * [ Announcements  ](<../../../../announce/>)
+  * [ BNB Smart Chain  ](<../../../>)
+
+BNB Smart Chain 
+    * [ Overview  ](<../../../overview/>)
+    * [ Introduction  ](<../../../introduction/>)
+    * [ Ecosystem  ](<https://dappbay.bnbchain.org/>)
+    * [ Developers  ](<../../../../developer-kit/>)
+
+Developers 
+      * [ Quick Guide  ](<../../../developers/quick-guide/>)
+      * [ Dev-Tools  ](<https://www.bnbchain.org/en/dev-tools>)
+      * [ JSON-RPC  ](<../../../developers/json_rpc/json-rpc-endpoint/>)
+      * [ Faucet  ](<../../../developers/faucet/>)
+      * [ Node Operators  ](<../../../developers/node_operators/node_best_practices/>)
+      * [ EOA Paymaster  ](<../../../developers/paymaster/overview/>)
+    * Staking  Staking 
+      * [ Overview  ](<../../../staking/overview/>)
+      * [ User Guide  ](<../../../staking/user-guide/>)
+      * [ Build Staking dApps  ](<../../../staking/developer-guide/>)
+    * Governance  Governance 
+      * [ Overview  ](<../../../governance/overview/>)
+      * [ User Guide  ](<../../../governance/user-guide/>)
+      * [ BNB Advocate`s Guide  ](<../../../governance/bnb-kol/>)
+      * [ Temperature Check  ](<../../../governance/temp-check/>)
+      * [ Governance APIs  ](<../../../governance/apis/>)
+    * Validator  Validator 
+      * [ Overview  ](<../../overview/>)
+      * [ Run Validator  ](<../../run-val/>)
+      * [ Create Validator  ](<../../create-val/>)
+      * [ Secure Validator  ](<../../security/>)
+      * [ Key Management  ](<../../manage-keys/>)
+      * MEV  MEV 
+        * [ Overview  ](<../overview/>)
+        * [ Validator Guide  ](<../validator-integration/>)
+        * Builder Guide  [ Builder Guide  ](<./>) Table of contents 
+          * Customize Builder 
+          * Setup with Example Builder 
+        * [ User Guide  ](<../user-guide/>)
+        * [ FAQs  ](<../faqs/>)
+      * [ EVN  ](<../../evn/overview/>)
+    * Slashing  Slashing 
+      * [ Overview  ](<../../../slashing/overview/>)
+      * [ Slash Rules  ](<../../../slashing/slash-rules/>)
+      * [ Slash Monitor  ](<../../../slashing/monitor/>)
+    * [ Cross Chain Bridge  ](<../../../cross-chain-bridge/>)
+    * [ Benchmark  ](<../../../benchmark/design-reference/>)
+    * [ FAQ  ](<../../../faq/>)
+  * [ opBNB  ](<../../../../bnb-opbnb/>)
+  * [ BNB Greenfield  ](<../../../../bnb-greenfield/>)
+  * [ Developer Kit  ](<../../../../developer-kit/>)
+  * [ BNB Chain Fusion  ](<../../../../bc-fusion/>)
+  * [ FAQ  ](<../../../../faq/>)
+
+
+
+Table of contents 
+
+  * Customize Builder 
+  * Setup with Example Builder 
+
+
+
+  1. [ Home  ](<../../../..>)
+  2. [ BNB Smart Chain  ](<../../../>)
+  3. [ Validator  ](<../../overview/>)
+  4. [ MEV  ](<../overview/>)
+
+[ ](<https://github.com/bnb-chain/bnb-chain.github.io/edit/main/docs/bnb-smart-chain/validator/mev/builder-integration.md> "Edit this page")
+
+# Integration Guide for Builder¶
+
+The [Builder API Specification](<https://github.com/bnb-chain/BEPs/blob/master/BEPs/BEP322.md>) defines the standard interface that builders should implement, while the specific implementation is left open to MEV API providers. The BNB Chain community offers a simple [implementation example](<https://github.com/bnb-chain/bsc-builder>) for reference.
+
+## Customize Builder¶
+
+Although the builder offers great flexibility, there are still some essential standards that must be followed:
+
+  1. The builder needs to set up a **builder account** , which is used to sign the block bid and receive fees. The builder can ask for a tip (builder fee) on the block that it sends to the sentry. If the block is finally selected, the **builder account** will receive the tip.
+
+  2. The builder needs to implement the **mev_reportIssue** API to receive the errors report from validators.
+
+  3. In order to prevent transaction leakage, the builder can only send block bids to the in-turn validator.
+
+  4. At most 3 block bids are allowed to be sent at the same height from the same builder.
+
+
+
+
+Here are some sentry APIs that may interest a builder:
+
+  1. **mev_bestBidGasFee**. It will return the current most profitable reward that the validator received among all the blocks received from all builders. The reward is calculated as: **gasFee*(1 - commissionRate) - tipToBuilder**. A builder may compare the **bestBidGasFee** with a local one and then decide to send the block bid or not.
+
+  2. **mev_params.** It will return the **BidSimulationLeftOver** ,**ValidatorCommission** , **GasCeil** and **BidFeeCeil** settings on the validator. If the current time is after **(except block time - BidSimulationLeftOver)** , then there is no need to send block bids any more; **ValidatorCommission** and **BidFeeCeil** helps the builder to build its fee charge strategy. The **GasCeil** helps a builder know when to stop adding more transactions.
+
+
+
+
+Builders have the freedom to define various aspects like pricing models for users, creating intuitive APIs, and define the bundle verification rules.
+
+## Setup with Example Builder¶
+
+**Step 1: Find Validator Information**
+
+For validators that open MEV integration, the public information is shown at [bsc-mev-info](<https://github.com/bnb-chain/bsc-mev-info>). Builders can also provide information here to the validator.
+
+**Step 2: Set up Builder.**
+
+The builder must sign the bid using an account, such as the etherbase account specified in the config.toml file.
+    
+    
+    [Eth.Miner.Mev]
+    BuilderEnabled = true # open bid sending
+    BuilderAccount = "0x..." # builder address which signs bid, usually it is the same as etherbase address
+    
+
+Configure the validator node list, including the address of the validator and the public URL. The public URL refers to the sentry service.
+    
+    
+    [[Eth.Miner.Mev.Validators]]
+    Address = "0x23707D3D...6455B52B3"
+    URL = "https://bsc-fuji.io"
+    
+    [[Eth.Miner.Mev.Validators]]
+    Address = "0x52825922...3A1A7A422"
+    URL = "http://bsc-mathwallet.io"
+    
+
+**Step 3: Publish information**
+
+It is highly recommended to publish information in [bsc-mev-info](<https://github.com/bnb-chain/bsc-mev-info>).
+
+July 2, 2024
+
+Back to top 
+
+Ask AI 
+
+#### Cookie consent
+
+We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.
+
+  * Google Analytics 
+  * GitHub 
+
+
+
+Accept Manage settings

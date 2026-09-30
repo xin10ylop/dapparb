@@ -1,0 +1,252 @@
+URL: https://blockrazor.gitbook.io/blockrazor/block-builder/block-builder/send-bundle
+FINAL_URL: https://docs.blockrazor.io/transaction-submission/block-builder/send-bundle
+TITLE: BlockRazor: Send Bundle
+PUBLISHER: BlockRazor
+FETCHED_AT_UTC: 2026-09-30T21:12:59Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: cfe7ceb77c6755d47ccd0d0bc0a29c98b15dec9895d48c5cff17a2b45884b833
+RAW_FILE: raw/blockrazor-send-bundle.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+[Robinhood Chain Sequencer Feed & Transaction Sending are now live—receive data earlier, send transactions faster!Get Started](<https://blockrazor.io/chains/robinhood/>)
+
+[](<https://blockrazor.io/>)
+
+`⌘Ctrl``k`
+
+[Join Community](<https://discord.com/invite/qqJuwRb8Nh>)[Dashboard](<https://blockrazor.io/#/portal/services/account>)[Create Account](<https://blockrazor.io/#/register?redirect=onboarding>)
+
+More
+
+English
+
+[](<https://blockrazor.io/>)English
+
+  * Get Started
+
+    * [Overview](</>)
+    * [Supported Chains](</get-started/supported-chains>)
+    * [Start for Free](</get-started/start-for-free>)
+    * [Pricing](</get-started/pricing>)
+    * [Obtain Auth Token](</get-started/authentication>)
+    * [Use Cases](</get-started/use-cases>)
+
+  * Streams
+
+    * [Overview](</streams/overview>)
+    * [Public Mempool](</streams/public-mempool>)
+    * [Private Mempool](</streams/private-mempool>)
+    * [Block Stream](</streams/block-stream>)
+    * [Node Stream](</streams/node-stream>)
+    * [Network Fee Stream](</streams/network-fee-stream>)
+
+  * Transaction Submission
+
+    * [Overview](</transaction-submission/overview>)
+    * [RPC](</transaction-submission/rpc>)
+    * [Block Builder](</transaction-submission/block-builder>)
+
+      * [Endpoint](</transaction-submission/block-builder/endpoint>)
+      * [Fast Submit](</transaction-submission/block-builder/fast-submit>)
+      * [Send Bundle](</transaction-submission/block-builder/send-bundle>)
+      * [Send PrivateTransaction](</transaction-submission/block-builder/send-privatetransaction>)
+      * [Trace Bundle](</transaction-submission/block-builder/trace-bundle>)
+      * [Bundle Explorer](</transaction-submission/block-builder/bundle-explorer>)
+      * [Call Bundle](</transaction-submission/block-builder/call-bundle>)
+
+    * [Transaction Sending](</transaction-submission/transaction-sending>)
+    * [Gas Sponsor](</transaction-submission/gas-sponsor>)
+
+  * Core Technology
+
+    * [Blockchain Edge Fabric](</core-technology/blockchain-edge-fabric>)
+
+  * 📄Statement
+
+    * [User Agreement](</statement/user-agreement>)
+    * [Privacy Statement](</statement/privacy-statement>)
+
+
+
+
+[Powered by GitBook](<https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=jbyfG8gOgcdsK3wVxNdQ&utm_content=site_j7YxF>)[](<https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=jbyfG8gOgcdsK3wVxNdQ&utm_content=site_j7YxF>)
+
+On this page
+
+For the complete documentation index, see [llms.txt](<https://docs.blockrazor.io/llms.txt>). This page is also available as [Markdown](<https://docs.blockrazor.io/transaction-submission/block-builder/send-bundle.md>).
+
+Copy
+
+On this page
+
+  1. [Transaction Submission](</transaction-submission>)
+  2. [BSC Block Builder APIs & Integration](</transaction-submission/block-builder>)
+
+
+
+# BSC Block Builder Send Bundle API Reference
+
+Use the BlockRazor BSC Block Builder Send Bundle API. Review the endpoint, parameters, request format, response fields, and integration example.
+
+### Introduction
+
+This API is used to receive bundles, with the method name `eth_sendBundle`.
+
+The block construction algorithm of BlockRazor Builder favors bundles that transfer more native tokens (BNB) to BlockRazor Builder EOA of which address is 0x1266C6bE60392A8Ff346E8d5ECCd3E69dD9c5F20 currently.
+
+The gas price for transactions within the bundle must be at least the minimum standard required by BSC Validators (Currently at 0.05 gwei).
+
+### Request Parameter
+
+Parameters
+
+Mandatory
+
+Format
+
+Example
+
+Description
+
+txs
+
+Mandatory
+
+array[hex]
+
+["0x…4b", "0x…5c"]
+
+List of signed raw transactions
+
+maxBlockNumber
+
+Optional
+
+uint64
+
+39177941
+
+The maximum block number for the bundle to be valid, with the default set to the current block number + 100
+
+minTimestamp
+
+Optional
+
+uint64
+
+1710229370
+
+Expected minimum Unix timestamp (in seconds) for the bundle to be valid
+
+maxTimestamp
+
+Optional
+
+uint64
+
+1710829390
+
+Expected maximum Unix timestamp (in seconds) for the bundle to be valid
+
+revertingTxHashes
+
+Optional
+
+array[hash]
+
+["0x…c7", "0x…b7"]
+
+List of transaction hashes allowed for revert
+
+noMerge
+
+Optional
+
+bool
+
+false
+
+Bundle merge can increase block value and inclusion rate. If not set, the default value is false (allowing bundle merging)
+
+positionFirst
+
+Optional
+
+bool
+
+false
+
+Strictly order bundles by priorityFee. If set to false (default), late-arriving bundles may be appended to the block tail to guarantee inclusion in the current block.
+
+### Request Example
+
+HTTPS
+
+Copy
+    
+    
+    curl https://virginia.builder.blockrazor.io \
+      -H 'content-type: application/json' \
+      -H 'Authorization: <auth-token>' \
+      --data '{
+        "jsonrpc": "2.0",
+        "id": "1",
+        "method": "eth_sendBundle",
+        "params": [{
+          "txs": [
+            "0x...4b",
+            "0x...5c"
+          ],
+          "maxBlockNumber": 39177941,
+          "minTimestamp": 1710229370,
+          "maxTimestamp": 1710829390,
+          "revertingTxHashes": [
+            "0x44b89abe860142d3c3bda789cf955b69ba00b71882cd968ec407a70f4719ff06",
+            "0x7d7652c685e9fda4fe2e41bad017519cffeed8ba03d59aa6401284be2ec4244c"
+          ],
+          "noMerge": false
+        }]
+      }'
+
+### Response Example
+
+[PreviousFast Submit](</transaction-submission/block-builder/fast-submit>)[NextSend PrivateTransaction](</transaction-submission/block-builder/send-privatetransaction>)
+
+Last updated 1 month ago
+
+Was this helpful?
+
+[x-twitter](<https://x.com/BlockRazor_Inc>)[linkedin](<https://linkedin.com/company/blockrazor>)[](<https://github.com/BlockRazorinc>)[discord](<https://discord.com/invite/qqJuwRb8Nh>)[medium](<https://medium.com/@blockrazor>)
+
+Copyright © 2026 BlockRazor All Rights Reserved.
+
+  * Introduction
+  * Request Parameter
+  * Request Example
+  * Response Example
+
+
+
+Was this helpful?
+
+Copy
+    
+    
+    {
+     "jsonrpc":"2.0",
+     "id":"1",
+     "result":"0xa06b……f7e8ec"  //bundle hash
+    }‍
+
+Copy
+    
+    
+    {
+      "jsonrpc":"2.0",
+      "id":"1",
+      "error":{
+        "code":-38000,
+        "message":"the maxBlockNumber should not be smaller than currentBlockNum"
+        }
+    }

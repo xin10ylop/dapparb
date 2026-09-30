@@ -1,0 +1,90 @@
+URL: https://docs.48.club/puissant-builder
+FINAL_URL: https://docs.48.club/puissant-builder
+TITLE: Puissant Builder
+PUBLISHER: 48 Club
+FETCHED_AT_UTC: 2026-09-30T21:12:51Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: 41fab46caed8563fab1a59347d383c15faf507093312497fda707bf1de5438e6
+RAW_FILE: raw/48club-puissant-builder.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+[](</>)
+
+`⌘Ctrl``k`
+
+[](</>)
+
+`⌘Ctrl``k`
+
+  * [F.A.Q.](</>)
+  * [KOGE Token](</koge-token>)
+  * [Governance](</governance>)
+  * [48 Soul Point](</48-soul-point>)
+  * [48 Validators](</48-validators>)
+  * [Puissant Builder](</puissant-builder>)
+
+    * [Auction Transaction Feed](</puissant-builder/auction-transaction-feed>)
+    * [Send Bundle](</puissant-builder/send-bundle>)
+    * [Send PrivateTransaction](</puissant-builder/send-privatetransaction>)
+    * [48 SoulPoint Benefits](</puissant-builder/48-soulpoint-benefits>)
+    * [Bundle Submission and On-Chain Status Query](</puissant-builder/bundle-submission-and-on-chain-status-query>)
+    * [For Validators](</puissant-builder/for-validators>)
+
+  * [Privacy RPC](</privacy-rpc>)
+  * [BSC Snapshots](</bsc-snapshots>)
+  * [Trouble Shooting](</trouble-shooting>)
+  * [RoadMap](</roadmap>)
+  * [Partnership](</partnership>)
+  * [Terms of Use](</terms-of-use>)
+
+
+
+[Powered by GitBook](<https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=vn0yx6BdeqedjtfCVZzW&utm_content=site_KXNi8>)[](<https://www.gitbook.com/powered-by?utm_source=content&utm_medium=trademark&utm_campaign=vn0yx6BdeqedjtfCVZzW&utm_content=site_KXNi8>)
+
+On this page
+
+For the complete documentation index, see [llms.txt](<https://docs.48.club/llms.txt>). This page is also available as [Markdown](<https://docs.48.club/puissant-builder.md>).
+
+Copy
+
+On this page
+
+# Puissant Builder
+
+Next Generation of 48Club MEV solution
+
+**Puissant** is a permissionless, transparent, and fair ecosystem for efficient MEV extraction and frontrunning protection which preserves the ideals of BNB Smart Chain. Puissant provides a private communication channel between BNB Smart Chain users and validators for efficiently communicating preferred transaction order within a block.
+
+## Why Puissant ?
+
+In 2022, a spike in BNB Smart Chain usage has revealed a set of negative externalities brought by arb bots, as it did on Ethereum, including network congestion (i.e. p2p network load) and chain congestion (i.e. chain-reorg, empty block) caused by inefficient communication between PGA bot operators and validators for transaction order preference.
+
+Resources are wasted, chain user experience is getting worse and meanwhile BNB holders have no chance to enjoy mev profit.
+
+48Club decided to provide this solution. It is inspired by flashbots but improved according to BNB Smart Chain's own community philosophy. 
+
+### Market Share
+
+Check <https://dune.com/bnbchain/bnb-smart-chain-mev-stats>[](<https://dune.com/bnbchain/bnb-smart-chain-mev-stats>)
+
+### Endpoint
+
+Copy
+    
+    
+    https://puissant-builder.48.club/
+
+Copy
+    
+    
+    wss://puissant-builder.48.club/
+    # Conditional Access, 48SoulPoint Member Benefit
+
+Last updated 1 year ago
+
+  * Why Puissant ?
+  * Market Share
+  * Endpoint
+
+

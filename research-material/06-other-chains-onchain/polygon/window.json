@@ -1,0 +1,108 @@
+{
+ "chain": "polygon",
+ "head_at_pin": 94731541,
+ "end_tag": "finalized",
+ "head_margin": 0,
+ "start_block": 94729141,
+ "end_block": 94731540,
+ "start_timestamp": 1790798852,
+ "end_timestamp": 1790802450,
+ "window_rule": "all blocks with timestamp in (end_timestamp - 3600 s, end_timestamp]",
+ "window_seconds_requested": 3600,
+ "pinned_at_utc": "2026-09-30T21:07:32Z",
+ "chain_id": 137,
+ "endpoints": {
+  "primary": "https://polygon-bor-rpc.publicnode.com",
+  "fallbacks": [
+   "https://polygon.drpc.org"
+  ]
+ },
+ "config": {
+  "chain_id": 137,
+  "window_s": 3600,
+  "end_tag": "finalized",
+  "head_margin": 0,
+  "batch": 1,
+  "seg_blocks": 150,
+  "nominal_interval": 2.0,
+  "sentinel": "EVM_CENSUS_POLYGON",
+  "extra_logs": {},
+  "extra_data_text": false
+ },
+ "status": "complete",
+ "collector": "census.py",
+ "finalized_at_utc": "2026-09-30T21:10:22Z",
+ "n_blocks_in_window": 2400,
+ "measured_block_interval_s": 1.499791579824927,
+ "measured_block_interval_note": "(end_timestamp - start_timestamp) / (end_block - start_block); timestamps have 1 s resolution",
+ "counts": {
+  "blocks_written": 2400,
+  "txs": 176243,
+  "reverted": 7543,
+  "candidates_A": 3235,
+  "candidates_B": 65208,
+  "extra": {},
+  "receipts_not_in_block_tx_list": 0,
+  "distinct_topic0_keys": 1603,
+  "gap_blocks": 0
+ },
+ "files": {
+  "blocks": {
+   "files": [
+    "blocks.csv.gz"
+   ],
+   "lines_including_headers": 2401,
+   "sizes_bytes": {
+    "blocks.csv.gz": 353211
+   }
+  },
+  "txs": {
+   "files": [
+    "txs-001.csv.gz"
+   ],
+   "lines_including_headers": 176244,
+   "sizes_bytes": {
+    "txs-001.csv.gz": 13912584
+   }
+  },
+  "reverted": {
+   "files": [
+    "reverted-001.csv.gz"
+   ],
+   "lines_including_headers": 7544,
+   "sizes_bytes": {
+    "reverted-001.csv.gz": 559821
+   }
+  },
+  "candidates": {
+   "files": [
+    "candidates-001.jsonl.gz"
+   ],
+   "lines_including_headers": 68443,
+   "sizes_bytes": {
+    "candidates-001.jsonl.gz": 81569130
+   }
+  }
+ },
+ "checks": {
+  "parent_hash_breaks_at": [],
+  "blocks_missing_from_blocks_csv": [],
+  "n_blocks_missing": 0,
+  "canonical_recheck": {
+   "94729141": {
+    "rpc_hash": "0xa9701bb2e1cde8422e9f8f5b01db67e09c671a202cfb945aa12cd93e08b81953",
+    "stored_hash": "0xa9701bb2e1cde8422e9f8f5b01db67e09c671a202cfb945aa12cd93e08b81953",
+    "match": true
+   },
+   "94731540": {
+    "rpc_hash": "0x22a08671d49b5d91e9ea41a6f483bea78dac2a5d887a226df5dbe23b901e542a",
+    "stored_hash": "0x22a08671d49b5d91e9ea41a6f483bea78dac2a5d887a226df5dbe23b901e542a",
+    "match": true
+   }
+  }
+ },
+ "rpc_requests_by_endpoint": {
+  "https://polygon-bor-rpc.publicnode.com": 2400
+ },
+ "rpc_errors_by_endpoint_kind": {}
+}

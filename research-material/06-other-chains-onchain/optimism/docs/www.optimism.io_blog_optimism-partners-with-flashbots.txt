@@ -1,0 +1,220 @@
+SOURCE_URL: https://www.optimism.io/blog/optimism-partners-with-flashbots
+FINAL_URL: https://optimism.io/blog/optimism-partners-with-flashbots
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:11:14Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* Optimism Partners with Flashbots to Accelerate Sequencing for Every OP Stack Chain
+*
+*
+*
+*
+
+* Products
+* OP Enterprise
+
+* OP Stack
+
+* Actions SDK
+
+* Industries
+* Centralized Exchanges
+
+* Payments
+
+* Fintechs
+
+* Financial institutions
+
+* Case Studies
+
+* Company
+* Blog
+
+* Careers
+
+* Metrics
+
+* Documentation
+
+© 2026 Optimism Foundation.
+All rights reserved.
+
+* Products
+
+* Industries
+
+* Case Studies
+
+* Company
+
+* OP Enterprise
+
+* OP Stack
+
+* Actions SDK
+
+* Centralized Exchanges
+
+* Payments
+
+* Fintechs
+
+* Financial institutions
+
+* Blog
+
+* Careers
+
+* Metrics
+
+* Documentation
+
+Schedule a meeting
+
+Terms & Conditions
+Before you continue, please read and agree to the Terms of Service and Optimism Community Agreement .
+
+Agree to terms
+
+Engineering
+* Optimism
+
+August 21, 2025
+
+## Optimism Partners with Flashbots to Accelerate Sequencing for Every OP Stack Chain
+
+* Optimism
+
+Optimism and Flashbots are partnering to bring fast, configurable, verifiable sequencing to the Superchain, powered by the team that built Ethereum’s sequencing pipeline. For OP Stack builders, this partnership means strong differentiation through sequencer innovation, capturing more of the value they create, and innovating cheaper and faster than ever before.
+As of August 2025, the Superchain drives over 60 % of all Ethereum L2 transaction activity, with Base, Unichain, World Chain, Ink, and Soneium all building on the OP Stack. Now, the OP Stack becomes even more performant and customizable with support from Flashbots , the top sequencing R&D company since 2020 and the inventor of projects like mev-boost, BuilderNet, and Flashblocks.
+
+## Giving OP Stack builders a competitive edge
+In 2025, the most successful chains make sequencing a central part of their product strategy. For businesses looking to launch a chain today, there are three reasons sequencing matters:
+
+* It’s become a main vector of differentiation, affecting everything from user latency, execution fairness, scalability, programmability, and more.
+
+* It allows chains to maximize revenue from sequencing and keep it in their own ecosystem, while providing a strong experience for users and external builders.
+
+* Doing all of this with a trusted partner and proven plug-and-play components greatly lowers costs and accelerates speed to market.
+
+Here are some examples of how existing players are using the sequencer to innovate on core areas of their product:
+
+* A chain specializing in DeFi trading might optimize for very low latency, guarantee fair trade execution, and give cancel priority for market maker orders.
+
+* A stablecoin payments chain could guarantee instant sub-cent transfers at scale, while checking for compliance or streaming subscription payments via sequencer cron jobs.
+
+* An established fintech company can bring their own users onchain and expand globally, without giving up value to another chain.
+
+Until today, only some of the biggest chains had the power to build these features. Optimism’s partnership with Flashbots pushes the limits of what the OP Stack can do, while making these innovations a standard option for OP Stack builders, unlocking many new opportunities.
+
+## Bringing sequencing innovation to the OP Stack
+Flashbots is the undisputed leader in this space, with a track record of building open, production-grade sequencing infrastructure for Ethereum since 2020.
+On Ethereum L1, Flashbots’ innovations have transformed block production at scale. Today, over 90% of Ethereum blocks are built through MEV‑Boost, creating a competitive, transparent market for blockspace that processes billions of dollars in daily volume and mitigates harmful frontrunning. They are building 45% of Ethereum blocks through BuilderNet, a decentralized block building network that runs on TEEs and shares MEV with the community.
+Beyond L1, Flashbots has already delivered major sequencing innovations to OP Stack chains:
+
+* Flashblocks – 200ms confirmation times for users, live on Base and Unichain today with OP Mainnet following soon.
+
+* Rollup-Boost – A modular, open interface for third-party builders, powering Unichain’s Verifiable Priority Ordering and World Chain’s Priority Blockspace for Humans, among others.
+
+* Verifiable block building – TEEs, a technology Flashbots pioneered in crypto, provide Unichain users cryptographically-backed guarantees around how their transactions are processed, giving unprecedented levels of market transparency.
+
+Now, that same battle-tested tech is available to any builder on the OP Stack, providing more scalability, customization, and programmability to the Superchain than any other option in the market.
+
+## What’s New: Configurable sequencing as a platform feature
+Optimism and Flashbots are making sequencing a first-class feature that any builder can tap into. Among the first features released will be:
+
+* Fully customizable block building – From instant settlement for payments to encrypted ordering for sensitive trades and compliance checks, everything will be programmable with just a few lines of code.
+
+* Capture MEV value responsibly – Auctioning blockspace intelligently so MEV profits stay in-ecosystem, funding growth or reducing fees for users.
+
+* Scale without spam – Maximize the efficiency of your blockspace by mitigating harmful onchain searching , lowering fees for regular users.
+
+This gives chains the tools to innovate on user experience and monetize their blockspace responsibly, while moving faster than their competition.
+
+## What’s next for sequencing on the OP Stack
+Starting soon, Optimism and Flashbots will work together to roll out Flashblocks to OP Mainnet and remaining chains, establishing near-instant 200ms block times across the Superchain.
+For builders on the OP Stack, these benefits will gradually roll out over the coming months.
+If you’re thinking about launching a new chain, learn more about how the unique customizability of the OP Stack can accelerate your vision.
+
+Authored by
+
+Optimism
+
+Products
+
+* OP Enterprise
+
+* OP Stack
+
+* Actions SDK
+
+Developers
+
+* Start building
+
+* Partner Ecosystem
+
+* Documentation
+
+* GitHub
+
+* Status
+
+* Grants
+
+* Bug Bounty
+
+Optimism
+
+* Blog
+
+* FAQ
+
+* Careers
+
+* Brand
+
+* Metrics
+
+* Bridge
+
+Collective
+
+* Collective
+
+* Documentation
+
+* Governance
+
+* Governance Forum
+
+Social
+
+* X
+
+* LinkedIn
+
+* YouTube
+
+Subscribe to our newsletter
+
+© 2026 Optimism Foundation. All rights reserved.
+
+* Optimism Community Agreement
+
+* Terms of Service
+
+* Privacy Policy

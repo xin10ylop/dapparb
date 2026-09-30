@@ -1,0 +1,5 @@
+endpoint,method,params,last_error
+https://base-mainnet.public.blastapi.io,eth_getBlockReceipts,"[""0x3197023""]",http 401 Only core evm requests are allowed.
+https://base-mainnet.public.blastapi.io,eth_getBlockReceipts,"[""0x3197024""]",http 401 Only core evm requests are allowed.
+https://base-mainnet.public.blastapi.io,eth_getBlockReceipts,"[""0x3197025""]",http 401 Only core evm requests are allowed.
+https://base-mainnet.public.blastapi.io,eth_getBlockReceipts,"[""0x3197026""]",http 401 Only core evm requests are allowed.

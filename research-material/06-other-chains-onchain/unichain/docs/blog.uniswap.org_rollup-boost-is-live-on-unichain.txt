@@ -1,0 +1,203 @@
+SOURCE_URL: https://blog.uniswap.org/rollup-boost-is-live-on-unichain
+FINAL_URL: https://blog.uniswap.org/rollup-boost-is-live-on-unichain
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:11:08Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+Live on Unichain: Fair Transaction Ordering and MEV Protection
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* Blog
+Topics
+
+Search blog
+/
+
+Launch App
+
+Search blog
+/
+
+Launch App
+
+All Stories #Unichain
+
+May 02, 2025
+
+## Live on Unichain: Fair Transaction Ordering and MEV Protection
+#Unichain
+
+Unichain is now the first L2 to build blocks inside a trusted execution environment (TEE) – this upgrade brings more transparency to block building, ensures priority ordering, mitigates extractive MEV, and introduces support for revert protection.
+
+Powered by Rollup-Boost , the TEE-based block builder on Unichain was built by Uniswap Labs and Flashbots. With this release, Unichain continues pushing toward faster, more decentralized infrastructure built for DeFi.
+
+## What this means
+
+If you’re submitting transactions on Unichain, you’re already benefiting from this upgrade. Specifically, Unichain now has:
+
+* Fair transaction ordering. The TEE orders transactions based purely on priority fees. The system is designed to support public attestations, which will go live soon. This approach improves fairness, reduces reliance on the sequencer, and represents a meaningful step toward a more decentralized Unichain.
+
+* MEV protection and value sharing. Transactions on Unichain go into a private, encrypted mempool. Priority ordering reduces opportunities for MEV extraction. Combined with verifiable block building, this kind of predictability and verifiability strengthens the guarantees that developers can rely on to build value-capture mechanisms like MEV taxes.
+
+* Less wasted gas. Unichain makes it possible for developers to enable "revert protected transactions" meaning users do not need to pay gas for failed transactions for apps that have enabled this feature. This is done by pre-simulating transactions and not including ones that are expected to fail.
+
+## How it works
+
+In most rollups today, sequencing happens offchain and can’t be fully audited. TEE-based block building changes that. Transactions are sequenced based on transparent ordering rules enforced within the TEE, and execution attestations are designed to be posted publicly via an API operated by Flashbots – which will be live soon – allowing anyone to independently verify that blocks were constructed as intended.
+
+Revert protection is also possible in this upgrade, giving developers the ability to allow users to not have to pay gas fees if their transaction fails. Early research shows this can improve price accuracy and reduce wasted blockspace.
+
+## Built for what’s next: 200ms block times and beyond
+
+This upgrade lays the foundation for Flashblocks, the next Unichain feature that will enable 200ms sub-blocks, reducing latency for users, improving UX for apps, and minimizing value leakage for LPs. Implementing 200ms sub-blocks inside a TEE ensures they can be verified, providing better UX and reduced latency, without compromising on transparency. Unichain will be the first chain to implement Flashblocks this way, using a TEE as originally designed.
+
+This TEE-based infrastructure also opens up an exciting new design space for upgrades like encrypted mempools, scheduled transactions, and TEE co-processing. For more on how the system works and what’s possible next, read the Unichain whitepaper.
+
+## Designed by Uniswap Labs and Flashbots
+
+The Unichain block builder was co-developed by Uniswap Labs and Flashbots, leveraging research and experience from building Ethereum infrastructure. As the team behind one of the most used DeFi apps – with over $2.9T in volume, 465M+ swaps, and 17M+ wallets – we’ve seen where DeFi needs to improve and what’s required to continue advancing Ethereum’s scaling roadmap.
+
+TEE-based block building is the next step toward that vision, laying the groundwork for further decentralization. Future upgrades like Flashblocks and the Unichain Validation Network will continue to improve performance and push what’s possible.
+
+## What you can do today
+
+* Learn more: Dive deeper into Rollup-Boost architecture
+
+* Read the whitepaper: Check out the Unichain Whitepaper
+
+* Deploy an app: Start building and use the Unichain docs to get started
+
+* Explore: Discover and experiment with apps on Unichain
+
+* Start swapping: Access Uniswap v2, v3, and v4 on Unichain through the Uniswap Web App and in the Uniswap Wallet
+
+To stay updated on the latest Unichain news, follow @Unichain on X/Twitter.
+Share
+
+*
+
+*
+
+*
+
+*
+
+*
+
+## Explore, swap and LP tokens on the world’s largest DEX.
+Launch web app
+
+## Sign up for research and updates from the Uniswap Labs team
+
+Submit
+
+## Explore, swap and LP tokens on the world’s largest DEX.
+Launch web app
+
+On this Page
+
+* What this means
+
+* How it works
+
+* Built for what’s next: 200ms block times and beyond
+
+* Designed by Uniswap Labs and Flashbots
+
+* What you can do today
+
+Share
+
+*
+
+*
+
+*
+
+*
+
+*
+
+## Sign up for research and updates from the Uniswap Labs team
+
+Submit
+
+## Related Posts
+
+## Unichain Hits 200ms Sub-Blocks Inside Trusted Execution Environments
+Unichain now confirms transactions every 200 milliseconds, making it one of the fastest chains out there.
+
+August 14, 2025
+#Unichain
+
+## Beyond Speed: Building for Efficient Onchain Markets
+Chains need to be fast, fair and verifiable, and interoperable – and that’s exactly how we’re building Unichain.
+
+May 04, 2025
+#Unichain
+
+## Crypto: The Game Season 3 is Here and Live on Unichain
+CTG is a viral, onchain survival game that is now live on Unichain.
+
+March 06, 2025
+#Unichain
+
+## Footer
+Uniswap Labs
+
+## Topics
+
+* Protocols
+
+* Company
+
+* Products
+
+* Research
+
+* Unichain
+
+* Basics
+
+## Products
+
+* Uniswap App
+
+* Wallet
+
+* Documentation
+
+## Company
+
+* Careers
+
+* Brand Assets
+
+* Terms & Privacy
+
+* Trademark Policy
+
+## Need Help?
+
+* Help Center
+
+* Contact Us
+
+@ 2026 Uniswap Labs
+
+*

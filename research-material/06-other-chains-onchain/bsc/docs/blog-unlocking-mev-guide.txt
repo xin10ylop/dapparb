@@ -1,0 +1,413 @@
+URL: https://www.bnbchain.org/en/blog/unlocking-the-potential-of-mev-on-bnb-chain-a-guide-for-builders-and-validators
+FINAL_URL: https://www.bnbchain.org/en/blog/unlocking-the-potential-of-mev-on-bnb-chain-a-guide-for-builders-and-validators
+TITLE: Unlocking the Potential of MEV on BNB Chain
+PUBLISHER: BNB Chain Blog
+FETCHED_AT_UTC: 2026-09-30T21:12:37Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/html; charset=utf-8
+RAW_SHA256: 1abbd6208bf74d4d22dfbcd82f00ece47eaceb7fa6b8ea11042039fd72519155
+RAW_FILE: raw/blog-unlocking-mev-guide.html.gz
+CONVERSION: html2text (verbatim text of the page, markup removed)
+==============================================================================
+](<https://www.bnbchain.org/en>)
+
+Chains
+
+MAIN CHAINS
+
+BNB Smart ChainFast. Affordable. EVM-Compatible](<https://www.bnbchain.org/en/bnb-smart-chain>)
+
+[opBNBBuilt with the OP Stack](<https://opbnb.bnbchain.org/en>)
+
+[BNB GreenfieldDecentralized data storage & economy](<https://greenfield.bnbchain.org/en>)
+
+BNB Beacon Chain
+
+Sunset Complete
+
+BNB ecosystem’s staking & governance layer
+
+SHAPE THE CHAIN
+
+Staking
+
+Earn rewards by securing the network
+
+[GovernanceSubmit proposals & participate in on-chain governance](<https://www.bnbchain.org/en/bnb-chain-governance>)
+
+[Documentation](<https://docs.bnbchain.org/bnb-smart-chain/>)[Faucet](<https://www.bnbchain.org/en/testnet-faucet>)[BscScan](<https://bscscan.com>)[BSCTrace](<https://bsctrace.com>)[Documentation](<https://docs.bnbchain.org/bnb-opbnb/>)[Faucet](<https://docs.bnbchain.org/bnb-opbnb/developers/network-faucet/>)[Bridge](<https://opbnb-bridge.bnbchain.org>)[opBNBScan](<https://opbnbscan.com>)[Documentation](<https://docs.bnbchain.org/bnb-greenfield/>)[Faucet](<https://docs.bnbchain.org/bnb-greenfield/getting-started/get-test-bnb/>)[Bridge](<https://greenfield.bnbchain.org/en/bridge>)[GreenfieldScan](<https://greenfieldscan.com>)[DCellar](<https://dcellar.io/>)[Learn more about Fusion](<https://www.bnbchain.org/en/bnb-chain-fusion>)[Token Recovery Tool](<https://www.bnbchain.org/en/token-recovery>)[Beacon Chain Explorer](<https://explorer.bnbchain.org>)[Native Staking](<https://www.bnbchain.org/en/bnb-staking>)[Liquid Staking](<https://www.bnbchain.org/en/liquid-staking>)
+
+Build
+
+GET STARTED
+
+WalletsYour gateway to BNB Chain](<https://www.bnbchain.org/en/wallets>)
+
+Examples & TutorialsStart with example and tutorials](<https://www.bnbchain.org/en/cookbook>)
+
+Networks and RPCA list of BNB Chain related networks](<https://www.bnbchainlist.org>)
+
+FaucetPilot tokens on BNB Smart Chain](<https://www.bnbchain.org/en/testnet-faucet>)
+
+ADVANCED
+
+DocumentationFull technical documentation](<https://docs.bnbchain.org/>)
+
+ToolsEssential tools for builders](<https://www.bnbchain.org/en/dev-tools>)
+
+EXPLORERS
+
+BscScan](<https://bscscan.com>)
+
+[opBNBScan](<https://opbnbscan.com>)
+
+[GreenfieldScan](<https://greenfieldscan.com>)
+
+SOLUTIONS
+
+[CAS20](<https://www.bnbchain.org/en/cas20>)
+
+[Institutional Finance](<https://www.bnbchain.org/en/solutions/institutions>)
+
+[Privacy](<https://www.bnbchain.org/en/solutions/privacy>)
+
+[Agent Infrastructure](<https://www.bnbchain.org/en/solutions/ai-agent>)
+
+[Real World Assets Tokenization](<https://www.bnbchain.org/en/solutions/tokenization/rwa-tokenization>)
+
+[Stablecoin](<https://www.bnbchain.org/en/solutions/stablecoin>)
+
+[Payment](<https://www.bnbchain.org/en/payment>)
+
+[BNB Agent Studio](<https://www.bnbchain.org/en/bnb-agent-studio>)
+
+Submit dApps](<https://docs.bnbchain.org/join-ecosystem>)
+
+Explore
+
+Release NoteStrategic updates for your advantage](<https://www.bnbchain.org/en/releases>)
+
+BlogFollow our blog for the latest updates](<https://www.bnbchain.org/en/blog>)
+
+[WalletsSecurely connect to funds & dApps](<https://www.bnbchain.org/en/wallets>)
+
+Explore dApps Explore dApps on BNB Chain](<https://dappbay.bnbchain.org?utm_source=Org&utm_medium=Channel&utm_campaign=homepage_240124&utm_content=homepage>)
+
+BridgeCross-chain transfer between networks](<https://www.bnbchain.org/en/bnb-chain-bridge>)
+
+Get BNBGet BNB & explore use cases](<https://www.bnbchain.org/en/what-is-bnb>)
+
+Accelerate
+
+Ideation
+
+[BNB HackExplore online & offline hackathons on BNB Chain](<https://www.bnbchain.org/en/hackathons>)
+
+[BNB Incubation Alliance (BIA)Building together to fast-track your Web3 journey](<https://www.bnbchain.org/en/programs/bnb-incubation-alliance>)
+
+[Most Valuable Builder Accelerator Program (MVB)Incubation for top Web3 projects](<https://www.bnbchain.org/en/programs/mvb>)
+
+Deployment
+
+[BNB Chain GrantsGrants for ecosystem builders](<https://www.bnbchain.org/en/grants>)
+
+[KickstartExplore essential tools & support](<https://www.bnbchain.org/en/programs/kickstart>)
+
+Space
+
+[Builder BunkerA Workspace to Meet & Build](<https://www.bnbchain.org/en/builder-bunker>)
+
+[See All Programs](<https://www.bnbchain.org/en/programs>)
+
+Connect
+
+Community
+
+Community HubConnect with the community](<https://www.bnbchain.org/en/community>)
+
+Build N’ Build ForumA public, community-driven dev forum](<https://forum.bnbchain.org>)
+
+in Real Life
+
+EventsGlobal and local meetups, conferences, and hackathons](<https://www.bnbchain.org/en/events>)
+
+Join us
+
+Careers🔥
+
+Explore Opportunities on BNB Chain](<https://twitter.com/BNBChain>)[](<https://discord.gg/bnbchain>)
+
+Announcement](<https://t.me/bnbchain>)[Discussion](<https://t.me/BNBchaincommunity>)
+
+[](<https://github.com/bnb-chain>)
+
+Connect with BD
+
+Telegram](<https://t.me/BNBChainBDBot>)[Contact Form](<https://forms.monday.com/forms/f4222863ea10c9ca8b44068d8ba8047d?r=euc1>)
+
+[BNB Chain Careers](<https://jobs.bnbchain.org/companies/bnb-chain#content>)[Ecosystem Jobs](<https://jobs.bnbchain.org/jobs>)
+
+Ask AI
+
+English](<https://www.bnbchain.org/en>)](<https://www.bnbchain.org/en>)
+
+# Unlocking the Potential of MEV on BNB Chain: A Guide for Builders and Validators
+
+2024.6.4 • 5 min read
+
+Maximal Extractable Value (MEV) refers to the maximum profit that can be extracted by reordering, including or excluding transactions within a block by miners, validators, or other network participants. In today’s blog, let’s understand how MEV works. We will also see how BNB Chain’s Proposer-Builder Separation (PBS) model changes the MEV landscape.
+
+## What is MEV?
+
+[**_MEV_**](<https://www.bnbchain.org/en/blog/exploring-bnb-chains-maximal-extractable-value-mev-landscape-solutions>) is a natural byproduct of blockchain technology's decentralized nature. Unlike traditional financial systems, where a central authority dictates transaction orders, blockchain transactions are ordered based on protocol rules, opening opportunities for miners and validators to optimize transaction sequencing for profit. This inherent characteristic of blockchain ensures that participants can capitalize on transaction ordering, leading to a more dynamic and potentially lucrative network.
+
+MEV is essential because it incentivizes network participants to actively maintain and secure the blockchain. By allowing miners and validators to profit from ordering transactions, MEV provides financial motivation to continue supporting the network. This can improve network security and stability, as these participants are more likely to invest in better hardware and infrastructure to maximize their gains. 
+
+Additionally, MEV-driven activities can lead to greater market efficiency by enabling arbitrage opportunities and liquidity provision, which are crucial for the healthy functioning of decentralized exchanges and financial protocols.
+
+However, MEV also presents challenges, such as potential centralization and the risk of unfair transaction prioritization, which must be carefully managed to ensure a balanced and fair ecosystem.
+
+### Common MEV Strategies
+
+In decentralized exchanges (DEXs), miners and validators use several MEV strategies to maximize profits. 
+
+  * Arbitrage involves exploiting price discrepancies between different markets by front-running other traders. 
+  * Back-running occurs when miners place sell orders after large buy orders to benefit from buying pressure. 
+  * Sandwich deals involve placing buy and sell orders around a target transaction to profit from price fluctuations. 
+  * Flash loans enable miners to borrow and repay funds within a single transaction, allowing profitable trades without upfront capital.
+
+
+
+Several strategies have been developed to mitigate MEV exploitation. Fair Sequencing Services (FSS) ensure decentralized and fair transaction ordering, reducing MEV opportunities. Off-chain transactions and batching allow transactions to be settled in a single batch, minimizing the impact of transaction reordering.
+
+Additionally, protocols that allow users to set maximum slippage limits can prevent miners from exploiting price differences between transaction submission and execution. These measures help protect users and enhance the fairness of the cryptocurrency ecosystem.
+
+## Introducing BNB Chain’s MEV Solution
+
+To tackle these challenges and leverage MEV's opportunities, the BNB Chain ecosystem has developed comprehensive MEV solutions. [_Blockrazor_](<https://www.blockrazor.io>), [_blocksmith_](<https://blocksmith.org>) _,_ and [_NodeReal_](<https://nodereal.io/>) have supported the BNB Chain MEV solution, and BNBChain has an[ _open-source repo_](<https://github.com/bnb-chain/bsc-mev-info/tree/main/mainnet/builders>)to maintain the builder list and corresponding RPC endpoints.
+
+### Key Features of BNB Chain’s MEV Solutions
+
+  * **Integrated Validator Support** : As of the latest data, approximately**23 out of 40** active validators on BNB Chain have integrated with MEV providers.
+  * **Standardized Builder AP** I: The proposed BEP 322 for an MEV Supply Chain Solution introduces a standardized builder API. This allows validators to accept builder registration in a permissionless manner, enabling seamless integration with multiple builders and fostering competition among different MEV solutions.
+  * **Enhanced Transparency** : Implementing robust data reporting and transparency mechanisms ensures that all participants can track and understand MEV activities. This transparency is crucial for optimizing MEV processes and maintaining the overall integrity and balance of the blockchain transaction environment.
+
+
+
+## Challenges in Current MEV Solutions
+
+Despite the significant advancements, there are still challenges in the current MEV landscape on BNB Chain:
+
+  * **Complexity for Validators** : The lack of a standardized builder API means each MEV solution has unique implementations, requiring validators to modify their codebase for integration. This complexity can lead to conflicting logic, increased maintenance efforts, potential security vulnerabilities, and performance degradation.
+  * **Fragmentation and Lack of Open Marketplace** : Currently, MEV solutions are provided individually by different providers, leading to fragmentation and inefficiencies. An open marketplace for MEV searchers could streamline the process, promote standardization, and enhance the decentralized nature of the BNB Chain.
+  * **Opacity in Revenue and Data** : The inability to track and understand revenue generation from MEV activities, as well as the lack of clear insights into the roles and contributions of participants, leads to difficulties in assessing the MEV ecosystem's fairness and efficiency. Implementing robust data reporting and transparency mechanisms is essential to address these challenges.
+
+
+
+## New Proposal: BEP 322 for an MEV Supply Chain Solution
+
+To address these challenges, BNB Chain is enhancing its MEV landscape through the Proposer-Builder Separation (PBS) model, which was introduced via [**_BEP 322_**](<https://forum.bnbchain.org/t/bep-322-builder-api-specification-for-bnb-smart-chain/2223>). This model separates validators from block builders, allowing builders to create blocks and propose them to validators, who then select the most profitable one. 
+
+By introducing a standard builder API between builders and validators, BEP 322 allows for: 
+
+  * **Builder Registration** : Validators can accept builder registration in a permissionless manner, enabling seamless integration with multiple builders and fostering competition.
+  * **Block Building and Proposing** : Builders can propose blocks using the unified API, streamlining the block production process.
+  * **Fee Reconciliation** : Implementing automated fee reconciliation mechanisms, such as gas fee-based payments and validator settlements, simplifies the fee process and enhances transparency.
+  * **Fair Profit Distribution** : The profits from MEV will be distributed among searchers, builders, validators, and BNB holders (through staking and delegation). Because trades are routed through builders using a private mempool, users are protected from attacks and benefit from better pricing compared to the public mempool. 
+
+
+
+## Benefits of BNB Chain’s MEV Solutions
+
+### **For Builders**
+
+  * **Increased Profitability** : Builders can implement diverse pricing mechanisms, offering free services to searchers while charging validators, thus optimizing their revenue streams. 
+  * **Competitive Marketplace** : The standardized builder API creates a competitive landscape, encouraging innovation and efficiency. Builders can differentiate themselves by offering unique features and pricing models, driving continuous improvement in the MEV ecosystem.
+
+
+
+### **For Validators**
+
+  * **Maximize Rewards** : Integration with MEV providers has led to reported profitability improvements of 7% to 15% for many validators. By leveraging MEV solutions, validators can optimize their operations and maximize their rewards from block production.
+  * **Simplified Integration** : The introduction of a unified builder API reduces the complexity of connecting with multiple MEV solutions. Validators can integrate with various builders without significant modifications to their codebase, lowering maintenance efforts and minimizing potential security vulnerabilities.
+
+
+
+### **For Wallets and Users**
+
+  * **Improved User Experience** : Users benefit from better transaction execution and reduced risks of front-running and other exploitative practices. MEV solutions help ensure that transactions are processed efficiently and fairly.
+  * **Fairer Transaction Processing** : The standardized and transparent MEV processes promote fairer transaction prioritization. Users can have greater confidence that their transactions will be included in blocks based on transparent and equitable criteria.
+
+
+
+## In Closing
+
+MEV is a natural and essential aspect of blockchain technology, driving both profitability and efficiency. BNB Chain’s PBS model addresses common MEV challenges by fostering a competitive, transparent, and fair MEV ecosystem. 
+
+Maximize your profitability by implementing diverse pricing mechanisms and charging validators while offering free services to searchers. Differentiate yourself with unique features and pricing models, driving continuous improvement in the MEV ecosystem. 
+
+[**_Start building on BNB Chain today_**](<https://www.bnbchain.org/en/developers/developer-programs/builder-grant>).
+
+### Stay updated on everything BNB Chain!
+
+[_Website_](<https://www.bnbchain.org/en?ref=binance.ghost.io>) | [_Twitter_](<https://twitter.com/BNBCHAIN?ref=binance.ghost.io>) | [_Telegram_](<https://t.me/bnbchain?ref=binance.ghost.io>) | [_Discord_](<https://discord.gg/bnbchain?ref=bnbchain.ghost.io>) | [_DappBay_](<https://dappbay.bnbchain.org/?ref=binance.ghost.io>) | [_Build N' Build Forum_](<https://www.buildnbuild.dev/?ref=binance.ghost.io>) | [_YouTube_](<https://www.youtube.com/@BNBChainOfficial?ref=binance.ghost.io>) | [_LinkedIn_](<https://www.linkedin.com/company/bnbchaininnovation/?ref=binance.ghost.io>) | [_Facebook_](<https://www.facebook.com/profile.php?id=61550857610291>)
+
+Share
+
+[](<https://twitter.com/intent/tweet?url=&text=Unlocking%20the%20Potential%20of%20MEV%20on%20BNB%20Chain%3A%20A%20Guide%20for%20Builders%20and%20Validators>)[](<http://www.linkedin.com/shareArticle?mini=true&url=&title=Unlocking%20the%20Potential%20of%20MEV%20on%20BNB%20Chain%3A%20A%20Guide%20for%20Builders%20and%20Validators>)[](<https://t.me/share/url?url=&text=Unlocking%20the%20Potential%20of%20MEV%20on%20BNB%20Chain%3A%20A%20Guide%20for%20Builders%20and%20Validators>)[](<http://www.reddit.com/submit?url=&title=Unlocking%20the%20Potential%20of%20MEV%20on%20BNB%20Chain%3A%20A%20Guide%20for%20Builders%20and%20Validators>)](<https://www.bnbchain.org/en>)](<https://twitter.com/BNBChain>)
+
+Telegram (Announcement)](<https://t.me/bnbchain>)[Telegram (Discussion)](<https://t.me/BNBchaincommunity>)
+
+[](<https://discord.gg/bnbchain>)[](<https://github.com/bnb-chain>)[](<https://www.buildnbuild.dev/>)[](<https://coinmarketcap.com/community/profile/BNBChain>)[](<https://www.youtube.com/channel/UCG9fZu6D4I83DStktBV0Ryw>)[](<https://www.linkedin.com/company/bnbchain>)[](<https://www.instagram.com/bnbchain/>)
+
+Chains
+
+  * [BNB Smart Chain](<https://www.bnbchain.org/en/bnb-smart-chain>)
+  * [BNB Greenfield](<https://greenfield.bnbchain.org/en>)
+  * [opBNB](<https://opbnb.bnbchain.org/en>)
+
+](<https://www.bsigroup.com/en-US/products-and-services/assessment-and-certification/validation-and-verification/client-directory-certificate/IS%20843143/>)[](<https://www.bsigroup.com/en-US/products-and-services/assessment-and-certification/validation-and-verification/client-directory-certificate/PM%20843144/>)
+
+Use BNB Chain
+
+  * [Download Wallet](<https://www.bnbchain.org/en/wallets>)
+  * [Get BNB](<https://www.bnbchain.org/en/what-is-bnb>)
+  * [Stake BNB](<https://www.bnbchain.org/en/bnb-staking>)
+  * [Bridge Assets](<https://www.bnbchain.org/en/bnb-chain-bridge>)
+  * [Explore dApps](<https://dappbay.bnbchain.org?utm_source=Org&utm_medium=Channel&utm_campaign=homepage_240124&utm_content=homepage>)
+  * [Pay by Crypto](<https://www.bnbchain.org/en/payment>)
+  * [Earn by Liquid Staking](<https://www.bnbchain.org/en/liquid-staking>)
+
+
+
+Build
+
+  * [Demos & Tutorials](<https://www.bnbchain.org/en/cookbook>)
+  * [Documentations](<https://docs.bnbchain.org>)
+  * [Faucet](<https://www.bnbchain.org/en/testnet-faucet>)
+  * [Dev Tools](<https://www.bnbchain.org/en/dev-tools>)
+  * [Submit dApp](<https://dappbay.bnbchain.org/submit-dapp>)
+  * [Greenfield Console](<https://dcellar.io/>)
+  * [BNBChain List](<https://www.bnbchainlist.org>)
+  * [Whitepaper](<https://github.com/bnb-chain/whitepaper>)
+
+
+
+Participate
+
+  * [Events](<https://www.bnbchain.org/en/events>)
+  * [Hackathon](<https://www.bnbchain.org/en/hackathons>)
+  * [MVB Program](<https://www.bnbchain.org/en/programs/mvb>)
+  * [Builder Support Programs](<https://www.bnbchain.org/en/programs>)
+  * [Governance](<https://www.bnbchain.org/en/bnb-chain-governance>)
+  * [Bug Bounty](<https://bugbounty.bnbchain.org>)
+  * [Get Workspace](<https://www.bnbchain.org/en/builder-bunker>)
+  * [Ecosystem Jobs](<https://jobs.bnbchain.org/jobs>)
+
+
+
+About
+
+  * [Blog](<https://www.bnbchain.org/en/blog>)
+  * [Careers](<https://jobs.bnbchain.org/companies/bnb-chain#content>)
+  * [BNB Chain Verify](<https://www.bnbchain.org/en/official-verification>)
+  * [Red Alarm](<https://dappbay.bnbchain.org/red-alarm/dapp>)
+  * [Privacy Policy](<https://www.bnbchain.org/en/privacy-policy>)
+  * [Disclaimer](<https://www.bnbchain.org/en/disclaimer>)
+  * [Contact Us](<https://www.bnbchain.org/en/contact>)
+  * [Brand Guidelines](<https://www.bnbchain.org/en/brand-guidelines>)
+
+
+
+[](<https://www.bsigroup.com/en-US/products-and-services/assessment-and-certification/validation-and-verification/client-directory-certificate/IS%20843143/>)[](<https://www.bsigroup.com/en-US/products-and-services/assessment-and-certification/validation-and-verification/client-directory-certificate/PM%20843144/>)
+
+Chains
+
+  * [BNB Smart Chain](<https://www.bnbchain.org/en/bnb-smart-chain>)
+  * [BNB Greenfield](<https://greenfield.bnbchain.org/en>)
+  * [opBNB](<https://opbnb.bnbchain.org/en>)
+
+
+
+Use BNB Chain
+
+  * [Download Wallet](<https://www.bnbchain.org/en/wallets>)
+  * [Get BNB](<https://www.bnbchain.org/en/what-is-bnb>)
+  * [Stake BNB](<https://www.bnbchain.org/en/bnb-staking>)
+  * [Bridge Assets](<https://www.bnbchain.org/en/bnb-chain-bridge>)
+  * [Explore dApps](<https://dappbay.bnbchain.org?utm_source=Org&utm_medium=Channel&utm_campaign=homepage_240124&utm_content=homepage>)
+  * [Pay by Crypto](<https://www.bnbchain.org/en/payment>)
+  * [Earn by Liquid Staking](<https://www.bnbchain.org/en/liquid-staking>)
+
+
+
+Build
+
+  * [Demos & Tutorials](<https://www.bnbchain.org/en/cookbook>)
+  * [Documentations](<https://docs.bnbchain.org>)
+  * [Faucet](<https://www.bnbchain.org/en/testnet-faucet>)
+  * [Dev Tools](<https://www.bnbchain.org/en/dev-tools>)
+  * [Submit dApp](<https://dappbay.bnbchain.org/submit-dapp>)
+  * [Greenfield Console](<https://dcellar.io/>)
+  * [BNBChain List](<https://www.bnbchainlist.org>)
+  * [Whitepaper](<https://github.com/bnb-chain/whitepaper>)
+
+
+
+Participate
+
+  * [Events](<https://www.bnbchain.org/en/events>)
+  * [Hackathon](<https://www.bnbchain.org/en/hackathons>)
+  * [MVB Program](<https://www.bnbchain.org/en/programs/mvb>)
+  * [Builder Support Programs](<https://www.bnbchain.org/en/programs>)
+  * [Governance](<https://www.bnbchain.org/en/bnb-chain-governance>)
+  * [Bug Bounty](<https://bugbounty.bnbchain.org>)
+  * [Get Workspace](<https://www.bnbchain.org/en/builder-bunker>)
+  * [Ecosystem Jobs](<https://jobs.bnbchain.org/jobs>)
+
+
+
+About
+
+  * [Blog](<https://www.bnbchain.org/en/blog>)
+  * [Careers](<https://jobs.bnbchain.org/companies/bnb-chain#content>)
+  * [BNB Chain Verify](<https://www.bnbchain.org/en/official-verification>)
+  * [Red Alarm](<https://dappbay.bnbchain.org/red-alarm/dapp>)
+  * [Privacy Policy](<https://www.bnbchain.org/en/privacy-policy>)
+  * [Disclaimer](<https://www.bnbchain.org/en/disclaimer>)
+  * [Contact Us](<https://www.bnbchain.org/en/contact>)
+  * [Brand Guidelines](<https://www.bnbchain.org/en/brand-guidelines>)
+
+
+
+[](<https://www.bsigroup.com/en-US/products-and-services/assessment-and-certification/validation-and-verification/client-directory-certificate/IS%20843143/>)[](<https://www.bsigroup.com/en-US/products-and-services/assessment-and-certification/validation-and-verification/client-directory-certificate/PM%20843144/>)
+
+© 2026 [BNB Chain](<https://www.bnbchain.org>). All rights reserved.
+
+Cookies
+
+Cookie Preferences
+
+English
+
+English
+
+Bahasa Indonesia
+
+Español (Latinoamérica)
+
+Français
+
+Português (Brasil)
+
+Tiếng Việt
+
+Türkçe
+
+Русский
+
+简体中文
+
+繁體中文
+
+한국어
