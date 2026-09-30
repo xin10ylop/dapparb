@@ -47,7 +47,22 @@ Window 12:04–12:25 UTC (0.34 h), 4,455 flashblock ticks, sync + search ≈ 170
 | Largest single episode | $0.17 net (USDC/WETH between Slipstream-3 and PancakeSwap V3 0.01 %), executable for 6 consecutive blocks |
 | Simulated / predicted profit on stable state | 0.96–1.00 |
 
-### 2.3 Why most candidates reverted
+### 2.3 Correction: the flashblock run had ~10 s state freshness, not 200 ms
+
+Re-analysis of the run records showed every episode starting on a :x0-second boundary with a byte-identical
+prediction for ten seconds, and successful simulations clustered in the first three seconds after each boundary.
+A direct test explains it: the public preconfirmation endpoint accepts about 5 requests per 10 s and answers
+HTTP 429 for the rest of the window, and `syncPools` silently kept the old state when a batch was rejected.
+Consequences for the numbers above:
+
+* the 46 successful simulations and their dollar sizes are valid (each was checked against live state);
+* the "median lifetime of 6 blocks" and the 87 % simulation revert rate are artifacts of frozen local state,
+  not measurements of competition;
+* the true opportunity flow at 200 ms freshness is **unmeasured**; it requires a dedicated node or paid endpoint
+  that can serve pending state at 5 Hz. The bot now detects rejected refreshes and skips the tick instead of
+  searching on stale data.
+
+### 2.4 Why candidates through Slipstream pools reverted
 
 The trace of a representative failure (USDC → XDP → USDC across Uniswap V3 and Slipstream-3) shows the
 Slipstream pool's fee module returning 100,000 pips (10 %) at swap time while the same pool reported 0.01 %
@@ -60,10 +75,11 @@ route after three consecutive reverts.
 1. **The architecture in the videos (listen for `Swap` events, then send a transaction) produces nothing.**
    At block boundaries, on every chain measured, the cross-DEX price gaps for liquid tokens are already inside
    the fee band.
-2. **With 200 ms state on Base, small opportunities do exist and persist for seconds.** They are worth cents, not
-   dollars: about $1.65 per hour of simulated upper bound over 342 pools, before any lost races or reverted
-   transactions. Breadth (more pools, Uniswap V4, more tokens) scales this roughly linearly; it does not change
-   the order of magnitude.
+2. **With ~10 s state on Base (what public endpoints actually sustain), small opportunities exist.** They are
+   worth cents, not dollars: 14 verified episodes in 23 minutes, median $0.026 and largest $0.17 of simulated net
+   profit, $0.61 in total, with trade sizes between $140 and $2,700 (median $250). What 200 ms freshness would
+   add is unmeasured here. Breadth (more pools, Uniswap V4, more tokens) scales the count roughly linearly; it
+   does not change the per-episode size.
 3. **Flash loans are not the constraint.** Capital was never the binding factor in any measured episode; the
    largest optimal trade size was well under $1,000. Flash swaps (zero fee) cover every case; Morpho Blue is the
    only Base flash-loan pool with meaningful zero-fee depth (Balancer V2 on Base holds ~29 WETH after the

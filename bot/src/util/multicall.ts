@@ -8,6 +8,9 @@ export interface McCall {
 }
 export type McResult = { status: "success"; result: unknown } | { status: "failure"; error: unknown };
 
+/** Number of chunk-level RPC failures (whole batches rejected, e.g. HTTP 429) in the last multicallChunked call. */
+export const mcStats = { lastChunkFailures: 0, lastChunks: 0 };
+
 /**
  * Multicall3 wrapper that splits large call sets into fixed-size chunks and runs them with bounded
  * concurrency. Public RPCs reject oversized JSON-RPC batches wholesale; viem's byte-based batching alone
@@ -41,11 +44,14 @@ export async function multicallChunked(
         await run(lo, mid, depth + 1);
         await run(mid, hi, depth + 1);
       } else {
+        mcStats.lastChunkFailures++;
         for (let i = lo; i < hi; i++) out[i] = { status: "failure", error: e };
       }
     }
   }
 
+  mcStats.lastChunkFailures = 0;
+  mcStats.lastChunks = ranges.length;
   let next = 0;
   const workers = Array.from({ length: Math.min(concurrency, ranges.length) }, async () => {
     while (next < ranges.length) {

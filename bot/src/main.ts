@@ -15,7 +15,7 @@ import { formatUnits, getAddress, type Address, type Hex } from "viem";
 import { getChain } from "./config/chains.js";
 import { makeHttpClient, makeWsClient } from "./util/client.js";
 import { discoverPools, longTailPairs } from "./pools/discovery.js";
-import { loadStaticMetadata, pruneEmpty, syncPools } from "./pools/state.js";
+import { loadStaticMetadata, pruneEmpty, syncPools, syncStats } from "./pools/state.js";
 import { findOpportunities, type Opportunity } from "./arb/search.js";
 import { findTriangles } from "./arb/triangles.js";
 import { buildEthPrices, toEth } from "./arb/pricing.js";
@@ -76,8 +76,9 @@ interface Stats {
   failed: number;
   profitEth: number;
   gasSpentEth: number;
+  staleTicks: number;
 }
-const stats: Stats = { ticks: 0, gross: 0, net: 0, simulated: 0, simOk: 0, sent: 0, landed: 0, failed: 0, profitEth: 0, gasSpentEth: 0 };
+const stats: Stats = { ticks: 0, gross: 0, net: 0, simulated: 0, simOk: 0, sent: 0, landed: 0, failed: 0, profitEth: 0, gasSpentEth: 0, staleTicks: 0 };
 
 async function main() {
   if (mode === "live" && (!contract || !privateKey)) throw new Error("live mode needs ARB_CONTRACT and PRIVATE_KEY");
@@ -159,6 +160,13 @@ async function main() {
       await syncPools(stateClient as any, cfg, pools, usePending ? { pending: true, force: stats.ticks - lastForce > 200 } : { blockNumber: trigger.block, force: stats.ticks - lastForce > 30 });
       if (stats.ticks - lastForce > (usePending ? 200 : 30)) lastForce = stats.ticks;
       const tSync = Date.now();
+      // Never search on frozen state: a rejected sync (public endpoints rate-limit at a few requests per 10 s)
+      // would otherwise re-emit the same stale candidates until the next successful refresh.
+      if (syncStats.chunkFailures > 0 || syncStats.stale > pools.length / 10) {
+        stats.staleTicks++;
+        if (stats.staleTicks % 25 === 1) log.warn({ chunkFailures: syncStats.chunkFailures, stalePools: syncStats.stale, staleTicks: stats.staleTicks }, "state refresh rejected by RPC; skipping tick (use a dedicated node for sustained 200 ms freshness)");
+        return;
+      }
       if (stats.ticks % 50 === 1) prices = buildEthPrices(cfg, pools);
       const ethUsd = 1 / (prices.get(cfg.usdc.toLowerCase()) ?? NaN);
       const opps = [...findOpportunities(pools), ...(triangles ? findTriangles(pools, { startTokens: new Set([cfg.weth.toLowerCase(), cfg.usdc.toLowerCase()]) }) : [])].sort((a, b) => (b.profit > a.profit ? 1 : b.profit < a.profit ? -1 : 0));

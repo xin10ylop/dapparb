@@ -4,7 +4,7 @@ import { AERO_FACTORY_ABI, AERO_POOL_ABI, V2_PAIR_ABI, V3_POOL_ABI } from "../ab
 import { isV2, isV3, type Pool, type V2Pool, type V3Pool } from "./types.js";
 import { compressTick, tickPosition } from "../math/v3.js";
 import { log } from "../util/log.js";
-import { multicallChunked } from "../util/multicall.js";
+import { mcStats, multicallChunked } from "../util/multicall.js";
 import { isV4, STATE_VIEW_ABI } from "./v4.js";
 
 /** How far (in price terms) we want fetched tick data to cover on each side of the current price. */
@@ -51,6 +51,9 @@ export async function loadStaticMetadata(client: PublicClient, cfg: ChainConfig,
  * for Slipstream). Tick bitmaps and tick liquidityNet are refreshed for pools whose current word range
  * is missing or whose tick moved (`force` refreshes all).
  */
+/** Result of the last syncPools call: how many pools could not be refreshed (their state is stale). */
+export const syncStats = { stale: 0, total: 0, chunkFailures: 0 };
+
 export async function syncPools(client: PublicClient, cfg: ChainConfig, pools: Pool[], opts: { force?: boolean; blockNumber?: bigint; pending?: boolean } = {}): Promise<bigint> {
   // pending=true reads the node's pending state (flashblocks on Base preconf RPC) and is not pinned to a block.
   const blockNumber = opts.pending ? 0n : (opts.blockNumber ?? (await client.getBlockNumber()));
@@ -78,6 +81,7 @@ export async function syncPools(client: PublicClient, cfg: ChainConfig, pools: P
     }
   }
   const res = await multicallChunked(client, cfg.multicall3, calls, tag);
+  syncStats.chunkFailures = mcStats.lastChunkFailures;
   const dead = new Set<Address>();
   res.forEach((r, i) => {
     const { pool, what } = map[i]!;
@@ -110,6 +114,9 @@ export async function syncPools(client: PublicClient, cfg: ChainConfig, pools: P
       st.fee = Math.max(...h);
     }
   });
+
+  syncStats.stale = dead.size;
+  syncStats.total = pools.length;
 
   // Tick data for V3 pools whose word window no longer covers the current tick (or on force).
   const needTicks = pools.filter((p): p is V3Pool => {
