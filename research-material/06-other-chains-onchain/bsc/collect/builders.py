@@ -89,6 +89,29 @@ def main():
                                  "source": f"builder documentation (fetched {fetched})", "source_url": url,
                                  "git_commit": "", "evidence_verbatim": ev})
                     break
+    # (d) builderMap in bnb-chain/bsc cmd/jsutils/getchainstatus.js (used by the GetMevStatus tool)
+    p = os.path.join(DOCS, "bsc-getchainstatus-js.txt")
+    if os.path.exists(p):
+        txt = open(p).read()
+        url = re.search(r"^URL: (.+)$", txt, re.M).group(1)
+        fetched = re.search(r"^FETCHED_AT_UTC: (.+)$", txt, re.M).group(1)
+        body = txt.split("=" * 78 + "\n", 1)[1]
+        m = re.search(r"const builderMap = new Map\(\[(.*?)\]\);", body, re.S)
+        net, grp = "BSC mainnet", ""
+        for ln in (m.group(1).splitlines() if m else []):
+            if re.match(r"^\s*//\s*Chapel", ln):
+                net = "Chapel testnet"
+                continue
+            c = re.match(r"^\s*//\s*(.+?)\s*$", ln)
+            if c and "BSC mainnet" not in c.group(1):
+                grp = c.group(1)
+                continue
+            e = re.match(r'^\s*\["(0x[0-9a-fA-F]{40})",\s*"([^"]+)"\]', ln)
+            if e:
+                rows.append({"builder_name": e.group(2), "builder_org_derived": grp if net == "BSC mainnet" else "",
+                             "address": e.group(1), "address_lower": e.group(1).lower(), "rpc": "", "website": "",
+                             "source": f"bsc getchainstatus.js builderMap [{net}] (fetched {fetched})",
+                             "source_url": url, "git_commit": "", "evidence_verbatim": ln.strip()})
     out = os.path.join(OUTD, "builders.csv")
     with open(out, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys()), lineterminator="\n")

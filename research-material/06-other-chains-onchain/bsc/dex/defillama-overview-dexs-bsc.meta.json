@@ -1,0 +1,8 @@
+{
+ "url": "https://api.llama.fi/overview/dexs/bsc",
+ "fetched_at_utc": "2026-09-30T21:31:58Z",
+ "http_status": 200,
+ "bytes": 2624745,
+ "sha256": "35c9cdffff95ca3e2d6926fae519c83d323cf3827a8bf1439b27b133d012a204",
+ "note": "raw response body, gzip-compressed, not modified"
+}

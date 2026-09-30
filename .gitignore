@@ -22,3 +22,8 @@ research-material/**/__pycache__/
 research-material/**/census/raw/
 # TEMPORARY: Base census data is still being written by its collector; committed once BASE_CENSUS.DONE exists
 research-material/05-base-onchain/data/
+# V4 Initialize originals (1.8 GB, local only). The committed copy is 01-v4-pools/initialize-compact/, which rebuilds them exactly (see compact-index.json)
+research-material/01-v4-pools/initialize-part-*.csv.gz
+# raw Solana getBlock dumps (540 MB) and per-slot part files; the processed Solana tables built from them are committed
+research-material/**/raw-slots/
+research-material/**/*.parts/

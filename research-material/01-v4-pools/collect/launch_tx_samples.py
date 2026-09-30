@@ -95,13 +95,19 @@ def bs_get(url):
 def load_or_fetch(addr, kind):
     p = os.path.join(BS, "%s.%s.json.gz" % (addr, kind))
     if os.path.exists(p):
-        return json.load(gzip.open(p, "rt"))["body"]
+        try:
+            j = json.load(gzip.open(p, "rt"))
+            if j.get("http_status") in (200, 404):
+                return j["body"]
+        except (OSError, EOFError, ValueError):
+            pass  # truncated file from an interrupted run: refetch
     u = "https://base.blockscout.com/api/v2/%s/%s" % ("addresses" if kind == "address" else "smart-contracts", addr)
     st, b = bs_get(u)
-    with gzip.open(p, "wt") as f:
+    with gzip.open(p + ".tmp", "wt") as f:
         json.dump({"url": u, "fetched_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "http_status": st, "body": b}, f)
+    os.replace(p + ".tmp", p)
     time.sleep(0.3)
-    return b
+    return b if isinstance(b, dict) else {}
 
 
 def canon(inp):

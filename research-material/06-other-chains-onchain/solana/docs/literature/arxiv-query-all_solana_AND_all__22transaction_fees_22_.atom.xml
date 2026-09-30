@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/VRqXJMrLCRdkPqtrzj9HDe8fo3g</id>
+  <title>arXiv Query: search_query=all:solana AND all:"transaction fees"&amp;id_list=&amp;start=0&amp;max_results=100</title>
+  <updated>2026-09-30T21:45:18Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:solana+AND+all:%22transaction+fees%22&amp;start=0&amp;max_results=100&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <opensearch:totalResults>5</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2607.28424v2</id>
+    <title>Demystifying Solana Bots: From GitHub Blueprints to On-Chain Fingerprints</title>
+    <updated>2026-07-31T07:11:57Z</updated>
+    <link href="https://arxiv.org/abs/2607.28424v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.28424v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Solana is an emerging blockchain platform designed for high throughput and low transaction fees, making it inexpensive to submit transactions at scale and, consequently, increasing exposure to bot spamming and related financial exploitation. Solana bots are typically off-chain software systems that operate in a competitive on-chain execution environment by constructing and submitting transactions, and the bot-related transactions on the decentralized exchanges exceed 250 million dollars in daily trading volume in January 2026. Prior studies on Solana have examined system performance, smart-contract security, and specific on-chain phenomena. However, we still lack a systematic understanding of what Solana bots implement in practice and how these implementations manifest as observable on-chain execution fingerprints. To address this gap, we performed a large-scale empirical study of Solana bots from two complementary views: (i) 586 bot repositories collected from GitHub, and (ii) 200 bot addresses on Solana, with over 44 million on-chain transactions. Our study derives an implementation-grounded taxonomy of Solana bots comprising 15 categories grouped into five domains (e.g., Trading Operations, MEV, and On-chain Analytics), identifies a largely shared five-stage operational pipeline manifested in bot implementations, and uncovers systematic variation in on-chain trading behaviors of Solana bots across diverse trading platforms and assets. Based on our findings, we highlight future research directions, and provide recommendations for building and operating bots on the Solana blockchain.</summary>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-30T16:02:50Z</published>
+    <arxiv:comment>Accepted at ASE 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.SE"/>
+    <author>
+      <name>Xiaoye Zheng</name>
+    </author>
+    <author>
+      <name>Yujing Chen</name>
+    </author>
+    <author>
+      <name>Minghao Wu</name>
+    </author>
+    <author>
+      <name>David Lo</name>
+    </author>
+    <author>
+      <name>Difan Xie</name>
+    </author>
+    <author>
+      <name>Daoyuan Wu</name>
+    </author>
+    <author>
+      <name>Xiaohu Yang</name>
+    </author>
+    <author>
+      <name>Zhiyuan Wan</name>
+    </author>
+    <arxiv:doi>10.1145/3832783.3837522</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1145/3832783.3837522" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.06525v1</id>
+    <title>Crossroads: A Smart Contract Layer for Chain-Abstracted Assets</title>
+    <updated>2026-07-07T17:31:30Z</updated>
+    <link href="https://arxiv.org/abs/2607.06525v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.06525v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper introduces Crossroads, a smart contract layer for chain-abstracted assets. In Crossroads, assets from nearly any chain are represented on a single backend blockchain as ERC-20 tokens. As a result, any asset can participate in smart-contract-based exchange, lending, or privacy applications on a single unified platform. So while Crossroads offers cross-chain bridging, a common, partial approach to alleviating the fragmentation of the blockchain ecosystem today, this is just one service within Crossroads' general-purpose chain-abstraction model.
+  Crossroads relies on key encumbrance: a threshold signing committee holds encumbered keys controlling assets on each integrated chain, signing transactions only as authorized by smart contracts on the backend blockchain. Asset movements are fee-efficient, as ownership changes are recorded on the backend blockchain and users may set the transaction fee for withdrawals.
+  Crossroads enables permissionless, modular integration of new blockchains using pluggable oracles with flexible design options (zkBridge, TEE-based, hybrid). Asset deposits into Crossroads benefit from strong, chain-specific finalization guarantees, minimizing the risk of reorg attacks. Unlike existing bridges, however, third-party smart contracts in Crossroads can provide fast, optimistic access to funds before finalization completes.
+  We prove that Crossroads satisfies soundness: given an honest quorum of signing committee members, any user can unilaterally generate a withdrawal transaction transferring their net balance to an account on an integrated blockchain. We implement a proof of concept across multiple public blockchains: Bitcoin, Ethereum, and Solana. We catalog a range of applications enabled by Crossroads, including universal wallets, cross-chain staking and lending, privacy-preserving payments, and private management of public blockchain assets.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-07T17:31:30Z</published>
+    <arxiv:comment>18 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>James Austgen</name>
+    </author>
+    <author>
+      <name>Dani Vilardell</name>
+    </author>
+    <author>
+      <name>Ari Juels</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2508.21440v1</id>
+    <title>Time Tells All: Deanonymization of Blockchain RPC Users with Zero Transaction Fee (Extended Version)</title>
+    <updated>2025-08-29T09:08:16Z</updated>
+    <link href="https://arxiv.org/abs/2508.21440v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2508.21440v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Remote Procedure Call (RPC) services have become a primary gateway for users to access public blockchains. While they offer significant convenience, RPC services also introduce critical privacy challenges that remain insufficiently examined. Existing deanonymization attacks either do not apply to blockchain RPC users or incur costs like transaction fees assuming an active network eavesdropper. In this paper, we propose a novel deanonymization attack that can link an IP address of a RPC user to this user's blockchain pseudonym. Our analysis reveals a temporal correlation between the timestamps of transaction confirmations recorded on the public ledger and those of TCP packets sent by the victim when querying transaction status. We assume a strong passive adversary with access to network infrastructure, capable of monitoring traffic at network border routers or Internet exchange points. By monitoring network traffic and analyzing public ledgers, the attacker can link the IP address of the TCP packet to the pseudonym of the transaction initiator by exploiting the temporal correlation. This deanonymization attack incurs zero transaction fee. We mathematically model and analyze the attack method, perform large-scale measurements of blockchain ledgers, and conduct real-world attacks to validate the attack. Our attack achieves a high success rate of over 95% against normal RPC users on various blockchain networks, including Ethereum, Bitcoin and Solana.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-29T09:08:16Z</published>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Shan Wang</name>
+    </author>
+    <author>
+      <name>Ming Yang</name>
+    </author>
+    <author>
+      <name>Yu Liu</name>
+    </author>
+    <author>
+      <name>Yue Zhang</name>
+    </author>
+    <author>
+      <name>Shuaiqing Zhang</name>
+    </author>
+    <author>
+      <name>Zhen Ling</name>
+    </author>
+    <author>
+      <name>Jiannong Cao</name>
+    </author>
+    <author>
+      <name>Xinwen Fu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2309.03006v3</id>
+    <title>Fuzz on the Beach: Fuzzing Solana Smart Contracts</title>
+    <updated>2024-12-15T11:30:57Z</updated>
+    <link href="https://arxiv.org/abs/2309.03006v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2309.03006v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Solana has quickly emerged as a popular platform for building decentralized applications (DApps), such as marketplaces for non-fungible tokens (NFTs). A key reason for its success are Solana's low transaction fees and high performance, which is achieved in part due to its stateless programming model. Although the literature features extensive tooling support for smart contract security, current solutions are largely tailored for the Ethereum Virtual Machine. Unfortunately, the very stateless nature of Solana's execution environment introduces novel attack patterns specific to Solana requiring a rethinking for building vulnerability analysis methods.
+  In this paper, we address this gap and propose FuzzDelSol, the first binary-only coverage-guided fuzzing architecture for Solana smart contracts. FuzzDelSol faithfully models runtime specifics such as smart contract interactions. Moreover, since source code is not available for the large majority of Solana contracts, FuzzDelSol operates on the contract's binary code. Hence, due to the lack of semantic information, we carefully extracted low-level program and state information to develop a diverse set of bug oracles covering all major bug classes in Solana. Our extensive evaluation on 6049 smart contracts shows that FuzzDelSol's bug oracles find bugs with a high precision and recall. To the best of our knowledge, this is the largest evaluation of the security landscape on the Solana mainnet.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-09-06T13:54:07Z</published>
+    <arxiv:comment>This paper appeared on the ACM CCS 2023 in November 2023</arxiv:comment>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Sven Smolka</name>
+      <arxiv:affiliation>University of Duisburg-Essen</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Jens-Rene Giesen</name>
+      <arxiv:affiliation>University of Duisburg-Essen</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Pascal Winkler</name>
+      <arxiv:affiliation>University of Duisburg-Essen</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Oussama Draissi</name>
+      <arxiv:affiliation>University of Duisburg-Essen</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Lucas Davi</name>
+      <arxiv:affiliation>University of Duisburg-Essen</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Ghassan Karame</name>
+      <arxiv:affiliation>Ruhr University Bochum</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Klaus Pohl</name>
+      <arxiv:affiliation>University of Duisburg-Essen</arxiv:affiliation>
+    </author>
+    <arxiv:doi>10.1145/3576915.3623178</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1145/3576915.3623178" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2210.13655v2</id>
+    <title>An Event Study of the Ethereum Transition to Proof-of-Stake</title>
+    <updated>2023-02-28T16:58:32Z</updated>
+    <link href="https://arxiv.org/abs/2210.13655v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2210.13655v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>On September 15, 2022, the Ethereum network adopted a proof-of-stake (PoS) consensus mechanism. We study the impact on the network and competing platforms in a two month event window around the Beacon chain merge. We find that the transition to PoS has reduced energy consumption by 99.98%. Miners have not transformed into validators, and total block reward income (in USD) has fallen by 97%, though transaction fees (in ETH) for Ether have increased nearly 10%. The Herfindahl index for the top 10 is 1,009; the network is 19% less concentrated after the merge. Ethereum supply growth has been deflationary since the merge. The time between consecutive blocks is now steady at 12 seconds and transactions per day are up 7.0%. On Polygon, Matic fees rose but token fees fell. Polygon also slows, processing 3.3% fewer transactions per day. Solana's fees fall by $0.0003, and transactions per day are down 48%. Stablecoin transfer volumes fall on Ethereum and Polygon, but rise on Solana.</summary>
+    <category term="q-fin.TR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="q-fin.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-10-24T23:30:11Z</published>
+    <arxiv:primary_category term="q-fin.TR"/>
+    <author>
+      <name>Elie Kapengut</name>
+    </author>
+    <author>
+      <name>Bruce Mizrach</name>
+    </author>
+  </entry>
+</feed>

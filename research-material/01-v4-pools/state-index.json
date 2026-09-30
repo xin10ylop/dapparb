@@ -1,0 +1,85 @@
+{
+ "snapshot_block": 52006432,
+ "pin": {
+  "pinned_block": 52006432,
+  "pinned_block_source": "eth_blockNumber(https://developer-access-mainnet.base.org) - 10 at launch; head was 52006442",
+  "pinned_at_utc": "2026-09-30T21:03:52Z",
+  "activity_window": [
+   51963233,
+   52006432
+  ],
+  "initialize_window": [
+   51704033,
+   52006432
+  ],
+  "snapshot_block": 52006432
+ },
+ "pools": 36103,
+ "pools_active_24h": 12117,
+ "pools_initialized_7d": 29900,
+ "keys_resolved": 36103,
+ "keys_unresolved": 0,
+ "tokens": 27317,
+ "v4init_used": true,
+ "files": {
+  "state": "state-snapshot.csv.gz",
+  "keys": "pool-keys-snapshot.csv.gz",
+  "tokens": "token-metadata.csv.gz"
+ },
+ "columns": {
+  "state": [
+   "pool_id",
+   "active_24h",
+   "initialized_7d",
+   "snapshot_block",
+   "slot0_ok",
+   "sqrt_price_x96",
+   "tick",
+   "protocol_fee",
+   "lp_fee",
+   "liquidity_ok",
+   "liquidity"
+  ],
+  "keys": [
+   "pool_id",
+   "currency0",
+   "currency1",
+   "fee_raw",
+   "tick_spacing",
+   "hooks",
+   "init_block",
+   "key_source"
+  ],
+  "tokens": [
+   "address",
+   "is_native",
+   "symbol_ok",
+   "symbol_call_mode",
+   "symbol_return_raw",
+   "symbol_error",
+   "symbol_decoded",
+   "name_ok",
+   "name_call_mode",
+   "name_return_raw",
+   "name_error",
+   "name_decoded",
+   "decimals_ok",
+   "decimals_call_mode",
+   "decimals_return_raw",
+   "decimals_error",
+   "decimals",
+   "total_supply_ok",
+   "total_supply_call_mode",
+   "total_supply_return_raw",
+   "total_supply_error",
+   "total_supply"
+  ]
+ },
+ "call_endpoints": [
+  "https://base-mainnet.public.blastapi.io",
+  "https://developer-access-mainnet.base.org",
+  "https://base.drpc.org",
+  "https://gateway.tenderly.co/public/base"
+ ],
+ "completed_utc": "2026-09-30T21:46:25Z"
+}

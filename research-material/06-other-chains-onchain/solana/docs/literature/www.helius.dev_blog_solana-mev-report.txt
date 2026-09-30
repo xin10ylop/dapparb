@@ -1,0 +1,1021 @@
+SOURCE_URL: https://www.helius.dev/blog/solana-mev-report
+FINAL_URL: https://www.helius.dev/blog/solana-mev-report
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:45:38Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+Solana MEV Report: Trends, Insights, and Challenges
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* NEW: Helius acquires Light Protocol NEW: Helius acquires Light Protocol to build the canonical privacy layer for Solana Read more
+
+Dismiss
+
+Helius Docs Sign In Open main menu
+
+* Products
+
+* Solutions Use cases
+
+*
+Traders & Market Makers
+
+Convert milliseconds into PnL
+
+*
+Exchanges
+
+Infra built for scale and reliability
+
+*
+Wallets
+
+Fast balances, token data, and alerts
+
+*
+Fintech
+
+Infra for global rails and 24/7 settlement
+
+*
+DeFi
+
+Reliable reads with faster execution
+
+Case study
+
+## How DFlow Uses LaserStream
+to Quote Solana's Best Prices
+Read more →
+
+* Resources Tools
+
+*
+Helius for Agents
+
+Helius MCP, CLI, plugins, and skills for agents
+
+*
+Orb
+
+A human readable Solana block explorer
+
+*
+Solana Staking Calculator
+
+Compare validators and estimate rewards
+
+*
+Solana RPC Benchmarks
+
+Test RPC performance across providers
+
+Programs
+
+*
+Startup Launchpad
+
+Scale, Speed, Support for Your Success
+
+Guides
+
+*
+Stream the earliest onchain signals
+
+Subscribe to preconfs over WebSocket
+
+*
+Land transactions on Solana
+
+Use Sender to reliably land trades and payments
+
+*
+Monitor accounts with gRPC
+
+Get real-time account updates via LaserStream
+
+*
+Query historical Solana data
+
+Fetch full transaction history by address
+
+*
+Get token and asset data
+
+NFTs, tokens, and compressed assets in one API
+
+*
+Build private apps and payments
+
+Programmable, fully onchain privacy solutions
+
+Learn
+
+Blog
+
+Media
+
+EVM vs. SVM
+
+Staking Rewards
+
+Company
+
+About
+
+Contact
+
+Support
+
+Security
+
+Careers
+
+Brand
+
+* Pricing
+
+* Stake
+
+* English
+
+* 中文
+
+* 日本語
+
+* 한국어
+
+Docs Sign In
+
+Trading See the full stack →
+
+*
+Preconfirmations
+
+Stream scheduled Solana transactions
+
+*
+Shred Delivery
+
+Specialized delivery of raw shreds via UDP
+
+*
+Preprocessed Transactions
+
+Stream pre-execution Solana data
+
+*
+Sender
+
+Land latency-sensitive trades first
+
+*
+Transaction Rebates
+
+Earn SOL back on backrun-eligible trades
+
+Infrastructure
+
+*
+RPC Nodes
+
+High availability RPC for reads and writes
+
+*
+Helius Validator
+
+0% fees, 100% inflation rewards, 100% tips
+
+*
+Validator-as-a-Service
+
+Reliable white label validators
+
+*
+Validator Monetization
+
+Boost validator rewards, no client changes
+
+Privacy
+
+*
+Solana Privacy Protocol
+
+Private payments and finance on Solana
+
+Read data
+
+*
+LaserStream
+
+Reliable, low latency gRPC data streaming
+
+*
+Webhooks & WebSockets
+
+Listen to onchain events & stream updates
+
+*
+Parsed Events & Streams
+
+Parsed history and real-time streams
+
+*
+Historical Data
+
+Fast archival data for backfills and indexing
+
+*
+Token APIs
+
+Get all token and transaction data instantly
+
+*
+Wallet API (Beta)
+
+REST endpoints for Solana wallet data
+
+Helius / products / solutions / resources / Language
+Close menu
+Products Solutions Resources Docs Pricing Stake Language English
+English 中文 日本語 한국어 Trading See the full stack →
+
+Preconfirmations
+Stream scheduled Solana transactions
+
+Shred Delivery
+Specialized delivery of raw shreds via UDP
+
+Preprocessed Transactions
+Stream pre-execution Solana data
+
+Sender
+Land latency-sensitive trades first
+
+Transaction Rebates
+Earn SOL back on backrun-eligible trades
+
+Read data
+
+LaserStream
+Reliable, low latency gRPC data streaming
+
+Webhooks & WebSockets
+Listen to onchain events & stream updates
+
+Parsed Events & Streams
+Parsed history and real-time streams
+
+Historical Data
+Fast archival data for backfills and indexing
+
+Token APIs
+Get all token and transaction data instantly
+
+Wallet API (Beta)
+REST endpoints for Solana wallet data
+
+Infrastructure
+
+RPC Nodes
+High availability RPC for reads and writes
+
+Helius Validator
+0% fees, 100% inflation rewards, 100% tips
+
+Validator-as-a-Service
+Reliable white label validators
+
+Validator Monetization
+Boost validator rewards, no client changes
+
+Privacy
+
+Solana Privacy Protocol
+Private payments and finance on Solana
+
+Use cases
+
+Traders & Market Makers
+Convert milliseconds into PnL
+
+Exchanges
+Infra built for scale and reliability
+
+Wallets
+Fast balances, token data, and alerts
+
+Fintech
+Infra for global rails and 24/7 settlement
+
+DeFi
+Reliable reads with faster execution
+
+Case study
+
+How DFlow Uses LaserStream
+to Quote Solana's Best Prices
+Read more →
+
+Tools
+
+Helius for Agents
+Helius MCP, CLI, plugins, and skills for agents
+
+Orb
+A human readable Solana block explorer
+
+Solana Staking Calculator
+Compare validators and estimate rewards
+
+Solana RPC Benchmarks
+Test RPC performance across providers
+
+Programs
+
+Startup Launchpad
+Scale, Speed, Support for Your Success
+
+Guides
+
+Stream the earliest onchain signals
+Subscribe to preconfs over WebSocket
+
+Land transactions on Solana
+Use Sender to reliably land trades and payments
+
+Monitor accounts with gRPC
+Get real-time account updates via LaserStream
+
+Query historical Solana data
+Fetch full transaction history by address
+
+Get token and asset data
+NFTs, tokens, and compressed assets in one API
+
+Build private apps and payments
+Programmable, fully onchain privacy solutions
+
+Company
+
+About
+
+Contact
+
+Support
+
+Security
+
+Careers
+
+Brand
+
+Learn
+
+Blog
+
+Media
+
+EVM vs. SVM
+
+Staking Rewards
+
+Blog / Research
+
+## Solana MEV Report: Trends, Insights, and Challenges
+
+Lostin Lostin
+Researcher
+Lostin on X
+
+Researcher Lostin on X
+33 min read
+Jan 15, 2025
+Table of Contents
+
+* Actionable Insights
+
+* Introduction
+
+* Solana MEV Timeline
+
+* September 2021 to April 2022 - Spam and DDoS Attacks
+
+* Mid 2022 - The Introduction of Priority Fees
+
+* August 2022 - The Jito-Solana Client is Launched
+
+* January 2024: The Onset of Memecoin Season
+
+* March 2024: Jito Suspends Their Flagship Mempool Feature
+
+* May 2024: A New Transaction Scheduler
+
+* June 2024: Marinade Launches Stake Auction Marketplace (SAM)
+
+* December 2024: Increased Concerns Over New Private Mempools
+
+* Forms of MEV
+
+* Liquidations
+
+* Arbitrages
+
+* Front-running
+
+* Back-running
+
+* Sandwich Attacks
+
+* Solana MEV Data
+
+* Jito
+
+* Reverted Transactions
+
+* Arbitrage Profitability
+
+* Case Study: Vpe Sandwich Program
+
+* MEV Mitigation Mechanisms
+
+* Validator Whitelists
+
+* Dynamic Slippage + MEV Protection
+
+* RFQ systems
+
+* Sandwich Resistant AMMs
+
+* Conditional Liquidity & Orderflow Segmentation
+
+* Paladin
+
+* Multiple Concurrent Leaders
+
+* Conclusion
+
+* Further Resources
+
+Many thanks to Lucas Bruder, Max Resnick, Eugene Chen, Mert Mumtaz, 0xIchigo, Uri Klarman and Nitesh Nath for reviewing earlier versions of this work.
+
+## Actionable Insights
+
+* MEV on Solana operates differently from other blockchain networks due to its distinctive architecture and the lack of a global mempool. Out-of-protocol mempools must be developed independently, requiring adoption by a significant portion of the network's stake to function effectively, which presents a high technical and social barrier.
+
+* Jito suspended its public mempool in March 2024, incurring a significant revenue loss. This move immediately reduced harmful MEV practices. However, the decision has encouraged the rise of alternative mempools that lack transparency and primarily benefit a select group with exclusive access.
+
+* Memecoin traders are especially susceptible to sandwich attacks, as they set high slippage tolerances when trading illiquid and highly volatile assets. This user subset favors Telegram trading bots for faster execution and real-time notifications. Memecoin traders are relatively insensitive to the front-running of their trades.
+
+* Marinade Finance’s Stake Auction Marketplace (SAM) employs a competitive auction mechanism in which validators bid directly against one another for stake allocation in a “pay-for-stake” system. The program has faced criticism, as it enables validators engaging in user-sandwiching to outbid others, securing more stake and increasing their influence within the network.
+
+* Much of Solana's sandwiching originates from a private mempool operated by a single entity, DeezNode. A key validator operated by DeezNode, identified by the address HM5H6 …jdMRA , currently holds 811,604.73 SOL in delegated stake, valued at approximately $168.5 million. This validator experienced a sharp increase in delegated stake, rising from 307.9k SOL on November 13 (epoch 697) to 802.5k SOL by December 9 (epoch 709). Since then, the growth has stabilized. Notably, 19.89% of this stake originates from Marinade’s mSOL liquid stake pool and native delegations.
+
+* Multiple Solana validator operators have publicly reported receiving lucrative offers to participate in private mempools , including detailed documents outlining profit shares and projected earnings.
+
+* Jito bundles are the primary method searchers use to ensure profitable transaction ordering. However, Jito data does not capture the full scope of MEV activity; in particular, it does not capture profits from searchers or activity happening through alternative mempools. Furthermore, many applications utilize Jito for non-MEV purposes, bypassing priority fees to ensure timely transaction inclusion.
+
+* Over the past year, more than 3 billion Jito bundles were processed, generating 3.75 million SOL in total tips. This activity exhibited a clear upward trend, from a low of 781 SOL in tips on January 11th to a high of 60,801 SOL on November 19th.
+
+* Jito's arbitrage detection algorithm, which analyzes all Solana transactions, including those outside Jito bundles, identified 90,445,905 successful arbitrage transactions over the past year. The average profit per arbitrage was $1.58, with the most profitable single arbitrage yielding $3.7 million. These arbitrages generated $142.8 million in profits, of which $126.7 million (88.7%) were denominated in SOL.
+
+* The DeezNode mempool operates a sandwich bot at address vpeNAL..oax38b . Internal analysis from Jito indicates that nearly half of all sandwich attacks on Solana can be attributed to this single program. Over 30 days (Dec 7th to Jan 5th), the program executed 1.55 million sandwich transactions for a profit of 65,880 SOL ($13.43 million). The average profitability per attack was 0.0425 SOL ($8.67). Annualizing this data, the program would generate a yearly profit of 801,540 SOL. In a worst-case scenario for network centralization, where 100% of profits are reinvested, their share of the network stake would increase by 0.2%.
+
+* This bot is just one of many on-chain programs executing sandwich attacks. To view detected sandwich attacks on Solana in real time, visit sandwiched.me .
+
+* Validator whitelists are widely seen as a last resort in combating bad actors. They risk creating a semi-permissioned and censored environment that directly conflicts with the industry’s decentralized ethos. In some cases, this approach could also delay transaction processing, creating a suboptimal user experience.
+
+* Sandwich-resistant AMMs are experimental designs that build upon traditional constant-product AMMs. With sr-AMMs, no swaps are executed at a price more favorable than the pool’s price at the start of the slot window. This mechanism effectively neutralizes the profitability of sandwich attacks. Ellipsis Labs published Plasma, an audited reference implementation of a sandwich-resistant AMM design .
+
+* Multiple Concurrent Leaders (MCL) offer a promising long-term solution for mitigating harmful MEV by allowing users to choose between leaders without incurring delays. If Leader A acts maliciously, users can redirect their transactions to an honest Leader B. However, implementing MCL is expected to take several years of development.
+
+## Introduction
+
+Maximal Extractable Value (MEV) is the value that can be extracted by manipulating transaction sequencing. This includes adding, removing, or reordering transactions within a block. MEV manifests in various forms, but all share a common factor: they hinge on transaction ordering. Searchers—traders who monitor on-chain activity—attempt to place their trades strategically before or after other transactions to extract value.
+
+On Solana, MEV functions differently from other blockchain networks, primarily due to its unique architecture and the absence of a global mempool. Features such as Turbine, which propagates state updates , and Stake-Weighted Quality of Service (SWQoS) for transaction forwarding shape its approach to MEV. Solana's fast streaming block production, without relying on external add-ons or out-of-protocol auction mechanisms, narrows the scope for conventional approaches to certain types of MEV, such as front-running. To gain an edge, searchers operate their own nodes or collaborate with high-staked validators to access the most current blockchain state.
+
+MEV has become an overloaded term, with differing opinions on its precise definition. Contrary to popular belief, not all MEV is bad. Due to blockchains' distributed and transparent nature, full elimination of MEV is widely considered unlikely. Networks that claim to have eradicated MEV either lack sufficient user activity to attract searchers or employ techniques such as randomized block packing, which, while seemingly mitigating MEV, can incentivize spam.
+
+Sandwiching is the form of MEV that attracts the most attention and is detrimental to users. In this strategy, a searcher places one transaction before and another after a target transaction to extract value. While profitable for searchers, sandwiching increases transaction costs and worsens execution prices for regular users. A detailed discussion of sandwiching will be provided in a later section.
+
+A visualization of a typical sandwich attack. An attacker front-runs and then back-runs the victim’s buy transaction for profit.
+
+‍With this report, we will analyze Solana’s current MEV landscape. It is organized into four sections:
+
+* Solana MEV Timeline : Outlines a chronological series of key events, offering valuable context for readers less familiar with the rapid evolution of MEV on Solana.
+
+* Forms of MEV : Explores the various forms of MEV observed on Solana today, supported by concrete and detailed examples.
+
+* Solana MEV Data: This section presents relevant, quantifiable, and contextual data to illustrate the current scope and impact of MEV in Solana.
+
+* MEV Mitigation Mechanisms : Examines the strategies and mechanisms being considered to reduce or eliminate harmful forms of MEV.
+
+While these sections are best read sequentially, each can be consumed independently.
+
+## Solana MEV Timeline
+
+Below is a timeline of important events related to Solana’s MEV landscape.
+
+## September 2021 to April 2022 - Spam and DDoS Attacks
+
+NFTs were the first sector to gain significant traction on Solana. MEV in the NFT space primarily arises during public minting events, where participants compete to secure rare or valuable assets. These events create sudden and extreme opportunities for searchers, with no MEV potential in the block preceding a mint and substantial MEV potential in the block immediately after. NFT minting mechanics were among the earliest causes of large-scale congestion spikes on Solana caused by spam transactions from bots overwhelming the network and leading to temporary halts in block production.
+
+## Mid 2022 - The Introduction of Priority Fees
+
+Solana implemented an optional priority fee that users can specify within the compute budget instruction to prioritize their transactions . This mechanism helped mitigate network congestion by enabling users to pay for expedited processing during periods of high activity. It also established a more efficient framework for fee markets, enhancing the network's economic model.
+
+Priority fees help discourage spam by shifting the competitive landscape. Bots that previously relied on brute-force transaction volume to gain an advantage can no longer dominate solely through spamming. Instead, prioritization is also determined by the fees users are willing to pay.
+
+## August 2022 - The Jito-Solana Client is Launched
+
+Jito has become the default Solana MEV infrastructure . The client is designed to democratize MEV capture, ensuring a more equitable distribution of rewards across the network. When leaders use the Jito client validator, their transactions are initially directed to the Jito-Relayer, which functions as a transaction proxy router. This relayer holds transactions for 200 milliseconds before forwarding them to the leader. This speed bump delays incoming transaction messages, providing a window for off-chain auctions via the Jito Block Engine. Searchers and applications submit bundles of atomically executed transactions together with a tip dominated in SOL. Jito charges a 5% fee on all tips, with a minimum tip of 10,000 lamports. Bundles can be examined through the Jito bundle explorer .
+
+The current Jito architecture comprises a block engine that accepts bundles from searchers and a relayer that delays incoming transactions to the leader
+
+This approach reduces spam and enhances the efficiency of Solana’s computing resources by running the auctions off-chain and posting only the single winner into the block. This is important, considering unsuccessful transactions consume a significant portion of the network’s computing resources.
+
+For its first nine months, the Jito-Solana client's adoption remained under 10% as network activity remained low and MEV rewards were minimal. Starting in late 2023, adoption accelerated significantly, reaching 50% by January 2024. Today, over 92% of Solana’s validators, weighted by stake, use the Jito-Solana client.
+
+## January 2024: The Onset of Memecoin Season
+
+In early 2024, network activity surged. Memecoins such as Bonk and DogWifHat gained traction, sparking heightened interest among searchers and significantly increasing MEV activity. This period marked a notable shift in user behavior: memecoin traders favor Telegram trading bots such as BonkBot, Trojan, and Photon over traditional decentralized exchanges or aggregators. These bots offer superior speed, real-time notifications, and an intuitive, text-based interface that appeals to retail speculators. Known for setting high slippage rates to prioritize time-sensitive trades, these traders are relatively insensitive to their trades being front-run.
+
+## March 2024: Jito Suspends Their Flagship Mempool Feature
+
+Jito’s mempool provided searchers a 200-ms window to preview all incoming transactions to the leader. During its operation, this system was frequently used for sandwich attacks, significantly degrading user experience. To prioritize the network’s long-term growth and stability, Jito made the contentious decision to suspend its mempool, sacrificing significant revenue in the process. While the move garnered widespread support, it faced criticism from a few prominent figures, including Mert Mumtaz and Jon Charbonneau.
+
+The primary risk of this decision was the potential emergence of alternative mempools replicating Jito’s functionality, enabling the extraction of more harmful forms of MEV. Unlike public mempools, which promote a fairer distribution of MEV opportunities and mitigate power imbalances across the network, private permissioned mempools operate without transparency and benefit only the select few with access to them.
+
+A section from a DeezNode MEV proposal for “DeezMempool” which multiple validators report receiving shortly after the Jito mempool was suspended
+
+‍Multiple Solana validator operators have reported receiving lucrative offers to participate in private mempools .
+
+## May 2024: A New Transaction Scheduler
+
+As part of the Agave-Solana 1.18 update , a new scheduler significantly improved Solana’s ability to order transactions deterministically. The improved scheduler better prioritizes transactions with higher fees, increasing their likelihood of block inclusion. The central scheduler constructs a dependency graph, known as a "prio-graph," to optimize the processing and prioritization of conflicting transactions across multiple threads.‍
+
+Previously, bots engaged in arbitrage and other MEV activities were incentivized to flood the leader with spam to improve their chances of successful execution. The stochastic nature of the old scheduler introduced jitter, causing variability in transaction placement within a block. The new deterministic approach reduces this randomness, discouraging spam and improving the network's overall efficiency.
+
+## June 2024: Marinade Launches Stake Auction Marketplace (SAM)
+
+Marinade Finance’s Stake Auction Marketplace (SAM) employs a competitive price auction mechanism where validators bid directly against one another for stake allocation in a “pay-for-stake” system. This structure incentivizes validators to bid up to the maximum rate they deem profitable. The program has faced criticism, as it enables validators engaging in user-sandwiching to outbid others, securing more stake and increasing their influence within the network. Marinade Labs has recently proposed establishing a public committee for delegation oversight . Marinade Finance’s mSOL is Solana’s second-largest liquid staking token and stake pool after Jito.
+
+Bids for stake on Marinade Finance’s stake auction marketplace (December 27th, 2024)
+
+‍As of epoch 717, validators with 0% staking commission and 0% MEV commission typically offer stakers an APY of around 9.4%. Validators utilizing out-of-protocol methods to redistribute block rewards generally provide an APY of 10% or less. In contrast, Marinade’s SAM auction shows a winning APY of 13.73%, with the top ten validator bids reaching 18.27% APY.
+
+This disparity suggests that these validators are either bidding irrationally and incurring losses, subsidizing their bids with stake delegations from the Solana Foundation , or supplementing their income through alternative sources, such as MEV extracted from sandwiching users.
+
+## December 2024: Increased Concerns Over New Private Mempools
+
+Solana MEV became a contentious topic after Solana-focused research firm Temporal publicly raised concerns about the potential centralization of network stake . This sparked widespread debate and reignited efforts to address Solana’s MEV challenges.
+
+Validators engaging in harmful MEV extraction capture disproportionate value, leading to their stake growing faster than others. This enables the validator to accumulate greater network influence over time, introducing centralization risks to Solana's validator economy. Validators with higher earnings can offer increased returns to stakers, drawing in more stake and further consolidating their position.
+
+Much of Solana's sandwiching originates from a private mempool operated by a single entity, DeezNode. A key validator operated by DeezNode, identified by the address HM5H6 …jdMRA , currently holds 811,604.73 SOL in delegated stake, valued at approximately $168.5 million. This validator experienced a sharp increase in delegated stake, rising from 307.9k SOL on November 13 (epoch 697) to 802.5k SOL by December 9 (epoch 709). Since then, the growth has stabilized. Notably, 19.89% of this stake originates from Marinade’s mSOL Liquid Stake Pool and Marinade native delegations . Representing 0.2% of the total stake (currently 392.5 million SOL), the validator is ranked 93rd by stake among the broader validator set and lies outside the supermajority subset.
+
+Jito's internal analysis reveals a growing number of sandwich attacks occurring outside of Jito's auction mechanism, indicating the presence of additional block engines or modified validator clients engaging in sandwiching activities.
+
+## Forms of MEV
+
+Let’s examine the various types of MEV on Solana, illustrating each with concrete examples of real transactions. Below are the most prevalent MEV transaction types observed on Solana today.
+
+## Liquidations
+
+When borrowers fail to maintain the required collateralization ratio for their loans on lending protocols, their positions become eligible for liquidation. Searchers monitor the blockchain for these undercollateralized positions and execute liquidations by repaying part or all of the debt in exchange for a portion of the collateral as a reward. Liquidations are considered a form of good MEV. They are essential for maintaining protocol solvency and contribute to the stability of the broader on-chain defi ecosystem.
+
+## Example Liquidation Transaction
+
+This liquation occurred on December 10 via Kamino, Solana’s largest lending protocol by liquidity and user base. The transaction involved three steps:
+
+* The searcher initiated the liquidation by transferring 10.642 USDC to the Kamino Reserve to cover a user’s debt position.
+
+* In exchange, the Kamino Reserve transferred the user’s collateral of 0.05479 SOL to the searcher.
+
+* The searcher paid a protocol fee of 0.0013 SOL.
+
+Additionally, the searcher paid a priority fee of 0.001317 SOL for the transaction, resulting in a net profit of 0.0492 USD.
+
+An example liquidation transaction on Solana’s Kamino money market
+
+## Arbitrages
+
+Arbitrage enhances market efficiency by aligning prices across different venues, capitalizing on price discrepancies for the same asset. These opportunities can occur intra-chain, cross-chain, or between centralized and decentralized exchanges (CEX/DEX arbitrage). Among these, intra-chain arbitrage guarantees atomicity, as both legs of the trade can be executed together in a single Solana transaction. In contrast, inter-chain and cross-platform arbitrage introduce additional trust assumptions.
+
+Atomic arbitrage is the dominant form of MEV on Solana. The simplest example of atomic arbitrage arises when two DEXs list different prices for the same trading pair. This typically involves exploiting stale quotes on a constant product (xy=k) automated market maker (AMM) and offsetting the trade on an on-chain limit order book, where market makers have already adjusted their quotes to reflect off-chain price movements.
+
+## Example Arbitrage Transaction
+
+An example arbitrage transaction between two decentralized exchanges . This example was taken from the article MEV on Solana by Umbra Research .
+
+In this scenario, the price of the SOL/USDC pair has shifted off-chain, prompting a Phoenix market maker to update their quotes accordingly. Meanwhile, the Orca AMM continues to quote based on a stale price, creating an arbitrage opportunity for a searcher. The searcher purchases 2.11513 SOL with 45 USDC on Orca and then sells 2.115 SOL for 45.0045 USDC on Phoenix, earning a profit of 0.00013 SOL (approximately $0.026). Arbitrage transactions are executed atomically, eliminating the need for searchers to hold inventory. The primary risk lies in fees paid for reverted transaction attempts.
+
+## Front-running
+
+Front-running refers to an MEV searcher identifying another trader’s buy or sell order in the mempool and placing an identical order before the trader, profiting from the price impact of the victim’s transaction.
+
+It occurs when an observer notices an unconfirmed transaction that will likely impact the price of a token and acts on this information before the original transaction is processed. This front-running strategy is straightforward and does not involve the complexities of other methods, such as sandwich attacks.
+
+A searcher becomes aware of a pending buy transaction that will positively impact the target token price. The searcher bundles their buy transaction with the target transaction. Their order will be processed at a lower price before the target, and they will profit once the target’s transaction has been finalized. In the process, the target suffers a loss as they buy at a higher price due to the impact of the MEV searcher’s buy transaction.
+
+## Back-running
+
+Back-running is the counterpart to front-running and a specific MEV strategy that exploits temporary price imbalances created by another transaction, often caused by poor routing. Once a user’s transaction is executed, back-running searchers equalize prices across pools by trading the same asset and securing a profit. Theoretically, the user could have captured this profit through more efficient trade execution.
+
+## Example Backrun Transaction
+
+This famous back-run occurred on January 10, 2024, when a user bought 8.9 million dollars worth of DogWifHat (WIF) in a single transaction. At the time, the WIF token traded at 0.2 dollars and had only a few million dollars worth of liquidity across all on-chain venues. The Jupiter aggregator executed this transaction across the limited liquidity available in three pools, resulting in a price wick that reached $3.
+
+The searcher executed the back-run using a Jito Bundle , offering a substantial Jito tip of 890.42 SOL ($91,621). They first exchanged 703.31 SOL ($72,368) for 490,143.90 WIF tokens via a Raydium concentrated liquidity pool. Next, they traded these WIF tokens for 19,035.97 SOL ($1,958,733) through a Raydium V4 liquidity pool. This sequence yielded a net profit of 17,442.24 SOL ($1,794,746) in a single transaction. All dollar values reflect the prices at the time of the transaction.
+
+A back-run transaction following a large purchase of WIF tokens in January 2024.
+
+## Sandwich Attacks
+
+Sandwich attacks are the most notorious form of toxic MEV. They exploit traders who place orders on AMMs or bonding curves with high slippage tolerances. Traders set high slippage not to accept worse prices but to ensure fast order execution. Memecoin traders (looking for those 100x gems) are particularly vulnerable to sandwich attacks because they tend to set high slippage tolerances when trading in illiquid, highly volatile assets. Sandwiching imposes a strict negative externality on the end trader—this user gets filled at the worst possible price.
+
+A typical sandwich attack involves three transactions atomically bundled together. First, the attacker executes an unprofitable front-run transaction, buying the asset to drive its price to the worst execution level allowed by the victim’s slippage settings. Next, the victim’s transaction occurs, increasing the price further as it executes at this unfavorable level. Finally, the attacker completes a profitable backrun transaction, selling the asset at the inflated price, offsetting their initial loss, and securing a net profit.
+
+## Example Sandwich Attack Transaction
+
+This attack happened on December 16th, 2024, through a well-known Sandwich attack program (vpeNALD… Noax38b). A searcher submitted these transactions as an atomic Jito bundle , paying a tip of 0.000148 SOL ($0.03).
+
+* The Front-run Transaction : The searcher paid 14.63 SOL to purchase 32.9 million tokens of Komeko, a newly launched meme coin on the Pump Fun platform.
+
+* The Victim Transaction : Swapped 0.33 SOL to purchase 624 thousand Komeko tokens.
+
+* The Back-run Transaction : The searcher sold 32.9 million Komeko tokens for 14.65 SOL.
+
+An example sandwich attack bundling three transactions together
+
+Characteristics indicating this was a sandwich attack:
+
+* The signer of the middle transaction is different from the first and last transactions.
+
+* The token bought in the first two transactions is the same token sold in the third transaction.
+
+* The token traded was a newly minted illiquid and highly volatile Pump Fun token.
+
+The searcher made a net profit of 0.01678 SOL, roughly $3.35 at the time of the transaction.
+
+## Solana MEV Data
+
+This section evaluates the current Solana MEV landscape through available public data. We begin by examining Jito's performance metrics, followed by insights into the number of reverted transactions and a breakdown of arbitrage profitability. The section concludes with a case study detailing the behavior and profitability of a prominent sandwich bot.
+
+## Jito
+
+Jito bundles are the primary method searchers use to ensure profitable transaction ordering. Most Jito tips come from the demand for the top of the block from users who want to be the first to buy a token or capture an opportunity. However, Jito data does not capture the full scope of MEV activity ; in particular, it does not capture profits from searchers or activity happening through alternative mempools. Furthermore, many applications utilize Jito for non-MEV purposes, bypassing priority fees to ensure timely transaction inclusion.
+
+Data from transfers to eight designated Jito tip accounts reveal that, over the past year, more than 3 billion bundles were processed, generating 3.75 million SOL in total tips. This activity exhibited a clear upward trend, from a low of 781 SOL in tips on January 11th to highs of 60,801 SOL and 60,636 SOL on November 19th and 20th, respectively. A notable slowdown occurred during Q3, with tips dropping to a low of 1,661 SOL on September 7th. Tips values before December 2023 were negligible compared to the substantial growth seen throughout 2024.
+
+The daily amount of Jito tips in SOL (Data source: Dune Analytics, 21co)
+
+‍The volume of bundles processed through Jito has grown consistently throughout 2024, culminating in a peak of 24.4 million bundles on December 21st. This growth included two significant surges. The first occurred between May and early July, with daily bundles increasing fourfold from approximately 3 million to 12 million, likely in response to issues with network congestion. The second surge occurred from November to December, as daily bundle volume doubled from around 12 million to a peak of 24 million.
+
+The daily number of Jito tips (bundles) throughout 2024 (Data source: Dune Analytics, Andrew Hong)
+
+‍The number of accounts using Jito has shown a parallel upward trajectory, beginning the year with approximately 20,000 daily tippers and peaking at nearly 938,000 on December 10th. Significant growth periods include an increase from 21,000 in early March to 135,000 by mid-April (a 6x increase) and another sharp rise from 208,000 in October to 703,000 by the end of the month (a 3.4x increase).
+
+The daily number of Jito tippers (Data source: Dune Analytics, Andrew Hong)
+
+‍The adoption of the Jito-Solana client among validators grew steadily throughout 2024, enhancing the effectiveness of Jito bundles for fast transaction inclusion. At the start of the year, validators using the Jito-Solana client represented 189.5 million staked SOL, accounting for 48% of the total network stake. By the beginning of 2025, this figure had risen to 373.8 million staked SOL, 92% of the total stake.
+
+Growth in adoption of the Jito-Solana validator by stake over 2024 (Data source: Jito)
+
+## Reverted Transactions
+
+A substantial portion of transactions on Solana are attributable to spam associated with MEV extraction. By examining the ratio of reverted to successful transactions, we can identify patterns indicative of MEV bots competing to capture arbitrage opportunities.
+
+Weekly reverted and successful non-vote transaction counts for 2024 (Data source: Blockworks Research)
+
+Spamming presents a significant challenge as it results in many reverted transactions. In the winner-takes-all nature of MEV, only one transaction can exploit a given opportunity. However, even after this opportunity is captured, leaders often process other transactions attempting to exploit the same opportunity. These reverted transactions still consume valuable compute resources and network bandwidth. The competitive latency race among searchers further exacerbates the issue, flooding the network with duplicate transactions and, in extreme cases, causing congestion and a degraded user experience. Due to Solana's low transaction costs, reverted arbitrage spam retains a positive expected value. Over time, traders can achieve profitability by executing these trades at scale despite individual failures.
+
+Reverted transactions peaked in April 2024, accounting for 75.7% of all non-vote transactions. This percentage dropped significantly following the rollout of key updates, including the Agave 1.18 central scheduler. The new scheduler improved deterministic transaction ordering within the banking stage, curbing the effectiveness of spam.
+
+Reverted transactions as a percentage of all non-vote transactions (Data source: Dune Analytics, 21co)
+
+## Arbitrage Profitability
+
+Jito's arbitrage detection algorithm, which analyzes all Solana transactions, including those outside Jito bundles, identified 90,445,905 successful arbitrage transactions over the past year. The average profit per arbitrage was $1.58, with the most profitable single arbitrage yielding $3.7 million. These arbitrages generated $142.8 million in profits, of which $126.7 million (88.7%) were denominated in SOL.
+
+Arbitrage transaction profits by token for 2024 (Data source: Jito)
+
+## Case Study: Vpe Sandwich Program
+
+DeezNode operates an on-chain sandwich bot at the address vpeNAL..oax38b as part of their alternative mempool operations. This highly active program has recently gained notoriety for executing large-scale user sandwich attacks.
+
+The hourly number of sandwich bundles initiated from the Vpe sandwich program (Data source: Flipside crypto analytics, Marqu)
+
+Internal analysis from Jito indicates that nearly half of all sandwich attacks on Solana can be attributed to this single program.
+
+The Vpe program is the source of just under half of all Solana sandwich attacks (Source: Jito internal)
+
+Over one 30-day period (Dec 7th to Jan 5th), the program executed 1.55 million sandwich transactions, averaging approximately 51,600 daily transactions, with a success rate of 88.9%. The program generated a profit of 65,880 SOL ($13.43 million), equating to roughly 2,200 SOL per day. Jito tips paid by the program totaled 22,760 SOL ($4.63 million), averaging around 758 SOL daily. The average profitability of a sandwich transaction was 0.0425 SOL ($8.67).
+
+The Vpe sandwich bot’s extracted value from Dec 7th, 2024, to Jan 5th, 2025.
+
+The majority of victim transactions involved swaps conducted through Raydium. Among the top 20 sandwiched tokens, 16 were created on Pump Fun, identifiable by vanity token mint addresses ending in ‘pump.’
+
+The Vpe sandwich bot is one of many on-chain programs that execute sandwich attacks. Visit sandwiched.me for a real-time view of detected sandwich attacks on Solana .
+
+Annualizing the profit data from December, this program is projected to generate a yearly profit of 801,540 SOL. In a worst-case scenario for network centralization, where 100% of these profits are reinvested into the alternative mempool’s validators, their share of the network stake would increase by 0.2%, assuming the overall network stake remains unchanged.
+
+This worst-case scenario is unlikely for several reasons. First, the network is currently experiencing near-record activity levels. Second, it is reasonable to assume that pool searchers and operators would cash out a portion of their profits rather than reinvest all gains.
+
+## MEV Mitigation Mechanisms
+
+Substantial resources have been dedicated to studying and exploring various mechanisms for mitigating or reallocating MEV. General-purpose, out-of-protocol solutions are increasingly integrated into applications and infrastructure to minimize the on-chain MEV surface area. These mechanisms include:
+
+## Validator Whitelists
+
+One proposed idea is that stakers, RPC providers, and other validators could socially ostracize validators caught sandwiching by ignoring their leadership slots. However, whitelists are widely seen as a measure of last resort. Since leaders are assigned four consecutive slots, this approach could delay transaction processing for several seconds, a suboptimal user experience. More critically, whitelists risk creating a semi-permissioned and censored environment that directly conflicts with the decentralized ethos of the blockchain industry. Additionally, such systems carry the inherent risk of mistakenly excluding honest validators, potentially undermining network trust and participation.
+
+As an aside, independent developers and applications can freely establish their own validator allow or deny lists, a feature supported by the sendTransaction method in the Helius Node.js SDK .
+
+## Dynamic Slippage + MEV Protection
+
+Managing slippage has traditionally been a challenging and tedious process for users, requiring manual adjustments tailored to their trading tokens. This approach is particularly burdensome when handling volatile or illiquid tokens, as the slippage settings suitable for stable assets such as liquid staking tokens or stablecoins differ significantly from those required for memecoins.
+
+In August 2024, Solana's most popular retail trading platform, Jupiter Aggregator, introduced dynamic slippage to address this complexity. This algorithmic mechanism optimizes slippage settings in real time, leveraging a set of heuristics to calculate the ideal slippage threshold for each trade. These heuristics consider factors such as:
+
+* Current market conditions
+
+* The types of tokens being traded (e.g., stable pairs versus volatile memecoins)
+
+* The pools or order books the trade is being routed through
+
+* The user’s maximum slippage tolerance
+
+The heuristics ensure the trade is optimized for success with the least slippage, reducing the scope for MEV extraction.
+
+MEV Protect Mode is an increasingly common feature across decentralized exchanges and Telegram trading bots. When enabled, user transactions are routed exclusively to Jito block engines, significantly reducing the risk of sandwich attacks. However, this protection comes at the cost of slightly higher transaction fees. Anecdotal evidence suggests that many Telegram bot users do not enable MEV protection even when offered. Their primary concern is fast transaction inclusion, and they prioritize speed over reducing the risk of sandwich attacks.
+
+## RFQ systems
+
+RFQ systems are gaining traction on Solana, enabling orders to be fulfilled by professional market makers instead of on-chain AMMs or order books. These systems use signature-based pricing, allowing for off-chain computation, with price discovery happening off-chain and only the final transaction recorded on-chain. Examples include:
+
+## ‍ Kamino Swap
+
+an intents-based exchange platform designed to eliminate slippage and MEV. Kamino leverages the Pyth Express Relay to broadcast swap requests to a network of searchers, who compete in an auction to fill the transaction. The winning searcher provides the best execution price and pays a tip to the user. In cases where arbitrage opportunities arise, searchers may execute trades at even better prices than requested, generating a trade “surplus.” Users benefit by retaining any surplus from their transactions, enhancing their overall execution value.
+
+## ‍ JupiterZ (Jupiter RFQ)
+
+Starting in December, JupiterZ was enabled by default for all swaps on Jupiter. This feature allows swaps to automatically select the best price between Jupiter’s standard on-chain routing engine and its RFQ system. With RFQ, users benefit from no slippage or MEV, as trades are executed directly with off-chain market makers. Additionally, market makers cover the transaction priority fee, and transactions are CU-efficient, bypassing the need for complex routing logic.
+
+‍RFQ systems excel with widely traded tokens listed on CEXs. However, they are less effective for newer, low-liquidity, and highly volatile on-chain assets. Unfortunately, these are precisely the trades most susceptible to MEV exploitation. An additional downside is that liquidity moves off-chain, reducing composability.
+
+## Sandwich Resistant AMMs
+
+Sandwich-resistant AMMs (sr-AMMs) are experimental designs that build upon traditional constant-product (xy=k) AMMs. With sr-AMMs, no swaps are executed at a price more favorable than the pool’s price at the start of the slot window. This mechanism effectively neutralizes the profitability of sandwich attacks.
+
+sr-AMMs function using slot windows to manage trades. Swaps within a slot window affect the pool asymmetrically for buy and sell orders:
+
+* When a buy order is executed, the offer price on the pool increases along the xy=k curve while the bid price remains unchanged, effectively adding liquidity to the bid side.
+
+* Conversely, sell orders deplete this bid-side liquidity, reducing the offer price as determined by the xy=k curve.
+
+At the start of each new slot window, the sr-AMM resets to its equivalent xy=k state, recalibrating the bid and offer prices. By decoupling these resets from individual transactions and maintaining consistent pricing within each slot window, sr-AMMs disrupt the atomic execution required for profitable sandwich attacks, rendering them ineffective.
+
+Sandwiching remains possible at the boundaries between slots. If a leader controls consecutive slot windows, they can execute a front-run and the target transaction at the end of the first slot, followed by a back-run at the start of the following slot.
+
+Ellipsis Labs published Plasma, an audited reference implementation of a sandwich-resistant AMM design , this November.
+
+## Conditional Liquidity & Orderflow Segmentation
+
+Decentralized exchanges (DEXs) currently lack mechanisms for applying variable pricing tailored to different types of market participants. This limitation arises because DEXs cannot accurately identify the cost imposed on the DEX protocol by the order flow. DEXs tighten their spreads to attract order flow, inadvertently increasing their exposure to adverse selection from sophisticated takers.
+
+Conditional Liquidity introduces a novel mechanism that enables DEXs to dynamically adjust spreads based on the expected toxicity of incoming order flow. This allows DEXs to express a broader range of on-chain, just-in-time preferences. Rather than offering a single spread to all participants, conditional liquidity enables DEXs to present a gradient of spreads calibrated to the perceived likelihood of adverse selection by specific takers.
+
+This process relies on a new class of market participants known as Segmenters. Segmenters specialize in assessing the toxicity of order flow and adjust spreads accordingly. They capture a portion of the adjusted spread as compensation while passing the remainder to the wallet or trader. By managing spread-setting responsibilities, Segmenters enable DEXs to better compete for non-toxic order flow. Segmenters compete against one another to minimize adverse selection risks for liquidity providers. The tightest quotes are reserved for flows deemed least likely to harm liquidity providers. In its simplest form, a wallet or application can act as a Segmenter for its own order flow. Alternatively, it could delegate this responsibility of flow segmentation to a marketplace.
+
+Orderflow segmentation diagram (Source: DFlow)
+
+Users take advantage of this through ‘declarative swaps,’ which enable them to declare their intent to swap and leverage a Segmenter for execution. These swaps interact with both existing Solana liquidity sources and conditional liquidity-enabled DEXs. Built with Jito bundles, declarative swaps offer traders a guaranteed quote at the time of signature while recalculating the optimal route just before the transaction lands on the network—ensuring adherence to the initial quote.
+
+This approach significantly reduces the latency between route calculation and transaction finalization, mitigating slippage. Moreover, declarative swaps minimize the likelihood of sandwich attacks when routing through conditional liquidity DEXs. By offering tighter spreads to non-toxic flows, these DEXs improve trading conditions for Solana users. Declarative swaps thus provide traders with reduced slippage, lower latency, and enhanced protection against sandwiching, delivering a more efficient and secure trading experience.
+
+## Paladin
+
+Paladin-Solana, a modified version of the Jito-Solana validator client that introduces a minimal code patch (~2k lines) to include Paladin Priority Port (P3) transactions during the bundle stage. The Paladin Priority Port (P3) facilitates high-priority fee transactions. Validators open this express lane as leaders, enabling them to process valuable transactions promptly. Each P3 transaction meets a minimum fee threshold (10 lamports per CU) and is passed directly to the bundle stage for processing in the order received.
+
+Paladin prioritizes high-priority fee transactions and actively identifies and drops sandwich bundles based on their transaction patterns. While this might initially seem detrimental to validator rewards, Paladin validators are compensated through trust-based mechanisms. Validators that avoid sandwiching can attract direct transactions, creating an ecosystem of trust and improved earnings.
+
+Validators are incentivized by the prospect of earning additional rewards and the trust of users who rely on the P3 express lane. However, if they include sandwich bundles in their blocks, they risk losing P3 transaction revenue. This trust is collateralized with PAL tokens.
+
+The PAL token aims to align the interests of validators, users, and the broader Solana community. It has a fixed supply of one billion tokens, 65% of which will be distributed among validators and stakers, and the rest will be split between Solana builders, the Paladin team, and a development fund. Validators can lock PAL to enable P3 transactions on their nodes, creating a decentralized, permissionless, and token-gated mechanism for MEV extraction and transaction prioritization.
+
+The project is in its early days and has yet to reach a critical mass of adoption. Currently, 80 validators run Paladin, representing 6% of the network’s stake. Paladin claims to increase block reward by 12.5%.
+
+## Multiple Concurrent Leaders
+
+Block producers maintain a monopoly over transaction inclusion within their assigned slots. Even if the current leader is known to maliciously sandwich transactions, users are unaware and submit their transactions, expecting them to be processed without delay. This lack of optionality over which node processes and orders transactions leaves the user vulnerable to manipulation.
+
+A multiple concurrent leaders (MCL) system introduces competition between block producers within the same slot. Users gain the ability to choose between leaders without introducing delays. If Leader A is malicious and known to engage in sandwiching, users or applications could opt to submit their transaction to Leader B, who behaves honestly.
+
+Long-term maximizing competition among leaders involves reducing slot durations, limiting the number of consecutive slots assigned to a single leader, and increasing the number of concurrent leaders per slot. By scheduling more leaders per second, users gain greater flexibility, enabling them to choose the most favorable offer from the available leaders for transaction inclusion.
+
+Although MCL presents a compelling long-term solution to mitigate MEV, its implementation is complex and will likely require several years of development.
+
+Asynchronous Execution (AE) presents another potential approach to reducing MEV. Under AE, blocks are constructed without execution or assessing the results of each transaction. This speed poses significant challenges for algorithms in calculating profitable opportunities and executing effective sandwich strategies on time.
+
+## Conclusion
+
+Solana’s MEV landscape is evolving rapidly and remains far from reaching a stable competitive equilibrium. Searchers continue to develop more sophisticated strategies to extract value while the ecosystem adopts a multipronged approach of infrastructure and mechanisms designed to mitigate harmful MEV. Forward-looking ecosystem investors such as Multicoin Capital are allocating capital, believing that value capture from Solana MEV by ecosystem teams will grow significantly and that the distribution of this value capture will look very different in the coming years.
+
+Value capture distribution of MEV (Source: Multicoin Capital, Tushar Jain)
+
+MEV is an inevitable challenge for any decentralized blockchain with significant financial activity. Confronting and managing this “MEV demon” is essential to the network's long-term success. Having emerged stronger from the difficulties of 2023, Solana now thrives as a blockchain with high activity and growing adoption. However, new challenges lie ahead. To achieve the next level of adoption, the ecosystem must meet these challenges head-on. This is a critical moment in Solana’s journey and a pivotal opportunity to define its future.
+
+## Further Resources
+
+* MEV an Introduction - Helius blog
+
+* Arbitrage as a Convex optimization problem - Umberto Natale, Chorus One
+
+* Ethereum & Solana: MEV & Beyond - Uncommon Core
+
+Table of Contents
+
+* Actionable Insights
+
+* Introduction
+
+* Solana MEV Timeline
+
+* September 2021 to April 2022 - Spam and DDoS Attacks
+
+* Mid 2022 - The Introduction of Priority Fees
+
+* August 2022 - The Jito-Solana Client is Launched
+
+* January 2024: The Onset of Memecoin Season
+
+* March 2024: Jito Suspends Their Flagship Mempool Feature
+
+* May 2024: A New Transaction Scheduler
+
+* June 2024: Marinade Launches Stake Auction Marketplace (SAM)
+
+* December 2024: Increased Concerns Over New Private Mempools
+
+* Forms of MEV
+
+* Liquidations
+
+* Arbitrages
+
+* Front-running
+
+* Back-running
+
+* Sandwich Attacks
+
+* Solana MEV Data
+
+* Jito
+
+* Reverted Transactions
+
+* Arbitrage Profitability
+
+* Case Study: Vpe Sandwich Program
+
+* MEV Mitigation Mechanisms
+
+* Validator Whitelists
+
+* Dynamic Slippage + MEV Protection
+
+* RFQ systems
+
+* Sandwich Resistant AMMs
+
+* Conditional Liquidity & Orderflow Segmentation
+
+* Paladin
+
+* Multiple Concurrent Leaders
+
+* Conclusion
+
+* Further Resources
+
+## Related Articles
+
+## Solana MEV: An Introduction
+
+## Solana Executive Overview
+
+## Understanding Slots, Blocks, and Epochs on Solana
+
+## Subscribe to Helius
+Stay up-to-date with the latest in Solana development and receive updates when we post
+
+## Enlarged image
+Close
+
+## Product
+
+## TRADING
+Preconfirmations (Preconfs)
+Shred Delivery
+Preprocessed Transactions NEW
+
+Sender
+Transaction Rebates
+
+## READ DATA
+LaserStream
+Webhooks & Websockets
+Parsed Events & Streams NEW
+
+Token APIs
+Wallet API (Beta)
+Historical Data
+
+## INFRASTRUCTURE
+RPC Nodes
+Helius Validator
+Validator-as-a-Service
+Validator Monetization
+
+## Solutions
+Traders & MMs Exchanges Wallets Fintech DeFi
+
+## COMPARE PROVIDERS
+Alchemy Quicknode Triton
+
+## PRIVACY
+Solana Privacy Protocol
+
+## Resources
+Agents
+Orb
+Blog
+Docs
+Status
+Pricing
+Sign Up
+Agent Sign Up
+RPC Benchmarks
+AirShip
+Stake with Us
+Staking Rewards
+Staking Calculator
+Startup Launchpad
+EVM vs. SVM NEW
+
+## Resources
+Agents
+Orb
+Blog
+Docs
+Status
+Pricing
+Sign Up
+Agent Sign Up
+RPC Benchmarks
+AirShip
+Stake with Us
+Staking Rewards
+Staking Calculator
+Startup Launchpad
+EVM vs. SVM NEW
+
+## Company
+About Careers Contact Sales Support Media Brand Security
+
+## LEGAL
+Privacy Policy Terms & Conditions Solana Roadmap Privacy Preferences
+
+About Careers Contact Sales
+Support Media Brand Security
+Privacy Policy Terms & Conditions Solana Roadmap Privacy Preferences
+
+© 2026 Helius. All rights reserved.
+X
+LinkedIn
+Discord
+
+© 2026 Helius. All rights reserved.
+X
+LinkedIn
+Discord
+
+This site uses tracking technologies. You may opt in or opt out of the use of these technologies. Read our Privacy Policy .
+
+Reject Accept

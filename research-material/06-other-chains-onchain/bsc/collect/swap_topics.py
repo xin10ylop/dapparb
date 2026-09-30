@@ -85,16 +85,15 @@ SIGS = [
     # --- BSC launchpad bonding curves (token launches) ---
     ("TokenPurchase(address,address,uint256,uint256,uint256,uint256,uint256,uint256)",
      "Four.meme TokenManager2 bonding-curve buy (TokenManager2 0x5c952063c7fc8610ffdb798152d69f0b9550762b)",
-     "https://four-meme.gitbook.io/four.meme/protocol-integration ; " + GH +
-     "four-meme-community/four-meme-ai/blob/main/skills/four-meme-integration/SKILL.md"),
+     GH + "four-meme-community/fourmeme-docs/blob/5f7f589b042e4e3b41c2c214d0fe3a81b36725a9/contracts/interfaces/ITokenManager2.sol"),
     ("TokenSale(address,address,uint256,uint256,uint256,uint256,uint256,uint256)",
      "Four.meme TokenManager2 bonding-curve sell",
-     "https://four-meme.gitbook.io/four.meme/protocol-integration"),
+     GH + "four-meme-community/fourmeme-docs/blob/5f7f589b042e4e3b41c2c214d0fe3a81b36725a9/contracts/interfaces/ITokenManager2.sol"),
     ("TokenBought(uint256,address,address,uint256,uint256,uint256,uint256)",
      "Flap Portal bonding-curve buy (Portal 0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0)",
-     "https://docs.flap.sh/flap/developers/trade-tokens"),
+     "https://docs.flap.sh/flap/developers/wallet-and-terminal-and-bot-developers/trade-tokens.md"),
     ("TokenSold(uint256,address,address,uint256,uint256,uint256,uint256)", "Flap Portal bonding-curve sell",
-     "https://docs.flap.sh/flap/developers/trade-tokens"),
+     "https://docs.flap.sh/flap/developers/wallet-and-terminal-and-bot-developers/trade-tokens.md"),
 ]
 
 

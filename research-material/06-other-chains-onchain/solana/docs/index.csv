@@ -1,0 +1,33 @@
+url,final_url,http_status,fetched_at_utc,file_stem,note
+https://docs.jito.wtf/,https://docs.jito.wtf/,200,2026-09-30T21:43:04Z,docs.jito.wtf,
+https://docs.jito.wtf/lowlatencytxnsend/,https://docs.jito.wtf/lowlatencytxnsend/,200,2026-09-30T21:43:04Z,docs.jito.wtf_lowlatencytxnsend,
+https://raw.githubusercontent.com/jito-labs/jito-docs/main/docs/source/lowlatencytxnsend.md,https://raw.githubusercontent.com/jito-labs/jito-docs/main/docs/source/lowlatencytxnsend.md,200,2026-09-30T21:43:05Z,raw.githubusercontent.com_jito-labs_jito-docs_main_docs_source_lowlatencytxnsend.md,
+https://raw.githubusercontent.com/jito-labs/mev-protos/master/json_rpc/http.md,https://raw.githubusercontent.com/jito-labs/mev-protos/master/json_rpc/http.md,200,2026-09-30T21:43:05Z,raw.githubusercontent.com_jito-labs_mev-protos_master_json_rpc_http.md,
+https://jito-foundation.gitbook.io/mev,https://jito-foundation.gitbook.io/mev,200,2026-09-30T21:43:06Z,jito-foundation.gitbook.io_mev,
+https://jito-foundation.gitbook.io/mev/mev-payment-and-distribution/on-chain-addresses,https://jito-foundation.gitbook.io/mev/mev-payment-and-distribution/on-chain-addresses,200,2026-09-30T21:43:06Z,jito-foundation.gitbook.io_mev_mev-payment-and-distribution_on-chain-addresses,
+https://jito-foundation.gitbook.io/mev/mev-payment-and-distribution/how-tips-work,https://jito-foundation.gitbook.io/mev/mev-payment-and-distribution/how-tips-work,404,2026-09-30T21:43:07Z,jito-foundation.gitbook.io_mev_mev-payment-and-distribution_how-tips-work,non-2xx response; body not stored
+https://jito-foundation.gitbook.io/mev/searcher-resources/bundles,https://jito-foundation.gitbook.io/mev/searcher-resources/bundles,404,2026-09-30T21:43:09Z,jito-foundation.gitbook.io_mev_searcher-resources_bundles,non-2xx response; body not stored
+https://raw.githubusercontent.com/jito-foundation/jito-solana/master/README.md,https://raw.githubusercontent.com/jito-foundation/jito-solana/master/README.md,200,2026-09-30T21:43:11Z,raw.githubusercontent.com_jito-foundation_jito-solana_master_README.md,
+https://www.jito.network/blog/jito-solana-is-now-open-source/,https://www.jito.network/blog/jito-solana-is-now-open-source/,403,2026-09-30T21:43:11Z,www.jito.network_blog_jito-solana-is-now-open-source,non-2xx response; body not stored
+https://bam.dev/,https://bam.dev/,200,2026-09-30T21:43:12Z,bam.dev,
+https://bam.dev/blog/introducing-bam/,https://bam.dev/blog/introducing-bam/,200,2026-09-30T21:43:12Z,bam.dev_blog_introducing-bam,
+https://docs.bam.dev/,,,2026-09-30T21:43:13Z,docs.bam.dev,"HTTPSConnectionPool(host='docs.bam.dev', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 502 Bad Gateway')))"
+https://docs.anza.xyz/consensus/leader-rotation,https://docs.anza.xyz/consensus/leader-rotation,200,2026-09-30T21:43:44Z,docs.anza.xyz_consensus_leader-rotation,
+https://docs.anza.xyz/validator/tpu,https://docs.anza.xyz/validator/tpu,200,2026-09-30T21:43:44Z,docs.anza.xyz_validator_tpu,
+https://docs.anza.xyz/proposals/fee_transaction_priority,https://docs.anza.xyz/proposals/fee_transaction_priority,200,2026-09-30T21:43:45Z,docs.anza.xyz_proposals_fee_transaction_priority,
+https://www.anza.xyz/blog/introducing-the-central-scheduler-an-optional-feature-of-agave-v1-18,https://www.anza.xyz/blog/introducing-the-central-scheduler-an-optional-feature-of-agave-v1-18,200,2026-09-30T21:43:45Z,www.anza.xyz_blog_introducing-the-central-scheduler-an-optional-feature-of-agave-v1-18,
+https://www.anza.xyz/blog/transaction-landing-on-tpu,https://www.anza.xyz/blog/transaction-landing-on-tpu,200,2026-09-30T21:43:46Z,www.anza.xyz_blog_transaction-landing-on-tpu,
+https://solana.com/docs/core/fees,https://solana.com/docs/core/fees,200,2026-09-30T21:43:47Z,solana.com_docs_core_fees,
+https://solana.com/developers/guides/advanced/how-to-use-priority-fees,https://solana.com/docs/core/fees,200,2026-09-30T21:43:48Z,solana.com_developers_guides_advanced_how-to-use-priority-fees,
+https://solana.com/docs/references/clusters,https://solana.com/docs/references/clusters,200,2026-09-30T21:43:49Z,solana.com_docs_references_clusters,
+https://solana.com/docs/rpc/http/getblock,https://solana.com/docs/rpc/http/getblock,200,2026-09-30T21:43:49Z,solana.com_docs_rpc_http_getblock,
+https://solana.com/docs/core/fees.md,https://solana.com/docs/core/fees.md,200,2026-09-30T21:44:42Z,solana.com_docs_core_fees.md,
+https://solana.com/docs/core/fees/fee-structure.md,https://solana.com/docs/core/fees/fee-structure.md,200,2026-09-30T21:44:43Z,solana.com_docs_core_fees_fee-structure.md,
+https://solana.com/docs/core/fees/compute-budget.md,https://solana.com/docs/core/fees/compute-budget.md,200,2026-09-30T21:44:43Z,solana.com_docs_core_fees_compute-budget.md,
+https://solana.com/docs/core/transactions/versioned-transactions.md,https://solana.com/docs/core/transactions/versioned-transactions.md,200,2026-09-30T21:44:44Z,solana.com_docs_core_transactions_versioned-transactions.md,
+https://solana.com/docs/core/transactions/transaction-pipeline.md,https://solana.com/docs/core/transactions/transaction-pipeline.md,200,2026-09-30T21:44:44Z,solana.com_docs_core_transactions_transaction-pipeline.md,
+https://solana.com/docs/defi/mev-protection.md,https://solana.com/docs/defi/mev-protection.md,200,2026-09-30T21:44:45Z,solana.com_docs_defi_mev-protection.md,
+https://solana.com/docs/defi/stake-weighted-qos.md,https://solana.com/docs/defi/stake-weighted-qos.md,200,2026-09-30T21:44:45Z,solana.com_docs_defi_stake-weighted-qos.md,
+https://solana.com/docs/references/clusters.md,https://solana.com/docs/references/clusters.md,200,2026-09-30T21:44:46Z,solana.com_docs_references_clusters.md,
+https://solana.com/docs/rpc/http/getblock.md,https://solana.com/docs/rpc/http/getblock.md,200,2026-09-30T21:44:46Z,solana.com_docs_rpc_http_getblock.md,
+https://solana.com/docs/rpc/http/getslotleaders.md,https://solana.com/docs/rpc/http/getslotleaders.md,200,2026-09-30T21:44:47Z,solana.com_docs_rpc_http_getslotleaders.md,

@@ -1,0 +1,2071 @@
+SOURCE_URL: https://arxiv.org/pdf/2609.38056
+FINAL_URL: https://arxiv.org/pdf/2609.38056
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:45:40Z
+EXTRACTION: PDF text extracted page by page with PyMuPDF; original PDF stored next to this file
+
+
+
+[page 1]
+Active Liquidity On Chain:
+Evidence from PropAMMs Across Chains
+Ozan Solmaz1, Lioba Heimbach2, and Jason Milionis2
+1 ETH Zurich
+2 Category Labs
+Abstract. The liquidity providers of most typical automated market
+makers (AMMs) are passive and known to suffer from adverse selection.
+AMMs traditionally rely on trades executed on them to sync the price
+with external markets (and a notion of fair value thereof). As a result,
+when an external fair value moves, arbitrageurs trade on AMMs to pick
+off their stale quotes. A recent approach termed proprietary automated
+market makers (propAMMs) emerged as a response in 2024: these on-
+chain programs instead have their singular operator quote from its own
+inventory, repricing without a trade via efficiently provided price updates.
+By 2026, propAMMs accounted for more than half of SOL/USDC volume
+on Solana.
+We present the first year-long longitudinal measurement of propAMMs
+on Solana, Base and Monad, and decode the on-chain logic of the domi-
+nant propAMM on Base. We find that two seconds after a fill, propAMMs
+earn 0.37 bps on Solana and 1.19 bps on Base, while AMMs lose 0.22 and
+0.62 bps. We empirically quantify and classify their edge as stemming
+from four factors: propAMMs continuously reprice rather than waiting
+for a trade, they charge for the source-dependent risk each counterparty
+might bring, they avoid cross-venue arbitrage from other on-chain mar-
+kets (such as other AMMs), and they spoof by filling trades at a worse
+price than they quote. Finally, we show that on our proxy for retail flow
+(i.e., fills that arrive when the reference price is not moving) propAMMs
+collect 0.26 bps on Solana where AMMs collect 2.59 bps, indicating that
+they offer better prices for short-term uninformed flow.
+Keywords: AMM · propAMM · decentralized finance · blockchain.
+1
+Introduction
+Decentralized finance (DeFi) emerged on Ethereum during the DeFi summer of
+2020, at a time when on-chain transaction costs were significant and throughput
+was limited. During this time, the type of decentralized exchange (DEX) that
+took off was the automated market maker (AMM), which importantly keeps on-
+chain transaction and storage costs low, as the price it offers generally follows
+from an invariant over the pooled reserves. Thus, unlike in a traditional limit
+order book, there are no individual orders to store, match or cancel on chain.
+arXiv:2609.38056v1  [cs.CE]  29 Sep 2026
+
+
+[page 2]
+2
+O. Solmaz et al.
+Liquidity providers on most AMMs are passive and their offered price quotes
+in response to requested trades only update as a result of a trade (as opposed
+to information coming externally to trades). When an asset’s fair value (such
+as—but not only—an external market price) moves, arbitrageurs therefore trade
+against the stale quotes on AMMs, i.e., liquidity providers are adversely selected.
+As a result, they suffer an economic loss known as loss-versus-rebalancing (LVR),
+which reflects the staleness of an AMM’s quote relative to a fair value [30].
+In 2024, proprietary automated market makers (propAMMs) started to emerge
+on Solana. A propAMM is an on-chain program whose pricing function exe-
+cutes in a smart contract, as in an AMM, but whose prices are set by a single
+operator. The operator supplies the inventory themselves and (importantly) re-
+vises the quoted prices by writing new parameters to the contract, i.e., with-
+out a trade. As a result, propAMMs belong to paradigms offering active liquid-
+ity management, more akin to how a limit order book operates, despite being a
+hybrid. PropAMMs thereby attempt to keep on-chain costs low while avoiding
+adverse selection. Active quoting also brings about tighter spreads and thereby
+better prices to traders. By 2026, propAMMs accounted for more than half of
+SOL/USDC volume on Solana [26].
+We perform the first longitudinal measurement study of propAMMs across
+three chains, i.e., Solana, Base and Monad. We measure the extent to which
+propAMMs have an edge over liquidity providers on AMMs, where that edge
+comes from, and its effect on retail flow.
+Our contributions. We summarize our main contributions as follows:
+– To the best of our knowledge, we are the first to perform a longitudinal
+multi-chain measurement study of the propAMM landscape, showing that
+propAMMs account for a large share of volume of decentralized trading on
+Solana, Base and Monad.
+– We measure markouts and find that unlike passive liquidity providers on
+AMMs, most propAMMs have positive markouts and thus successfully and
+selectively avoid arbitrageurs attempting to pick off their quotes. Two sec-
+onds after a fill, propAMMs earn 0.37 bps on Solana and 1.19 bps on Base,
+while AMMs lose 0.22 and 0.62 bps.
+– We decode the closed-source pricing logic of three propAMMs on Base, i.e.,
+Tessera in full and Metric and Elfomo in part, to show how propAMMs price.
+– Combining our measurements with the decoded contract logic, we trace
+where the edge that propAMMs have over passive liquidity providers comes
+from, and we highlight four sources: (1) frequent and inexpensive quote up-
+dates, (2) pricing by counterparty, i.e., charging non-retail flow more than
+aggregator flow, (3) being on the winning leg of cross-venue arbitrage (such
+as when a propAMM and an AMM are jointly arbitraged against each other),
+and (4) spoofing, i.e., quoting better prices than a trade actually receives.
+– We approximate retail flow by fills that arrive when the reference price is
+not moving. On this flow propAMMs collect 0.26 bps on Solana, 1.26 bps on
+Base and 1.62 bps on Monad, against 2.59, 1.38 and 8.60 bps on AMMs, and
+retail makes up a larger share of propAMM notional on all three chains.
+
+
+[page 3]
+Active Liquidity On Chain: Evidence from PropAMMs Across Chains
+3
+2
+Background
+2.1
+Automated Market Makers
+An automated market maker (AMM) generally prices trades so that a fixed func-
+tion of the pool’s token reserves remains constant, after accounting for trading
+fees [4,5,7]. By avoiding the need to store and maintain individual limit orders,
+AMMs can reduce the storage and computation required for on-chain exchange.
+This efficiency helped motivate their use in the early days of DeFi [28,6].
+Anyone can become a liquidity provider by depositing the pool’s tokens.
+Traders swap against the pool’s reserves and pay a fee on their input, which
+accrues pro rata to the pool’s liquidity providers and, depending on the protocol,
+to the protocol [3]. The most common invariant is the constant product used by
+Uniswap, applied either across the full price range or, with concentrated liquidity,
+within a price range chosen by each liquidity provider. Prices are thus a function
+of the reserves alone and move only once a trade has occurred. AMMs thus
+rely on arbitrage trades to align pool prices with external markets,3 exposing
+liquidity providers to adverse-selection costs associated with LVR [30,32,35].
+2.2
+Proprietary Automated Market Makers
+In a propAMM, the operator reprices liquidity directly through parameter up-
+dates, i.e., without a swap. The pricing logic is proprietary, as the name indicates.
+We nonetheless were able to decode the on-chain logic of Tessera on Base, the
+largest propAMM on Base by volume and among the three largest on Solana, as
+well as the logic of the Metric and Elfomo implementations used in August 2026.
+Next, we describe the operation of a propAMM based on Tessera’s Base imple-
+mentation and detail the differences to Metric and Elfomo in Appendix D. Note
+that this description serves as an illustrative example of how the on-chain logic
+of propAMMs operates, and that implementations we do not decode may differ.
+Tessera represents liquidity through two directional ladders with level prices
+determined by an anchor price, a spread, and level-specific price multipliers.4
+Panel S2 of Figure 1 shows such a book, with the anchor price marked by the
+dashed line and the spread as the gap between the two ladders. The bidirectional
+ladders resemble the two sides of an order book. In a traditional order book,
+each level stores its own price. When a market maker’s belief about the true
+price moves, the market maker must thus cancel and replace every order. Tessera
+instead stores a single anchor price p and a single spread s, and gives each level
+a fixed multiplier that places it relative to the two. Adjusting p and s reprices
+every level at once (S0 to S1 in Figure 1), which reduces storage access count
+and thus saves on-chain costs. Individual levels can also be adjusted by changing
+their multipliers. This is relatively costly in comparison (26,706 median gas for
+3 LPs in a Uniswap v2-style pool can also change its marginal price without a swap
+by withdrawing liquidity and redepositing assets at a different reserve ratio.
+4 Our mechanism description refers to implementation 0x6d9...41CB, activated in the
+inspected pools on 12 Aug 2026, which introduced the dedicated spread parameter.
+
+
+[page 4]
+4
+O. Solmaz et al.
+2,457.0
+2,457.5
+2,458.0
+2,458.5
+0
+1
+10
+100
+S0: before update (tx 119)
+2,457.460
+1 ppm
+2,457.0
+2,457.5
+2,458.0
+2,458.5
+0
+1
+10
+100
+S1: before swap (tx 136)
+2,457.788
+45 ppm
+2,457.0
+2,457.5
+2,458.0
+2,458.5
+0
+1
+10
+100
+S2: after swap (tx 136)
+2,457.788
+45 ppm
+0
+2.5k
+25k
+250k
+0
+2.5k
+25k
+250k
+0
+2.5k
+25k
+250k
+Price (ETHUSDC)
+Cumulative WETH input
+Cumulative USDC input
+Fig. 1. Tessera’s WETH/USDC order book evolution in block 50,369,777 on
+Base. Green is the bid ladder, red the ask ladder. Faint curves give configured liq-
+uidity, bold curves the accessible liquidity after netting. First, an update trans-
+action at index 119 raises the anchor price p from 2,457.460 to 2,457.788 and
+widens the spread s from 1 to 45 ppm (S0 to S1). Then, a swap transaction at
+index 136 sells 1.0177 WETH. In S1 the hatched area marks the input of the
+swap. As the incoming WETH is netted against earlier USDC flow, the bid side
+does not change, while earlier ask levels become available again in S2.
+an update of p and s on Tessera vs. 152,013 median gas for updating the book
+levels) and is therefore rare compared to updates of p and s in our data sample (1
+price update per 0.563 blocks vs. 1 book update per 4.31 blocks). The propAMM
+can additionally exclude a configurable number of levels closest to the anchor
+price, which withdraws the best prices without replacing the book.
+Liquidity accounting also avoids per-order book level writes. The propAMM
+keeps two running totals, one per asset, of the amounts traded in each direction.
+From this it derives the remaining liquidity. Trading in one direction can deplete
+the levels closest to the anchor price or replenish the levels in the opposite
+direction (S1 to S2 in Figure 1). Thus, if a trade depleted the closest level, later
+trades in the same direction reach deeper into the order book ladder and receive
+worse prices. The two directions are netted at the current anchor price p.
+A trade swapping x tokens of asset X executes as follows. It first walks the
+available levels of the order book, which yields the output the book alone would
+give (Ybook(x)). The propAMM then withholds a share ϕ of that output. Thus,
+the swap returns Yexec(x) = Ybook(x)(1 −ϕ). Here, the penalty ϕ depends on,
+among other things, how old the quote is, where the order flow is coming from
+(e.g., a whitelisted aggregator vs. potentially toxic flow) and the priority fee of
+the transaction. This hints at where the propAMM edge comes from (Section 7).
+3
+Related Work
+A large literature studies liquidity provider profitability in DeFi. The first such
+measure was “impermanent loss,” i.e., the difference in value between a liquidity
+provider’s position and simply holding the deposited assets. Measurements for
+Uniswap v2- and v3-style pools show that liquidity providers generally lose in
+this sense [20,25,19]. Fan et al. [14] and Fritsch [15], on the other hand, study
+how to provide liquidity strategically in order to reduce such losses.
+
+
+[page 5]
+Active Liquidity On Chain: Evidence from PropAMMs Across Chains
+5
+Formally, loss-versus-rebalancing (LVR) isolates the true economic cost aris-
+ing precisely from the fundamental price staleness of AMMs and the correspond-
+ing arbitrage, as introduced by Milionis et al. [30]. Subsequent work studied the
+role of trading fees and finite block times [29], and extended their framework to
+general block time distributions [32]. Fritsch and Canidio [16] measured the loss
+empirically, validating theoretical predictions of Milionis et al. [29], and found
+that it frequently exceeds the fees liquidity providers collect. A framework for
+active liquidity effects on AMMs was also given by Milionis et al. [31].
+A parallel line of work proposes AMM designs with the aim of reducing LVR.
+Diamond [27] auctions the arbitrage opportunity to the block producer, the am-
+AMM [2] auctions the right to manage the pool, and Canidio and Fritsch [9]
+batch orders at a single clearing price. These designs keep liquidity provision
+passive. In contrast, we study propAMMs that rely on active liquidity provision
+and quote updating to avoid adverse selection. In this sense, they are somewhat
+more similar to limit order books than AMMs, despite being a hybrid of both.
+Heimbach et al. [18] first measure CEX–DEX arbitrage on Ethereum. Wu et
+al. [35] quantify the value these arbitrageurs extract from the liquidity providers
+of AMMs by marking out their fills against CEX prices. We measure markouts
+from the perspective of propAMMs, and show that they have positive markouts.
+4
+Data Collection
+We study propAMMs on Solana, Base and Monad. PropAMMs first appeared
+on Solana, where they remain largest, and have since launched on Base and
+Monad.5 Our data spans the year from 1 September 2025 to 31 August 2026,
+or starts later where propAMMs launched on a chain after that date. We col-
+lect propAMM trades and updates, along with AMM swaps on Solana, Base
+and Monad. Additionally, we collect Bybit order book data for comparison. Ap-
+pendix A provides a detailed description of our pipeline.
+5
+The PropAMM Landscape
+First, we look at the propAMM landscape on Solana, Base and Monad in Fig-
+ure 2. For the main traded pair per chain, we show the daily propAMM volume
+in comparison to the AMM volumes, as well as the volume share of propAMMs.
+On Solana, average daily propAMM volume is $1.12 billion, while it is $292 mil-
+lion on AMMs for the SOL/USDC pair. Both decrease significantly throughout
+our measurement period. While propAMM volume is $1.82 billion in the first 90
+days, it falls to $530 million in the last 90 days. We see a similar, though less
+extreme, pattern for AMM volume that falls from $564 million to $180 million.
+5 We exclude Ethereum, as propAMMs there only launched in May 2026 and rely on
+block builders ordering quote updates ahead of trades [17]. Thus, they behave more
+like RFQs than propAMMs.
+
+
+[page 6]
+6
+O. Solmaz et al.
+Oct
+Dec
+Feb
+Apr
+Jun
+Aug
+2026
+0
+1.0B
+2.0B
+3.0B
+daily volume [$]
+propAMMs
+CFMMs
+(a) Solana SOL/USDC: volume
+Oct
+Dec
+Feb
+Apr
+Jun
+Aug
+2026
+0%
+20%
+40%
+60%
+80%
+100%
+share of propAMM volume
+HumidiFi
+BisonFi
+Tessera
+SolFi V2
+GoonFi
+ZeroFi
+Aquifer
+Scorch
+GoonFi V2
+SolFi
+Quantum
+other
+(b) Solana: share by propAMM
+Dec
+Feb
+Apr
+Jun
+Aug
+2026
+0
+250M
+500M
+750M
+1.0B
+1.2B
+daily volume [$]
+propAMMs
+CFMMs
+(c) Base ETH/USDC: volume
+Dec
+Feb
+Apr
+Jun
+Aug
+2026
+0%
+20%
+40%
+60%
+80%
+100%
+share of propAMM volume
+Tessera
+Metric
+Elfomo
+Kipseli
+Hanji
+Wasabi
+(d) Base: share by propAMM
+Apr
+Jun
+Aug
+2026
+0
+10M
+20M
+30M
+40M
+daily volume [$]
+propAMMs
+CFMMs
+(e) Monad MON/USDC: volume
+Apr
+Jun
+Aug
+2026
+0%
+20%
+40%
+60%
+80%
+100%
+share of propAMM volume
+Metric
+Hanji
+(f) Monad: share by propAMM
+Fig. 2. Daily volume of propAMMs and AMM pools (left) and share of
+propAMM volume by venue (right), for SOL/USDC on Solana, ETH/USDC on
+Base and MON/USDC on Monad.
+Thus, the volume for the SOL/USDC pair is far higher on propAMMs than on
+AMMs throughout, though the ratio falls from 3.2 to 3.0.
+In regard to the share of volume across propAMMs, we observe a significant
+concentration. In the first five months of our data, HumidiFi dominates the
+market with more than 50% of the daily volume on average. The decrease in
+volume share of HumidiFi coincides with BisonFi entering the market. From the
+start of 2026, BisonFi dominated with a 40.3% share of daily volume on average.
+Tessera also has a notable share of daily volume throughout our measurement
+period with 16.5% on average, followed by SolFi V2 with 7.4%, while every
+remaining propAMM stays below 7%.
+
+
+[page 7]
+Active Liquidity On Chain: Evidence from PropAMMs Across Chains
+7
+Turning to Base, we start by noting that the propAMM volume is significantly
+lower than on Solana. Importantly, propAMMs only launch on Base two months
+into our measurements, on 30 October 2025, and their volume shows a steady
+increase from then, starting with $9.5 M per day on average in the first three
+months of their existence and reaching $29.6 M per day on average in the last
+three months of our measurement period. Over the same period, the proportion
+of ETH/USDC volume on propAMMs in comparison to AMMs increases from
+2.4% to 10.9%. In terms of the share of volume across propAMMs, Tessera, the
+first propAMM to launch on Base and also one of the major propAMMs on
+Solana, initially dominates. The share of volume by Tessera continuously falls
+as competitors start to launch. Tessera, however, remains the largest propAMM
+on Base in terms of total volume across our measurement period.
+Last, we turn to Monad. Monad launched nearly three months into our mea-
+surement period, on 24 November 2025, and the first propAMM launched in early
+April. Thus, we only have propAMM and AMM volume starting from then.6 We
+not only see propAMM volume on Monad picking up throughout our measure-
+ment period ($2.1 M in the first three months vs. $3.9 M in the last three months
+of our measurement period) but also see the share of MON/USDC volume on
+propAMMs vs. AMMs increase from 12.5% to 45.7% over the same period.7
+6
+The PropAMM Edge: Markouts against AMMs
+Liquidity providers in AMMs are passive, i.e., their quotes only move once a
+trade has occurred, which exposes them to adverse selection [30,29]. PropAMMs
+emerged in part as a response. A single market maker supplies the inventory
+from its own vault and updates quotes on chain without a trade, cheaply enough
+to reprice at a high frequency. Thus, the market maker can move its price before
+a stale quote is picked off, provided its update is ordered ahead of the incoming
+trade. We test whether this advantage materializes. We measure markouts, i.e.,
+the profit or loss on a fill evaluated against the reference price at a fixed horizon
+after execution, for both liquidity providers on AMMs and propAMM operators.
+We evaluate every fill against the Bybit microprice [12], i.e., the weighted
+mid-price. We compute the microprice on the USDT pair, and convert it to
+USDC with the Bybit USDCUSDT mid-price.8 For each fill, we compute the
+markout at horizon τ as the relative difference between the microprice τ seconds
+after execution and the execution price. We report the notional-weighted average
+across all fills of a propAMM. Positive values indicate that the propAMM gained.
+6 Note that there are two other propAMMs with significant volume, Clober Vault and
+Poe, on Monad. They are outside our scope, as they are not proprietary and their
+liquidity provision is permissionless [24,23,11].
+7 Note that on Monad, a significant share of MON/USDC volume is on central limit
+order books such as Kuru which are outside of our study [21,13].
+8 Note that we compute the microprice on the USDT pair, as it has a significantly
+larger volume on Bybit for ETH, SOL and MON.
+
+
+[page 8]
+8
+O. Solmaz et al.
+−5
+0
+5
+10
+15
+seconds after fill
+0
+2
+4
+markout [bps]
+(a) Solana
+−5
+0
+5
+10
+15
+seconds after fill
+0.0
+1.5
+3.0
+markout [bps]
+(b) Base
+−5
+0
+5
+10
+15
+seconds after fill
+0
+3
+6
+markout [bps]
+(c) Monad
+Fig. 3. Notional-weighted mean gross maker markout of AMM pools against
+the Bybit microprice t seconds after the fill, for SOL/USDC on Solana,
+WETH/USDC on Base and WMON/USDC on Monad.
+6.1
+AMM Markouts
+Figure 3 plots the markouts of AMMs on Solana, Base and Monad. While the
+magnitude of the markouts for AMMs differs across the three chains, the shape
+is identical. On all three chains the markouts are strongly positive ahead of the
+fill, at 5.34 bps on Solana, 3.95 bps on Base and 7.76 bps on Monad 5 s before;
+they steeply turn negative around the fill. AMMs only reprice once a trade has
+occurred. The loss 2 s after the fill is 0.22 bps, 0.62 bps, and 2.06 bps on Solana,
+Base and Monad, respectively.
+The shape of the markout curves is consistent with liquidity providers being
+picked off. A move in the reference price leaves them stale, and the arbitrageur
+who corrects the mispricing executes at the old price, subjecting the liquidity
+providers to LVR. The difference in magnitude in part reflects the volatility of
+the respective tokens, i.e., 60% for ETH, 66% for SOL and 123% for MON over
+our measurement period, since LVR scales with the variance of the price and is
+more sensitive to proportional changes in volatility than to block times [30].
+6.2
+PropAMM Markouts
+Next, we move to propAMMs. Figure 4 pools every propAMM on each chain,
+and the curves invert the AMM pattern of Figure 3. An AMM is in the money
+before the fill and loses after it, whereas a propAMM is out of the money before
+−5
+0
+5
+10
+15
+seconds after fill
+−0.6
+−0.3
+0.0
+0.3
+markout [bps]
+(a) Solana
+−5
+0
+5
+10
+15
+seconds after fill
+0.0
+0.4
+0.8
+1.2
+markout [bps]
+(b) Base
+−5
+0
+5
+10
+15
+seconds after fill
+−1.5
+0.0
+1.5
+markout [bps]
+(c) Monad
+Fig. 4. Notional-weighted mean gross maker markout of propAMMs against
+the Bybit microprice t seconds after the fill, for SOL/USDC on Solana,
+WETH/USDC on Base and WMON/USDC on Monad.
+
+
+[page 9]
+Active Liquidity On Chain: Evidence from PropAMMs Across Chains
+9
+the fill and earns after it. On Solana and Monad the markout starts at −0.69 and
+−2.65 bps 5 s before the fill, rises steeply into t = 0, and stays positive for the
+rest of the horizon. Fills do not arrive at random points in time but follow moves
+in the reference price, and the pre-fill leg traces those moves. The difference
+between the two venue types is what happens to the quote during the move. An
+AMM waits for a trade, so the arbitrageur who corrects the mispricing executes
+at the stale price. A propAMM reprices as the reference moves and fills at the
+new quote, so it is not the one being picked off.
+Two seconds after the fill propAMMs earn 0.37 bps on Solana, 1.19 bps on
+Base and 1.69 bps on Monad, while AMMs lose 0.22, 0.62 and 2.06 bps. Base is
+the exception to the shape, as its markout never turns negative and propAMMs
+there are ahead of the reference price even 5 s before the fill. Appendix E provides
+a per-venue breakdown for the biggest propAMMs on Solana, Base and Monad.
+7
+Where the Edge Comes From
+Next, we examine how propAMM design supports competitive quotes while man-
+aging exposure to adverse selection. We base our analysis on both measurements
+and insights from Tessera’s implementation on Base.
+7.1
+Frequent and Inexpensive Quote Updates
+As highlighted previously [26], even though propAMMs’ quotes can be updated
+via trades indirectly, they also update their quotes by sending cheap update
+transactions, e.g., by changing the anchor price p. Such an update is far cheaper
+than a swap. On Solana, a median update consumes between 485 and 676 CU
+against at least 16,938 for a swap, i.e., more than an order of magnitude less.
+Similarly, on Base a median update costs between 26,774 and 32,606 gas while
+simulated gas consumption for single swap transactions against the 31st of Au-
+gust snapshot ranges from 201,243 to 402,881. On Monad, the median gas con-
+sumption for an update ranges from 33,428 to 50,839 and median gas limits from
+45,000 to 70,000. For single swap transactions, simulated gas consumption lies
+around the lower bound 162,503 with access list and 330,103 without access list
+for Metric.9 Note that on both EVM chains an update is 5 to 15 times cheaper
+than a swap, and that the 21,000 gas floor every transaction pays accounts for
+much of what an update costs.
+Across the three chains, transactions are by default ordered by priority fee
+per unit of compute. PropAMMs exploit the difference in transaction size by
+bidding cheaply for an early block position. On Solana, they pay between 304K
+and 2.2M micro-lamports per CU on an update, against 5.6K to 22K on a trade.
+Interestingly, this does not hold across all updates, as 32% of Tessera’s updates
+and 27% of BisonFi’s pay neither a priority fee nor a tip. We observe a similar
+9 Note that Monad charges on gasLimit [10]. The unused fraction of gas is around
+28.32% for updates against 38% in a sample of non-update transactions, i.e.,
+propAMM updates set gasLimit more tightly.
+
+
+[page 10]
+10
+O. Solmaz et al.
+pattern on Base. Tessera pays 2.37 times its base fee to land a price update,
+but only 0.18 times for a book update and 0.77 times for a default-fee update,
+i.e., it pays for position only when the update is time critical. Additionally, as
+opposed to its Solana deployment, only 0.113% of its update transactions do not
+pay any priority fee. On Monad, all recorded updates pay a non-zero priority fee
+for Hanji and Metric with median effective priority fees ranging from 2 to 10.5
+MON-gwei per gas, whereas for trades these numbers range from 3 to 40.
+Tessera Implementation Insight: Quote Freshness. Tessera’s Base imple-
+mentation further guards against the case where the operator fails to update in
+time. Each price update records a reference block alongside the anchor price. A
+trader executing against it receives no freshness penalty for a short grace period,
+an increasingly worse price thereafter, and no fill at all once the quote expires.
+The low cost of updates allows propAMMs to update quotes frequently. For
+Tessera on Base, we measure the correlation between successful price-update
+counts and ETH realized volatility in non-overlapping five-minute windows.
+Volatility is estimated from five-second log returns. We compute the Pearson cor-
+relation between raw update counts and raw volatility after removing calendar-
+day and hour-of-day effects from both series, obtaining 0.56. Note that we ex-
+clude default-fee and other non-price updates, as well as unsuccessful updates.
+Thus, Tessera updates its prices more often during times of high volatility, when
+prices move faster.
+7.2
+Pricing by Counterparty
+median spread
+paired
+propAMM
+aggr.
+other
+wider
+premium
+HumidiFi
+0.09
+0.86
+77%
++0.40∗∗∗
+BisonFi
+0.71
+1.01
+76%
++0.10∗∗∗
+Tessera
+0.90
+0.93
+68%
++0.10∗∗∗
+SolFi V2
+3.88
+4.90
+82%
++1.58∗∗∗
+GoonFi
+0.78
+4.39
+83%
++3.59∗∗∗
+ZeroFi
+1.52
+1.50
+41%
+-0.05
+Table
+1.
+Realized round-trip spread
+(bps) of the six largest Solana propAMMs
+on SOL/USDC, by whether an aggrega-
+tor, e.g., Jupiter, routed the fill. Round
+trips are consecutive opposite-side fills of
+similar size on one pool with no inter-
+vening quote update, with both legs of
+the same class, compared within (pool,
+day, size bucket): wider is the share of
+cells where the non-aggregator median is
+larger, premium the median within-cell
+difference. Sign test: ∗p < 0.05, ∗∗p <
+0.01, ∗∗∗p < 0.001.
+To protect against adverse selec-
+tion, propAMMs are said to classify
+their order flow and quote different
+prices depending on how the trade
+is routed to them [22].
+Solana.
+We
+measure
+the
+real-
+ized spread for the top six Solana
+propAMMs for aggregator swaps
+vs. non-aggregator swaps. Whenever
+the same pool fills two trades on
+opposite sides within 25 slots, of
+a similar size (within a factor of
+two), and without an update from
+the propAMM in between, the two
+fills form a round trip. Its real-
+ized spread is the relative gap be-
+tween the two prices. Notice that
+for all propAMMs but ZeroFi, non-
+aggregator flow receives the wider
+spread, and the direction is highly
+statistically significant: it holds in
+
+
+[page 11]
+Active Liquidity On Chain: Evidence from PropAMMs Across Chains
+11
+68–83% of matched cells, with an exact sign test yielding p < 0.001. The size
+of the gap, however, varies widely. GoonFi charges non-aggregator flow 3.59 bps
+more and SolFi V2 1.58 bps more, while for BisonFi and Tessera the difference
+is only 0.10 bps.
+Tessera Implementation Insight: Fee Components. The Tessera imple-
+mentation on Base charges six fee components: base, age, priority, mode, default
+and address. The last two depend on who is trading, i.e., on both the transac-
+tion’s sender and the contract calling Tessera’s interface. Addresses fall into four
+categories: (1) blacklisted addresses cannot trade, (2) whitelisted (i.e., default
+exempt) addresses do not pay the default fee, (3) penalized addresses pay an ad-
+ditional fee, and (4) remaining addresses. An address may also be penalized if
+its prefix or bytecode matches a known pattern. Appendix C.2 gives the details.
+0
+2
+4
+6
+8
+10
+fee [bps]
+0.1
+1
+10
+100
+share [%]
+trade count
+trade volume
+Fig. 5.
+Tessera’s
+total
+fee
+across
+its
+WETH/USDC trades on Base, by trade
+count and by volume, with fees of 10 bps and
+above in the last bar.
+For each swap we measure the
+marginal cost to the trader, i.e.,
+the half spread taking the mid
+price derived from the top of the
+book marginal executable prices,
+nominal before fees and effective
+after (Appendix C.1). Volume-
+weighted, the nominal marginal
+cost is 0.44 bps and the effective
+marginal cost 1.95 bps, so the fee,
+not the book, accounts for most
+of the marginal cost. The fee is
+not spread evenly across trades
+but concentrated on a few dis-
+crete levels (Figure 5). Tessera
+charges no penalties on 42.1% of
+trades, carrying 47.4% of volume, and a further 7.0% of trades, or 13.0%
+of volume, pay only the smallest unit the contract charges, 0.01 bps. Two
+spikes account for most of the rest, at [1.75, 2.25) bps for 18.0% of trades and
+[4.75, 5.25) bps for 11.1%. Trades accounting for 60.4% of total volume pay at
+most 0.01 bps, i.e., low penalty trades are larger on average.
+Tessera supports six penalty components, five of which are nonzero in our
+sample. Priority is the fee component charged most often, on 42.7% of all trades
+and as the sole charge on 34.4%, and it explains both spikes in the histogram.
+Priority is the sole component for 99.91% and 99.41% of swaps paying exactly
+2 and 5 bps, respectively. Default is charged on 22.7% of trades, and is the sole
+charge on 14.6%, yet it collects most of the fee revenue (Appendix C.1), at 56.2%
+against priority’s 34.9%, so it lands on the largest trades. Address, age and mode
+are each the sole charge on under 0.4% of trades and together account for under
+9% of revenue. Address classification differentiates traders. Swaps from currently
+blacklisted addresses executed at an effective marginal cost of 2.62 bps before
+blacklisting, address-penalized swaps at 4.96 bps, whitelisted swaps at 0.78 bps
+and all remaining swaps at 2.46 bps.
+
+
+[page 12]
+12
+O. Solmaz et al.
+7.3
+Arbitrage Flow
+PropAMMs allow operators to update on-chain quotes directly in response to
+external market prices. Price discrepancies between a propAMM and an AMM
+or another propAMM can create atomic arbitrage opportunities, with each venue
+supplying a leg of the trade. We separate fills by the transaction they occur in,
+i.e., single fills, propAMM–propAMM arbitrage, propAMM–DEX arbitrage and
+other multi-fill transactions. Appendix B details arbitrage classification.
+single
+prop–prop
+prop–DEX
+other
+share
+2 s
+share
+2 s
+share
+2 s
+share
+2 s
+Solana
+50.5%
++0.41
+16.6%
+−0.21
+4.8%
++0.03
+28.1%
++0.96
+Base
+29.7%
++0.92
+4.4%
+−0.22
+13.3%
++0.02
+52.6%
++1.82
+Monad
+63.7%
++1.44
+4.7%
++0.68
+6.4%
++1.55
+25.2%
++2.57
+Table 2. PropAMM fills by route class: share
+of notional and notional-weighted markout (bps)
+at 2 s. Single means one decoded propAMM fill
+and no other swap. Prop–prop and prop–DEX
+denote atomic arbitrage against a second pro-
+prietary pool and against a public pool, respec-
+tively. Other covers all remaining transactions,
+such as split orders and unresolved legs. Shares
+are per transaction, counting the propAMM’s
+own fill to avoid double counting. Markouts
+weight every fill by its notional, as in Section 6.10
+Table 2 splits propAMM
+fills by the transaction they
+occur in. Transactions with
+a single propAMM swap are
+the largest class on Solana
+and Monad, and have posi-
+tive markouts on every chain
+at 2 s: 0.41 bps on Solana,
+0.92 bps on Base and 1.44 bps
+on
+Monad.
+The
+remaining
+flow, i.e., order splitting across
+venues, longer routes and un-
+resolved companion legs, car-
+ries
+28.1%
+of
+notional
+on
+Solana, 52.6% on Base and
+25.2% on Monad.
+PropAMM–DEX arbitrage
+is 5% of notional on Solana,
+13% on Base and 6% on Monad. These legs are profitable on Monad, earn-
+ing 1.55 bps, and close to flat on Solana and Base, at 0.03 and 0.02 bps. Be-
+fore a propAMM–DEX arbitrage, the reference price moves by about 4.9 bps on
+Solana, about 1.9 bps on Base and about 7.3 bps on Monad (Figure 18 in Ap-
+pendix F). The propAMM reprices in response, whereas the AMM does not. An
+arbitrageur then trades the propAMM’s updated quote against the stale pool.
+The propAMM thus captures its spread against the stale pool.
+PropAMM–propAMM arbitrage accounts for 16.6% of notional on Solana,
+but under 5% on Base and Monad. In these transactions, the arbitrageur trades
+between two proprietary pools whose quotes briefly disagree.
+Penalties and Atomic Arbitrage on Tessera. Recall that propAMMs apply
+penalties as described in Section 7.1. For Tessera’s ETH/USDC pool on Base,
+where we decode the penalty of every fill, we can also recompute the markout the
+trader would have received at the unpenalized quote. In the following, we look
+at the various flows received by Tessera with the aim of understanding how the
+penalties affect their markouts. Figure 6 shows the markouts, with and without
+penalties, for propAMM–AMM arbitrage, propAMM–propAMM arbitrage and
+single fills from the perspective of Tessera.
+10 Appendix B lists the companion venues we decode on each chain, and those we
+recognise but cannot resolve.
+
+
+[page 13]
+Active Liquidity On Chain: Evidence from PropAMMs Across Chains
+13
+−5
+0
+5
+10
+15
+seconds after fill
+−1
+0
+1
+2
+markout [bps]
+observed
+no penalties
+(a) single fills
+−5
+0
+5
+10
+15
+seconds after fill
+−1.0
+−0.5
+0.0
+0.5
+markout [bps]
+other propAMMs
+Tessera
+(b) propAMM–propAMM
+−5
+0
+5
+10
+15
+seconds after fill
+−1.5
+0.0
+1.5
+markout [bps]
+AMM
+Tessera
+(c) propAMM–AMM
+Fig. 6. Tessera ETH/USDC markouts on Base by transaction type, observed and
+at the unpenalized quote. Shares of total Tessera volume: (a) 20.70% ($895.03M),
+(b) 8.04% ($347.72M); (c) 13.62% ($588.84M).
+On single fills, Tessera earns 1.29 bps at 2 s, but would have lost about 1 bps
+had it filled without penalties (Figure 6a). These fills also pay a volume-weighted
+effective cost of 2.58 bps, 32.4% more than the pool as a whole. Some transactions
+in this category are likely attempted CEX–DEX arbitrage: the swaps in this
+category target the side of the Tessera book which the reference price move
+exposes to adverse selection in the second before the fill. Instead of taking a loss
+on a stale quote, however, Tessera appears to identify that it is being adversely
+selected and charges penalties high enough to turn a profit on single fills.
+For propAMM–AMM arbitrage legs (Figure 6c), Tessera’s observed markout
+sits slightly above zero. The reference price moves by more than 1 bps toward
+Tessera’s execution price in the seconds before the fill, i.e., these fills follow a
+reference move. Tessera therefore executes close to fair value and, while it does
+not have negative markouts, it also does not earn a lot on these legs.
+Figure 6b looks at propAMM–propAMM arbitrage through Tessera, which
+makes up 8.04% of the total Tessera ETH/USDC volume and $347.72 million
+of volume on the other propAMMs’ ETH/USDC pools. Here the two legs look
+nothing alike. Tessera’s markout stays slightly above zero with or without penal-
+ties. The other propAMM is in the money before the fill and down about 0.5 bps
+after it, i.e., the same shape we see for AMMs in Figure 3. Tessera is the leg that
+has repriced, and the other propAMM the one that has not.
+Overall, the mechanics of propAMM–AMM/propAMM atomic arbitrage cases
+resemble those of traditional CEX–DEX arbitrage: a propAMM is keeping up
+with the reference price, while a different AMM/propAMM pool is stale with
+respect to the reference price. This creates opportunities for arbitrageurs. They
+can arbitrage the stale AMM/propAMM against the CEX or arbitrage it against
+the non-stale propAMM, executing at lower margins but executing atomically,
+mitigating the risk of failure of the second (i.e., CEX) leg.
+7.4
+Quoting Accuracy
+The mechanisms examined so far protect a propAMM against adverse selection,
+which is ordinary market making. We now turn to a less benign source of the
+
+
+[page 14]
+14
+O. Solmaz et al.
+0
+3
+6
+9
+fee updates [%]
+default-fee increase
+default-fee decrease
+trade volume
+trade count
+0.00
+0.25
+0.50
+0.75
+1.00
+relative position in block
+0
+1
+2
+3
+trades [%]
+(a) Default-fee updates and trades
+−10
+−5
+0
+5
+10
+execution improvement [bps]
+0.0
+2.5
+5.0
+7.5
+swaps [%]
+39% of swaps
+identical
+worse execution
+better execution
+identical output
+swap-count CDF
+0
+40
+80
+cumulative [%]
+(b) Execution quality
+Fig. 7. Tessera execution quality and default-fee updates. (a) Default-fee up-
+dates and trades by relative transaction position in the block (0 = first, 1 =
+last). (b) Swaps by the difference between executed and default output.
+edge, i.e., the gap between the price a propAMM advertises and the price at
+which it actually fills.
+Tessera Implementation Insight: Spoofing. PropAMMs are said to quote
+better prices at the end of the block, i.e., in the state that aggregators use to
+compute their routes off-chain. They thereby spoof aggregators, which route to
+the venue based on the price they observe but receive a worse one at the start
+of the next block. Figure 7a shows this pattern for Tessera on Base. Default-fee
+decreases concentrate in the final tenth of the block and increases in the first
+tenth. Thus, the effective spread is wider right after the fee increase early in the
+block, and narrower at the very end, i.e., in exactly the state aggregators read.
+Interestingly, volume peaks both at the very start and at the very end of the
+block, and more sharply than trade count, i.e., trades at the block edges are also
+larger than average. Notably, the volume peak at the start arrives just before the
+fee increase, and the peak at the end just after the fee decrease. Large traders
+thus appear to be aware of Tessera’s pattern and to time their trades into the
+low-fee window spanning the end of one block and the start of the next.
+Figure 7b summarizes the effect. Only 39% of trades receive the same exe-
+cution as they would have based on the quote at the end of the previous block.
+On average, however, swaps receive 1.08 bps worse execution, and 0.56 bps worse
+when weighted by volume, likely because volume concentrates in the low-fee part
+of the block. Recall that Tessera charges an additional penalty on trades paying
+a high priority fee (Section 7.2), likely to protect against trades that try to exe-
+cute ahead of its repricing at the start of the block.
+Spoofing results in traders receiving, on average, a worse price than the quote
+they saw, and sometimes a better one, due to price changes between blocks as
+well as opposite-direction swaps which might reintroduce liquidity to the books
+as visualized in Figure 1 (Appendix C.3). We note that a similar gap between
+quoted and executed prices has been reported on Solana [1], though we lack the
+historical quote data to corroborate it.
+
+
+[page 15]
+Active Liquidity On Chain: Evidence from PropAMMs Across Chains
+15
+−5
+0
+5
+10
+15
+seconds after fill
+−1.0
+−0.5
+0.0
+0.5
+markout [bps]
+all
+quiet
+moving
+(a) Solana
+−5
+0
+5
+10
+15
+seconds after fill
+0.0
+0.4
+0.8
+1.2
+markout [bps]
+all
+quiet
+moving
+(b) Base
+−5
+0
+5
+10
+15
+seconds after fill
+−2
+0
+2
+markout [bps]
+all
+quiet
+moving
+(c) Monad
+Fig. 8. PropAMM markouts split by reference price movement from 5 s before
+to 1 s after the fill: quiet (< 1 bps) against moving (≥1 bps). Quiet fills carry
+32% of notional on Solana, 43% on Base and 17% on Monad (Hanji and Metric).
+8
+Retail Execution on PropAMMs
+The promise of propAMMs is not only that they are able to avoid LVR through
+active quoting, but also that as a result they can offer users good prices. Thus,
+we next isolate retail flow. For each fill we measure the absolute move of the
+Bybit weighted mid between 5 s before and 1 s after execution, and call a fill
+quiet when that move stays below 1 bps and moving otherwise. Quiet fills arrive
+independently of what the market is doing and carry no information the maker
+has to price against, which is what we expect of retail.
+Quiet flow pays 0.26 bps on a Solana propAMM, 1.26 bps on Base and 1.62 bps
+on Monad (Figure 8). Interestingly, quiet and moving fills differ by at most
+0.16 bps at 2 s on every chain. The two classes differ drastically before the fill,
+where the steep drift of the pooled curves comes entirely from moving flow and
+the propAMM repricing ahead of it. On quiet flow the markout is flat across the
+whole horizon. Thus, its level approximates what a retail trader pays relative to
+the reference price.
+Compared with AMMs, propAMMs take a larger share of retail flow (Ap-
+pendix G). Quiet fills carry 32% of propAMM notional on Solana, 43% on Base
+and 17% on Monad, against 9%, 16% and 8% on AMMs. The half-spread retail
+pays, i.e., the distance from the reference price to the execution price, is 0.26 bps
+on a Solana propAMM against 2.59 bps on a Solana AMM, 1.62 against 8.60 bps
+on Monad and 1.26 against 1.38 bps on Base. Thus, propAMMs give users a bet-
+ter price than AMMs do, and the edge their operators hold over AMM liquidity
+providers does not come from retail.
+9
+Concluding Discussion
+PropAMMs account for a large share of DEX volume across all three chains
+in our study. We show that their operators have an edge over passive liquidity
+providers on AMMs and detail where it comes from. PropAMMs update prices
+cheaply and frequently without a trade, charge by counterparty, do not lose to
+
+
+[page 16]
+16
+O. Solmaz et al.
+arbitrage against other on-chain venues, and spoof, i.e., quote better prices than
+a trade receives. The edge does not come out of retail, which pays less on a
+propAMM than on an AMM and makes up a larger share of propAMM volume.
+Currently, users bear the cost of spoofing. Aggregators route on stale quotes
+read from the previous block. As a result, only 39% of swaps on Tessera execute
+at the quoted price, and the average swap receives 1.08 bps less. An on-chain
+router that queries each venue inside the swap transaction would remove this
+gap and route each trade on the price it actually receives.
+References
+1. 0x: PropAMM shenanigans. https://0x.org/post/propamm-shenanigans (Mar
+2026), accessed 2026-09-14
+2. Adams, A., Moallemi, C.C., Reynolds, S., Robinson, D.: am-AMM: An auction-
+managed automated market maker. In: Financial Cryptography and Data Security
+(FC). pp. 93–108. Lecture Notes in Computer Science, Springer (2026). https:
+//doi.org/10.1007/978-3-032-07024-1_6
+3. Adams, H., Ng, K., Walsh, D.: UNIfication Proposal (11 2025), https://gov.
+uniswap.org/t/unification-proposal/25881
+4. Adams, H., Zinsmeister, N., Robinson, D.: Uniswap v2 core (3 2020), https://
+app.uniswap.org/whitepaper.pdf
+5. Adams, H., Zinsmeister, N., Salem, M., Keefer, R., Robinson, D.: Uniswap v3 core
+(3 2021), https://app.uniswap.org/whitepaper-v3.pdf
+6. Angeris, G., Agrawal, A., Evans, A., Chitra, T., Boyd, S.: Constant function market
+makers: Multi-asset trades via convex optimization. In: Tran, D.A., Thai, M.T.,
+Krishnamachari, B. (eds.) Handbook on Blockchain, Springer Optimization and Its
+Applications, vol. 194, pp. 415–444. Springer (2022). https://doi.org/10.1007/
+978-3-031-07535-3_13
+7. Angeris, G., Chitra, T., Diamandis, T., Evans, A., Kulkarni, K.: The geometry of
+constant function market makers (2023), https://arxiv.org/abs/2308.08066
+8. Anza: Solana validator metrics. https://metrics.solana.com, accessed 2026-09-
+07
+9. Canidio, A., Fritsch, R.: Batching trades on automated market makers. In: 5th
+Conference on Advances in Financial Technologies (AFT). LIPIcs, vol. 282, pp.
+24:1–24:17 (2023). https://doi.org/10.4230/LIPIcs.AFT.2023.24
+10. Category Labs: Monad initial specification proposal. Tech. rep., Category Labs
+(Nov 2025), version 2.0.1. Available at https://category-labs.github.io/
+category-research/monad-initial-spec-proposal.pdf
+11. Clober: Clober: Earn liquidity pools. https://app.clober.io/earn, accessed:
+2026-09-13
+12. Databento:
+Microprice
+and
+book
+imbalance.
+https://databento.com/docs/
+examples/order-book/microprice, accessed: 2026-09-12
+13. DefiLlama: Monad DEX volume rankings. https://defillama.com/dexs/chain/
+monad, accessed: 2026-09-16
+14. Fan, Z., Marmolejo-Cossio, F., Moroz, D., Neuder, M., Rao, R., Parkes, D.C.:
+Strategic liquidity provision in Uniswap v3. In: 5th Conference on Advances in
+Financial Technologies (AFT). LIPIcs, vol. 282, pp. 25:1–25:22 (2023). https:
+//doi.org/10.4230/LIPIcs.AFT.2023.25
+
+
+[page 17]
+Active Liquidity On Chain: Evidence from PropAMMs Across Chains
+17
+15. Fritsch, R.: Concentrated liquidity in automated market makers. In: Proceedings
+of the 2021 ACM CCS Workshop on Decentralized Finance and Security. pp. 15–
+20 (2021). https://doi.org/10.1145/3464967.3488590
+16. Fritsch, R., Canidio, A.: Measuring arbitrage losses and profitability of amm liq-
+uidity. In: Companion Proceedings of the ACM Web Conference. pp. 1761–1767
+(2024). https://doi.org/10.1145/3589335.3651961
+17. Fuller, A.: PropAMMs on Ethereum: the story so far. https://memos.azfuller.
+com/propamms/ (Sep 2026), accessed 2026-09-14
+18. Heimbach, L., Pahari, V., Schertenleib, E.: Non-atomic arbitrage in decentralized
+finance. In: 2024 IEEE Symposium on Security and Privacy (SP). pp. 3866–3884
+(2024). https://doi.org/10.1109/SP54263.2024.00256
+19. Heimbach, L., Schertenleib, E., Wattenhofer, R.: Risks and returns of Uniswap
+V3 liquidity providers. In: Proceedings of the 4th ACM Conference on Advances
+in Financial Technologies (AFT). pp. 89–101 (2022). https://doi.org/10.1145/
+3558535.3559772
+20. Heimbach, L., Wang, Y., Wattenhofer, R.: Behavior of liquidity providers in de-
+centralized exchanges. In: 2021 Crypto Valley Conference on Blockchain Technol-
+ogy (CVCBT) (2021)
+21. Kuru: Kuru: On-chain order book dex. https://www.kuru.io/ (2026), accessed:
+2026-09-16
+22. Latif,
+M.,
+Gerhardstein,
+D.:
+PropAMMs
+and
+the
+next
+chapter
+of
+per-
+missionless
+market
+structure.
+https://jumpcrypto.com/resources/
+propamms-and-the-next-chapter-of-permissionless-market-structure (Apr
+2026), accessed 2026-09-14
+23. LFJ:
+Introduction
+to
+POE
+(PropAMM).
+https://developers.lfj.gg/poe/
+introduction-to-poe (2026), lFJ Developer Documentation. Accessed: 2026-09-
+22
+24. LFJ: POE: Multi-venue driven proprietary AMM. https://lfj.gg/poe (2026),
+accessed: 2026-09-22
+25. Loesch, S., Hindman, N., Richardson, M.B., Welch, N.: Impermanent loss in
+Uniswap v3 (2021)
+26. Lostin: Solana’s proprietary AMM revolution. https://www.helius.dev/blog/
+solanas-proprietary-amm-revolution (Aug 2025), accessed 2026-09-14
+27. McMenamin, C., Daza, V., Mazorra, B.: An automated market maker minimiz-
+ing loss-versus-rebalancing. In: Mathematical Research for Blockchain Economy
+(MARBLE). pp. 95–114. Lecture Notes in Operations Research, Springer (2023).
+https://doi.org/10.1007/978-3-031-48731-6_6
+28. Milionis, J., Moallemi, C.C., Roughgarden, T.: Complexity-approximation trade-
+offs in exchange mechanisms: AMMs vs. LOBs. In: Baldimtsi, F., Cachin, C.
+(eds.) Financial Cryptography and Data Security. Lecture Notes in Computer
+Science, vol. 13950, pp. 326–343. Springer (2023). https://doi.org/10.1007/
+978-3-031-47754-6_19
+29. Milionis, J., Moallemi, C.C., Roughgarden, T.: Automated market making and
+arbitrage profits in the presence of fees. In: Financial Cryptography and Data
+Security (FC). pp. 159–171. Lecture Notes in Computer Science, Springer (2025).
+https://doi.org/10.1007/978-3-031-78676-1_9
+30. Milionis, J., Moallemi, C.C., Roughgarden, T., Zhang, A.L.: Automated market
+making and loss-versus-rebalancing (2022), https://arxiv.org/abs/2208.06046
+31. Milionis, J., Wan, X., Adams, A.: Flair: A metric for liquidity provider competitive-
+ness in automated market makers (2023), https://arxiv.org/abs/2306.09421
+
+
+[page 18]
+18
+O. Solmaz et al.
+32. Nezlobin, A., Tassy, M.: Loss-versus-rebalancing under deterministic and general-
+ized block-times (2025), https://arxiv.org/abs/2505.05113
+33. Project Yellowstone: Old faithful. https://old-faithful.net, accessed 2026-09-
+23
+34. WOOFi: On-chain price feeds. https://learn.woo.org/dev-docs/resources/
+on-chain-price-feeds (2024), wOOFi Developer Documentation. Accessed:
+2026-09-22
+35. Wu, F., Sui, D., Thiery, T., Pai, M.: Measuring CEX-DEX extracted value and
+searcher profitability: The darkest of the MEV dark forest. In: 7th Conference on
+Advances in Financial Technologies (AFT). LIPIcs, vol. 354, pp. 26:1–26:23 (2025).
+https://doi.org/10.4230/LIPIcs.AFT.2025.26
+A
+Data Collection
+Our measurement spans 1 September 2025 to 31 August 2026, with Monad data
+beginning at its mainnet launch on 24 November 2025.
+A.1
+Swaps
+On Solana we stream the whole-epoch CAR archives of Old Faithful [33] for
+epochs 826 to 1026, and record each transaction’s position in its block, its fee
+payer and its full fee stack. We track 14 propAMM programs across 13 venues
+with SOL/USDC volume, i.e., HumidiFi, BisonFi, Tessera, SolFi, SolFi V2,
+GoonFi, GoonFi V2, ZeroFi, Aquifer, Scorch, Quantum, AlphaQ and Obric V2.
+These give 448,582,796 trades, and we record each venue’s quote updates along-
+side its trades. Update counts are an estimate: we classify a transaction as a
+trade if it carries a propAMM fill and otherwise as an update if it invokes the
+propAMM program without swapping, so any non-swap interaction is counted
+as an update and we cannot observe whether a given update moved the venue’s
+quote. Our AMM coverage spans Orca Whirlpool, Raydium CLMM, Raydium
+AMM v4, Raydium CPMM and Meteora DLMM, i.e., 144,106,459 SOL/USDC
+fills. Note that update counts are an estimate, as we count every non-swap
+propAMM transaction as an update.
+On Base and Monad we collect swaps by decoding the respective log events,
+along with the transaction index, log index and sender. On Base our coverage
+spans Aerodrome Slipstream, Uniswap v3, PancakeSwap v3, Uniswap v4, Aero-
+drome v1 and Uniswap v2, together with a tail of v2- and v3-style forks, giving
+148,962,685 ETH/USDC swaps across 240 pools. On Monad we cover Uniswap
+v4, in both its native-MON and its WMON pools, PancakeSwap v3, Uniswap
+v3, LFJ Liquidity Book v2.2 and Uniswap v2, again with a tail of v3-style forks,
+giving 15,659,039 MON/USDC swaps across 115 pools.
+A.2
+Markout Timestamps
+Solana. Solana block timestamps have one-second resolution, which cannot sep-
+arate the two to three slots that fall in the same second at a 400 ms slot time.
+
+
+[page 19]
+Active Liquidity On Chain: Evidence from PropAMMs Across Chains
+19
+The vote transactions carry a finer signal. Validators vote on a slot in one of
+the subsequent blocks, and each vote is stamped with the voting validator’s own
+clock time. In most slots, a single second carries around 99% of the votes. When
+a slot falls near a second boundary, the votes split between the two adjacent sec-
+onds, and the size of that split locates the boundary within the slot. Calibrat-
+ing against Anza’s validator metrics [8], we find that the votes for a slot are cast
+within a window about 0.22 s wide. This width translates the observed split into
+a sub-second offset, which we use to place the slot. These boundary slots serve
+as anchors. The slots between two anchors are placed by linear interpolation in
+slot number, and those past the last anchor by the local slot cadence.
+Base. We use recorded Flashblock preconfirmations to design a two-point times-
+tamp approximation for trades without observed Flashblock timestamps. In the
+overlapping trade and Flashblock sample, ETH/USDC propAMM volume is con-
+centrated in FB1 and FB10, which together account for 45.71% of volume (Fig-
+ure 9).11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+flashblock boundary
+0
+10
+20
+30
+volume (%)
+ETH/USDC propAMM volume
+tx count (volume-weighted)
+0
+25
+50
+75
+100
+cumulative tx share (%)
+211 ms
+Fig. 9. ETH/USDC propAMM vol-
+ume by Flashblock. The line shows
+cumulative transaction shares, aver-
+aged across blocks using propAMM
+volume weights.
+For
+each
+block,
+we
+compute
+the
+cumulative transaction fraction through
+FB1.
+Averaging
+these
+fractions
+with
+propAMM ETH/USDC volume weights
+gives roughly 26%. Additionally, the me-
+dian FB1 receipt time is around 200 ms af-
+ter the preceding block’s timestamp. We
+therefore assign trades in the first 26% of
+a block’s transaction positions the times-
+tamp b −1.8 s, and remaining trades the
+timestamp b, where b denotes the cur-
+rent block’s timestamp. This coarse ap-
+proximation captures early-block execu-
+tion without separately modeling each
+Flashblock, whose receipt times and cu-
+mulative transaction fractions have high
+variance across blocks. It retains timing
+uncertainty, particularly for trades in in-
+termediate Flashblocks.
+Monad. For Monad markouts, we use
+higher-resolution MonadBFT timestamps,
+i.e., consensus-layer timestamps.
+A.3
+Reference Prices
+We evaluate every fill against a Bybit top-of-book reference. We download By-
+bit’s public 200-level spot orderbook archive and record the best bid and ask with
+their sizes, the mid, and the size-weighted mid (bid·qask+ask·qbid)/(qbid+qask).
+11 FB0 contains only a system transaction and is omitted from the figure.
+
+
+[page 20]
+20
+O. Solmaz et al.
+We collect SOLUSDT, ETHUSDT, MONUSDT and USDCUSDT for 1 Septem-
+ber 2025 to 31 August 2026. Note that we compute the reference on the USDT
+pair, which is substantially more liquid than the USDC pair for all three base
+assets, and convert to USDC by dividing by the Bybit USDCUSDT mid.
+B
+PropAMM MEV Detection Heuristics
+Atomic Arbitrage. We collect all swap logs for transactions involving the
+ETH/USDC Tessera pool and then employ a simple transaction filter by aggre-
+gating the trader’s balances in a dictionary in the form {tokeni →∆i}. We then
+mark the transaction as atomic arbitrage if ∃i.∆i > 0 ∧∀i.∆i ≥0. Let Ato and
+Afrom be the sets of tx.to and tx.from values involved in at least one transac-
+tion marked as atomic arbitrage in the previous step. For each set, we compute
+the share of its total Tessera ETH/USDC volume attributable to transactions
+marked as atomic arbitrage. This share is 92.9% for Ato and 99.1% for Afrom,
+with each denominator including all recorded Tessera ETH/USDC trades asso-
+ciated with that set. This gives us confidence that this simple classification is
+reasonable and accurate.
+Other Pools in the Transaction. To assign a propAMM fill to a route class,
+we need to identify every other pool its transaction trades on. The classification
+is therefore only as complete as the set of venues we decode. On Solana, we de-
+code Orca Whirlpool, Raydium CLMM, Raydium AMM v4, Raydium CPMM
+and Meteora DLMM. On Base, we decode Uniswap v2, v3 and v4, PancakeSwap
+v3, and Balancer v2 and v3, as well as Aerodrome v2, Algebra, the Angle Trans-
+muter, DODO, Maverick v1 and v2, Pinto Well, Spark PSM3 and WOOFi.
+On Monad, we decode Uniswap v2-, v3- and v4-style pools, PancakeSwap v3,
+Balancer v3 and LFJ Liquidity Book. We also recognise swaps on the follow-
+ing venues, but cannot tell which pool they trade on or how much: on Solana,
+Pump.fun, Phoenix, OpenBook, Lifinity v2, Meteora Pools and Raydium Route,
+and on Base, Curve, Fluid DEX, PancakeSwap Infinity CL and Infinity Bin, Vir-
+tuals, 1inch and Kyber limit orders, and RFQ fills.
+We count each swap we cannot decode as a separate pool. Since we cannot
+check which pair it trades or whether the trade balances, a transaction that
+contains one cannot be propAMM–propAMM or propAMM–DEX arbitrage, and
+we assign it to other. One exception applies to 1inch and Kyber limit orders on
+Base. If a limit order only passes a propAMM swap through, i.e., the swap runs
+inside the order’s fill and the fill moves nothing but that swap’s amounts and
+fees, we do not count the order as a second venue. Finally, on Monad, most of
+Hanji’s and Metric’s propAMM–propAMM volume trades against permissionless
+venues outside our scope, e.g., Clober Vault and Poe.
+C
+Tessera
+In this section, we give further details regarding some aspects of Tessera.
+
+
+[page 21]
+Active Liquidity On Chain: Evidence from PropAMMs Across Chains
+21
+C.1
+Marginal Cost and Fee Revenue
+For each swap, let pa and pb denote the first accessible ask and bid prices before
+execution penalties, expressed in USDC per ETH. Let ϕ ∈N6
+0 contain the applied
+penalty components in ppm.
+Marginal cost. We define nominal and effective marginal costs as half-spreads
+normalized by their respective bid and ask midpoints, expressed in basis points:
+cnom = 104 pa −pb
+pa + pb
+,
+ceff = 104 pa −pb · (1 −10−6ϕ⊤1)2
+pa + pb · (1 −10−6ϕ⊤1)2
+Fee Revenue. For each swap, let Y denote the exchanged USDC amount. Ab-
+stracting from integer rounding, we attribute USDC-equivalent fee revenue to
+the six components as
+r =
+Y ϕ
+106 −ϕ⊤1
+For swaps receiving USDC, this reconstructs the USDC withheld by each com-
+ponent. For swaps receiving WETH, it values the withheld WETH at the swap’s
+execution price.
+C.2
+Swap Classification
+Tessera combines manager-maintained address labels (ordinary, default-exempt,
+penalized, or blacklisted) with bytecode fingerprint checks. It checks the trans-
+action origin and the public-interface caller. In either case, blacklisting rejects
+execution, exemption waives the default penalty, and penalization selects the ad-
+dress penalty.
+If no explicit label selects the address penalty, the helper 0xfdb...684 is
+used to fingerprint observable address and code features. These checks also apply
+to default-exempt addresses. A match selects the configured address penalty
+without changing stored labels. Next, we present two examples where the helper
+applies a penalty as a case study.
+Metric and Atomic Arbitrage. The helper matches on addresses starting
+with a c0ffee prefix. Transaction 0x5dde...8fc62d originates from a c0ffee-
+prefixed address and completes an atomic three-swap cycle through Metric,
+Uniswap v3, and Tessera. Its route is in the form: USDC →WETH →VVV →
+USDC. Thus, the transaction performs on-chain arbitrage. Note that the execu-
+tion invokes Metric’s swap callback as well, another pattern the historical helper
+flags.
+Forwarding and CEX–DEX. Transaction 0xac4...0c71 creates a 30-byte
+forwarding contract and uses it to exchange 128 WETH for approximately
+303,365 USDC through Tessera. The transaction contains only one pool swap,
+which is consistent with the on-chain leg of CEX–DEX arbitrage. The markout
+of this swap is at −0.510 bps at 0s and falls further to −5.288 bps at 2s. Both
+the origin and the newly created contract have ordinary status, but the helper
+
+
+[page 22]
+22
+O. Solmaz et al.
+0
+5
+10
+15
+20
+adverse 15 s move [bps]
+0.1
+1
+10
+100
+volume exceeding [%]
+none
+def
+prio
+addr
+age
+mode
+Fig. 10. For each penalty group, share of its volume followed by a reference-
+price move exceeding x bps in the trader’s direction over a 15 s horizon.
+recognizes a forwarding pattern and selects a 175 ppm address penalty. Thus,
+Tessera classifies newly created accounts through a pattern in their bytecode
+without first assigning them an explicit address label.
+Penalty Groups and Within-Block Position. We analyze trading flow by
+its applied penalties and position within the block. Let ti denote the estimated
+timestamp of swap i, m(t) the reference price at time t, and mi(τ) = m(ti + τ).
+We define the signed reference-price movement between horizons χ and τ as
+Ii(τ, χ) = −104di
+mi(τ) −mi(χ)
+mi(χ)
+where di = 1 if Tessera buys ETH and di = −1 if it sells. Thus, by construction,
+positive values indicate reference-price movements in the trader’s direction. Let
+Vi denote the USDC-denominated volume of swap i. For each penalty component
+k, let Gk contain swaps with a positive applied value of that component. These
+groups are non-disjoint, i.e., a swap with positive address and priority penalties
+will be included in both Gaddress and Gpriority. We also define an additional none
+group which consists of swaps with 0 total penalty.
+To capture exposure to informative flow, we measure the volume-weighted
+share of each group followed by a reference-price move exceeding x bps in the
+direction benefiting the trader over the next 15 seconds, formally:
+γk(x) =
+P
+i∈Gk Vi · 1{Ii(15, 0) > x}
+P
+i∈Gk Vi
+Figure 10 a visualizes these curves. At larger thresholds, address- and age-
+penalized flow exhibit the heaviest informative tails, while mode-penalized flow
+exhibits the thinnest tail. Reference-price movements exceeding 10 bps in the
+trader’s direction follow approximately 11.54%, 8.64%, and 1.53% of these groups’
+volumes, respectively.
+
+
+[page 23]
+Active Liquidity On Chain: Evidence from PropAMMs Across Chains
+23
+Cause of difference
+quote > fill
+fill > quote
+identical
+volume (%)
+Nothing changed
+0
+0
+100
+37
+Different default fee
+94
+6
+0
+18
+Operator updated price, spread, or orderbook config
+39
+61
+0
+37
+Earlier swap in the same pool
+35
+6
+59
+6
+Other fee or pricing difference
+99
+1
+0
+2
+All swaps
+35
+24
+41
+100
+Table 3. Tessera WETH/USDC swaps, comparing the output implied by the
+state at the end of the previous block with the output implied by the state
+immediately before execution. Each swap is assigned to the first applicable cause
+in the order listed, so the causes are disjoint.
+C.3
+Quotes vs. Execution
+Next, we compare the price a trade would have received if it had executed on
+the state at the end of the previous block with the price it received in the
+state it executed on. To that end, for every Tessera WETH/USDC swap we
+compute the output for the same input twice: the output the contract would
+have returned in the state at the end of the previous block, i.e., the quote an
+aggregator routing on that state expects, and the output it would have returned
+in the state immediately before the swap executed, i.e., the fill the trade receives.
+The quote and the fill can differ for several reasons. The operator can post a
+new price or book, or apply a different spread. Another swap can hit the same
+pool earlier in the block. The contract can apply a different default fee, and a
+residual group collects the remaining fee and pricing differences. A swap can be
+affected by more than one of these, so we assign each to the first applicable cause
+in the order listed in Table 3.
+When the applied default fee differs, the trader receives less than quoted on
+94% of volume, and the same holds for 99% of volume in the residual group.
+Operator updates work the other way, with 61% of that volume executing better
+than quoted. Preceding trades barely matter, since 59% of their volume receives
+exactly the quoted output. On 37% of volume nothing changes at all and the
+quote is exact.
+Figure 11 illustrates price and default-fee adjustments within an example
+block and their causes. At the start and the end of the block there is a default
+fee change marked by D. We further show the swaps (marked with S) and
+anchor price and spread updates (marked with P). Notice that the default fee
+is increased before the first swap in this block and decreased after the last swap
+in the block. This pattern is consistent with propAMM spoofing. The post-
+default-fee top-of-book spread widened from 2.78 to 13.54 bps when the operator
+increased the default fee from 0 to 538 ppm at transaction index 19. Near the
+end of the block, resetting the fee to zero at index 468 narrowed the spread from
+13.70 to 2.94 bps.
+
+
+[page 24]
+24
+O. Solmaz et al.
+2,244
+2,246
+2,248
+2,250
+top-of-book price (USDC per WETH)
+bid, no fees
+anchor price
+bid, default fee only
+nominal spread
+ask, no fees
+post-default-fee spread
+ask, default fee only
+bybit reference
+D
+S
+P
+P
+S
+P
+P
+P
+P
+P
+D
+0
+100
+200
+300
+400
+491
+transaction index in block (zero-based)
+0
+8
+16
+spread (bps)
+Fig. 11. Tessera ETH/USDC prices and spreads within Base block 50,196,022.
+Bid and ask prices as well as spreads are shown without fees and with only the
+default fee applied. The anchor price is overlaid.
+0
+2
+4
+6
+8
+10
+pre-fee distance [bps]
+−10
+0
+10
+20
+30
+0 s markout [bps]
+no fee
+priority
+default
+default+priority
+other
+(a) Pre fees
+0
+2
+4
+6
+8
+10
+post-fee distance [bps]
+−10
+0
+10
+20
+30
+0 s markout [bps]
+no fee
+priority
+default
+default+priority
+other
+(b) Post fees
+Fig. 12. Tessera’s 0 s markout against the distance from its own top of book on
+Base, before and after fees, by which combination of fee components the trade
+pays; the categories are mutually exclusive and the distance is one-sided. The
+four named combinations cover 99.1% of trades and the remaining fourteen are
+pooled into other. Counting each component wherever it appears, the default fee
+is charged on 22.7% of trades and the priority fee on 42.7%, while 42.1% pay
+nothing.
+D
+Tessera vs. Elfomo vs. Metric
+Next, we compare the pricing mechanisms of Tessera, Elfomo, and Metric for
+the ETH/USDC pair on Base. The implementations we base our analysis on are
+0x6d9...1cb for Tessera, 0x611...47e for Elfomo, and 0x3f6...289 for Metric.
+
+
+[page 25]
+Active Liquidity On Chain: Evidence from PropAMMs Across Chains
+25
+0
+2
+4
+6
+8
+ETH bought in
+new request
+0
+3
+6
+9
+12
+marginal premium
+above anchor [bps]
+(a) Tessera
+0
+2
+4
+6
+8
+ETH bought in
+new request
+0
+3
+6
+9
+12
+marginal premium
+above anchor [bps]
+(b) Elfomo
+0
+2
+4
+6
+8
+ETH bought in
+new request
+0
+3
+6
+9
+12
+marginal premium
+above anchor [bps]
+(c) Metric
+Fig. 13. Illustrative marginal purchase curves. Dashed lines show the initial
+state and colored lines show a new request after a 2 ETH purchase, with fixed
+reference prices and parameters. Fees and Elfomo’s terminal level are omitted.
+Tessera. Tessera represents liquidity through two directional pricing ladders,
+akin to traditional orderbooks (Appendix C). External updates adjust the pa-
+rameters of the ladders, while swaps change accessible liquidity through direc-
+tional flow accumulators. Execution first traverses the available ladder liquidity
+and then applies the combined execution penalty to the resulting output.
+Elfomo. Elfomo also traverses a ladder of price levels, but reconstructs their
+available capacities depending on current vault balances as well. Its reference
+combines posted price updates with the raw price stored in WooFi’s Wooracle
+contracts [34], with freshness and deviation checks.12 Level, inventory, quote-
+age, and caller-dependent penalty adjustments enter the prices during traversal,
+rather than being deducted from the input or the final output as in Tessera’s
+case. A further penalty based on preceding same-side executions in the same
+block adjusts the final amount. This is based on trade count rather than Tessera-
+style amount-based flow netting.
+Metric. Metric combines a Chainlink ETHUSD data stream (e.g., 0xe71...d85)
+with separately posted bid and ask quotes (e.g., 0x573...95c). The quoter con-
+structs a band around the Chainlink-derived reference and combines it with the
+separately posted bid and ask quotes by taking the lower bid and higher ask.
+Liquidity is organized into bins with price intervals: marginal prices vary within
+a bin, and larger trades traverse multiple bins, similar but not identical to how
+v3-style AMMs behave. Bin reserves and the position within the liquidity curve
+persist between swaps. The specific penalties and adjustments enter the traversal
+calculation before the whole fill is calculated. Thus, both Metric and Elfomo in-
+corporate pricing adjustments during traversal, whereas Tessera applies its addi-
+tional execution penalties after traversal. Furthermore, Chainlink mainly comes
+12 For example, the trace of 0x5ac...529 shows the pricing module calling Wooracle’s
+timestamp() and infos(WETH) getters to fetch WooFi’s posted price.
+
+
+[page 26]
+26
+O. Solmaz et al.
+−5
+0
+5
+10
+15
+seconds after fill
+−0.6
+−0.3
+0.0
+0.3
+markout [bps]
+(a) HumidiFi
+−5
+0
+5
+10
+15
+seconds after fill
+−0.75
+−0.50
+−0.25
+0.00
+markout [bps]
+(b) BisonFi
+−5
+0
+5
+10
+15
+seconds after fill
+−1.0
+−0.5
+0.0
+0.5
+markout [bps]
+(c) Tessera
+Fig. 14. Gross maker markout of the three largest Solana propAMMs on
+SOL/USDC against the Bybit microprice t seconds after the fill. Line: notional-
+weighted mean across days.
+−5
+0
+5
+10
+seconds after fill
+0.0
+0.5
+1.0
+1.5
+markout [bps]
+(a) Tessera
+−5
+0
+5
+10
+seconds after fill
+0.0
+0.1
+0.2
+0.3
+markout [bps]
+(b) Metric
+−5
+0
+5
+10
+seconds after fill
+0.0
+0.5
+1.0
+1.5
+markout [bps]
+(c) Elfomo
+Fig. 15. Volume-weighted ETH/USDC maker markouts against the Bybit
+ETHUSDT microprice divided by USDCUSDT midpoint.
+into play for Metric during the updates, whereas WooFi comes into play for
+Elfomo during swap execution.
+E
+Markouts by propAMM
+Figure 14 breaks Solana down by venue for the three largest propAMMs. All
+three are negative 5 s before the fill and rise steeply into t = 0, but they diverge
+afterwards. Tessera earns the largest markout at 0.56 bps 2 s after the fill and
+then gives back part of the gain, falling to 0.28 bps by 15 s. HumidiFi holds its
+markout near 0.32 bps across the whole horizon. BisonFi earns the smallest at
+0.06 bps, and is the only one whose markout keeps rising past ten seconds, which
+likely reflects price prediction that pays off over longer horizons.
+Figure 15 plots the markouts of the three largest propAMMs on Base. Two
+differences to the markouts of propAMMs on Solana stand out. First, the mark-
+out is positive across the entire window for all three propAMMs, and the rise
+into t = 0 is smaller than on Solana, i.e., a move in the reference price triggers a
+fill less often than on Solana. Elfomo is flat at 1.6 bps throughout, while Tessera
+and Metric rise moderately and reach 1.62 bps and 0.26 bps 2 s after the fill. Sec-
+
+
+[page 27]
+Active Liquidity On Chain: Evidence from PropAMMs Across Chains
+27
+−5
+0
+5
+10
+seconds after fill
+−2
+0
+2
+markout [bps]
+(a) Hanji
+−5
+0
+5
+10
+seconds after fill
+−1.5
+0.0
+1.5
+markout [bps]
+(b) Metric
+Fig. 16. Volume-weighted MONUSDC maker markouts against the Bybit
+MONUSDT microprice divided by USDCUSDT midpoint.
+−5
+0
+5
+10
+15
+seconds after fill
+−1.0
+−0.5
+0.0
+0.5
+markout [bps]
+(a) Solana
+−5
+0
+5
+10
+15
+seconds after fill
+0.0
+0.4
+0.8
+1.2
+markout [bps]
+(b) Base
+−5
+0
+5
+10
+15
+seconds after fill
+−1
+0
+1
+markout [bps]
+(c) Monad
+Fig. 17. Gross notional-weighted mean maker markout against the Bybit micro-
+price t seconds after the fill, for single fills. We pool all propAMMs per chain, for
+SOL/USDC on Solana, WETH/USDC on Base and WMON/USDC on Monad.
+ond, Tessera and Elfomo earn considerably more per fill than any propAMM on
+Solana, while Metric earns less than all but BisonFi.
+On Monad, Hanji and Metric behave like the propAMMs on Solana, i.e., their
+markout is negative ahead of the fill, at −3.63 bps and −1.99 bps 5 s before, and
+rises before the fill (Figure 16). Hanji gives back part of the gain and declines
+from 2.14 bps at the fill to 1.65 bps 2 s later, while Metric declines more modestly
+from 1.88 to 1.72 bps.
+F
+Markouts by Route Class
+Figures 17 and 18 split the pooled propAMM markouts of Section 6 into the two
+route classes of Table 2. Single fills are profitable on all three chains at 2 s, earning
+0.41 bps on Solana, 0.92 bps on Base and 1.44 bps on Monad, whereas propAMM–
+DEX legs earn 0.03, 0.02 and 1.55 bps. The positive pooled markout is therefore
+not the product of one transaction type. The classes differ in the pre-fill leg,
+where propAMM–DEX legs follow a reference-price move of 4.9 bps on Solana,
+1.9 bps on Base and 7.3 bps on Monad, against the smaller drift of single fills.
+
+
+[page 28]
+28
+O. Solmaz et al.
+−5
+0
+5
+10
+15
+seconds after fill
+−4.5
+−3.0
+−1.5
+0.0
+markout [bps]
+(a) Solana
+−5
+0
+5
+10
+15
+seconds after fill
+−1.8
+−1.2
+−0.6
+0.0
+markout [bps]
+(b) Base
+−5
+0
+5
+10
+15
+seconds after fill
+−7.5
+−5.0
+−2.5
+0.0
+markout [bps]
+(c) Monad
+Fig. 18. Gross notional-weighted mean maker markout against the Bybit mi-
+croprice t seconds after the fill, for propAMM fills in propAMM–DEX arbi-
+trage transactions. We pool all propAMMs per chain, for SOL/USDC on Solana,
+WETH/USDC on Base and WMON/USDC on Monad.
+−5
+0
+5
+10
+15
+seconds after fill
+0
+2
+4
+markout [bps]
+all
+quiet
+moving
+(a) Solana
+−5
+0
+5
+10
+15
+seconds after fill
+0.0
+1.5
+3.0
+4.5
+markout [bps]
+all
+quiet
+moving
+(b) Base
+−5
+0
+5
+10
+15
+seconds after fill
+−4
+0
+4
+8
+markout [bps]
+all
+quiet
+moving
+(c) Monad
+Fig. 19. AMM markouts under the same split as Figure 8. Quiet fills carry only
+9% of notional on Solana, 16% on Base and 8% on Monad.
+G
+Retail Execution on AMMs
+Figure 19 shows that the AMM loss is not uniform across flow. On quiet flow,
+AMMs earn 2.59 bps on Solana, 1.38 bps on Base and 8.60 bps on Monad at 2 s,
+while on moving flow they lose 0.49 bps, 1.00 bps and 2.99 bps. The pooled figures
+of Section 6 are averages of the two, dominated by moving flow, which carries
+91%, 84% and 92% of AMM notional respectively.

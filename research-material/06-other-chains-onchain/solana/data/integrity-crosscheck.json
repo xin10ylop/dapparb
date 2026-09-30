@@ -1,0 +1,57 @@
+{
+ "checked_at_utc": "2026-09-30T21:37:57.640321Z",
+ "checks": [
+  {
+   "slot": 452084865,
+   "stored_endpoint": "https://solana-rpc.publicnode.com",
+   "other_endpoint": "https://api.mainnet-beta.solana.com",
+   "blockhash_equal": true,
+   "tx_count_equal": true,
+   "nonvote_json_equal_strict": false,
+   "nonvote_json_equal_numbers_normalized": false,
+   "nonvote_json_equal_numbers_normalized_excluding_logMessages": true,
+   "logMessages_length_differs_tx_indices": [
+    517
+   ],
+   "note": "strict: byte-identical JSON. numbers_normalized: all JSON numbers compared as floats (one server writes whole-number floats such as uiTokenAmount.uiAmount as 1150, the other as 1150.0). excluding_logMessages: additionally ignores meta.logMessages, which servers truncate at different byte limits ('Log truncated' line)"
+  },
+  {
+   "slot": 452085065,
+   "stored_endpoint": "https://solana-rpc.publicnode.com",
+   "other_endpoint": "https://api.mainnet-beta.solana.com",
+   "blockhash_equal": true,
+   "tx_count_equal": true,
+   "nonvote_json_equal_strict": false,
+   "nonvote_json_equal_numbers_normalized": false,
+   "nonvote_json_equal_numbers_normalized_excluding_logMessages": true,
+   "logMessages_length_differs_tx_indices": [
+    571
+   ],
+   "note": "strict: byte-identical JSON. numbers_normalized: all JSON numbers compared as floats (one server writes whole-number floats such as uiTokenAmount.uiAmount as 1150, the other as 1150.0). excluding_logMessages: additionally ignores meta.logMessages, which servers truncate at different byte limits ('Log truncated' line)"
+  },
+  {
+   "slot": 452085265,
+   "stored_endpoint": "https://solana-rpc.publicnode.com",
+   "other_endpoint": "https://api.mainnet-beta.solana.com",
+   "blockhash_equal": true,
+   "tx_count_equal": true,
+   "nonvote_json_equal_strict": false,
+   "nonvote_json_equal_numbers_normalized": true,
+   "nonvote_json_equal_numbers_normalized_excluding_logMessages": true,
+   "logMessages_length_differs_tx_indices": [],
+   "note": "strict: byte-identical JSON. numbers_normalized: all JSON numbers compared as floats (one server writes whole-number floats such as uiTokenAmount.uiAmount as 1150, the other as 1150.0). excluding_logMessages: additionally ignores meta.logMessages, which servers truncate at different byte limits ('Log truncated' line)"
+  },
+  {
+   "slot": 452085464,
+   "stored_endpoint": "https://solana-rpc.publicnode.com",
+   "other_endpoint": "https://api.mainnet-beta.solana.com",
+   "blockhash_equal": true,
+   "tx_count_equal": true,
+   "nonvote_json_equal_strict": false,
+   "nonvote_json_equal_numbers_normalized": true,
+   "nonvote_json_equal_numbers_normalized_excluding_logMessages": true,
+   "logMessages_length_differs_tx_indices": [],
+   "note": "strict: byte-identical JSON. numbers_normalized: all JSON numbers compared as floats (one server writes whole-number floats such as uiTokenAmount.uiAmount as 1150, the other as 1150.0). excluding_logMessages: additionally ignores meta.logMessages, which servers truncate at different byte limits ('Log truncated' line)"
+  }
+ ]
+}

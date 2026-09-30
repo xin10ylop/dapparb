@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/uVP46jYqCUks9JbuyExqQ/9IK7M</id>
+  <title>arXiv Query: search_query=all:solana AND all:MEV&amp;id_list=&amp;start=0&amp;max_results=100</title>
+  <updated>2026-09-30T21:45:07Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:solana+AND+all:MEV&amp;start=0&amp;max_results=100&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2607.28424v2</id>
+    <title>Demystifying Solana Bots: From GitHub Blueprints to On-Chain Fingerprints</title>
+    <updated>2026-07-31T07:11:57Z</updated>
+    <link href="https://arxiv.org/abs/2607.28424v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.28424v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Solana is an emerging blockchain platform designed for high throughput and low transaction fees, making it inexpensive to submit transactions at scale and, consequently, increasing exposure to bot spamming and related financial exploitation. Solana bots are typically off-chain software systems that operate in a competitive on-chain execution environment by constructing and submitting transactions, and the bot-related transactions on the decentralized exchanges exceed 250 million dollars in daily trading volume in January 2026. Prior studies on Solana have examined system performance, smart-contract security, and specific on-chain phenomena. However, we still lack a systematic understanding of what Solana bots implement in practice and how these implementations manifest as observable on-chain execution fingerprints. To address this gap, we performed a large-scale empirical study of Solana bots from two complementary views: (i) 586 bot repositories collected from GitHub, and (ii) 200 bot addresses on Solana, with over 44 million on-chain transactions. Our study derives an implementation-grounded taxonomy of Solana bots comprising 15 categories grouped into five domains (e.g., Trading Operations, MEV, and On-chain Analytics), identifies a largely shared five-stage operational pipeline manifested in bot implementations, and uncovers systematic variation in on-chain trading behaviors of Solana bots across diverse trading platforms and assets. Based on our findings, we highlight future research directions, and provide recommendations for building and operating bots on the Solana blockchain.</summary>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-30T16:02:50Z</published>
+    <arxiv:comment>Accepted at ASE 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.SE"/>
+    <author>
+      <name>Xiaoye Zheng</name>
+    </author>
+    <author>
+      <name>Yujing Chen</name>
+    </author>
+    <author>
+      <name>Minghao Wu</name>
+    </author>
+    <author>
+      <name>David Lo</name>
+    </author>
+    <author>
+      <name>Difan Xie</name>
+    </author>
+    <author>
+      <name>Daoyuan Wu</name>
+    </author>
+    <author>
+      <name>Xiaohu Yang</name>
+    </author>
+    <author>
+      <name>Zhiyuan Wan</name>
+    </author>
+    <arxiv:doi>10.1145/3832783.3837522</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1145/3832783.3837522" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.13127v1</id>
+    <title>Hybrid Femtosecond Laser and Ion-Implantation Processing for Controlled, Deep, High-Efficiency Ablation in Fused Silica</title>
+    <updated>2026-02-13T17:25:01Z</updated>
+    <link href="https://arxiv.org/abs/2602.13127v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.13127v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Femtosecond laser modification of fused silica enables precise surface tailoring for the fabrication of micro-optical components such as microlenses and diffractive elements. However, the process is governed by laser-matter interactions where the local fluence determines the processing depth, often limiting control over feature geometry and efficiency. Here, we present a hybrid approach combining localized Au implantation (1.8 MeV Au2+ ions) into SiO2 samples with femtosecond laser irradiation (250 fs), effectively tuning the laser-matter interaction and resulting morphology. At both 515 nm and 1030 nm irradiation wavelengths, single-shot femtosecond pulses produce cylindrical craters with sharp edges and flat-bottom profiles. Independently of the fluence, these craters exhibit a constant depth of 550 nm, corresponding to the region of maximum Au concentration. The effect manifests already at moderate fluence (app. 4 J/sq.cm) and yields high ablation efficiency, up to 15 cubic micrometers per microjoule. The hybrid method also works effectively at lower implantation doses that preserve the excellent transmission of fused silica, offering a promising pathway for the high-quality fabrication of flat optical components such as binary phase masks, phase lenses, or fused-silica micromolds.</summary>
+    <category term="physics.optics" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.mtrl-sci" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-02-13T17:25:01Z</published>
+    <arxiv:comment>23 pages, 5 figures</arxiv:comment>
+    <arxiv:primary_category term="physics.optics"/>
+    <arxiv:journal_ref>Applied Surface Science 730, 166239 (2026)</arxiv:journal_ref>
+    <author>
+      <name>Mario Garcia-Lechuga</name>
+    </author>
+    <author>
+      <name>Yoann Levy</name>
+    </author>
+    <author>
+      <name>Irene Solana</name>
+    </author>
+    <author>
+      <name>Fatima Cabello</name>
+    </author>
+    <author>
+      <name>Maria Dolores Ynsa</name>
+    </author>
+    <author>
+      <name>Nadezhda M. Bulgakova</name>
+    </author>
+  </entry>
+</feed>

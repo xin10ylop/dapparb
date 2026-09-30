@@ -1,0 +1,239 @@
+Verbatim excerpts of DEX / launchpad contract address tables relevant to BSC.
+Each block copies exact consecutive lines of the saved doc text file named in SOURCE_FILE.
+
+### PancakeSwap v2 factory (PancakeFactory) per chain
+SOURCE_FILE: docs/pancakeswap-v2-addresses.txt (lines 140-159)
+URL: https://developer.pancakeswap.finance/contracts/v2/addresses
+FETCHED_AT_UTC: 2026-09-30T21:18:35Z
+---8<--- verbatim
+Core[](</contracts/v2/addresses#core>)
+
+**Contract name:** [View PancakeFactory.sol on GitHub](<https://github.com/pancakeswap/pancake-contracts/blob/master/projects/exchange-protocol/contracts/PancakeFactory.sol>).
+
+Mainnet
+
+Chain| Address  
+---|---  
+BSC| 0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73  
+ETH| 0x1097053Fd2ea711dad45caCcc45EfF7548fCB362  
+zkSync| 0xd03D8D566183F0086d8D09A84E1e30b58Dd5619d  
+Arbitrum| 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E  
+Linea| 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E  
+Base| 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E  
+opBNB| 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E  
+Monad| 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E  
+Robinhood| 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E  
+  
+Testnet
+
+---8<---
+
+### PancakeSwap v2 router (PancakeRouter)
+SOURCE_FILE: docs/pancakeswap-v2-addresses.txt (lines 168-185)
+URL: https://developer.pancakeswap.finance/contracts/v2/addresses
+FETCHED_AT_UTC: 2026-09-30T21:18:35Z
+---8<--- verbatim
+**Contract name:** [View PancakeRouter.sol on GitHub](<https://github.com/pancakeswap/pancake-smart-contracts/blob/master/projects/exchange-protocol/contracts/PancakeRouter.sol>).
+
+Mainnet
+
+Chain| Address  
+---|---  
+BSC| 0x10ED43C718714eb63d5aA57B78B54704E256024E  
+ETH| 0xEfF92A263d31888d860bD50809A8D171709b7b1c  
+zkSync| 0x5aEaF2883FBf30f3D62471154eDa3C0c1b05942d  
+Arbitrum| 0x8cFe327CEc66d1C090Dd72bd0FF11d690C33a2Eb  
+Linea| 0x8cFe327CEc66d1C090Dd72bd0FF11d690C33a2Eb  
+Base| 0x8cFe327CEc66d1C090Dd72bd0FF11d690C33a2Eb  
+opBNB| 0x8cFe327CEc66d1C090Dd72bd0FF11d690C33a2Eb  
+Monad| 0xB1Bc24c34e88f7D43D5923034E3a14B24DaACfF9  
+Robinhood| 0x8cFe327CEc66d1C090Dd72bd0FF11d690C33a2Eb  
+  
+Testnet
+
+---8<---
+
+### PancakeSwap v3 core (factory, pool deployer)
+SOURCE_FILE: docs/pancakeswap-v3-addresses.txt (lines 140-147)
+URL: https://developer.pancakeswap.finance/contracts/v3/addresses
+FETCHED_AT_UTC: 2026-09-30T21:18:37Z
+---8<--- verbatim
+Core[](</contracts/v3/addresses#core>)
+
+Contract| BSC, ETH, ARB, Linea, Base, opBNB, BSC TESTNET / MAINNET, Monad, Robinhood| zkSync  
+---|---|---  
+PancakeV3Factory| 0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865| 0x1BB72E0CbbEA93c08f535fc7856E0338D7F7a8aB  
+PancakeV3PoolDeployer| 0x41ff9AA7e16B8B1a8a8dc4f0eFacd93D02d071c9| 0x7f71382044A6a62595D5D357fE75CA8199123aD6  
+  
+## 
+---8<---
+
+### PancakeSwap v3 periphery
+SOURCE_FILE: docs/pancakeswap-v3-addresses.txt (lines 149-164)
+URL: https://developer.pancakeswap.finance/contracts/v3/addresses
+FETCHED_AT_UTC: 2026-09-30T21:18:37Z
+---8<--- verbatim
+Periphery[](</contracts/v3/addresses#periphery>)
+
+Contract| BSC, ETH, Arbitrum, Linea, Base, opBNB, Monad| zkSync| BSC TESTNET| Robinhood  
+---|---|---|---|---  
+SwapRouter (v3)| 0x1b81D678ffb9C0263b24A97847620C99d213eB14| 0xD70C70AD87aa8D45b8D59600342FB3AEe76E3c68| 0x1b81D678ffb9C0263b24A97847620C99d213eB14| n/a  
+V3Migrator| 0xbC203d7f83677c7ed3F7acEc959963E7F4ECC5C2| 0x556A72A7A3bB3bbd293D923e59b6B56898fB405D| 0x46A15B0b27311cedF172AB29E4f4766fbE7F4364| 0xbC203d7f83677c7ed3F7acEc959963E7F4ECC5C2  
+NonfungiblePositionManager| 0x46A15B0b27311cedF172AB29E4f4766fbE7F4364| 0xa815e2eD7f7d5B0c49fda367F249232a1B9D2883| 0x427bF5b37357632377eCbEC9de3626C71A5396c1| 0x46A15B0b27311cedF172AB29E4f4766fbE7F4364  
+QuoterV2| 0xB048Bbc1Ee6b733FFfCFb9e9CeF7375518e25997| 0x3d146FcE6c1006857750cBe8aF44f76a28041CCc| 0xbC203d7f83677c7ed3F7acEc959963E7F4ECC5C2| 0x8553AA1615549A86882151784b329B017aA7c832  
+TickLens| 0x9a489505a00cE272eAa5e07Dba6491314CaE3796| 0x7b08978FA77910f77d273c353C62b5BFB9E6D17B| 0xac1cE734566f390A94b00eb9bf561c2625BF44ea| 0x9a489505a00cE272eAa5e07Dba6491314CaE3796  
+PancakeInterfaceMulticall| 0xac1cE734566f390A94b00eb9bf561c2625BF44ea| 0x2a76b93B9Cd441AE8aDA529e0e95826e00556351| 0x3D00CdB4785F0ef20C903A13596e0b9B2c652227| 0xcf05Fc31A6B693DD0bEB76e958ae4BCD490dc985  
+Contract| BSC, ETH, Linea| Linea, Base, opBNB| Arbitrum| zkSync| Monad| BSC TESTNET| Robinhood  
+---|---|---|---|---|---|---|---  
+MixedRouteQuoterV1| 0x678Aa4bF4E210cf2166753e054d5b7c31cc7fa86| 0x4c650FB471fe4e0f476fD3437C3411B1122c4e3B| 0x3652Fc6EDcbD76161b8554388867d3dAb65eCA93| 0x9B1edFB3848660402E4f1DC25733764e80aA627A| 0x77b482D9A4E391d682C857C630B8d869FdeE5c44| 0xB048Bbc1Ee6b733FFfCFb9e9CeF7375518e25997| 0x2b792b99ae08483D45d79833408439674C6Daf1B  
+TokenValidator| 0x864ED564875BdDD6F421e226494a0E7c071C06f8| 0x556B9306565093C855AEA9AE92A594704c2Cd59e| 0x8be9EA9C6015985AB2F5A216093305A9AaEb8164| 0x08529A4be615746ef31CdbeD46Ce556406787E2F| 0xfcB76dfDf9c79AE5d334C0E1901449c8A893DF22| 0x678Aa4bF4E210cf2166753e054d5b7c31cc7fa86| n/a  
+  
+## 
+---8<---
+
+### PancakeSwap v3 smart router
+SOURCE_FILE: docs/pancakeswap-v3-addresses.txt (lines 166-175)
+URL: https://developer.pancakeswap.finance/contracts/v3/addresses
+FETCHED_AT_UTC: 2026-09-30T21:18:37Z
+---8<--- verbatim
+Smart Router[](</contracts/v3/addresses#smart-router>)
+
+Able to route to v3, v2 and stable pool
+
+Chain| Address  
+---|---  
+BSC, ETH, Robinhood| 0x13f4EA83D0bd40E75C8222255bc855a974568Dd4  
+Linea, Base, opBNB| 0x678Aa4bF4E210cf2166753e054d5b7c31cc7fa86  
+Arbitrum| 0x32226588378236Fd0c7c4053999F88aC0e5cAc77  
+zkSync| 0xf8b59f3c3Ab33200ec80a8A58b2aA5F5D2a8944C  
+---8<---
+
+### PancakeSwap Infinity core (Vault, CLPoolManager, BinPoolManager)
+SOURCE_FILE: docs/pancakeswap-infinity-addresses.txt (lines 140-151)
+URL: https://developer.pancakeswap.finance/contracts/infinity/resources/addresses
+FETCHED_AT_UTC: 2026-09-30T21:18:38Z
+---8<--- verbatim
+PCS Infinity have been deployed on BNB Smart Chain, Base, Robinhood and Arc
+
+* * *
+
+From <https://github.com/pancakeswap/infinity-core>
+
+Contract| BNB & Base| Robinhood| Arc| BNB Testnet| Sepolia  
+---|---|---|---|---|---  
+Vault| 0x238a358808379702088667322f80aC48bAd5e6c4| 0x4F922d5B15e6691e0469663E4F5C4177f23c5FaF| 0x238a358808379702088667322f80aC48bAd5e6c4| 0x2CdB3EC82EE13d341Dc6E73637BE0Eab79cb79dD| 0x4670F769Daa625FF5F89719AE5295E9824f5805f  
+CLPoolManager| 0xa0FfB9c1CE1Fe56963B0321B32E7A0302114058b| 0xeE04c68742e6Bf434bE8039580D2e89BBE55bc6f| 0xa0FfB9c1CE1Fe56963B0321B32E7A0302114058b| 0x36A12c70c9Cf64f24E89ee132BF93Df2DCD199d4| 0xD4EAc75ee0E76EAD6AC6995DF30CA14b38549682  
+BinPoolManager| 0xC697d2898e0D09264376196696c51D7aBbbAA4a9| n/a| n/a| 0xe71d2e0230cE0765be53A8A1ee05bdACF30F296B| 0x0Ca8430E263A098B998E47e0544C2C82B30CbDB1  
+  
+---8<---
+
+### PancakeSwap Infinity periphery + universal router
+SOURCE_FILE: docs/pancakeswap-infinity-addresses.txt (lines 154-170)
+URL: https://developer.pancakeswap.finance/contracts/infinity/resources/addresses
+FETCHED_AT_UTC: 2026-09-30T21:18:38Z
+---8<--- verbatim
+From <https://github.com/pancakeswap/infinity-periphery>
+
+Contract| BNB & Base| Robinhood| Arc| BNB Testnet| Sepolia  
+---|---|---|---|---|---  
+CLPositionManager| 0x55f4c8abA71A1e923edC303eb4fEfF14608cC226| 0xeaEA9253A0b75B936a965DbD35B2a3F01831DE74| 0x55f4c8abA71A1e923edC303eb4fEfF14608cC226| 0x77DedB52EC6260daC4011313DBEE09616d30d122| 0x53C9802F47295979c0E154779eD10fa6af27D7cA  
+BinPositionManager| 0x3D311D6283Dd8aB90bb0031835C8e606349e2850| n/a| n/a| 0x68B834232da911c787bcF782CED84ec5d36909a7| 0x21015eF9927e06b7Fc19D986A214e449Aa22FF7d  
+CLQuoter| 0xd0737C9762912dD34c3271197E362Aa736Df0926| 0x6b3E15009681869FCF6AE2F3bBf6e33B2D0C590e| 0xd0737C9762912dD34c3271197E362Aa736Df0926| 0x5d544D0ad627a72d7Fb53c22D8888663FC5d5B0d| 0x6B71bA938100FD313Be08E680639900E0cfE3d74  
+BinQuoter| 0xC631f4B0Fc2Dd68AD45f74B2942628db117dD359| n/a| n/a| 0x82E7741E3DE763692785cfDB536D168B1226c4d5| 0x4DcaF8f6040B12a2C6149956Cc2e36FA3b7a60b9  
+MixedQuoter| 0x2dCbF7B985c8C5C931818e4E107bAe8aaC8dAB7C| 0xB05b2Ba5a00BEb4DCa5A91835D6D0cedFc4B4ABa| 0x2dCbF7B985c8C5C931818e4E107bAe8aaC8dAB7C| 0xdf70a0A2DADC2a01dbE165702aa6dCdf034628b0| 0x3F47BDA24e069FC5f28B74d4FAB27EeBA006eF92  
+  
+* * *
+
+<https://github.com/pancakeswap/infinity-universal-router>
+
+Contract| BNB & Base & Arc| Robinhood| BNB Testnet| Sepolia  
+---|---|---|---|---  
+UniversalRouter| 0xd9C500DfF816a1Da21A48A732d3498Bf09dc9AEB| 0x57fc55F719DF19B4b90A03F9D78E1177D002E504| 0x87FD5305E6a40F378da124864B2D479c2028BD86| 0x19Dbcfc815166633A393953B91115BF6D20E5c5a
+---8<---
+
+### Uniswap sdk-core BNB addresses (v2/v3/v4 incl. v4PoolManagerAddress)
+SOURCE_FILE: docs/uniswap-sdk-core-addresses-ts.txt (lines 183-198)
+URL: https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts
+FETCHED_AT_UTC: 2026-09-30T21:31:09Z
+---8<--- verbatim
+// BNB v3 addresses
+const BNB_ADDRESSES: ChainAddresses = {
+  v3CoreFactoryAddress: '0xdB1d10011AD0Ff90774D0C6Bb92e5C5c8b4461F7',
+  multicallAddress: '0x963Df249eD09c358A4819E39d9Cd5736c3087184',
+  quoterAddress: '0x78D78E420Da98ad378D7799bE8f4AF69033EB077',
+  v3MigratorAddress: '0x32681814957e0C13117ddc0c2aba232b5c9e760f',
+  nonfungiblePositionManagerAddress: '0x7b8A01B39D58278b5DE7e48c8449c9f4F5170613',
+  tickLensAddress: '0xD9270014D396281579760619CCf4c3af0501A47C',
+  swapRouter02Address: '0xB971eF87ede563556b2ED4b1C0b0019111Dd85d2',
+
+  v4PoolManagerAddress: '0x28e2ea090877bf75740558f6bfb36a5ffee9e9df',
+  v4PositionManagerAddress: '0x7a4a5c919ae2541aed11041a1aeee68f1287f95b',
+  v4StateView: '0xd13dd3d6e93f276fafc9db9e6bb47c1180aee0c4',
+  v4QuoterAddress: '0x9f75dd27d6664c475b90e105573e550ff69437b0',
+}
+
+---8<---
+
+### Uniswap sdk-core V2 factory per chain (BNB line)
+SOURCE_FILE: docs/uniswap-sdk-core-addresses-ts.txt (lines 68-68)
+URL: https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts
+FETCHED_AT_UTC: 2026-09-30T21:31:09Z
+---8<--- verbatim
+  [ChainId.BNB]: '0x8909Dc15e40173Ff4699343b6eB8132c65e18eC6',
+---8<---
+
+### Uniswap sdk-core V2 router per chain (BNB line)
+SOURCE_FILE: docs/uniswap-sdk-core-addresses-ts.txt (lines 99-99)
+URL: https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts
+FETCHED_AT_UTC: 2026-09-30T21:31:09Z
+---8<--- verbatim
+  [ChainId.BNB]: '0x4752ba5dbc23f44d87826276bf6fd6b1c372ad24',
+---8<---
+
+### Four.meme contract addresses
+SOURCE_FILE: docs/fourmeme-docs-integration-guide.txt (lines 47-47)
+URL: https://github.com/four-meme-community/fourmeme-docs/blob/5f7f589b042e4e3b41c2c214d0fe3a81b36725a9/docs/integration-guide.md
+FETCHED_AT_UTC: 2026-09-30T21:31:10Z (git clone --depth 1 of https://github.com/four-meme-community/fourmeme-docs)
+---8<--- verbatim
+| TokenManager2 (V2) | `0x5c952063c7fc8610FFDB798152D69F0B9550762b` |
+---8<---
+
+### Four.meme contract table
+SOURCE_FILE: docs/fourmeme-docs-integration-guide.txt (lines 28-39)
+URL: https://github.com/four-meme-community/fourmeme-docs/blob/5f7f589b042e4e3b41c2c214d0fe3a81b36725a9/docs/integration-guide.md
+FETCHED_AT_UTC: 2026-09-30T21:31:10Z (git clone --depth 1 of https://github.com/four-meme-community/fourmeme-docs)
+---8<--- verbatim
+| Contract | Role |
+|----------|------|
+| `TokenManager` (V1) | Trade tokens created **before** 2024-09-05. Creation is no longer used for new launches. |
+| `TokenManager2` (V2) | Create and trade tokens created **on/after** 2024-09-05. Supports BNB and BEP20 quote pairs. |
+| `TokenManagerHelper3` (Helper V3) | Unified token info, buy/sell estimates, V1/V2 routing helper, and BNB↔ERC20 quote helpers. |
+
+Recommended approach:
+
+1. Always call Helper3 `getTokenInfo(token)` first.
+2. Use the returned `version` and `tokenManager` to select V1 or V2 trade methods.
+3. Prefer the returned `tokenManager` when choosing which manager ABI to call (on BSC it matches the published V1/V2 constants).
+
+---8<---
+
+### Flap BNB Chain deployed contracts
+SOURCE_FILE: docs/flap-deployed-addresses-main-md.txt (lines 20-33)
+URL: https://docs.flap.sh/flap/developers/deployed-contract-addresses.md
+FETCHED_AT_UTC: 2026-09-30T21:31:07Z
+---8<--- verbatim
+### BNB Chain
+
+| Name                   | Address                                      | Notes                                                                        |
+| ---------------------- | -------------------------------------------- | ---------------------------------------------------------------------------- |
+| Portal                 | `0xe2cE6ab80874Fa9Fa2aAE65D277Dd6B8e65C9De0` | v5.23.1                                                                      |
+| Standard Token Impl    | `0x8b4329947e34b6d56d71a3385cac122bade7d78d` | Vanity suffix: 8888                                                          |
+| Tax Token V3 Impl      | `0x024f18294970B5c76c0691b87f138A0317156422` | Vanity suffix: 7777                                                          |
+| Standard Token V3 Impl | `0x88881b6f03090462a969eC7f48385744Eeb63333` | Vanity suffix: 8888                                                          |
+| VaultPortal            | `0x90497450f2a706f1951b5bdda52B4E5d16f34C06` |                                                                              |
+| Trigger Service        | `0xcf4EE25035CF883895110f367F5BA8172416a7F9` | See [Flap Trigger Service](/flap/developers/preview/flap-trigger-service.md) |
+| AI Oracle              | `0xaEe3a7Ca6fe6b53f6c32a3e8407eC5A9dF8B7E39` | Preview. See [Flap AI Oracle](/flap/developers/preview/flap-ai-oracle.md)    |
+| Candy Box              | `0x6255fbd731272a517022e99f6CaCf6A5De9414Ee` | Preview. See [Flap Candy Box](/flap/developers/preview/flap-candy-box.md)    |
+| Tax Token Helper       | `0x53841c73217735F37BC1775538b03b23feFD8346` |                                                                              |
+
+---8<---

@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/2PtBMEDYGyqki2SEaSFSbpvFNjo</id>
+  <title>arXiv Query: search_query=abs:solana AND (abs:arbitrage OR abs:MEV OR abs:"maximal extractable value" OR abs:sandwich OR abs:jito)&amp;id_list=&amp;start=0&amp;max_results=100</title>
+  <updated>2026-09-30T21:44:56Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:solana+AND+(abs:arbitrage+OR+(abs:MEV+OR+(abs:%22maximal+extractable+value%22+OR+(abs:sandwich+OR+abs:jito))))&amp;start=0&amp;max_results=100&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <opensearch:totalResults>4</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.38056v1</id>
+    <title>Active Liquidity On Chain: Evidence from PropAMMs Across Chains</title>
+    <updated>2026-09-29T17:25:02Z</updated>
+    <link href="https://arxiv.org/abs/2609.38056v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.38056v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The liquidity providers of most typical automated market makers (AMMs) are passive and known to suffer from adverse selection. AMMs traditionally rely on trades executed on them to sync the price with external markets (and a notion of fair value thereof). As a result, when an external fair value moves, arbitrageurs trade on AMMs to pick off their stale quotes. A recent approach termed proprietary automated market makers (propAMMs) emerged as a response in 2024: these on-chain programs instead have their singular operator quote from its own inventory, repricing without a trade via efficiently provided price updates. By 2026, propAMMs accounted for more than half of SOL/USDC volume on Solana.
+  We present the first year-long longitudinal measurement of propAMMs on Solana, Base and Monad, and decode the on-chain logic of the dominant propAMM on Base. We find that two seconds after a fill, propAMMs earn 0.37 bps on Solana and 1.19 bps on Base, while AMMs lose 0.22 and 0.62 bps. We empirically quantify and classify their edge as stemming from four factors: propAMMs continuously reprice rather than waiting for a trade, they charge for the source-dependent risk each counterparty might bring, they avoid cross-venue arbitrage from other on-chain markets (such as other AMMs), and they spoof by filling trades at a worse price than they quote. Finally, we show that on our proxy for retail flow (i.e., fills that arrive when the reference price is not moving) propAMMs collect 0.26 bps on Solana where AMMs collect 2.59 bps, indicating that they offer better prices for short-term uninformed flow.</summary>
+    <category term="cs.CE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-29T17:25:02Z</published>
+    <arxiv:primary_category term="cs.CE"/>
+    <author>
+      <name>Ozan Solmaz</name>
+    </author>
+    <author>
+      <name>Lioba Heimbach</name>
+    </author>
+    <author>
+      <name>Jason Milionis</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.28115v1</id>
+    <title>No Place to Hide: An Analysis on Protected Order Flow Sandwich Attacks</title>
+    <updated>2026-09-23T13:45:10Z</updated>
+    <link href="https://arxiv.org/abs/2609.28115v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.28115v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Front-running has long plagued Ethereum's public mempool, earning it the nickname of a "dark forest", where predators lurk for profitable transactions. In response, Ethereum and other blockchain ecosystems increasingly rely on private RPCs and native protections to shield transactions from adversaries, which we refer to as protected order flow. Yet the effectiveness of these mechanisms in preventing front-running, and what trust assumptions they entail, remain poorly understood.
+  In this work, we conduct the first longitudinal, three-year measurement study of sandwich attacks against protected order flow across six blockchains: Ethereum, Solana, Tron, Base, Arbitrum, and Monad. We introduce detection heuristics that capture wide attacks, both within and across blocks, and filter on bot behavior to distinguish sandwiches from legitimate trading activity. We identify 28.0 million sandwich attacks on Solana, 38,567 on Tron, 30,607 on Ethereum, and 1,889 on Base against transactions intended to be protected from front-running. Reorged blocks expose a further 2,875 Ethereum victims. Unlike conventional public-mempool sandwiches, these attacks rarely occur tightly around their victims and, outside Solana, are carried out by a small number of entities.
+  Our analysis uncovers exposures at every layer: validator- and application-level exposure on Solana, order-flow auctions and reorged blocks on Ethereum, first-come-first-served ordering that fails to prevent latency-based front-running on Tron, and both an RPC bug that exposes pending transactions and predictable victim behavior on Base. These findings show that existing front-running protections can provide substantially weaker guarantees than users expect, highlighting the need for stronger end-to-end defenses against sandwich attacks.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-23T13:45:10Z</published>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Lioba Heimbach</name>
+    </author>
+    <author>
+      <name>Ozan Solmaz</name>
+    </author>
+    <author>
+      <name>Burak Öz</name>
+    </author>
+    <author>
+      <name>Christof Ferreira Torres</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.30321v1</id>
+    <title>Optimal Block Time for AMM Liquidity Providers under Jump-Diffusion Prices</title>
+    <updated>2026-08-31T06:36:20Z</updated>
+    <link href="https://arxiv.org/abs/2608.30321v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.30321v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Loss-versus-Rebalancing (LVR) is the dominant adverse-selection cost borne by liquidity providers on automated market makers. Under geometric Brownian motion, arbitrage profit scales with the probability of a profitable block, which vanishes as the block time $Δt \to 0$; this is the standing argument for ever-shorter blocks. Modeling the reference price instead as a jump-diffusion, I show that the constant-product LVR rate splits into a diffusion channel carrying the known multiplier $F(γ/(σ\sqrt{Δt}))$ and a jump channel $λV \cdot G(γ;m,δ^2)$ carrying no $Δt$, the two interacting only through an explicitly bounded remainder. The block schedule therefore governs only one channel. For symmetric jump laws the jump channel is moreover an exact lower bound, $\ell(Δt) \ge λV G &gt; 0$, so the rate does not vanish as $Δt \to 0$, and descends slowly, as $\sqrt{Δt}$. At Ethereum's calibrated 12-second slot the rate is 471 bp/yr against a floor of 125, so only three quarters of LP loss is schedule-addressable. At Solana's 400 ms slot the jump channel already dominates. Netting the rate against per-block consensus cost, the LP-side optimal block time is invariant in pool size and in every jump parameter $(λ,m,δ)$: jumps shift the level of LP loss but not the planner's marginal tradeoff. Volatility, the fee tier, and consensus cost set the optimum, near 8 s. However, LVR is only one input to block-time welfare, so this bounds the LP-side contribution rather than settling the design question.</summary>
+    <category term="q-fin.MF" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="q-fin.TR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-31T06:36:20Z</published>
+    <arxiv:comment>Extended version of a paper accepted at MARBLE 2026 (Lecture Notes in Operations Research, Springer); adds Appendix A with the full proofs of every numbered result and Appendix B with supporting illustrations. 25 pages, 2 figures</arxiv:comment>
+    <arxiv:primary_category term="q-fin.MF"/>
+    <author>
+      <name>Nils Bundi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.28424v2</id>
+    <title>Demystifying Solana Bots: From GitHub Blueprints to On-Chain Fingerprints</title>
+    <updated>2026-07-31T07:11:57Z</updated>
+    <link href="https://arxiv.org/abs/2607.28424v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.28424v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Solana is an emerging blockchain platform designed for high throughput and low transaction fees, making it inexpensive to submit transactions at scale and, consequently, increasing exposure to bot spamming and related financial exploitation. Solana bots are typically off-chain software systems that operate in a competitive on-chain execution environment by constructing and submitting transactions, and the bot-related transactions on the decentralized exchanges exceed 250 million dollars in daily trading volume in January 2026. Prior studies on Solana have examined system performance, smart-contract security, and specific on-chain phenomena. However, we still lack a systematic understanding of what Solana bots implement in practice and how these implementations manifest as observable on-chain execution fingerprints. To address this gap, we performed a large-scale empirical study of Solana bots from two complementary views: (i) 586 bot repositories collected from GitHub, and (ii) 200 bot addresses on Solana, with over 44 million on-chain transactions. Our study derives an implementation-grounded taxonomy of Solana bots comprising 15 categories grouped into five domains (e.g., Trading Operations, MEV, and On-chain Analytics), identifies a largely shared five-stage operational pipeline manifested in bot implementations, and uncovers systematic variation in on-chain trading behaviors of Solana bots across diverse trading platforms and assets. Based on our findings, we highlight future research directions, and provide recommendations for building and operating bots on the Solana blockchain.</summary>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-30T16:02:50Z</published>
+    <arxiv:comment>Accepted at ASE 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.SE"/>
+    <author>
+      <name>Xiaoye Zheng</name>
+    </author>
+    <author>
+      <name>Yujing Chen</name>
+    </author>
+    <author>
+      <name>Minghao Wu</name>
+    </author>
+    <author>
+      <name>David Lo</name>
+    </author>
+    <author>
+      <name>Difan Xie</name>
+    </author>
+    <author>
+      <name>Daoyuan Wu</name>
+    </author>
+    <author>
+      <name>Xiaohu Yang</name>
+    </author>
+    <author>
+      <name>Zhiyuan Wan</name>
+    </author>
+    <arxiv:doi>10.1145/3832783.3837522</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1145/3832783.3837522" title="doi"/>
+  </entry>
+</feed>

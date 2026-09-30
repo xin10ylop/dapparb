@@ -51,7 +51,7 @@ The forward part of the census (`*-fw-*`) is timed to overlap the engine runs wh
 | use | endpoint | method(s) |
 |---|---|---|
 | backfill, lower part (`bf`) | https://base.drpc.org (public, free plan) | `eth_getBlockReceipts(n)`, `eth_getBlockByNumber(n,false)`; `eth_getTransactionReceipt` per tx only as fallback |
-| backfill, upper part (`bf2`) | https://gateway.tenderly.co/public/base, fallback https://base-rpc.publicnode.com | same |
+| backfill, upper parts (`bf2`, `bf3`) | https://gateway.tenderly.co/public/base (<= 3 in-flight), fallback https://base-rpc.publicnode.com (1 in-flight, 1 req/s) | same |
 | forward / head-following (`fw`) | https://base-rpc.publicnode.com (<= 2 req/s), fallback https://base.drpc.org (1 in-flight) | same, plus `eth_blockNumber` |
 | gap fill (`gf`, only if needed) | base.drpc.org, fallback base-rpc.publicnode.com | same |
 | topic keccak | `cast keccak` (foundry) | |
@@ -72,7 +72,13 @@ Endpoint notes observed on 2026-09-30:
 - Launch (pinned in `collect/state/config.json`): 2026-09-30T21:02:45Z. Launch head `52006409` (from base-rpc.publicnode.com).
 - Backfill: `bf_start = 52006409 - 10800 = 51995609` (timestamp 1790780565 = 2026-09-30T15:02:45Z) through `bf_end = 52006399`.
   The backfill was **not** reduced: the full 6 hours (10,791 blocks) is collected.
-  - `bf` (drpc): 51995609-51999999. `bf2` (tenderly): 52000000-52006399. The split was made at 21:12Z (see `bf_split_note` in config.json).
+  - `bf` (drpc): 51995609-51998799. `bf3` (tenderly): 51998800-51999999. `bf2` (tenderly): 52000000-52006399.
+    - At 21:12Z the range was split into bf and bf2 (`bf_split_note` in config.json).
+    - At 21:26Z bf was shortened again and bf3 was added (`bf3_split_note`).
+    - Both splits were made because base.drpc.org served only 0.3-2.6 blocks/s under HTTP 429.
+    - Each split was done by stopping only this collector's own processes. The checkpoint `end` was edited and `supervisor.py` restarted;
+      the streams resumed from their checkpoints (parts are truncated to the checkpointed size on restart, and no truncation was needed).
+    - The fw stream was paused for about 15 s at each restart; it resumes by block number, so no forward block was skipped.
 - Forward: `fw_start = 52006400` (timestamp 1790802147 = 2026-09-30T21:02:27Z) onward. The collector follows the head with a lag of
   10 blocks (20 s).
 - Forward stop rule: the stop is detected when (`V4LIVE.DONE` or `V4LIVE.FAILED`) AND (`SHALLOW_LIVE.DONE` or `SHALLOW_LIVE.FAILED`)
@@ -88,7 +94,8 @@ export PATH=/root/.foundry/bin:$PATH
 cd /home/user/dapparb/research-material/05-base-onchain/collect
 # swap topic list used by the census (static; regenerate topic0 with: cast keccak '<signature>')
 cat swap_topics_used.csv
-# main census: pins head, runs bf / bf2 / fw, gap fill, finalize, writes sentinel. Resumable: re-run the same command.
+# main census: pins head, runs bf / bf2 / (extra bfN from config.json) / fw, gap fill, finalize, writes sentinel.
+# Resumable: re-run the same command. (This run: BF2_BLOCKS equivalent 6400, plus extra_streams bf3 added to config.json at 21:26Z.)
 BF2_BLOCKS=6400 setsid nohup python3 -u supervisor.py > supervisor.log 2>&1 < /dev/null &
 # topic verification (writes ../swap-topics.csv; finalize.py later adds census_first_seen_* columns)
 setsid nohup python3 -u verify_topics.py > verify_topics.log 2>&1 < /dev/null &
@@ -100,8 +107,9 @@ python3 finalize.py
 ```
 
 - A fresh run pins a new head, so it collects a different window. To re-collect **this** window, first write `state/config.json`
-  with the values listed in section 3 (`launch_head` 52006409, `bf_start` 51995609, `bf_end` 52006399, `bf_split_end` 51999999,
-  `bf2_start` 52000000, `fw_start` 52006400, plus the keys the supervisor writes). Then write `state/fw.ckpt.json` as
+  with the values listed in section 3 (`launch_head` 52006409, `bf_start` 51995609, `bf_end` 52006399,
+  `bf2_start` 52000000, `bf2_end` 52006399, `bf_split_end` 51998799, `extra_streams` `[{"name":"bf3","start":51998800,"end":51999999}]`,
+  `fw_start` 52006400, plus the keys the supervisor writes). Then write `state/fw.ckpt.json` as
   `{"stream":"fw","start":52006400,"next":52006400,"stop_block":<final block>,"stop_reason":"reproduction"}`. Then start the supervisor.
 - Single streams can also be run by hand, e.g. `python3 census.py --stream bf --start A --end B --chunk 40 --workers 3`.
   The checkpoint goes to `state/bf.ckpt.json`.
@@ -130,7 +138,7 @@ python3 finalize.py
 
 ## 5. Per-file schemas
 
-Stream tag in file names: `bf` = backfill via drpc, `bf2` = backfill via tenderly, `fw` = forward/head-following, `gf` = gap fill.
+Stream tag in file names: `bf` = backfill via drpc, `bf2`/`bf3` = backfill via tenderly, `fw` = forward/head-following, `gf` = gap fill.
 Part numbers `NNNN` start at 0001. Every CSV part starts with its own header row. Each gz file may contain several concatenated
 gzip members. `zcat`, Python `gzip`, and pandas `read_csv(compression='gzip')` all read the whole file.
 
@@ -219,6 +227,10 @@ These ranges are also recorded in `collect/state/config.json` (`pre_provenance`)
 
 The topic list is identical to `collect/swap_topics_used.csv`, the file census.py loaded at start (26 topics).
 The list was fixed before launch and was not changed during the run.
+`collect/verify_topics.py` was still running when this manifest was written, and base.blockscout.com was returning HTTP 429
+and timeouts. Until that script finishes, `verification_method` reads `pending: ...` (progress in `collect/verify_topics.log`).
+If a row ends as "no log found ... failed: <windows>", the Blockscout query failed; it does not mean the search completed with no result.
+Re-run `python3 verify_topics.py` to retry. It keeps any `census_*` columns.
 
 ### `gaps.csv` / `gaps-final.csv` / `integrity.json` / `data/file_index.csv`
 

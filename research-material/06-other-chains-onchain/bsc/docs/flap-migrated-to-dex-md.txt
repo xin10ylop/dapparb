@@ -1,0 +1,36 @@
+URL: https://docs.flap.sh/flap/developers/basic-and-mechanism/list-on-dex.md
+FINAL_URL: https://docs.flap.sh/flap/developers/basic-and-mechanism/list-on-dex.md
+TITLE: Flap Migrated To DEX - markdown export
+PUBLISHER: Flap
+FETCHED_AT_UTC: 2026-09-30T21:30:02Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/markdown; charset=utf-8
+RAW_SHA256: 8b73a9e0d144c7f3871dd603119afdec7221f757d4a5fded974817496c18d506
+RAW_FILE: raw/flap-migrated-to-dex-md.md
+CONVERSION: verbatim
+==============================================================================
+> For the complete documentation index, see [llms.txt](https://docs.flap.sh/flap/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.flap.sh/flap/developers/basic-and-mechanism/list-on-dex.md).
+
+# Migrated To DEX
+
+## Overview
+
+Each token launched on flap has a maximum supply of 1 Billion. When a token reaches the milestone to be listed on the DEX, the remaining supply (non circulating) tokens and all the reserve (i.e., the quote token, e.g., ETH/BNB) will be added as liquidity to DEX.
+
+For different deployment, the milestone to be listed on DEX is different. In previous section ( [Bonding Curve](/flap/developers/basic-and-mechanism/bonding-curve.md) ), we know that the reserve of a token can be found by its circulating supply. So we can represent the milestone for migrating to DEX in either circulating supply or reserve. We list both of them in the following table for BNB chain when quote is BNB:
+
+<table><thead><tr><th width="365">Deployment</th><th>Circulating Supply</th><th>Reserve</th></tr></thead><tbody><tr><td>BSC (Legacy before block #42042177 )</td><td>800M</td><td>30.1 BNB</td></tr><tr><td>BSC (Legacy since block #42042177)</td><td>800M</td><td>16 BNB</td></tr><tr><td>BSC (Legacy since block 47855189 and before <a href="https://bscscan.com/block/51314696">51314696</a>)</td><td>800M</td><td>8 ETH</td></tr><tr><td>BSC ( After <a href="https://bscscan.com/block/51314696">51314696</a>)</td><td>800M</td><td>16 ETH / 10000USD1</td></tr></tbody></table>
+
+Let's take a look at the BSC Legacy deployment as an example. The purple point is the milestone when the token can be listed on the DEX, which is a circulating supply of 800M, or a reserve of 16 BNB or a market cap of 100 BNB. When the token reaches the milestone, it will be listed on DEX. If we are adding this token to Uniswap V3 (or its fork, e.g, PancakeSwap V3), the reserve (16 BNB) and the remaining token (200M) will be added as liquidity. ~~Besides, the Flap protocol is flexible and allows more token to be sold on the bonding curve. For example (the red curve on the following graph), if the last buyer buys a lot of token on the bonding curve, the resulting circulating supply would be 900M , and the reserve will be 36 BNB giving a market cap of 400 BNB. The token will still be listed on DEX with the remaining 100M token and 36 BNB reserve.~~ (CHANGES: You can not buy more than 800M no matter it is an old token or new one.)
+
+{% hint style="info" %}
+When a token is a tax token, it can only be migrated to Uniswap V2 or its forks.
+{% endhint %}
+
+For non-tax token, we will first try to add liquidity to Uniswap V3 (or its fork). If it is not viable, we will fallback to Uniswap V2 (or its fork).
+
+## Adding Liquidity To Uniswap V3 (or its fork)
+
+When adding liquidity to Uniswap V3, we only add liquidity to a concentrated range of prices, giving the token a better depth. The lowest price is the initial price on the bonding curve (i.e., the price when no one has bought the token yet), the current price is the last price on the bonding curve before the token is listed on DEX, and the max price is 10000 times of the current price.
+
+<figure><img src="https://2671086575-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F5KujUBwRoHVjn8OZEgtZ%2Fuploads%2FvGvCdUzOpRlJHUov59rS%2Fimage.png?alt=media&amp;token=6cea8a96-a22b-4049-98d0-cd58a00eab09" alt=""><figcaption></figcaption></figure>

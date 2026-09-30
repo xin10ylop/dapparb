@@ -1,0 +1,22 @@
+URL: https://four-meme.gitbook.io/four.meme/developer/fourmeme-integration.md
+FINAL_URL: https://four-meme.gitbook.io/four.meme/developer/fourmeme-integration.md
+TITLE: Four.meme Integration (TokenManager) - markdown export
+PUBLISHER: Four.meme
+FETCHED_AT_UTC: 2026-09-30T21:29:54Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/markdown; charset=utf-8
+RAW_SHA256: f2907ff36f8cdfa7dce269fa9cea6ef421135e8e7f2e935e000f925b37100dcb
+RAW_FILE: raw/fourmeme-integration-md.md
+CONVERSION: verbatim
+==============================================================================
+> For the complete documentation index, see [llms.txt](https://four-meme.gitbook.io/four.meme/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://four-meme.gitbook.io/four.meme/developer/fourmeme-integration.md).
+
+# Four.meme Integration
+
+Integration docs for the classic Four.Meme launch protocol (TokenManager), separate from OpenFour.
+
+These docs are for third-party integrators: wallets, trading UIs, DEX aggregators, indexers, data backends, and launch platforms. They cover deployed protocol usage only. They do not cover protocol internals, bonding-curve algorithms, admin operations, or custom module development.
+
+Github repos: <https://github.com/four-meme-community/fourmeme-docs>
+
+<br>

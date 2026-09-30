@@ -1,0 +1,126 @@
+SOURCE_URL: https://bam.dev/blog/introducing-bam/
+FINAL_URL: https://bam.dev/blog/introducing-bam/
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:43:12Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* Introducing BAM: The Future of Block Building on Solana | BAM
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+Plugins Validators Node Operators Docs Blog Explorer
+Back to Blog
+
+July 21, 2025 • 7 minute read
+
+## Introducing BAM: The Future of Block Building on Solana
+
+BAM Team
+Block Assembly Marketplace
+
+Share
+
+Today we are proposing a fundamental shift to how Solana transactions can be sequenced and how blocks can be built.
+We are excited to unveil the Block Assembly Marketplace (BAM) , high-performance block-building architecture that brings verifiability, privacy, and programmability to Solana’s transaction pipeline, paving the way for a new era of network adoption.
+BAM empowers ecosystem-driven innovation by enabling developers to build CLOBs, perpetual exchanges, dark pools and other types of financial primitives that require sequencing control, determinism and privacy assurances.
+
+## Key Terms
+BAM (Block Assembly Marketplace): The umbrella term for the new transaction processing system, including the hardware layer of BAM Nodes, the transaction execution layer of BAM Validators and the software layer of Plugins that can be built in the new marketplace.
+BAM Nodes: A network of scheduler nodes that leverage Trusted Execution Environments (TEEs). These nodes are the backbone of BAM, running alongside the existing validator set and sequencing transactions within secure enclaves that maintain privacy while ensuring verifiability.
+Trusted Execution Environments (TEEs): The specialized hardware securing BAM’s functionality. They enable BAM Nodes to keep transactions encrypted until execution and to generate cryptographic attestations of transaction ordering.
+BAM Validators: The set of validators running the updated Jito-Solana client. BAM Validators receive transactions from BAM Nodes and execute them as instructed.
+Plugins : Programmable interfaces that give developers, traders, and applications the ability to connect to BAM Nodes’ scheduler and interact with Solana transactions in novel and provably value-accretive ways. These are the building blocks for creating custom transaction sequencing logic.
+
+## Understanding BAM’s Value
+Solana already delivers the fastest, most cost-effective experience of any blockchain. BAM builds on that foundation by:
+
+* Enabling transaction privacy: The network of BAM Nodes keeps transaction ordering private until execution, limiting behavior leading to negative MEV.
+
+* Providing attestations of correct ordering: Cryptographic proofs of transaction ordering create an audit trail visible to the entire network, ensuring validator behavior is attributable and accountable.
+
+* Supercharging ecosystem innovation: Plugin framework lets developers implement custom ordering logic, unlocking application-controlled-execution (ACE) and new scheduling primitives.
+
+* Creating new revenue streams: Developers monetize scheduling innovations and improvements via Plugin fees. BAM Node Operators, Validators, and Stakers participate in this value creation through a revenue sharing mechanism.
+
+## BAM’s Transaction Pipeline
+By introducing a new hardware layer and a programmable software layer, BAM augments the Solana transaction supply chain and unlocks new use cases — all without altering the core Solana protocol.
+Here’s how a transaction flows through BAM:
+
+* Submission: Users — whether traders, market makers, or applications — send transactions to the BAM Node.
+
+* Sequencing and Attestation: A BAM Node receives, filters and orders incoming transactions inside its secure, encrypted enclave and sends them to the Leader. As part of the ordering process, it may add a transaction via a Plugin (for instance, an oracle update that will guarantee optimal execution for a user). Finally, the BAM Node signs and saves a cryptographic attestation with the sequence of transactions sent to the Leader.
+
+* Execution: The current Leader receives the transactions from the BAM Node and executes them as instructed, providing an attestation to the BAM Node of correct execution.
+
+* Public Audit Trail: All attestations created by the BAM Nodes and validators are publicly available, creating an audit trail that anyone can use to confirm the Leader followed the prescribed ordering instructions.
+
+The BAM transaction supply chain adds value to all parts of the transaction lifecycle via Plugins, and reduces the risk of harmful MEV via privacy and verifiable attestations that can track improper validator behavior. By enabling capabilities that were previously unattainable in the existing transaction supply chain, BAM positions Solana as a uniquely transparent and secure network.
+
+## Roadmap
+BAM’s ultimate goal is to enable more efficient, transparent, and decentralized block-building on Solana, while providing a sandbox for innovation and boosting revenue and value creation for all stakeholders. The BAM launch marks the first step on this journey, with phased transitions to establish robust guardrails and empower everyone in the ecosystem to contribute to its growth.
+Throughout this process, Jito Labs will be supported by an Ecosystem Advisory Committee composed of key stakeholders from the Solana validator and builder community, including the Solana Foundation, to guide expansion, ensure decentralization, and accelerate community-driven innovation.
+
+## Launch
+Jito Labs will run the initial BAM Nodes to ensure that the network delivers optimal functionality and maximum security. An early set of third party alpha validators running the BAM client will include Triton One, SOL Strategies, Figment, Helius and other Solana-aligned validators, with the goal of securing a high single-digit percentage of network stake shortly after launch.
+Concurrently, an initial cohort of leading applications on Solana will begin design and testing of the first batch of Plugins.
+By the end of this phase, BAM will have demonstrated its core capabilities and laid the groundwork for the expansion of BAM Node Operators and Validators.
+
+## Scale
+The BAM Node Operator Set will expand to increase operator distribution and geographic diversity, and the BAM Validator Set will grow to command 30%+ of total network stake.
+At the same time, we expect a new wave of Plugin developers to join the ecosystem, with the first cohort of Plugins going live and generating Plugin fees.
+
+## Accelerate
+In the final phase, BAM will open its doors to the broader community by open-sourcing BAM’s code, enabling maximum transparency and ecosystem innovation. The BAM Node Operator Set will grow to more than 50 geographically distributed nodes run by third party operators, ensuring low-latency access and further decentralizing Solana block-building.
+Full adoption of the validator network, coupled with comprehensive SDKs and developer tooling, will transform BAM into a permissionless platform: any developer can now build, test, and deploy ACE-enabled apps in minutes rather than months and generate new revenue streams for all BAM stakeholders.
+Jito Labs will sunset operation of all aspects of BAM governance, which will be managed by decentralized governance moving forward.
+
+## Plugin Examples
+The ability to interact with blockspace directly via Plugins opens new pathways for developers to generate value for the Solana ecosystem.
+Below are some examples of Plugins that can be built on BAM:
+
+## Just In Time Oracle Updates
+An oracle provider like Pyth maintains over 1,600 price feeds. To keep prices of those assets fresh for optimal execution, Pyth would have to submit a transaction for every feed for every block.
+With BAM, Pyth will be able to update price feeds in the same block that a user needs to access a particular oracle. This ensures that the user gets optimal execution, and that the Pyth Network is only updating feeds at the exact time they are needed. This implementation has the potential to add to overall network economic efficiency, as the downstream impacts of stale oracles (inefficient DeFi platform liquidations, exotic oracle exploits, and other oracle flaws) are mitigated and apps can offer more competitive services to users.
+
+## Cancels & Maker Priority
+According to estimates, a third of equity orders are canceled or modified within 50 milliseconds of placing the trade. This volume is primarily sourced through market makers, who continuously cancel and replace orders to rebalance inventory, maintain tight spreads, and avoid adverse fills. These adjustments not only support their operations but also deepen liquidity, reduce costs, and enhance execution reliability for all market participants.
+From the perspective of blockchain design, these types of orders dominate blockspace and effectively serve as spam. To accommodate these volume-intensive workflows, developers can deploy Plugins that implement custom sequencing rules prioritizing market maker cancels and order submissions, enabling highly performant CLOB DEXes that guarantee blockspace and inclusion for market makers while delivering deeper liquidity and tight spreads for end users.
+These two examples are just some of the possibilities now available to developers. With the programmable blockspace capabilities offered by BAM, the Solana ecosystem is poised to take its next step towards becoming the decentralized NASDAQ.
+
+## Why Solana Wins with BAM
+Unmatched Privacy and Transparency : BAM keeps transactions private inside verifiable software until execution, reducing opportunities for negative MEV. By issuing cryptographic attestations of transaction ordering, it creates an audit trail that empowers the community to attribute validator misbehavior and deter future attacks.
+Institutional Assurances: Sophisticated institutions demand provable execution assurances and auditability that on-chain trading can’t provide. BAM addresses this by allowing for unprecedented privacy and verifiability in the transaction pipeline.
+Without backroom deals, sidechannels, and private mempools, the transaction supply chain becomes a fair execution environment offering the deterministic assurances institutions need.
+Expanded Design Space: By enabling applications and traders to inject custom sequencing logic into the BAM Node scheduler, BAM unlocks application-controlled execution and other bespoke sequencing primitives—removing constraints of one-size-fits-all ordering. Network-wide Plugin deployment via BAM Nodes lets developers capture market share instantly, with no stake onboarding required.
+Revenue and Value Creation: Perhaps most importantly, BAM represents a fundamental shift in how we think about on-chain value creation. While traditional approaches focus on capturing MEV, BAM maximizes ecosystem value through an expanded application design space, new revenue streams via Plugin fees, and improved execution guarantees that help onboard institutional capital at scale.
+
+## How BAM Impacts Jito Network
+BAM represents a major unlock for Jito DAO. Jito Foundation and Jito Labs are collaborating on a JIP to direct all fees collected by Jito from BAM and the Jito Block Engine to the DAO Treasury. Under this model, Jito Labs would continue its technical support for the system with the reliability, performance, and technical depth it has consistently demonstrated.
+This shift cements the DAO’s role at the center of the Jito ecosystem, ensuring that protocol value accrues to tokenholders while maintaining continuity through a trusted infrastructure partner. The DAO benefits immediately from existing fee flows, and as Plugin adoption grows, Jito Network is positioned to earn additional revenue from rising Solana activity, improved validator economics, and deeper alignment between ecosystem growth and DAO-owned infrastructure.
+These changes will be formally proposed in a JIP in the coming weeks and are subject to approval by Jito DAO governance.
+
+## Next Steps
+If you’re interested in contributing to BAM’s future, reach out via this form . Whether you’re a validator, application developer or searcher we’d love to explore how we can work together.
+
+© 2026 BAM.
+All rights reserved.
+Plugins Validators Node Operators Forum Docs Blog Explorer Terms of Use Privacy Policy Get in Touch Privacy

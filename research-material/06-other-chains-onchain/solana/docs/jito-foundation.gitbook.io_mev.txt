@@ -1,0 +1,99 @@
+SOURCE_URL: https://jito-foundation.gitbook.io/mev
+FINAL_URL: https://jito-foundation.gitbook.io/mev
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:43:06Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* Introduction | Jito MEV
+*
+*
+*
+*
+*
+*
+Jito MEV
+
+⌘ Ctrl k
+
+Jito MEV
+
+* Introduction
+
+*
+Solana MEV
+
+* ⚙️ Systems
+
+* 🐧 Bird's Eye View
+
+* Third Party Block Engines
+
+* Jito's MEV Priorities
+
+*
+Jito-Solana
+
+* Features
+
+* Building the Software
+
+* Command Line Arguments
+
+* Checking Correct Operation
+
+* FireBAM Setup Guide
+
+* FAQs
+
+* Source
+
+* Data Tracking
+
+* Specification
+
+*
+MEV Payment and Distribution
+
+* 🤑 Tip Payment Program
+
+* 💸 Tip Distribution Program
+
+* 📷 High-level
+
+* 📞 On-Chain Addresses
+
+* FAQs
+
+* Open Source
+
+*
+Resources
+
+* Audits
+
+* Resources & Links
+
+Powered by GitBook
+
+On this page
+
+For the complete documentation index, see llms.txt . This page is also available as Markdown .
+Copy
+On this page
+
+## Introduction
+Welcome to Jito's MEV documentation! Please read along and stop by our discord for any questions!
+
+Next Systems
+
+Last updated 2 years ago

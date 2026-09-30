@@ -1,0 +1,139 @@
+SOURCE_URL: https://jito-foundation.gitbook.io/mev/mev-payment-and-distribution/on-chain-addresses
+FINAL_URL: https://jito-foundation.gitbook.io/mev/mev-payment-and-distribution/on-chain-addresses
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:43:06Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* On-Chain Addresses | Jito MEV
+*
+*
+*
+*
+*
+*
+Jito MEV
+
+⌘ Ctrl k
+
+Jito MEV
+
+* Introduction
+
+*
+Solana MEV
+
+* ⚙️ Systems
+
+* 🐧 Bird's Eye View
+
+* Third Party Block Engines
+
+* Jito's MEV Priorities
+
+*
+Jito-Solana
+
+* Features
+
+* Building the Software
+
+* Command Line Arguments
+
+* Checking Correct Operation
+
+* FireBAM Setup Guide
+
+* FAQs
+
+* Source
+
+* Data Tracking
+
+* Specification
+
+*
+MEV Payment and Distribution
+
+* 🤑 Tip Payment Program
+
+* 💸 Tip Distribution Program
+
+* 📷 High-level
+
+* 📞 On-Chain Addresses
+
+* FAQs
+
+* Open Source
+
+*
+Resources
+
+* Audits
+
+* Resources & Links
+
+Powered by GitBook
+
+On this page
+
+For the complete documentation index, see llms.txt . This page is also available as Markdown .
+Copy
+On this page
+
+* MEV Payment and Distribution
+
+## 📞 On-Chain Addresses
+
+## Mainnet
+Tip Payment Program: T1pyyaTNZsKv2WcRAB8oVnk93mLJw2XzjtVYqCsaHqt
+Tip Distribution Program: 4R3gSG8BpU4t19KYj8CfnbtRpnT8gtk4dvTHxVRwc2r7
+Tip Payment Accounts:
+
+Copy
+ADaUMid9yfUytqMBgopwjb2DTLSokTSzL1zt6iGPaS49
+Cw8CFyM9FkoMi7K7Crf6HNQqf4uEMzpKw6QNghXLvLkY
+HFqU5x63VTqvQss8hp11i4wVV8bD44PvwucfZ2bU7gRe
+DfXygSm4jCyNCybVYYK6DwvWqjKee8pbDmJGcLWNDXjh
+96gYZGLnJYVFmbjzopPSU6QiEV5fGqZNyN9nmNhvrZU5
+ADuUkR4vqLUMWXxW9gh6D6L8pMSawimctcNZ5pGwDcEt
+3AVi9Tg9Uo68tJfuvoKvqKNWKkC5wPdSSdeBnizKZ6jT
+DttWaMuVvTiduZRnguLF7jNxTgiMBZ1hyAumKUiL2KRL
+
+Jito Merkle Upload Authority: 8F4jGUmxF36vQ6yabnsxX6AQVXdKBhs8kGSUuRKSg8Xt
+Program Upgrade Authority: Jito DAO @ 4ivLcnNLhe4cKdpV9b4jyEmxgbYWFgktHcTyyBvYavsD
+
+## Testnet
+Tip Payment Program: GJHtFqM9agxPmkeKjHny6qiRKrXZALvvFGiKf11QE7hy
+Tip Distribution Program: DzvGET57TAgEDxvm3ERUM4GNcsAJdqjDLCne9sdfY4wf
+Tip Payment Accounts:
+Jito Merkle Upload Authority: 7T4inmPmtNBX3MhLwJ9hFsSMnGJYYkKioVABSNTWVRuS
+
+Previous High-level
+Next FAQs
+
+Last updated 8 months ago
+
+* Mainnet
+
+* Testnet
+
+Copy
+BkMx5bRzQeP6tUZgzEs3xeDWJfQiLYvNDqSgmGZKYJDq
+CwWZzvRgmxj9WLLhdoWUVrHZ1J8db3w2iptKuAitHqoC
+4uRnem4BfVpZBv7kShVxUYtcipscgZMSHi3B9CSL6gAA
+AzfhMPcx3qjbvCK3UUy868qmc5L451W341cpFqdL3EBe
+84DrGKhycCUGfLzw8hXsUYX9SnWdh2wW3ozsTPrC5xyg
+7aewvu8fMf1DK4fKoMXKfs3h3wpAQ7r7D8T1C71LmMF
+G2d63CEgKBdgtpYT2BuheYQ9HFuFCenuHLNyKVpqAuSD
+F7ThiQUBYiEcyaxpmMuUeACdoiSLKg4SZZ8JSfpFNwAf

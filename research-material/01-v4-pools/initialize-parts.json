@@ -1,0 +1,227 @@
+{
+ "dataset": "Uniswap V4 PoolManager Initialize events, Base (chain 8453)",
+ "pool_manager": "0x498581ff718922c3f8e6a244956af099b2652b2b",
+ "topic0": "0xdd466e674ea557f56295e2d0218a125ea4b4f0f6f3307b95f85e6110838d6438",
+ "block_from": 25350988,
+ "block_to": 52006302,
+ "pin": {
+  "start_block": 25350988,
+  "end_block": 52006302,
+  "end_block_source": "eth_blockNumber on https://mainnet.base.org at launch",
+  "pinned_at_utc": "2026-09-30T20:59:12Z",
+  "chunk_size": 2000,
+  "topic0": "0xdd466e674ea557f56295e2d0218a125ea4b4f0f6f3307b95f85e6110838d6438",
+  "address": "0x498581ff718922c3f8e6a244956af099b2652b2b"
+ },
+ "total_rows": 15333247,
+ "columns": [
+  "block_number",
+  "tx_hash",
+  "tx_index",
+  "log_index",
+  "pool_id",
+  "currency0",
+  "currency1",
+  "fee_raw",
+  "tick_spacing",
+  "hooks",
+  "sqrt_price_x96",
+  "tick",
+  "dynamic_fee",
+  "hf_before_initialize",
+  "hf_after_initialize",
+  "hf_before_add_liquidity",
+  "hf_after_add_liquidity",
+  "hf_before_remove_liquidity",
+  "hf_after_remove_liquidity",
+  "hf_before_swap",
+  "hf_after_swap",
+  "hf_before_donate",
+  "hf_after_donate",
+  "hf_before_swap_returns_delta",
+  "hf_after_swap_returns_delta",
+  "hf_after_add_liquidity_returns_delta",
+  "hf_after_remove_liquidity_returns_delta"
+ ],
+ "parts": [
+  {
+   "file": "initialize-part-0001.csv.gz",
+   "rows": 721377,
+   "block_from": 25350988,
+   "block_to": 33610987,
+   "bytes": 85009113,
+   "sha256": "f5f0d101fc86e1738983f085348b67bc0a88f8c094b44e2a32a6d5906bf7e0b6"
+  },
+  {
+   "file": "initialize-part-0002.csv.gz",
+   "rows": 761851,
+   "block_from": 33610988,
+   "block_to": 34248987,
+   "bytes": 85344079,
+   "sha256": "8e8f5ed5b9d9844c85e5296dc37a00380d573417d79aa0d7364205a05d8c4614"
+  },
+  {
+   "file": "initialize-part-0003.csv.gz",
+   "rows": 733829,
+   "block_from": 34248988,
+   "block_to": 35042987,
+   "bytes": 85056842,
+   "sha256": "61f29f57528e8f889c3a3194f5cc7f039225a90298dfe40b59c447d741e25345"
+  },
+  {
+   "file": "initialize-part-0004.csv.gz",
+   "rows": 727635,
+   "block_from": 35042988,
+   "block_to": 36000987,
+   "bytes": 85213605,
+   "sha256": "54277184d3251ce285d608f14821c1f3faf570c0188dc19fa31e6c9a82d62cc5"
+  },
+  {
+   "file": "initialize-part-0005.csv.gz",
+   "rows": 720394,
+   "block_from": 36000988,
+   "block_to": 36834987,
+   "bytes": 85017880,
+   "sha256": "d44b1e0fb8958a8c52e25a4efdf9ef4cb4534b666ad0665f32e7ea6c8467a176"
+  },
+  {
+   "file": "initialize-part-0006.csv.gz",
+   "rows": 711695,
+   "block_from": 36834988,
+   "block_to": 37514987,
+   "bytes": 85054159,
+   "sha256": "978ea7cf1bb87d72f329878307284db56bcbb20feaee8444622075655bd163b3"
+  },
+  {
+   "file": "initialize-part-0007.csv.gz",
+   "rows": 697745,
+   "block_from": 37514988,
+   "block_to": 38292987,
+   "bytes": 85010821,
+   "sha256": "9ac2fb3c6d22f8e11d2e025032aa5030ed3ff9352fa3d3e250ac3ce0e073f422"
+  },
+  {
+   "file": "initialize-part-0008.csv.gz",
+   "rows": 701413,
+   "block_from": 38292988,
+   "block_to": 39192987,
+   "bytes": 85118198,
+   "sha256": "151be8d964048ac9e56f2af4367f900198bd90648a6d67cb70951c74f110447c"
+  },
+  {
+   "file": "initialize-part-0009.csv.gz",
+   "rows": 717106,
+   "block_from": 39192988,
+   "block_to": 39986987,
+   "bytes": 85133593,
+   "sha256": "21ae103b74fc70e166a421e34a22c7261188d27b440425999847925e1dbce21b"
+  },
+  {
+   "file": "initialize-part-0010.csv.gz",
+   "rows": 687845,
+   "block_from": 39986988,
+   "block_to": 40470987,
+   "bytes": 85311249,
+   "sha256": "3c173539d8680b25100708ef5faca593312f443319e30eab2cff80402183d9cb"
+  },
+  {
+   "file": "initialize-part-0011.csv.gz",
+   "rows": 694791,
+   "block_from": 40470988,
+   "block_to": 40902987,
+   "bytes": 85441483,
+   "sha256": "5d986847ff147bf5251557d62fc0054555579e360370fd776d63c961191c94e3"
+  },
+  {
+   "file": "initialize-part-0012.csv.gz",
+   "rows": 698913,
+   "block_from": 40902988,
+   "block_to": 41196987,
+   "bytes": 85509481,
+   "sha256": "b11a4b4378e892da54d1e6a167568aa66ad7cb2b8497400cb6b9d2e838ffed2a"
+  },
+  {
+   "file": "initialize-part-0013.csv.gz",
+   "rows": 701283,
+   "block_from": 41196988,
+   "block_to": 41468987,
+   "bytes": 85339980,
+   "sha256": "a6263174fe90d1b4241c09ddf9856939a6d92c49a079579e7fa299cafbf61167"
+  },
+  {
+   "file": "initialize-part-0014.csv.gz",
+   "rows": 723125,
+   "block_from": 41468988,
+   "block_to": 41806987,
+   "bytes": 85383408,
+   "sha256": "773cd227f8a279014cd07334337605a626f8897c0f02563dd4ac15f8f6829a47"
+  },
+  {
+   "file": "initialize-part-0015.csv.gz",
+   "rows": 753457,
+   "block_from": 41806988,
+   "block_to": 42070987,
+   "bytes": 85127330,
+   "sha256": "35614b0ba43d3534289008e29c7b5a35ee94693b074a35cc66e435d68fb3deca"
+  },
+  {
+   "file": "initialize-part-0016.csv.gz",
+   "rows": 758096,
+   "block_from": 42070988,
+   "block_to": 42366987,
+   "bytes": 85192028,
+   "sha256": "ef15e045de78148ec349148bfc8bb44d86143c8938d0760e99995a8625f33e0a"
+  },
+  {
+   "file": "initialize-part-0017.csv.gz",
+   "rows": 727450,
+   "block_from": 42366988,
+   "block_to": 42724987,
+   "bytes": 85117281,
+   "sha256": "b3e30bf6fdc1db5278f6e9356a11ff7650564558a1bfbcc72310121de547d197"
+  },
+  {
+   "file": "initialize-part-0018.csv.gz",
+   "rows": 737152,
+   "block_from": 42724988,
+   "block_to": 43158987,
+   "bytes": 85177860,
+   "sha256": "c197a5e371932197e9b3d5e5a278c2cacc0ec22fbe6fa7111b8ec3e44b41c9ce"
+  },
+  {
+   "file": "initialize-part-0019.csv.gz",
+   "rows": 714746,
+   "block_from": 43158988,
+   "block_to": 43918987,
+   "bytes": 85295070,
+   "sha256": "b9fe340d9ab7727a86b3f6c61b83adb9f2c4c71708db0dcfeed1270a22f166bc"
+  },
+  {
+   "file": "initialize-part-0020.csv.gz",
+   "rows": 704481,
+   "block_from": 43918988,
+   "block_to": 45006987,
+   "bytes": 85143083,
+   "sha256": "f7aaed4da4c351e15f63cb65381b9adea5290998516c2f20b05c2291d5167344"
+  },
+  {
+   "file": "initialize-part-0021.csv.gz",
+   "rows": 680378,
+   "block_from": 45006988,
+   "block_to": 48842987,
+   "bytes": 85026983,
+   "sha256": "2299a50f004522558f54a1f8ccb7459d21320327f0b30dd735f4df92ad9ac4e8"
+  },
+  {
+   "file": "initialize-part-0022.csv.gz",
+   "rows": 258485,
+   "block_from": 48842988,
+   "block_to": 52006302,
+   "bytes": 32620896,
+   "sha256": "637d473a95abb96b6ac82def9775936c64192d853ad0acccc6bbe8ccd92d8774"
+  }
+ ],
+ "sort": "block_number, log_index ascending",
+ "assembled_utc": "2026-09-30T21:44:30Z",
+ "chunks": 13328
+}

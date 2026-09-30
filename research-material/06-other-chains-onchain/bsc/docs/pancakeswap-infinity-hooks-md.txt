@@ -1,0 +1,12 @@
+URL: https://developer.pancakeswap.finance/contracts/infinity/overview/hooks
+FINAL_URL: https://developer.pancakeswap.finance/contracts/infinity/overview/hooks
+TITLE: PancakeSwap Infinity hooks overview
+PUBLISHER: PancakeSwap developer docs
+FETCHED_AT_UTC: 2026-09-30T21:30:05Z
+HTTP_STATUS: 404
+CONTENT_TYPE: application/json
+RAW_SHA256: 8bb8fb879d5478fc85c254e03c7f714099ae37aa1d696396d74601c045d0224b
+RAW_FILE: raw/pancakeswap-infinity-hooks-md.json
+CONVERSION: verbatim
+==============================================================================
+{"error": {"code": "404", "message": "The page could not be found"}}

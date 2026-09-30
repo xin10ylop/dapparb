@@ -1,0 +1,59 @@
+URL: https://docs.flap.sh/flap/developers/wallet-and-terminal-and-bot-developers/token-migration.md
+FINAL_URL: https://docs.flap.sh/flap/developers/wallet-and-terminal-and-bot-developers/token-migration.md
+TITLE: Flap Token Migration - markdown export
+PUBLISHER: Flap
+FETCHED_AT_UTC: 2026-09-30T21:30:04Z
+HTTP_STATUS: 200
+CONTENT_TYPE: text/markdown; charset=utf-8
+RAW_SHA256: 3a0d3f08dbc112cb4d026d83d6f101fef6dbd277de9f3836140da9762e78fabd
+RAW_FILE: raw/flap-token-migration-md.md
+CONVERSION: verbatim
+==============================================================================
+> For the complete documentation index, see [llms.txt](https://docs.flap.sh/flap/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.flap.sh/flap/developers/wallet-and-terminal-and-bot-developers/token-migration.md).
+
+# Token Migration
+
+When a token's circulating supply reaches its `dexSupplyThresh`, it graduates off the bonding curve and its liquidity is migrated to a DEX. The event `LaunchedToDEX` is emitted to indicate that the token has graduated.
+
+```solidity
+/// @notice emitted when adding liquidity to DEX
+/// @param token The address of the token
+/// @param pool The address of the pool
+/// @param amount The amount of token added
+/// @param eth The amount of quote Token added
+event LaunchedToDEX(address token, address pool, uint256 amount, uint256 eth);
+```
+
+`LaunchedToDEX` tells you *that* the token graduated and gives you liquidity amounts, but it does not tell you *which DEX* it graduated to — and for two of the four migrator types, `pool` is not even the final pool address. See the two caveats below.
+
+## Knowing which DEX a token will graduate to, ahead of time
+
+You don't need to wait for `LaunchedToDEX` to know the destination. The destination is decided at launch time and is fully determined by two events emitted in the token-creation transaction:
+
+* `TokenDexPreferenceSet.dexId` — which DEX protocol (chain-specific mapping).
+* `TokenMigratorSet.migratorType` — which pool version/shape on that DEX (V2, V3, or one of the CL-style migrators).
+
+See [Index Token Created Events § TokenDexPreferenceSet](/flap/developers/wallet-and-terminal-and-bot-developers/index-token-created-events.md#tokendexpreferenceset) for the full `dexId`-to-DEX table per chain and the `dexId` + `migratorType` → destination mapping, with a worked example for Robinhood Chain.
+
+## Caveat: `pool` is not always the real pool address
+
+`LaunchedToDEX.pool` behaves differently depending on `migratorType`:
+
+| `migratorType`             | `pool` field                                                 |
+| -------------------------- | ------------------------------------------------------------ |
+| `V2_MIGRATOR`              | Actual pool (pair) address                                   |
+| `V3_MIGRATOR`              | Actual pool address                                          |
+| `V4_UNI_MIGRATOR`          | Uniswap `PoolManager` address — **not** the pool itself      |
+| `PCS_INFINITY_CL_MIGRATOR` | PancakeSwap Infinity vault address — **not** the pool itself |
+
+For the two CL-style migrators (`V4_UNI_MIGRATOR`, `PCS_INFINITY_CL_MIGRATOR`), read `FlapTokenCLPoolCreated.poolId` instead — that's the real pool identifier to index:
+
+```solidity
+/// @notice emitted when a new CL pool is created for a token
+/// @param token The address of the token
+/// @param poolId The ID of the created CL pool
+/// @param sqrtPriceX96 The initial sqrt price used to initialize the CL pool
+event FlapTokenCLPoolCreated(address token, bytes32 poolId, uint160 sqrtPriceX96);
+```
+
+See [Trade Tokens § LaunchedToDEX](/flap/developers/wallet-and-terminal-and-bot-developers/trade-tokens.md#launchedtodex) for more detail on these events.

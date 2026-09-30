@@ -22,8 +22,10 @@ def get(url):
             time.sleep(min(60, 2 ** i)); err = str(e)
     return -1, {"_error": "failed after retries"}
 def save(name, url, status, body):
-    with gzip.open(os.path.join(D, name + ".json.gz"), "wt") as f:
+    p = os.path.join(D, name + ".json.gz")
+    with gzip.open(p + ".tmp", "wt") as f:
         json.dump({"url": url, "fetched_utc": now(), "http_status": status, "body": body}, f)
+    os.replace(p + ".tmp", p)
 addrs = [l.strip().lower() for l in open(sys.argv[1]) if l.strip()]
 idx_path = os.path.join(D, "index.jsonl.gz")
 done = {}

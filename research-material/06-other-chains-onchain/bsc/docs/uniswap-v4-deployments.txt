@@ -2,10 +2,10 @@ URL: https://docs.uniswap.org/contracts/v4/deployments
 FINAL_URL: https://docs.uniswap.org/contracts/v4/deployments
 TITLE: Uniswap v4 deployments
 PUBLISHER: Uniswap docs
-FETCHED_AT_UTC: 2026-09-30T21:21:15Z
+FETCHED_AT_UTC: 2026-09-30T21:27:18Z
 HTTP_STATUS: 429
 CONTENT_TYPE: text/html; charset=UTF-8
-RAW_SHA256: 3a8f85cc3519e0f8618ff2f7421ee293b77a8384213629f482a54d835a00a7dd
+RAW_SHA256: e4ee8a30a284f9c7667e6ba952cadeaf5c26f95f641c893e6ebd64a7766fb098
 RAW_FILE: raw/uniswap-v4-deployments.html.gz
 CONVERSION: html2text (verbatim text of the page, markup removed)
 ==============================================================================
@@ -13,7 +13,7 @@ Please enable cookies.
 
 #  Error 1015
 
-Ray ID: a436453de9308b73 • 2026-09-30 21:20:15 UTC
+Ray ID: a4364e1b69e2eb77 • 2026-09-30 21:26:18 UTC
 
 ##  You are being rate limited 
 
@@ -27,4 +27,4 @@ Was this page helpful?  Yes  No
 
 Thank you for your feedback! 
 
-Cloudflare Ray ID: **a436453de9308b73** • Your IP: Click to reveal 160.79.106.131 • Performance & security by [Cloudflare](<https://www.cloudflare.com/5xx-error-landing>)
+Cloudflare Ray ID: **a4364e1b69e2eb77** • Your IP: Click to reveal 160.79.106.135 • Performance & security by [Cloudflare](<https://www.cloudflare.com/5xx-error-landing>)

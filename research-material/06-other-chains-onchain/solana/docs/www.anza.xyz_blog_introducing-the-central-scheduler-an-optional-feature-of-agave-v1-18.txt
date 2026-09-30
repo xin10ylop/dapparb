@@ -1,0 +1,156 @@
+SOURCE_URL: https://www.anza.xyz/blog/introducing-the-central-scheduler-an-optional-feature-of-agave-v1-18
+FINAL_URL: https://www.anza.xyz/blog/introducing-the-central-scheduler-an-optional-feature-of-agave-v1-18
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:43:45Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+Introducing the Central Scheduler: An Optional Feature of Agave v1.18 - Anza
+
+*
+
+*
+
+*
+
+*
+
+*
+
+Validator
+
+Featured Work
+
+About
+
+Blog
+
+Careers
+
+Contact us
+
+Validator
+
+Work
+
+About
+
+Blog
+
+Careers
+
+Contact us
+
+Back to Blog
+
+Table of Contents
+
+Highlights
+
+## Introducing the Central Scheduler: An Optional Feature of Agave v1.18
+
+Written By
+
+Rex St. John
+
+## April 26, 2024
+
+In this article we introduce an important new element contained in the Agave v1.18 release from Anza : The Central Scheduler. Formerly known as “the scheduler,” the Central Scheduler represents an important advance to the Agave client, which will enable significantly fewer transaction conflicts during block production by leaders (validators selected to produce the next block) in the Solana network.
+By default, the “new” aka the “Central Scheduler” is disabled and must be turned on by including the “--block-production-method central-scheduler” flag when starting a validator. In future releases, the Central Scheduler will become the default scheduler. For the time being, it is opt-in only.
+After we launched in early 2024, Anza forked the Solana validator from the former Solana Labs repository on GitHub . It is now actively developed by the Anza core engineering team, composed of former Solana Labs engineers, under the name “agave.” Technology improvements to Solana’s Core Protocol are a key element of Anza’s mission. The development of the Central Scheduler began prior to the Anza spinout, and is scheduled for inclusion in the v1.18 release of Agave.
+
+## What does the scheduler do?
+In the Solana protocol, transactions are routed through the network, prioritized and passed to the “Leader” aka the validator selected at a given time to produce the next block. When in “Leader Mode,” the Validator utilizes it’s TPU (Transaction Processing Unit) and can simultaneously process potentially up to 50,000 transactions at any given moment . The TPU processes transactions in five distinct phases: Fetch, SigVerify, Banking, Proof of History Service, Broadcast .The scheduler is a key component of the TPU involved in the serialization, ordering and processing of the firehose of incoming transactions during the Banking stage. It is a high-performance, fundamental element of Solana block creation.
+
+## Why a new scheduler?
+The previous scheduler made use of 4 “Non-Vote Transaction” threads which pulled transactions from a common queue and attempted to serialize and process these transactions using a “Greedy” multi-iterator algorithm.
+The objective of using a greedy algorithm in this process was to attempt to maximize throughput of transaction processing. However, what ended up occurring was that the four working threads would frequently attempt to place “locks” aka “reserve for read / write” on conflicting tx, resulting in delays and sub-optimal processing. If you are curious to learn more, you can view this video from the Solana Foundation . The root cause of the slowdowns is that, in the previous scheduler, none of the working threads have context of what the other threads are doing, resulting in conflicts.
+
+## The “old” scheduler can be enabled using the following flag:
+--block-production-method thread-local-multi-iterator
+
+## How the Central Scheduler works
+The Central Scheduler is being introduced in v1.18 in order to overcome a fundamental limitation with the previous scheduler: The tendency to attempt to place “locks” on many conflicting transactions resulting in slowdowns and inefficiency. The Central Scheduler introduces a new thread (bringing the total threads in the scheduler up from 6 to 7): The Scheduling Thread.
+In the previous scheduler, each of the 4 Non-Voting threads each ran their own sub-routines to “loop” constantly through the incoming queue of unprocessed transactions. In the Central Scheduler, the four “workhorse” threads no longer constantly loop “greedily” and instead can even sleep when not in use. Instead, The Scheduling Thread does the looping, constantly checking the incoming queue of transactions and processing them as they arrive, routing them instead to an appropriate thread for further processing.
+Conflicting transactions in the Central Scheduler will always be processed in priority order, probably on the same execution thread.
+
+## Performance of the Central Scheduler
+Measuring performance of the Central Scheduler is not an exact science. The goal of block-production stage is to efficiently pack the block in a way that is fair to users while maximizing the reward to the leader.. Early data indicates up to 80% higher fee collection compared to the prior scheduler. Nodes operating the Central Scheduler are expected to have more success in landing transactions with higher priority fees, whereas the prior scheduler would have a more random approach to transaction selection.
+It has also been noted that the Central Scheduler seems to produce blocks where the average transaction cost in CU size is smaller. Until widely deployed and adopted by the network, it will be impossible to say for sure what the performance characteristics will be.
+
+## The Central Scheduler Priority Fee Algorithm
+Another important element that has changed in the Central Scheduler is a modification for how Priority Fees are calculated. Priority Fees in Solana are a mechanism for further incentivizing validators to process certain transactions by appending an optional fee, priced in micro-Lamports per Compute-Unit.
+In the v1.17 and v1.18 default scheduler, priority is calculated as:
+Priority = Priority Fee / compute units
+In 1.18's scheduler, priority changes to the following :
+Priority = ((Priority fee * Compute Requested) + base fee) / (1 + Compute Requested)
+
+## Using the Central Scheduler
+The important flags to understand for selecting the desired scheduler post v1.18 are as follows:
+
+## Enabling the Previous Scheduler (Default Enabled)
+--block-production-method thread-local-multi-iterator
+
+## Enabling the Central Scheduler (Default Disabled)
+--block-production-method central-scheduler
+For further reading on the Solana Scheduler, please see this blog post: https://apfitzge.github.io/posts/solana-scheduler/
+
+Products
+
+Validator
+
+About
+
+Blog
+
+Careers
+
+Privacy Policy
+
+Terms of Use
+
+© 2026 Anza Technology, Inc. All rights reserved.
+
+Products
+
+Validator
+
+About
+
+Blog
+
+Careers
+
+Privacy Policy
+
+Terms of Use
+
+© 2026 Anza Technology, Inc. All rights reserved.
+
+Products
+
+Validator
+
+About
+
+Blog
+
+Careers
+
+Privacy Policy
+
+Terms of Use
+
+© 2026 Anza Technology, Inc. All rights reserved.
+
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*

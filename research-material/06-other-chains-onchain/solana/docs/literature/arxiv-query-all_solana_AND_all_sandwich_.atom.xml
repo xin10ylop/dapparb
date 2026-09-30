@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/qpwil6yz4M/Nfp9+tHzRrATCte0</id>
+  <title>arXiv Query: search_query=all:solana AND all:sandwich&amp;id_list=&amp;start=0&amp;max_results=100</title>
+  <updated>2026-09-30T21:45:14Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:solana+AND+all:sandwich&amp;start=0&amp;max_results=100&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.28115v1</id>
+    <title>No Place to Hide: An Analysis on Protected Order Flow Sandwich Attacks</title>
+    <updated>2026-09-23T13:45:10Z</updated>
+    <link href="https://arxiv.org/abs/2609.28115v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.28115v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Front-running has long plagued Ethereum's public mempool, earning it the nickname of a "dark forest", where predators lurk for profitable transactions. In response, Ethereum and other blockchain ecosystems increasingly rely on private RPCs and native protections to shield transactions from adversaries, which we refer to as protected order flow. Yet the effectiveness of these mechanisms in preventing front-running, and what trust assumptions they entail, remain poorly understood.
+  In this work, we conduct the first longitudinal, three-year measurement study of sandwich attacks against protected order flow across six blockchains: Ethereum, Solana, Tron, Base, Arbitrum, and Monad. We introduce detection heuristics that capture wide attacks, both within and across blocks, and filter on bot behavior to distinguish sandwiches from legitimate trading activity. We identify 28.0 million sandwich attacks on Solana, 38,567 on Tron, 30,607 on Ethereum, and 1,889 on Base against transactions intended to be protected from front-running. Reorged blocks expose a further 2,875 Ethereum victims. Unlike conventional public-mempool sandwiches, these attacks rarely occur tightly around their victims and, outside Solana, are carried out by a small number of entities.
+  Our analysis uncovers exposures at every layer: validator- and application-level exposure on Solana, order-flow auctions and reorged blocks on Ethereum, first-come-first-served ordering that fails to prevent latency-based front-running on Tron, and both an RPC bug that exposes pending transactions and predictable victim behavior on Base. These findings show that existing front-running protections can provide substantially weaker guarantees than users expect, highlighting the need for stronger end-to-end defenses against sandwich attacks.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-23T13:45:10Z</published>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Lioba Heimbach</name>
+    </author>
+    <author>
+      <name>Ozan Solmaz</name>
+    </author>
+    <author>
+      <name>Burak Öz</name>
+    </author>
+    <author>
+      <name>Christof Ferreira Torres</name>
+    </author>
+  </entry>
+</feed>

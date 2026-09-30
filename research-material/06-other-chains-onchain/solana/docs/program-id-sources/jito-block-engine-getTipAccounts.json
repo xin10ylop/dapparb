@@ -1,0 +1,20 @@
+{
+ "url": "https://mainnet.block-engine.jito.wtf/api/v1/getTipAccounts",
+ "method": "getTipAccounts",
+ "fetched_at_utc": "2026-09-30T21:35:24Z",
+ "http_status": 200,
+ "body": {
+  "jsonrpc": "2.0",
+  "result": [
+   "DttWaMuVvTiduZRnguLF7jNxTgiMBZ1hyAumKUiL2KRL",
+   "3AVi9Tg9Uo68tJfuvoKvqKNWKkC5wPdSSdeBnizKZ6jT",
+   "Cw8CFyM9FkoMi7K7Crf6HNQqf4uEMzpKw6QNghXLvLkY",
+   "ADaUMid9yfUytqMBgopwjb2DTLSokTSzL1zt6iGPaS49",
+   "96gYZGLnJYVFmbjzopPSU6QiEV5fGqZNyN9nmNhvrZU5",
+   "HFqU5x63VTqvQss8hp11i4wVV8bD44PvwucfZ2bU7gRe",
+   "DfXygSm4jCyNCybVYYK6DwvWqjKee8pbDmJGcLWNDXjh",
+   "ADuUkR4vqLUMWXxW9gh6D6L8pMSawimctcNZ5pGwDcEt"
+  ],
+  "id": 1
+ }
+}

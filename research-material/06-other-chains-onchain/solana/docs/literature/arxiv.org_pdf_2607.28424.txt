@@ -1,0 +1,2449 @@
+SOURCE_URL: https://arxiv.org/pdf/2607.28424
+FINAL_URL: https://arxiv.org/pdf/2607.28424
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:45:39Z
+EXTRACTION: PDF text extracted page by page with PyMuPDF; original PDF stored next to this file
+
+
+
+[page 1]
+Demystifying Solana Bots: From GitHub Blueprints
+to On-Chain Fingerprints∗
+Xiaoye Zheng
+Zhejiang University
+Hangzhou, China
+xiaoyez@zju.edu.cn
+Yujing Chen
+Zhejiang University
+Hangzhou, China
+chenyujing@zju.edu.cn
+Minghao Wu
+Zhejiang University
+Hangzhou, China
+wuminghao@zju.edu.cn
+David Lo
+Singapore Management University
+Singapore, Singapore
+davidlo@smu.edu.sg
+Difan Xie
+Hangzhou High-Tech Zone (Binjiang)
+Institute of Blockchain and Data
+Security
+Hangzhou, China
+xiedifan@bcds.org.cn
+Daoyuan Wu
+Lingnan University
+Hong Kong, Hong Kong
+daoyuanwu@ln.edu.hk
+Xiaohu Yang
+Zhejiang University
+Hangzhou, China
+yangxh@zju.edu.cn
+Zhiyuan Wan†✉
+Zhejiang University
+Hangzhou, China
+wanzhiyuan@zju.edu.cn
+Abstract
+Solana is an emerging blockchain platform designed for high through-
+put and low transaction fees, making it inexpensive to submit
+transactions at scale and, consequently, increasing exposure to
+bot spamming and related financial exploitation. Solana bots are
+typically off-chain software systems that operate in a competitive
+on-chain execution environment by constructing and submitting
+transactions, and the bot-related transactions on the decentralized
+exchanges exceed 250 million dollars in daily trading volume in
+January 2026. Prior studies on Solana have examined system perfor-
+mance, smart-contract security, and specific on-chain phenomena.
+However, we still lack a systematic understanding of what Solana
+bots implement in practice and how these implementations mani-
+fest as observable on-chain execution fingerprints. To address this
+gap, we performed a large-scale empirical study of Solana bots from
+two complementary views: (i) 586 bot repositories collected from
+GitHub, and (ii) 200 bot addresses on Solana, with over 44 million on-
+chain transactions. Our study derives an implementation-grounded
+taxonomy of Solana bots comprising 15 categories grouped into five
+domains (e.g., Trading Operations, MEV, and On-chain Analytics),
+identifies a largely shared five-stage operational pipeline mani-
+fested in bot implementations, and uncovers systematic variation
+in on-chain trading behaviors of Solana bots across diverse trading
+∗This research was supported by the National Science Foundation of China (No.
+62472383), the Fundamental Research Funds for the Central Universities (No. 226-
+2025-00004), and the Open Research Fund of the State Key Laboratory of Blockchain
+and Data Security, Zhejiang University.
+†Zhiyuan Wan is the corresponding author; also with the Hangzhou High-Tech Zone
+(Binjiang) Institute of Blockchain and Data Security.
+This work is licensed under a Creative Commons Attribution 4.0 International License.
+ASE ’26, Munich, Germany
+© 2026 Copyright held by the owner/author(s).
+ACM ISBN 979-8-4007-2882-2/2026/10
+https://doi.org/10.1145/3832783.3837522
+platforms and assets. Based on our findings, we highlight future
+research directions, and provide recommendations for building and
+operating bots on the Solana blockchain.
+CCS Concepts
+• Software and its engineering →Software libraries and repos-
+itories; • Security and privacy →Economics of security and
+privacy; • General and reference →Empirical studies.
+Keywords
+Solana, blockchain bots, MEV, bot taxonomy, operational pipeline
+ACM Reference Format:
+Xiaoye Zheng, Yujing Chen, Minghao Wu, David Lo, Difan Xie, Daoyuan
+Wu, Xiaohu Yang, and Zhiyuan Wan. 2026. Demystifying Solana Bots: From
+GitHub Blueprints to On-Chain Fingerprints. In Proceedings of the 41st
+IEEE/ACM International Conference on Automated Software Engineering (ASE
+’26), October 12–16, 2026, Munich, Germany. ACM, New York, NY, USA,
+17 pages. https://doi.org/10.1145/3832783.3837522
+1
+Introduction
+Solana is an emerging blockchain platform designed to offer high
+throughput with low transaction fees [1], making it an increasingly
+popular infrastructure for Web3 applications, including decentral-
+ized finance (DeFi) and non-fungible tokens (NFTs) [2–4]. Solana
+adopts a program-account design [5] that separates executable
+logic (programs, i.e., smart contracts on Solana) from mutable state
+(stored in on-chain accounts), enabling the runtime to execute non-
+conflicting transactions in parallel. Together with Proof of History
+and the Tower BFT consensus protocol [6], these design choices con-
+tribute to the high throughput and low transaction fees of Solana.
+As of May 2025, Solana had processed over 405 billion transactions,
+and supported more than 29.7 million fee-paying accounts [7], with
+total value locked in DeFi exceeding 9 billion USD [8].
+arXiv:2607.28424v2  [cs.SE]  31 Jul 2026
+
+
+[page 2]
+ASE ’26, October 12–16, 2026, Munich, Germany
+Xiaoye Zheng, Yujing Chen, Minghao Wu, David Lo, Difan Xie, Daoyuan Wu, Xiaohu Yang, and Zhiyuan Wan
+On the flip side, low transaction fees of Solana make it inexpen-
+sive to submit transactions at scale, exposing the network to bot
+spamming and related financial exploitation [9, 10]. In particular,
+the daily trading volume of decentralized exchange (DEX) attributed
+to trading bots has exceeded 250 million USD in January 2026 [11],
+and the revenue of these bots peaked at nearly 1.5 million USD in a
+single day in early 2024 [12]. Bots are typically off-chain software
+systems that interact with the blockchain by constructing and sub-
+mitting transactions [13]. Accordingly, a bot rarely corresponds to
+a single on-chain entity; instead, it manifests through the set of
+accounts it controls and the on-chain records of the transactions
+it submits. Previous studies on Solana span system performance,
+smart contract security, and measurement of on-chain phenomena.
+Researchers have evaluated the scalability and transaction through-
+put [14, 15], and proposed vulnerability detection and testing tech-
+niques to improve smart contract security [16, 17]. More recently,
+large-scale empirical studies have measured diverse on-chain phe-
+nomena on Solana, including failed transactions [18], sandwiching
+attacks [19], meme coin markets [20], and rug pulls [21]. How-
+ever, Solana bots remain underexplored as software artifacts from a
+software engineering perspective. We still lack a systematic under-
+standing of what they implement in practice through their code-
+bases, and the extent to which these implementations correspond
+to the on-chain fingerprints left by the transactions they submit.
+Such an understanding provides a complementary characterization
+of Solana bots from both implementation and execution perspec-
+tives, and provides practical insights into bot design choices and
+maintenance concerns in a competitive execution environment.
+To address this gap, we conducted a large-scale empirical study
+of Solana bots to systematically characterize their functional cate-
+gories, implementations in open-source codebases, and transaction-
+level fingerprints they leave on-blockchain. We curated a dataset
+comprising 586 Solana bot repositories on GitHub and 200 bot ac-
+counts from two widely used Solana bot services, with 44,118,825 on-
+chain transactions submitted by these accounts. Below, we present
+our research questions and highlight the key findings:
+RQ1: What functionality taxonomy emerges from open-source
+Solana bot implementations? Prior studies often characterize
+blockchain bots (i.e., on Ethereum and Binance Smart Chain) through
+their on-chain behaviors or self-reported descriptions [22–25], leav-
+ing a limited understanding of what functionalities are actually
+implemented by bots in open-source repositories. To establish an
+implementation-grounded view, we analyze 586 public Solana bot
+repositories on GitHub, and derive a functionality taxonomy span-
+ning 5 domains and 15 categories, covering Trading Operations,
+MEV [26], On-chain Analytics, and Tooling and Infrastructure. The
+distribution of repositories across the resulting taxonomy indicates
+that open-source Solana bots are dominated by trading automation
+and MEV-oriented execution, with analytics and tooling/infrastruc-
+ture categories constituting a smaller but diverse long tail.
+RQ2: How are Solana bots implemented in open-source repos-
+itories? To complement the functionality taxonomy with an en-
+gineering perspective, we explore how Solana bot capabilities are
+realized in code across bot categories, by analyzing (i) code-level
+building blocks, (ii) recurring pipeline among these blocks, and (iii)
+the third-party dependencies underpinning such implementations.
+We observe a pronounced long tail in building-block coverage: 90%
+of the 2,044 building blocks appear in no more than 3.1% of repos-
+itories, and per-repository counts differ significantly across bot
+categories. Despite this heterogeneity, most repositories align with
+a shared backbone that can be abstracted into a five-stage canonical
+pipeline spanning Setup, Observation and Acquisition, Analytics,
+Planning and Decision, and Execution and Reporting, although the
+Planning and Decision stage is simplified or omitted in certain bot
+categories. Dependency analysis further reveals heavy reliance on
+core Solana SDKs (e.g., @solana/web3.js in 85.9% of JavaScript/-
+TypeScript repositories) and substantial technical lag, with over
+30% of dependencies more than one year behind the latest versions.
+RQ3: How do Solana bots manifest distinctive execution fin-
+gerprints on-chain? While the implementations and runtime of
+Solana bots reside off-chain, they are only observable on-chain
+through the accounts they control and the transactions they sub-
+mit. Thus, we characterize the 200 bot-associated addresses in our
+dataset by extracting on-chain execution fingerprints from their
+transaction traces, capturing transaction-level features including
+submission intensity, execution effectiveness, cost, and trading as-
+sets. We observe four distinct execution clusters among the 200
+bot-associated addresses, separated primarily along two axes: trans-
+action submission intensity and execution effectiveness. Three clus-
+ters (56 addresses) exhibit execution characteristics consistent with
+MEV bots. Across the three clusters, WSOL [27] serves as the dom-
+inant pivot token, accounting for 70.9%–99.9% of their transactions;
+however, the three clusters diverge in the trading venues they
+engage with. Notably, the MEV bots whose transactions invoke pro-
+prietary AMMs [28] (e.g., HumidiFi) realize positive profit (62.3%)
+at three times the rate of those that do not, suggesting that in-
+teraction with proprietary AMMs may be associated with more
+favorable execution outcomes for MEV bots. The remaining cluster
+(102 addresses) exhibits characteristics consistent with the Trad-
+ing Operations bots, with transaction activity concentrated on the
+Pump.fun platform (80.9%).
+Based on our findings, we discuss the implications, such as recur-
+ring operational pipeline across bot implementations, substantial
+technical lag of third-party dependencies, and factors that affect
+the profitability of Solana bots. We also provide practical recom-
+mendations for bot design and maintenance, and highlight several
+research avenues. Our work makes the following contributions: (1)
+We compile two datasets relevant to Solana bots: 586 bot reposito-
+ries on GitHub, and 200 bot-associated on-chain addresses, with
+44,118,825 transactions. (2) We perform the first empirical study of
+Solana bots to characterize their functional categories, implementa-
+tions in open-source codebases, and transaction-level fingerprints
+they leave on-blockchain. (3) We provide practical implications and
+outline future avenues for research.
+2
+Background
+Solana bots submit transactions composed of instructions that in-
+voke on-chain programs, exposing behavioral fingerprints across
+multiple dimensions, such as in program usage and fees.
+Accounts and Programs. Solana adopts an account-based model,
+where accounts, identified by a 32-byte public key (address), store
+persistent state and executable logic [5]. A program in Solana is an
+executable account that contains program code. Solana programs
+
+
+[page 3]
+Demystifying Solana Bots: From GitHub Blueprints to On-Chain Fingerprints
+ASE ’26, October 12–16, 2026, Munich, Germany
+are stateless: they read and update state stored in (non-executable)
+data accounts passed in at execution time [29].
+Transactions and Signers. A Solana transaction specifies a set of
+accounts and a sequence of instructions to be executed by on-chain
+programs [30]. To authorize state changes, a transaction must be
+signed by one or more signer accounts (i.e., accounts whose private
+keys approve the requested operations), and the corresponding
+signatures are included in the transaction message. A finalized
+transaction is successful if all instructions execute without error
+and failed otherwise. Both outcomes incur a base fee of 5,000
+lamports per signature (0.000005 SOL) and may include an optional
+per-compute-unit priority fee for higher scheduling priority [31].
+MEV. MEV refers to the maximum profit obtained by strategically
+including, excluding, or ordering transactions [32]. MEV opportu-
+nities often arise from order-dependent execution on decentralized
+exchanges (DEXs) and transient price discrepancies of digital as-
+sets such as cryptocurrencies across venues (e.g., between DEXs
+and centralized exchanges, CEXs). For instance, on mempool-based
+chains, traders can scan pending price-moving transactions and
+position their own transactions to capture the resulting price move-
+ment. Unlike Ethereum, Solana does not expose an publicly vis-
+ible mempool. Instead, Solana adopts mempool-less transaction
+forwarding (i.e., Gulf Stream [33]), whereby transactions are proac-
+tively forwarded to upcoming slot leaders. Accordingly, MEV on
+Solana is shaped by latency advantages in reaching leaders and by
+specialized submission and ordering infrastructure. For instance,
+Jito provides low-latency transaction submission and bundle-based
+mechanisms [34].
+3
+Dataset
+GitHub Repositories of Solana Bots. We collected 628 Solana
+bot via a two-round keyword search using the GitHub GraphQL
+API, by following a systematic dataset construction process [35].
+Specifically, we queried repositories created between January 2021
+and June 2025 using the GitHub GraphQL API by matching key-
+words in repository metadata (e.g., name, description, and topics)
+and README content. The initial query “Solana bot” returned
+7,760 candidates. Following prior work [36], we applied automated
+repository-level filters to exclude non-code, link-curation/aggregator,
+low-engagement, and Solidity repositories, leaving 824 candidates.
+Two authors independently screened each candidate for inclusion
+using a shared guideline: we required evidence of (i) Solana-specific
+interaction from README, dependencies, or source code, and (ii)
+automation-oriented execution (e.g., monitoring loops or automated
+actions), yielding 536 Solana bot repositories. Moreover, to reduce
+keyword bias, we derived three additional query keywords from
+repository topics observed in the 536 repositories (“Solana bundler”,
+“Solana automation”, and “Solana agent”), which returned 3,046 can-
+didates. After applying the same filtering and screening procedures,
+we obtained 92 additional Solana bot repositories. We then excluded
+42 repositories that could not be processed by an open-source parser
+generator tool tree-sitter [37] for further investigation, due to
+missing source code or unsupported languages, resulting in a final
+dataset of 586 repositories. Among the 586 Solana bot reposito-
+ries, TypeScript accounts for the largest share (48.2%), followed
+by Python (17.9%), JavaScript (15.5%), Rust (14.9%), and Go (1.9%).
+Repository popularity varies widely, with a median of 18 stars
+(mean: 62, min: 2, max: 2,220, std.: 159), and 7 forks (mean: 27, min:
+2, max: 1,019, std.: 70).
+On-chain Addresses of Solana Bots. 1 Baseline Window. To
+collect on-chain addresses of Solana bots, we started from two
+widely used bot services on Solana, Trojan [38] and SolanaMevBot [39].
+Trojan is a Telegram-based bot service that supports automated
+trading, sniping, and copy trading, and is listed among the top ser-
+vices in the DEX trading-bot leaderboard on Dune Analytics [40].
+SolanaMevBot is listed among the top services in the arbitrage
+leaderboard on circular.bot [41]. Some high-ranked services (e.g.,
+NotArb on circular.bot) do not provide publicly accessible on-chain
+bot addresses, and are therefore excluded from our analysis. For
+each selected bot service, we collected the top-100 bot addresses
+on Solana reported by the corresponding leaderboard. For each
+address, we leveraged the Dune SQL engine [42] to retrieve its
+on-chain transaction records over a one-month window from Octo-
+ber 1, 2025, to November 1, 2025, including transaction signatures,
+execution status, invoked program IDs, transaction fees, and token
+balance changes, as well as-level traces. The transaction volume per
+address during our one-month observation window varies substan-
+tially across bot services. Bot addresses from SolanaMevBot range
+from 5 to 6,742,370 transactions (median: 2,121, mean: 439,061).
+In contrast, bot addresses from Trojan range from 64 to 28,274
+transactions (median: 1,366, mean: 2,127). 2 Validation Window.
+We constructed an additional validation dataset over a one-month
+window from February 1, 2026, to March 1, 2026. Specifically, we
+collected the top-100 bot addresses reported for SolanaMevBot on
+circular.bot, as well as the top-100 addresses reported for Axiom on
+Dune Analytics [43] during this window. Axiom is a browser-based
+Solana trading-bot service that was listed among the top services
+in the DEX trading-bot leaderboard on Dune Analytics during this
+period. For each address, we applied the same Dune SQL-based data
+collection procedure to retrieve its on-chain transaction records.
+See Appendix A.2 for details.
+4
+RQ1: Taxonomy
+To answer RQ1, we constructed a taxonomy of Solana bot repos-
+itories to systematically capture the functionalities implemented
+by these bots. We use Solana bot repositories on GitHub as inputs
+because they provide inspectable and versioned implementations
+of bot functionalities, allowing the taxonomy to be grounded in
+what is actually implemented rather than what is merely described.
+4.1
+Methodology
+We applied an LLM-assisted open card sorting process to construct
+a taxonomy of functionalities implemented in Solana bot reposito-
+ries on GitHub, because manually analyzing repository codebases
+is impractical given their scale and heterogeneity [44, 45]. Specif-
+ically, we decomposed the process into four steps and used an
+LLM (DeepSeek v3.2) as an auxiliary tool for code summarization
+and higher-level semantic abstraction. The full set of prompts is
+provided in the replication package.
+1 Function-Level Card Preparation. We used tree-sitter to
+extract all functions from each repository. For each extracted func-
+tion, we provided its source code as input to the LLM, and obtained
+a concise natural language summary. These function-level sum-
+maries serve as cards in the subsequent open card sorting process.
+
+
+[page 4]
+ASE ’26, October 12–16, 2026, Munich, Germany
+Xiaoye Zheng, Yujing Chen, Minghao Wu, David Lo, Difan Xie, Daoyuan Wu, Xiaohu Yang, and Zhiyuan Wan
+2 Repository-Level Summarization. For each repository, we
+aggregated its set of function-level cards, and prompted the LLM to
+generate descriptive functionality tags, along with the proportion
+of the function-level cards in the repository associated with each
+tag. These tags summarize salient functional aspects of the reposi-
+tory as a whole and facilitate higher-level grouping and taxonomy
+construction. As a result, we generated an average of 6.3 tags per
+repository (min = 5, median = 6, max = 9, std. = 1). 3 Taxonomy
+Construction. To construct the taxonomy, we first consolidated
+synonymous tags across repositories (e.g., solana-sniper-bot and
+sniping-bot), yielding a canonicalized tag set (N = 372). Two of the
+authors then independently performed open card sorting on the
+canonicalized tag set. The two initial taxonomies converged at the
+domain level, differing in category granularity (e.g., one taxonomy
+merging semantically related MEV-oriented categories that the
+other kept separate) and category naming (e.g., differently worded
+labels covering the same underlying tag groups). The two authors
+reconciled these differences into a finalized taxonomy of 15 cate-
+gories. Using finalized taxonomy, the two authors independently
+assigned the 372 canonicalized tags to one of the 15 categories; a tag
+was counted as agreed upon if both authors assigned it to the same
+category. These tag-level assignments achieved substantial inter-
+rater agreement (Cohen’s 𝜅= 0.78). Disagreements were resolved
+through discussion between the two authors; unresolved cases were
+independently reviewed by a third author, and the majority decision
+was adopted as the final assignment.
+4 Repository Categoriza-
+tion. We applied the taxonomy by mapping each repository to one
+or more taxonomy categories based on its repository-level tags. As
+a result, each repository is associated with 1 to 7 categories, while
+16 repositories cannot be mapped to any category. As a sanity check,
+we randomly sampled 100 out of 586 repositories, allocating the
+sample across the 15 categories in proportion to the square root of
+each category’s size. The strategy oversamples smaller categories
+compared to simple proportional allocation to balance estimation
+reliability across strata of varying sizes [46]. Two authors indepen-
+dently reviewed each sampled repository’s README and source
+code, and judged whether the repository’s dominant category ac-
+curately reflected a primary functionality of the repository, with
+substantial inter-rater agreement (Cohen’s 𝜅= 0.81). Note that we
+define the dominant category of a repository as the category of
+its highest-weight tag (i.e., the tag covering the largest proportion
+of function-level cards). Disagreements were resolved through
+discussion between the two authors until consensus was reached.
+91 of the 100 sampled repositories were confirmed to have a domi-
+nant category that accurately reflected a primary functionality of
+the repository, with per-category accuracy ranging from 75% to
+100%. See Table 11 in the Appendix for details. We further grouped
+repositories by dominant category for subsequent analysis.
+4.2
+Results
+Table 1 presents the taxonomy of Solana bot functionalities derived
+from the open card sorting process based on our dataset of Solana
+bot repositories on GitHub. The taxonomy summarizes how Solana
+bots group around recurring functional themes, and organizes the
+observed repository functionalities of Solana bots into 5 higher-
+level domains and 15 categories, with each category accompanied
+by representative tags drawn from the repositories assigned to that
+category (the Tags column), and a representative repository for the
+category. For a detailed description of each category, please refer
+to Table 4 in the Appendix [47].
+We further conducted a qualitative analysis of the most-starred
+repository in each of the top three categories (ranked by repository
+count), focusing on their core functionalities. Below is a representa-
+tive repository (additional examples are provided in the Appendix):
+Æ The 0xNineteen/solana-arbitrage-bot, written in Rust
+and TypeScript, exemplifies the Arbitrage category, which com-
+bines (1) an off-chain client that searches for arbitrage opportuni-
+ties and assembles transactions, and (2) an on-chain program that
+enforces atomic execution and profit-or-revert semantics of transac-
+tions. Specifically, the off-chain client searches for profitable swap
+paths across multiple DEX liquidity pools (e.g., Orca, Mercurial, and
+Saber), and assembles the corresponding swap instructions into a
+single transaction. The on-chain program validates the profitability
+of the transaction by tracking realized balances across hops, and
+reverts the entire transaction unless the final balance of the source
+token exceeds its initial balance. Moreover, we also observed multi-
+ple heterogeneous repositories whose functionalities span multiple
+taxonomy categories. Taking the sendaifun/solana-agent-kit
+repository as an example, it combines bot-like autonomous execu-
+tion with tooling and infrastructure support, spanning the trading
+operations (Æ) and tooling and infrastructure (Ô) categories. On
+the one hand, it supports bot-like automation of on-chain trading-
+related actions (e.g., token swaps and other DeFi interactions). On
+the other hand, it provides a broad range of infrastructure and utility
+capabilities beyond trading, such as wallet management and NFT-
+related operations. Notably, it integrates with agent runtimes (e.g.,
+LangChain and Vercel AI) by exposing on-chain actions through a
+unified interface, enabling agent planning modules to invoke both
+trading and infrastructure operations.
+Finding 1: We identify a taxonomy of Solana bot functionalities compris-
+ing 5 higher-level domains and 15 categories. Open-source Solana bot
+implementations emphasize automating order placement and reacting to
+time-sensitive signals.
+5
+RQ2: Implementation
+To address RQ2, we explore GitHub repositories of Solana bots
+from an implementation perspective, focusing on the code-level
+building blocks of Solana bots and how these blocks are composed
+into typical bot pipelines. We also investigate the usage of third-
+party libraries, which reflect how bot pipeline components are
+implemented in practice.
+5.1
+Methodology
+5.1.1
+Code-Level Building Block Identification. We used the 78,300
+functions extracted from the repositories in our dataset via tree-
+sitter, and grouped them into code-level building blocks based on
+lexical and semantic similarity, by following the steps below.
+1 Function Embedding. For each function, we preprocessed its
+code by removing comments and normalizing literals (e.g, numbers
+and strings) and identifiers (e.g., variable and parameter names). We
+then concatenated the function name and the normalized function
+body as the input, and used the Qwen3-Embedding-0.6B model [48]
+to obtain an embedding vector for the function, with the output
+
+
+[page 5]
+Demystifying Solana Bots: From GitHub Blueprints to On-Chain Fingerprints
+ASE ’26, October 12–16, 2026, Munich, Germany
+Table 1: Taxonomy of Solana Bot Repositories (Repos) on GitHub.
+Category (# Repos)
+Example Tags
+Representative Repo
+Æ Trading Operations
+Order Execution and Management (137)
+trading-bot, automated-trading, transaction-execution, limit-orders, telegram-trading-bot
+nmweaver/soltrade (342 ⋆)
+Liquidity Provision and Yield Farming (12)
+liquidity-management, bonding-curve, liquidity-bot, automated-market-maker, liquidity-pools
+edwin-finance/meteora-liquidity-rebalancer (4 ⋆)
+Copy Trading (33)
+copy-trading, copy-trading-bot
+cryptole0/Copy-Trading-Bot-Rust (96 ⋆)
+Æ MEV
+Arbitrage (47)
+arbitrage-bot, flash-loan-arbitrage, cross-pool-arbitrage, cross-exchange-arbitrage, dex-cex-arbitrage
+0xNineteen/solana-arbitrage-bot (799 ⋆)
+Sniping (134)
+sniper-bot, pumpfun-bot, pumpfun-trading-bot, memecoin-trading, token-sniper
+warp-id/solana-trading-bot (2,220 ⋆)
+Transaction Ordering Exploitation (41)
+mev-bot, jito-bundle, transaction-bundling, pumpfun-bundler, sandwich-attack
+jito-labs/mev-bot (1,150 ⋆)
+Æ Market Manipulation
+Wash Trading (21)
+volume-bot, volume-simulation
+web3batman/Raydium-Volume-Bot (67 ⋆)
+Æ On-chain Analytics
+Monitoring and Alerting (26)
+real-time-alerts, token-monitoring, real-time-monitoring, wallet-tracking, transaction-monitoring
+FriedDev/solana-rug-checker (29 ⋆)
+Portfolio and Risk Management (14)
+risk-management, risk-analysis, portfolio-management, simulation, data-analysis
+henrytirla/Solana-PNL-Bot (66 ⋆)
+Ô Tooling and Infrastructure
+Token Issuance and Administration (8)
+token-launchpad, token-creation, token-launch, token-management, spl-token
+0xNevo/Solana_Token_Freezer (14 ⋆)
+NFT Minting and Marketplace Trading (14)
+nft-sales-bot, nft-tools, nft-minting-bot, nft, nft-bot
+theskeletoncrew/air-support (178 ⋆)
+DEX Swap Routing and Integration (30)
+raydium-integration, jupiter-aggregator, dex-integration, jupiter-swap, dex-aggregator
+YZYLAB/solana-swap (130 ⋆)
+Wallet Management (6)
+wallet-management, multi-wallet, token-transfer, account-management, keypair-management
+LeaderMalang/Solana-Sweeper-Bot (9 ⋆)
+On-chain Data Pipeline (10)
+rpc-client, data-aggregation, birdeye-api, geyser-client, helius-webhook
+weeaa/goyser (66 ⋆)
+Messaging Integration and Alerts (37)
+telegram-bot, twitter-integration, discord-bot, chat-interface, discord-notifications
+KingJiongEN/DegentGroup (65 ⋆)
+dimension of 1,024. Qwen3-Embedding-0.6B is a lightweight em-
+bedding model that excels at code retrieval and text clustering on
+benchmarks, while offering a strong balance between effectiveness
+and efficiency for large-scale embedding scenarios [49, 50], making
+it well-suited for large-scale function embedding.
+2 Function Clustering. Based on the generated function embed-
+dings, we clustered functions using a UMAP-HDBSCAN pipeline.
+UMAP [51] is a nonlinear dimensionality reduction method that
+projects high-dimensional embeddings into a lower-dimensional
+space, while largely preserving local neighborhood relationships.
+HDBSCAN [52] is a non-parametric clustering algorithm, which
+has demonstrated its efficacy for code clustering in recent stud-
+ies (e.g., [53–55]). In the UMAP-HDBSCAN pipeline, HDBSCAN
+leverages the local neighborhood structure preserved in the UMAP-
+reduced space to identify coherent clusters without predefining
+the number of clusters, which makes the pipeline well-suited to
+function-level embeddings that often exhibit uneven distributions
+and outliers. In particular, we first applied UMAP to learn a lower-
+dimensional manifold representation of the function embeddings,
+and then ran HDBSCAN in this space to discover density-based
+clusters and label outliers as noise. Moreover, we tuned the hyper-
+parameters of the UMAP-HDBSCAN pipeline via grid search to
+maximize the Silhouette score while constraining the fraction of
+functions labeled as noise. Specifically, we tuned n_neighbors and
+n_components of UMAP as well as min_cluster_size and min_samples
+of HDBSCAN, and set them to 10, 10, 5, and 5, respectively. As a
+result, we identified 5,007 function clusters, with a Silhouette score
+of 0.82, suggesting well-separated clusters. 3 Cluster Labeling
+and Consolidation. For each function cluster, we aggregated the
+function-level summaries (generated in RQ1) of the functions in the
+cluster, and used an LLM (DeepSeek-v3.2) to generate one label in
+a constrained [object]-[operation] format (e.g., token-swap).
+To improve reproducibility, we fixed the model version and decod-
+ing configuration (e.g., temperature = 0) and recorded the prompts
+and generated labels. To validate labeling quality, we randomly
+sampled 95 clusters from the 5,007 function clusters, which pro-
+vides a margin of error of approximately 10% at the 95% confidence
+level. Two of the authors independently reviewed the top-10 repre-
+sentative functions in each sampled cluster, ranked by HDBSCAN
+membership probability, and judged whether the generated label
+captured the functionality commonly observed across the 10 repre-
+sentative functions, based on manual inspection of each function’s
+source code. Cohen’s kappa over these independent judgments was
+𝜅= 0.71, indicating substantial agreement. Disagreements were re-
+solved through discussion between the two authors until consensus
+was reached. After reconciliation, 84 of the 95 sampled clusters were
+confirmed to have labels that accurately described their functional-
+ity. Finally, we merged clusters with semantically overlapping labels
+into code-level building blocks (e.g., transaction-construction
+vs transaction-creation), yielding 2,003 building blocks in total.
+5.1.2
+Bot Pipeline Derivation. We derived bot pipelines that sum-
+marized how the identified code-level building blocks are composed
+in practice across bot categories. Following a bottom-up hierarchi-
+cal abstraction approach inspired by prior work [56], we modeled a
+pipeline as an ordered sequence of stages, where each stage grouped
+building blocks that served a coherent architectural responsibil-
+ity. Specifically, for each bot category, we selected multiple repre-
+sentative repositories, and inspected the building blocks in each
+repository. We then grouped these building blocks into pipeline
+stages primarily based on architectural responsibilities reflected
+by repository modules or components, and used their frequent co-
+occurrence within repositories of the same category as supporting
+evidence. We further consulted call or usage relations of building
+blocks when available to infer and validate plausible stage ordering.
+5.1.3
+Third-Party Library Usage Characterization. We first extracted
+the dependency entries from the language-specific dependency
+manifests of bot-related repositories in our dataset, i.e., package.
+json, requirements.txt, Cargo.toml, and go.mod for reposito-
+ries written in JavaScript/TypeScript, Python, Rust, and Go, respec-
+tively. Each dependency entry specifies a library (by name) and,
+when provided, its version constraint. Next, to restrict our analysis
+to third-party dependencies, we excluded language-provided mod-
+ules and packages (i.e., built-in modules or standard libraries) from
+the extracted library lists. Specifically, we obtained the built-in mod-
+ules and standard libraries from official runtime APIs and toolchain
+commands, including module.builtinModules for JavaScript/Type-
+Script, sys.stdlib_module_names for Python, and go list std
+for Go. For Rust, we removed compiler-provided standard-library
+crates, e.g., std, core, alloc, and proc_macro. As a result, we
+obtained 15,524 dependency entries spanning 3,194 distinct third-
+party libraries. The average number of repositories using each
+third-party library is 4.86 (median = 1, min = 1, max = 328, and std
+= 15), indicating a highly right-skewed distribution.
+Moreover, we characterized the up-to-dateness of third-party
+library usage in Solana bot repositories by measuring the technical
+
+
+[page 6]
+ASE ’26, October 12–16, 2026, Munich, Germany
+Xiaoye Zheng, Yujing Chen, Minghao Wu, David Lo, Difan Xie, Daoyuan Wu, Xiaohu Yang, and Zhiyuan Wan
+0
+20
+40
+Repository Coverage (%)
+0
+25
+50
+75
+100
+Building Block CDF (%)
+(3.1%, 90%)
+(a) Overall
+0
+50
+Repository Coverage (%)
+0
+25
+50
+75
+100
+Building Block CDF (%)
+Category (avg blocks/repo)
+Monitoring and Alerting (16)
+Wash Trading (17)
+Sniping (26)
+Copy Trading (30)
+Transaction Ordering Exploitation (31)
+Order Execution and Management (40)
+Liquidity Provision and Yield Farming (41)
+Arbitrage (48)
+Portfolio and Risk Management (51)
+(b) By bot category
+Figure 1: Repository coverage distribution per building block.
+Table 2: Top-10 building blocks by repository coverage.
+Building Block
+Description
+Repo Coverage (n, %)
+trade-execution
+Executes token swap or order operations.
+333 (58.5%)
+token_data-fetching
+Retrieves on-chain token state, including price, supply, and identifiers.
+267 (46.9%)
+transaction-construction
+Constructs transaction or instruction objects for on-chain operations.
+257 (45.2%)
+transaction-submission
+Submits signed transactions to Solana network for on-chain execution.
+215 (37.8%)
+pool_data-fetching
+Retrieves the configuration and state of a liquidity pool.
+210 (36.9%)
+token_account_data-fetching
+Retrieves token account state, including balance, mint, and ownership.
+157 (27.6%)
+market_data-fetching
+Retrieves aggregated market-level data, such as price feeds, trading
+volume, or cross-venue liquidity metrics.
+150 (26.4%)
+client-creation
+Initializes RPC/API clients for interacting with Solana nodes or pro-
+grams.
+148 (26.0%)
+bundle-submission
+Bundles and submits multiple transactions.
+146 (25.7%)
+wallet_data-fetching
+Retrieves wallet-level state (e.g., token balances).
+124 (21.8%)
+lag [57, 58] of each dependency entry. For each dependency entry,
+we resolved an effective version as the latest release that satisfies
+the declared version constraint, and computed technical lag as the
+time gap between the release date of this effective version and the
+release date of the latest available release of the same library.
+5.2
+Results
+5.2.1
+Code-Level Building Blocks in Bot Repositories. Figure 1a
+presents the cumulative distribution of repository coverage across
+building blocks. Overall, the repository coverage of building blocks
+follows a pronounced long-tail distribution, as shown in Figure 1a.
+Specifically, 90% of building blocks appear in no more than 3.1% of
+Solana bot repositories, indicating that most building blocks have
+very limited repository coverage. In contrast, a small minority of
+building blocks attains substantially higher coverage across bot
+repositories, forming a clear head–tail pattern. Table 2 makes the
+head of the distribution explicit by listing the ten most prevalent
+building blocks ranked by repository coverage. The most prevalent
+building block, trade-execution, appears in 58.5% of reposito-
+ries, followed by token_data_fetching (46.9%) and transaction-
+construction (45.2%). Even the tenth-ranked building block is
+present in 21.8% of repositories, indicating that no building block
+approaches near-universal presence. The head concentrates on
+two capability families, (1) data acquisition (e.g., token / pool /
+market / wallet_data-fetching), and (2) the transaction pipeline
+(transaction-construction / submission, and trade-execution),
+revealing a common “observe–trade” backbone across bot reposi-
+tories. The presence of bundle-submission among the most preva-
+lent building blocks further indicates explicit support for batched/bun-
+dled submission beyond standard transaction submission.
+As illustrated in Figure 1b, the average number of building blocks
+per repository varies across bot categories, ranging from 16 for the
+Monitoring and Alerting bots to 51 for the Portfolio and Risk Man-
+agement bots. We applied the Kruskal–Wallis test and observed a
+statistically significant difference in building-block counts across
+bot categories (𝐻= 43.172, 𝑝= 8.152 × 10−7). Moreover, the counts
+of building blocks per repository are decoupled from the degree of
+sharing in building blocks across repositories, as shown in Figure 1b.
+Specifically, building-block composition across bot categories ex-
+hibits three distinct types, including (1) low-count, core-shared
+composition, e.g., Wash Trading bots contain an average of 17
+building blocks, with 18% of the building blocks appearing in more
+than 30% of the corresponding repositories; (2) low-count, weakly
+shared composition, e.g., Monitoring and Alerting and Sniping
+bots both remain small in size, with 16 and 26 building blocks per
+repository on average, yet less than 1% of their building blocks
+appear in more than 30% of the corresponding repositories; and (3)
+high-count, long-tail–dominated composition, e.g., Arbitrage
+bots exhibit large block count (48 in average), while over 80% of
+their building blocks appear in fewer than 10% of repositories.
+Finding 2: The repository coverage of building blocks exhibits a long-tail
+distribution, suggesting an “observe-trade” backbone across bot reposito-
+ries. The building-block counts per repository differ statistically signifi-
+cantly across bot categories.
+5.2.2
+Bot Pipelines. Figure 2 summarizes an abstracted, stage-
+based pipeline view across Solana bot categories, highlighting both
+shared components and category-level variations of Solana bots.
+At a high level, the pipeline of Solana bots is organized into five
+stages: (1) Setup, which covers client initialization and configu-
+ration (e.g., establishing connections to Solana RPC services); (2)
+Observation and Acquisition, which includes on-chain monitor-
+ing (e.g., liquidity pools, accounts, and events such as new token
+listings) and data fetching (e.g., token, pool, and market data); (3)
+Analytics, which covers data processing and analysis (e.g., analy-
+ses of tokens, market and transaction behavior); (4) Planning and
+Decision, which covers pre-execution logic such as strategy search
+and risk-reward evaluation; and (5) Execution and Reporting,
+which includes capital allocation, trade execution, and post-trade
+reporting/notification.
+Several components recur across bot categories, such as the
+Data Acquisition, Data Analytics, and Trade Execution mod-
+ules, indicating a common execution backbone of Solana bots. We
+also observe that the Trade Execution module is decomposed into
+transaction construction (e.g., array-creation and transaction-
+construction) and transaction submission, where Solana bot repos-
+itories tend to adopt two different submission modes, including
+direct transaction submission (e.g., transaction-submission) and
+bundle-based submission (e.g., bundle-submission).
+Differences across bot categories primarily arise from which
+functional components are traversed and how building blocks are
+composed within stages. Bots in some categories tend to compose
+additional components in the Planning and Execution stage, such
+as Strategy Search in Arbitrage bots, Risk-Reward Evaluation in On-
+chain Analytics bots. In contrast, bots in other categories reach Trade
+Execution with fewer intermediate components, often bypassing the
+Planning and Execution stage, and reach Trade Execution with
+fewer intermediate components, e.g., those in the Order Execution
+and Management and Transaction Ordering Exploitation categories.
+Finding 3: Solana bots follow a five-stage pipeline at a high level.
+Category-level variations arise from which functional components are
+traversed and how building blocks are composed within stages.
+5.2.3
+Third-Party Library Usage. Table 3 presents the five most fre-
+quently used third-party libraries in Solana bot repositories across
+programming languages. We made the following observations: (1)
+
+
+[page 7]
+Demystifying Solana Bots: From GitHub Blueprints to On-Chain Fingerprints
+ASE ’26, October 12–16, 2026, Munich, Germany
+Data Acquisition
+  token_data-fetching
+  market_data-fetching
+  pool_data-fetching
+On-Chain Observation
+  account-monitoring
+  onchain_event-monitoring
+  pool-monitoring
+Strategy Search
+  arbitrage-searching
+All
+Data Analytics
+  token-analysis
+  market-analysis
+  transaction_behavior-analysis
+Risk-Reward Evaluation
+  risk-analysis
+  profit-analysis
+Capital Allocation
+  asset-distribution
+Reporting and Notification
+  notification-submission
+  ui-rendering
+  report-creation
+1. Setup
+2. Observation and
+Acquisition
+3. Analytics
+5. Execution and Reporting
+Arbitrage
+Monitoring and Alerting, Portfolio and Risk Management
+Liquidity Provision and Yield Farming
+Wash Trading
+Copy Trading
+Sniping
+Transaction Ordering Exploitation
+Order Execution and Management
+Setup and Configuration
+  client-creation
+  configuration-loading
+  environment- validation
+4. Planning and Decision
+Trade Execution
+  trade-execution
+  transaction-construction
+  array-creation
+  bundle-submission
+  transaction-submission
+Construction
+Submission
+Figure 2: Bot pipeline across categories, organized into five stages.
+Table 3: Top five third-party libraries frequently used by
+Solana bot repositories, grouped by programming language.
+Programming Language
+Library
+Repo Coverage (n, %)
+Technical Lag
+JavaScript /
+TypeScript
+@solana/web3.js
+328 (85.9%)
+125 days
+dotenv
+292 (76.4%)
+223 days
+@solana/spl-token
+263 (68.8%)
+0 days
+bs58
+247 (64.7%)
+857 days
+axios
+231 (60.5%)
+0 days
+Rust
+solana-sdk
+66 (77.6%)
+310 days
+serde
+65 (76.5%)
+0 days
+serde_json
+62 (72.9%)
+0 days
+tokio
+61 (71.8%)
+0 days
+anyhow
+56 (65.9%)
+0 days
+Python
+requests
+55 (75.3%)
+446 days
+solana
+39 (53.4%)
+572 days
+python-dotenv
+37 (50.7%)
+642 days
+solders
+35 (47.9%)
+611 days
+base58
+34 (46.6%)
+0 days
+Go
+solana-go
+8 (80.0%)
+386.5 days
+binary
+6 (60.0%)
+446 days
+godotenv
+6 (60.0%)
+140 days
+grpc
+6 (60.0%)
+679 days
+testify
+5 (50.0%)
+584 days
+Dominance of the Solana client SDK. Solana client SDK libraries
+are widely adopted across languages, with coverage of 85.9% for
+@solana/web3.js in JavaScript/TypeScript, 77.6% for solana-sdk
+in Rust, 53.4% for solana in Python, and 80.0% for solana-go in
+Go repositories, respectively. (2) Frequent adoption of general-
+purpose libraries. For configuration loading, dotenv appears in
+76.4% of JavaScript/TypeScript repositories, and python-dotenv
+appears in 50.7% of Python repositories. For HTTP communica-
+tion, the coverage levels are 60.5% for axios in JavaScript/Type-
+Script repositories and 75.3% for requests in Python repositories.
+For Base58 encoding and decoding, bs58 is adopted by 64.7% of
+JavaScript/TypeScript repositories, and base58 is adopted by 46.6%
+of Python repositories. (3) Differences in coverage uniformity
+across languages. In Rust repositories, the top libraries exhibit
+relatively similar coverage levels (71%–78%): 77.6% for solana-sdk,
+76.5% for serde and 71.8% for tokio. In contrast, in Python repos-
+itories, Solana-related libraries, i.e., solana (53.4%) and solders
+(47.9%), have substantially lower coverage as compared to the HTTP
+client library requests (75.3%).
+Regarding dependency technical lag, the median lag across all
+third-party library dependencies in Solana bot repositories is 23
+days; more than 30% of dependencies lag by over one year, indicat-
+ing substantial dependency staleness for a non-trivial portion of
+dependencies. In terms of frequently used third-party libraries, tech-
+nical lag varies substantially across their dependencies in Solana
+bot repositories of different programming languages, as shown in
+the Technical Lag column in Table 3. In particular, the dependen-
+cies of seven top-used libraries have a median technical lag of 0
+days, whereas the dependencies of nine have a median technical
+lag exceeding one year. Across programming languages, Rust bot
+repositories show concentrated technical lag primarily in the core
+SDK (solana-sdk: 310 days), whereas Python bot repositories ex-
+hibit more systematic technical lag among their top-used library
+dependencies. In particular, four of the top five libraries used by
+Python bot repositories have a median technical lag exceeding one
+year, i.e., python-dotenv (642 days), solders (611 days), solana
+(572 days), and requests (446 days), reflecting notable dependency
+staleness in Python bot repositories.
+In addition to programming language, dependency lag also dif-
+fers significantly across bot categories. Repositories were grouped
+by their dominant taxonomy category, with repository-level lag
+summarized as the median across third-party dependencies. The
+differences are statistically significant (Kruskal–Wallis, H = 48.029,
+p = 1.3 × 10−5). NFT minting and marketplace trading bots exhibit
+the highest median repository-level lag (433.9 days), followed by
+arbitrage bots (391.2 days), whereas several categories, including
+copy trading, sniping, and monitoring and alerting, have a median lag
+of 0 days, suggesting that maintenance practices vary substantially
+across functional roles (see Table 5 in the Appendix).
+We further examined trading-venue-specific package dependen-
+cies across bot repositories, such as @raydium-io/raydium-sdk
+for Raydium, @jup-ag/core for Jupiter, @orca-so/common-sdk
+for Orca, and @meteora-ag/dlmm for Meteora. We observe that
+Raydium-related dependencies are the most widely adopted, ap-
+pearing in 195 bot repositories (33.3%), substantially exceeding
+Jupiter (40 repositories), Orca (45), Pump.fun (36), and Meteora
+(30). Beyond overall adoption, the breadth of venue integration also
+varies substantially across bot categories. In particular, Arbitrage
+bot repositories most frequently rely on multiple venues for trading,
+with 24% depending on two or more venues (average: 0.88), con-
+sistent with their need to identify and exploit price discrepancies
+across venues. In contrast, Monitoring and Alerting bot repositories
+exhibit much narrower venue integration, with only 5.5% depend-
+ing on multiple venues (average: 0.41), reflecting a more specialized,
+single-venue trading strategy.
+Finding 4: Solana bot repositories show concentrated dependence on a
+small set of third-party libraries. More than 30% of dependencies lag by
+over one year. Among frequently used third-party libraries, technical lag
+varies substantially across programming languages and repositories.
+6
+RQ3: On-chain Fingerprints
+Understanding the on-chain fingerprints of Solana bots requires ex-
+amining how bot-associated addresses execute transactions under
+competitive on-chain conditions, e.g., contention for block inclu-
+sion and transaction execution. Per-address transaction traces are
+
+
+[page 8]
+ASE ’26, October 12–16, 2026, Munich, Germany
+Xiaoye Zheng, Yujing Chen, Minghao Wu, David Lo, Difan Xie, Daoyuan Wu, Xiaohu Yang, and Zhiyuan Wan
+often noisy, and the underlying intent of bots as operationalized by
+the proposed taxonomy in RQ1 could only be indirectly inferred
+from execution traces. To mitigate noise and avoid relying on ex-
+plicit intent labels, we cluster bot addresses with similar execution
+patterns and characterize on-chain fingerprints at the cluster level.
+6.1
+Methodology
+6.1.1
+Address Clustering. We first represented each bot-associated
+address as a feature vector capturing its execution characteristics.
+In line with prior work [18], we adopted two intensity features
+(transaction frequency and transaction volume), and extended them
+with three additional features capturing execution effectiveness,
+cost, and breadth (transaction success rate, transaction fee, and asset
+diversity). Specifically, for each address, we measured transaction
+frequency as the mean inter-transaction interval between trans-
+actions initiated by the address; transaction volume by the total
+number of initiated transactions and the average number of initi-
+ated transactions per block over the analysis window; transaction
+success rate as the fraction of successful initiated transactions, where
+a transaction was marked as successful if its error field is null and
+failed otherwise; transaction fee as the total fee summed across
+all initiated transactions, extracted from the fee field; and asset
+diversity as the average number of distinct tokens involved per
+transaction initiated by the address. All features are standardized
+using z-scores prior to clustering, with missing or non-finite values
+imputed as 0. Next, we clustered the bot-associated addresses in our
+dataset using HDBSCAN [52], as it requires no predefined cluster
+count and handles noise, making it suitable for unknown behav-
+ioral bot diversity in our dataset. The model yielded four clusters
+of 33, 11, 12, and 102 addresses, and labeled 42 addresses as noise,
+achieving a silhouette score of 0.6588.
+6.1.2
+On-chain Behavior Characterization. We began with a cluster-
+wise profitability analysis, and restricted the analysis to transactions
+where Wrapped SOL (WSOL) serves as the base asset, to enable fair
+comparison across clusters. WSOL is the tokenized representation
+of native SOL, pegged 1:1, which enables SOL to participate in token-
+based programs and DEX swaps. Specifically, for each cluster of bot
+addresses, we examined the distribution of address-level realized
+profits in SOL-denominated units, which were derived from per-
+transaction balance deltas between the pre_token_balances and
+post_token_balances fields in transactions.
+To interpret the resulting clusters, we further characterize each
+cluster using observable on-chain operational behaviors, including:
+(i) Trading venues. We extract the program ID(s) invoked by each
+transaction, from both top-level and inner instructions, and map
+program IDs to venues using Solscan annotations; (ii) Traded to-
+kens. We identify the token accounts referenced in swap-related
+instructions (e.g., input and output token accounts) and extract
+their mint addresses to determine the traded tokens; (iii) Transfer
+outflows. We extract recipients from native transfer instructions
+in the System Program and from transfer/transferChecked in-
+structions in the Token Program.
+To captures economically meaningful transfer outflows that re-
+flect external execution dependencies, rather than internal fund
+shuffling or protocol-mandated state transitions, we exclude: (i)
+Figure 3: Transaction success rate vs. submission rate across
+clusters (log-scaled x-axis; bubble size: mean fee per address).
+intra-transaction transfers that form a closed value loop (i.e., out-
+flows fully returned within the same transaction), (ii) transfers to
+bot-controlled addresses used for self-funding (i.e., identified based
+on publicly annotated funding relationships at the time of data col-
+lection), and (iii) transfers involving protocol state accounts, such
+as liquidity pool or bonding-curve accounts labeled by Solscan.
+6.1.3
+Validation across Time Windows. To assess whether the iden-
+tified behavioral clusters generalize beyond the baseline window
+and the originally selected bot services, we projected the bot ad-
+dresses collected during the validation window onto the baseline
+cluster space, rather than reclustering them. The design of projec-
+tion enables us to evaluate whether the behavioral clusters learned
+from the baseline window remains applicable to unseen addresses
+collected in a later time window and from an additional bot-service
+source. Specifically, for each validation address, we computed the
+same address-level features described in Section 6.1.1. We then as-
+signed each address to the cluster label of its five nearest neighbors
+in the baseline clustering using a 5-nearest-neighbor classifier with
+majority voting. Ties were broken by summing inverse distances
+separately for each tied label and choosing the label with the largest
+sum [59]. Next, to assess whether the behavioral characteristics
+of the identified clusters remain stable between the baseline and
+validation windows, we first characterized the validation addresses
+assigned to each cluster using the same behavioral dimensions that
+characterize the baseline clusters, as described in Section 6.1.2. We
+then compared the resulting characteristics of validation clusters
+with those of the corresponding baseline clusters in terms of DEX
+venues, traded tokens, and major outflow recipients.
+6.2
+Results
+6.2.1
+Cluster-level Execution Characteristics. Figure 3 visualizes
+the distribution of bot addresses in the success–frequency space
+of transaction execution. Rather than forming a single continuous
+trade-off, the clusters of bot addresses partition the space into four
+distinct execution regimes, which form a structured 2×2 landscape
+defined jointly by submission intensity (low vs. high) and execution
+effectiveness (low vs. high). At low submission rates (left side of
+Figure 3), two clusters exhibit sharply different outcomes. Cluster 3
+concentrates in the upper-left area, achieving near-perfect success
+(0.995), with 43.14% of addresses reaching 100% success; while sub-
+mitting transactions rarely (9.82 × 10−4 tx/sec), reflecting highly
+selective execution. In contrast, Cluster 0 also operates at very
+low submission rates (0.032 tx/sec) but remains concentrated in
+the lower-left region, with 84.85% of addresses below a 0.2 success
+rate, indicating sparse yet ineffective attempts. At high submission
+rates (right side of Figure 3), the other two clusters again separate
+
+
+[page 9]
+Demystifying Solana Bots: From GitHub Blueprints to On-Chain Fingerprints
+ASE ’26, October 12–16, 2026, Munich, Germany
+Figure 4: Total profits Distribution across clusters. Bands
+show the full (light) and interquartile (dark) ranges.
+by execution effectiveness. Cluster 1 occupies the lower-right re-
+gion, characterized by frequent submissions (1.360 tx/sec) coupled
+with 72.73% of addresses below a 0.2 success rate, consistent with
+volume-driven speculative behavior. Cluster 2, however, lies in
+the upper-mid region, combining sustained activity (0.457 tx/sec)
+with high success (0.918 on average), representing a more balanced
+execution pattern. Table 6 in the Appendix provides quantitative
+summaries of each cluster of the bot addresses.
+We further examined the realized per-address profits to char-
+acterize the economic outcomes associated with each execution
+regime, as shown in Figure 4. We observe that execution intensity
+and success rate do not reliably translate into stable profitability.
+Instead, they correspond to distinct risk exposures: near-zero out-
+comes (Cluster 0), frequent small losses (Cluster 1), heavy-tailed
+downside exposure (Cluster 2), and near-zero gains with occa-
+sional downside tail risk (Cluster 3).
+Finding 5: Execution characteristics of on-chain bot addresses in the
+success–frequency space fall into four clusters, characterized by success
+rate and submission rate. Realized per-address profit distributions show
+that neither execution intensity nor success rate translates into stable
+profitability, and instead they correspond to distinct risk exposures.
+6.2.2
+Trading Venues. To interpret the intent-level semantics of the
+execution regimes identified in Figure 3, we performed transaction-
+level inspection of representative addresses sampled from each clus-
+ter. We operationalized two execution patterns, round-trip motif
+and venue-specific directional flow, and manually annotated sampled
+addresses according to the protocol described below. Operational
+Definitions. Following prior studies [60, 61] on blockchain arbi-
+trage, we define a round-trip motif as a transaction pattern satis-
+fying two conditions: (i) the input and output assets are the same
+base asset, such as WSOL; (ii) the execution path traverses at least
+two distinct DEX venues. In contrast, we define a venue-specific
+directional flow as a transaction pattern confined primarily to a
+single venue or a DEX aggregator without a closed-loop return to
+the base asset, which is consistent with trading-operation behavior.
+Sampling and Annotation. For each of Clusters 0-3, we strati-
+fied addresses into high-, mid-, and low-probability tiers based on
+HDBSCAN membership probability using a tertile split within each
+cluster. We randomly sampled up to five addresses per tier; for tiers
+with fewer than five addresses, all available addresses were included.
+Two annotators independently labeled each address as round-trip,
+venue-specific directional, or ambiguous/other, achieving 96.23%
+inter-annotator agreement. See Appendix A.3 for details.
+Across Clusters 0-2, 37 of the 38 sampled addresses exhibited
+the round-trip motif. One representative transaction [62] executes
+an aggregated swap across two DEX venues: it first swaps 3.549
+WSOL for 23,899.845 PAYAI on Raydium, and then swaps the same
+amount of PAYAI back for 3.561 WSOL on Meteora DLMM. The
+resulting WSOL–PAYAI–WSOL path closes on the same base asset
+while crossing two venues, providing transaction-level evidence of
+the round-trip arbitrage motif. Meanwhile, all 15 sampled addresses
+in Cluster 3 exhibited venue-specific directional flows dominated
+by Pump.fun-related activity. Accordingly, we align Clusters 0–2
+with MEV and Cluster 3 with Trading Operations when integrating
+the clusters into the taxonomy of RQ1.
+We further cross-validated the semantic interpretation using
+known bot-service labels. Excluding noise, 90.32% of clustered
+SolanaMevBot addresses fall in Clusters 0-2 (33, 11, and 12 addresses;
+38 noise), whereas all clustered Trojan addresses fall in Cluster 3
+(96 addresses; 4 noise). This service-level separation corroborates
+the transaction-level evidence for interpreting Clusters 0–2 as MEV-
+oriented and Cluster 3 as trading-operation-oriented.
+We examined the top 10 trading venues by transaction count
+across clusters of bot addresses (Table 8 in the Appendix). The
+four clusters are separated along (i) venue concentration and (ii)
+aggregator mediation. The venue-level differences across clusters
+also tend to align with the distinct execution regimes observed in
+Section 6.2.1. Specifically, Cluster 2 (Aggregator-Centric MEV),
+dominated by Jupiter Aggregator v6 (67.9%), corresponds to the
+high-success, sustained-activity regime, suggesting that aggregator-
+mediated routing could be associated with stable execution effec-
+tiveness. In contrast, Cluster 3 (Pump.fun-Centric Trading), with
+over 80% of transactions confined to the Pump.fun ecosystem, co-
+incides with the low-frequency but near-perfect execution regime,
+indicating highly selective activity in a single venue. Cluster 1
+(Venue-Specialized MEV), whose activity is concentrated on Ray-
+dium and Meteora pools (over 95% combined), aligns with the high-
+submission yet low-success regime, reflecting intensive but com-
+petitive execution in specialized venues. Cluster 0 (Multi-Venue
+MEV), which distributes transactions across several venues without
+strong aggregator reliance, corresponds to the low-activity and
+low-success regime, indicating dispersed yet ineffective execution.
+Beyond venue concentration and aggregator mediation, addi-
+tional venue-level signals further differentiate the clusters of MEV
+bot addresses. In particular, the appearance of Kamino Lending
+within Cluster 0 indicates that lending primitives are occasionally
+invoked alongside swap instructions, potentially enabling capital-
+efficient strategies such as flash-loan-assisted arbitrage. Moreover,
+Cluster 2 interacts with several proprietary AMMs (e.g., Humid-
+iFi [63–65]), suggesting routing paths that extend beyond standard
+public liquidity pools and may involve access to closed or special-
+ized liquidity sources. We also observe that, within Cluster 2, trans-
+actions invoking the HumidiFi program are associated with more
+favorable profit outcomes. Specifically, 62.30% (152,502/244,733) of
+HumidiFi-invoking transactions are profitable, compared to only
+21.01% (45,949/218,678) of non-HumidiFi-invoking transactions. In
+addition, HumidiFi-invoking transactions yield an average profit
+of 143, 661 lamports, whereas non-HumidiFi-invoking transactions
+incur an average loss of 8, 693 lamports.
+Finding 6: Trading venues differs across MEV bots. Trading Operations
+bots confined over 80% of transactions to the Pump.fun ecosystem.
+6.2.3
+Traded Tokens and Transfer Outflows. We examined the top-
+10 traded tokens in transactions initiated by each cluster and ob-
+served distinct token trading patterns across clusters (Table 9 in
+the Appendix). The main observations are as follows:
+
+
+[page 10]
+ASE ’26, October 12–16, 2026, Munich, Germany
+Xiaoye Zheng, Yujing Chen, Minghao Wu, David Lo, Difan Xie, Daoyuan Wu, Xiaohu Yang, and Zhiyuan Wan
+Æ MEV bots (Clusters 0–2). WSOL serves as a dominant pivot
+asset across the MEV-oriented clusters. WSOL appears in 99.94% of
+transactions initiated by addresses in Cluster 1 (Venue-Specialized
+MEV) and 98.25% in Cluster 2 (Aggregator-Centric MEV), and re-
+mains prevalent in Cluster 0 (Multi-Venue MEV) at 70.90%. The
+clusters also differ in token concentration and breadth. Cluster 1
+exhibits the tightest co-anchor structure, where WSOL (99.94%)
+frequently co-occurs with a small set of recurring tokens such as
+USD1 (46.84%) and USELESS COIN (44.00%). Cluster 0 combines
+WSOL (70.90%) with substantial stablecoin exposure (USDC 50.97%)
+alongside additional long-tail tokens. Cluster 2 maintains a WSOL
+backbone (98.25%) while spanning a broader mid-frequency token
+mix (4.13–15.04% across tokens), indicating wider asset coverage.
+Æ Trading Operations Bots (Cluster 3) show no dominant pivot
+tokens in their transactions, with WSOL appearing in only 10.93% of
+the transactions. Its top tokens are instead dominated by Pump.fun
+assets with low individual frequencies (all below 8%), consistent
+with a long-tail, platform-driven token distribution in transactions.
+Moreover, transfer-outflow recipients suggest different execution-
+side dependencies across clusters: MEV bots are infrastructure-
+centered, whereas Trading Operations bots are more platform- and
+service-distributed. Specifically, MEV bots (Clusters 0–2) exhibit
+extreme concentration toward inclusion infrastructure (i.e., Jito tip
+payment accounts), whereas Trading Operations bots (Cluster 3)
+distribute outflows across trading platforms (e.g., Trojan accounts)
+and inclusion services (e.g., Jito tip payment accounts). Detailed
+recipient distributions are provided in Table 10 in the Appendix.
+Finding 7: MEV bots mainly trade WSOL as pivot token, and transfer
+to infrastructure-related recipients. Trading Operations bots have no
+dominant pivot, and distribute transfers across platforms and services.
+6.2.4
+Cluster and Behavioral Consistency across Time Windows.
+The baseline clusters remain broadly applicable to validation-window
+addresses. All 100 Axiom addresses were mapped to Cluster 3. For
+100 SolanaMevBot addresses from the validation window, 41, 4, and
+2 were assigned to Clusters 0, 1, and 2, respectively; 20 were assigned
+to Cluster 3; and the remaining 33 were classified as noise. This cor-
+responds to 0% and 33% noise ratios for Axiom and SolanaMevBot
+addresses in the validation window, respectively. The remaining
+SolanaMevBot noise addresses suggest that some later-window
+behaviors are less well captured by the clusters observed in the
+baseline window. Details see Appendix A.2.
+Different behavioral dimensions exhibit different levels of tem-
+poral stability across the baseline and validation windows. Overall,
+trading-venue usage remains the most stable behavioral dimension,
+followed by transfer-outflow recipients, whereas traded tokens ex-
+hibit substantially greater temporal variation. Trading Venues. For
+the MEV-oriented clusters, C0 preserves its original multi-venue
+pattern, with 7 of its top-10 DEX venues overlapping with the orig-
+inal C0, including Jupiter, Pump.fun AMM, Meteora DLMM, and
+Whirlpools. C1 exhibits the strongest continuity, with 8 overlap-
+ping top-10 venues centered on Meteora, Raydium, Pump.fun AMM,
+and Whirlpools. C3 also retains a Pump.fun-oriented venue profile,
+with Pump.fun and Pump.fun AMM remaining among the domi-
+nant venues. Consistently, all validation-window Axiom addresses,
+which are assigned to C3, exhibit the same Pump.fun-oriented trad-
+ing behavior. In contrast, C2 shows weaker stability, with only
+2 overlapping top-10 venues. Transfer-outflow Recipients. C1
+and C2 remain strongly Jitotip-centered, accounting for 80.64% and
+100% of total transfers, respectively. C3 continues to direct transfers
+primarily to Jitotip (18.76%) and Pump.fun protocol-fee accounts
+(14.39%). Although C0 shows a different set of dominant recipient
+accounts, it still shares common service-level recipients such as
+Pump.fun protocol-fee accounts, indicating that the underlying ex-
+ecution infrastructure remains largely unchanged. Traded Tokens
+exhibit substantially greater temporal variation. Across clusters,
+only 3 of the top-10 traded tokens overlap with those in the baseline
+window. The stable overlap mainly consists of common base or
+pivot assets, including WSOL, USDC, and USD1, whereas long-tail
+traded tokens change considerably across the validation window.
+7
+Implications
+Architectural Regularity and Engineering Implications for
+Solana Bots. Solana bots exhibit a stable high-level execution
+backbone despite substantial variation in low-level implementa-
+tion (Finding 2). At the architectural level, repositories across bot
+categories repeatedly align with a common five-stage pipeline, es-
+pecially around shared components such as Data Acquisition, Data
+Analytics, and Trade Execution (Finding 3). The observed architec-
+tural regularity of Solana bots at the code level is broadly consistent
+with prior studies of bots on Ethereum and BNB [22, 24], which
+identify recurring operational motifs such as sniping, front-running,
+and arbitrage from account- or transaction-level evidence. Mean-
+while, the recurrence of a small set of building blocks suggests that
+reimplementation is pervasive in the Solana bot OSS ecosystem.
+Takeaway: Instead of repeatedly developing end-to-end bots from
+scratch, practitioners should prioritize the shared maintenance of
+recurrent bot components, while preserving flexibility for long-tail,
+strategy-specific logic. Moreover, the five-stage pipeline identified
+in RQ2 can be viewed as an empirically derived architectural refer-
+ence model for designing and auditing Solana bots.
+Dependency Lag as an Ecosystem-Level Maintainability Con-
+cern of Solana Bots. More than 30% of the dependencies in the
+third-party libraries in Solana lag behind the latest available re-
+lease by over one year (Finding 4). The observation suggests that
+dependency technical lag is not merely a repository-level issue,
+but an ecosystem-level maintainability concern for Solana bots.
+The maintainability concern, however, is not uniform across depen-
+dency types: for protocol-facing libraries such as core Solana SDKs,
+lag poses a genuine compatibility risk, since Solana’s transaction
+formats, RPC interfaces, and fee-setting mechanisms evolve contin-
+uously, and staleness here risks silent incompatibility rather than
+merely missing new features. For general-purpose libraries not di-
+rectly coupled to protocol evolution (e.g., dotenv, axios), lag instead
+reflects a stability-versus-currency tradeoff familiar from software
+maintenance more broadly, where a pinned, well-tested dependency
+environment can be preferable to frequent, disruptive upgrades.
+The maintainability concern is especially salient for Solana SDK
+dependencies, where the technical lag of widely used Solana SDKs
+ranges from 125 to 572 days. Blockchain bots tend to operate in
+latency-sensitive and adversarial transaction environments, where
+their execution success depends heavily on SDK APIs, RPC inter-
+faces, transaction formats, and fee-setting mechanisms [66, 67].
+
+
+[page 11]
+Demystifying Solana Bots: From GitHub Blueprints to On-Chain Fingerprints
+ASE ’26, October 12–16, 2026, Munich, Germany
+Takeaway: Practitioners, therefore, should prioritize the manage-
+ment of SDK dependencies in Solana bots as part of ensuring trans-
+action correctness and execution reliability, rather than as a back-
+ground maintenance task, while general-purpose dependencies can
+be managed with more discretion, favoring stability where fre-
+quent upgrades offer limited benefit. Correspondingly, tool builders
+should support not only outdated-dependency detection, but also
+compatibility assessment for evolving transaction formats, RPC in-
+terfaces, and fee-related mechanisms, so that update decisions can
+be prioritized by dependency type rather than applied uniformly.
+Future work could investigate the underlying drivers of dependency
+lag in Solana bot repositories, including how the evolution of SDK
+libraries and transaction mechanisms affects dependency update
+decisions, maintenance effort, and compatibility management.
+The Interaction of Infrastructure, Venue, and Execution Regime
+is Associated with Distinct Execution Outcomes of Solana
+Bots. Solana bots can be characterized through three interacting
+layers: (1) execution infrastructure, such as Jito, which shapes trans-
+action submission and ordering; (2) DEX venue integration, such as
+proprietary AMM (e.g., HumidiFi), which is associated with how
+bots access liquidity and routing opportunities; and (3) execution
+regimes, which reflect how bots realize trading strategies within
+these constraints. Execution outcomes, therefore, are affected by
+the interaction of execution infrastructure, venue integration, and
+execution regime, rather than by trading logic alone (Findings 6
+and 7), which is consistent with prior studies [66, 67].
+Takeaway: Practitioners should design Solana bots through joint
+consideration of execution infrastructure, venue integration, and ex-
+ecution regimes, to secure execution edges in the highly competitive
+Solana market. Tool builders could support the design exploration
+across these layers. Future work could investigate the mechanisms
+underlying the observed coupling among execution infrastructure,
+venue integration, and execution regimes, including whether this
+coupling reflects deliberate design choices by practitioners, latency-
+driven optimization pressures [32, 67], or access constraints im-
+posed by private liquidity ecosystems [64]. Cross-chain compar-
+isons could further examine how ordering mechanisms, mempool
+visibility, and fee structures shape bot specialization.
+8
+Threats to Validity
+Construct Validity. Our GitHub repository and on-chain address
+datasets of Solana bots were collected independently and cannot
+be linked at the address level. The two datasets therefore pro-
+vide complementary views of the Solana bot ecosystem, covering
+implementation-level functionality and execution-level behavior.
+Accordingly, in Section 6.2.2, we establish correspondence between
+the two datasets at the behavioral level by linking on-chain clusters
+to the MEV and Trading Operations categories based on transaction
+traces from representative addresses in each cluster.
+External Validity. Three repository domains (Market Manipula-
+tion, On-chain Analytics, and Tooling and Infrastructure) are absent
+from our on-chain cluster, because the two analyzed bot services
+(Trojan and SolanaMevBot) are trading/arbitrage-oriented and do
+not exercise these domains. The observation reflects the service-
+level scope of our on-chain sample rather than an artifact of the
+clustering procedure. Consequently, our on-chain findings (Sec-
+tion 6.2) generalize primarily to trading- and MEV-oriented bots.
+9
+Related Work
+Studies on Solana. Early work investigated the performance and
+scalability of the Solana blockchain through its architecture [68], ca-
+pability for large-scale IoT workloads [14], and transaction latency
+and fees [15]. Other prior work developed automated techniques
+to detect vulnerabilities in Solana smart contracts using static anal-
+ysis [16] and coverage-guided fuzzing [17]. Recent studies have ex-
+amined diverse on-chain phenomena on Solana through systematic
+measurement, including failed transactions [18], MEV sandwiching
+attacks [19], meme coin markets [20], and rug pulls [21], providing
+insights into transaction-level behaviors and economic dynamics
+on Solana. Despite extensive prior work on Solana, existing stud-
+ies overlook Solana bots as software artifacts despite generating
+substantial on-chain activity. We addresses this gap through a sys-
+tematic empirical study of Solana bots that jointly examines their
+code-level characteristics and observable on-chain behaviors.
+Studies on Blockchain Bots. One line of prior work examines the
+behaviors of bots in AMM ecosystems on the Ethereum and BSC
+blockchains, including token sniping [69, 70], front-running [25,
+71, 72], and sandwich attacks [72–74]. Another line of prior work
+explores the automatic detection of bot-controlled accounts across
+blockchain platforms, such as EOSIO [75] and Ethereum [13, 76]. A
+recent study characterizes the bot accounts on the Solana blockchain
+that initiate failed transactions [18]. Overall, existing studies pri-
+marily focus on account-level analyses of bot behaviors, with most
+efforts centered on the Ethereum and BSC blockchains. In contrast,
+our work explores bots on the Solana blockchain from a software-
+centric perspective. Closely related to our work, Niedermayer et
+al. [13] derive an Ethereum financial-bot taxonomy from literature,
+GitHub repositories, and on-chain data. The taxonomy organizes
+financial bot activity into 7 categories and 24 subcategories, which
+elevates MEV as a mechanism-level category rooted in transaction-
+ordering competition, distinguishes venue-based branches (i.e., CEX
+and DEX), and further differentiates application- or asset-oriented
+domains such as NFT and Play-to-earn.
+10
+Conclusion and Future Work
+In this work, we present the first large-scale, implementation-
+grounded characterization of Solana bots by jointly analyzing 586
+GitHub repositories and 200 bot-associated addresses with over 44
+million on-chain transactions. We derived a 15-category taxonomy,
+identified a shared five-stage operational pipeline of bot imple-
+mentations, and found distinct bot execution fingerprints across
+venues and assets. Our findings characterize Solana bots from both
+code-level implementation and observable on-chain execution per-
+spectives, and highlight relevant software engineering concerns
+that arise in architecture, dependency management, and cross-layer
+execution design for bots operating in a competitive execution en-
+vironment and a fast-evolving software stack. Future work could
+explore the differences in ordering mechanisms, mempool visibility,
+and fee structures across blockchain systems, and how they shape
+distinct forms of bot specialization across blockchain systems.
+11
+Data Availability
+Our replication package is available online: https://doi.org/10.5281/
+zenodo.21359451.
+
+
+[page 12]
+ASE ’26, October 12–16, 2026, Munich, Germany
+Xiaoye Zheng, Yujing Chen, Minghao Wu, David Lo, Difan Xie, Daoyuan Wu, Xiaohu Yang, and Zhiyuan Wan
+A
+Appendix
+A.1
+Representative Solana Bot Repositories
+Æ The nmweaver/soltrade repository, written in Python, exemplifies the Order Execution and Management category by implementing a
+closed-loop execution logic for a Solana bot: the bot periodically monitors market data, derives trading signals using technical indicators,
+and plans for executing routed swaps via Jupiter.1 At runtime, once a signal is triggered, the bot obtains a swap route and a serialized
+transaction from Jupiter, then submits the transaction with a fixed priority fee (via compute-unit pricing) to improve the probability of
+on-chain inclusion.
+Æ The warp-id/solana-trading-bot repository, written in TypeScript, exemplifies the Sniping category by implementing an event-driven
+strategy that monitors newly created Raydium liquidity pools,2 and promptly submits buy transactions for eligible pools. The bot restricts
+sniping to pools quoted in configured assets (e.g., USDC or WSOL), and performs pre-trade checks (e.g., skipping pools created before
+startup and, when enabled, only trading pools on an allowlist) before submitting a buy transaction. The bot exposes multiple transaction
+submission backends (e.g., Warp and Jito), reflecting the use of alternative low-latency transaction relay or accelerator services to achieve
+timely on-chain inclusion of transactions.
+Table 4: Taxonomy of Solana Bot Repositories (Repos) on GitHub.
+Category (# Repos)
+Description
+Example Tags
+Representative Repo
+Æ Trading Operations
+Order Execution and
+Management (137)
+Bots that automate on-chain order placement with execution control [77], enabling conditional or
+triggered orders, scheduled or split execution, rule-based repeated trading, and safeguards such as
+slippage limits or minimum-output constraints.
+trading-bot,
+automated-trading,
+transaction-execution,
+limit-orders,
+telegram-trading-bot
+nmweaver/soltrade
+(342 ⋆)
+Liquidity Provision and
+Yield Farming (12)
+Bots that automate liquidity position management on DEX by providing or removing liquidity [78],
+periodically rebalancing positions, harvesting rewards, and automatically reinvesting them, and
+optionally applying safeguards to reduce exposure to impermanent loss.
+liquidity-management, bonding-curve,
+liquidity-bot,
+automated-market-
+maker, liquidity-pools
+edwin-finance/
+meteora-liquidity-
+rebalancer (4 ⋆)
+Copy Trading (33)
+Bots that automate trade mirroring by monitoring designated “leader” wallets and replicating their
+positions or transactions [79, 80], often framed as social/smart-money-following trading.
+copy-trading, copy-trading-bot
+cryptole0/Copy-
+Trading-Bot-Rust
+(96 ⋆)
+Æ MEV
+Arbitrage (47)
+Bots that automate profit-seeking trades by exploiting price or rate discrepancies across trading venues
+(e.g., cross-DEX, CEX–DEX, and flash-loan amplified paths), via fast, often multi-leg execution [60, 66].
+arbitrage-bot,
+flash-loan-arbitrage,
+cross-pool-arbitrage, cross-exchange-
+arbitrage, dex-cex-arbitrage
+0xNineteen/solana-
+arbitrage-bot (799 ⋆)
+Sniping (134)
+Bots that automate event-driven trading around new token launches by monitoring on-chain signals
+and launch platforms [22, 23], which rapidly submit buy/sell transactions during the initial liquidity
+and early trading window to secure early entry.
+sniper-bot, pumpfun-bot, pumpfun-
+trading-bot, memecoin-trading, token-
+sniper
+warp-id/solana-
+trading-bot (2,220 ⋆)
+Transaction Ordering
+Exploitation (41)
+Bots that automate ordering-based execution by shaping in-block/slot transaction inclusion and
+ordering [81], using bundle construction and simulation, and bidding for priority (e.g., via Jito tips) to
+enable ordering-dependent strategies such as front-running and sandwiching.
+mev-bot,
+jito-bundle,
+transaction-
+bundling, pumpfun-bundler, sandwich-
+attack
+jito-labs/mev-bot
+(1,150 ⋆)
+Æ Market Manipulation
+Wash Trading (21)
+Bots that automate the generation of artificial trading activity [82, 83] by creating high-frequency
+buy/sell flows that inflate apparent volume, mimic organic trading patterns (e.g., randomized timing
+and order sizes), and spread activity across multiple transactions or addresses to reduce detectability.
+volume-bot, volume-simulation
+web3batman/Raydium-
+Volume-Bot (67 ⋆)
+Æ On-chain Analytics
+Monitoring and Alert-
+ing (26)
+Bots that monitor and analyze on-chain activity in real time by subscribing to blockchain events (e.g.,
+liquidity changes, wallet flows, and new token listings), and publish alerts to support downstream
+decision-making or trigger automated trading [84, 85].
+real-time-alerts,
+token-monitoring,
+real-time-monitoring, wallet-tracking,
+transaction-monitoring
+FriedDev/solana-rug-
+checker (29 ⋆)
+Portfolio and Risk Man-
+agement (14)
+Bots that automate portfolio and risk management by tracking holdings and performance (e.g., profit
+and loss), rebalancing portfolios, and evaluating strategies through backtesting and simulation [86, 87].
+risk-management,
+risk-analysis,
+portfolio-management,
+simulation,
+data-analysis
+henrytirla/Solana-
+PNL-Bot (66 ⋆)
+Ô Tooling and Infrastructure
+Token Issuance and Ad-
+ministration (8)
+Tools that automate token issuance and administration [88] (SPL/Token-2022), including creation/de-
+ployment, minting and distribution, metadata setup/validation, and administrative controls.
+token-launchpad,
+token-creation,
+token-launch,
+token-management,
+spl-token
+0xNevo/Solana_Token_
+Freezer (14 ⋆)
+NFT Minting and Mar-
+ketplace Trading (14)
+Tools that automate NFT issuance and marketplace operations [89, 90] by minting items, monitoring
+listings and sales activity on marketplaces, and generating transactions for listing, buying, or selling.
+nft-sales-bot, nft-tools, nft-minting-bot,
+nft, nft-bot
+theskeletoncrew/air-
+support (178 ⋆)
+DEX Swap Routing and
+Integration (30)
+Tools provide reusable components and services for token swapping across trading venues (AMMs,
+order books, and aggregators), including API integrations, multi-hop routing, liquidity aggregation,
+and optional cross-chain bridging support [91, 92].
+raydium-integration,
+jupiter-
+aggregator, dex-integration, jupiter-
+swap, dex-aggregator
+YZYLAB/solana-swap
+(130 ⋆)
+Wallet Management (6)
+Tools automate wallet and account operations such as keypair and token-account management, multi-
+wallet coordination, transaction building and batching, and fund distribution/sweeping [93, 94].
+wallet-management,
+multi-wallet,
+token-transfer, account-management,
+keypair-management
+LeaderMalang/Solana-
+Sweeper-Bot (9 ⋆)
+On-chain Data Pipeline
+(10)
+Infrastructure and tools for collecting, streaming, and indexing on-chain data via RPC, Geyser, gRPC,
+or webhooks for downstream queries and applications.
+rpc-client, data-aggregation, birdeye-
+api, geyser-client, helius-webhook
+weeaa/goyser (66 ⋆)
+Messaging Integration
+and Alerts (37)
+Tools integrate bot capabilities with chat and social platforms (e.g., Telegram, Discord, and Twitter),
+providing event-driven alerts via webhooks and interactive command interfaces for downstream
+automation and coordination.
+telegram-bot,
+twitter-integration,
+discord-bot, chat-interface, discord-
+notifications
+KingJiongEN/
+DegentGroup (65 ⋆)
+1Jupiter is a widely used DEX aggregator on Solana that computes optimal swap routes across multiple DEXs and provides ready-to-submit swap transactions.
+2Raydium is a DEX and automated market maker (AMM) protocol on Solana, where liquidity pools facilitate token swaps.
+
+
+[page 13]
+Demystifying Solana Bots: From GitHub Blueprints to On-Chain Fingerprints
+ASE ’26, October 12–16, 2026, Munich, Germany
+Table 5: Repository-level dependency lag across bot categories.
+Domain
+Category
+Median
+(days)
+IQR
+(days)
+Trading
+Operations
+Order Execution and Management
+4.0
+125.8
+Liquidity Provision and Yield Farming
+121.3
+251.3
+Copy Trading
+0.0
+65.9
+MEV
+Arbitrage
+391.2
+435.6
+Sniping
+0.0
+125.8
+Transaction Ordering Exploitation
+0.0
+159.1
+Market
+Manipulation
+Wash Trading
+62.9
+125.8
+On-chain
+Analytics
+Monitoring and Alerting
+0.0
+125.8
+Portfolio and Risk Management
+202.2
+679.9
+Tooling and
+Infrastructure
+Token Issuance and Administration
+0.2
+265.7
+NFT Minting and Marketplace Trading
+433.9
+629.6
+DEX Swap Routing and Integration
+0.0
+91.9
+Wallet Management
+151.3
+267.6
+On-chain Data Pipeline
+0.0
+136.3
+Messaging Integration and Alerts
+62.9
+238.5
+Table 6: Quantitative transaction summaries by cluster. Fees are in lamports.
+Cluster
+Metric
+Min
+Median
+Mean
+Max
+0
+Success Rate
+0.000
+0.017%
+0.073
+0.450
+Transaction Fee
+5,039
+7,636
+17,692
+99,211
+Submission Rate
+0.000
+0.002
+0.032
+0.475
+1
+Success Rate
+0.000
+0.020
+0.105
+0.393
+Transaction Fee
+5,384
+5,730
+7,076
+14,624
+Submission Rate
+0.500
+1.219
+1.360
+2.520
+2
+Success Rate
+0.583
+0.975
+0.918
+1.000
+Transaction Fee
+5,005
+7,633
+11,239
+36,415
+Submission Rate
+0.020
+0.157
+0.457
+1.561
+3
+Success Rate
+0.950
+0.999
+0.995
+1.000
+Transaction Fee
+5,000
+131,078
+924,123
+7,302,435
+Submission Rate
+0.85 × 10−4
+5.61 × 10−4
+9.82 × 10−4
+0.012
+Table 7: Validation of Cluster Intent-Level Semantics.
+Cluster
+#Sampled
+Round-trip motif
+Directional flow
+Ambiguous/Other
+C0
+15
+14 (93.33%)
+0 (0.00%)
+1 (6.67%)
+C1
+11
+11 (100.00%)
+0 (0.00 %)
+0 (0.00 %)
+C2
+12
+12 (100.00%)
+0 (0.00%)
+0 (0.00 %)
+C3
+15
+0 (0.00 %)
+15 (100.00%)
+0 (0.00 %)
+A.2
+Validation Dataset of On-chain Addresses of Solana Bots
+The transaction volume per address during the validation window also varies substantially across the two bot services. Bot addresses from
+SolanaMevBot range from 1 to 6,999,255 transactions (median: 1,651.5; mean: 464,077), whereas bot addresses from Axiom range from 454 to
+40,270 transactions (median: 5,187; mean: 10,200).
+The noise-like SolanaMevBot addresses showed mixed boundary profiles. They partially resembled baseline Cluster 1 in exhibiting
+high-frequency, low-success behavior, with comparable transaction frequency (1.78 vs. 1.32 transactions per block). However, they were less
+extreme than the Cluster 1, with lower transaction volume (median 121,356 vs. 1,658,441 transactions) and a higher, though still low, success
+rate (6.91% vs. 1.95%).
+A.3
+Validation of Cluster-to-Intent Mapping
+The stratified sampling method covers both highly prototypical addresses and boundary cases near the periphery of each cluster. Each sampled
+address was independently labeled by two annotators as exhibiting a round-trip motif, a venue-specific directional flow, or ambiguous/other,
+according to the operational definitions in Section 6.2.2. Inter-annotator agreement reached 96.23% by percentage agreement. Addresses that
+matched neither pattern were labeled as ambiguous/other and reported separately. Table 7 summarizes the manual validation results for the
+intent-level semantics of Clusters 0-3.
+
+
+[page 14]
+ASE ’26, October 12–16, 2026, Munich, Germany
+Xiaoye Zheng, Yujing Chen, Minghao Wu, David Lo, Difan Xie, Daoyuan Wu, Xiaohu Yang, and Zhiyuan Wan
+Table 8: Top-10 trading venues by transaction count across clusters. We denote Cluster 0–3 as C0–3 for brevity.
+(a) C0: Multi-Venue MEV
+Venue (Program)
+Txs # | %
+Pump.fun
+2,221 | 33.02%
+Whirlpools
+2,058 | 30.59%
+Raydium CLMM
+2,058 | 30.59%
+Jupiter Aggregator v6 741 | 11.02%
+Kamino Lending
+670 | 9.96%
+Pump.fun AMM
+511 | 7.60%
+Raydium CPMM
+369 | 5.49%
+Meteora DLMM
+367 | 5.46%
+Raydium Liquidity
+151 | 2.24%
+HumidiFi
+84 | 1.25%
+(b) C1: Venue-Specialized MEV
+Venue (Program)
+Txs # | %
+Meteora DLMM
+1,338,569 | 34.56%
+Raydium Liquidity
+1,261,944 | 32.58%
+Raydium CPMM
+1,129,755 | 29.16%
+Meteora DAMM v2
+83,794 | 2.16%
+Meteora Pools
+33,559 | 0.87%
+Pump.fun AMM
+20,710 | 0.53%
+Whirlpool
+10,513 | 0.27%
+Raydium CLMM
+7,783 | 0.20%
+Heaven DEX
+4,531 | 0.12%
+Jupiter Aggregator v6 4,192 | 0.11%
+(c) C2: Aggregator-Centric MEV
+Venue (Program)
+Txs # | %
+Jupiter Aggregator v6 314,641 | 67.90%
+HumidiFi
+244,733 | 52.81%
+Whirlpool
+162,116 | 34.98%
+Meteora DLMM
+147,015 | 31.72%
+SolFi
+69,461 | 14.99%
+ZeroFi
+66,539 | 14.36%
+Obric V2
+64,037 | 13.82%
+Jupiter Perpetuals
+63,057 | 13.61%
+Kamino Lending
+62,500 | 13.49%
+Tessera V
+56,859 | 12.27%
+(d) C3: Pump.fun-Centric Trading
+Venue (Program)
+Txs # | %
+Pump.fun AMM
+58,517 | 46.26%
+Pump.fun
+43,812 | 34.63%
+Meteora DAMM
+7,765 | 6.14%
+Jupiter Aggregator v6
+6,379 | 5.04%
+Raydium Liquidity
+5,756 | 4.55%
+Meteora DLMM
+5,011 | 3.96%
+Raydium CPMM
+4,046 | 3.20%
+SolFi V2
+1,917 | 1.52%
+Meteora Dynamic Bonding Curve 1,562 | 1.23%
+Raydium CLMM
+1,105 | 0.87%
+Table 9: Top-10 traded tokens by transaction count across clusters.
+(a) C0: Multi-Venue MEV
+Token Mint
+Txs # | %
+WSOL
+19,351 | 70.90%
+USDC
+13,911 | 50.97%
+DraperTV (Pump.fun)
+3,816 | 13.98%
+Meteora
+2,146 | 7.86%
+Lets go (Pump.fun)
+1,815 | 6.65%
+DoubleZero
+1,318 | 4.83%
+USD1
+1,170 | 4.29%
+SLERF
+1,015 | 3.72%
+1a
+838 | 3.07%
+@easytopredict
+715 | 2.62%
+(b) C1: Venue-Specialized MEV
+Token Mint
+Txs # | %
+WSOL
+23,674,438 | 99.94%
+USD1
+11,096,721 | 46.84%
+USELESS COIN
+10,422,887 | 44.00%
+GMvC...bonk
+7,672,218 | 32.39%
+Sombrero Memes
+6,211,416 | 26.22%
+Fartcoin (Pump.fun)
+3,727,453 | 15.73%
+USDC
+3,358,702 | 14.18%
+PAYAI (Pump.fun)
+1,675,679 | 7.07%
+$1 Trump Coin
+1,104,440 | 4.66%
+@easytopredict
+702,145 | 2.96%
+(c) C2: Aggregator-Centric MEV
+Token Mint
+Txs # | %
+WSOL
+11,431,418 | 98.25%
+USELESS COIN
+1,750,295 | 15.04%
+@easytopredict
+728,599 | 6.26%
+KITKAT (Pump.fun)
+712,506 | 6.12%
+PAYAI (Pump.fun)
+703,558 | 6.05%
+USDC
+659,232 | 5.67%
+FUN
+568,958 | 4.89%
+USD1
+513,994 | 4.42%
+KURO
+501,682 | 4.31%
+NEO
+479,972 | 4.13%
+(d) C3: Pump.fun-Centric Trading
+Token Mint
+Txs # | %
+WSOL
+22,894 | 10.93%
+SamAI (Pump.fun)
+16,456 | 7.85%
+Breastcoin (Pump.fun)
+8,234 | 3.93%
+Cameo (Pump.fun)
+4,790 | 2.29%
+USDC
+3,699 | 1.77%
+PIMP (Pump.fun)
+2,160 | 1.03%
+USD1
+1,751 | 0.84%
+Bella (Pump.fun)
+1,206 | 0.58%
+PAYAI (Pump.fun)
+1,198 | 0.57%
+PFP (Pump.fun)
+1,145 | 0.55%
+a The token is named 1 coin can change your life, with 1 used as its abbreviation.
+Table 10: Top transfer recipients across clusters after merging by public name or address prefix for unlabeled accounts.
+Recipient (Merged)
+Total Transfer | %
+# Bot Addresses
+C0: Multi-Venue MEV
+Pump.fun Protocol Fee
+26,682,284 | 0.56%
+2
+Jitotip
+17,720,468 | 0.37%
+4
+Others
+⊲ReNT...j4aY
+4,448,417,434 | 93.25%
+4
+⊲FEnA...596o
+181,568,661 | 3.81%
+1
+⊲7tDT...pRcZ
+50,000,000 | 1.05%
+1
+⊲FAST...wN7M
+28,045,984 | 0.59%
+3
+C1: Venue-Specialized MEV
+Jitotip
+34,965,963,665 | 62.65%
+10
+Others
+⊲astra
+12,423,059,423 | 22.26%
+4
+⊲flash
+1,225,770,404 | 2.20%
+9
+⊲7tDT...pRcZ
+500,000,000 | 0.90%
+1
+C2: Aggregator-Centric MEV
+Jitotip
+133,150,141,077 | 52.88%
+11
+solanamevbot
+4,700,495,258 | 1.87%
+1
+Helius
+44,176,347 | 0.02%
+3
+Others
+⊲BFP8...WGEu
+103,640,000,000 | 41.16%
+1
+⊲astra
+10,147,270,614 | 4.03%
+6
+C3: Pump.fun-Centric Trading
+Trojan
+1,752,718,250,257 | 61.26%
+96
+Jitotip
+290,865,285,692 | 10.17%
+100
+Pump.fun
+185,504,355,820 | 6.48%
+88
+Others
+⊲FbWy...V4wi
+120,325,058,212 | 4.21%
+3
+⊲6ggZ...zCFV
+106,841,881,088 | 3.73%
+2
+
+
+[page 15]
+Demystifying Solana Bots: From GitHub Blueprints to On-Chain Fingerprints
+ASE ’26, October 12–16, 2026, Munich, Germany
+Table 11: Human validation for the dominant category assignment of Solana bot repositories across the 15 categories.
+Category
+Sampled (𝑁)
+Confirmed (𝑛)
+Accuracy (%)
+Order Execution and Management
+14
+13
+92.9
+Sniping
+13
+11
+84.6
+Arbitrage
+8
+7
+87.5
+Transaction Ordering Exploitation
+8
+7
+87.5
+Messaging Integration and Alerts
+7
+7
+100.0
+Copy Trading
+7
+7
+100.0
+DEX Swap Routing and Integration
+7
+7
+100.0
+Monitoring and Alerting
+6
+5
+83.3
+Wash Trading
+6
+6
+100.0
+Portfolio and Risk Management
+5
+4
+80.0
+NFT Minting and Marketplace Trading
+5
+5
+100.0
+Liquidity Provision and Yield Farming
+4
+3
+75.0
+On-chain Data Pipeline
+4
+3
+75.0
+Token Issuance and Administration
+3
+3
+100.0
+Wallet Management
+3
+3
+100.0
+Overall
+100
+91
+91.0
+
+
+[page 16]
+ASE ’26, October 12–16, 2026, Munich, Germany
+Xiaoye Zheng, Yujing Chen, Minghao Wu, David Lo, Difan Xie, Daoyuan Wu, Xiaohu Yang, and Zhiyuan Wan
+References
+[1] A. Yakovenko, “Solana: A new architecture for a high performance blockchain
+v0. 8.13,” 2018.
+[2] J. Hendler, “Web 3.0 emerging,” Computer, vol. 42, no. 1, pp. 111–113, 2009.
+[3] Y. Chen and C. Bellavitis, “Blockchain disruption and decentralized finance: The
+rise of decentralized business models,” Journal of Business Venturing Insights,
+vol. 13, p. e00151, 2020.
+[4] U. W. Chohan, “Non-fungible tokens: Blockchains, scarcity, and value,” in Non-
+Fungible Tokens.
+Routledge, 2021, pp. 1–11.
+[5] “Solana account model,” https://solana.com/docs/core/accounts, 2024, accessed:
+2026-01-28.
+[6] (2024) Consensus on solana. Accessed: 2024-10-28. [Online]. Available:
+https://www.helius.dev/blog/consensus-on-solana
+[7] Solana, “Solana official website,” accessed: 2025-05-13. [Online]. Available:
+https://solana.com/
+[8] DefiLlama, “All chains defi tvl,” accessed: 2025-05-13. [Online]. Available:
+https://defillama.com/chains
+[9] (2024) Solana mev bots: A detailed explanation. Accessed: 2024-10-28. [Online].
+Available: https://www.coinfeeds.ai/crypto-blog/solana-mev-bots
+[10] (2024) Bots suspected of pushing solana over ethereum — research. Accessed:
+2024-10-28. [Online]. Available: https://cointelegraph.com/news/bots-pushing-
+solana-over-ethereum-research
+[11] (2026) Trading bots on solana. Accessed: 2026-03-27. [Online]. Available:
+https://dune.com/adam_tehc/trading-bots-on-solana
+[12] (2024) Bots are making huge profit on the solana ecosystem! dominating
+other
+blockchains.
+Accessed:
+2025-05-13.
+[Online].
+Available:
+https:
+//support.bitrue.com/hc/en-001/articles/30134959225113-Bots-are-Making-
+Huge-Profit-on-The-Solana-Ecosystem-Dominating-Other-Blockchains
+[13] T. Niedermayer, P. Saggese, and B. Haslhofer, “Detecting financial bots on the
+ethereum blockchain,” in Companion Proceedings of the ACM on Web Conference
+2024, 2024, pp. 1742–1751.
+[14] F. Duffy, M. Bendechache, and I. Tal, “Can solana’s high throughput be an enabler
+for iot?” in 2021 IEEE 21st International Conference on Software Quality, Reliability
+and Security Companion (QRS-C).
+IEEE, 2021, pp. 615–621.
+[15] G. A. Pierro and R. Tonelli, “Can solana be the solution to the blockchain scal-
+ability problem?” in 2022 IEEE International Conference on Software Analysis,
+Evolution and Reengineering (SANER).
+IEEE, 2022, pp. 1219–1226.
+[16] S. Cui, G. Zhao, Y. Gao, T. Tavu, and J. Huang, “Vrust: Automated vulnerability
+detection for solana smart contracts,” in Proceedings of the 2022 ACM SIGSAC
+Conference on Computer and Communications Security, 2022, pp. 639–652.
+[17] S. Smolka, J.-R. Giesen, P. Winkler, O. Draissi, L. Davi, G. Karame, and K. Pohl,
+“Fuzz on the beach: Fuzzing solana smart contracts,” in Proceedings of the 2023
+ACM SIGSAC Conference on Computer and Communications Security, 2023, pp.
+1197–1211.
+[18] X. Zheng, Z. Wan, D. Lo, D. Xie, and X. Yang, “Why does my transaction fail? a
+first look at failed transactions on the solana blockchain,” Proceedings of the ACM
+on Software Engineering, vol. 2, no. ISSTA, pp. 1489–1512, 2025.
+[19] N. Gerzon, B. Weintraub, J. In, A. Mislove, and C. Nita-Rotaru, “Quantifying the
+threat of sandwiching mev on jito: A measurement of solana’s leading validator
+client,” in Proceedings of the 2025 ACM Internet Measurement Conference (IMC ’25).
+ACM, 2025, pp. 937–943.
+[20] Y. Li, N. Yao, Y. Huo, and W. Cai, “Trust dynamics and bot-driven responses: An
+approach to rug pulls in solana meme coin markets,” in Proceedings of the 17th
+ACM Web Science Conference 2025, 2025, pp. 106–116.
+[21] A. Alhaidari, B. Kalal, B. Palanisamy, and S. Sural, “Solrpds: A dataset for
+analyzing rug pulls in solana decentralized finance,” in Proceedings of the
+Fifteenth ACM Conference on Data and Application Security and Privacy, ser.
+CODASPY ’25.
+New York, NY, USA: Association for Computing Machinery,
+2025, p. 293–298. [Online]. Available: https://doi.org/10.1145/3714393.3726487
+[22] F. Cernera, M. La Morgia, A. Mei, and F. Sassi, “Token spammers, rug pulls,
+and sniper bots: An analysis of the ecosystem of tokens in ethereum and in
+the binance smart chain (𝐵𝑁𝐵),” in 32nd USENIX security symposium (USENIX
+security 23), 2023, pp. 3349–3366.
+[23] F. Cernera, M. La Morgia, A. Mei, A. M. Mongardini, and F. Sassi, “Ready, aim,
+snipe! analysis of sniper bots and their impact on the defi ecosystem,” in Com-
+panion Proceedings of the ACM Web Conference 2023, 2023, pp. 1093–1102.
+[24] T. Niedermayer, P. Saggese, and B. Haslhofer, “Detecting financial bots on the
+ethereum blockchain,” in Companion Proceedings of the ACM Web Conference
+2024, 2024, pp. 1742–1751.
+[25] K. Li, S. Guan, and D. Lee, “Towards understanding and characterizing the arbi-
+trage bot scam in the wild,” Proceedings of the ACM on Measurement and Analysis
+of Computing Systems, vol. 7, no. 3, pp. 1–29, 2023.
+[26] (2026) Solana mev: An introduction. Accessed: 2026-07-13. [Online]. Available:
+https://www.helius.dev/blog/solana-mev-an-introduction
+[27] (2026) What is wrapped sol? Accessed: 2026-07-13. [Online]. Available:
+https://solana.com/docs/tokens/basics/sync-native
+[28] (2026) Understanding proprietary amms. Accessed: 2026-07-13. [Online].
+Available: https://solana.com/news/understanding-proprietary-amms
+[29] “Solana Programs,” https://solana.com/docs/core/programs, accessed: 2026-01-28.
+[30] “Solana
+transactions,”
+2024,
+accessed:
+2026-01-28.
+[Online].
+Avail-
+able: https://github.com/solana-foundation/developer-content/blob/main/docs/
+core/transactions.md
+[31] Helius, “Priority fees: Understanding solana’s transaction fee mechanics,”
+https://www.helius.dev/blog/priority-fees-understanding-solanas-transaction-
+fee-mechanics, 2023, accessed: 2026-01-28.
+[32] P. Daian, S. Goldfeder, T. Kell, Y. Li, X. Zhao, I. Bentov, L. Breidenbach, and A. Juels,
+“Flash Boys 2.0: Frontrunning in Decentralized Exchanges, Miner Extractable
+Value, and Consensus Instability,” in 2020 IEEE Symposium on Security and Privacy
+(SP).
+IEEE, 2020, pp. 910–927.
+[33] Solana Foundation, “Gulf Stream: Solana’s Mempool-less Transaction Forward-
+ing Protocol,” https://solana.com/news/gulf-stream--solana-s-mempool-less-
+transaction-forwarding-protocol, Jun. 2019, accessed: 2026-01-28.
+[34] Jito Labs, “What is Jito? — Jito Labs Documentation,” https://docs.jito.wtf/, 2025,
+last updated: 2025-12-30; Accessed: 2026-01-28.
+[35] C. Wohlin, P. Runeson, M. Höst, M. C. Ohlsson, B. Regnell, A. Wesslén et al.,
+Experimentation in software engineering.
+Springer, 2012, vol. 236.
+[36] R. Aghili, H. Li, and F. Khomh, “Studying the characteristics of aiops projects on
+github,” Empirical Software Engineering, vol. 28, no. 6, p. 143, 2023.
+[37] Tree-sitter. (2026) Tree-sitter: An incremental parsing system. Accessed:
+2026-03-24. [Online]. Available: https://github.com/tree-sitter/tree-sitter
+[38] Trojan On Solana. (2026) Trojan on solana: The leading telegram trading bot.
+[Online]. Available: https://trojanonsolana.com/
+[39] SolanaMevBot. (2026) Solanamevbot documentation: Overview. [Online].
+Available: https://docs.solanamevbot.com/home/
+[40] whale_hunter. (2026) Dex trading bot wars. Dune Analytics dashboard. [Online].
+Available: https://dune.com/whale_hunter/dex-trading-bot-wars
+[41] Circular. (2026) Circular bots. [Online]. Available: https://circular.fi/bots
+[42] Dune. (2026) Dune analytics. Accessed: 2026-03-24. [Online]. Available:
+https://dune.com/
+[43] (2026) Axiom pro. Accessed: 2026-07-13. [Online]. Available: https://dune.com/
+adam_tehc/axiom
+[44] N. Dhulshette, S. Shah, and V. Kulkarni, “Hierarchical repository-level code
+summarization for business applications using local llms,” in 2025 IEEE/ACM
+International Workshop on Large Language Models for Code (LLM4Code).
+IEEE,
+2025, pp. 145–152.
+[45] A. R. Oskooei, S. Yukcu, M. C. Bozoglan, and M. S. Aktas, “Repository-level code
+understanding by llms via hierarchical summarization: Improving code search
+and bug localization,” in International Conference on Computational Science and
+Its Applications.
+Springer, 2025, pp. 88–105.
+[46] W. G. Cochran, Sampling Techniques, 3rd ed.
+New York: Wiley, 1977.
+[47] (2026) The appendix for “demystifying solana bots: From github blueprints
+to on-chain fingerprints”. Accessed: 2026-03-27. [Online]. Available: https:
+//doi.org/10.5281/zenodo.19248227
+[48] Y. Zhang, M. Li, D. Long, X. Zhang, H. Lin, B. Yang, P. Xie, A. Yang, D. Liu,
+J. Lin, F. Huang, and J. Zhou, “Qwen3 embedding: Advancing text embedding
+and reranking through foundation models,” arXiv preprint arXiv:2506.05176, 2025.
+[49] B. Mu, H. Liu, H. Xue, K. Wei, and L. Xie, “Hearing more with less: Multi-modal
+retrieval-and-selection augmented conversational llm-based asr,” in Proceedings
+of the AAAI Conference on Artificial Intelligence, vol. 40, no. 38, 2026, pp. 32 519–
+32 527.
+[50] Y. Liu, Q. Yang, T. Guo, F. Qu, J. Liu, and Y. Wen, “From detection to diagnosis:
+Advancing hallucination analysis with automated data synthesis,” in Proceedings
+of the AAAI Conference on Artificial Intelligence, vol. 40, no. 38, 2026, pp. 32 222–
+32 230.
+[51] L. McInnes, J. Healy, and J. Melville, “Umap: Uniform manifold approximation
+and projection for dimension reduction,” arXiv preprint arXiv:1802.03426, 2018.
+[52] R. J. Campello, D. Moulavi, and J. Sander, “Density-based clustering based on
+hierarchical density estimates,” in Pacific-Asia conference on knowledge discovery
+and data mining.
+Springer, 2013, pp. 160–172.
+[53] W. Liang, X. Ling, J. Wu, T. Luo, and Y. Wu, “A needle is an outlier in a haystack:
+Hunting malicious pypi packages with code clustering,” in 2023 38th IEEE/ACM
+International Conference on Automated Software Engineering (ASE).
+IEEE, 2023,
+pp. 307–318.
+[54] Z. Ma, M. Jiang, F. Luo, X. Luo, and Y. Zhou, “Surviving in dark forest: Towards
+evading the attacks from front-running bots in application layer,” in 34rd USENIX
+Security Symposium (USENIX Security 25), 2025.
+[55] Y. Chen, X. Liu, Z. Wan, Z. Wang, D. Lo, D. Xie, and X. Yang, “Why is my
+transaction risky? understanding smart contract semantics and interactions in
+the nft ecosystem,” in Proceedings of the 40th IEEE/ACM International Conference
+on Automated Software Engineering, 2025.
+[56] O. Maqbool and H. Babri, “Hierarchical clustering for software architecture
+recovery,” IEEE Transactions on Software Engineering, vol. 33, no. 11, pp. 759–780,
+2007.
+
+
+[page 17]
+Demystifying Solana Bots: From GitHub Blueprints to On-Chain Fingerprints
+ASE ’26, October 12–16, 2026, Munich, Germany
+[57] R. He, H. He, Y. Zhang, and M. Zhou, “Automating dependency updates in
+practice: An exploratory study on github dependabot,” IEEE Transactions on
+Software Engineering, vol. 49, no. 8, pp. 4004–4022, 2023.
+[58] F. R. Cogo, G. A. Oliva, and A. E. Hassan, “An empirical study of dependency
+downgrades in the npm ecosystem,” IEEE Transactions on Software Engineering,
+vol. 47, no. 11, pp. 2457–2470, 2019.
+[59] S. A. Dudani, “The distance-weighted k-nearest-neighbor rule,” IEEE Transactions
+on Systems, Man, and Cybernetics, no. 4, pp. 325–327, 1976.
+[60] Y. Wang, Y. Chen, H. Wu, L. Zhou, S. Deng, and R. Wattenhofer, “Cyclic arbitrage
+in decentralized exchanges,” in Companion Proceedings of the Web Conference
+2022, 2022, pp. 12–19.
+[61] R. McLaughlin, C. Kruegel, and G. Vigna, “A large scale study of the ethereum
+arbitrage ecosystem,” in 32nd USENIX Security Symposium (USENIX Security 23),
+2023, pp. 3295–3312.
+[62] (2026) Transaction 4mvwhwbg2vtgtee58st6spfp2tr2sx3fbgq55vzsrqpxap4l8hnpbb6
+vvquwnkg7bxdvsgbqeytqhi2stsuyz9zo. Accessed: 2026-07-30. [Online]. Available:
+http://bit.ly/4hF537m
+[63] (2026) How dark pools are changing defi and what it means for the industry.
+Accessed: 2026-02-11. [Online]. Available: https://incrypted.com/en/how-dark-
+pools-are-changing-defi-and-what-it-means-industry/
+[64] (2025) Solana’s proprietary amm revolution. Accessed: 2026-02-11. [Online].
+Available: https://www.helius.dev/blog/solanas-proprietary-amm-revolution
+[65] (2025) Solana’s proprietary amms. Accessed: 2026-02-11. [Online]. Available:
+https://blockworks.co/news/solanas-proprietary-amms
+[66] R. McLaughlin, C. Kruegel, and G. Vigna, “A large scale study of the ethereum
+arbitrage ecosystem,” in 32nd USENIX Security Symposium (USENIX Security 23),
+2023, pp. 3295–3312.
+[67] N. Gerzon, B. Weintraub, J. In, A. Mislove, and C. Nita-Rotaru, “Quantifying
+the Threat of Sandwiching MEV on Jito: A Measurement of Solana’s Leading
+Validator Client,” in Proceedings of the 2025 ACM Internet Measurement Conference
+(IMC ’25).
+ACM, 2025, also available as an author-hosted PDF. [Online].
+Available: https://doi.org/10.1145/3730567.3764493
+[68] X. Li, X. Wang, T. Kong, J. Zheng, and M. Luo, “From bitcoin to solana–innovating
+blockchain towards enterprise applications,” in International Conference on
+Blockchain.
+Springer, 2021, pp. 74–100.
+[69] F. Cernera, M. La Morgia, A. Mei, and F. Sassi, “Token spammers, rug pulls,
+and sniper bots: An analysis of the ecosystem of tokens in ethereum and in the
+binance smart chain (bnb),” in 32nd USENIX Security Symposium (USENIX Security
+23), 2023, pp. 3349–3366.
+[70] F. Cernera, M. La Morgia, A. Mei, A. Mongardini, and F. Sassi, “The blockchain
+warfare: Investigating the ecosystem of sniper bots on ethereum and bnb smart
+chain,” ACM Transactions on Internet Technology.
+[71] P. Daian, S. Goldfeder, T. Kell, Y. Li, X. Zhao, I. Bentov, L. Breidenbach, and A. Juels,
+“Flash boys 2.0: Frontrunning in decentralized exchanges, miner extractable value,
+and consensus instability,” in 2020 IEEE symposium on security and privacy (SP).
+IEEE, 2020, pp. 910–927.
+[72] K. Qin, L. Zhou, and A. Gervais, “Quantifying blockchain extractable value: How
+dark is the forest?” in 2022 IEEE Symposium on Security and Privacy (SP).
+IEEE,
+2022, pp. 198–214.
+[73] L. Zhou, K. Qin, C. F. Torres, D. V. Le, and A. Gervais, “High-frequency trading
+on decentralized on-chain exchanges,” in 2021 IEEE Symposium on Security and
+Privacy (SP).
+IEEE, 2021, pp. 428–445.
+[74] C. F. Torres, R. Camino et al., “Frontrunner jones and the raiders of the dark
+forest: An empirical study of frontrunning on the ethereum blockchain,” in 30th
+USENIX Security Symposium (USENIX Security 21), 2021, pp. 1343–1359.
+[75] Y. Huang, H. Wang, L. Wu, G. Tyson, X. Luo, R. Zhang, X. Liu, G. Huang, and
+X. Jiang, “Understanding (mis) behavior on the eosio blockchain,” Proceedings of
+the ACM on Measurement and Analysis of Computing Systems, vol. 4, no. 2, pp.
+1–28, 2020.
+[76] H. Jin, C. Li, J. Xiao, T. Zhang, X. Dai, and B. Li, “Detecting arbitrage on ethereum
+through feature fusion and positive-unlabeled learning,” IEEE Journal on Selected
+Areas in Communications, vol. 40, no. 12, pp. 3660–3671, 2022.
+[77] F. Fang, C. Ventre, M. Basios, L. Kanthan, D. Martinez-Rego, F. Wu, and L. Li,
+“Cryptocurrency trading: a comprehensive survey,” Financial Innovation, vol. 8,
+no. 1, p. 13, 2022.
+[78] J. Milionis, C. C. Moallemi, T. Roughgarden, and A. L. Zhang, “Automated market
+making and loss-versus-rebalancing,” arXiv preprint arXiv:2208.06046, 2022.
+[79] D. Kawai, K. Soska, B. Routledge, A. Zetlin-Jones, and N. Christin, “Stranger dan-
+ger? investor behavior and incentives on cryptocurrency copy-trading platforms,”
+in Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems,
+2024, pp. 1–20.
+[80] J. Apesteguia, J. Oechssler, and S. Weidenholzer, “Copy trading,” Management
+Science, vol. 66, no. 12, pp. 5608–5622, 2020.
+[81] S. Yang, F. Zhang, K. Huang, X. Chen, Y. Yang, and F. Zhu, “Sok: Mev counter-
+measures,” in Proceedings of the workshop on decentralized finance and security,
+2024, pp. 21–30.
+[82] Solana volume bot. Accessed: 2026-01-21. [Online]. Available: https://tools.
+smithii.io/market-maker/solana
+[83] How solana volume bots are changing the game for token visibility in 2025.
+Accessed: 2026-01-21. [Online]. Available: https://www.binance.com/en/square/
+post/27015582564801
+[84] Solana aml bot. Accessed: 2026-01-21. [Online]. Available: https://www.
+scorechain.com/resources/crypto-glossary/solana-aml-bot
+[85] Amlbot continuous transaction monitoring. Accessed: 2026-01-21. [Online].
+Available:
+https://www.linkedin.com/pulse/amlbot-continuous-transaction-
+monitoring-amlbot-oj0wc
+[86] A. Urusov, R. Berezovskiy, and Y. Yanovich, “Backtesting framework for con-
+centrated liquidity market makers on uniswap v3 decentralized exchange,”
+Blockchain: Research and Applications, vol. 6, no. 1, p. 100256, 2025.
+[87] E. W. V. Zuniga, C. M. Ranieri, L. Zhao, J. Ueyama, Y.-t. Zhu, and D. Ji, “Maximizing
+portfolio profitability during a cryptocurrency downtrend: A bitcoin blockchain
+transaction-based approach,” Procedia Computer Science, vol. 222, pp. 539–548,
+2023.
+[88] deploy your own token from solana: Roadmap to launch your token from 0.
+Accessed: 2026-01-21. [Online]. Available: https://smithii.io/en/deploy-your-
+own-solana-token/
+[89] How metaplex is solving solana’s network-crashing nft botting problem.
+Accessed: 2026-01-21. [Online]. Available: https://decrypt.co/100376/how-
+metaplex-is-solving-solanas-network-crashing-nft-botting-problem
+[90] How metaplex is solving solana’s network-crashing nft botting problem.
+Accessed: 2026-01-21. [Online]. Available: https://decrypt.co/100376/how-
+metaplex-is-solving-solanas-network-crashing-nft-botting-problem
+[91] Y. Zhang, Y. Li, and C. J. Tessone, “A line graph-based model to detect opti-
+mal routing path in decentralized exchanges (dexs),” in 2025 IEEE International
+Conference on Blockchain and Cryptocurrency (ICBC).
+IEEE, 2025, pp. 1–5.
+[92] About routing. Accessed: 2026-01-21. [Online]. Available: https://dev.jup.ag/
+docs/routing
+[93] Bulk payments - for your large scale payroll and instant mass payments. Accessed:
+2026-01-21. [Online]. Available: https://cwallet.com/crypto-tools/crypto-bulk-
+payment
+[94] Mastering the payments bot: A comprehensive guide to seamless crypto
+transactions and buying tokens. Accessed: 2026-01-21. [Online]. Available: https:
+//medium.com/%40companionbot/mastering-the-multi-wallet-management-
+bot-a-comprehensive-guide-to-seamless-crypto-transactions-82cff5dd7acc
+Received 2026-03-26; accepted 2026-06-18

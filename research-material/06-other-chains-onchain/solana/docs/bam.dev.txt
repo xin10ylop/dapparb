@@ -1,0 +1,115 @@
+SOURCE_URL: https://bam.dev/
+FINAL_URL: https://bam.dev/
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:43:12Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* BAM | Blockspace Assembly Marketplace | Next-Gen Transaction Scheduling for Solana
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+Plugins Validators Node Operators Docs Blog Explorer
+
+## The Future of Solana Block-Building
+BAM reimagines how transactions are processed on Solana, creating a more open and innovative ecosystem
+Build on BAM
+
+## Trusted by Leading Validators
+
+## BAM (Block Assembly Marketplace) brings transparency, privacy, and verifiable block‑building to Solana.
+
+## Private Transaction Ordering
+High-performance scheduling in Trusted Execution Environments (TEEs) where transactions remain private until execution.
+
+## Increased Block-Building Efficiency
+Block building is distributed between a network of high performance schedulers ( BAM Nodes ) and validators for maximum efficiency.
+
+## Verifiable Fairness
+Cryptographically signed attestations of transaction ordering provide attribution and accountability for malicious validator behavior.
+
+## Programmable Transaction Logic
+Plugins are programmable interfaces to the BAM Nodes' scheduler that allow developers, users, and apps to craft custom sequencing logic.
+
+## Application Controlled Execution
+Empower developers to implement advanced transaction execution primitives to power novel Solana applications.
+
+## Easy Validator Integration
+Seamless upgrade of existing Jito-Solana client ; no validator modifications needed to get started.
+
+## BAM overhauls Solana's transaction processing architecture, advancing IBRL and laying the groundwork for open internet capital markets.
+
+## Transparent
+Correct transaction execution is verifiable through cryptographic attestations.
+
+## Fast
+Optimized for deterministic, low-latency execution.
+
+## Private
+TEE infrastructure removes transaction supply-chain snooping and mitigates negative MEV.
+
+## Open
+Plugins create the next wave of Solana apps by enabling access to advanced transaction-scheduling capabilities.
+
+## Whether you're a validator, developer, or trader, BAM opens new opportunities for innovation and value creation.
+
+PLUGINS
+
+## Build Custom Transaction Logic
+Programmable interfaces that give developers unprecedented control over transaction sequencing on Solana. Plugins connect directly to BAM's scheduler, enabling custom logic that was previously impossible to implement.
+Apply for Early Access Learn More
+
+Application controlled execution (ACE) for optimized user experiences
+Custom fairness mechanisms that protect your users
+Advanced MEV protection strategies
+Novel economic mechanisms and auction designs
+Priority systems tailored to your application's needs
+
+FOR VALIDATORS
+
+## Upgrade to BAM
+Join the BAM validator set and access entirely new fee structures while maintaining your commitment to decentralization and network security. BAM doesn't just redistribute value, it creates it.
+Join The Validator Set
+
+New revenue from plugin fees and enhanced transaction processing
+No changes to your existing validator setup required
+Cryptographic proofs ensure transparent, auditable behavior
+Benefit from expanded Solana ecosystem and institutional adoption
+Early access to next-generation Solana infrastructure
+
+FOR NODE OPERATORS
+
+## Secure the Infrastructure
+Operate BAM's secure hardware layer using Trusted Execution Environments (TEEs). As a node operator, you're the backbone of the system that enables private, verifiable transaction processing.
+Learn More
+
+Run specialized TEE hardware that maintains transaction privacy
+Process transactions in secure enclaves with cryptographic verification
+Geographically distributed network ensuring low-latency access
+Help decentralize Solana's block building while maintaining security
+
+© 2026 BAM.
+All rights reserved.
+Plugins Validators Node Operators Forum Docs Blog Explorer Terms of Use Privacy Policy Get in Touch Privacy

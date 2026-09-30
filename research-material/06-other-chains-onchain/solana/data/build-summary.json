@@ -1,0 +1,13 @@
+{
+ "txs_nonvote_parts": [
+  "txs-nonvote-001.csv.gz"
+ ],
+ "txs_nonvote_rows": 348614,
+ "dex_txs_parts": [
+  "dex-txs-001.jsonl.gz",
+  "dex-txs-002.jsonl.gz"
+ ],
+ "dex_txs_rows": 155170,
+ "programs": 897,
+ "mints": 2853
+}

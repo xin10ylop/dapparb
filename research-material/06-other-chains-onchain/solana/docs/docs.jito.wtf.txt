@@ -1,0 +1,299 @@
+SOURCE_URL: https://docs.jito.wtf/
+FINAL_URL: https://docs.jito.wtf/
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:43:04Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+What is Jito? — Jito Labs Documentation - High Performance Solana Infrastructure
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+* ⚡ Low Latency Transaction Send
+
+* System Overview
+
+* 🌐 How does the system work?
+
+* 💼 What are bundles?
+
+* 📬 How do Bundles work?
+
+* ⚖️ What is the auction?
+
+* API
+
+* 📨 Transactions( /api/v1/transactions )
+
+* sendTransaction
+
+* Request
+
+* Transaction Request Example base64
+
+* Transaction Request Example base58
+
+* Response
+
+* Response Example
+
+* JSON-RPC Authentication (UUID):
+
+* 💼 Bundles ( /api/v1 )
+
+* sendBundle
+
+* Request
+
+* Bundle Request Example base64
+
+* Bundle Request Example base58
+
+* Response
+
+* Response Example
+
+* getBundleStatuses
+
+* Request
+
+* Request Example
+
+* Response
+
+* Object Fields
+
+* Response Example
+
+* getTipAccounts
+
+* Request
+
+* Request Example
+
+* Response
+
+* Response Example
+
+* getInflightBundleStatuses
+
+* Request
+
+* Request Example
+
+* Response
+
+* Object Fields
+
+* Response Example
+
+* Getting Started
+
+* Key Endpoints Supported by These Libraries:
+
+* Sandwich Mitigation
+
+* How It Works
+
+* Important Points
+
+* Example
+
+* Tips
+
+* 🪙 Tip Amount
+
+* sendTransaction
+
+* sendBundle
+
+* 💸 Get Tip Information
+
+* REST API endpoint showing most recent tip amounts:
+
+* WebSocket showing tip amounts:
+
+* Tip Dashboard
+
+* Rate Limits
+
+* Default Limits
+
+* Rate Limit Operation
+
+* Exceeding Limits
+
+* Authorization Issues
+
+* Custom Rate Limit Request
+
+* Troubleshooting
+
+* Priority Fee
+
+* Tip Amount
+
+* Bundle Landing
+
+* Failed Transactions
+
+* Uncled Blocks
+
+* Mitigations
+
+* ⚖️ Legal
+
+* Terms of Use
+
+* 1. Introduction
+
+* 2. The Tools & Services
+
+* 3. Modifications
+
+* 4. Your Representations & Responsibilities
+
+* a. Your Representations
+
+* b. Your Responsibilities
+
+* 5. Intellectual Property Rights
+
+* a. Ownership & License
+
+* b. Reciprocal License
+
+* c. Jito Trademarks
+
+* d. Your Feedback
+
+* 6. Third Party Information or Services
+
+* 7. Indemnification
+
+* a. General
+
+* b. Process
+
+* 8. Disclaimers and Limitations of Liability
+
+* a. Tools & Services
+
+* b. Other Disclaimers
+
+* c. No Representations or Warranties
+
+* d. Limitations of Liability
+
+* 9. Governing Law, Dispute Resolution & Class Action Waiver
+
+* a. Governing Law
+
+* b. Dispute Resolution
+
+* c. Mandatory Arbitration
+
+* d. Class Action Waiver
+
+* 10. No Relationship
+
+* 11. Assignments
+
+* 12. Entire Agreement
+
+* 13. No Waiver
+
+* 14. Severability
+
+* 15. Notice
+
+* 16. Contact Us
+
+* Privacy Policy
+
+* 1. Data We Collect
+
+* 2. Use of Information
+
+* 3. Sharing Information
+
+* 4. Location of Information
+
+* 5. Retention of Information
+
+* 6. Access, Deletion, Choice
+
+* 7. Children’s Information
+
+* 8. Notices
+
+* 9. Additional Information for Certain Jurisdictions
+
+* California
+
+* European Economic Area, the United Kingdom, and Switzerland
+
+* 10. Contact Us
+
+Jito Docs
+
+*
+
+* What is Jito?
+
+*
+
+## What is Jito? 
+
+Turbocharged Solana trading experience.
+
+## What does Jito offer? 
+
+* Low latency transaction sending
+
+* Developer support
+
+## Who should use Jito? 
+
+* Solana Validators
+
+* Telegram Bots
+
+* High Frequency Traders & Searchers
+
+* dApps
+
+If your use case requires low-latency transaction sending, MEV protection, and/or cross-transaction
+atomicity, then Jito is right for you.
+
+## Jito’s Products 
+
+Jito provides specialized solutions tailored to the needs of Solana MEV users:
+
+* 🌪️ Fast Transaction Sending: Essential for any Solana MEV user requiring rapid and reliable transaction execution.
+
+* 💼 Bundles: Offers MEV protection, fast transaction landing, support for multiple transactions, and revert protection, making it ideal for developers of Telegram bots and automated trading systems.
+
+These use cases offer a competitive edge to traders, bot developers, and anyone seeking MEV protection.
+
+Next
+
+© Copyright 2024, Jito Labs.
+Last updated on Sep 09, 2026.

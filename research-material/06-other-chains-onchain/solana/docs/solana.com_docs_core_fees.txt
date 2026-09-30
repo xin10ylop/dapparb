@@ -1,0 +1,198 @@
+SOURCE_URL: https://solana.com/docs/core/fees
+FINAL_URL: https://solana.com/docs/core/fees
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:43:47Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+*
+*
+*
+*
+* Fees | Solana
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+
+* Use Solana
+
+* Build
+
+* Enterprise
+
+* Products
+
+* Ecosystem
+
+Search ⌘ K
+en
+
+Start here Concepts API Finance Resources
+
+Accounts
+
+Programs
+
+Instructions
+
+Transactions
+
+Fees Fee Structure Compute Budget
+
+Program Derived Address
+
+Cross-Program Invocation
+
+Constants Reference
+
+Table of Contents Solana Documentation
+
+## Fees
+Copy Markdown Open
+
+Every Solana transaction requires a fee paid in SOL.
+The fee has two components: a base fee and an optional prioritization
+fee . The base fee compensates validators for the cryptographic work of
+verifying signatures. The prioritization fee increases the likelihood that the
+current leader schedules your transaction ahead of competing ones.
+
+## Fee Structure
+Base fee calculation, fee distribution, prioritization fee formula, and code
+examples for setting fees.
+
+## Compute Budget
+Compute unit limits, ComputeBudgetInstruction variants, scheduler cost
+model, block limits, and execution budget constants.
+
+## Key facts
+
+* Base fee : per-signature, split 50% burned / 50% to the validator.
+
+* Prioritization fee :
+ceil(compute_unit_price * compute_unit_limit / 1,000,000) lamports. 100% to
+the validator. In the
+v1 format the fee
+is an absolute lamport total set in the message config instead.
+
+## Limits
+
+Limit Value Source
+Base fee per signature 5,000 lamports lamports_per_signature
+Default CU limit / instruction 200,000 DEFAULT_INSTRUCTION_COMPUTE_UNIT_LIMIT
+Builtin instruction default CU 3,000 MAX_BUILTIN_ALLOCATION_COMPUTE_UNIT_LIMIT
+Max CU limit / transaction 1,400,000 MAX_COMPUTE_UNIT_LIMIT
+Micro-lamports per lamport 1,000,000 MICRO_LAMPORTS_PER_LAMPORT
+
+Is this page helpful?
+
+Previous
+
+Durable Nonces
+Next
+
+Fee Structure
+
+## Table of Contents
+
+Key facts Limits
+
+Edit Page
+
+Ask AI
+en
+Use Solana
+
+* Use Solana
+
+* Wallets
+
+* Learn
+
+* Staking
+
+Build
+
+* Developer hub
+
+* Docs
+
+* Templates
+
+Enterprise
+
+* Enterprise
+
+* Institutional payments
+
+* Tokenization
+
+* Reports
+
+Products
+
+* Products
+
+* Solana Developer Platform
+
+* x402
+
+* Agent Registry
+
+* Skills
+
+Ecosystem
+
+* Ecosystem
+
+* Network
+
+* Events
+
+* Community
+
+* News
+
+* Newsletter
+
+AI agents
+
+* llms.txt
+
+* llms-full.txt
+
+* SKILL.md
+
+* Agent skills
+
+* Grants
+
+* Media Kit
+
+* Careers
+
+* Disclaimer
+
+* Privacy Policy
+
+© 2026 Solana Foundation. All rights reserved.

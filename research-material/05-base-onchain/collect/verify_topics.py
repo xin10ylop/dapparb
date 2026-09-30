@@ -7,7 +7,8 @@ Output: ../swap-topics.csv with columns
         topic0, signature, protocol, source_url, verified_example_tx, verified_example_block, verified_example_emitter,
         verified_example_log_index, verification_method
 Method: base.blockscout.com etherscan-compatible API module=logs&action=getLogs&topic0=<t> over block windows walking
-        back from a pinned head (1k, 16k, 100k, 500k, 2M, 10M blocks; 4 tries per window, 120 s timeout); the first returned log is then re-checked by fetching
+        back from a pinned head (1k, 16k, 100k, 500k, 2M, 10M blocks; 8 tries per window, 120 s timeout,
+        3 s pause before each request, backoff 5-120 s); the first returned log is then re-checked by fetching
         the tx receipt from gateway.tenderly.co/public/base (fallback base-rpc.publicnode.com / base.drpc.org) and
         confirming a log with that topic0 at that emitter exists in it. If nothing is found, the example columns stay
         empty and verification_method says which windows were searched.
@@ -44,8 +45,9 @@ def rpc(method, params):
 
 
 def bs_logs(t, lo, hi):
-    back = 2
-    for i in range(4):
+    back = 5
+    for i in range(8):
+        time.sleep(3)
         try:
             r = S.get(BS, params={'module': 'logs', 'action': 'getLogs', 'fromBlock': lo, 'toBlock': hi, 'topic0': t}, timeout=120)
             if r.status_code == 429 or r.status_code >= 500:
@@ -58,7 +60,7 @@ def bs_logs(t, lo, hi):
                 return []
             raise RuntimeError(str(j)[:200])
         except Exception as e:
-            log('blockscout retry', t[:10], lo, hi, e); time.sleep(back); back = min(back * 2, 60)
+            log('blockscout retry', t[:10], lo, hi, e); time.sleep(back); back = min(back * 2, 120)
     return None
 
 

@@ -2,10 +2,11 @@
 """Fetch launchpad / Uniswap documentation and source files that state hook, factory or deployer addresses on Base.
 For every URL: raw body saved verbatim (gzip) under ../hook-docs/raw/, plain text (HTML tags stripped, entities unescaped, each link target appended after its anchor text as " <href>") under
 ../hook-docs/text/, and every text line containing a 20-byte hex address written verbatim to
-../hook-docs/doc-address-excerpts.csv.gz (url, fetched_utc, http_status, line_no, address, line_verbatim).
+../hook-docs/doc-address-excerpts.csv.gz (url, fetched_utc, http_status, line_no, address, line_verbatim,
+context_before_3_lines_verbatim), rebuilt from all saved text files after each run (python3 fetch_docs.py --rebuild-excerpts only rebuilds).
 Fetch log (appended per fetch): ../hook-docs/fetch-log.jsonl (url, fetched_utc, http_status, bytes, sha256, raw_file, text_file).
-Usage: python3 fetch_docs.py            (fetches the URL list below; re-fetches everything)"""
-import csv, gzip, hashlib, html, json, os, re, time
+Usage: python3 fetch_docs.py [url ...]   (no args: fetches URLS + EXTRA_URLS below)"""
+import csv, gzip, hashlib, html, json, os, re, sys, time
 from html.parser import HTMLParser
 import requests
 
@@ -122,13 +123,6 @@ ADDR = re.compile(r"0x[0-9a-fA-F]{40}(?![0-9a-fA-F])")
 
 
 def main(urls=URLS):
-    ex_path = os.path.join(D, "doc-address-excerpts.csv.gz")
-    rows = []
-    if os.path.exists(ex_path):
-        with gzip.open(ex_path, "rt", newline="") as f:
-            rd = csv.reader(f)
-            next(rd)
-            rows = [r for r in rd if r[0] not in set(urls)]
     logf = open(os.path.join(D, "fetch-log.jsonl"), "a")
     for u in urls:
         r = fetch(u)
@@ -147,24 +141,47 @@ def main(urls=URLS):
         with open(txtf, "w") as f:
             f.write("# url: %s\n# fetched_utc: %s\n# http_status: %d\n\n" % (u, ts, r.status_code))
             f.write(txt)
-        n = 0
-        if r.status_code == 200:
-            for i, line in enumerate(txt.split("\n"), 1):
-                for m in ADDR.finditer(line):
-                    a = m.group(0).lower()
-                    st = max(0, m.start() - 300)
-                    rows.append([u, ts, str(r.status_code), str(i), a, line[st:m.end() + 300]])
-                    n += 1
+        n = len(ADDR.findall(txt)) if r.status_code == 200 else 0
         logf.write(json.dumps({"url": u, "fetched_utc": ts, "http_status": r.status_code, "bytes": len(body), "sha256": hashlib.sha256(body).hexdigest(),
                                "raw_file": os.path.relpath(rawf, OUT), "text_file": os.path.relpath(txtf, OUT), "address_mentions": n}) + "\n")
         logf.flush()
         print(ts, r.status_code, len(body), n, u, flush=True)
         time.sleep(0.5)
-    with gzip.open(ex_path, "wt", newline="") as f:
-        w = csv.writer(f, lineterminator="\n")
-        w.writerow(["url", "fetched_utc", "http_status", "line_no", "address", "line_verbatim"])
-        w.writerows(rows)
+    rebuild_excerpts()
 
+
+def rebuild_excerpts():
+    """Scan every saved text file (HTTP 200 only) and write one row per address mention: the line verbatim (trimmed to 300 chars
+    either side of the address) plus the 3 preceding lines verbatim (tables in rendered pages put the contract name on an earlier line)."""
+    rows = []
+    for fn in sorted(os.listdir(TXT)):
+        lines = open(os.path.join(TXT, fn)).read().split("\n")
+        hdr = {l[2:].split(": ", 1)[0]: l[2:].split(": ", 1)[1] for l in lines[:3] if l.startswith("# ") and ": " in l}
+        if hdr.get("http_status") != "200":
+            continue
+        body = lines[4:]
+        for i, line in enumerate(body, 1):
+            for m in ADDR.finditer(line):
+                st = max(0, m.start() - 300)
+                rows.append([hdr["url"], hdr["fetched_utc"], hdr["http_status"], str(i), m.group(0).lower(), line[st:m.end() + 300],
+                             "\n".join(body[max(0, i - 4):i - 1])])
+    with gzip.open(os.path.join(D, "doc-address-excerpts.csv.gz"), "wt", newline="") as f:
+        w = csv.writer(f, lineterminator="\n")
+        w.writerow(["url", "fetched_utc", "http_status", "line_no", "address", "line_verbatim", "context_before_3_lines_verbatim"])
+        w.writerows(rows)
+    print("excerpt rows", len(rows))
+
+
+EXTRA_URLS = [
+    "https://raw.githubusercontent.com/Uniswap/docs/main/content/protocols/v4/deployments.mdx",
+    "https://raw.githubusercontent.com/flayerlabs/flaunch-sdk/bef27f90b946a63fe3c215a409b487ad38b1c685/src/addresses.ts",
+    "https://raw.githubusercontent.com/KyberNetwork/kyberswap-dex-lib/0867b088e490608f731e4e37eaf49ea72e7846b3/pkg/liquidity-source/uniswap/v4/hooks/flaunch/constant.go",
+    "https://raw.githubusercontent.com/KyberNetwork/kyberswap-dex-lib/0867b088e490608f731e4e37eaf49ea72e7846b3/pkg/liquidity-source/uniswap/v4/hooks/clanker/constant.go",
+]
 
 if __name__ == "__main__":
-    main()
+    # no args: fetch URLS + EXTRA_URLS; args: fetch only the given URLs (other URLs' excerpt rows are kept)
+    if sys.argv[1:] == ["--rebuild-excerpts"]:
+        rebuild_excerpts()
+    else:
+        main(sys.argv[1:] or (URLS + EXTRA_URLS))

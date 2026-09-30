@@ -1,0 +1,8 @@
+https://www.helius.dev/blog/solana-mev-report
+https://arxiv.org/abs/2607.28424
+https://arxiv.org/pdf/2607.28424
+https://arxiv.org/abs/2609.38056
+https://arxiv.org/pdf/2609.38056
+https://arxiv.org/abs/2609.28115
+https://cnitarot.github.io/papers/imc26_solana.pdf
+https://academy.extropy.io/pages/articles/mev-crosschain-analysis-2025.html

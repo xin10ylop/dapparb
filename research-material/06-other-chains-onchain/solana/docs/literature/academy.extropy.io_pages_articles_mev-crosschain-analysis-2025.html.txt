@@ -1,0 +1,400 @@
+SOURCE_URL: https://academy.extropy.io/pages/articles/mev-crosschain-analysis-2025.html
+FINAL_URL: https://academy.extropy.io/pages/articles/mev-crosschain-analysis-2025.html
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-09-30T21:45:42Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+Loading...
+
+*
+
+*
+
+*
+
+*
+
+*
+
+Loading...
+by Loading...
+Loading...
+
+## Loading...
+
+Loading...
+
+## An Analysis of Arbitrage Markets Across Ethereum, Solana, Optimism, and Starknet (2024-2025)
+
+The maturation of public blockchains into global financial layers has fundamentally altered the nature of arbitrage. In the nascent years of DeFi arbitrage was a game of simple scripts and public mempools a competitive but largely amateur pursuit.
+By 2025, this activity has evolved into a hyper-specialised, institutional-grade industry that dictates the economic limits of blockchain scaling. MEV the total value that can be extracted from block production in excess of the standard block reward and gas fees, has become the dominant economic variable in the design and operation of these networks.
+
+In this article I want to analyse from technical and economic perspectives, the arbitrage landscapes on four distinct blockchain architectures:
+
+* Ethereum Layer 1
+
+* Solana
+
+* Optimism
+
+* Starknet
+
+Each network represents a distinct "MEV Regime" a unique combination of consensus mechanisms, transaction ordering rules, and latency constraints that forces arbitrageurs to adopt radically different strategies.
+
+The analysis that follows is shaped by the following idea:
+
+The structure of the underlying chain largely determines the behaviour of the bot
+
+On Ethereum , the separation of proposers and builders has turned arbitrage into a sealed-bid auction for inclusion.
+On Solana , the lack of a mempool and the speed of block production have created a latency-sensitive streaming auction.
+On Optimism , the combination of low fees and centralised sequencing has incentivised a "spam-as-strategy" equilibrium.
+On Starknet , Zero-Knowledge proof generation times and a developing decentralisation roadmap create a temporary environment of slower, atomic a
+
+I have pulled together data and research from late 2024 and 2025, to quantify the number of active bots, their operational costs, and their expected profitability.
+I also explore the structural shift from "code is law" to "ordering is economy," where the ability to order transactions is the primary product being sold by validators and sequencers.
+
+## The MEV Trilemma in 2025
+
+Arbitrage strategies in the current market cycle are constrained by an "MEV Trilemma" that forces operators to optimise for two of three variables, often at the expense of the third.
+
+Execution Certainty : The probability that a transaction, once submitted, will be included in a block in the exact state required to capture profit.
+(High in Ethereum PBS; Low in Optimism FCFS).
+
+Capital Efficiency (Cost) : The ratio of profit to the cost of execution, including failed attempts and infrastructure overhead.
+(High in Solana; Low in Ethereum due to high gas/bribes).
+
+Latency Sensitivity : The speed required to identify and capture an opportunity before a competitor.
+(Critical in Solana and L2s; Less critical in Ethereum PBS due to bundle auctions).
+
+Lets dig into the structure of the chains to shed light on this behaviour
+
+## Ethereum Layer 1: The Oligopoly of the Auction House
+
+Ethereum L1 remains the undisputed "heavyweight" arena of global arbitrage.
+While transaction volumes may be lower than high-throughput L1s or L2s, the value per transaction and the depth of liquidity create the largest absolute profit pool. However, the ecosystem has developed into a rigid hierarchy defined by Proposer-Builder Separation , where the "wild west" of priority gas auctions has been replaced by sophisticated supply chains.
+
+## The Supply Chain Architecture: Builders, Relays, and Searchers
+
+To understand arbitrage on Ethereum in 2025, we must move away from the notion of the public mempool as the primary battleground. The vast majority of arbitrage transactions over 90% are now routed through private channels known as MEV-Boost. This system separates the role of the Proposer from the Builder.
+
+Searchers run the algorithms that detect price discrepancies.
+In 2025, searchers do not broadcast transactions to the public network. Instead, they submit "bundles"—atomic packages of transactions to builders. A bundle might contain a user's transaction followed immediately by the searcher's back run transaction.
+The searcher attaches a direct payment to the builder to this bundle.
+If the profit is say $100, the searcher might bid $90, keeping $10 as profit.
+This high "bid-to-profit" ratio is the defining characteristic of Ethereum arbitrage.
+
+Builders are the power brokers of the Ethereum network.
+They aggregate bundles from thousands of searchers and optimise them to create the most profitable block possible. The market for block building has become heavily centralised.
+Research indicates that by early 2025, the top two builders capture over 90% of block auctions.
+
+Relays are the trusted intermediaries that pass the block headers from builders to validators, ensuring that the validator cannot steal the MEV inside the block.
+
+This architecture means that for an arbitrage bot to be competitive on Ethereum, its primary "skill" is not just identifying the arbitrage opportunity, but correctly pricing the bribe.
+
+A bot that consistently underbids will never have its transactions included.
+A bot that overbids operates at a loss.
+
+## Bot Population and Market Concentration
+
+Contrary to the popular image of thousands of bots competing for every trade, the viable professional arbitrage market on Ethereum is surprisingly small and concentrated.
+Empirical analysis of MEV searchers reveals that in any given week, the number of unique "core" entities, those consistently winning bids and generating significant profit, often does not exceed 20.
+
+This concentration is driven by the intense capital and technical barriers to entry.
+
+Capital Requirements : To win a bundle auction, a searcher must often hold significant inventory of assets to execute the trade atomically.
+
+Infrastructure Costs : While RPC costs might run $200-$500 monthly , the real cost is in the research and development of proprietary pricing models and simulation engines that allow a bot to bid 99% of the profit margin without going underwater.
+
+The Long Tail : While there are hundreds of active addresses attempting arbitrage, the vast majority are "peripheral" participants who capture sporadic, lower-value opportunities or operate strategies that do not require fighting for the top-of-block position.
+
+## Profitability Analysis: The "Black Monday" Case Study
+
+The scale of profits on Ethereum can be staggering during periods of volatility, but these windfalls are captured by a select few. A look at the market turmoil on August 5, 2024 ("Black Monday"), provides a granular view of potential earnings.
+
+On this single day, a specific builder labelled MEV Builder 0x3b secured 1,448 ETH in rewards, valued at approximately $3.5 million at the time. This revenue was not generated by a single trade but by constructing blocks containing massive liquidations and arbitrage opportunities.
+
+Liquidation Efficiency : In Block 20459000, a liquidation event sent 358.7 ETH ($802,000) to the builder.
+
+Arbitrage Integration : Following this liquidation, an arbitrage bot executed a trade that paid 36 ETH to the builder.
+
+This illustrates the "food chain" nature of Ethereum MEV.
+The arbitrage bot (the Searcher) likely made a gross profit significantly higher than 36 ETH, but it was forced to pay that 36 ETH to the builder to ensure its transaction was included.
+The builder, in turn, paid a portion of that to the validator.
+The searcher's net profit is the remainder.
+Data from ESMA and EigenPhi supports this, suggesting that searchers often pay more than 90% of their revenue to proposers.
+
+## Strategic Nuances: Sandwiching vs. Atomic Arb
+
+Two primary strategies dominate the Ethereum landscape in 2025:
+
+Atomic Arbitrage : The simultaneous buying and selling of an asset across different venues (e.g., Uniswap vs. SushiSwap) within a single transaction. This is risk-free in terms of market movement but carries execution risk (gas costs if the bundle fails, though Flashbots protects against this).
+
+Sandwich Attacks : This controversial strategy involves placing a transaction before and after a victim's pending trade.
+Despite improved user protections (like RPCs that hide transactions from the public mempool), sandwiching remains highly profitable.
+Sophisticated bots continue to exploit users who set high slippage tolerances on DEXs.
+
+However, the "low-hanging fruit" has diminished, forcing bots to target more complex, multi-hop trades.
+
+## Infrastructure Costs and Operational Overhead
+
+Running a competitive arbitrage operation on Ethereum is capital intensive compared to other chains.
+
+Gas Fees : The primary operating cost.
+Even with Layer 2 scaling, L1 gas fees can range from $5 to $50 per transaction during congestion, and significantly higher during "gas wars".
+
+Node Infrastructure : Competitive searchers run their own nodes or pay for premium, low-latency RPC services. The cost for a dedicated Ethereum node setup can range from hundreds to thousands of dollars monthly depending on the provider and the level of geographic distribution required.
+
+Simulation : Successful bots run complex off-chain simulations of the Ethereum state to calculate the exact outcome of a trade before submitting the bundle. This requires substantial compute power, adding to the monthly burn rate.
+
+## Solana: The High-Frequency Trading Floor
+
+If Ethereum is an auction house, Solana is a high-frequency trading floor.
+The network's architecture characterised by 400ms block times, the absence of a public mempool, and a unique "Leader Schedule" creates a fundamentally different environment for arbitrageurs.
+Between 2024 and 2025, Solana underwent a radical transformation from a network plagued by spam to one disciplined by the Jito auction mechanism.
+
+## The Gulf Stream and The Leader Schedule
+
+Unlike Ethereum, where transactions wait in a mempool to be picked up, Solana forwards transactions directly to the "Leader" the specific validator scheduled to produce the next block.
+This protocol, known as Gulf Stream, eliminates the global mempool and theoretically reduces latency.
+However, in the absence of a fee market, this design historically encouraged "spam as a service."
+Arbitrage bots would flood the Leader with thousands of duplicate transaction requests, hoping that one would be processed first.
+This often caused network congestion and outages.
+
+## The Jito Revolution: Ordering as a Product
+
+The introduction and widespread adoption of the Jito-Solana client has been the single most significant development in Solana's MEV ecosystem.
+By early 2025, validators running Jito software control over 92% of the network stake.
+Jito creates an out-of-protocol auction mechanism similar to Flashbots but optimised for Solana's speed.
+
+Bundles : Searchers submit bundles of transactions with a guaranteed tip.
+
+The Auction : Jito's Block Engine simulates these bundles and forwards the most profitable ones to the validator.
+
+Spam Reduction : Because the auction happens off-chain and only the winning bundle is submitted, the incentive to spam the network is drastically reduced for Jito-connected validators.
+
+The economic impact has been profound.
+In April 2023, Jito tips accounted for only ~10% of priority fees.
+By early 2025, they exceed 60%, indicating that professional arbitrageurs have almost entirely migrated to this auction model.
+
+## Bot Ecology: The "Whales" of Solana
+
+The Solana arbitrage market is dominated by a few hyper-active entities. On-chain forensic analysis has identified specific bot addresses that capture massive market share.
+
+## The "E6Y" Bot Case Study:
+
+One specific bot, identified by the address prefix E6YoRP..., has been observed capturing 42% of the entire sandwich attack volume on Solana.
+
+Volume : In a single 30-day period, this bot executed trades worth over $1.6 billion.
+
+Revenue : The bot generated a gross revenue of 57,400 SOL.
+
+Costs : It paid 2.8 SOL in transaction fees and a staggering 7,980 SOL in Jito tips.
+
+Net Profit : The operation netted approximately 49,400 SOL, which translates to roughly $300,000 per day at the relevant market prices.
+
+## Other Major Players:
+
+The second-largest bot (89Ny...) processed $433 million in volume (11.2% market share).
+The third-largest (B91...) processed $277 million (7.2% market share).
+
+Another case study of the B91 sandwich bot showed it extracting 7,800 SOL in gross profit over 30 days, victimising nearly 78,800 retail traders.
+
+These figures illustrate a "power law" distribution where the top 3 bots control over 60% of the market.
+This concentration is likely due to the extreme technical difficulty of building low-latency infrastructure that can compete in 400ms block times.
+
+## Aggregate Market Statistics
+
+Broader market data confirms the scale of arbitrage on Solana.
+
+Transaction Count : Jito's detection algorithms identified over 90 million successful arbitrage transactions over a one-year period ending in 2025.
+
+Total Profit : These transactions generated $142.8 million in profits.
+
+Average Profit : The average profit per arbitrage transaction is significantly lower than Ethereum, sitting at just $1.58.
+This confirms the "high frequency, low margin" nature of Solana MEV compared to Ethereum's "low frequency, high margin" model.
+
+## Infrastructure and Costs
+
+Running a competitive Solana bot is less about gas costs and more about hardware and connectivity.
+
+RPC Costs : High-performance, dedicated RPC nodes are a prerequisite. Providers like RPC Fast, Triton One, and Helius offer dedicated nodes ranging from $1,800 to $3,800 per month.
+
+Co-location : The most sophisticated searchers co-locate their servers in the same data centres as major validators to shave milliseconds off transmission time.
+
+Geyser Plugins : Advanced bots use "Geyser Plugins" to subscribe directly to account updates from the validator, bypassing the standard RPC overhead entirely.
+
+## Optimism and The Superchain: The Paradox of "Spam-Based Arbitrage"
+
+The arbitrage landscape on Optimism, and the broader "Superchain" ecosystem (including Base), presents a fascinating economic paradox in 2025. While these networks are designed to be efficient and low-cost, the very cheapness of their block space—combined with a centralised sequencing model—has birthed a "spam-as-strategy" equilibrium.
+
+## The "Priority Fails" Phenomenon
+
+A groundbreaking research paper titled "When Priority Fails" provides the definitive analysis of arbitrage behaviour on Optimistic Rollups in 2025. The research uncovers a counterintuitive reality:
+
+The Mechanism : Optimism uses a single centralised sequencer that orders transactions on a First-Come-First-Served (FCFS) basis (with some priority fee nuances).
+
+The Incentive : The Dencun upgrade (EIP-4844) drastically reduced the cost of posting data to L1, making L2 transactions incredibly cheap (fractions of a cent).
+
+The Strategy : Instead of building complex bidding systems to win a specific slot (like on Ethereum), arbitrage bots find it cheaper to simply flood the sequencer with duplicate transactions.
+If a bot wants to capture an arb, it might send the same transaction 50 times. It doesn't matter if 49 fail; the cost of failure is negligible compared to the potential profit.
+
+## Quantifying the Spam
+
+The data on this phenomenon is stark.
+
+Revert Rates : Following the Dencun upgrade, the rate of reverted transactions on L2s spiked from under 5% to over 10%.
+
+Composition : 80% of these reverted transactions are swaps, and 50% target USDC-WETH pools on Uniswap v3/v4. This confirms that the reverts are not user errors but failed arbitrage attempts.
+
+Concentration : The spam is not evenly distributed. On Base, a key member of the Optimism Superchain, just two searcher entities were responsible for more than 80% of all spam.
+
+## Sequencer Revenue and the "Invisible Tax"
+
+While this spam congests the network for users, it is highly profitable for the network operators.
+
+Revenue Capture : The centralised sequencer collects fees for every transaction, successful or failed. Reverted transactions contribute disproportionately to sequencer revenue. On Base, reverts generate roughly 20-25% of total priority fee revenue.
+
+Welfare Transfer : This dynamic represents a transfer of welfare from users (who experience slower networks) and unsuccessful searchers (who burn fees) to the Optimism Collective and Base.
+
+## Bot Profitability and Market Structure
+
+Volume vs. Users : On-chain analysis of Optimism reveals a "tale of two metrics." Transaction counts have surged to all-time highs (1.88 million daily), while active address counts have remained stagnant at ~63,000. This divergence is a clear signal that the network's growth is being driven by bot activity rather than organic user adoption.
+
+Profit Margins : The barriers to entry for this strategy are incredibly low. Any developer with a script can spam the sequencer. This leads to a "race to the bottom" where margins are compressed to the point where the profit of the arb barely exceeds the cost of the spam.
+Unlike the oligopoly of Ethereum or the "whale" dominance of Solana, Optimism is a chaotic arena of high-volume, low-margin grinders.
+
+## Base Revenue Contribution
+
+The revenue generated by this activity flows back to the Optimism Collective. In October 2025, Base contributed 44.8% of the total revenue obtained by the Optimism Collective (244.9 ETH), while other chains contributed 13.8%. This highlights how critical the high-volume arbitrage economy on Base is to the sustainability of the broader Superchain.
+
+## Starknet: The ZK Frontier
+
+Starknet represents the frontier of arbitrage, operating under the constraints of a Zero-Knowledge Rollup architecture.
+The MEV landscape here is nascent, constrained by centralised sequencing and longer confirmation times, but is poised for radical change as the network decentralises.
+
+## Unique Constraints: The Validity Proof Bottleneck
+
+Arbitrage on Starknet differs fundamentally from Optimism or Solana due to the mechanics of validity proofs.
+
+Prover Latency : Transactions must be proven valid before they are finalised on L1. While "soft finality" on L2 is faster, the overall cadence of the network is different.
+
+FCFS Ordering : Like Optimism, Starknet currently uses a centralised sequencer with First-Come-First-Served ordering.
+
+No Mempool : Starknet does not have a public mempool. Transactions are sent blindly to the sequencer. This makes "sandwiching" difficult because a bot cannot see a victim's transaction in a pool and insert its own around it.
+
+## Dominant Strategy: Atomic Arbitrage and "MAV"
+
+With sandwich attacks largely neutered by the architecture, the dominant strategy is pure Atomic Arbitrage (DEX-DEX or CEX-DEX).
+
+Cross-Domain Opportunities : Bots monitor price discrepancies between Starknet AMMs (like Ekubo and Nostra) and centralised exchanges (CEXs). Because Starknet blocks are slower than a CEX order book, there is significant "stale" pricing on-chain that bots can exploit.
+
+Maximal Arbitrage Value (MAV) : Researchers are using a new metric called MAV to quantify these opportunities, specifically looking at the lag between CEX price movements and AMM updates.
+
+## Ecosystem Growth and Barriers
+
+Technical Barrier : The requirement to interact with Cairo smart contracts creates a moat. Standard Solidity bots cannot be simply copy-pasted onto Starknet; they must be rewritten, often requiring a deep understanding of the Cairo VM.
+
+Growth : Despite these barriers, the ecosystem is expanding. Starknet grew from 72 to 193 user-centric projects in 2024, a 168% increase.
+
+Bot Population : The active bot population is significantly smaller than the other chains, numbering in the dozens rather than the hundreds. However, as liquidity deepens, this is expected to change.
+
+## The Decentralisation Roadmap (2025-2026)
+
+The most critical factor for Starknet's MEV future is its roadmap.
+
+Staking v2/v3 : Planned for late 2025, these upgrades will decentralise the sequencer and introduce a consensus mechanism.
+
+MEV Market Emergence : As the single sequencer is replaced by a network of validators, an MEV market will inevitably emerge to manage ordering. Whether this takes the form of an auction (like Jito) or a different mechanism will determine the future profitability of bots on the network.
+
+## Comparative Synthesis: Metrics and Outlook
+
+To visualise the stark differences between these ecosystems, the following data synthesise the key metrics derived from the research.
+
+## Comparative Metrics Table (2024-2025)
+
+Metric
+Ethereum L1
+Solana
+Optimism (Superchain)
+Starknet
+
+Est. Monthly MEV Revenue
+~$180 Million
+~$45 Million
+Undisclosed (High Sequencer Revenue)
+Developing / Niche
+
+Dominant Strategy
+Bundle Auctions (99% Success)
+Stream Auctions & Latency
+Probabilistic Spam (High Fail Rate)
+Atomic Arbitrage (Latency)
+
+Active "Core" Bots
+<20 Entities (Oligopoly)
+Top 3 Bots = ~60% Market
+High Concentration (2 entities = 80% spam)
+Specialised / Low Count
+
+Top Bot Earnings (Est.)
+Millions/Day (Outliers)
+~$300k/Day (Top Sandwicher)
+Volume-driven, thin margins
+Moderate / Lower Liquidity
+
+Avg. Profit Per Arb
+High ($100s - $1000s)
+Low (~$1.58)
+Cents (offset by spam cost)
+Moderate
+
+Primary Cost Driver
+Bribes to Builders (90%+ of Rev)
+Jito Tips + Hardware
+Gas for Failed Txs
+Proving/Gas Fees
+
+Infrastructure Cost
+High ($200-$500 RPC + R&D)
+Very High ($1.8k-$3.8k RPC)
+Low
+Moderate
+
+## The Strategic Landscape
+
+Ethereum is a "Whale's Game": The market is mature, calcified, and expensive. Success requires deep relationships with builders and massive capital. The "alpha" here is in complex, multi-block strategies and off-chain hedging.
+
+Solana is a "High-Frequency Trader's Game": It is the closest analogue to traditional finance (TradFi) markets. Success is determined by hardware, co-location, and the efficiency of the bidding algorithm in the Jito auction. The volume is massive (90M+ arbs/year), but the per-trade margin is razor-thin.
+
+Optimism is a "Spammer's Game": It is a chaotic, unregulated market where the lack of an efficient auction mechanism forces participants to engage in wasteful behaviour. It is the most accessible market for new entrants but arguably the least efficient.
+
+Starknet is the "Frontier": It offers the highest potential for "informational alpha" due to the technical barriers of Cairo and the ZK architecture, but lacks the deep liquidity of the other chains.
+
+## Future Outlook: The Convergence?
+
+As we look toward late 2025 and 2026, the distinctions may blur.
+
+Cross-Chain MEV : The rise of cross-chain bridges and unified liquidity layers (like LayerZero) is creating a new class of arbitrage that spans these networks. Bots are already beginning to arb the price difference between Solana (fast) and Ethereum (liquid).
+
+Solution to Spam : The unsustainable nature of the spam on Optimism and Base will likely force the adoption of "Shared Sequencing" or decentralised auction mechanisms similar to Flashbots, bringing order to the chaos.
+
+Institutionalisation : Across all chains, the trend is clear. The solo developer is being squeezed out by capitalised firms that can afford the $3,000/month RPC nodes, the co-location fees, and the specialised engineering talent required to compete in a market where margins are measured in basis points and milliseconds.
+
+## In conclusion
+
+Arbitrage in 2025 is not a story of code, but of market structure.
+The bot is merely a rational actor optimising for the specific constraints be they auctions, leader schedules, or sequencer latencies imposed by the chain it inhabits.
+
+## Ready to Learn More?
+
+Explore our comprehensive courses on blockchain security and development.
+
+Browse Courses
+
+## Share This Article
+
+Twitter
+
+LinkedIn
+
+## Related Articles
