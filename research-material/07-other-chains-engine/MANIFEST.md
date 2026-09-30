@@ -1,8 +1,12 @@
 # 07-other-chains-engine: repository scanner and engine on Arbitrum and Ethereum, with a same-method Base scan
 
-Status: IN PROGRESS. Collectors were launched 2026-09-30T22:14:28Z (master PID in `collect/state/run_all.pid`). The row counts,
-block ranges and time windows in "Counts" below are written by `collect/fill_manifest.py`. A detached waiter runs it after the
-last sentinel appears, and anyone can re-run it by hand. Everything else in this file is static.
+Status: IN PROGRESS (counts last refreshed 2026-09-30T22:18:32Z; waiting for sentinels: SCANS, ENGINE_DETECT_ARBITRUM, ENGINE_DETECT_MAINNET).
+
+Run notes: collectors were launched 2026-09-30T22:14:28Z (master PID in `collect/state/run_all.pid`, log `collect/run_all.log`,
+step log `collect/pipeline.log`). The Status line above and the "Counts" section are rewritten by `collect/fill_manifest.py`
+(descriptive metadata only). A detached waiter (`collect/manifest_waiter.sh`, log `collect/manifest_waiter.log`) runs it every
+5 min and one last time after the sentinels SCANS, ENGINE_DETECT_ARBITRUM and ENGINE_DETECT_MAINNET exist. It can also be run by
+hand. Everything else in this file is static.
 
 This directory holds data only. Nothing here states a finding.
 
@@ -98,7 +102,7 @@ statements to lines 59, 61–64, 138, 158 and 274.
   `fromAddress()` runs with no `codeOverride` and no signer, reads `owner()` from the placeholder, gets `0x`, and viem throws
   `ContractFunctionZeroDataError`. `main()` exits 1 right after `searcher ready`.
 - Evidence: `collect/engine-blocker-check-arbitrum.log` and `collect/engine-blocker-check-mainnet.log`, from the unmodified command
-  `LOG_JSON=1 node --import tsx src/main.ts --chain <chain> --mode dry`, run at 22:03–22:05Z, `exit=1`.
+  `LOG_JSON=1 node --import tsx src/main.ts --chain <chain> --mode dry`, run 22:04:50–22:05:30Z, `exit=1`. This was before the other agent's main.ts edit at 22:06:53Z, so it ran the HEAD version of main.ts.
 - Sentinels `ENGINE_LIVE_ARBITRUM.FAILED` and `ENGINE_LIVE_MAINNET.FAILED` contain this reason. No simulation data exists for these chains.
 
 **Substitute that was collected, using parameters only: detection-only live run.** `--contract ""` makes `main.ts:55` resolve `contract` to `""`,
@@ -190,8 +194,22 @@ the run window (attempt, exit code, time_capped, cap_minutes, blocks_flag, SIGIN
 ## Counts
 
 <!-- COUNTS:BEGIN -->
-Not yet filled. Collectors running. Run `python3 collect/fill_manifest.py` after the sentinels `SCANS`, `ENGINE_DETECT_ARBITRUM` and
-`ENGINE_DETECT_MAINNET` exist.
+Filled by `collect/fill_manifest.py` at 2026-09-30T22:18:32Z.
+
+Sentinels: `SCANS` missing, `ENGINE_DETECT_ARBITRUM` missing, `ENGINE_DETECT_MAINNET` missing, `ENGINE_LIVE_ARBITRUM.FAILED`, `ENGINE_LIVE_MAINNET.FAILED`
+
+| Dir / run | JSONL files | JSONL rows | rows announced in log (scan) | unparseable lines | block-scanned / heartbeat lines | first block | last block | window start (UTC) | window end (UTC) | pools after depth filter | exit | time-capped | SCAN SUMMARY present | warn / error log lines |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+Scan windows: first/last `block scanned` log time. Engine windows: `searcher ready` to SIGINT. Engine block range: first/last block among written rows (empty if no row was written).
+
+File sizes (bytes):
+
+- `scans/arbitrum/scan-arbitrum-config.code-provenance.txt`: 4800
+- `scans/base/scan-base-config.code-provenance.txt`: 4800
+- `scans/mainnet/scan-mainnet-config.code-provenance.txt`: 4800
+
+`collect/gaps.jsonl`: 0 line(s).
 <!-- COUNTS:END -->
 
 ## Coverage limits and gaps

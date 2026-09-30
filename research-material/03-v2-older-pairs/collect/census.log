@@ -1,0 +1,15 @@
+2026-09-30T22:17:54Z census window 51965201 52008400
+2026-09-30T22:17:54Z chunks 87 todo 87
+2026-09-30T22:17:57Z chunk done (51969201, 51969700) 3785 progress 10 / 87
+2026-09-30T22:17:59Z chunk done (51974701, 51975200) 2986 progress 20 / 87
+2026-09-30T22:18:01Z chunk done (51979701, 51980200) 3760 progress 30 / 87
+2026-09-30T22:18:04Z chunk done (51984701, 51985200) 3215 progress 40 / 87
+2026-09-30T22:18:06Z chunk done (51989701, 51990200) 3259 progress 50 / 87
+2026-09-30T22:18:09Z chunk done (51994201, 51994700) 5855 progress 60 / 87
+2026-09-30T22:18:12Z chunk done (51999201, 51999700) 4071 progress 70 / 87
+2026-09-30T22:18:14Z chunk done (52004701, 52005200) 3174 progress 80 / 87
+2026-09-30T22:18:15Z chunk done (52007701, 52008200) 3132 progress 87 / 87
+2026-09-30T22:18:31Z raw logs written 304359 parts 1 {'sync_uint112': 82788, 'swap_univ2': 84002, 'sync_uint256': 71714, 'swap_aero_v2': 65855}
+2026-09-30T22:18:31Z activity rows 30921 emitters 4385
+2026-09-30T22:18:39Z emitter batches 44 todo 44
+2026-09-30T22:18:46Z census done {"pinned_block": 52008400, "window_start_block": 51965201, "window_end_block": 52008400, "window_blocks": 43200, "hour_bucket_blocks": 1800, "chunk_blocks": 500, "started_utc": "2026-09-30T22:17:54Z", "topics": {"0x1c411e9a96e071241c2f21f7726b17ae89e3cab4c78be50e062b03a9fffbbad1": "Sync(uint112,uint112)", "0xcf2aa50876cdfbb541206f89af0ee78d44a2abf8d328e37fa4917f982149848a": "Sync(uint256,uint256)", "0xd78ad95fa46c994b6551d0da85fc275fe613ce37657fb8d5e3d130840159d822": "Swap(address,uint256,uint256,uint256,uint256,address)", "0xb3e2773606abfd36b5bd91394b3a54d1398336c65005baf7bf7a05efeffaf75b": "Swap(address,address,uint256,uint256,uint256,uint256)"}, "chunks_total": 87, "chunks_missing": [], "log_rows": 304359, "log_parts": 1, "log_rows_by_event": {"sync_uint112": 82788, "swap_univ2": 84002, "sync_uint256": 71714, "swap_aero_v2": 65855}, "log_timestamp_formula_mismatches": 0, "activity_rows": 30921, "distinct_emitters": 4385, "emitter_rows": 4385, "finished_utc": "2026-09-30T22:18:46Z", "endpoint_stats": {"https://gateway.tenderly.co/public/base": {"ok": 135, "err": 0}, "https://mainnet.base.org": {"ok": 3, "err": 0}, "https://base.drpc.org": {"ok": 0, "err": 0}, "https://base-mainnet.public.blastapi.io": {"ok": 46, "err": 0}}}

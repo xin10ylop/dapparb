@@ -83,7 +83,9 @@ Checks done during preparation:
 - Loader on `initialize-part-0022.csv.gz` alone vs an independent Python count of the same file: rows 258,485; dynamic fee 131,518;
   hook swap flags 73,509; priceable 53,458 (123 with a hook); ETH/WETH 3. All equal.
 - Loader parse of all 22 V4INIT parts (RPC stubbed): 15,333,247 rows read (equal to `initialize-parts.json` total_rows),
-  239,884 priceable, 239,879 after the ETH/WETH drop, 54 s, heap 249 MB.
+  239,884 priceable, 239,879 after the ETH/WETH drop, 54 s, heap 249 MB. Independent Python count over the same 22 parts:
+  rows 15,333,247; dynamic fee 3,358,756; static fee with hook swap flags 11,734,607; priceable 239,884 (1,481 with a hook);
+  ETH/WETH 5; remaining 239,879. Equal.
 - Full engine startup with the flag: see "Verification startup" below.
 
 ## Files
