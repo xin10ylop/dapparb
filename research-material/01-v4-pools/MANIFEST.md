@@ -170,7 +170,7 @@ hook_address, source_kind (`document` / `zora_onchain_registry` / `uniswap_hookl
 | `fetch-log.jsonl` | one line per fetch: url, fetched_utc, http_status, bytes, sha256, raw_file, text_file (appended; re-fetches add lines) |
 | `doc-address-excerpts.csv.gz` | every line of every HTTP-200 text file that contains a 20-byte hex address: url, fetched_utc, http_status, line_no, address, line_verbatim, context_before_3_lines_verbatim |
 | `blockscout/index.jsonl.gz` | one line per address queried on base.blockscout.com API v2: name, is_contract, is_verified, creator, creation tx, creation tx from/to/method/block/timestamp, contract name, compiler, file path, proxy type, implementations |
-| `blockscout/<addr>.address.json.gz`, `<addr>.creation_tx.json.gz`, `<addr>.smart_contract.json.gz` | verbatim API responses with url and fetch time. smart_contract includes the verified source and ABI |
+| `blockscout/<addr>.address.json.gz`, `<addr>.creation_tx.json.gz`, `<addr>.smart_contract.json.gz` | verbatim API responses with url and fetch time. smart_contract includes the verified source and ABI. Besides the hooks, this also holds address and smart-contract responses for every log emitter seen in the launch-tx samples (factories, tokens, lockers and proxy implementations). They were fetched by `launch_tx_samples.py` to resolve event names and are not listed in index.jsonl.gz |
 | `uniswap-hooklist-base.jsonl.gz` | all 1,134 `hooks/base/*.json` entries of https://github.com/Uniswap/hooklist at commit `65ef4121419193a5aad9a493d2f4d9710d2f7653` (2026-09-30T16:30:30Z), verbatim JSON with raw URL |
 | `zora-hook-registry-logs.jsonl.gz` | all 21 logs of ZoraHookRegistry `0x777777c4c14b133858c3982d41dbf02509fc18d7` (Blockscout getLogs, fromBlock 0 to latest, fetched 2026-09-30 about 21:22Z; count equal to RPC eth_getLogs at the same blocks) |
 | `zora-hook-registry-events.csv` | derived: decoded ZoraHookRegistered / ZoraHookRemoved events: block_number, tx_hash, log_index, event, hook, tag, version. topic0 ZoraHookRegistered(address,string,string) = `0xcf4000d2717988c072e9ec433f61ecff44a8bf0ebc5275e6353893a1b268fc5b` |
@@ -199,8 +199,8 @@ doppler-hooks); Bunni v2 README; KyberSwap dex-lib Flaunch and Clanker hook cons
 | `pool-keys-snapshot.csv.gz` | 36,103 | | key_source: 29,900 initialize_log_7d, 6,203 initialize_log_v4init, 0 unresolved |
 | `token-metadata.csv.gz` | 27,317 (27,316 ERC-20 addresses + 1 native row) | block 52,006,432 | all 4 calls returned success via the first multicall for all 27,316 addresses |
 | `timestamps-check.csv` | 14 | 0-52,006,302 | |
-| `hooks.csv` | 1,198 at 21:5xZ (rebuilt by the HOOKLABELS pipeline) | counts over 25,350,988-52,006,302 (count_source=v4init_final) and 7d window | |
-| `hook-labels-long.csv` | 1,320 at 21:5xZ (rebuilt by HOOKLABELS) | | |
+| `hooks.csv` | 1,198 at 22:00Z (rebuilt by the HOOKLABELS pipeline) | counts over 25,350,988-52,006,302 (count_source=v4init_final) and 7d window | |
+| `hook-labels-long.csv` | 1,363 at 22:00Z (rebuilt by HOOKLABELS) | | |
 | `hook-pool-counts-all.csv.gz` | 74,887 | 25,350,988-52,006,302 | derived count of Initialize rows per hook address in the final V4INIT parts (sum = 15,333,247); columns hook_address, pool_count, first_init_block, last_init_block, count_block_range. Made by `collect/write_hook_pool_counts.py` after V4INIT.DONE |
 | `hook-docs/doc-address-excerpts.csv.gz` | 1,766 | | from 37 fetched documents (36 HTTP 200, 1 HTTP 429) |
 | `hook-docs/uniswap-hooklist-base.jsonl.gz` | 1,134 | | |

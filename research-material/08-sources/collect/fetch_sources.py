@@ -110,7 +110,7 @@ BLOCK = {'p', 'div', 'section', 'article', 'main', 'header', 'footer', 'aside', 
          'figcaption', 'blockquote', 'pre', 'dl', 'dt', 'dd', 'details', 'summary', 'caption', 'form'}
 
 
-def html_to_text(html, prefer_main=True):
+def html_to_text(html, prefer_main=True, with_links=True):
     soup = BeautifulSoup(html, 'html.parser')
     for t in soup(['script', 'style', 'noscript', 'svg', 'template', 'iframe', 'button']):
         t.decompose()
@@ -134,6 +134,12 @@ def html_to_text(html, prefer_main=True):
                 break
     if root is None:
         root = soup.body or soup
+    links = []
+    for a in root.find_all('a', href=True):
+        h = a['href'].strip()
+        if h.startswith('#') or h.startswith('javascript:'):
+            continue
+        links.append((re.sub(r'\s+', ' ', a.get_text(' ', strip=True))[:200], h))
     for tag in root.find_all(True):
         if tag.name in BLOCK:
             tag.insert_before(NavigableString('\n'))
@@ -147,6 +153,12 @@ def html_to_text(html, prefer_main=True):
         lines.append(ln)
     out = '\n'.join(lines)
     out = re.sub(r'\n{3,}', '\n\n', out).strip() + '\n'
+    if with_links and links:
+        seen, lk = set(), []
+        for t, h in links:
+            if (t, h) not in seen:
+                seen.add((t, h)); lk.append(f'{t}\t{h}')
+        out += '\n=== hyperlinks in the extracted part of the page (anchor text<TAB>href; derived, appended by fetch_sources.py) ===\n' + '\n'.join(lk) + '\n'
     return out
 
 
@@ -193,6 +205,8 @@ def fetch_arxiv(src):
     md = meta(html)
     versions = re.findall(r'\[v(\d+)\]', html)
     latest = max(int(v) for v in versions) if versions else 1
+    if src.get('version'):  # pin an earlier version explicitly (e.g. the version a figure was quoted from)
+        latest = int(src['version'])
     hist = re.search(r'<div class="submission-history">(.*?)</div>', html, re.S)
     hist_txt = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', hist.group(1))).strip() if hist else ''
     abs_m = re.search(r'<blockquote class="abstract[^"]*">(.*?)</blockquote>', html, re.S)

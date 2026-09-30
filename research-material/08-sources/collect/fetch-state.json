@@ -251,5 +251,585 @@
   "access_notes": "HTTP 200, 240609 bytes",
   "status": "ok",
   "fetched_at": "2026-09-30T21:56:09Z"
+ },
+ "arxiv-2602.15395-wang-et-al-mev-in-binance-builder": {
+  "url": "https://arxiv.org/abs/2602.15395v2",
+  "title": "MEV in Binance Builder",
+  "authors": "Wang, Qin; Li, Ruiqiang; Yu, Guangsheng; Gramoli, Vincent; Chen, Shiping",
+  "date": "v1 2026/02/17; latest v2; history: Submission history From: Qin Wang [ view email ] [v1] Tue, 17 Feb 2026 07:05:45 UTC (7,362 KB) [v2] Thu, 30 Apr 2026 06:39:06 UTC (8,119 KB)",
+  "raw_files": [
+   "raw/arxiv-2602.15395-wang-et-al-mev-in-binance-builder.abs.html.gz",
+   "raw/arxiv-2602.15395-wang-et-al-mev-in-binance-builder.html-v2.html.gz",
+   "raw/arxiv-2602.15395-wang-et-al-mev-in-binance-builder.pdf-v2.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2602.15395-wang-et-al-mev-in-binance-builder.txt.gz",
+   "texts/arxiv-2602.15395-wang-et-al-mev-in-binance-builder.pdf.txt.gz"
+  ],
+  "access_notes": "html v2 ok; pdf v2 18 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:02:32Z"
+ },
+ "blocksec-bsc-after-full-pbs": {
+  "url": "https://blocksec.com/blog/performance-bsc-after-full-implementation-pbs",
+  "title": "How is the performance of BSC after full implementation of PBS\uff1f",
+  "authors": "",
+  "date": "2025-01-17",
+  "raw_files": [
+   "raw/blocksec-bsc-after-full-pbs.page.html.gz"
+  ],
+  "text_files": [
+   "texts/blocksec-bsc-after-full-pbs.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 207472 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:02:33Z"
+ },
+ "docs-bnbchain-mev-overview": {
+  "url": "https://docs.bnbchain.org/bnb-smart-chain/validator/mev/overview/",
+  "title": "Overview - BSC MEV",
+  "authors": "BNB Chain",
+  "date": "",
+  "raw_files": [
+   "raw/docs-bnbchain-mev-overview.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-bnbchain-mev-overview.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 62542 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:02:34Z"
+ },
+ "docs-bnbchain-mev-user-guide": {
+  "url": "https://docs.bnbchain.org/bnb-smart-chain/validator/mev/user-guide/",
+  "title": "User Guide - BSC MEV",
+  "authors": "BNB Chain",
+  "date": "",
+  "raw_files": [
+   "raw/docs-bnbchain-mev-user-guide.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-bnbchain-mev-user-guide.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 65864 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:02:35Z"
+ },
+ "arxiv-2603.13830-bsc-meme-token-rug-pull-warning": {
+  "url": "https://arxiv.org/abs/2603.13830v1",
+  "title": "Early Rug Pull Warning for BSC Meme Tokens via Multi-Granularity Wash-Trading Pattern Profiling",
+  "authors": "Cao, Dingding; Jiao, Bianbian; Yang, Jingzong; Zhong, Yujing; Yang, Wei",
+  "date": "v1 2026/03/14; latest v1; history: Submission history From: Dingding Cao [ view email ] [v1] Sat, 14 Mar 2026 08:25:42 UTC (7,130 KB)",
+  "raw_files": [
+   "raw/arxiv-2603.13830-bsc-meme-token-rug-pull-warning.abs.html.gz",
+   "raw/arxiv-2603.13830-bsc-meme-token-rug-pull-warning.html-v1.html.gz",
+   "raw/arxiv-2603.13830-bsc-meme-token-rug-pull-warning.pdf-v1.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2603.13830-bsc-meme-token-rug-pull-warning.txt.gz",
+   "texts/arxiv-2603.13830-bsc-meme-token-rug-pull-warning.pdf.txt.gz"
+  ],
+  "access_notes": "html v1 ok; pdf v1 17 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:02:46Z"
+ },
+ "arxiv-2604.00234-wang-saraf-heimbach-babel-zhang-blockspace-under-pressure": {
+  "url": "https://arxiv.org/abs/2604.00234v2",
+  "title": "Blockspace Under Pressure: An Analysis of Spam MEV on High-Throughput Blockchains",
+  "authors": "Wang, Wenhao; Saraf, Aditya; Heimbach, Lioba; Babel, Kushal; Zhang, Fan",
+  "date": "v1 2026/03/31; latest v2; history: Submission history From: Wenhao Wang [ view email ] [v1] Tue, 31 Mar 2026 20:57:20 UTC (404 KB) [v2] Tue, 21 Jul 2026 14:15:20 UTC (450 KB)",
+  "raw_files": [
+   "raw/arxiv-2604.00234-wang-saraf-heimbach-babel-zhang-blockspace-under-pressure.abs.html.gz",
+   "raw/arxiv-2604.00234-wang-saraf-heimbach-babel-zhang-blockspace-under-pressure.html-v2.html.gz",
+   "raw/arxiv-2604.00234-wang-saraf-heimbach-babel-zhang-blockspace-under-pressure.pdf-v2.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2604.00234-wang-saraf-heimbach-babel-zhang-blockspace-under-pressure.txt.gz",
+   "texts/arxiv-2604.00234-wang-saraf-heimbach-babel-zhang-blockspace-under-pressure.pdf.txt.gz"
+  ],
+  "access_notes": "html v2 ok; pdf v2 40 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:02:55Z"
+ },
+ "arxiv-2506.14768-solmaz-et-al-optimistic-mev-l2s": {
+  "url": "https://arxiv.org/abs/2506.14768v2",
+  "title": "Optimistic MEV in Ethereum Layer 2s: Why Blockspace Is Always in Demand",
+  "authors": "Solmaz, Ozan; Heimbach, Lioba; Vonlanthen, Yann; Wattenhofer, Roger",
+  "date": "v1 2025/06/17; latest v2; history: Submission history From: Lioba Heimbach [ view email ] [v1] Tue, 17 Jun 2025 17:58:28 UTC (1,017 KB) [v2] Tue, 5 Aug 2025 23:41:58 UTC (960 KB)",
+  "raw_files": [
+   "raw/arxiv-2506.14768-solmaz-et-al-optimistic-mev-l2s.abs.html.gz",
+   "raw/arxiv-2506.14768-solmaz-et-al-optimistic-mev-l2s.html-v2.html.gz",
+   "raw/arxiv-2506.14768-solmaz-et-al-optimistic-mev-l2s.pdf-v2.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2506.14768-solmaz-et-al-optimistic-mev-l2s.txt.gz",
+   "texts/arxiv-2506.14768-solmaz-et-al-optimistic-mev-l2s.pdf.txt.gz"
+  ],
+  "access_notes": "html v2 ok; pdf v2 33 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:03:05Z"
+ },
+ "arxiv-2506.01462-gogol-schneider-tessone-when-priority-fails": {
+  "url": "https://arxiv.org/abs/2506.01462v4",
+  "title": "When Priority Fails: Revert-Based MEV on Fast-Finality Rollups",
+  "authors": "Gogol, Krzysztof; Schneider, Manvir; Tessone, Claudio",
+  "date": "v1 2025/06/02; latest v4; history: Submission history From: Krzysztof Gogol [ view email ] [v1] Mon, 2 Jun 2025 09:18:53 UTC (2,255 KB) [v2] Tue, 3 Jun 2025 08:44:29 UTC (699 KB) [v3] Wed, 11 Jun 2025 06:02:49 UTC (700 KB) [v4] Mon, 22 Sep 2025 08:22:47 UTC (1,077 KB)",
+  "raw_files": [
+   "raw/arxiv-2506.01462-gogol-schneider-tessone-when-priority-fails.abs.html.gz",
+   "raw/arxiv-2506.01462-gogol-schneider-tessone-when-priority-fails.html-v4.html.gz",
+   "raw/arxiv-2506.01462-gogol-schneider-tessone-when-priority-fails.pdf-v4.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2506.01462-gogol-schneider-tessone-when-priority-fails.txt.gz",
+   "texts/arxiv-2506.01462-gogol-schneider-tessone-when-priority-fails.pdf.txt.gz"
+  ],
+  "access_notes": "html v4 ok; pdf v4 30 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:03:14Z"
+ },
+ "arxiv-2406.02172-gogol-et-al-cross-rollup-mev": {
+  "url": "https://arxiv.org/abs/2406.02172v2",
+  "title": "Cross-Rollup MEV: Non-Atomic Arbitrage Across L2 Blockchains",
+  "authors": "Gogol, Krzysztof; Messias, Johnnatan; Miori, Deborah; Tessone, Claudio; Livshits, Benjamin",
+  "date": "v1 2024/06/04; latest v2; history: Submission history From: Krzysztof Gogol [ view email ] [v1] Tue, 4 Jun 2024 10:03:23 UTC (1,029 KB) [v2] Thu, 17 Oct 2024 09:02:16 UTC (1,092 KB)",
+  "raw_files": [
+   "raw/arxiv-2406.02172-gogol-et-al-cross-rollup-mev.abs.html.gz",
+   "raw/arxiv-2406.02172-gogol-et-al-cross-rollup-mev.html-v2.html.gz",
+   "raw/arxiv-2406.02172-gogol-et-al-cross-rollup-mev.pdf-v2.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2406.02172-gogol-et-al-cross-rollup-mev.txt.gz",
+   "texts/arxiv-2406.02172-gogol-et-al-cross-rollup-mev.pdf.txt.gz"
+  ],
+  "access_notes": "html v2 ok; pdf v2 25 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:03:23Z"
+ },
+ "arxiv-2501.17335-oz-et-al-cross-chain-arbitrage": {
+  "url": "https://arxiv.org/abs/2501.17335v2",
+  "title": "Cross-Chain Arbitrage: The Next Frontier of MEV in Decentralized Finance",
+  "authors": "\u00d6z, Burak; Torres, Christof Ferreira; Schlegel, Christoph; Mazorra, Bruno; Gebele, Jonas; Rezabek, Filip; Matthes, Florian",
+  "date": "v1 2025/01/28; latest v2; history: Submission history From: Burak \u00d6z [ view email ] [v1] Tue, 28 Jan 2025 23:04:50 UTC (1,358 KB) [v2] Wed, 18 Jun 2025 14:26:26 UTC (1,348 KB)",
+  "raw_files": [
+   "raw/arxiv-2501.17335-oz-et-al-cross-chain-arbitrage.abs.html.gz",
+   "raw/arxiv-2501.17335-oz-et-al-cross-chain-arbitrage.html-v2.html.gz",
+   "raw/arxiv-2501.17335-oz-et-al-cross-chain-arbitrage.pdf-v2.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2501.17335-oz-et-al-cross-chain-arbitrage.txt.gz",
+   "texts/arxiv-2501.17335-oz-et-al-cross-chain-arbitrage.pdf.txt.gz"
+  ],
+  "access_notes": "html v2 ok; pdf v2 17 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:03:33Z"
+ },
+ "arxiv-2511.18328-timeboost-ahead-of-time-auctions": {
+  "url": "https://arxiv.org/abs/2511.18328v1",
+  "title": "TimeBoost: Do Ahead-of-Time Auctions Work?",
+  "authors": "Mamageishvili, Akaki; Schlegel, Christoph; Sunghun, Ko; Park, Jinsuk; Taslimi, Ali",
+  "date": "v1 2025/11/23; latest v1; history: Submission history From: Akaki Mamageishvili [ view email ] [v1] Sun, 23 Nov 2025 07:34:40 UTC (215 KB)",
+  "raw_files": [
+   "raw/arxiv-2511.18328-timeboost-ahead-of-time-auctions.abs.html.gz",
+   "raw/arxiv-2511.18328-timeboost-ahead-of-time-auctions.html-v1.html.gz",
+   "raw/arxiv-2511.18328-timeboost-ahead-of-time-auctions.pdf-v1.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2511.18328-timeboost-ahead-of-time-auctions.txt.gz",
+   "texts/arxiv-2511.18328-timeboost-ahead-of-time-auctions.pdf.txt.gz"
+  ],
+  "access_notes": "html v1 ok; pdf v1 14 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:03:42Z"
+ },
+ "arxiv-2512.10094-auctioning-time-latency-races": {
+  "url": "https://arxiv.org/abs/2512.10094v3",
+  "title": "Auctioning Time to Mitigate Latency Races: Theory and Evidence from Blockchains",
+  "authors": "Capponi, Agostino; Zhu, Brian",
+  "date": "v1 2025/12/10; latest v3; history: Submission history From: Brian Zhu [ view email ] [v1] Wed, 10 Dec 2025 21:33:07 UTC (2,314 KB) [v2] Sat, 20 Dec 2025 03:09:25 UTC (2,314 KB) [v3] Mon, 16 Feb 2026 16:36:32 UTC (53 KB)",
+  "raw_files": [
+   "raw/arxiv-2512.10094-auctioning-time-latency-races.abs.html.gz",
+   "raw/arxiv-2512.10094-auctioning-time-latency-races.html-v3.html.gz",
+   "raw/arxiv-2512.10094-auctioning-time-latency-races.pdf-v3.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2512.10094-auctioning-time-latency-races.txt.gz",
+   "texts/arxiv-2512.10094-auctioning-time-latency-races.pdf.txt.gz"
+  ],
+  "access_notes": "html v3 ok; pdf v3 64 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:03:51Z"
+ },
+ "arxiv-2508.21473-polygon-atomic-arbitrage": {
+  "url": "https://arxiv.org/abs/2508.21473v1",
+  "title": "Unpacking Maximum Extractable Value on Polygon: A Study on Atomic Arbitrage",
+  "authors": "Vostrikov, Daniil; Madhwal, Yash; Seoev, Andrey; Smirnova, Anastasiia; Yanovich, Yury; Smirnov, Alexey; Gorgadze, Vladimir",
+  "date": "v1 2025/08/29; latest v1; history: Submission history From: Yury Yanovich [ view email ] [v1] Fri, 29 Aug 2025 09:58:11 UTC (253 KB)",
+  "raw_files": [
+   "raw/arxiv-2508.21473-polygon-atomic-arbitrage.abs.html.gz",
+   "raw/arxiv-2508.21473-polygon-atomic-arbitrage.html-v1.html.gz",
+   "raw/arxiv-2508.21473-polygon-atomic-arbitrage.pdf-v1.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2508.21473-polygon-atomic-arbitrage.txt.gz",
+   "texts/arxiv-2508.21473-polygon-atomic-arbitrage.pdf.txt.gz"
+  ],
+  "access_notes": "html v1 ok; pdf v1 7 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:01Z"
+ },
+ "arxiv-2609.28115-no-place-to-hide-protected-order-flow-sandwich": {
+  "url": "https://arxiv.org/abs/2609.28115v1",
+  "title": "No Place to Hide: An Analysis on Protected Order Flow Sandwich Attacks",
+  "authors": "Heimbach, Lioba; Solmaz, Ozan; \u00d6z, Burak; Torres, Christof Ferreira",
+  "date": "v1 2026/09/23; latest v1; history: Submission history From: Lioba Heimbach [ view email ] [v1] Wed, 23 Sep 2026 13:45:10 UTC (1,062 KB)",
+  "raw_files": [
+   "raw/arxiv-2609.28115-no-place-to-hide-protected-order-flow-sandwich.abs.html.gz",
+   "raw/arxiv-2609.28115-no-place-to-hide-protected-order-flow-sandwich.html-v1.html.gz",
+   "raw/arxiv-2609.28115-no-place-to-hide-protected-order-flow-sandwich.pdf-v1.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2609.28115-no-place-to-hide-protected-order-flow-sandwich.txt.gz",
+   "texts/arxiv-2609.28115-no-place-to-hide-protected-order-flow-sandwich.pdf.txt.gz"
+  ],
+  "access_notes": "html v1 ok; pdf v1 35 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:11Z"
+ },
+ "arxiv-2604.27979-origins-of-mev-arbitrage-opportunity-creation": {
+  "url": "https://arxiv.org/abs/2604.27979v1",
+  "title": "The Origins of MEV: Systematic Attribution of Arbitrage Opportunity Creation at Scale",
+  "authors": "Seoev, Andrei; Belousov, Dmitry; Smirnova, Anastasiia; Kurinova, Ksenia; Smirnov, Aleksei; Fedyanin, Denis; Yanovich, Yury",
+  "date": "v1 2026/04/30; latest v1; history: Submission history From: Yury Yanovich [ view email ] [v1] Thu, 30 Apr 2026 15:08:10 UTC (199 KB)",
+  "raw_files": [
+   "raw/arxiv-2604.27979-origins-of-mev-arbitrage-opportunity-creation.abs.html.gz",
+   "raw/arxiv-2604.27979-origins-of-mev-arbitrage-opportunity-creation.html-v1.html.gz",
+   "raw/arxiv-2604.27979-origins-of-mev-arbitrage-opportunity-creation.pdf-v1.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2604.27979-origins-of-mev-arbitrage-opportunity-creation.txt.gz",
+   "texts/arxiv-2604.27979-origins-of-mev-arbitrage-opportunity-creation.pdf.txt.gz"
+  ],
+  "access_notes": "html v1 ok; pdf v1 14 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:20Z"
+ },
+ "arxiv-2602.22032-mazorra-schlegel-mamageishvili-timing-games": {
+  "url": "https://arxiv.org/abs/2602.22032v1",
+  "title": "Timing Games: Probabilistic backrunning and spam",
+  "authors": "Mazorra, Bruno; Schlegel, Christoph; Mamageishvili, Akaki",
+  "date": "v1 2026/02/25; latest v1; history: Submission history From: Bruno Mazorra [ view email ] [v1] Wed, 25 Feb 2026 15:37:58 UTC (96 KB)",
+  "raw_files": [
+   "raw/arxiv-2602.22032-mazorra-schlegel-mamageishvili-timing-games.abs.html.gz",
+   "raw/arxiv-2602.22032-mazorra-schlegel-mamageishvili-timing-games.html-v1.html.gz",
+   "raw/arxiv-2602.22032-mazorra-schlegel-mamageishvili-timing-games.pdf-v1.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2602.22032-mazorra-schlegel-mamageishvili-timing-games.txt.gz",
+   "texts/arxiv-2602.22032-mazorra-schlegel-mamageishvili-timing-games.pdf.txt.gz"
+  ],
+  "access_notes": "html v1 ok; pdf v1 32 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:29Z"
+ },
+ "arxiv-2410.19106-zhu-et-al-value-of-revert-protection": {
+  "url": "https://arxiv.org/abs/2410.19106v2",
+  "title": "Quantifying the Value of Revert Protection",
+  "authors": "Zhu, Brian Z.; Wan, Xin; Moallemi, Ciamac C.; Robinson, Dan; Bachu, Brad",
+  "date": "v1 2024/10/24; latest v2; history: Submission history From: Brian Zhu [ view email ] [v1] Thu, 24 Oct 2024 19:13:29 UTC (375 KB) [v2] Tue, 11 Feb 2025 22:06:28 UTC (512 KB)",
+  "raw_files": [
+   "raw/arxiv-2410.19106-zhu-et-al-value-of-revert-protection.abs.html.gz",
+   "raw/arxiv-2410.19106-zhu-et-al-value-of-revert-protection.html-v2.html.gz",
+   "raw/arxiv-2410.19106-zhu-et-al-value-of-revert-protection.pdf-v2.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2410.19106-zhu-et-al-value-of-revert-protection.txt.gz",
+   "texts/arxiv-2410.19106-zhu-et-al-value-of-revert-protection.pdf.txt.gz"
+  ],
+  "access_notes": "html v2 ok; pdf v2 24 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:38Z"
+ },
+ "flashbots-mev-and-the-limits-of-scaling": {
+  "url": "https://writings.flashbots.net/mev-and-the-limits-of-scaling",
+  "title": "MEV and the Limits of Scaling | Flashbots Writings",
+  "authors": "https://flashbots.net,https://twitter.com/bertcmiller",
+  "date": "2025-06-16T00:00:00.000Z",
+  "raw_files": [
+   "raw/flashbots-mev-and-the-limits-of-scaling.page.html.gz"
+  ],
+  "text_files": [
+   "texts/flashbots-mev-and-the-limits-of-scaling.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 43467 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:39Z"
+ },
+ "flashbots-collective-dealing-with-spam-onchain-searching": {
+  "url": "https://collective.flashbots.net/t/dealing-with-spam-caused-by-on-chain-searching/3381",
+  "title": "Dealing with spam caused by on-chain searching",
+  "authors": "",
+  "date": "2024-05-02T01:15:34+00:00",
+  "raw_files": [
+   "raw/flashbots-collective-dealing-with-spam-onchain-searching.page.html.gz"
+  ],
+  "text_files": [
+   "texts/flashbots-collective-dealing-with-spam-onchain-searching.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 197226 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:40Z"
+ },
+ "docs-optimism-stake-based-priority-ordering": {
+  "url": "https://docs.optimism.io/notices/stake-based-priority-ordering",
+  "title": "Optimism Documentation",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-optimism-stake-based-priority-ordering.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-optimism-stake-based-priority-ordering.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 539688 bytes, redirected to https://docs.optimism.io/notices/archive/stake-based-priority-ordering",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:41Z"
+ },
+ "blog-uniswap-flashblocks-are-live-unichain": {
+  "url": "https://blog.uniswap.org/flashblocks-are-live",
+  "title": "Unichain Hits 200ms Sub-Blocks Inside Trusted Execution Environments",
+  "authors": "",
+  "date": "2025-08-14T12:46:57.914Z",
+  "raw_files": [
+   "raw/blog-uniswap-flashblocks-are-live-unichain.page.html.gz"
+  ],
+  "text_files": [
+   "texts/blog-uniswap-flashblocks-are-live-unichain.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 182686 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:42Z"
+ },
+ "blog-uniswap-rollup-boost-live-on-unichain": {
+  "url": "https://blog.uniswap.org/rollup-boost-is-live-on-unichain",
+  "title": "Live on Unichain: Fair Transaction Ordering and MEV Protection",
+  "authors": "",
+  "date": "2025-05-02T12:50:30.005Z",
+  "raw_files": [
+   "raw/blog-uniswap-rollup-boost-live-on-unichain.page.html.gz"
+  ],
+  "text_files": [
+   "texts/blog-uniswap-rollup-boost-live-on-unichain.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 190454 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:43Z"
+ },
+ "blog-arbitrum-competing-for-transaction-priority": {
+  "url": "https://blog.arbitrum.io/competing-for-transaction-priority-on-arbitrum/",
+  "title": "PGA & Fast Feed: Transaction Priority on Arbitrum",
+  "authors": "@arbitrum",
+  "date": "2026-09-24T14:00:53.000Z",
+  "raw_files": [
+   "raw/blog-arbitrum-competing-for-transaction-priority.page.html.gz"
+  ],
+  "text_files": [
+   "texts/blog-arbitrum-competing-for-transaction-priority.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 182052 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:44Z"
+ },
+ "blog-arbitrum-foundation-new-ordering-mechanism": {
+  "url": "https://blog.arbitrum.foundation/how-arbitrums-new-ordering-mechanism-creates-more-opportunities-for-traders-defi-primitives/",
+  "title": "How Arbitrum\u2019s New Ordering Mechanism Creates More Opportunities for Traders & DeFi Primitives",
+  "authors": "@0xjesstech",
+  "date": "2026-09-28T09:30:22.000Z",
+  "raw_files": [
+   "raw/blog-arbitrum-foundation-new-ordering-mechanism.page.html.gz"
+  ],
+  "text_files": [
+   "texts/blog-arbitrum-foundation-new-ordering-mechanism.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 64339 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:45Z"
+ },
+ "docs-arbitrum-timeboost-gentle-introduction": {
+  "url": "https://docs.arbitrum.io/how-arbitrum-works/timeboost/gentle-introduction",
+  "title": "How Timeboost works | Arbitrum Docs",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-arbitrum-timeboost-gentle-introduction.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-arbitrum-timeboost-gentle-introduction.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 137876 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:45Z"
+ },
+ "arbitrum-forum-entropy-advisors-data-dashboards-catalog": {
+  "url": "https://forum.arbitrum.foundation/t/entropy-advisors-data-dashboards-catalog/30041",
+  "title": "Entropy Advisors Data Dashboards Catalog",
+  "authors": "Entropy Advisors",
+  "date": "topic created 2025-09-30T16:14:40.502Z",
+  "raw_files": [
+   "raw/arbitrum-forum-entropy-advisors-data-dashboards-catalog.topic.json.gz",
+   "raw/arbitrum-forum-entropy-advisors-data-dashboards-catalog.raw.md.gz"
+  ],
+  "text_files": [
+   "texts/arbitrum-forum-entropy-advisors-data-dashboards-catalog.txt.gz"
+  ],
+  "access_notes": "1 posts; stream ids 5",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:48Z"
+ },
+ "docs-base-configuration-changelog": {
+  "url": "https://docs.base.org/base-chain/network-information/configuration-changelog",
+  "title": "Configuration Changelog - Base Documentation",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-base-configuration-changelog.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-base-configuration-changelog.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 326100 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:49Z"
+ },
+ "docs-base-configuration-reference": {
+  "url": "https://docs.base.org/specifications/reference/configuration",
+  "title": "Configuration - Base Documentation",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-base-configuration-reference.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-base-configuration-reference.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 340847 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:51Z"
+ },
+ "docs-base-launch-token": {
+  "url": "https://docs.base.org/get-started/launch-token",
+  "title": "Create an Asset Token - Base Documentation",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-base-launch-token.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-base-launch-token.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 479219 bytes, redirected to https://docs.base.org/build-on-base/issue-rwa/create-an-asset-token",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:52Z"
+ },
+ "arxiv-2607.28424-demystifying-solana-bots": {
+  "url": "https://arxiv.org/abs/2607.28424v2",
+  "title": "Demystifying Solana Bots: From GitHub Blueprints to On-Chain Fingerprints",
+  "authors": "Zheng, Xiaoye; Chen, Yujing; Wu, Minghao; Lo, David; Xie, Difan; Wu, Daoyuan; Yang, Xiaohu; Wan, Zhiyuan",
+  "date": "v1 2026/07/30; latest v2; history: Submission history From: Xiaoye Zheng [ view email ] [v1] Thu, 30 Jul 2026 16:02:50 UTC (402 KB) [v2] Fri, 31 Jul 2026 07:11:57 UTC (402 KB)",
+  "raw_files": [
+   "raw/arxiv-2607.28424-demystifying-solana-bots.abs.html.gz",
+   "raw/arxiv-2607.28424-demystifying-solana-bots.html-v2.html.gz",
+   "raw/arxiv-2607.28424-demystifying-solana-bots.pdf-v2.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2607.28424-demystifying-solana-bots.txt.gz",
+   "texts/arxiv-2607.28424-demystifying-solana-bots.pdf.txt.gz"
+  ],
+  "access_notes": "html v2 ok; pdf v2 17 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:04:59Z"
+ },
+ "arxiv-2504.18055-failed-transactions-solana": {
+  "url": "https://arxiv.org/abs/2504.18055v1",
+  "title": "Why Does My Transaction Fail? A First Look at Failed Transactions on the Solana Blockchain",
+  "authors": "Zheng, Xiaoye; Wan, Zhiyuan; Lo, David; Xie, Difan; Yang, Xiaohu",
+  "date": "v1 2025/04/25; latest v1; history: Submission history From: Xiaoye Zheng [ view email ] [v1] Fri, 25 Apr 2025 04:05:28 UTC (3,525 KB)",
+  "raw_files": [
+   "raw/arxiv-2504.18055-failed-transactions-solana.abs.html.gz",
+   "raw/arxiv-2504.18055-failed-transactions-solana.html-v1.html.gz",
+   "raw/arxiv-2504.18055-failed-transactions-solana.pdf-v1.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2504.18055-failed-transactions-solana.txt.gz",
+   "texts/arxiv-2504.18055-failed-transactions-solana.pdf.txt.gz"
+  ],
+  "access_notes": "html v1 ok; pdf v1 24 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:05:09Z"
+ },
+ "helius-solana-mev-report": {
+  "url": "https://www.helius.dev/blog/solana-mev-report",
+  "title": "Solana MEV Report: Trends, Insights, and Challenges",
+  "authors": "",
+  "date": "2025-01-15T08:00:00.000Z",
+  "raw_files": [
+   "raw/helius-solana-mev-report.page.html.gz"
+  ],
+  "text_files": [
+   "texts/helius-solana-mev-report.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 489527 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:05:10Z"
+ },
+ "docs-jito-low-latency-txn-send": {
+  "url": "https://docs.jito.wtf/lowlatencytxnsend/",
+  "title": "\u26a1 Low Latency Transaction Send \u2014 Jito Labs Documentation - High Performance Solana Infrastructure",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/docs-jito-low-latency-txn-send.page.html.gz"
+  ],
+  "text_files": [
+   "texts/docs-jito-low-latency-txn-send.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 90417 bytes",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:05:11Z"
+ },
+ "arxiv-2602.13480-melt-memecoin-launch-trace-solana": {
+  "url": "https://arxiv.org/abs/2602.13480v2",
+  "title": "MELT: A Behavioral Trace Dataset for High-Risk Memecoin Launch Detection",
+  "authors": "Hu, Sihao; Tekin, Selim Furkan; Xu, Yichang; Liu, Ling",
+  "date": "v1 2026/02/13; latest v2; history: Submission history From: Sihao Hu [ view email ] [v1] Fri, 13 Feb 2026 21:35:15 UTC (1,309 KB) [v2] Thu, 21 May 2026 16:15:34 UTC (1,280 KB)",
+  "raw_files": [
+   "raw/arxiv-2602.13480-melt-memecoin-launch-trace-solana.abs.html.gz",
+   "raw/arxiv-2602.13480-melt-memecoin-launch-trace-solana.html-v2.html.gz",
+   "raw/arxiv-2602.13480-melt-memecoin-launch-trace-solana.pdf-v2.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2602.13480-melt-memecoin-launch-trace-solana.txt.gz",
+   "texts/arxiv-2602.13480-melt-memecoin-launch-trace-solana.pdf.txt.gz"
+  ],
+  "access_notes": "html v2 ok; pdf v2 13 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:05:19Z"
+ },
+ "arxiv-2609.18975-sniper-cohorts-solana-memecoins": {
+  "url": "https://arxiv.org/abs/2609.18975v2",
+  "title": "Do Two On-Chain Observation Pipelines See the Same Tokens? Cross-Pipeline Coverage on the Solana pump.fun Launchpad",
+  "authors": "Kamat, Arati Uday",
+  "date": "v1 2026/07/16; latest v2; history: Submission history From: Arati Uday Kamat [ view email ] [v1] Thu, 16 Jul 2026 19:09:00 UTC (1,195 KB) [v2] Wed, 23 Sep 2026 22:58:00 UTC (359 KB)",
+  "raw_files": [
+   "raw/arxiv-2609.18975-sniper-cohorts-solana-memecoins.abs.html.gz",
+   "raw/arxiv-2609.18975-sniper-cohorts-solana-memecoins.html-v2.html.gz",
+   "raw/arxiv-2609.18975-sniper-cohorts-solana-memecoins.pdf-v2.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2609.18975-sniper-cohorts-solana-memecoins.txt.gz",
+   "texts/arxiv-2609.18975-sniper-cohorts-solana-memecoins.pdf.txt.gz"
+  ],
+  "access_notes": "html v2 ok; pdf v2 15 pages",
+  "status": "ok",
+  "fetched_at": "2026-09-30T22:05:28Z"
  }
 }

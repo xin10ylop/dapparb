@@ -13,7 +13,26 @@
     "at_utc": "2026-09-30T21:53:55.033Z"
    },
    "cmd": "cd /home/user/dapparb/bot && LOG_JSON=1 npx tsx src/main.ts --chain base --mode dry --source logs --universe all --max-per-factory 6000 --min-depth-eth 0.001 --min-profit-usd 0.01 --top 6 --out /home/user/dapparb/research-material/04-shallow-pools/live-shallow.jsonl",
-   "engine_pid": 4723
+   "engine_pid": 4723,
+   "ready_detected_utc": "2026-09-30T22:03:51.273Z",
+   "ready_detected_epoch": 1790805831.2733192,
+   "searcher_ready_line_verbatim": "{\"level\":30,\"time\":1790805830413,\"pid\":4747,\"hostname\":\"vm\",\"tokens\":33595,\"pools\":5234,\"cycles\":6422,\"minDepthEth\":0.001,\"source\":\"logs\",\"mode\":\"dry\",\"contract\":\"0x00000000000000000000000000000000000a4BB0\",\"codeOverride\":true,\"msg\":\"searcher ready\"}",
+   "ready_log_utc": "2026-09-30T22:03:50.413Z",
+   "searcher_ready_counts": {
+    "tokens": 33595,
+    "pools": 5234,
+    "cycles": 6422,
+    "minDepthEth": 0.001,
+    "source": "logs",
+    "mode": "dry",
+    "contract": "0x00000000000000000000000000000000000a4BB0",
+    "codeOverride": true
+   },
+   "head_at_ready": {
+    "block": 52008242,
+    "endpoint": "https://base-rpc.publicnode.com",
+    "at_utc": "2026-09-30T22:03:51.689Z"
+   }
   }
  ],
  "log_format": "LOG_JSON=1 (pino JSON lines, time = epoch ms)",
