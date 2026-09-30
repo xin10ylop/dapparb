@@ -80,8 +80,10 @@ export function toContractHops(opp: Opportunity): ContractHop[] {
       zeroForOne,
       tokenIn: h.tokenIn,
       tokenOut: h.tokenOut,
-      // Hop 0 on a V2-style pool: pass the exact output we computed so the pair sends it before the callback.
-      amountOut: i === 0 && isV2(h.pool) ? h.amountOut : 0n,
+      // Hop 0 on a Uniswap-V2-style pool: pass the exact output we computed so the pair sends it before the callback.
+      // Aerodrome hop 0 is quoted on-chain by the contract (pool.getAmountOut) so its K check can never fail from
+      // off-chain rounding; costs ~5k gas.
+      amountOut: i === 0 && isV2(h.pool) && h.pool.kind !== "aero-v2" ? h.amountOut : 0n,
       feeBps: isV2(h.pool) ? h.pool.feeBps : 0,
       fee: 0,
       tickSpacing: 0,

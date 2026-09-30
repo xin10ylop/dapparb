@@ -28,8 +28,15 @@ test("local V3 simulation matches on-chain quoter", async () => {
   const sizes = [1n, 100n, 10_000n, 1_000_000n]; // multiples of 1e-4 units of tokenIn
   let checked = 0;
   let mismatches: string[] = [];
+  let skippedNoQuoter = 0;
   for (const p of v3) {
     const dex = BASE.dexes.find((d) => d.name === p.dex)!;
+    if (!dex.quoter) {
+      // Slipstream factories other than the first have no quoter in the config; their math is the same code
+      // path and is verified by the events exactness test and the executor fork simulation instead.
+      skippedNoQuoter++;
+      continue;
+    }
     for (const zeroForOne of [true, false]) {
       const tokenIn = zeroForOne ? p.token0 : p.token1;
       const tokenOut = zeroForOne ? p.token1 : p.token0;
@@ -72,7 +79,7 @@ test("local V3 simulation matches on-chain quoter", async () => {
       }
     }
   }
-  console.log(`checked ${checked} quotes across ${v3.length} pools at block ${block}; mismatches=${mismatches.length}`);
+  console.log(`checked ${checked} quotes across ${v3.length - skippedNoQuoter} pools (${skippedNoQuoter} without a quoter skipped) at block ${block}; mismatches=${mismatches.length}`);
   for (const m of mismatches.slice(0, 20)) console.log("  MISMATCH", m);
   assert.equal(mismatches.length, 0);
 });

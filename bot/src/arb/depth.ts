@@ -1,26 +1,20 @@
-import { isV2, type Pool } from "../pools/types.js";
-import { Q96 } from "../math/v3.js";
+import type { Pool } from "../pools/types.js";
+import { sideAmounts } from "./pricing.js";
 
 /**
- * Approximate pool depth in ETH: for V2 the WETH-equivalent value of one side of the reserves; for V3 the
- * virtual reserves implied by current liquidity at the current price (amount0 = L / sqrtP, amount1 = L * sqrtP).
- * Used to discard dust pools before the (expensive) cycle optimizer runs.
+ * Pool depth in ETH: the smaller of the two sides' values (real reserves for V2, virtual reserves at the
+ * current price for CL pools). Taking the minimum means a pool whose own price is far from the market
+ * (a dead pool holding lots of a priced token against dust of the other) is valued by its dust side and
+ * discarded, instead of by the side that could never actually be bought out of it. A side whose token has
+ * no anchored price counts as zero, so a pool between two unpriced tokens is discarded too.
  */
 export function poolDepthEth(pool: Pool, prices: Map<string, number>): number {
   const p0 = prices.get(pool.token0.toLowerCase());
   const p1 = prices.get(pool.token1.toLowerCase());
-  if (isV2(pool)) {
-    const v0 = p0 !== undefined ? (Number(pool.reserve0) / 10 ** pool.dec0) * p0 : NaN;
-    const v1 = p1 !== undefined ? (Number(pool.reserve1) / 10 ** pool.dec1) * p1 : NaN;
-    return Number.isFinite(v0) ? v0 : Number.isFinite(v1) ? v1 : 0;
-  }
-  const L = Number(pool.state.liquidity);
-  if (L === 0) return 0;
-  const sqrtP = Number(pool.state.sqrtPriceX96) / Number(Q96);
-  const amount0 = L / sqrtP / 10 ** pool.dec0;
-  const amount1 = (L * sqrtP) / 10 ** pool.dec1;
-  const v0 = p0 !== undefined ? amount0 * p0 : NaN;
-  const v1 = p1 !== undefined ? amount1 * p1 : NaN;
+  const { amt0, amt1 } = sideAmounts(pool);
+  const v0 = p0 !== undefined ? amt0 * p0 : NaN;
+  const v1 = p1 !== undefined ? amt1 * p1 : NaN;
+  if (Number.isFinite(v0) && Number.isFinite(v1)) return Math.min(v0, v1);
   return Number.isFinite(v0) ? v0 : Number.isFinite(v1) ? v1 : 0;
 }
 

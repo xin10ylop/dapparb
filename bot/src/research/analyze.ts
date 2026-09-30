@@ -51,6 +51,14 @@ console.log(`simulated: ok=${simOk.length} reverted=${simRev.length}; would-send
 console.log(`REAL episodes (simulated net ≥ $0.01 at least once): ${real.length}  → ${(real.length / hours).toFixed(1)} per hour`);
 console.log(`  lifetime in blocks: min=${Math.min(...lifetimes)} median=${[...lifetimes].sort((a, b) => a - b)[Math.floor(lifetimes.length / 2)]} max=${Math.max(...lifetimes)}  (block = 2 s)`);
 console.log(`  best simulated net per episode: sum=$${capture.toFixed(3)} → $${(capture / hours).toFixed(2)}/hour upper bound if every race were won`);
+{
+  // Profit denominated in a token that can be sold at the quoted price without a second race
+  // (WETH / major stables / cbBTC) vs long-tail tokens whose USD figure depends on their own pools.
+  const HARD = new Set(["WETH", "USDC", "USDT", "USDbC", "DAI", "cbBTC", "cbETH", "wstETH", "weETH", "EURC"]);
+  const hard = real.filter((e) => HARD.has(e.route.split(">")[0]!));
+  const hardCapture = hard.reduce((s, e) => s + e.maxSimNet, 0);
+  console.log(`  hard-token episodes (profit in WETH/stables/cbBTC): ${hard.length} → $${hardCapture.toFixed(3)} sum → $${(hardCapture / hours).toFixed(2)}/hour upper bound; long-tail: ${real.length - hard.length} → $${(capture - hardCapture).toFixed(3)}`);
+}
 console.log(`  by pair: ${[...tokenCount.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([k, v]) => `${k}:${v}`).join("  ")}`);
 console.log(`sim revert reasons: ${[...errs.entries()].sort((a, b) => b[1] - a[1]).slice(0, 4).map(([k, v]) => `${v}× ${k}`).join(" | ")}`);
 console.log(`\nreal episodes:`);

@@ -58,7 +58,7 @@ test("searcher finds a manufactured opportunity and the contract simulation matc
   const eh = await wallet.deployContract({
     abi: execJson.abi,
     bytecode: execJson.bytecode.object as Hex,
-    args: [BASE.flash.morphoBlue!, BASE.flash.aaveV3Pool!, BASE.flash.balancerV2Vault!],
+    args: [BASE.flash.morphoBlue!, BASE.flash.aaveV3Pool!, BASE.flash.balancerV2Vault!, BASE.weth],
   });
   const execAddr = (await client.waitForTransactionReceipt({ hash: eh })).contractAddress!;
 
