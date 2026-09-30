@@ -1,0 +1,146 @@
+{
+ "generated_at_utc": "2026-09-30T21:08:09Z",
+ "window": {
+  "start_block": 124968311,
+  "end_block": 124976310
+ },
+ "blocks_written": 8000,
+ "first_block": 124968311,
+ "last_block": 124976310,
+ "missing_blocks": [],
+ "tx_rows": 502872,
+ "reverted_rows": 13864,
+ "logs_seen": 3139184,
+ "candidates_criterion_A": 32557,
+ "candidates_criterion_B": 27433,
+ "distinct_topic0": 5207,
+ "swap_topics_used": {
+  "0xd78ad95fa46c994b6551d0da85fc275fe613ce37657fb8d5e3d130840159d822": [
+   "Uniswap V2 pair / PancakeSwap V2 pair / V2 forks (Biswap, BabySwap, ApeSwap, MDEX, Thena V1 pairs etc.)"
+  ],
+  "0xc42079f94a6350d7e6235f29174924f928cc2ac818eb64fed8004e115fbcca67": [
+   "Uniswap V3 pool / Algebra V1 (e.g. THENA Fusion) / KyberSwap Elastic (same type list)"
+  ],
+  "0x19b47279256b2a23a1665c810c8d55a1758940ee09377d4f8d26497a3577dc83": [
+   "PancakeSwap V3 pool"
+  ],
+  "0xb3e2773606abfd36b5bd91394b3a54d1398336c65005baf7bf7a05efeffaf75b": [
+   "Velodrome/Aerodrome/Solidly V2-style pool"
+  ],
+  "0x40e9cecb9f5f1f1c5b9c97dec2917b7ee92e57ba5563708daca94dd84ad7112f": [
+   "Uniswap V4 PoolManager (BSC PoolManager per Uniswap docs: 0x28e2ea090877bf75740558f6bfb36a5ffee9e9df)"
+  ],
+  "0x2170c741c41531aec20e7c107c24eecfdd15e69c9bb0a8dd37b1840b9e0b207b": [
+   "Balancer V2 Vault (and forks emitting the identical event; BSC emitter is not the canonical 0xba12222222228d8ba445958a75a0704d566bf2c8 Vault address)"
+  ],
+  "0x0874b2d545cb271cdbda4e093020c452328b24af12382ed62c4d00f5c26709db": [
+   "Balancer V3 Vault"
+  ],
+  "0x8b3e96f2b889fa771c53c981b40daf005f63f637f1869f707052d15a3dd97140": [
+   "Curve StableSwap (int128 index) / Ellipsis (Curve fork on BSC)"
+  ],
+  "0xb2e76ae99761dc136e598d4a629bb347eccb9532a5f8bbd72e18467c3c34cc98": [
+   "Curve CryptoSwap / StableSwap-NG (uint256 index) / PancakeSwap StableSwap (same type list)"
+  ],
+  "0x143f1f8e861fbdeddd5b46e844b7d3ac7b86a122f36e8c463859ee6811b1f29c": [
+   "Curve tricrypto-ng / twocrypto-ng"
+  ],
+  "0xd013ca23e77a65003c2c659c5442c00c805371b7fc1ebd4c206c41d1536bd90b": [
+   "Curve metapool / Ellipsis metapool"
+  ],
+  "0x04206ad2b7c0f463bff3dd4f33c5735b0f2957a351e4f79763a4fa9e775dd237": [
+   "PancakeSwap Infinity CLPoolManager (concentrated liquidity)"
+  ],
+  "0x3e8aae37f890eb1f9d63dd4d2062f3f0be757848a0f0760e4f3e53dad556e861": [
+   "PancakeSwap Infinity BinPoolManager (liquidity book)"
+  ],
+  "0x121cb44ee54098b1a04743c487e7460d8dd429b27f88b1f4d4767396e1a59f79": [
+   "Algebra Integral pool (e.g. THENA V3.3 / other Algebra Integral deployments)"
+  ],
+  "0xc2c0245e056d5fb095f04cd6373bc770802ebd1e6c918eb78fdef843cdb37b0f": [
+   "DODO V2 (DVM/DPP/DSP pools)"
+  ],
+  "0xd8648b6ac54162763c86fd54bf2005af8ecd2f9cb273a5775921fd7f91e17b2d": [
+   "DODO V1 pool"
+  ],
+  "0xe93ad76094f247c0dafc1c61adc2187de1ac2738f7a3b49cb20b2263420251a3": [
+   "DODO V1 pool"
+  ],
+  "0xad7d6f97abf51ce18e17a38f4d70e975be9c0708474987bb3e26ad21bd93ca70": [
+   "Trader Joe Liquidity Book v2.1/v2.2 pair"
+  ],
+  "0x54787c404bb33c88e86f4baf88183a3b0141d0a848e6a9f7a13b66ae3a9b73d1": [
+   "Wombat Exchange pool"
+  ],
+  "0x0e8e403c2d36126272b08c75823e988381d9dc47f2f0a9a080d95f891d95c469": [
+   "WOOFi WooPPV2"
+  ],
+  "0x3b841dc9ab51e3104bda4f61b41e4271192d22cd19da5ee6e292dc8e2744f713": [
+   "Maverick V1 pool"
+  ],
+  "0x103ed084e94a44c8f5f6ba8e3011507c41063177e29949083c439777d8d63f60": [
+   "Maverick V2 pool"
+  ],
+  "0x0fe977d619f8172f7fdbe8bb8928ef80952817d96936509f67d66346bc4cd10f": [
+   "iZiSwap (iZUMi) pool"
+  ],
+  "0xdc004dbca4ef9c966218431ee5d9133d337ad018dd5b5c5493722803f75c64f7": [
+   "Fluid DEX T1 pool"
+  ],
+  "0x7db52723a3b2cdd6164364b3b766e65e540d7be48ffa89582956d8eaebe62942": [
+   "Four.meme TokenManager2 bonding-curve buy (TokenManager2 0x5c952063c7fc8610ffdb798152d69f0b9550762b)"
+  ],
+  "0x0a5575b3648bae2210cee56bf33254cc1ddfbc7bf637c0af2ac18b14fb1bae19": [
+   "Four.meme TokenManager2 bonding-curve sell"
+  ],
+  "0xa800a2038683844fac66747f771bfdfae862eb28b16bcfa387afa9fbacce8ff7": [
+   "Flap Portal bonding-curve buy (Portal 0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0)"
+  ],
+  "0x03a4693e592f5e75dc7c136acb39b146d2b4966c0e509c34f362dee02b3b861a": [
+   "Flap Portal bonding-curve sell"
+  ]
+ },
+ "files": {
+  "txs": {
+   "files": [
+    "txs-001.csv.gz"
+   ],
+   "rows_per_part": [
+    502872
+   ],
+   "rows": 502872
+  },
+  "reverted": {
+   "files": [
+    "reverted-001.csv.gz"
+   ],
+   "rows_per_part": [
+    13864
+   ],
+   "rows": 13864
+  },
+  "candidates": {
+   "files": [
+    "candidates-001.jsonl.gz",
+    "candidates-002.jsonl.gz"
+   ],
+   "rows_per_part": [
+    48094,
+    11896
+   ],
+   "rows": 59990
+  },
+  "builder_material": {
+   "files": [
+    "builder-material-001.jsonl.gz"
+   ],
+   "rows_per_part": [
+    8000
+   ],
+   "rows": 8000
+  }
+ },
+ "blocks_file": "blocks.csv.gz",
+ "topic0_inventory_file": "topic0-inventory.csv.gz",
+ "elapsed_s": 65.9
+}

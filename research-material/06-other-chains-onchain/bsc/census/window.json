@@ -1,0 +1,116 @@
+{
+ "chain": "bsc",
+ "chain_id": 56,
+ "pinned_at_utc": "2026-09-30T20:56:55Z",
+ "heads_seen": {
+  "https://bsc-dataseed.bnbchain.org": 124976340,
+  "https://bsc-dataseed1.bnbchain.org": 124976341,
+  "https://bsc-dataseed2.bnbchain.org": 124976341
+ },
+ "safety_blocks_behind_head": 30,
+ "start_block": 124968311,
+ "end_block": 124976310,
+ "block_count": 8000,
+ "start_block_milliTimestamp": 1790798197750,
+ "end_block_milliTimestamp": 1790801797650,
+ "start_block_utc": "2026-09-30T19:56:37Z",
+ "end_block_utc": "2026-09-30T20:56:37Z",
+ "rule": "start_block = smallest block with milliTimestamp >= milliTimestamp(end_block) - 3600000",
+ "block_before_start_milliTimestamp": 1790798197300,
+ "header_samples": [
+  {
+   "number": 124976310,
+   "timestamp": 1790801797,
+   "milliTimestamp": 1790801797650,
+   "hash": "0x8ee68b11381b7b986fa7780881aebfa8151d062f05bcf6d3af5425049ca0df55",
+   "endpoint": "https://bsc-dataseed1.bnbchain.org"
+  },
+  {
+   "number": 124976210,
+   "timestamp": 1790801752,
+   "milliTimestamp": 1790801752650,
+   "hash": "0xbd89459a935a861228cfe3d0d71832e00d48c87a731450585bdb01456b15bae4",
+   "endpoint": "https://bsc-dataseed2.bnbchain.org"
+  },
+  {
+   "number": 124975310,
+   "timestamp": 1790801347,
+   "milliTimestamp": 1790801347300,
+   "hash": "0x91f4622ae2e9fc94ee6e898dbb48c5c9414635d5d55c94464bfae1f92a92e4d8",
+   "endpoint": "https://bsc-dataseed3.bnbchain.org"
+  },
+  {
+   "number": 124974310,
+   "timestamp": 1790800897,
+   "milliTimestamp": 1790800897300,
+   "hash": "0x66f882b1e658c9aff40fb5cc0a10021a722eb99a1a632f68bedc51e420a1cc74",
+   "endpoint": "https://bsc-dataseed4.bnbchain.org"
+  },
+  {
+   "number": 124972310,
+   "timestamp": 1790799997,
+   "milliTimestamp": 1790799997300,
+   "hash": "0xfbd15a64356bf822f6ff476b054b3f22b9144abfe55710c16ef530d4b45735db",
+   "endpoint": "https://bsc-dataseed1.defibit.io"
+  },
+  {
+   "number": 124970310,
+   "timestamp": 1790799097,
+   "milliTimestamp": 1790799097300,
+   "hash": "0x0f77f3b4aa8838dedf936aa3753605ad493eec4dd17ac3d7339a1aa17836e18b",
+   "endpoint": "https://bsc-dataseed1.ninicoin.io"
+  },
+  {
+   "number": 124968310,
+   "timestamp": 1790798197,
+   "milliTimestamp": 1790798197300,
+   "hash": "0x470556f29ab3f06b8d1cf4de5de9b2efb92ea1a0a33b8ce99a7070cf766b7b72",
+   "endpoint": "https://bsc-dataseed.bnbchain.org"
+  },
+  {
+   "number": 124966310,
+   "timestamp": 1790797296,
+   "milliTimestamp": 1790797296950,
+   "hash": "0xf68a79434daf463b61c92d8eaaa3225bdf44e4d5394a637995e16248acd993ab",
+   "endpoint": "https://bsc-dataseed1.bnbchain.org"
+  }
+ ],
+ "derived_interval_ms_over_window": 450.0437554694337,
+ "derived_interval_ms_over_header_samples": [
+  {
+   "from": 124976210,
+   "to": 124976310,
+   "ms_per_block": 450.0
+  },
+  {
+   "from": 124975310,
+   "to": 124976310,
+   "ms_per_block": 450.35
+  },
+  {
+   "from": 124974310,
+   "to": 124976310,
+   "ms_per_block": 450.175
+  },
+  {
+   "from": 124972310,
+   "to": 124976310,
+   "ms_per_block": 450.0875
+  },
+  {
+   "from": 124970310,
+   "to": 124976310,
+   "ms_per_block": 450.05833333333334
+  },
+  {
+   "from": 124968310,
+   "to": 124976310,
+   "ms_per_block": 450.04375
+  },
+  {
+   "from": 124966310,
+   "to": 124976310,
+   "ms_per_block": 450.07
+  }
+ ]
+}

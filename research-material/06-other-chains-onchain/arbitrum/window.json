@@ -1,0 +1,124 @@
+{
+ "chain": "arbitrum",
+ "head_at_pin": 510460324,
+ "end_tag": "latest",
+ "head_margin": 40,
+ "start_block": 510447028,
+ "end_block": 510460284,
+ "start_timestamp": 1790798841,
+ "end_timestamp": 1790802440,
+ "window_rule": "all blocks with timestamp in (end_timestamp - 3600 s, end_timestamp]",
+ "window_seconds_requested": 3600,
+ "pinned_at_utc": "2026-09-30T21:07:32Z",
+ "chain_id": 42161,
+ "endpoints": {
+  "primary": "https://arbitrum-one-rpc.publicnode.com",
+  "fallbacks": [
+   "https://arbitrum.drpc.org"
+  ]
+ },
+ "config": {
+  "chain_id": 42161,
+  "window_s": 3600,
+  "end_tag": "latest",
+  "head_margin": 40,
+  "batch": 20,
+  "seg_blocks": 1000,
+  "nominal_interval": 0.25,
+  "sentinel": "EVM_CENSUS_ARBITRUM",
+  "extra_logs": {
+   "timeboost-auction-logs": [
+    "0x5fcb496a31b7ae91e7c9078ec662bd7a55cd3079"
+   ]
+  },
+  "extra_data_text": false
+ },
+ "status": "complete",
+ "collector": "census.py",
+ "finalized_at_utc": "2026-09-30T21:09:43Z",
+ "n_blocks_in_window": 13257,
+ "measured_block_interval_s": 0.2714996982498491,
+ "measured_block_interval_note": "(end_timestamp - start_timestamp) / (end_block - start_block); timestamps have 1 s resolution",
+ "counts": {
+  "blocks_written": 13257,
+  "txs": 62119,
+  "reverted": 4683,
+  "candidates_A": 667,
+  "candidates_B": 1807,
+  "extra": {},
+  "receipts_not_in_block_tx_list": 0,
+  "distinct_topic0_keys": 1652,
+  "gap_blocks": 0
+ },
+ "files": {
+  "blocks": {
+   "files": [
+    "blocks.csv.gz"
+   ],
+   "lines_including_headers": 13258,
+   "sizes_bytes": {
+    "blocks.csv.gz": 770291
+   }
+  },
+  "txs": {
+   "files": [
+    "txs-001.csv.gz"
+   ],
+   "lines_including_headers": 62120,
+   "sizes_bytes": {
+    "txs-001.csv.gz": 4321791
+   }
+  },
+  "reverted": {
+   "files": [
+    "reverted-001.csv.gz"
+   ],
+   "lines_including_headers": 4684,
+   "sizes_bytes": {
+    "reverted-001.csv.gz": 270010
+   }
+  },
+  "candidates": {
+   "files": [
+    "candidates-001.jsonl.gz"
+   ],
+   "lines_including_headers": 2474,
+   "sizes_bytes": {
+    "candidates-001.jsonl.gz": 3388317
+   }
+  },
+  "extra-timeboost-auction-logs": {
+   "files": [
+    "extra-timeboost-auction-logs.jsonl.gz"
+   ],
+   "lines_including_headers": 0,
+   "sizes_bytes": {
+    "extra-timeboost-auction-logs.jsonl.gz": 860
+   }
+  }
+ },
+ "checks": {
+  "parent_hash_breaks_at": [],
+  "blocks_missing_from_blocks_csv": [],
+  "n_blocks_missing": 0,
+  "canonical_recheck": {
+   "510447028": {
+    "rpc_hash": "0xd01cc6367c3a99122ee78b3e99cc96b0949e20587c27f14deba133d28fc0eeb2",
+    "stored_hash": "0xd01cc6367c3a99122ee78b3e99cc96b0949e20587c27f14deba133d28fc0eeb2",
+    "match": true
+   },
+   "510460284": {
+    "rpc_hash": "0x32a93e71e684680380b1e612fde451f923ab5a3197aea738065768b25204a214",
+    "stored_hash": "0x32a93e71e684680380b1e612fde451f923ab5a3197aea738065768b25204a214",
+    "match": true
+   }
+  }
+ },
+ "rpc_requests_by_endpoint": {
+  "https://arbitrum-one-rpc.publicnode.com": 729
+ },
+ "rpc_errors_by_endpoint_kind": {
+  "https://arbitrum-one-rpc.publicnode.com|retry": 66,
+  "https://arbitrum-one-rpc.publicnode.com|item-retry": 1320
+ }
+}

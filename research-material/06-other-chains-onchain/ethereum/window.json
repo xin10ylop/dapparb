@@ -1,0 +1,108 @@
+{
+ "chain": "ethereum",
+ "head_at_pin": 26092880,
+ "end_tag": "latest",
+ "head_margin": 3,
+ "start_block": 26091086,
+ "end_block": 26092877,
+ "start_timestamp": 1790780819,
+ "end_timestamp": 1790802407,
+ "window_rule": "all blocks with timestamp in (end_timestamp - 21600 s, end_timestamp]",
+ "window_seconds_requested": 21600,
+ "pinned_at_utc": "2026-09-30T21:07:32Z",
+ "chain_id": 1,
+ "endpoints": {
+  "primary": "https://ethereum-rpc.publicnode.com",
+  "fallbacks": [
+   "https://eth.drpc.org"
+  ]
+ },
+ "config": {
+  "chain_id": 1,
+  "window_s": 21600,
+  "end_tag": "latest",
+  "head_margin": 3,
+  "batch": 1,
+  "seg_blocks": 100,
+  "nominal_interval": 12.0,
+  "sentinel": "EVM_CENSUS_ETHEREUM",
+  "extra_logs": {},
+  "extra_data_text": true
+ },
+ "status": "complete",
+ "collector": "census.py",
+ "finalized_at_utc": "2026-09-30T21:08:49Z",
+ "n_blocks_in_window": 1792,
+ "measured_block_interval_s": 12.0536013400335,
+ "measured_block_interval_note": "(end_timestamp - start_timestamp) / (end_block - start_block); timestamps have 1 s resolution",
+ "counts": {
+  "blocks_written": 1792,
+  "txs": 534635,
+  "reverted": 7153,
+  "candidates_A": 19288,
+  "candidates_B": 23462,
+  "extra": {},
+  "receipts_not_in_block_tx_list": 0,
+  "distinct_topic0_keys": 5424,
+  "gap_blocks": 0
+ },
+ "files": {
+  "blocks": {
+   "files": [
+    "blocks.csv.gz"
+   ],
+   "lines_including_headers": 1793,
+   "sizes_bytes": {
+    "blocks.csv.gz": 136801
+   }
+  },
+  "txs": {
+   "files": [
+    "txs-001.csv.gz"
+   ],
+   "lines_including_headers": 534636,
+   "sizes_bytes": {
+    "txs-001.csv.gz": 44623765
+   }
+  },
+  "reverted": {
+   "files": [
+    "reverted-001.csv.gz"
+   ],
+   "lines_including_headers": 7154,
+   "sizes_bytes": {
+    "reverted-001.csv.gz": 501788
+   }
+  },
+  "candidates": {
+   "files": [
+    "candidates-001.jsonl.gz"
+   ],
+   "lines_including_headers": 42750,
+   "sizes_bytes": {
+    "candidates-001.jsonl.gz": 53682812
+   }
+  }
+ },
+ "checks": {
+  "parent_hash_breaks_at": [],
+  "blocks_missing_from_blocks_csv": [],
+  "n_blocks_missing": 0,
+  "canonical_recheck": {
+   "26091086": {
+    "rpc_hash": "0x9ae705c6e46d550d209cb87cdeb47ff86f4046a7f4091ced3e2ca3cca659b59d",
+    "stored_hash": "0x9ae705c6e46d550d209cb87cdeb47ff86f4046a7f4091ced3e2ca3cca659b59d",
+    "match": true
+   },
+   "26092877": {
+    "rpc_hash": "0xc3378af211ab385791b3835482cfadf4dfd5a318436d3cbc2992c4c6743cb6d6",
+    "stored_hash": "0xc3378af211ab385791b3835482cfadf4dfd5a318436d3cbc2992c4c6743cb6d6",
+    "match": true
+   }
+  }
+ },
+ "rpc_requests_by_endpoint": {
+  "https://ethereum-rpc.publicnode.com": 1792
+ },
+ "rpc_errors_by_endpoint_kind": {}
+}
