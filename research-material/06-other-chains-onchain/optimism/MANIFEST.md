@@ -1,23 +1,27 @@
 # OP Mainnet (Optimism): on-chain arbitrage census (raw material)
 
-Status: census COMPLETE (sentinel `.sentinels/EVM_CENSUS_OPTIMISM.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE (sentinel `.sentinels/EVM_TOKENPRICES_OPTIMISM.DONE`). Ordering docs: COMPLETE (see docs/).
+Status: COMPLETE (finalized 2026-10-01). All collectors for this directory finished: sentinels EVM_CENSUS_OPTIMISM.DONE and EVM_TOKENPRICES_OPTIMISM.DONE (sentinel files are git-ignored; their text is reproduced in `../MANIFEST.md`). Last data write 2026-09-30T21:21Z, before the ~23:00Z container restart of 2026-09-30; nothing in this directory was interrupted or re-run. Every file was re-verified on 2026-10-01 (section 'Verified inventory (2026-10-01)').
+
+Collector's status line (kept as written): census COMPLETE (sentinel `.sentinels/EVM_CENSUS_OPTIMISM.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE (sentinel `.sentinels/EVM_TOKENPRICES_OPTIMISM.DONE`). Ordering docs: COMPLETE (see docs/).
 
 This directory holds collected data only. Nothing here is an analysis, estimate or conclusion.
 
 ## Question lines served (mapping only)
 
-Question-line IDs are defined in `../MANIFEST-evm.md` (verbatim user text there).
+Line numbers refer to the 8 question lines quoted verbatim in `../MANIFEST.md` (the same lines carry Q-IDs in `../MANIFEST-evm.md`).
 
-| File(s) | Question lines |
+| Line | Files in this directory |
 |---|---|
-| blocks.csv.gz, txs-*.csv.gz, reverted-*.csv.gz, candidates-*.jsonl.gz, topic0-counts.csv.gz, swap-topics.csv, window.json | Q-OTHERCHAINS, Q-GAPS, Q-COVERAGE, Q-STUDIES (failed-transaction cost line; the literature figure for Optimism is quoted in docs/ANALYSIS.md 4.1) |
-| candidates-*.jsonl.gz (Uniswap V4 PoolManager Swap logs, topic0 0x40e9cecb...), blocks.csv.gz base_fee_per_gas + txs effective_gas_price (priority fee per gas = effective_gas_price - base_fee_per_gas, derivable) | Q-V4LAUNCH (priority-fee share line), Q-GAPS |
-| candidates-*.jsonl.gz (all pools active in the window, any pool age / size) + tokens-onchain-meta.csv.gz | Q-OLDV2, Q-SMALLPOOLS (as observed on this chain, not Base) |
-| docs/ (official ordering documentation) | Q-BSCORDER (comparison material: ordering policy on this chain), Q-V4LAUNCH (priority-fee ordering) |
-| tokens-onchain-meta.csv.gz, prices-defillama-historical.jsonl.gz, native-price-chart-defillama.json | USD valuation inputs for Q-STUDIES / Q-OTHERCHAINS |
-| defillama-dexs.json | Q-OTHERCHAINS (which DEXes exist on the chain and their reported volume; for checking swap-topic coverage) |
+| 1 | none |
+| 2 | candidates-001.jsonl.gz, tokens-onchain-meta.csv.gz |
+| 3 | candidates-001.jsonl.gz, tokens-onchain-meta.csv.gz |
+| 4 | blocks.csv.gz, txs-001.csv.gz, reverted-001.csv.gz, candidates-001.jsonl.gz, topic0-counts.csv.gz, swap-topics.csv, gaps.csv, window.json, tokens-onchain-meta.csv.gz, prices-defillama-historical.jsonl.gz, native-price-chart-defillama.json, token_prices.fetch.json, defillama-dexs.json, defillama-dexs.fetch.json |
+| 5 | candidates-001.jsonl.gz (Uniswap V4 PoolManager Swap logs, topic0 0x40e9cecb...), blocks.csv.gz (base_fee_per_gas), txs-001.csv.gz (effective_gas_price, l1_fee), docs/ |
+| 6 | docs/ |
+| 7 | blocks.csv.gz, txs-001.csv.gz, reverted-001.csv.gz, candidates-001.jsonl.gz, topic0-counts.csv.gz, swap-topics.csv, gaps.csv, window.json, tokens-onchain-meta.csv.gz, prices-defillama-historical.jsonl.gz, native-price-chart-defillama.json, token_prices.fetch.json |
+| 8 | blocks.csv.gz, txs-001.csv.gz, reverted-001.csv.gz, candidates-001.jsonl.gz, topic0-counts.csv.gz, swap-topics.csv, gaps.csv, window.json |
 
-Not served here: Q-V4BASE (Base only; see the Base directories under research-material/, e.g. 01-v4-pools and 05-base-onchain).
+Correction 2026-10-01: the collector's table in this section used Q-IDs and short notes; it is restated above by line number. The collector also mapped files to a ninth ID, Q-GAPS ("Would the gaps change the answer?"), which is not one of the 8 question lines; those entries were dropped.
 
 ## Window (pinned)
 
@@ -53,6 +57,8 @@ python3 token_prices.py --chain optimism --out .. > token_prices.log 2>&1       
 python3 fetch_docs.py ../docs $(cat docs_urls.txt) > docs.log 2>&1
 python3 write_manifest.py optimism ..               # regenerates this file from the metadata files
 ```
+
+Note (2026-10-01): this MANIFEST.md was edited by hand during finalization (status line, 'Question lines served', the 'Verified inventory (2026-10-01)' section and the notes marked 2026-10-01). Re-running write_manifest.py would regenerate the collector's original version without these edits.
 
 Re-running census.py with the existing window.json resumes/keeps the same pinned window; deleting window.json and the data files pins a new, later window (the chain head moves, so the exact block range above cannot be re-pinned automatically; to reproduce it exactly, write a window.json with the start/end blocks above and status `in_progress`). The smoke tests (`--smoke N --seg-blocks K --part-limit-mb X`) were run in the scratchpad before launch; their outputs are not part of this directory.
 
@@ -219,4 +225,59 @@ census.py, make_swap_topics.py, swap_signatures.csv, fetch_defillama.py, fetch_d
 * No mempool / pending-transaction data, no private-orderflow or bundle data, no flashblock / preconfirmation-level ordering data (block-level receipts only).
 * The DefiLlama DEX overview was fetched once (2026-09-30T21:10:31Z) with default query parameters.
 * docs: github.com blob pages returned HTTP 403; the rollup-boost flashblocks spec was taken from raw.githubusercontent.com instead.
-* Not collected in this directory: Base (see 05-base-onchain), BSC (separate collector in ../bsc), Solana, and other chains (Blast, Linea, zkSync, Scroll, Mantle, Avalanche, etc.). Literature documents (arXiv papers quoted in docs/ANALYSIS.md 4.1) are not collected here.
+* Not collected in this directory: Base (see 05-base-onchain), BSC (separate collector in ../bsc), Solana (separate collector in ../solana), and other chains (Blast, Linea, zkSync, Scroll, Mantle, Avalanche, etc.). Literature documents (arXiv papers quoted in the repository file docs/ANALYSIS.md, section 4.1) are not collected here.
+
+## Verified inventory (2026-10-01)
+
+Verified on 2026-10-01 by streaming every file in this directory (no data file was modified). Checks: `gzip -t` on every .gz file; CSV files parsed with Python's csv module (rows exclude the header line); every JSONL line and every JSON document parsed with Python's json module; sha256 over the stored bytes. Git column: "committed" = tracked in git, present in the repository; "local-only" = git-ignored by the repository .gitignore, present only on the collection machine.
+
+Result: 46 files (46 committed, 0 local-only). All 15 .gz files pass `gzip -t`; every JSON document and JSONL line parses; every CSV record has as many fields as its header. The row counts in 'Files, schemas, row counts' above and the candidate counts by criterion equal the verified counts below (no differences). Largest committed file: candidates-001.jsonl.gz (18,008,601 bytes); no committed file exceeds 90 MB.
+
+| File | Bytes | Rows / lines | sha256 | Git |
+|---|---:|---|---|---|
+| blocks.csv.gz | 106,833 | 1,800 rows + header | 437b57278a25111a9b16896df3262149f1079d448c90a7c650d135a53f2b360d | committed |
+| candidates-001.jsonl.gz | 18,008,601 | 18,058 JSON lines (criterion A 4,914, B 13,144) | c11f8f089d4a084af8ae5619765bd102861fbe39d5142afc49c7fd93a9280927 | committed |
+| collect/census.log | 2,181 | 9 lines | 3a128afe7390153cd27d17facd452afe3073a14bab92786b0197d5062d50fe77 | committed |
+| collect/census.py | 36,822 | 755 lines | 09bc97c21245f6581c128ad39bc0f7188de8fefd78ec346477f76b123657bcc8 | committed |
+| collect/defillama.log | 134 | 1 line | e7f38b3ca80c9ada23938b1022e39f282fd098f0d82c6fb034a2276ccdd7dbf1 | committed |
+| collect/docs.log | 1,086 | 8 lines | b618fb9bd9e789093310759910a3a84845e814017dc03c4a55b8b775613c6785 | committed |
+| collect/docs_urls.txt | 529 | 8 lines | 8724566c475932061cdfe25cb0c71af3c9ba9850763d8b13c8cf896cc75c7ba2 | committed |
+| collect/fetch_defillama.py | 1,196 | 22 lines | b28baddf42a3dbcbcba4826e1763ce8b3465c5e9e016115d1937ce18d7edc4c4 | committed |
+| collect/fetch_docs.py | 4,605 | 82 lines | b4160b7cf24fbbf964717cec8e31f5c28929931a49492e7ee1599d928907a19e | committed |
+| collect/make_swap_topics.log | 100 | 1 line | b7c06c2f021eb5cd4ea456e706672915bf4e145e3c1bec7e5016799e0e720796 | committed |
+| collect/make_swap_topics.py | 2,471 | 57 lines | adc672fd85b8f6866d636fa8d9d3953d492324fcec668dd0ba502be213b2ad0b | committed |
+| collect/run_token_prices_all.sh | 341 | 6 lines | af70ff24229b97ba4dfc11602b4315d6aecdcc8825e55cbee91766bcaaab05a2 | committed |
+| collect/swap_signatures.csv | 5,882 | 23 rows + header | d72b5d53ca5949425a3a5a124f39955cbc26bf74f45b82f92cac63e6a2410e8b | committed |
+| collect/token_prices.log | 607 | 3 lines | b087a21664f4ea4ce3256532dd31ef8ef5c2b3cfa34814901598d4e3eb7008a9 | committed |
+| collect/token_prices.py | 10,937 | 212 lines | 379e78b34354c129b3f64be81f24aa33bd6ec7614039172e7e9ab0a7138cba6c | committed |
+| collect/write_manifest.py | 23,378 | 204 lines | 3684ce234e6cb758ab382ea50c0130c407e92959833184d1e424143e9cb41970 | committed |
+| defillama-dexs.fetch.json | 139 | 1 JSON document | 96fa7e70f5850f2b3cb7304908a90c19ca4b9a43cade9354b137e21dc9396a98 | committed |
+| defillama-dexs.json | 847,743 | 1 JSON document | 6155139e8be4b4f954423cec9155457bc1b4e548dc2b7f01fd31b0fef117a986 | committed |
+| docs/docs.optimism.io_chain-operators_guides_management_transaction-fees-101.html.gz | 60,118 | 1,654 lines (decompressed) | 07476922ff65a0489faaf981fcd70157aa0c1c7f8f106fcf4baaef63707a53d5 | committed |
+| docs/docs.optimism.io_chain-operators_guides_management_transaction-fees-101.txt | 11,892 | 499 lines | 4beaeb73dc13cc18ddf21b8455cfed3dda16de3a1c30a467ab470e1092756047 | committed |
+| docs/docs.optimism.io_op-stack_protocol_differences.html.gz | 54,557 | 1,502 lines (decompressed) | 05837d49c9ed01ee6c48af303cfa7df5ff3d33717a1e4525696abac765ad9c15 | committed |
+| docs/docs.optimism.io_op-stack_protocol_differences.txt | 8,888 | 300 lines | d7b9239f9187a89986da6a173d1f67958cac9ed7de7857a97411b4fe3e29dfa9 | committed |
+| docs/docs.optimism.io_op-stack_transactions_fees.html.gz | 63,972 | 1,642 lines (decompressed) | 266d6b136882cad22206bc5e3244a8c68f91680619e320695804379e9f5be215 | committed |
+| docs/docs.optimism.io_op-stack_transactions_fees.txt | 18,468 | 511 lines | 1ce1eac67696918437eacd1cb378747885f463957ecbfa54c844d747531052e1 | committed |
+| docs/docs.optimism.io_op-stack_transactions_transaction-flow.html.gz | 56,872 | 1,539 lines (decompressed) | 975d5e2aca1840953c2aaa2157a83b942627122c90f82fbfd9620fb73ecbb0b1 | committed |
+| docs/docs.optimism.io_op-stack_transactions_transaction-flow.txt | 7,715 | 314 lines | 38fe3f875d3ff64f43b05c6cc00bd6b9003d9be0fcb8b801164f4ba67c7616b7 | committed |
+| docs/index.csv | 1,792 | 8 rows + header | 44ab0a4e87d508d24635196019dfefb0e2b9caa21f87b44fbdfc2fadffa361ae | committed |
+| docs/optimism.io_blog_flashblocks-deep-dive-250ms-preconfirmations-on-op-mainnet.html.gz | 31,776 | 0 lines (decompressed) | 5db59befa2978a8187a0590632ac3463d4414cb66bca8f8c54a234b764944097 | committed |
+| docs/optimism.io_blog_flashblocks-deep-dive-250ms-preconfirmations-on-op-mainnet.txt | 13,873 | 297 lines | eae242d22f4f05323be93ce6c2563efd1723ad51ffb9430547151566e5f894a6 | committed |
+| docs/raw.githubusercontent.com_flashbots_rollup-boost_main_specs_flashblocks.md.raw.gz | 19,365 | 1,071 lines (decompressed) | c2d2f74477dd756a68f4f113c193886a36d26a4d5e12d4a2a65326a90b2aff10 | committed |
+| docs/raw.githubusercontent.com_flashbots_rollup-boost_main_specs_flashblocks.md.txt | 61,830 | 1,077 lines | c75c7e42eed20b51f1eae0d47c1a641c07cb2241d95f35dd1b5acb0b68fa0ba3 | committed |
+| docs/specs.optimism.io_protocol_overview.html.html.gz | 11,548 | 683 lines (decompressed) | 85070e87aec56e8f761e05d64515f03d082b2800d2d88fcac0a808a8255c4ca0 | committed |
+| docs/specs.optimism.io_protocol_overview.html.txt | 26,328 | 552 lines | 7d687ad8a333b35485595a8ef172f81c6983daebc61d0cd18bf36da899955309 | committed |
+| docs/www.optimism.io_blog_optimism-partners-with-flashbots.html.gz | 22,270 | 0 lines (decompressed) | 970a8011b9407fd281c29e7d97aff40b8f074f3f8de0a6982dab2ee27d04f375 | committed |
+| docs/www.optimism.io_blog_optimism-partners-with-flashbots.txt | 6,852 | 220 lines | bc23760482f2dc770808a8e342f544383d41fa817cae864706f3453c1730621d | committed |
+| gaps.csv | 20 | 0 rows + header | 592ba1730f5d491364d8a9f4874a83533e4aecf1fde0f9e4e3e3792b36cd36f1 | committed |
+| native-price-chart-defillama.json | 749 | 1 JSON document | b933a0d288c9272f866348094c52fe13f5c8a1d9f1e939036b717697d539b7e2 | committed |
+| prices-defillama-historical.jsonl.gz | 10,025 | 18 JSON lines | 30c50dad43917d1077e360d142267cbb7317cee97f2e9f4e87cd4d4bb542fd08 | committed |
+| reverted-001.csv.gz | 86,532 | 1,196 rows + header | 76b9e0dd7cd2e6f346d261fbcac24a815dc61f67f73e67a75432536c6b6b76a3 | committed |
+| swap-topics.csv | 12,008 | 22 rows + header | 442d6982349d70de4fe71793cad2b5f8906020e1eb68e6dd37aa7e7715d4d1d7 | committed |
+| token_prices.fetch.json | 550 | 1 JSON document | 6fbff94e7ff243befbc969fc26d4eb405cb9e740f0f65ec4cf9596e7ea39be98 | committed |
+| tokens-onchain-meta.csv.gz | 13,890 | 215 rows + header | 4e94d211d462698bc570e0a5eb7125fd4a3abe15d90493d3c94bfbea2515c3b1 | committed |
+| topic0-counts.csv.gz | 58,888 | 714 rows + header | ebd9b5abf9033fcf16f97bfd6ca7340f1859f823bc30ec5f536dbe295fc67472 | committed |
+| txs-001.csv.gz | 3,625,454 | 62,920 rows + header | 619f2adbd778f0ddb80a890b36fa7c197ff0f13212c6f38d2d2958dbf526f2a4 | committed |
+| window.json | 2,614 | 1 JSON document | 2fe9e075769fa2f94101798ad5dc79379d36df9cb143d0eee48f917bf66b1574 | committed |
+| MANIFEST.md | (changes when edited) | documentation | not recorded (edited 2026-10-01) | committed |

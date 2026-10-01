@@ -1,23 +1,27 @@
 # Ethereum mainnet: on-chain arbitrage census (raw material)
 
-Status: census COMPLETE (sentinel `.sentinels/EVM_CENSUS_ETHEREUM.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE (sentinel `.sentinels/EVM_TOKENPRICES_ETHEREUM.DONE`).
+Status: COMPLETE (finalized 2026-10-01). All collectors for this directory finished: sentinels EVM_CENSUS_ETHEREUM.DONE and EVM_TOKENPRICES_ETHEREUM.DONE (sentinel files are git-ignored; their text is reproduced in `../MANIFEST.md`). Last data write 2026-09-30T21:21Z, before the ~23:00Z container restart of 2026-09-30; nothing in this directory was interrupted or re-run. Every file was re-verified on 2026-10-01 (section 'Verified inventory (2026-10-01)').
+
+Collector's status line (kept as written): census COMPLETE (sentinel `.sentinels/EVM_CENSUS_ETHEREUM.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE (sentinel `.sentinels/EVM_TOKENPRICES_ETHEREUM.DONE`).
 
 This directory holds collected data only. Nothing here is an analysis, estimate or conclusion.
 
 ## Question lines served (mapping only)
 
-Question-line IDs are defined in `../MANIFEST-evm.md` (verbatim user text there).
+Line numbers refer to the 8 question lines quoted verbatim in `../MANIFEST.md` (the same lines carry Q-IDs in `../MANIFEST-evm.md`).
 
-| File(s) | Question lines |
+| Line | Files in this directory |
 |---|---|
-| blocks.csv.gz, txs-*.csv.gz, reverted-*.csv.gz, candidates-*.jsonl.gz, topic0-counts.csv.gz, swap-topics.csv, window.json | Q-OTHERCHAINS, Q-GAPS, Q-COVERAGE, Q-STUDIES |
-| candidates-*.jsonl.gz (Uniswap V4 PoolManager Swap logs, topic0 0x40e9cecb...), blocks.csv.gz base_fee_per_gas + txs effective_gas_price (priority fee per gas = effective_gas_price - base_fee_per_gas, derivable) | Q-V4LAUNCH (priority-fee share line), Q-GAPS |
-| candidates-*.jsonl.gz (all pools active in the window, any pool age / size) + tokens-onchain-meta.csv.gz | Q-OLDV2, Q-SMALLPOOLS (as observed on this chain, not Base) |
-| blocks.csv.gz miner + extra_data (+ extra_data_text_derived builder tag) | Q-BSCORDER (comparison material: Ethereum block builders) |
-| tokens-onchain-meta.csv.gz, prices-defillama-historical.jsonl.gz, native-price-chart-defillama.json | USD valuation inputs for Q-STUDIES / Q-OTHERCHAINS |
-| defillama-dexs.json | Q-OTHERCHAINS (which DEXes exist on the chain and their reported volume; for checking swap-topic coverage) |
+| 1 | none |
+| 2 | candidates-001.jsonl.gz, tokens-onchain-meta.csv.gz |
+| 3 | candidates-001.jsonl.gz, tokens-onchain-meta.csv.gz |
+| 4 | blocks.csv.gz, txs-001.csv.gz, reverted-001.csv.gz, candidates-001.jsonl.gz, topic0-counts.csv.gz, swap-topics.csv, gaps.csv, window.json, tokens-onchain-meta.csv.gz, prices-defillama-historical.jsonl.gz, native-price-chart-defillama.json, token_prices.fetch.json, defillama-dexs.json, defillama-dexs.fetch.json |
+| 5 | candidates-001.jsonl.gz (Uniswap V4 PoolManager Swap logs, topic0 0x40e9cecb...), blocks.csv.gz (base_fee_per_gas), txs-001.csv.gz (effective_gas_price) |
+| 6 | blocks.csv.gz (miner, extra_data, extra_data_text_derived) |
+| 7 | blocks.csv.gz, txs-001.csv.gz, reverted-001.csv.gz, candidates-001.jsonl.gz, topic0-counts.csv.gz, swap-topics.csv, gaps.csv, window.json, tokens-onchain-meta.csv.gz, prices-defillama-historical.jsonl.gz, native-price-chart-defillama.json, token_prices.fetch.json |
+| 8 | blocks.csv.gz, txs-001.csv.gz, reverted-001.csv.gz, candidates-001.jsonl.gz, topic0-counts.csv.gz, swap-topics.csv, gaps.csv, window.json |
 
-Not served here: Q-V4BASE (Base only; see the Base directories under research-material/, e.g. 01-v4-pools and 05-base-onchain).
+Correction 2026-10-01: the collector's table in this section used Q-IDs and short notes; it is restated above by line number. The collector also mapped files to a ninth ID, Q-GAPS ("Would the gaps change the answer?"), which is not one of the 8 question lines; those entries were dropped.
 
 ## Window (pinned)
 
@@ -51,6 +55,8 @@ python3 fetch_defillama.py ethereum ../defillama-dexs.json > defillama.log 2>&1
 python3 token_prices.py --chain ethereum --out .. > token_prices.log 2>&1        # after the census (reads ../window.json, ../candidates-*)
 python3 write_manifest.py ethereum ..               # regenerates this file from the metadata files
 ```
+
+Note (2026-10-01): this MANIFEST.md was edited by hand during finalization (status line, 'Question lines served', the 'Verified inventory (2026-10-01)' section and the notes marked 2026-10-01). Re-running write_manifest.py would regenerate the collector's original version without these edits.
 
 Re-running census.py with the existing window.json resumes/keeps the same pinned window; deleting window.json and the data files pins a new, later window (the chain head moves, so the exact block range above cannot be re-pinned automatically; to reproduce it exactly, write a window.json with the start/end blocks above and status `in_progress`). The smoke tests (`--smoke N --seg-blocks K --part-limit-mb X`) were run in the scratchpad before launch; their outputs are not part of this directory.
 
@@ -203,4 +209,40 @@ census.py, make_swap_topics.py, swap_signatures.csv, fetch_defillama.py, fetch_d
 * No mempool / pending-transaction data, no private-orderflow or bundle data, no flashblock / preconfirmation-level ordering data (block-level receipts only).
 * The DefiLlama DEX overview was fetched once (2026-09-30T21:10:34Z) with default query parameters.
 * Ethereum: 6 h requested; slots without a block (missed slots) have no row. Builder identity is available only as the header fields miner/extra_data (no relay data, no bid data, no MEV-Boost payload data).
-* Not collected in this directory: Base (see 05-base-onchain), BSC (separate collector in ../bsc), Solana, and other chains (Blast, Linea, zkSync, Scroll, Mantle, Avalanche, etc.). Literature documents (arXiv papers quoted in docs/ANALYSIS.md 4.1) are not collected here.
+* Not collected in this directory: Base (see 05-base-onchain), BSC (separate collector in ../bsc), Solana (separate collector in ../solana), and other chains (Blast, Linea, zkSync, Scroll, Mantle, Avalanche, etc.). Literature documents (arXiv papers quoted in the repository file docs/ANALYSIS.md, section 4.1) are not collected here.
+
+## Verified inventory (2026-10-01)
+
+Verified on 2026-10-01 by streaming every file in this directory (no data file was modified). Checks: `gzip -t` on every .gz file; CSV files parsed with Python's csv module (rows exclude the header line); every JSONL line and every JSON document parsed with Python's json module; sha256 over the stored bytes. Git column: "committed" = tracked in git, present in the repository; "local-only" = git-ignored by the repository .gitignore, present only on the collection machine.
+
+Result: 27 files (27 committed, 0 local-only). All 7 .gz files pass `gzip -t`; every JSON document and JSONL line parses; every CSV record has as many fields as its header. The row counts in 'Files, schemas, row counts' above and the candidate counts by criterion equal the verified counts below (no differences). Largest committed file: candidates-001.jsonl.gz (53,682,812 bytes); no committed file exceeds 90 MB.
+
+| File | Bytes | Rows / lines | sha256 | Git |
+|---|---:|---|---|---|
+| blocks.csv.gz | 136,801 | 1,792 rows + header | 88b4012175986fa23ad05077a13a27b55c2555574e6401b650bc2936dc6b2085 | committed |
+| candidates-001.jsonl.gz | 53,682,812 | 42,750 JSON lines (criterion A 19,288, B 23,462) | e206ae9803bd0e08b06e05197b0b09fb714d90ca0438bd239bbfe438c602e544 | committed |
+| collect/census.log | 4,372 | 21 lines | 1d9a715d2cb5c3b44edbb808cf75c4258657a078c207f50d345474c7ddf78885 | committed |
+| collect/census.py | 36,822 | 755 lines | 09bc97c21245f6581c128ad39bc0f7188de8fefd78ec346477f76b123657bcc8 | committed |
+| collect/defillama.log | 135 | 1 line | 9e1863e5c29141856f8c4c91b7ba81e19fc010a3bbfeb823920168cae4411bf9 | committed |
+| collect/fetch_defillama.py | 1,196 | 22 lines | b28baddf42a3dbcbcba4826e1763ce8b3465c5e9e016115d1937ce18d7edc4c4 | committed |
+| collect/fetch_docs.py | 4,605 | 82 lines | b4160b7cf24fbbf964717cec8e31f5c28929931a49492e7ee1599d928907a19e | committed |
+| collect/make_swap_topics.log | 100 | 1 line | 2480bf00cb1cc96be80d23ae8d422bd9e7282ac33b68b054739ba23b55f21dad | committed |
+| collect/make_swap_topics.py | 2,471 | 57 lines | adc672fd85b8f6866d636fa8d9d3953d492324fcec668dd0ba502be213b2ad0b | committed |
+| collect/run_token_prices_all.sh | 341 | 6 lines | af70ff24229b97ba4dfc11602b4315d6aecdcc8825e55cbee91766bcaaab05a2 | committed |
+| collect/swap_signatures.csv | 5,882 | 23 rows + header | d72b5d53ca5949425a3a5a124f39955cbc26bf74f45b82f92cac63e6a2410e8b | committed |
+| collect/token_prices.log | 605 | 3 lines | a588cfc40dc6b894497b5ea7cf9dd3586be913ebe7fb1a83b6ce1a2cf8d13dfb | committed |
+| collect/token_prices.py | 10,937 | 212 lines | 379e78b34354c129b3f64be81f24aa33bd6ec7614039172e7e9ab0a7138cba6c | committed |
+| collect/write_manifest.py | 23,378 | 204 lines | 3684ce234e6cb758ab382ea50c0130c407e92959833184d1e424143e9cb41970 | committed |
+| defillama-dexs.fetch.json | 140 | 1 JSON document | bd87f12689431952aa57817cc0ed1dd8ce8ed1fada241da7817d8a17118db17b | committed |
+| defillama-dexs.json | 2,110,354 | 1 JSON document | e1b3f5768279fdeab670674aec81e6d792d6d07741dd7854a662af650b17302b | committed |
+| gaps.csv | 20 | 0 rows + header | 592ba1730f5d491364d8a9f4874a83533e4aecf1fde0f9e4e3e3792b36cd36f1 | committed |
+| native-price-chart-defillama.json | 3,634 | 1 JSON document | e53918f5351d3c9f69c5a32de636ad23a9501a7f063f41a5862b2bffa8f86a42 | committed |
+| prices-defillama-historical.jsonl.gz | 393,291 | 246 JSON lines | 3a635bf40de5c58050bf3ceafd050f3b311da1d628a48a8615cfd637f1feb205 | committed |
+| reverted-001.csv.gz | 501,788 | 7,153 rows + header | 4db6cbf62c474179bec70c3b5ef3b52d2ae4d98522f9b9d938d6924016d9f162 | committed |
+| swap-topics.csv | 12,805 | 23 rows + header | 95efd4d16a585de9007316494047ce24198908bf43e2d95b9312226a2acd3d20 | committed |
+| token_prices.fetch.json | 547 | 1 JSON document | 6dbcac10243763a77aacde76f669e0180f66aea2fd6ed048d8aa001707c5c750 | committed |
+| tokens-onchain-meta.csv.gz | 227,585 | 3,256 rows + header | 13af8f8a529a15fba9282099327b4a6f7c950ec5464b1b617d79a9b0457c8d5f | committed |
+| topic0-counts.csv.gz | 495,656 | 5,424 rows + header | a312857197361fdcc17f293711005e76726ddd620bdc8620187b216a0163d931 | committed |
+| txs-001.csv.gz | 44,623,765 | 534,635 rows + header | 7e3ebc80ed1332370e7925f4d7026dc52fff27740a6099c71684ddf186d48ee5 | committed |
+| window.json | 2,625 | 1 JSON document | 9427fd6fd52c3dd672182ded1ee026853bcdc24ce8f99dde6250a9726fefe10c | committed |
+| MANIFEST.md | (changes when edited) | documentation | not recorded (edited 2026-10-01) | committed |

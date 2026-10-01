@@ -1,23 +1,27 @@
 # Arbitrum One: on-chain arbitrage census (raw material)
 
-Status: census COMPLETE (sentinel `.sentinels/EVM_CENSUS_ARBITRUM.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE (sentinel `.sentinels/EVM_TOKENPRICES_ARBITRUM.DONE`). Ordering docs: COMPLETE (see docs/).
+Status: COMPLETE (finalized 2026-10-01). All collectors for this directory finished: sentinels EVM_CENSUS_ARBITRUM.DONE and EVM_TOKENPRICES_ARBITRUM.DONE (sentinel files are git-ignored; their text is reproduced in `../MANIFEST.md`). Last data write 2026-09-30T21:21Z, before the ~23:00Z container restart of 2026-09-30; nothing in this directory was interrupted or re-run. Every file was re-verified on 2026-10-01 (section 'Verified inventory (2026-10-01)').
+
+Collector's status line (kept as written): census COMPLETE (sentinel `.sentinels/EVM_CENSUS_ARBITRUM.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE (sentinel `.sentinels/EVM_TOKENPRICES_ARBITRUM.DONE`). Ordering docs: COMPLETE (see docs/).
 
 This directory holds collected data only. Nothing here is an analysis, estimate or conclusion.
 
 ## Question lines served (mapping only)
 
-Question-line IDs are defined in `../MANIFEST-evm.md` (verbatim user text there).
+Line numbers refer to the 8 question lines quoted verbatim in `../MANIFEST.md` (the same lines carry Q-IDs in `../MANIFEST-evm.md`).
 
-| File(s) | Question lines |
+| Line | Files in this directory |
 |---|---|
-| blocks.csv.gz, txs-*.csv.gz, reverted-*.csv.gz, candidates-*.jsonl.gz, topic0-counts.csv.gz, swap-topics.csv, window.json | Q-OTHERCHAINS, Q-GAPS, Q-COVERAGE, Q-STUDIES (Arbitrum $4,700/day line) |
-| candidates-*.jsonl.gz (Uniswap V4 PoolManager Swap logs, topic0 0x40e9cecb...), blocks.csv.gz base_fee_per_gas + txs effective_gas_price (priority fee per gas = effective_gas_price - base_fee_per_gas, derivable) | Q-V4LAUNCH (priority-fee share line), Q-GAPS |
-| candidates-*.jsonl.gz (all pools active in the window, any pool age / size) + tokens-onchain-meta.csv.gz | Q-OLDV2, Q-SMALLPOOLS (as observed on this chain, not Base) |
-| docs/ (official ordering documentation), arbitrum-chain-state.json, extra-timeboost-auction-logs.jsonl.gz, txs timeboosted column | Q-BSCORDER (comparison material: ordering policy on this chain), Q-V4LAUNCH (priority-fee ordering) |
-| tokens-onchain-meta.csv.gz, prices-defillama-historical.jsonl.gz, native-price-chart-defillama.json | USD valuation inputs for Q-STUDIES / Q-OTHERCHAINS |
-| defillama-dexs.json | Q-OTHERCHAINS (which DEXes exist on the chain and their reported volume; for checking swap-topic coverage) |
+| 1 | none |
+| 2 | candidates-001.jsonl.gz, tokens-onchain-meta.csv.gz |
+| 3 | candidates-001.jsonl.gz, tokens-onchain-meta.csv.gz |
+| 4 | blocks.csv.gz, txs-001.csv.gz, reverted-001.csv.gz, candidates-001.jsonl.gz, topic0-counts.csv.gz, swap-topics.csv, gaps.csv, window.json, tokens-onchain-meta.csv.gz, prices-defillama-historical.jsonl.gz, native-price-chart-defillama.json, token_prices.fetch.json, defillama-dexs.json, defillama-dexs.fetch.json |
+| 5 | candidates-001.jsonl.gz (Uniswap V4 PoolManager Swap logs, topic0 0x40e9cecb...), blocks.csv.gz (base_fee_per_gas), txs-001.csv.gz (effective_gas_price, timeboosted), docs/, arbitrum-chain-state.json, extra-timeboost-auction-logs.jsonl.gz |
+| 6 | docs/, arbitrum-chain-state.json, extra-timeboost-auction-logs.jsonl.gz, txs-001.csv.gz (timeboosted column) |
+| 7 | blocks.csv.gz, txs-001.csv.gz, reverted-001.csv.gz, candidates-001.jsonl.gz, topic0-counts.csv.gz, swap-topics.csv, gaps.csv, window.json, tokens-onchain-meta.csv.gz, prices-defillama-historical.jsonl.gz, native-price-chart-defillama.json, token_prices.fetch.json |
+| 8 | blocks.csv.gz, txs-001.csv.gz, reverted-001.csv.gz, candidates-001.jsonl.gz, topic0-counts.csv.gz, swap-topics.csv, gaps.csv, window.json |
 
-Not served here: Q-V4BASE (Base only; see the Base directories under research-material/, e.g. 01-v4-pools and 05-base-onchain).
+Correction 2026-10-01: the collector's table in this section used Q-IDs and short notes; it is restated above by line number. The collector also mapped files to a ninth ID, Q-GAPS ("Would the gaps change the answer?"), which is not one of the 8 question lines; those entries were dropped.
 
 ## Window (pinned)
 
@@ -54,6 +58,8 @@ python3 fetch_docs.py ../docs $(cat docs_urls.txt) > docs.log 2>&1
 python3 arbitrum_chain_state.py > arbitrum_chain_state.log 2>&1   # precompile reads at the window blocks
 python3 write_manifest.py arbitrum ..               # regenerates this file from the metadata files
 ```
+
+Note (2026-10-01): this MANIFEST.md was edited by hand during finalization (status line, 'Question lines served', the 'Verified inventory (2026-10-01)' section and the notes marked 2026-10-01). Re-running write_manifest.py would regenerate the collector's original version without these edits.
 
 Re-running census.py with the existing window.json resumes/keeps the same pinned window; deleting window.json and the data files pins a new, later window (the chain head moves, so the exact block range above cannot be re-pinned automatically; to reproduce it exactly, write a window.json with the start/end blocks above and status `in_progress`). The smoke tests (`--smoke N --seg-blocks K --part-limit-mb X`) were run in the scratchpad before launch; their outputs are not part of this directory.
 
@@ -239,4 +245,80 @@ census.py, make_swap_topics.py, swap_signatures.csv, fetch_defillama.py, fetch_d
 * The DefiLlama DEX overview was fetched once (2026-09-30T21:10:31Z) with default query parameters.
 * Timeboost: the ExpressLaneAuction contract emitted 0 logs in this window (extra-timeboost-auction-logs.jsonl.gz); the receipt field `timeboosted` is captured per tx. docs/ contains the Timeboost pages and the newer PGA (Priority Gas Auction) / Fast Feed pages as published on 2026-09-30; which policy was active during the window is not determined here.
 * Arbitrum requested window is 60 min (~14,400 blocks at 250 ms nominal); the chain produced 13257 blocks in it. No reduction to 20 min was needed.
-* Not collected in this directory: Base (see 05-base-onchain), BSC (separate collector in ../bsc), Solana, and other chains (Blast, Linea, zkSync, Scroll, Mantle, Avalanche, etc.). Literature documents (arXiv papers quoted in docs/ANALYSIS.md 4.1) are not collected here.
+* Not collected in this directory: Base (see 05-base-onchain), BSC (separate collector in ../bsc), Solana (separate collector in ../solana), and other chains (Blast, Linea, zkSync, Scroll, Mantle, Avalanche, etc.). Literature documents (arXiv papers quoted in the repository file docs/ANALYSIS.md, section 4.1) are not collected here.
+
+## Verified inventory (2026-10-01)
+
+Verified on 2026-10-01 by streaming every file in this directory (no data file was modified). Checks: `gzip -t` on every .gz file; CSV files parsed with Python's csv module (rows exclude the header line); every JSONL line and every JSON document parsed with Python's json module; sha256 over the stored bytes. Git column: "committed" = tracked in git, present in the repository; "local-only" = git-ignored by the repository .gitignore, present only on the collection machine.
+
+Result: 67 files (67 committed, 0 local-only). All 24 .gz files pass `gzip -t`; every JSON document and JSONL line parses; every CSV record has as many fields as its header. The row counts in 'Files, schemas, row counts' above and the candidate counts by criterion equal the verified counts below (no differences). Largest committed file: txs-001.csv.gz (4,321,791 bytes); no committed file exceeds 90 MB.
+
+| File | Bytes | Rows / lines | sha256 | Git |
+|---|---:|---|---|---|
+| arbitrum-chain-state.json | 6,920 | 1 JSON document | eef9f984a1876d44ffa58cc64e341fffa93ca266f1ab838535c3da9d7d021cc7 | committed |
+| blocks.csv.gz | 770,291 | 13,257 rows + header | 62a2152c993d9a779140e9c580a0756a90630e76430fb55b1d13427e95becf1d | committed |
+| candidates-001.jsonl.gz | 3,388,317 | 2,474 JSON lines (criterion A 667, B 1,807) | aea7aa0b4a7c0be6db209e557cb949512cd7eb2ef4dc8647fbcf179eb97abbab | committed |
+| collect/arbitrum_chain_state.log | 6,921 | 225 lines | dbd14e932aed5a02caaffa1a185ee33511c0756798fe591f687be4f39af85fa0 | committed |
+| collect/arbitrum_chain_state.py | 3,639 | 51 lines | b0612b4085f5d32b1b4997113a566f350e9e308fa842974ee043dd4b9bd0785a | committed |
+| collect/census.log | 4,999 | 17 lines | 688a6bf96c454f340fa269cd9a1bacdd18289d453b8fcb745f59308ebb7a1eb6 | committed |
+| collect/census.py | 36,822 | 755 lines | 09bc97c21245f6581c128ad39bc0f7188de8fefd78ec346477f76b123657bcc8 | committed |
+| collect/defillama.log | 135 | 1 line | 3daed94cb0585c08d52173235bd39faa1a35b25a15fea31d98e3f5fabb2813d5 | committed |
+| collect/docs.log | 2,514 | 16 lines | e7a2291c353d6290b4a8b208084941e031a5ea520bcd9dd61eb5192099f152ad | committed |
+| collect/docs_urls.txt | 1,225 | 16 lines | f32c3406972c3ae91c24f7b33a1f225c774ae5d125281ff2299b2256421d77a7 | committed |
+| collect/fetch_defillama.py | 1,196 | 22 lines | b28baddf42a3dbcbcba4826e1763ce8b3465c5e9e016115d1937ce18d7edc4c4 | committed |
+| collect/fetch_docs.py | 4,605 | 82 lines | b4160b7cf24fbbf964717cec8e31f5c28929931a49492e7ee1599d928907a19e | committed |
+| collect/make_swap_topics.log | 100 | 1 line | 724de39a7f73cbf69c4f3a081f7147c150795110b33b287109df40b4de793138 | committed |
+| collect/make_swap_topics.py | 2,471 | 57 lines | adc672fd85b8f6866d636fa8d9d3953d492324fcec668dd0ba502be213b2ad0b | committed |
+| collect/run_token_prices_all.log | 0 | empty (0 bytes) | e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 | committed |
+| collect/run_token_prices_all.sh | 341 | 6 lines | af70ff24229b97ba4dfc11602b4315d6aecdcc8825e55cbee91766bcaaab05a2 | committed |
+| collect/swap_signatures.csv | 5,882 | 23 rows + header | d72b5d53ca5949425a3a5a124f39955cbc26bf74f45b82f92cac63e6a2410e8b | committed |
+| collect/token_prices.log | 611 | 3 lines | 87640b77dce4b82717b3539160b1da49351b77af5193d8ad5215a61f90255c6f | committed |
+| collect/token_prices.py | 10,937 | 212 lines | 379e78b34354c129b3f64be81f24aa33bd6ec7614039172e7e9ab0a7138cba6c | committed |
+| collect/write_manifest.py | 23,378 | 204 lines | 3684ce234e6cb758ab382ea50c0130c407e92959833184d1e424143e9cb41970 | committed |
+| defillama-dexs.fetch.json | 140 | 1 JSON document | 75d052dea913688e9de15cefb5e025a6b7ac271110c7ed52d457587c3e1f8139 | committed |
+| defillama-dexs.json | 2,008,705 | 1 JSON document | 4fc70dee322a65402c750d47eea2a081d0a179408410ec065ea457c4c25edd89 | committed |
+| docs/docs.arbitrum.io_arbitrum-essentials_precompiles_reference.md.raw.gz | 13,503 | 425 lines (decompressed) | 40422fb37b7082758969e8de410d6817688924aaf9e0d0e6075ff3e977213c37 | committed |
+| docs/docs.arbitrum.io_arbitrum-essentials_precompiles_reference.md.txt | 131,836 | 431 lines | 39f97813f8a999eda627430a4ba15c7478ce286e5ab5d96b643bdb7f6ddec6b8 | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_deep-dives_sequencer-transaction-flow.md.raw.gz | 6,929 | 158 lines (decompressed) | 5d42c9f71207a557a3b3b26b05dd53673cd18f4891cffb153fb0d00743e45708 | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_deep-dives_sequencer-transaction-flow.md.txt | 21,103 | 164 lines | debbc7b09998c591aaee8a28be13be8ec47c2e7569dc658956c0808ada55ffde | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_deep-dives_sequencer.md.raw.gz | 5,320 | 118 lines (decompressed) | 3875ea85cb409d190d5585e2869772ab99a9ecbba785bb36118a2100c9679fe7 | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_deep-dives_sequencer.md.txt | 13,931 | 124 lines | f0d7db5e4928003d47dd15f2e065a2932655ba369487a5d9c03dfac4c0d7e69b | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_priority-gas-auction_fast-feed.md.raw.gz | 3,738 | 122 lines (decompressed) | 764a767377389d8a22fc002c37ed4ac0dab248baf20b107f521928bfa067eb23 | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_priority-gas-auction_fast-feed.md.txt | 10,353 | 128 lines | 9c8117a5e74a6f981a6e2f32c72ab86f8cb5614bf2c377cd0b02e4ed27092125 | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_priority-gas-auction_pga.html.gz | 11,286 | 115 lines (decompressed) | 4047b5dacf5998093d2f8d42815443d4fc8c6b6dd74cabeb38f6776b4ea087c4 | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_priority-gas-auction_pga.md.raw.gz | 4,167 | 147 lines (decompressed) | d5ac9c073c73a60f95f53cf72cd1ebb64980ae2f36bc3240b1302c3b714683e9 | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_priority-gas-auction_pga.md.txt | 10,851 | 153 lines | 32fb38818cc0ea408f18183f6dba1563a2d1ca5408c531926901961bb80d6df7 | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_priority-gas-auction_pga.txt | 11,288 | 284 lines | e92d89cb1bc6f0286e55eaa143f1593593878f9a03d22275655537f17d412452 | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_priority-gas-auction_use-fast-feed.md.raw.gz | 6,462 | 369 lines (decompressed) | cc81eb4cfe7eaac33ca87703372d088abe140c422d664acfb04f1bf080dcbc0c | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_priority-gas-auction_use-fast-feed.md.txt | 20,492 | 375 lines | 07355874848dad597e718efd3ca141fcf744eb7a27ce6184f6d566759e2f9521 | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_timeboost_gentle-introduction.html.gz | 27,261 | 74 lines (decompressed) | 30e8dbfb4994a96092e0c545400978cbdba0a14cbda0abe9b85b93be63de4ebe | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_timeboost_gentle-introduction.md.raw.gz | 3,861 | 83 lines (decompressed) | 15fbce2c5484ffdfdaa228dc5937a064c7702ceca3dc3954f1229d783016a36d | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_timeboost_gentle-introduction.md.txt | 10,153 | 89 lines | 6ef7284ff9b2342d7a6500495efff10ad2d7752c454d5e93bdd6227bf4212cd5 | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_timeboost_gentle-introduction.txt | 11,310 | 212 lines | f6a7542ca8d1e1d125ebe7ddf7671850c68ef9b2ffba9bbb0698903016274404 | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_timeboost_how-to-use-timeboost.html.gz | 20,170 | 160 lines (decompressed) | 810e7c7c09ab3ac3017ba6f2025d9974eb42f037ec5426f87e8b5630322ebddd | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_timeboost_how-to-use-timeboost.md.raw.gz | 8,260 | 747 lines (decompressed) | 405751e0dc72a8971bbff7aec02635a22a170b10e83782aa6cfaaf50f5d660ed | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_timeboost_how-to-use-timeboost.md.txt | 31,845 | 753 lines | 27a17badb6c83021e26816203d5fe148a40a494195045e721017a722ea047f75 | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_timeboost_how-to-use-timeboost.txt | 27,221 | 811 lines | 59aa3d69adb92ee199d473860306a6f76de196e0f31ed4605e517247e0fdafa7 | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_timeboost_timeboost-faq.md.raw.gz | 6,712 | 153 lines (decompressed) | d1217f01847c471153d8a5068223dd5bc5ef0e9d67662d3b83e86d84efdf13ba | committed |
+| docs/docs.arbitrum.io_how-arbitrum-works_timeboost_timeboost-faq.md.txt | 18,511 | 159 lines | 9169915a4b2ba16a9b0e05cdc66f433067e1b04fa126c7d656ed1517337a675f | committed |
+| docs/docs.arbitrum.io_launch-arbitrum-chain_chain-config_costs_priority-fees.md.raw.gz | 1,404 | 61 lines (decompressed) | 99e9333e588e5480ba98e7ce9cb67c23ed0c84fab79d5a90ed8a84b8f1799112 | committed |
+| docs/docs.arbitrum.io_launch-arbitrum-chain_chain-config_costs_priority-fees.md.txt | 3,456 | 67 lines | 26681f5f66b6269fa1ecabb72187ada0405d62eaa331945b24526a6dc9aee41b | committed |
+| docs/docs.arbitrum.io_launch-arbitrum-chain_chain-config_sequencer_pga.md.raw.gz | 1,956 | 99 lines (decompressed) | e780e8eeb9eaf4096830c1cfb09fbc9eaa0bcb3589411251aae32f6c80743fd4 | committed |
+| docs/docs.arbitrum.io_launch-arbitrum-chain_chain-config_sequencer_pga.md.txt | 4,976 | 105 lines | 130814c1f3505754fe82bcdef44d24987c13da7f904c7e2347ef86fe3222ecf4 | committed |
+| docs/docs.arbitrum.io_launch-arbitrum-chain_chain-config_sequencer_timeboost.md.raw.gz | 6,126 | 325 lines (decompressed) | 03d6e925ddd8ce52a7cbd6881272799cd04d8052fe8f6bc68a7f594e69179f19 | committed |
+| docs/docs.arbitrum.io_launch-arbitrum-chain_chain-config_sequencer_timeboost.md.txt | 20,013 | 331 lines | a4ca60dbbf104fe3477602148e4c74a45aa000d8220e1765533fb0b13ba61dd4 | committed |
+| docs/index.csv | 4,036 | 16 rows + header | 00fb3f58a2a4b9853b3826b9fc47d17932ca2d889ebe647a0b981a5ebecd3d2f | committed |
+| docs/raw.githubusercontent.com_OffchainLabs_nitro_v3.11.3_precompiles_ArbSys.go.raw.gz | 2,677 | 246 lines (decompressed) | c6a6a1df2a54cd8f479ec495c4b4e4d83c2e854cedd93b9157c0826c51e80e1b | committed |
+| docs/raw.githubusercontent.com_OffchainLabs_nitro_v3.11.3_precompiles_ArbSys.go.txt | 8,652 | 252 lines | 35a619fbbbbb538eb2746d0089dba2d0810d91f237579daf391bcc6f96224a07 | committed |
+| extra-timeboost-auction-logs.jsonl.gz | 860 | 0 JSON lines | 9c81718bd8581eb291adfedff986bd57694033b5614f04b5ad801a4c3050eef7 | committed |
+| gaps.csv | 20 | 0 rows + header | 592ba1730f5d491364d8a9f4874a83533e4aecf1fde0f9e4e3e3792b36cd36f1 | committed |
+| native-price-chart-defillama.json | 749 | 1 JSON document | b933a0d288c9272f866348094c52fe13f5c8a1d9f1e939036b717697d539b7e2 | committed |
+| prices-defillama-historical.jsonl.gz | 24,105 | 21 JSON lines | 280256ad657738cccc7cc2b2863df1529fb2d2725e29fe63c65a28f2f34b05b4 | committed |
+| reverted-001.csv.gz | 270,010 | 4,683 rows + header | a80a774626f8c1091877c0c32bfc3a5242f2feb24492d19d9b5ce1f7a98a909b | committed |
+| swap-topics.csv | 12,284 | 22 rows + header | 5d28afdde7a05cf0d14693a99e29793dc6f12d312a497401e8ca8b59ddfa2c86 | committed |
+| token_prices.fetch.json | 554 | 1 JSON document | ed4dcb9c0f58b0addc67f9784b77a0aaf7d260e1dfa10e073628843a6a25a93a | committed |
+| tokens-onchain-meta.csv.gz | 16,261 | 245 rows + header | 0eca5d51d732c77f5adb0919dc4945f5cb4b20f1b60356405451a8988e74c284 | committed |
+| topic0-counts.csv.gz | 139,609 | 1,652 rows + header | 36b4c887a299c44f554afc454ac32f968667ee52394e2f204e11e90dbbbd9cc6 | committed |
+| txs-001.csv.gz | 4,321,791 | 62,119 rows + header | 24158cab0eee777364b98fdf6ee2918c25160c367aeaae09043c6d828498f0f0 | committed |
+| window.json | 3,067 | 1 JSON document | 71abded65f4a568563d387ff075a831d451aa79db5282217fff525f73368f817 | committed |
+| MANIFEST.md | (changes when edited) | documentation | not recorded (edited 2026-10-01) | committed |

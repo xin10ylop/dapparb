@@ -1,23 +1,27 @@
 # Unichain: on-chain arbitrage census (raw material)
 
-Status: census COMPLETE (sentinel `.sentinels/EVM_CENSUS_UNICHAIN.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE (sentinel `.sentinels/EVM_TOKENPRICES_UNICHAIN.DONE`). Ordering docs: COMPLETE (see docs/).
+Status: COMPLETE WITH GAPS (finalized 2026-10-01). Gap: 1 of the 11 documentation URLs in docs/index.csv was not retrieved (Wayback Machine copy of the former docs.unichain.org advanced-txn page, HTTP 403; body not stored). All collectors for this directory finished: sentinels EVM_CENSUS_UNICHAIN.DONE and EVM_TOKENPRICES_UNICHAIN.DONE (sentinel files are git-ignored; their text is reproduced in `../MANIFEST.md`). Last data write 2026-09-30T21:21Z, before the ~23:00Z container restart of 2026-09-30; nothing in this directory was interrupted or re-run. Every file was re-verified on 2026-10-01 (section 'Verified inventory (2026-10-01)').
+
+Collector's status line (kept as written): census COMPLETE (sentinel `.sentinels/EVM_CENSUS_UNICHAIN.DONE`); DefiLlama DEX overview COMPLETE; token metadata + prices COMPLETE (sentinel `.sentinels/EVM_TOKENPRICES_UNICHAIN.DONE`). Ordering docs: COMPLETE (see docs/).
 
 This directory holds collected data only. Nothing here is an analysis, estimate or conclusion.
 
 ## Question lines served (mapping only)
 
-Question-line IDs are defined in `../MANIFEST-evm.md` (verbatim user text there).
+Line numbers refer to the 8 question lines quoted verbatim in `../MANIFEST.md` (the same lines carry Q-IDs in `../MANIFEST-evm.md`).
 
-| File(s) | Question lines |
+| Line | Files in this directory |
 |---|---|
-| blocks.csv.gz, txs-*.csv.gz, reverted-*.csv.gz, candidates-*.jsonl.gz, topic0-counts.csv.gz, swap-topics.csv, window.json | Q-OTHERCHAINS, Q-GAPS, Q-COVERAGE, Q-STUDIES |
-| candidates-*.jsonl.gz (Uniswap V4 PoolManager Swap logs, topic0 0x40e9cecb...), blocks.csv.gz base_fee_per_gas + txs effective_gas_price (priority fee per gas = effective_gas_price - base_fee_per_gas, derivable) | Q-V4LAUNCH (priority-fee share line), Q-GAPS |
-| candidates-*.jsonl.gz (all pools active in the window, any pool age / size) + tokens-onchain-meta.csv.gz | Q-OLDV2, Q-SMALLPOOLS (as observed on this chain, not Base) |
-| docs/ (official ordering documentation) | Q-BSCORDER (comparison material: ordering policy on this chain), Q-V4LAUNCH (priority-fee ordering) |
-| tokens-onchain-meta.csv.gz, prices-defillama-historical.jsonl.gz, native-price-chart-defillama.json | USD valuation inputs for Q-STUDIES / Q-OTHERCHAINS |
-| defillama-dexs.json | Q-OTHERCHAINS (which DEXes exist on the chain and their reported volume; for checking swap-topic coverage) |
+| 1 | none |
+| 2 | candidates-001.jsonl.gz, tokens-onchain-meta.csv.gz |
+| 3 | candidates-001.jsonl.gz, tokens-onchain-meta.csv.gz |
+| 4 | blocks.csv.gz, txs-001.csv.gz, reverted-001.csv.gz, candidates-001.jsonl.gz, topic0-counts.csv.gz, swap-topics.csv, gaps.csv, window.json, tokens-onchain-meta.csv.gz, prices-defillama-historical.jsonl.gz, native-price-chart-defillama.json, token_prices.fetch.json, defillama-dexs.json, defillama-dexs.fetch.json |
+| 5 | candidates-001.jsonl.gz (Uniswap V4 PoolManager Swap logs, topic0 0x40e9cecb...), blocks.csv.gz (base_fee_per_gas), txs-001.csv.gz (effective_gas_price, l1_fee), docs/ |
+| 6 | docs/ |
+| 7 | blocks.csv.gz, txs-001.csv.gz, reverted-001.csv.gz, candidates-001.jsonl.gz, topic0-counts.csv.gz, swap-topics.csv, gaps.csv, window.json, tokens-onchain-meta.csv.gz, prices-defillama-historical.jsonl.gz, native-price-chart-defillama.json, token_prices.fetch.json |
+| 8 | blocks.csv.gz, txs-001.csv.gz, reverted-001.csv.gz, candidates-001.jsonl.gz, topic0-counts.csv.gz, swap-topics.csv, gaps.csv, window.json |
 
-Not served here: Q-V4BASE (Base only; see the Base directories under research-material/, e.g. 01-v4-pools and 05-base-onchain).
+Correction 2026-10-01: the collector's table in this section used Q-IDs and short notes; it is restated above by line number. The collector also mapped files to a ninth ID, Q-GAPS ("Would the gaps change the answer?"), which is not one of the 8 question lines; those entries were dropped.
 
 ## Window (pinned)
 
@@ -53,6 +57,8 @@ python3 token_prices.py --chain unichain --out .. > token_prices.log 2>&1       
 python3 fetch_docs.py ../docs $(cat docs_urls.txt) > docs.log 2>&1
 python3 write_manifest.py unichain ..               # regenerates this file from the metadata files
 ```
+
+Note (2026-10-01): this MANIFEST.md was edited by hand during finalization (status line, 'Question lines served', the 'Verified inventory (2026-10-01)' section and the notes marked 2026-10-01). Re-running write_manifest.py would regenerate the collector's original version without these edits.
 
 Re-running census.py with the existing window.json resumes/keeps the same pinned window; deleting window.json and the data files pins a new, later window (the chain head moves, so the exact block range above cannot be re-pinned automatically; to reproduce it exactly, write a window.json with the start/end blocks above and status `in_progress`). The smoke tests (`--smoke N --seg-blocks K --part-limit-mb X`) were run in the scratchpad before launch; their outputs are not part of this directory.
 
@@ -222,4 +228,63 @@ census.py, make_swap_topics.py, swap_signatures.csv, fetch_defillama.py, fetch_d
 * No mempool / pending-transaction data, no private-orderflow or bundle data, no flashblock / preconfirmation-level ordering data (block-level receipts only).
 * The DefiLlama DEX overview was fetched once (2026-09-30T21:10:33Z) with default query parameters.
 * docs: the former docs.unichain.org pages now redirect to developers.uniswap.org/docs/unichain; the Wayback Machine copy of the former advanced-txn page returned HTTP 403 through the proxy and was not stored (listed in docs/index.csv). Unichain Flashblocks and priority-ordering descriptions are taken from the current developer docs, the Unichain whitepaper PDF and Uniswap/Flashbots blog posts.
-* Not collected in this directory: Base (see 05-base-onchain), BSC (separate collector in ../bsc), Solana, and other chains (Blast, Linea, zkSync, Scroll, Mantle, Avalanche, etc.). Literature documents (arXiv papers quoted in docs/ANALYSIS.md 4.1) are not collected here.
+* Not collected in this directory: Base (see 05-base-onchain), BSC (separate collector in ../bsc), Solana (separate collector in ../solana), and other chains (Blast, Linea, zkSync, Scroll, Mantle, Avalanche, etc.). Literature documents (arXiv papers quoted in the repository file docs/ANALYSIS.md, section 4.1) are not collected here.
+
+## Verified inventory (2026-10-01)
+
+Verified on 2026-10-01 by streaming every file in this directory (no data file was modified). Checks: `gzip -t` on every .gz file; CSV files parsed with Python's csv module (rows exclude the header line); every JSONL line and every JSON document parsed with Python's json module; sha256 over the stored bytes. Git column: "committed" = tracked in git, present in the repository; "local-only" = git-ignored by the repository .gitignore, present only on the collection machine.
+
+Result: 50 files (50 committed, 0 local-only). All 16 .gz files pass `gzip -t`; every JSON document and JSONL line parses; every CSV record has as many fields as its header. The row counts in 'Files, schemas, row counts' above and the candidate counts by criterion equal the verified counts below (no differences). Largest committed file: txs-001.csv.gz (1,441,318 bytes); no committed file exceeds 90 MB.
+
+| File | Bytes | Rows / lines | sha256 | Git |
+|---|---:|---|---|---|
+| blocks.csv.gz | 187,562 | 3,600 rows + header | 0b9351db26a1c1aa777e3f06030167a56c36e2636df45d2b68ab2620ca5b93cc | committed |
+| candidates-001.jsonl.gz | 193,589 | 339 JSON lines (criterion A 170, B 169) | 1e7cf63916cfab7d773f685b47dd7e17779ec56ba308895278705b789b93a06c | committed |
+| collect/census.log | 2,168 | 9 lines | 78e3d798e0abff76b76177913fac27a9ac75700d61bef3d7c49b4b6cce5362f4 | committed |
+| collect/census.py | 36,822 | 755 lines | 09bc97c21245f6581c128ad39bc0f7188de8fefd78ec346477f76b123657bcc8 | committed |
+| collect/defillama.log | 134 | 1 line | 1adf81b1370058b4af4fbaac45fe41f0a69841da3e955646bd42a6ab2d64f75e | committed |
+| collect/docs.log | 1,713 | 12 lines | 70db25d311b9ffa71b3894dfd6b4e40a45b892d96faa48d96d73e63ebe93fb14 | committed |
+| collect/docs_urls.txt | 785 | 11 lines | 90b5a6ebf2c77530ab033f0840d58d7cb084f63e3f894c022acb3d5edef1b4b4 | committed |
+| collect/fetch_defillama.py | 1,196 | 22 lines | b28baddf42a3dbcbcba4826e1763ce8b3465c5e9e016115d1937ce18d7edc4c4 | committed |
+| collect/fetch_docs.py | 4,605 | 82 lines | b4160b7cf24fbbf964717cec8e31f5c28929931a49492e7ee1599d928907a19e | committed |
+| collect/make_swap_topics.log | 100 | 1 line | 66a2819d2aacd63ab1758d4414ec117a18dd42a8f81e4d755c35644d011a7323 | committed |
+| collect/make_swap_topics.py | 2,471 | 57 lines | adc672fd85b8f6866d636fa8d9d3953d492324fcec668dd0ba502be213b2ad0b | committed |
+| collect/run_token_prices_all.sh | 341 | 6 lines | af70ff24229b97ba4dfc11602b4315d6aecdcc8825e55cbee91766bcaaab05a2 | committed |
+| collect/swap_signatures.csv | 5,882 | 23 rows + header | d72b5d53ca5949425a3a5a124f39955cbc26bf74f45b82f92cac63e6a2410e8b | committed |
+| collect/token_prices.log | 604 | 3 lines | bb0241adc6d72c77726f79c5caa630bb0929e927e08ebb01c1ba920f03050f2c | committed |
+| collect/token_prices.py | 10,937 | 212 lines | 379e78b34354c129b3f64be81f24aa33bd6ec7614039172e7e9ab0a7138cba6c | committed |
+| collect/write_manifest.py | 23,378 | 204 lines | 3684ce234e6cb758ab382ea50c0130c407e92959833184d1e424143e9cb41970 | committed |
+| defillama-dexs.fetch.json | 139 | 1 JSON document | 0df8c5298334dc8aae667631c52af24aee83f977ed9dc91c8ea74fc4c4378780 | committed |
+| defillama-dexs.json | 100,466 | 1 JSON document | 9fcc787a05f0b6f54d81722ff15eecb3d6b744aa261237527bd459d8212b469a | committed |
+| docs/blog.uniswap.org_flashblocks-are-live.html.gz | 36,812 | 88 lines (decompressed) | 24e4f279e0a8715545cd43e3fe126cf107f93b786b992d66a5b251e1368675ab | committed |
+| docs/blog.uniswap.org_flashblocks-are-live.txt | 4,913 | 181 lines | 7b0c2cd6fb1e6a5ab21512446dfc52c44fc278c2b5e13008f40c384dfa0565ce | committed |
+| docs/blog.uniswap.org_rollup-boost-is-live-on-unichain.html.gz | 38,172 | 99 lines (decompressed) | 8e0c1d8aa811fbc4812f670cd40768f1341d1e89f9c405dbb4f81b415d222256 | committed |
+| docs/blog.uniswap.org_rollup-boost-is-live-on-unichain.txt | 6,158 | 203 lines | c65e5ab1f10eb7e00ac4a6d4a38fa4973f1e47f0fffc95a370a6d06fc534f9a3 | committed |
+| docs/developers.uniswap.org_docs_unichain.md.raw.gz | 2,062 | 89 lines (decompressed) | 2c9f8a88ee79a3a6d1fde51b4ce1cdcdee25a860d20d3c7062f69e19e75698c9 | committed |
+| docs/developers.uniswap.org_docs_unichain.md.txt | 6,141 | 95 lines | 4117cd2c66e08103483b6ca2fd2085bd3df68402534077d9c92e9ed791a8f96d | committed |
+| docs/developers.uniswap.org_docs_unichain_technical-information_advanced-txn.html.gz | 56,531 | 548 lines (decompressed) | b2a2ff8d1ffb09693d225ec8d4455329245ba3f0b527d43a1c405bd7315748c9 | committed |
+| docs/developers.uniswap.org_docs_unichain_technical-information_advanced-txn.md.raw.gz | 3,208 | 269 lines (decompressed) | 30b9e9858c29384c9deb8be0e46014d07f78dfd30ee5d496c3442d41d8011c1b | committed |
+| docs/developers.uniswap.org_docs_unichain_technical-information_advanced-txn.md.txt | 10,320 | 275 lines | b167dad53cc4941b999225224f45771cff25a6577d8ae2352cdf9785ff2510df | committed |
+| docs/developers.uniswap.org_docs_unichain_technical-information_advanced-txn.txt | 11,297 | 468 lines | a6c64d6b2bff306b76ac005fdff3d1e53353a50b0546d8f028bcfb256d513c8d | committed |
+| docs/developers.uniswap.org_docs_unichain_technical-information_flashblocks.html.gz | 60,861 | 682 lines (decompressed) | e5a7de1fd81177700f485c51b10eefb52e4ea972f849d8c94f129ba5ca2061fc | committed |
+| docs/developers.uniswap.org_docs_unichain_technical-information_flashblocks.md.raw.gz | 6,339 | 441 lines (decompressed) | c3a4b891e05b3ee7b2df28a91cfb532f8d5e4b16689baceed63c53f42b221fbc | committed |
+| docs/developers.uniswap.org_docs_unichain_technical-information_flashblocks.md.txt | 20,548 | 447 lines | 005d7b251e0570568196ef18e16c2a196a5e795fffa82b8630b48eefd6b8f315 | committed |
+| docs/developers.uniswap.org_docs_unichain_technical-information_flashblocks.txt | 20,378 | 617 lines | 53273f3d4b733dbce087943fb9fb329a215cf2316e8f6479776a42d52fc7d883 | committed |
+| docs/developers.uniswap.org_docs_unichain_technical-information_network-information.md.raw.gz | 515 | 27 lines (decompressed) | d1d5acf722c5806ef20cc476ab178ee9a22c682b6f99d7f0a504069d8c7bdd39 | committed |
+| docs/developers.uniswap.org_docs_unichain_technical-information_network-information.md.txt | 2,521 | 33 lines | b7f0b07f645e4589f512961fe0139750f63f652b025cca046c8dd6ccba677725 | committed |
+| docs/developers.uniswap.org_whitepaper_unichain.pdf | 381,846 | PDF (binary) | 753ccaef33f5b4e0390107930ec5a94d5ad2eda7efce7f8e0e1d15a52ca4a32a | committed |
+| docs/developers.uniswap.org_whitepaper_unichain.pdf.txt | 16,185 | 330 lines | d9138939809a58aa9ddc13c229809558c4e412cff2f4d91456f5fc79d3dffa61 | committed |
+| docs/index.csv | 2,653 | 11 rows + header | edd8a618a3c15cc47a27ebee6e3334fc41b13ab82757a3d23d8c0f59f8338301 | committed |
+| docs/writings.flashbots.net_introducing-rollup-boost.html.gz | 8,616 | 18 lines (decompressed) | 99d4994f70f9e6f0c2039123b7098cbb5ddd65af04e32aaf9481656abe838b63 | committed |
+| docs/writings.flashbots.net_introducing-rollup-boost.txt | 11,971 | 147 lines | 40319b9c47492b82fb211b60376ce3e7d23b903f687ffd3c1a7c2c34faebfb3d | committed |
+| gaps.csv | 20 | 0 rows + header | 592ba1730f5d491364d8a9f4874a83533e4aecf1fde0f9e4e3e3792b36cd36f1 | committed |
+| native-price-chart-defillama.json | 749 | 1 JSON document | b933a0d288c9272f866348094c52fe13f5c8a1d9f1e939036b717697d539b7e2 | committed |
+| prices-defillama-historical.jsonl.gz | 1,312 | 3 JSON lines | 8c544eb84ef5c8712fdb43dcc59a07ca36e389438a18dfc9cb3fd9f961453869 | committed |
+| reverted-001.csv.gz | 10,246 | 123 rows + header | b51c3b4e36ff067da607576a09aae3f403bd889b25f54edd1ca003028e0c6673 | committed |
+| swap-topics.csv | 11,041 | 22 rows + header | 4e3d39ad52f70e3038a1e778fca17f46f0bae2a03738c7f0bb0547bf8daa9ea9 | committed |
+| token_prices.fetch.json | 548 | 1 JSON document | 410006901a277e2f0e5b233f9d44c177eb4abff5e7eab0f9c253c1680c4f7b2f | committed |
+| tokens-onchain-meta.csv.gz | 1,267 | 17 rows + header | fd1ef944147f06b79c3bd58708febb98235d7486786e9f4a83c0a8c5caf2ca68 | committed |
+| topic0-counts.csv.gz | 13,057 | 164 rows + header | 11d3f5262d53ae05ddfecda92573cacd97223a6bbdad7d5c98894201faa87c0f | committed |
+| txs-001.csv.gz | 1,441,318 | 30,272 rows + header | dd130c14912ee6ac762fd86ce56292bbb594d108cc0b4701c4468701d3be4906 | committed |
+| window.json | 2,639 | 1 JSON document | 8db33fecd45d296475a72ab6ea321e479e14f743d04eb6ec6f52f2890d9c9807 | committed |
+| MANIFEST.md | (changes when edited) | documentation | not recorded (edited 2026-10-01) | committed |

@@ -1,0 +1,7 @@
+2026-10-01T02:05:28.890Z V4INIT.DONE present
+2026-10-01T02:05:31.968Z v4 pools spec: /home/user/dapparb/research-material/01-v4-pools/initialize-part-*.csv.gz,/home/user/dapparb/research-material/02-v4-live-test/initialize-topup.csv.gz
+2026-10-01T02:05:32.115Z other Base engines wait: 0 s
+2026-10-01T02:05:34.684Z engine launched pid=31767 pgid=31767
+2026-10-01T02:36:06.358Z searcher ready (log time 1790822164248 ms); stopping at 02:56:04Z
+{"status": "DONE", "reason": "ok", "first_processed_block_in_log": 52016408, "last_processed_block_in_log": 52017008, "log_records": 120}
+2026-10-01T02:56:05.722Z finished
