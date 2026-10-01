@@ -232,3 +232,23 @@ top-level structure instead.
 | papers-fetched-earlier/optimistic-mev-l2s.txt.gz | 36,966 | 103,229 | 2,429 lines | `8f6eb7d6230915d8e18a12ea72fa1f41c80b1eb157f8ce2c04da01b445994cc2` | committed |
 | papers-fetched-earlier/quantifying-value-of-revert-protection.txt.gz | 17,496 | 54,293 | 1,571 lines | `67686f0dc2f1be717a2754bdece83595c5bd3353262a495403b6d1f9c2e2e311` | committed |
 | papers-fetched-earlier/sandwich-l2.txt.gz | 17,210 | 44,528 | 1,178 lines | `c26bbe7e2ce7e54c7d64bcc07acc8c86687441d8886f2a4c6ced8faafab6552d` | committed |
+
+## block-scans/ (added 2026-10-01 by the main session)
+
+The block-boundary scans summarized in docs/ANALYSIS.md section 2.1, produced on 2026-09-30 by `bot/src/research/scan.ts`
+(unmodified code of that time) and found afterwards in the git-ignored `bot/data/`. Gzip copies; nothing else changed.
+Serves question line 4 ("Block-level scans covered Arbitrum and Ethereum") and line 8.
+
+| File | Chain | Log start (UTC, from the log) | Content |
+|---|---|---|---|
+| scan-base-run1.log.gz, scan-base-run2.log.gz, scan-base-run3.log.gz, scan-base.jsonl.gz | base | 10:28 onward | first Base scans (config token list, 20 tokens); scan-base.jsonl holds the rows of run 3 |
+| scan-base-run4.log.gz, scan-base-run4.jsonl.gz | base | ~11:5x | Base scan, config universe |
+| scan-base-longtail.log.gz, scan-base-longtail.jsonl.gz | base | 11:59 | Base scan, long-tail token universe |
+| scan-arb.log.gz, scan-arb.jsonl.gz, scan-arb2.log.gz, scan-arb2.jsonl.gz | arbitrum | 11:59 onward | Arbitrum scans (12 config tokens) |
+| scan-mainnet.log.gz, scan-mainnet.jsonl.gz | mainnet | 11:59 | Ethereum scan (12 config tokens) |
+| prof.log.gz, repro.log.gz | base | ~11:52 | profiling and reproduction logs from debugging the searcher |
+
+Line counts of the `.jsonl` files: scan-arb 23,277; scan-arb2 22,353; scan-base-longtail 10,115; scan-base-run4 5,239;
+scan-base 1,173; scan-mainnet 2,071. Each line is one route evaluated at one block (fields: block, key, token, route, and
+the scan's per-route values). The exact flags of each run are in the head of its log. The pairing of scan-base.jsonl with
+run 3 is inferred from file modification times (10:49 for both).

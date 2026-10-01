@@ -51,7 +51,8 @@ class PartWriter:
         if self.bfrom is None: self.bfrom = block
         self.bto = block
     def _close(self):
-        self.txt.flush(); self.txt.close()
+        self.txt.flush(); self.txt.close()  # closes the GzipFile (writes the trailer into self.raw's buffer)
+        self.raw.close()  # flush the trailer to disk before hashing (GzipFile does not close a passed-in fileobj)
         h = hashlib.sha256(open(self.path, 'rb').read()).hexdigest()
         self.parts.append({'file': os.path.basename(self.path), 'rows': self.rows, 'block_from': self.bfrom, 'block_to': self.bto, 'bytes': os.path.getsize(self.path), 'sha256': h})
     def close(self): self._close()
