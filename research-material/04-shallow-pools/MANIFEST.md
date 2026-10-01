@@ -202,7 +202,8 @@ with row counts and byte sizes.
 ## Coverage limits and gaps
 
 1. **Transfer-behaviour probe (step 2) not collected.** No per-token transfer simulation data exists here;
-   `.sentinels/TRANSFER_PROBE.FAILED` records this. The only transfer-related signal in this directory is the engine's own
+   `.sentinels/TRANSFER_PROBE.FAILED` records this.
+   → Attempt 2 (2026-10-01): see section "Transfer-behaviour probe (attempt 2, 2026-10-01)" at the end of this file. The only transfer-related signal in this directory is the engine's own
    simulation outcome per candidate (`sim.error` in `live-shallow.jsonl`, e.g. decoded `TransferFailed` reverts), which only covers routes
    the engine selected.
 2. **V4 coverage is the engine's GeckoTerminal-listed set only** (network top pages 1-2 + page 1 per DEX listing; hooked pools with
@@ -223,3 +224,32 @@ with row counts and byte sizes.
    the engine does not record skipped blocks explicitly. Blocks with no heartbeat/candidate line are not listed individually.
 9. **Concurrency**: another agent's engine run (V4 live test) and several collectors shared the same public endpoints during both runs.
 10. Only Base was collected here; no other chains.
+
+
+## Transfer-behaviour probe (attempt 2, 2026-10-01)
+
+**Status: NOT COMPLETED.** `.sentinels/TRANSFER_PROBE.FAILED` was rewritten with this attempt's reason. No `transfer-probe.csv.gz`
+or `probe-meta.json` exists. No RPC calls were made in this attempt.
+
+What exists (directory `transfer-probe/`):
+
+| File | Content |
+|---|---|
+| `transfer-probe/collect/select_holders.py` | holder selection script (offline, reads only the snapshot files in this directory) |
+| `transfer-probe/collect/work/holders.csv.gz` | holder selection output, one row per token in `tokens.csv.gz` (33,597 rows + header) |
+
+Holder selection method (deterministic, no RPC): for each token, among non-V4 rows of `pools-prefilter.csv.gz` and
+`pools-pruned-empty.csv.gz` with `token*_balance_ok == true`, the pool with the largest `token*_balance_of_pool` (block 52008246);
+tie-break lowest pool address. `kind` univ2/aero-v2 -> `v2`; univ3/aero-cl/pancake-v3 -> `cl`. Fallback to the V4 PoolManager
+`0x498581ff718922c3f8e6a244956af099b2652b2b` from `v4-poolmanager-balances.csv.gz` only when no pool had a positive balance.
+Command: `cd transfer-probe/collect && python3 select_holders.py`.
+
+`holders.csv.gz` columns: `token`, `symbol` (tokens.csv `symbol_engine`), `decimals` (`decimals_engine`), `holder`, `holder_kind`
+(v2|cl|v4_poolmanager, empty = none), `holder_dex`, `holder_balance_snapshot` (raw, base-10), `holder_source_file`,
+`n_pools_with_balance_ok`, `n_pools_positive_balance` (counts of snapshot pool rows for that token).
+
+Row counts by `holder_kind`: v2 24,700; cl 5,003; v4_poolmanager 0; none (no positive balance in any snapshot pool or the
+PoolManager file) 3,894. Unique holder addresses: 29,478.
+
+Not collected: the per-token eth_call transfer probe (step 2 of the task: probe contract, batcher, state-override calls at
+block 52008246) and its outputs. The attempt stopped before the probe contract was written.

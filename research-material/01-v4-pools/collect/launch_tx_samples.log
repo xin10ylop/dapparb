@@ -1,2 +1,13 @@
 2026-09-30T22:03:23Z hooks 213 samples 639
 2026-09-30T22:07:32Z txs 639 logs 18869 distinct emitters 1374
+==== 2026-10-01T01:18:24Z re-run with memory-fixed launch_tx_samples.py (previous run above was OOM-killed) ====
+2026-10-01T01:19:12Z pass1 rows_with_candidate_hook 15033116 possible_duplicates 69023 maxrss_mb 424
+2026-10-01T01:19:48Z pass2 pool_id_duplicates_dropped 16891 maxrss_mb 424
+2026-10-01T01:19:49Z selection hooks_with_rows 213 already_sorted 213 picked_keys 639 maxrss_mb 424
+2026-10-01T01:20:30Z hooks 213 samples 639 maxrss_mb 424
+2026-10-01T01:20:30Z tx cache entries 15
+2026-10-01T01:24:18Z txs 639 logs 18869 distinct emitters 1374 fetched_now 611 maxrss_mb 424
+2026-10-01T01:24:18Z emitters resolved 100 of 1374 maxrss_mb 424
+2026-10-01T01:25:33Z emitters resolved 200 of 1374 maxrss_mb 424
+2026-10-01T01:31:45Z emitters resolved 300 of 1374 maxrss_mb 424
+2026-10-01T01:36:00Z emitters resolved 400 of 1374 maxrss_mb 424

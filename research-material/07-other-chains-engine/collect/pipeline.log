@@ -36,3 +36,6 @@
 [run_scan 2026-10-01T01:04:58Z] scan-mainnet-top attempt 1 started pid=1070 flags: --chain mainnet --universe top --blocks 151 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-mainnet-top.jsonl cap=31min
 [run_scan 2026-10-01T01:04:58Z] scan-base-top attempt 1 started pid=1067 flags: --chain base --universe top --blocks 901 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-base-top.jsonl cap=31min
 [run_scan 2026-10-01T01:04:58Z] scan-arbitrum-top attempt 1 started pid=1079 flags: --chain arbitrum --universe top --blocks 7201 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-arbitrum-top.jsonl cap=31min
+[run_scan 2026-10-01T01:09:28Z] scan-mainnet-top first block scanned
+[run_scan 2026-10-01T01:10:43Z] scan-arbitrum-top first block scanned
+[run_scan 2026-10-01T01:17:29Z] scan-base-top first block scanned
