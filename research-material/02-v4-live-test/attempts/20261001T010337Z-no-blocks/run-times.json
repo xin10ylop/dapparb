@@ -1,0 +1,87 @@
+{
+ "name": "V4LIVE",
+ "status": "DONE",
+ "reason": "ok",
+ "written_utc": "2026-10-01T01:57:19.643Z",
+ "command": "LOG_JSON=1 npx tsx src/main.ts --chain base --mode dry --source logs --universe all --max-per-factory 6000 --min-depth-eth 0.1 --min-profit-usd 0.01 --top 6 --v4-pools '/home/user/dapparb/research-material/01-v4-pools/initialize-part-*.csv.gz,/home/user/dapparb/research-material/02-v4-live-test/initialize-topup.csv.gz' --out /home/user/dapparb/research-material/02-v4-live-test/live-v4.jsonl",
+ "cwd": "/home/user/dapparb/bot",
+ "env": "LOG_JSON=1",
+ "v4_pools_spec": "/home/user/dapparb/research-material/01-v4-pools/initialize-part-*.csv.gz,/home/user/dapparb/research-material/02-v4-live-test/initialize-topup.csv.gz",
+ "run_seconds_after_ready": 1200,
+ "script_start_utc": "2026-10-01T01:03:37.419Z",
+ "v4init_done_seen_utc": "2026-10-01T01:03:37.421Z",
+ "topup": {
+  "status": "ok",
+  "exit_code": "0",
+  "index": {
+   "rows": 678,
+   "block_from": 52006303,
+   "block_to": 52013625,
+   "sha256": "172f97ee781f1603ab1b2837d155aa84dd5ffa4a7d473958b466b29f73fdcff6"
+  },
+  "started_utc": "2026-10-01T01:03:37.424Z",
+  "finished_utc": "2026-10-01T01:03:40.871Z"
+ },
+ "other_engines": {
+  "waited_seconds": 0,
+  "at_first_check": [],
+  "at_launch": [],
+  "samples_during_run_file": "collect/state/concurrent-engines.jsonl"
+ },
+ "launch_utc": "2026-10-01T01:03:41.575Z",
+ "engine_pid": 614,
+ "engine_pgid": 614,
+ "head_at_launch": {
+  "block": 52013637,
+  "endpoint": "https://base-rpc.publicnode.com",
+  "at_utc": "2026-10-01T01:03:41.562Z"
+ },
+ "ready_detected_utc": "2026-10-01T01:37:19.079Z",
+ "ready_log_utc": "2026-10-01T01:37:18.753Z",
+ "head_at_ready": {
+  "block": 52014646,
+  "endpoint": "https://base-rpc.publicnode.com",
+  "at_utc": "2026-10-01T01:37:19.419Z"
+ },
+ "planned_stop_utc": "2026-10-01T01:57:18Z",
+ "stop_sigint_utc": "2026-10-01T01:57:18.599Z",
+ "stop_sigterm_utc": null,
+ "stop_sigkill_utc": null,
+ "engine_exit_utc": "2026-10-01T01:57:19.607Z",
+ "engine_exit_code": 130,
+ "head_at_stop": {
+  "block": 52015245,
+  "endpoint": "https://base-rpc.publicnode.com",
+  "at_utc": "2026-10-01T01:57:18.587Z"
+ },
+ "first_processed_block_in_log": null,
+ "last_processed_block_in_log": null,
+ "min_block_in_log_after_ready": null,
+ "max_block_in_log_after_ready": null,
+ "block_fields_note": "blocks come from log records that carry a `block` field (heartbeat every 10 ticks, opportunity/simulation records) written at or after the searcher-ready record; the first ticks after ready are not individually logged by the engine, so head_at_ready / head_at_stop (eth_blockNumber by this script) are recorded as well",
+ "searcher_ready_line_verbatim": "{\"level\":30,\"time\":1790818638753,\"pid\":640,\"hostname\":\"vm\",\"tokens\":75009,\"pools\":11779,\"cycles\":9494,\"minDepthEth\":0.1,\"source\":\"logs\",\"mode\":\"dry\",\"contract\":\"0x00000000000000000000000000000000000a4BB0\",\"codeOverride\":true,\"msg\":\"searcher ready\"}",
+ "v4_pools_loaded_from_file_line_verbatim": "{\"level\":30,\"time\":1790818638718,\"pid\":640,\"hostname\":\"vm\",\"spec\":\"/home/user/dapparb/research-material/01-v4-pools/initialize-part-*.csv.gz,/home/user/dapparb/research-material/02-v4-live-test/initialize-topup.csv.gz\",\"files\":23,\"rowsRead\":15333925,\"rowsPerFile\":[{\"file\":\"initialize-part-0001.csv.gz\",\"rows\":721377,\"indexRows\":721377},{\"file\":\"initialize-part-0002.csv.gz\",\"rows\":761851,\"indexRows\":761851},{\"file\":\"initialize-part-0003.csv.gz\",\"rows\":733829,\"indexRows\":733829},{\"file\":\"initialize-part-0004.csv.gz\",\"rows\":727635,\"indexRows\":727635},{\"file\":\"initialize-part-0005.csv.gz\",\"rows\":720394,\"indexRows\":720394},{\"file\":\"initialize-part-0006.csv.gz\",\"rows\":711695,\"indexRows\":711695},{\"file\":\"initialize-part-0007.csv.gz\",\"rows\":697745,\"indexRows\":697745},{\"file\":\"initialize-part-0008.csv.gz\",\"rows\":701413,\"indexRows\":701413},{\"file\":\"initialize-part-0009.csv.gz\",\"rows\":717106,\"indexRows\":717106},{\"file\":\"initialize-part-0010.csv.gz\",\"rows\":687845,\"indexRows\":687845},{\"file\":\"initialize-part-0011.csv.gz\",\"rows\":694791,\"indexRows\":694791},{\"file\":\"initialize-part-0012.csv.gz\",\"rows\":698913,\"indexRows\":698913},{\"file\":\"initialize-part-0013.csv.gz\",\"rows\":701283,\"indexRows\":701283},{\"file\":\"initialize-part-0014.csv.gz\",\"rows\":723125,\"indexRows\":723125},{\"file\":\"initialize-part-0015.csv.gz\",\"rows\":753457,\"indexRows\":753457},{\"file\":\"initialize-part-0016.csv.gz\",\"rows\":758096,\"indexRows\":758096},{\"file\":\"initialize-part-0017.csv.gz\",\"rows\":727450,\"indexRows\":727450},{\"file\":\"initialize-part-0018.csv.gz\",\"rows\":737152,\"indexRows\":737152},{\"file\":\"initialize-part-0019.csv.gz\",\"rows\":714746,\"indexRows\":714746},{\"file\":\"initialize-part-0020.csv.gz\",\"rows\":704481,\"indexRows\":704481},{\"file\":\"initialize-part-0021.csv.gz\",\"rows\":680378,\"indexRows\":680378},{\"file\":\"initialize-part-0022.csv.gz\",\"rows\":258485,\"indexRows\":258485},{\"file\":\"initialize-topup.csv.gz\",\"rows\":678}],\"indexRowMismatches\":0,\"blockMin\":25352561,\"blockMax\":52013613,\"priceable\":240054,\"priceableHookless\":238573,\"priceableWithHook\":1481,\"droppedDynamicFee\":3358960,\"droppedHookSwapFlags\":11734911,\"droppedMalformed\":0,\"droppedDuplicatePoolId\":0,\"droppedPoolIdMismatch\":0,\"droppedSameTokenAfterNativeMapping\":5,\"liquidityChecked\":240049,\"liquidityHeadBefore\":\"52013889\",\"liquidityHeadAfter\":\"52013944\",\"liquidityPositive\":82457,\"droppedLiquidityZero\":157592,\"droppedLiquidityCallFailed\":0,\"tokensNotInUniverse\":41404,\"tokensAdded\":41404,\"tokenMetadataFailed\":0,\"droppedTokenMetadataFailed\":0,\"v4PoolsBuilt\":82457,\"parseMs\":144519,\"liquidityMs\":110270,\"metadataMs\":39578,\"startupSyncPools\":128590,\"startupSyncStalePools\":0,\"startupSyncChunkFailures\":0,\"v4AfterPruneEmpty\":82456,\"v4AfterDepthFilter\":8612,\"minDepthEth\":0.1,\"msg\":\"v4 pools loaded from file\"}",
+ "shutting_down_line_verbatim": "{\"level\":30,\"time\":1790819838601,\"pid\":640,\"hostname\":\"vm\",\"ticks\":0,\"gross\":0,\"net\":0,\"simulated\":0,\"simOk\":0,\"sent\":0,\"landed\":0,\"failed\":0,\"profitEth\":0,\"gasSpentEth\":0,\"staleTicks\":0,\"logsApplied\":0,\"touchedPools\":0,\"msg\":\"shutting down\"}",
+ "last_heartbeat_line_verbatim": null,
+ "log_records": 18,
+ "log_non_json_lines": 0,
+ "log_record_counts_by_msg": {
+  "factory enumerated": 8,
+  "universe enumerated; resolving every venue per pair": 1,
+  "pool discovery complete": 1,
+  "v4 pool files parsed; checking liquidity": 1,
+  "v4 pool liquidity checked; fetching token metadata": 1,
+  "v4 pools built; starting the engine's startup sync": 1,
+  "v4 pools loaded from file": 1,
+  "searcher ready": 1,
+  "executor self-check passed (ABI \u2194 bytecode consistent)": 1,
+  "subscribed to newHeads via websocket": 1,
+  "shutting down": 1
+ },
+ "log_error_records_first5_verbatim": [],
+ "log_error_records": 0,
+ "outputs": {
+  "engine_log": "live-v4.log",
+  "engine_out_jsonl": "live-v4.jsonl"
+ }
+}
