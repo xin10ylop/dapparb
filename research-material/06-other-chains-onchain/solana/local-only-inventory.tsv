@@ -1,0 +1,1273 @@
+path	bytes	gzip_test	rows_or_lines	parse_errors	sha256	git
+data/jito-bundles-by-slot.parts/452084865.json	13419		1 JSON document	0	3236f5c8507965eca67a3d6471ae1e4ec5e80a9c6cff4850f28d2591e196a2c4	local-only
+data/jito-bundles-by-slot.parts/452084866.json	13697		1 JSON document	0	8fb681f9abf992b63889fd53d09b6380a6b69495f7240108a5e1d281eeed7e16	local-only
+data/jito-bundles-by-slot.parts/452084867.json	18597		1 JSON document	0	2171b6460b215f6c1bce6e6180f91092379434c78257c1ab56027a741590403b	local-only
+data/jito-bundles-by-slot.parts/452084868.json	9872		1 JSON document	0	69726cc8d9d6c6831fd0ac7f99adc0ee356be7807b60601b003ad70f53776cc8	local-only
+data/jito-bundles-by-slot.parts/452084869.json	8654		1 JSON document	0	91f6694c51621a0f9031d8eaa482095b288d8e8cce31f467c78b54024fc3f04b	local-only
+data/jito-bundles-by-slot.parts/452084870.json	28216		1 JSON document	0	6ff03898e3e5de9e988b2fcff4b30540e22c5f0c41ae05cea3845c196b617d23	local-only
+data/jito-bundles-by-slot.parts/452084871.json	20978		1 JSON document	0	0fef12118e1a9a0284d05f51f0b3d81f8efc055421c78c9656f1450143dceb39	local-only
+data/jito-bundles-by-slot.parts/452084872.json	30567		1 JSON document	0	003547936fe268b5df3320c14cf7fcc5aaf43ae8653f4566d7fbe7dc852bfe46	local-only
+data/jito-bundles-by-slot.parts/452084873.json	15822		1 JSON document	0	7a9fb90dbc0f43391f2d358fca6bed8abac65d382a34cf12ccba7bc9f0d571fa	local-only
+data/jito-bundles-by-slot.parts/452084874.json	13100		1 JSON document	0	7d0a9575fa843b1ace8ad1dd7a42c5cc3f6dd225c59a1bb15b7861e1e1fef012	local-only
+data/jito-bundles-by-slot.parts/452084875.json	25708		1 JSON document	0	80473d53125f5381d78404a691cf991eda4342bf20dac2b66be1fc8a97d8cd3b	local-only
+data/jito-bundles-by-slot.parts/452084876.json	6308		1 JSON document	0	01ce5e1a99423c8e8dd0aeddea3921eab9653b3f637bc0cc606c19078b2399a4	local-only
+data/jito-bundles-by-slot.parts/452084877.json	9380		1 JSON document	0	314e8272efc7d79455d11ff4d86ed5e96ba1bee49f890a4f06dc69882bb733cf	local-only
+data/jito-bundles-by-slot.parts/452084878.json	16178		1 JSON document	0	e8659b41064135c9857a946f969c0557a74bd92ae719b5a2754b070c41d4c866	local-only
+data/jito-bundles-by-slot.parts/452084879.json	16747		1 JSON document	0	7e03cca77b7441f6d3fa5434fab6c45457d186b132c50b44602fbdbc1d78486d	local-only
+data/jito-bundles-by-slot.parts/452084880.json	10751		1 JSON document	0	bcaf4fd0efab7a7323c6f97dbeea956bb3f17a1aa642e6c6270ae32f46d59cd7	local-only
+data/jito-bundles-by-slot.parts/452084881.json	20967		1 JSON document	0	a1fffcf02bae4aaa5f181152924e42ab2a10f9862bf72eb8e6681550ef527eab	local-only
+data/jito-bundles-by-slot.parts/452084882.json	21321		1 JSON document	0	222d5be8175436a9dd5f35db887aa3e7e4326e34fce64ffa9f7ad23fc9a62285	local-only
+data/jito-bundles-by-slot.parts/452084883.json	11890		1 JSON document	0	5a4bfe461fabe57e25778947aafa441a971196338ecece3d1b3b4fda38a505c1	local-only
+data/jito-bundles-by-slot.parts/452084884.json	30552		1 JSON document	0	1f95687c70a3633b0f6a76d25897e4fe1ef5518cdd12627fc925c3e74f4d1bcd	local-only
+data/jito-bundles-by-slot.parts/452084885.json	14550		1 JSON document	0	654e0d8de08b9dc1868c92af8dc83023d4b8be6d5ebab9bde28036f1e67a49f2	local-only
+data/jito-bundles-by-slot.parts/452084886.json	8539		1 JSON document	0	d32ad60a2747bab1f6da0e9aaea3edd05c710622aa2b1e272eb2ddb2d4cd0d49	local-only
+data/jito-bundles-by-slot.parts/452084887.json	11577		1 JSON document	0	a69903087010164e94d2904ff9b8ecd59b6888f605107ac4aeff64cbc5c423a5	local-only
+data/jito-bundles-by-slot.parts/452084888.json	16508		1 JSON document	0	da1bd4ecc564a78cbe2765819ae898db46fb0c01007d09d370fcc97944e6d858	local-only
+data/jito-bundles-by-slot.parts/452084889.json	12091		1 JSON document	0	d792826f58d65fc67e169beac6c56c5c1e5b0082b6aedace1aa28ab64ad18284	local-only
+data/jito-bundles-by-slot.parts/452084890.json	8514		1 JSON document	0	4ed99bcbc617cd2ea9da1a5d2d4c71feaec7ce169da972e97b5f8a244553fc37	local-only
+data/jito-bundles-by-slot.parts/452084891.json	16970		1 JSON document	0	b44e46e2027ed6c37911e97296734da51c35fd15f1bed099c59aaea7ae578d58	local-only
+data/jito-bundles-by-slot.parts/452084892.json	11434		1 JSON document	0	a4be6718e49c9a3256745dbda120655aa713c07ff0c8a5f37e68a94baab4c2d6	local-only
+data/jito-bundles-by-slot.parts/452084893.json	13595		1 JSON document	0	d2765c1cc532f6fda13bc15a21dc1b7b6b478629c7520c046e70be94c2c2478e	local-only
+data/jito-bundles-by-slot.parts/452084894.json	15275		1 JSON document	0	17169ad3f9b1d055e7f9233c4ce7ad4339c78ae991b9d0de8f289c14ec75c4f4	local-only
+data/jito-bundles-by-slot.parts/452084895.json	8071		1 JSON document	0	ab4c986909d834c0c34bd8120b7c7e4c10662f13d69f146952f929f0dd46eb00	local-only
+data/jito-bundles-by-slot.parts/452084896.json	12778		1 JSON document	0	7b95cb543d21fa2daa8b957a4eac66d986baf1f9a1132dfcef7567a82ae38e96	local-only
+data/jito-bundles-by-slot.parts/452084897.json	10830		1 JSON document	0	f4601b4e824991a0b563f824047b3db6850ac4fab274cfb43780fe12c3a1e9bf	local-only
+data/jito-bundles-by-slot.parts/452084898.json	9908		1 JSON document	0	acdc5d7eed0c237dc50d2b886cee7ad2e72a6fe2ade79feed15368ab46469013	local-only
+data/jito-bundles-by-slot.parts/452084899.json	10830		1 JSON document	0	54e3c48e245f8f12d03038053594eba13f96a50f04b35149e395588f827ffb79	local-only
+data/jito-bundles-by-slot.parts/452084900.json	5550		1 JSON document	0	3a652011e2704996c32b40e4a83746c3b566e5b587d30d10df4dabdaabd8597a	local-only
+data/jito-bundles-by-slot.parts/452084901.json	15577		1 JSON document	0	5c3db685600aca8e7796bd740f886671e814768df0eb324bbc6d1305d264f95c	local-only
+data/jito-bundles-by-slot.parts/452084902.json	9659		1 JSON document	0	077d60e685cd3f86e53ff6ae95df31f64e5cb2c262ce74eaf59bd544f129de47	local-only
+data/jito-bundles-by-slot.parts/452084903.json	20316		1 JSON document	0	58ffc278dedddd39dc2ff448f76c872b2f0b2b2077f2fd964439294bd2ebe4a2	local-only
+data/jito-bundles-by-slot.parts/452084904.json	18846		1 JSON document	0	f69da14f23a08366d82a4abdf1c9a86724ba5b50df50b902b3dd7f7ba44c1685	local-only
+data/jito-bundles-by-slot.parts/452084905.json	27963		1 JSON document	0	bfaa31043c196fdae5ccb10c436de803afedc65f1f046f89d11d2056a65b373a	local-only
+data/jito-bundles-by-slot.parts/452084906.json	23253		1 JSON document	0	ee3be39d981e917dfd298dbda0d61429f3be307a255c9c7a54cf5bd6a312f498	local-only
+data/jito-bundles-by-slot.parts/452084907.json	28688		1 JSON document	0	4301a81285e102a31043e5cc9132b7db94b94f5070b690214e55499542e8da60	local-only
+data/jito-bundles-by-slot.parts/452084908.json	29511		1 JSON document	0	e148ce1bd11c5f87af192e732b57399b72c556302e287b2ace96a17eb993c432	local-only
+data/jito-bundles-by-slot.parts/452084909.json	26727		1 JSON document	0	7e5d62e6ab815e1dc4f139a66f4c72511e6e2a2da157a0b9b4cca2f91ea5fc84	local-only
+data/jito-bundles-by-slot.parts/452084910.json	36351		1 JSON document	0	1c437a405e4090c9fe63cc89b5c5c7cb3ee6367eed5a3c4e74a5687c75924b99	local-only
+data/jito-bundles-by-slot.parts/452084911.json	23075		1 JSON document	0	491ec89e3eea3b73af328ca90794cbbf8061f6650676f2e2f2d33379036ff016	local-only
+data/jito-bundles-by-slot.parts/452084912.json	5123		1 JSON document	0	5239a71fc6d03dc4619b2eaa921f472237bd0776661bdcdc7d87dd139f17aa03	local-only
+data/jito-bundles-by-slot.parts/452084913.json	5442		1 JSON document	0	9cd5206ac9e22bda4e5eb0a87a719731e6589e3b963f6cb0f921d9d0c0d876d7	local-only
+data/jito-bundles-by-slot.parts/452084914.json	6190		1 JSON document	0	4305546e5a45453c34f71404de7070d04011ef697330993aace820376ee0fd79	local-only
+data/jito-bundles-by-slot.parts/452084915.json	8656		1 JSON document	0	4d9495c81754c61c1bb4ac2fb3e2c9e319bda05d7e83d71479271f652683bc70	local-only
+data/jito-bundles-by-slot.parts/452084916.json	5695		1 JSON document	0	ba3adf2eeda98bc737ff2be168577cebb9b166c125e1f19f87754e406184d6e7	local-only
+data/jito-bundles-by-slot.parts/452084917.json	17916		1 JSON document	0	9dcee1f574c54a4ebb2575e4051da1f1e13cb9e1fb2bf41cf8ab22b56d607a91	local-only
+data/jito-bundles-by-slot.parts/452084918.json	25617		1 JSON document	0	585b0d3fe67c9d2c177fa70ab674051e8751007982ef0a9eeea1ee504a801153	local-only
+data/jito-bundles-by-slot.parts/452084919.json	11651		1 JSON document	0	9efba8ec225014ba2640be4bf02f57d2ec179574f9ad4b5ac1a396bf600aa0a1	local-only
+data/jito-bundles-by-slot.parts/452084920.json	6285		1 JSON document	0	565cc46db8498a5b14c0d05c60a0e43e4b4bd78eb885ca98f1aa0401859c4529	local-only
+data/jito-bundles-by-slot.parts/452084921.json	5771		1 JSON document	0	0ef01982f35d3b7cbc03e9314226a0f88a4fa476700d1e50179219bfd311f2e7	local-only
+data/jito-bundles-by-slot.parts/452084922.json	9747		1 JSON document	0	0caaaf7741f09407b779dd413e16d4bad71c1a291e2e2438f4e32eaa1ac2e6c9	local-only
+data/jito-bundles-by-slot.parts/452084923.json	5811		1 JSON document	0	59d36f37e00dab8496b6ceb1e269274fce687f9410eb2a37c413add337a6bc82	local-only
+data/jito-bundles-by-slot.parts/452084924.json	11860		1 JSON document	0	04cd4257672a01ccb7c19f6d63d6b00cff0b227f126d5a91ded2759ef50dcfbd	local-only
+data/jito-bundles-by-slot.parts/452084925.json	26399		1 JSON document	0	20ba5c0e14c70245b47b4947418652abbe6276101524ec63927d15186af54040	local-only
+data/jito-bundles-by-slot.parts/452084926.json	21672		1 JSON document	0	a780b78329619a6e4f013fa6fcce986bf9341c9b6c154d57131b6750b511dd34	local-only
+data/jito-bundles-by-slot.parts/452084927.json	19446		1 JSON document	0	bd61c47f445c20d3cc085650796f202140bc22d363454758476f746eca43a9c2	local-only
+data/jito-bundles-by-slot.parts/452084928.json	6347		1 JSON document	0	ac6e191531511f0fbe53ba68b5295248c7199ff1d102a6df4bc176007383b8ac	local-only
+data/jito-bundles-by-slot.parts/452084929.json	13774		1 JSON document	0	c38d6e130d41cb35d657344dc914dbd09291a5c3388381dabd5fd0294746c37c	local-only
+data/jito-bundles-by-slot.parts/452084930.json	16302		1 JSON document	0	d316d4e203d335a8224d6e061faa3492779c373016c2905a967c0530a3715c1b	local-only
+data/jito-bundles-by-slot.parts/452084931.json	12524		1 JSON document	0	7edd89eebfe50cb1241ea28fc6df2da0890ed9e094caf32d7164cdd2339827ab	local-only
+data/jito-bundles-by-slot.parts/452084932.json	5872		1 JSON document	0	b6cd02dd3ecba2412a9fd5911f763d654e2f1ca787a96ba38dda6c2b50d7e83c	local-only
+data/jito-bundles-by-slot.parts/452084933.json	13594		1 JSON document	0	17e23f6f9b850ac63164ddfa10b00c79b8205aecb9ee5282bccac00a32fea6d4	local-only
+data/jito-bundles-by-slot.parts/452084934.json	7216		1 JSON document	0	f2ff88bf649f5ed1880c665da21bc800efa0b91b9ec12b6fb8798af23f09737a	local-only
+data/jito-bundles-by-slot.parts/452084935.json	11593		1 JSON document	0	c71e6323ca69576b2076078ef956d3fcbe4aca0a826e2ddd90b4517db1316292	local-only
+data/jito-bundles-by-slot.parts/452084936.json	33634		1 JSON document	0	ba6bdc821f2a5b06eb360eabb30c8fa9800ac67413ebc394441bf392be7a6fec	local-only
+data/jito-bundles-by-slot.parts/452084937.json	9330		1 JSON document	0	d9985715bf52a17c089f2bc2b4e7d7c96ba5ce35932339731946106d9c95059b	local-only
+data/jito-bundles-by-slot.parts/452084938.json	11499		1 JSON document	0	3207f0a2591b6f8f4ba40c45232a0be0cea248b32ef8a3f6cee1d29164c5c3c1	local-only
+data/jito-bundles-by-slot.parts/452084939.json	8899		1 JSON document	0	48120b1de272a238e09cdb4cf58ec6cc98dbaf74551fdac93ff01b63e5949f35	local-only
+data/jito-bundles-by-slot.parts/452084940.json	22127		1 JSON document	0	0dfdb30c8129749bd080bcec62162d1b15d83ca2db4cb36dce286fa1a6ea62d5	local-only
+data/jito-bundles-by-slot.parts/452084941.json	35538		1 JSON document	0	d5a8f29769cb8d29cd098db7ffef6d9ac3e8ed480abd08f5871021f6bbeea648	local-only
+data/jito-bundles-by-slot.parts/452084942.json	32306		1 JSON document	0	23de13527a0ffd5f1da86e60534212c1ee6c4384aaf19e43088e3103f5efb943	local-only
+data/jito-bundles-by-slot.parts/452084943.json	24602		1 JSON document	0	d91d137d26d9d33f81fd740a67cd64e24dd1e2c4170004fed3fe79e85cd6b564	local-only
+data/jito-bundles-by-slot.parts/452084944.json	8215		1 JSON document	0	7b343907f35ae2aa78f0e6dc808837178b11b717056309684f926c9ff59a6f1a	local-only
+data/jito-bundles-by-slot.parts/452084945.json	8547		1 JSON document	0	8dda1bc0b395ff9475ec8702b0a37c69dce0587665f6bc52a694d6b9734eca7b	local-only
+data/jito-bundles-by-slot.parts/452084946.json	6663		1 JSON document	0	1c88d7b7a58d3e37475f1db447769e940a00db60fc7f64202275aff343af63d1	local-only
+data/jito-bundles-by-slot.parts/452084947.json	6994		1 JSON document	0	741702b4bca1bb282f93db4615a9b99b819c77a1b406c68cce69424d73bcc496	local-only
+data/jito-bundles-by-slot.parts/452084948.json	7842		1 JSON document	0	0bd9ff49e5d47fda52caba4930f8c328780a37ee354f34de51728a329f03ec70	local-only
+data/jito-bundles-by-slot.parts/452084949.json	14879		1 JSON document	0	8ac5eeefdf906f7536209660e2baa176d6653b1a0ce4b872e309acf6365c1a7f	local-only
+data/jito-bundles-by-slot.parts/452084950.json	19975		1 JSON document	0	b4720fdfa3dca5e2358ecce7421472f0ad2575ab6d26a0be04162a8638c23781	local-only
+data/jito-bundles-by-slot.parts/452084951.json	20506		1 JSON document	0	ec84b0c2039477682db4acc9653fdcb9af112d9198bc5203ba202c8c8c984fbc	local-only
+data/jito-bundles-by-slot.parts/452084952.json	1848		1 JSON document	0	e3f92c449408b4318f10de889eb50fca4a5c87e2b3a9e38baa8c3d3d700ae996	local-only
+data/jito-bundles-by-slot.parts/452084953.json	39076		1 JSON document	0	21017eedc184c4bbe6ea6c387603f217038b5831c03113ea4f45eff296e41ca2	local-only
+data/jito-bundles-by-slot.parts/452084954.json	32516		1 JSON document	0	45cfe9c9613b6f467752b8fc374623d033e62beee9eb95578a6091f79a2a1c28	local-only
+data/jito-bundles-by-slot.parts/452084955.json	35877		1 JSON document	0	5a696f24958b9d43fc1fe1477d5c868b5860676c2d832a450740f41834a39be9	local-only
+data/jito-bundles-by-slot.parts/452084956.json	3303		1 JSON document	0	23810be77cd9735650e29ed7e5375f1a09db911af2e2e57996b7277d16e0e25a	local-only
+data/jito-bundles-by-slot.parts/452084957.json	11275		1 JSON document	0	40b656e6fcb472723ad9c5efd8d04a7aca066d6782927b23112fe1dadeb2d036	local-only
+data/jito-bundles-by-slot.parts/452084958.json	20959		1 JSON document	0	b9c52d41431eb027bf512b97c3fa2a694512fb2f61ad7e52f40e465c1c0c23bb	local-only
+data/jito-bundles-by-slot.parts/452084959.json	7142		1 JSON document	0	0d378ccab607832302e90573ee70e009f02e54163d12a29794c3dea1511452b8	local-only
+data/jito-bundles-by-slot.parts/452084960.json	37519		1 JSON document	0	21b5022f539955c6918e8d1ca5a429558b840d5f9b05a30f61aff8cfc8952b6b	local-only
+data/jito-bundles-by-slot.parts/452084961.json	22687		1 JSON document	0	60f47dc3e2df4fdd79d6f4bf0208b8db2af000e875165653e0bc22495d6e1abc	local-only
+data/jito-bundles-by-slot.parts/452084962.json	21436		1 JSON document	0	36497826ca7952e3a19327bde4083c297e8c6dbaaf9bfa37452c0c28404cccec	local-only
+data/jito-bundles-by-slot.parts/452084963.json	18014		1 JSON document	0	e8dbac0f7cce0273ec42700ee903db7d3255526b54146e6399027054d45e7b17	local-only
+data/jito-bundles-by-slot.parts/452084964.json	7966		1 JSON document	0	5bd82ecec06b8cba7204238d1c909f1ad7272a595567199a0fdbee7d43b64594	local-only
+data/jito-bundles-by-slot.parts/452084965.json	4972		1 JSON document	0	b7b0a2c12c188186d0178d52a076060d34f160278cce4420f90a3b60980e1e63	local-only
+data/jito-bundles-by-slot.parts/452084966.json	6890		1 JSON document	0	cf0cb42924d76ccaada553c597cde18943980bcf22f075ce4bd3553d9366a720	local-only
+data/jito-bundles-by-slot.parts/452084967.json	8788		1 JSON document	0	95d4c1c29699485b9dfb4d136b7ba138fc4b75bf3a85c9d10b22cc2208dfe282	local-only
+data/jito-bundles-by-slot.parts/452084968.json	4984		1 JSON document	0	5215ee8760a7aceda94fd5536ab95114f412f1c06ca13577a876bbb44b9f2aa7	local-only
+data/jito-bundles-by-slot.parts/452084969.json	7292		1 JSON document	0	19462d06d382efea75c95bb42af560eb711552cbff4e1c7c90da2dcf6cee4f36	local-only
+data/jito-bundles-by-slot.parts/452084970.json	10853		1 JSON document	0	6290f473fbdc72199c91ed83e908a611ca619d397811f7af8fa52cba5f831bcd	local-only
+data/jito-bundles-by-slot.parts/452084971.json	11319		1 JSON document	0	db0c1ccdd0eec5541d3ebd1fd767cfba92028e6096d2bd4674cf294599b1d64f	local-only
+data/jito-bundles-by-slot.parts/452084972.json	2788		1 JSON document	0	dcc084da5603ad7ba3bf0ece9455bf75e6ff8e0616ea924b46e9663ee13498ff	local-only
+data/jito-bundles-by-slot.parts/452084973.json	6445		1 JSON document	0	ee331f107fcf57f117e259c7362b229bb780cc45368275da2cd9b0e8cb3b0198	local-only
+data/jito-bundles-by-slot.parts/452084974.json	3721		1 JSON document	0	d49d6b3db0dd5e713b4a80bd287f68a17f5909a2450d1816ce1f0388b905b234	local-only
+data/jito-bundles-by-slot.parts/452084975.json	9076		1 JSON document	0	ff6e570884abb0bf202ce9873fcdf0232e8ec3242c17383f6c9791d0815867c1	local-only
+data/jito-bundles-by-slot.parts/452084976.json	8232		1 JSON document	0	7c2ec8680f8c48798d3c457066ede28671cdc2940927b015c9caa9875eb76f3f	local-only
+data/jito-bundles-by-slot.parts/452084977.json	6294		1 JSON document	0	81feb826244ca900697b4e30a301b4287e42323345afe72e2756e311d49de762	local-only
+data/jito-bundles-by-slot.parts/452084978.json	17584		1 JSON document	0	a1afbddaace446d524a5a896a9fc6da5f20b29933c6b5485c7b9356fc0802ffa	local-only
+data/jito-bundles-by-slot.parts/452084979.json	14462		1 JSON document	0	ce570026f877363b64336e968fd9bafcc1713c4a54a39d3f2d80ca58d9a36fa9	local-only
+data/jito-bundles-by-slot.parts/452084980.json	4472		1 JSON document	0	4c058bad5068857e615ac45cac13a8fb627c21c28aa5069e71e41920e658ff05	local-only
+data/jito-bundles-by-slot.parts/452084981.json	10547		1 JSON document	0	da0794708955d989c826fa226dadcda0997d570e6ed23d202c6a9b2cf293fefe	local-only
+data/jito-bundles-by-slot.parts/452084982.json	8265		1 JSON document	0	e153b1192e5bcbe4d60dfb28a886a2e2ed05870878d8cb66ba5d5be2995b8faa	local-only
+data/jito-bundles-by-slot.parts/452084983.json	9165		1 JSON document	0	28c61b2f33b4f5a3e1a8dd10aba43654178d49f64b5f79130c034557d0b307c1	local-only
+data/jito-bundles-by-slot.parts/452084984.json	17412		1 JSON document	0	a3e2b0173a8d5e33b99116a84d596a66ae7cd7b03453d247d814686e10b5326a	local-only
+data/jito-bundles-by-slot.parts/452084985.json	6463		1 JSON document	0	a9a38fc62e550682929fd9bc64472591241634eef498c77367354eeb9a2e2e77	local-only
+data/jito-bundles-by-slot.parts/452084986.json	10972		1 JSON document	0	6b8bd93d26dd96e7e77bf4b56f5c568f516356e0a0ed6f13b6b7025b5ab616c9	local-only
+data/jito-bundles-by-slot.parts/452084987.json	7042		1 JSON document	0	458470c8d471300e3ae2bf09a74b6f6cfd341f8e0df4580f123a22fefd4c1ff6	local-only
+data/jito-bundles-by-slot.parts/452084988.json	40801		1 JSON document	0	87a48191bef21dae4fa6f937d23d769bfeed14b0e171e8f4c98bee7f9ac5014b	local-only
+data/jito-bundles-by-slot.parts/452084989.json	32717		1 JSON document	0	ea5e2fa79c04f6062af0c8342f568aba3642089db0c6920b43131eafb76ce27e	local-only
+data/jito-bundles-by-slot.parts/452084990.json	30128		1 JSON document	0	cc138c7e781f151cb15ac39cc0349481edc57ceff2d03dcc6637e54fb6c67af7	local-only
+data/jito-bundles-by-slot.parts/452084991.json	29059		1 JSON document	0	c900f55a4ed91768b2d3fe8ec510b70c29de405708ead1d9a8cd7e870ef45d92	local-only
+data/jito-bundles-by-slot.parts/452084992.json	12202		1 JSON document	0	911df3182aa3c32ab334cb543037287a307fc86710b54478e786569ed4773b49	local-only
+data/jito-bundles-by-slot.parts/452084993.json	7544		1 JSON document	0	34f1d52e41dd74756e47ebcf1e6991d6e49c31b063cecf4f63f175a96efb45f7	local-only
+data/jito-bundles-by-slot.parts/452084994.json	14146		1 JSON document	0	7ffbc344f48704e1feb0efa49646e93c06ef43d043866fa89a6e66950cfc915f	local-only
+data/jito-bundles-by-slot.parts/452084995.json	20875		1 JSON document	0	3f6fac7c90ad9104266388a071952edbcb94e262620041caa5477d9a2e734c42	local-only
+data/jito-bundles-by-slot.parts/452084996.json	28798		1 JSON document	0	5655ab245d1b009827379eec281357effe974f1146f5702f2ac7d9ac5d75cd0a	local-only
+data/jito-bundles-by-slot.parts/452084997.json	10666		1 JSON document	0	9c282e366122862d88bf094a008066381bedcb8ba518817cb88a41db210e4a8a	local-only
+data/jito-bundles-by-slot.parts/452084998.json	12183		1 JSON document	0	93e3e9093cf813496b16e07285aa014334dcbefa16ec92668582e8817dcf00a2	local-only
+data/jito-bundles-by-slot.parts/452084999.json	14060		1 JSON document	0	13dd054cd244a5f922b19a93facef6550c9abe4bdae5d24118f8b6eea5ce5e2f	local-only
+data/jito-bundles-by-slot.parts/452085000.json	5421		1 JSON document	0	b75b37dad7db2545e3ea32e1e4d0dfa89cc3d0afa317ef06d632ce8b2bf1dd88	local-only
+data/jito-bundles-by-slot.parts/452085001.json	16111		1 JSON document	0	0f18441496017e65c7cefca396ee61be3907ccd51550b5e344e0b1976567db0f	local-only
+data/jito-bundles-by-slot.parts/452085002.json	21613		1 JSON document	0	b862737ffde4a40bebd08729e80db183bffa2d1997c28adbef23c17da9553a85	local-only
+data/jito-bundles-by-slot.parts/452085003.json	11924		1 JSON document	0	2cae47a72b55afb8fdabc865e99c6025a38b15aa198877fad32cb287f4fada40	local-only
+data/jito-bundles-by-slot.parts/452085004.json	24484		1 JSON document	0	c69840e8c3c182c098cad02aeb3aad4c9bfe9b3340ceeb40efdcacc899332e38	local-only
+data/jito-bundles-by-slot.parts/452085005.json	17241		1 JSON document	0	acb8a4b733f972f16896e3f72acad1f2063bdca0b65c92c8ab18429f67b3bbba	local-only
+data/jito-bundles-by-slot.parts/452085006.json	17678		1 JSON document	0	b7810dcad71ef0b21ff2829a4cdc30b1d35e2955ebfcd3693161717de6d253bd	local-only
+data/jito-bundles-by-slot.parts/452085007.json	20745		1 JSON document	0	069fd9c395edc0515afa6bb81d62ae3a47573926843abc83a75bc8f2b04173b6	local-only
+data/jito-bundles-by-slot.parts/452085008.json	17185		1 JSON document	0	254258ef6524ea7b9e9f8ca2d78e95546d3aa51f8a2f9c034fd2cf07dc279af1	local-only
+data/jito-bundles-by-slot.parts/452085009.json	21579		1 JSON document	0	1d6ec08f47c31478a0ed1c4ef563979531cf0c61701e3bba11c6b807ffa126c7	local-only
+data/jito-bundles-by-slot.parts/452085010.json	20018		1 JSON document	0	807c2901e74cac5449100d4badb61f63368844c71b54d3c75b5a284d6d4ff5a2	local-only
+data/jito-bundles-by-slot.parts/452085011.json	13320		1 JSON document	0	26d63125e4e63e70b863f6346cd7e848a008b5110dd2bf3c64be8ce49f9eeb73	local-only
+data/jito-bundles-by-slot.parts/452085012.json	6813		1 JSON document	0	b6325164b00985aa86eb901405bb6ced884f0ea1db2a5ab79cc082c79f1a52eb	local-only
+data/jito-bundles-by-slot.parts/452085013.json	9941		1 JSON document	0	e6b51ee73b8e14c2d6a8f34b89dad2881edf3195f2fd152d27019633baa7fe56	local-only
+data/jito-bundles-by-slot.parts/452085014.json	14705		1 JSON document	0	cfd68453be0aa106c2e35ebe8809025a155bed8f30f66848e0f2360b86472471	local-only
+data/jito-bundles-by-slot.parts/452085015.json	11788		1 JSON document	0	9e0af0b84fc89c4fc50ff72cbd1bc6ac1fe133919e2c1eb3e5719f904bd4a566	local-only
+data/jito-bundles-by-slot.parts/452085016.json	17904		1 JSON document	0	84fe2fdfdb91ba743e68c4017f43b9ec0505ed00d6c8cf9ceeb5d9918b8e6ad0	local-only
+data/jito-bundles-by-slot.parts/452085017.json	9695		1 JSON document	0	d1b7722e3ef055881fc011769f4d83665c985407cc96bd1576ee15c17de9a215	local-only
+data/jito-bundles-by-slot.parts/452085018.json	9183		1 JSON document	0	7b1fc800053bc69c0a7744afd428aae7f4d445b56742e2586ef4ac5474584c05	local-only
+data/jito-bundles-by-slot.parts/452085019.json	13247		1 JSON document	0	ae7e191293c689747f2a2497775e5de0e079058368f7d38b5cfd0da0344d54f3	local-only
+data/jito-bundles-by-slot.parts/452085020.json	10781		1 JSON document	0	c8b928a68ba72819e8ca83ff1b88f5f61e38bec6823b1d214fd954a99c078e0f	local-only
+data/jito-bundles-by-slot.parts/452085021.json	4473		1 JSON document	0	654ac75f9b4bdb309b0ef50bf13844d0cab69b3943fa6ad0076eb74cb2754172	local-only
+data/jito-bundles-by-slot.parts/452085022.json	3535		1 JSON document	0	e62d92fede0238c5001e8cb532cc7b403eae8dce2132cd24ff0d2850c0829cfa	local-only
+data/jito-bundles-by-slot.parts/452085023.json	18004		1 JSON document	0	312c5e92198aa72366a3c8ccd857ca71e8d9d630646f2f070f6eb8fc3e56119c	local-only
+data/jito-bundles-by-slot.parts/452085024.json	1275		1 JSON document	0	822a3b267586a3ac89f2b415144cf3b9d6ff94000af9340d277a1971193c4563	local-only
+data/jito-bundles-by-slot.parts/452085025.json	17064		1 JSON document	0	4ebb5276efe54e8a43d4408650058906d2357fb80aeef9a66ee49e8b15b47c2a	local-only
+data/jito-bundles-by-slot.parts/452085026.json	6655		1 JSON document	0	76a468cf7137ea55d7f43e4162e64a98457c9b05d0b7ce9c4c34909c9b4dd04d	local-only
+data/jito-bundles-by-slot.parts/452085027.json	6744		1 JSON document	0	ab1da3d218b246560cdfe6b9a9db517a7022b7f313d91ecc9f0dec73dea7ee24	local-only
+data/jito-bundles-by-slot.parts/452085028.json	19486		1 JSON document	0	2db267745ac2ffec3e90568b4d834a8ba293f1a0fe6313d14ae1da8c40a4ebe3	local-only
+data/jito-bundles-by-slot.parts/452085029.json	12645		1 JSON document	0	97e0f6ec360ced9e35bf2b8b0158b188cd551d94cef1e458240911a5947d6cda	local-only
+data/jito-bundles-by-slot.parts/452085030.json	6560		1 JSON document	0	abb9411bbf64f1c6d38843bc05bf780b38816fe3e0dcbad6a0c58da914a4242d	local-only
+data/jito-bundles-by-slot.parts/452085031.json	11148		1 JSON document	0	43b363de91984b977e00283f7996fffb8a495f0e6dea9baa2eb8d7e9ca2f9f86	local-only
+data/jito-bundles-by-slot.parts/452085032.json	5820		1 JSON document	0	858256c673fd2d18f88c3c4eec9a8db36dda4e0621b02cadd3cd51226b402f6e	local-only
+data/jito-bundles-by-slot.parts/452085033.json	14561		1 JSON document	0	8f4ae3805cc63f719f957f238528c6741a6a2554a1fb24f276e9cde2939592cc	local-only
+data/jito-bundles-by-slot.parts/452085034.json	14129		1 JSON document	0	9ee19ddd393e4de99f2b6b01fedc487aa59b105d485c2d5c29a8d92829331816	local-only
+data/jito-bundles-by-slot.parts/452085035.json	13673		1 JSON document	0	4198e966023384d31043fb809497fee51f33144d3292c81b92010b3eaba5e8e8	local-only
+data/jito-bundles-by-slot.parts/452085036.json	25401		1 JSON document	0	5960266107f0f8b026add8747352010c6ac041e99d73a8dc140a4516bb4f3644	local-only
+data/jito-bundles-by-slot.parts/452085037.json	22819		1 JSON document	0	8f6d06118ade2e35652405460ff7b8735d039c3ac5c3538ca6101f057bf4281d	local-only
+data/jito-bundles-by-slot.parts/452085038.json	19444		1 JSON document	0	e22c4d7cba15f0143c5e595ead2e76573a81471d2b426fbed8046ccd3ee2ae83	local-only
+data/jito-bundles-by-slot.parts/452085039.json	14876		1 JSON document	0	5a7506e48d56dd2d1d44c47258de58ff6876acd167d02cc36f6c599fbd9fe193	local-only
+data/jito-bundles-by-slot.parts/452085040.json	14823		1 JSON document	0	69ee052dd39e7757c3aa0e2d54b84a7ca91aaea56fe92de7ddec3664fa190929	local-only
+data/jito-bundles-by-slot.parts/452085041.json	6583		1 JSON document	0	036cb3671f28065a0ba173433ee01f29fd16addeb0cd3b3c34be00cb718d4aa3	local-only
+data/jito-bundles-by-slot.parts/452085042.json	26481		1 JSON document	0	b3a419b53f68926a6be21666d8aa5e31161c59bf8312e8ba1c39845c4206e5e1	local-only
+data/jito-bundles-by-slot.parts/452085043.json	3115		1 JSON document	0	3d8f3f524e641f5229fac920a7f6952a2591c157ed96935b2376477d44257719	local-only
+data/jito-bundles-by-slot.parts/452085044.json	4144		1 JSON document	0	5da2d6287bbe014d837e2c57430a24c9c394b0712b50f2ed159d79d4c03d787b	local-only
+data/jito-bundles-by-slot.parts/452085045.json	3394		1 JSON document	0	e49a6da884409b17f79331b1be82c4d107d60969688b19a69cc6fb80df9b8829	local-only
+data/jito-bundles-by-slot.parts/452085046.json	8806		1 JSON document	0	3c04a0c309eb5add244eb30d6c1caae2ceba4baf71f1e21cb2e166e17ef7f995	local-only
+data/jito-bundles-by-slot.parts/452085047.json	8984		1 JSON document	0	0d40aa1c27a1a078e651433ff2caedfd1e19cf72f5bc8f67429048408ccdce95	local-only
+data/jito-bundles-by-slot.parts/452085048.json	1002		1 JSON document	0	394025c90e930fc9090310245085d534d8880ee191bc42bfa4d879eba5dd2046	local-only
+data/jito-bundles-by-slot.parts/452085049.json	182		1 JSON document	0	b8b693fb731960876d6bc38bc974f5f0517754c0c62b09db70bf591c73dd7c9b	local-only
+data/jito-bundles-by-slot.parts/452085050.json	182		1 JSON document	0	bab9f46d5321de6598a659903c5af958101a81677febc57c918d3e6028b6a312	local-only
+data/jito-bundles-by-slot.parts/452085051.json	182		1 JSON document	0	dddcfd840732efb3294ef1cd8db298bf00276a950667bb78cf1dcbaf95ae3607	local-only
+data/jito-bundles-by-slot.parts/452085052.json	32415		1 JSON document	0	b7a269f5409a73c914491ad590149fe65d23f1e8ee7cf5015a765ff72ff56b28	local-only
+data/jito-bundles-by-slot.parts/452085053.json	37819		1 JSON document	0	abac8af323a0648fbed5a72f07165797180c69f2d5ab55aa9c8171bbeb5896b8	local-only
+data/jito-bundles-by-slot.parts/452085054.json	50655		1 JSON document	0	6e29cd7417cde962f5844ece389ec308a9b4c456fcf9b95e4bb417d9da1c704d	local-only
+data/jito-bundles-by-slot.parts/452085055.json	47950		1 JSON document	0	2cda16e3451a39d2b24230cb3ce2fb68a9edab5efa85e982af13b622d87e30c4	local-only
+data/jito-bundles-by-slot.parts/452085056.json	37932		1 JSON document	0	e6a53d8c298284047ec26c3d1425036b071811869cd785b9d2a9216d7cfeb140	local-only
+data/jito-bundles-by-slot.parts/452085057.json	35870		1 JSON document	0	875498a1c0e3fb84a0badf788e6778041a2c6d776b6fc1a7b92fd63d84accb7f	local-only
+data/jito-bundles-by-slot.parts/452085058.json	33823		1 JSON document	0	79b01f216823652f5267171b9b3630a8bf26d1b742597a20583b70aa467746b8	local-only
+data/jito-bundles-by-slot.parts/452085059.json	36346		1 JSON document	0	fd9677890681db8be8d85a19613eec47496907945df23477f88884e0540e87bc	local-only
+data/jito-bundles-by-slot.parts/452085060.json	23928		1 JSON document	0	95e7a5cd559985b3a57e3c755980bac4627d5e64094eb504621fdbccb9e4fa0c	local-only
+data/jito-bundles-by-slot.parts/452085061.json	15722		1 JSON document	0	c8137b10b5d5c8a8fb780598e41dfd5b20cc80c4873383c868074e6a486bf8d4	local-only
+data/jito-bundles-by-slot.parts/452085062.json	9722		1 JSON document	0	d9f423da68798ef63d38626246245f9ca7b8c985b037a8ab1da865198c9c69ec	local-only
+data/jito-bundles-by-slot.parts/452085063.json	9110		1 JSON document	0	1e62eeb661d9d354a99b23c55d34da2afad710522a8ba7a9b625047a43c78baf	local-only
+data/jito-bundles-by-slot.parts/452085064.json	2548		1 JSON document	0	a4a94b59ccd1e34e01c8ce067488650ff2240de68a03a33010df1788a2e6ad2d	local-only
+data/jito-bundles-by-slot.parts/452085065.json	7601		1 JSON document	0	5aeb31003138ce27cf799c2d4991c17c19de35b5fc85143afb9d4516ceaba2b0	local-only
+data/jito-bundles-by-slot.parts/452085066.json	7508		1 JSON document	0	23ef6ea1a21ad67396a34d3931c1f9d6db89138f763812c0c67b18f8297425c4	local-only
+data/jito-bundles-by-slot.parts/452085067.json	11452		1 JSON document	0	2fa3198c183cf4091939a20cf91def8ab5cb5e5a5a82d327f31e39bda0f2dc6d	local-only
+data/jito-bundles-by-slot.parts/452085068.json	50710		1 JSON document	0	a46df2057eed658df78174498899bcb58e2b6b6aaa8c4f33f55ca14cd1010f45	local-only
+data/jito-bundles-by-slot.parts/452085069.json	23550		1 JSON document	0	1c833628f4f9e82f6e6a59ed78be19d7f01f5b476812b58b84504bc0bda357d7	local-only
+data/jito-bundles-by-slot.parts/452085070.json	19269		1 JSON document	0	6f7d2c4baef412a897a2c3f7f92d94ed2ebd183236a5e46bf0a9c41f1f55ce51	local-only
+data/jito-bundles-by-slot.parts/452085071.json	13618		1 JSON document	0	a48ce3977e10eaf53398298af72cad2343071ef50e1e2f7190f90118dc510bcb	local-only
+data/jito-bundles-by-slot.parts/452085072.json	22487		1 JSON document	0	24a14be2631d8fe0d7b9ea3f0ef11654faccbe8ba2eed3a73da969116dd0469d	local-only
+data/jito-bundles-by-slot.parts/452085073.json	14652		1 JSON document	0	28f06be4e0207c807ef8bba4f7a8f555dec2126a35735454e31165a31d3708e0	local-only
+data/jito-bundles-by-slot.parts/452085074.json	14151		1 JSON document	0	8e050a13bba2c9f2040c36f2959575b1c8b01ab08c4f31f42c87655e8ac1568b	local-only
+data/jito-bundles-by-slot.parts/452085075.json	10486		1 JSON document	0	3ef3210ebb6287c0bcecadb295fe4bf7da812a0a666ab788f3db51b03a221389	local-only
+data/jito-bundles-by-slot.parts/452085076.json	6019		1 JSON document	0	e811784121b093fdb51140f9f0e46f67e709d78edac5a8dcd49709f479ab61d0	local-only
+data/jito-bundles-by-slot.parts/452085077.json	7144		1 JSON document	0	15f20c80ef2c67a6b94cbe8e1e9da9715f3be1e3b0388be0354706a61c38f21b	local-only
+data/jito-bundles-by-slot.parts/452085078.json	23145		1 JSON document	0	986cca140340bc9f2566b5a6e8cf55f5f79f7e723318c2191d62469db21ec42c	local-only
+data/jito-bundles-by-slot.parts/452085079.json	19271		1 JSON document	0	d709857ae0d24d70b638b05b3e53442d3dd015939d66869d374067a93a8a0812	local-only
+data/jito-bundles-by-slot.parts/452085080.json	42887		1 JSON document	0	d5f582222d8adf20bb5bcd291b89b13d72d78207da32d7bde511874cdbd461b9	local-only
+data/jito-bundles-by-slot.parts/452085081.json	16560		1 JSON document	0	992bbf4e238cd30e02ad08f4cc147fa381eea2b4630cad9ae9db37e769caf43e	local-only
+data/jito-bundles-by-slot.parts/452085082.json	17626		1 JSON document	0	cfa8e9df3cd6acd98e4b13798d646981d0830b1e3ebefb1d4e597625a2dac763	local-only
+data/jito-bundles-by-slot.parts/452085083.json	13003		1 JSON document	0	a57d7d60b8b73ee7da89342f3c94e000d95c2b739403276d849bc34e188d4314	local-only
+data/jito-bundles-by-slot.parts/452085084.json	15408		1 JSON document	0	76b96792b2a2207b9e2a6b4bb6c7b1e8da4592be34e032a244d953662498d995	local-only
+data/jito-bundles-by-slot.parts/452085085.json	25321		1 JSON document	0	fd52c8b64994f7e8978ddafc9f7a45ec0c5bb3267bba003fe800b0a2c195eae1	local-only
+data/jito-bundles-by-slot.parts/452085086.json	25303		1 JSON document	0	1d6878dce9597841769df8e268be32414863d1b6c5707c18d76d789da34bd72c	local-only
+data/jito-bundles-by-slot.parts/452085087.json	20095		1 JSON document	0	376ae86d033dd0ef5b189fa88978452145afcdb61d43b0ae27e78df177355baf	local-only
+data/jito-bundles-by-slot.parts/452085088.json	24052		1 JSON document	0	68b7ec93d6e6fa6d33008a6cf46b09b6cd1240c753689cfcf79a13f9c7ed36ea	local-only
+data/jito-bundles-by-slot.parts/452085089.json	26874		1 JSON document	0	7682db7a2ca4a1128c248aee35b7781e8d5ff0f91c161b69bb3598baa60fa3e7	local-only
+data/jito-bundles-by-slot.parts/452085090.json	24729		1 JSON document	0	94bd065d40d437ee00c4d245bde5deecae2973f334589555dc9c0dc004c8e6d2	local-only
+data/jito-bundles-by-slot.parts/452085091.json	29277		1 JSON document	0	4eb0cecd42b79c447160151c991a1a022d74b89e18bc61a4b4129476f9e1da00	local-only
+data/jito-bundles-by-slot.parts/452085092.json	11582		1 JSON document	0	f3d2fdd8bd56031bab03d8b40337c3a92ed936f0af226d8156b96855918b9de2	local-only
+data/jito-bundles-by-slot.parts/452085093.json	13137		1 JSON document	0	7065b5dbf7e52f85192e1216b39b5dc9c76d6649b3d1da7d236969174339fbce	local-only
+data/jito-bundles-by-slot.parts/452085094.json	19822		1 JSON document	0	ae1498fe6d0f5f4b81eab957a53e3b5ce56876c638876b923f22dc5a05ad492b	local-only
+data/jito-bundles-by-slot.parts/452085095.json	14517		1 JSON document	0	886488b2774b869fabd09d092057285b38c2ce17c17c72aa80a2f53e4e3c164f	local-only
+data/jito-bundles-by-slot.parts/452085096.json	28231		1 JSON document	0	03c062634c5a1ab69677e089e5a0b87ef37cf4b1d00a0e936adcc12ea4a75ad4	local-only
+data/jito-bundles-by-slot.parts/452085097.json	21139		1 JSON document	0	c68cc2eb04cdfe949db59935689ac622555950f2f904ffb7fe4699387b8b494a	local-only
+data/jito-bundles-by-slot.parts/452085098.json	23150		1 JSON document	0	9a77c592d6b1e4cff04b5a9ff1de4acf130550bad72089d9191c79a333e30288	local-only
+data/jito-bundles-by-slot.parts/452085099.json	22672		1 JSON document	0	67b17a74d4473aec015c5be07d0bb6dc544e8312666c0c5188003818673d7168	local-only
+data/jito-bundles-by-slot.parts/452085100.json	3585		1 JSON document	0	906d70e0f4c6ffeaa5c17641b6afbe05895c2f7fe5246457329fb7fb5dd85f65	local-only
+data/jito-bundles-by-slot.parts/452085101.json	11873		1 JSON document	0	4bdca3e22be8f7483afa7c1e52cbf4eed384063b451ecae71ab175a631de3c4c	local-only
+data/jito-bundles-by-slot.parts/452085102.json	26082		1 JSON document	0	75aeab1a2ec069c16a0fb1bb6782593b230fc4cb2c59f9740caa0cd668554c73	local-only
+data/jito-bundles-by-slot.parts/452085103.json	15837		1 JSON document	0	c165ffcca531091b3d19c2e839786deb5dd3b6a2e332bb1f20c1033f7896d99d	local-only
+data/jito-bundles-by-slot.parts/452085104.json	18492		1 JSON document	0	efffac7182ff8a63b4cee225d500c1ef2cc11ef815b527c1109388008099365b	local-only
+data/jito-bundles-by-slot.parts/452085105.json	9420		1 JSON document	0	b7ded8c33baeb22b2791f77879f0d51a2d31947ed8e7a94c2ce3c169c9730c9b	local-only
+data/jito-bundles-by-slot.parts/452085106.json	14497		1 JSON document	0	2df217c8b8dcc6b3653d57b4feaae0f8f877423a1b1d77428acb1d7bd26e3cca	local-only
+data/jito-bundles-by-slot.parts/452085107.json	13703		1 JSON document	0	650bcd7ae4c45b0f78ea107844589cd74c6e119648a156722fc50d9ad028fa1d	local-only
+data/jito-bundles-by-slot.parts/452085108.json	25907		1 JSON document	0	b14b4be953cde0c39d67f775d68479a4f5f14dc1b952fcd044248c4ef3e6d80d	local-only
+data/jito-bundles-by-slot.parts/452085109.json	16556		1 JSON document	0	aa3fa5d0413685367f2643f8837343b481adcee35b5c7e2806095cdce12d812f	local-only
+data/jito-bundles-by-slot.parts/452085110.json	14953		1 JSON document	0	6d9f0a7a1277666ff7acaa8fbce241d3cb05f8957596504a55aa1acc2571d311	local-only
+data/jito-bundles-by-slot.parts/452085111.json	17144		1 JSON document	0	59039ca00d6bcfefaa38285293810bdf4f8f408ab649d5238d32405098583619	local-only
+data/jito-bundles-by-slot.parts/452085112.json	23610		1 JSON document	0	98f97693872893fb82222ada8f240049b2a289825b969a5ad75d7b9a5b12fd8f	local-only
+data/jito-bundles-by-slot.parts/452085113.json	14306		1 JSON document	0	adba5260b94fff7b71c852bc18c5bc2363d0da01a3cb6d4cf74353eac4dbb68f	local-only
+data/jito-bundles-by-slot.parts/452085114.json	18116		1 JSON document	0	684004c24a2eb239fc7e00e17f5dd450f6bfa27e4ee0ee31f4018e80506743c4	local-only
+data/jito-bundles-by-slot.parts/452085115.json	14051		1 JSON document	0	2c409d1c838a1e067bfa05ebca2641d102b3a736b07796102484735b93d8078f	local-only
+data/jito-bundles-by-slot.parts/452085116.json	19001		1 JSON document	0	21b262b5e62d0976ac58919f3bf29293d0765f37cdd84c38fe6f5c5cc71d3206	local-only
+data/jito-bundles-by-slot.parts/452085117.json	11547		1 JSON document	0	17397b5583bbd75c10bddbb3863ee2e652c03f09859bad29ab714c49e4cdae11	local-only
+data/jito-bundles-by-slot.parts/452085118.json	14229		1 JSON document	0	e7f3161c4b139c90b339769cd120589acb98bdfd9958fefdc5285210632c08a9	local-only
+data/jito-bundles-by-slot.parts/452085119.json	18734		1 JSON document	0	a09f6da1973fe3965ea1bee0ca7dcc31a69f8d830f9b826f3a66d0c963d4cf56	local-only
+data/jito-bundles-by-slot.parts/452085120.json	7848		1 JSON document	0	0c77b65da3d5b6e232a30677112017ac9d8de61c780223e4e4ef5206d903282f	local-only
+data/jito-bundles-by-slot.parts/452085121.json	8873		1 JSON document	0	232f9f6a8850ba6f2e0a09db0ae7eb66fddcace4dd66be3c50b0495ca3bc6776	local-only
+data/jito-bundles-by-slot.parts/452085122.json	14054		1 JSON document	0	e23aa8ef9c807f9eaab8d6e57206d6da0db9e2b2f54ef34fa987245eccea205f	local-only
+data/jito-bundles-by-slot.parts/452085123.json	12243		1 JSON document	0	5f0e74e8a5cdcf86354ee2aeaa3f923e1ef02c085db045bbd33142fd2f008d26	local-only
+data/jito-bundles-by-slot.parts/452085124.json	11095		1 JSON document	0	2f5dd31cf8e02fc1c53452cd0cf5074a666dff3b7e8a8eb68d6292c7e173747f	local-only
+data/jito-bundles-by-slot.parts/452085125.json	26775		1 JSON document	0	fa8649d4aaa9f1b65569fbd4e05e537757bf6bbc58a9b5a7dddd2a424cef606a	local-only
+data/jito-bundles-by-slot.parts/452085126.json	15299		1 JSON document	0	edb6f9068fb90b1b5f08909783a2cd2321078460493767316e85187f049a707c	local-only
+data/jito-bundles-by-slot.parts/452085127.json	14497		1 JSON document	0	9a3f13fa833c466dd335bb81034ef90e82e7c42a06b434b859aafbc80fc75885	local-only
+data/jito-bundles-by-slot.parts/452085128.json	17348		1 JSON document	0	779ad541f9853c971df75c548a71cfe78b9d0b7e90a412c26e020d4aeeeb0409	local-only
+data/jito-bundles-by-slot.parts/452085129.json	17997		1 JSON document	0	29b0c7cbefb5bd3311ce767401285d72f5bb1f6fc326406aa31c87e98f71e48f	local-only
+data/jito-bundles-by-slot.parts/452085130.json	13036		1 JSON document	0	59558b2a5f0074fe37e92690763cf5c5e3b63040ec1199690eb23927fb45fa54	local-only
+data/jito-bundles-by-slot.parts/452085131.json	15868		1 JSON document	0	c722db0fed768e97959aaf157eb9e38937dc437508627e4dd978db7a727ac882	local-only
+data/jito-bundles-by-slot.parts/452085132.json	24525		1 JSON document	0	56dc96f7424010ccfa3c16c6e90bbd3f2671c8702508614993c0e6c8c867d487	local-only
+data/jito-bundles-by-slot.parts/452085133.json	14718		1 JSON document	0	e3a84edc71cb568f3a215742f9ccd8f63ab34bc3905632039f44abbe043ebca8	local-only
+data/jito-bundles-by-slot.parts/452085134.json	17276		1 JSON document	0	7cdccb72ff5266c5f1168da67db5c06cf80ae8ba083d357629da64a7604707a8	local-only
+data/jito-bundles-by-slot.parts/452085135.json	15119		1 JSON document	0	8445169b09623b2dfb36d8853275355f82d52b401dc7249a903a31f7c87becfb	local-only
+data/jito-bundles-by-slot.parts/452085136.json	21617		1 JSON document	0	6c30ac8a88b8a6e839143746e68f5c4223b08ec28615f9a000b30b73473c9628	local-only
+data/jito-bundles-by-slot.parts/452085137.json	21941		1 JSON document	0	84578d9e2b827346890589204fe7bbfef12496420ba663f9a98170b0532df872	local-only
+data/jito-bundles-by-slot.parts/452085138.json	20954		1 JSON document	0	b755373d9d2f66bc2589434a9cf8f45821f40ee6d7e0e6ed600fd5be75e1351b	local-only
+data/jito-bundles-by-slot.parts/452085139.json	30349		1 JSON document	0	20334b7e05ba12bd0d5cf5a86f955f4e3188cbd26956be2d9334275b4041df31	local-only
+data/jito-bundles-by-slot.parts/452085140.json	1944		1 JSON document	0	d25be2241e4ba7b03e47a3d4363dd8e4255f04cb46e3eea5ca6d4a8875fb33d2	local-only
+data/jito-bundles-by-slot.parts/452085141.json	10485		1 JSON document	0	78a0ae4942e279457d9235f24930064eb634455b22b38ff0682e19c17788a698	local-only
+data/jito-bundles-by-slot.parts/452085142.json	5497		1 JSON document	0	343ed2b807effac951029dac323b9613362efff96d7a92acda98f008508c8eeb	local-only
+data/jito-bundles-by-slot.parts/452085143.json	13616		1 JSON document	0	6ce5792176aee8e53029df7c97451767f173dba959bfab52a3c6639faab7fe23	local-only
+data/jito-bundles-by-slot.parts/452085144.json	34688		1 JSON document	0	5e8432aa1d26bf6b3731c89dda317b6220996df97d729e87c0b2df5d32b46f27	local-only
+data/jito-bundles-by-slot.parts/452085145.json	17718		1 JSON document	0	72bb9f5fcd611c67ea45c347208ddf8dc2d1343cd216f20fc241c0c73795dc59	local-only
+data/jito-bundles-by-slot.parts/452085146.json	15910		1 JSON document	0	760f8e940c482a6705c2f9793a6813e430a405114d32248c3e1c3dfd907d1432	local-only
+data/jito-bundles-by-slot.parts/452085147.json	21033		1 JSON document	0	3c6c1e0f1acbe6cf426d0155dd8eaf9320099028dae8825b48880a9b46e511bc	local-only
+data/jito-bundles-by-slot.parts/452085148.json	14782		1 JSON document	0	3869efcf552c7da3c71bba1610a0d33b07908daa78d4f02d86c50a7f69546328	local-only
+data/jito-bundles-by-slot.parts/452085149.json	15720		1 JSON document	0	872ed0f9581536bbf1288d92269fbafef6a9e730efd3d09e79b6c26b78f76334	local-only
+data/jito-bundles-by-slot.parts/452085150.json	7183		1 JSON document	0	0983208e082368a90565f38adfad3ff27a6f05095be4c38ed53769edb856ca00	local-only
+data/jito-bundles-by-slot.parts/452085151.json	15794		1 JSON document	0	ba2be9a4972310763cba1916207aa0a24eded21d0d40bc825ea5cb29e01bb272	local-only
+data/jito-bundles-by-slot.parts/452085152.json	34075		1 JSON document	0	a6fbfb6ddb419540cbb8125e960dfcd49e160a16f82280dd25a012fc83e465ee	local-only
+data/jito-bundles-by-slot.parts/452085153.json	30193		1 JSON document	0	baa0509457aa0053945076ab93d5dffed530594445225440652a118982711459	local-only
+data/jito-bundles-by-slot.parts/452085154.json	35314		1 JSON document	0	42ea09feaa6cab4d21da11e7122d81e4ca4df1bd38f1edeff32334160006dd36	local-only
+data/jito-bundles-by-slot.parts/452085155.json	45486		1 JSON document	0	7ea5a2149d51abc69c2b3a621476a7362a83482692d0574dc849febe71748fbc	local-only
+data/jito-bundles-by-slot.parts/452085156.json	10679		1 JSON document	0	28f98c2e6930bdfcdf1f4dba5d46467f2fa9bf1810d05972accfbdebe78b118c	local-only
+data/jito-bundles-by-slot.parts/452085157.json	14883		1 JSON document	0	1d92e7221fd6fc58e8c460c1055cced39d2739820e2683edc9a5ebda5e0ff108	local-only
+data/jito-bundles-by-slot.parts/452085158.json	13942		1 JSON document	0	2acc68b3b72d5d3698f0f53ec238ca2b7bb56d143e200463a13a4892796cc774	local-only
+data/jito-bundles-by-slot.parts/452085159.json	12660		1 JSON document	0	3a32f040f200634f83a777af1e0bec83faf59952d612d8661d1ade57a9b76de0	local-only
+data/jito-bundles-by-slot.parts/452085160.json	12166		1 JSON document	0	049eb6dfb02ccfc292b5cb631bc60c6bcbc18f1a61fb4c66b2ae8350f3226354	local-only
+data/jito-bundles-by-slot.parts/452085161.json	7700		1 JSON document	0	8c5670a7b718e42bd3dd0068e8a7e2793a3bcb8249405705cf2d12f605f6943b	local-only
+data/jito-bundles-by-slot.parts/452085162.json	9753		1 JSON document	0	82d3e4eba8cd9b2ce56fbc23f01e012229dc4da9081a25c5afd6cc15c42ef790	local-only
+data/jito-bundles-by-slot.parts/452085163.json	10237		1 JSON document	0	4844c1cd814f3c79530b3961eb54b5deb3437444beed852b52f6329b7bb2cfb8	local-only
+data/jito-bundles-by-slot.parts/452085164.json	17230		1 JSON document	0	1888a02eb86ab5cab4e01002651a88738142e5d6f3129ff00adeb7fa0adcbd97	local-only
+data/jito-bundles-by-slot.parts/452085165.json	19820		1 JSON document	0	a660c2fa49d3167fb197feee28e67beb72fe17faed2309db6f8e37fe5902fcfd	local-only
+data/jito-bundles-by-slot.parts/452085166.json	15112		1 JSON document	0	576ad6b04fdd5b6280d73db269e7a0b4216916cbd72c91ddccf775673eb124a4	local-only
+data/jito-bundles-by-slot.parts/452085167.json	10665		1 JSON document	0	53e415b91f883fa9c94b5043526190e34b6896235c7d76b882212116db4ec4ce	local-only
+data/jito-bundles-by-slot.parts/452085168.json	22673		1 JSON document	0	af5a3625899a4c32e82c768fe20ceef5be170882b87f7818ae59905b2d22b1be	local-only
+data/jito-bundles-by-slot.parts/452085169.json	15396		1 JSON document	0	260ad71a8e2dec940fbfc8e8f9a30c7169ef07ca69872cba84cc54ffacf3172b	local-only
+data/jito-bundles-by-slot.parts/452085170.json	16814		1 JSON document	0	b0a32b0bb07dccfef3fd690358094818317127d41527cec35b2a7510ad5415d0	local-only
+data/jito-bundles-by-slot.parts/452085171.json	17519		1 JSON document	0	9337d89d872c0f71e7035e2298a0fed9548743e29a0b0a103e1f2a502ee3e9ae	local-only
+data/jito-bundles-by-slot.parts/452085172.json	26265		1 JSON document	0	1b372024d8bdacbe27e679f25721d4eb7facf034c78ddaa1d78da8dc322f501e	local-only
+data/jito-bundles-by-slot.parts/452085173.json	22782		1 JSON document	0	2eac001c6fed61e10f09c43c6e41107a326d2def03fad1f03f834b1815e30fc7	local-only
+data/jito-bundles-by-slot.parts/452085174.json	23010		1 JSON document	0	726247be84c7e8565614ebe91cfb6a3ba205193a982915873ac50258206a91ea	local-only
+data/jito-bundles-by-slot.parts/452085175.json	22861		1 JSON document	0	76880f643ae28629f4f43c37e88480821231d0fee5575eaf47fdca76f43ae9a1	local-only
+data/jito-bundles-by-slot.parts/452085176.json	7774		1 JSON document	0	6d08898bd333770bff946d2b5f3a805e0fb781ca02d4d5f3b5934c21c3e390e2	local-only
+data/jito-bundles-by-slot.parts/452085177.json	9871		1 JSON document	0	2bcd6316b0ffe9d6d22d389845deeefd16a6b82ba4ec41f8a6969ebbf42f87aa	local-only
+data/jito-bundles-by-slot.parts/452085178.json	14692		1 JSON document	0	e63f400e8c836f93d087a684a7c097de7dd961e900be4c64821623e7c76ef090	local-only
+data/jito-bundles-by-slot.parts/452085179.json	10020		1 JSON document	0	fa7f84977bf120be1fa2ee6bf156a3652d40edff7a4570c79e9bf352406bd899	local-only
+data/jito-bundles-by-slot.parts/452085180.json	7840		1 JSON document	0	fee1a28d6a04c47dcbb0381694e86fbe8b4c7007cb4dc4482a66bb2f02b5cdd3	local-only
+data/jito-bundles-by-slot.parts/452085181.json	8355		1 JSON document	0	001f62fcef696ec6e2c1cabbd28de7a5e1b39b4150578b7878adc5a11875bdac	local-only
+data/jito-bundles-by-slot.parts/452085182.json	8767		1 JSON document	0	83835f27060cdf06b955b4d54d718c8500af697491c6cf92a5d60ee9acff2537	local-only
+data/jito-bundles-by-slot.parts/452085183.json	10225		1 JSON document	0	4e1b386075a41ab1ccbe5c74e078b1c3b59518832b6716511aaab095eda1d5dc	local-only
+data/jito-bundles-by-slot.parts/452085184.json	16119		1 JSON document	0	230daef6d249166845b9f1e8c1782f28758bb160de13ee4189be1f4a4b484deb	local-only
+data/jito-bundles-by-slot.parts/452085185.json	22684		1 JSON document	0	13e581745afddd39b7044492dbca63ddb00202a3d39a3dbadedbfa5c028bc108	local-only
+data/jito-bundles-by-slot.parts/452085186.json	16685		1 JSON document	0	7b53c4d907225add890f23ea8cd028dc331c9ef0f7a3fabe7624d6164859c591	local-only
+data/jito-bundles-by-slot.parts/452085187.json	17401		1 JSON document	0	754e7f9e8a36338d01c6b37db3c02c6dd410ac1607f9097414af9cecf7a3cb34	local-only
+data/jito-bundles-by-slot.parts/452085188.json	21458		1 JSON document	0	9b69280d3e988965f02e680397c6232e60336aaa45b835558d6b4523ddf03509	local-only
+data/jito-bundles-by-slot.parts/452085189.json	22768		1 JSON document	0	1cabc83866f7d619e44b00b2ebd57757ecddf42212178eb346de53d35d41e885	local-only
+data/jito-bundles-by-slot.parts/452085190.json	22048		1 JSON document	0	ffc1a459b6c2a3ccd3fdd6db8a9bce10add3b82d98e398581ab209610bf37f3a	local-only
+data/jito-bundles-by-slot.parts/452085191.json	26920		1 JSON document	0	6ae0357cbb8669b68e146a71ce6f0a7e614f40da4b684d6dd3e5a9bb34e44cd7	local-only
+data/jito-bundles-by-slot.parts/452085192.json	5825		1 JSON document	0	479d10ea36d6305b997af08c65d8d436a8d9b22ea7ecb902818370ac2d71bfb6	local-only
+data/jito-bundles-by-slot.parts/452085193.json	6428		1 JSON document	0	83cde094996dc494c7f6b9a19a179df8b22b3697c31e48fc2852b0e01608c104	local-only
+data/jito-bundles-by-slot.parts/452085194.json	7178		1 JSON document	0	2a4819460d6113fb348266b6ff1881dcc09e9649415952c6c41ce52f40f7d7b9	local-only
+data/jito-bundles-by-slot.parts/452085195.json	11722		1 JSON document	0	04d078f1c993a383a7c8dffdfd39a4e61772a756956c9f528d9f4cfb0b7b9960	local-only
+data/jito-bundles-by-slot.parts/452085196.json	10589		1 JSON document	0	927463545cfc0bcb65520f06a194d7a692e22821b1ac972f5cf7a7c4e9dd1c85	local-only
+data/jito-bundles-by-slot.parts/452085197.json	10875		1 JSON document	0	092c7f84559ea09e33a1c36fb9682873c9ce9f790f18aaa015127b879fe359fe	local-only
+data/jito-bundles-by-slot.parts/452085198.json	16110		1 JSON document	0	608ac4040150d7d972566ebecc89c907fd15885245124e9330155eaf56a13e05	local-only
+data/jito-bundles-by-slot.parts/452085199.json	9025		1 JSON document	0	0806fdf6510051a4f38398c9feaa40d20eae5fd5b6cc2fe4f7998df7c4562411	local-only
+data/jito-bundles-by-slot.parts/452085200.json	15250		1 JSON document	0	e3716abb3531c3f09f32801b1909ffd1e48c9911856e27ea32331fd88d5d54d2	local-only
+data/jito-bundles-by-slot.parts/452085201.json	16160		1 JSON document	0	6bff55d708d315a82ba2e65dc979178e0eb1da0db72bd80e927bb7508cf6c00a	local-only
+data/jito-bundles-by-slot.parts/452085202.json	14295		1 JSON document	0	7dd6bc9cd755a553a98f9f72e4bd5c0b6d5318969855fed033c59e41c1f15d97	local-only
+data/jito-bundles-by-slot.parts/452085203.json	11974		1 JSON document	0	21d295ed748d0054ec7897451b04fd2c7f9a7169f203dd1bc8ffacc75ac4d43d	local-only
+data/jito-bundles-by-slot.parts/452085204.json	15452		1 JSON document	0	52022f2aff68ace37a194506a978d56c8bdaf90ae99de8b041d3b5ef3daf9987	local-only
+data/jito-bundles-by-slot.parts/452085205.json	19798		1 JSON document	0	931e6436b0d5b3f7c78bad30926507ed2a36814cebf088508af658a9aee00941	local-only
+data/jito-bundles-by-slot.parts/452085206.json	15945		1 JSON document	0	df60fe964abe653887b34a22b36f648d4f0fc3d2157c7f09937d1eebfe45950e	local-only
+data/jito-bundles-by-slot.parts/452085207.json	17688		1 JSON document	0	635ed9fce94c28fe23ca1c8f67f52b45608289c2e4240d337be8c3e30d2a60f6	local-only
+data/jito-bundles-by-slot.parts/452085208.json	13351		1 JSON document	0	e9baed077ced2efa36af0b4ccd90591a714f429c87ec8bbca2cf602942a10b66	local-only
+data/jito-bundles-by-slot.parts/452085209.json	10281		1 JSON document	0	8a82410e7601b91f2801bf1be459008ffcbbf773cf98975b769cc4278debb9b1	local-only
+data/jito-bundles-by-slot.parts/452085210.json	14458		1 JSON document	0	9d3493a6e0798392b432679340603a51457d25f86756675ca27d5ef6e39740ea	local-only
+data/jito-bundles-by-slot.parts/452085211.json	15820		1 JSON document	0	2d7d044b376782b81b550acb7f0f7fd949c4c08dd2c949549db58b48d850f58a	local-only
+data/jito-bundles-by-slot.parts/452085212.json	11810		1 JSON document	0	4dde2b9f82a036ad4a296a336552733d0281ff206bc340e175d71b431781201d	local-only
+data/jito-bundles-by-slot.parts/452085213.json	13967		1 JSON document	0	74c1716df4421570a36652cbbb0e8cab7baa63412570bb51b66c0ebdefdabd8a	local-only
+data/jito-bundles-by-slot.parts/452085214.json	15975		1 JSON document	0	82cdaef6608abee2a55b94467b94103be1f6bee8c565878805ecfeac5374d586	local-only
+data/jito-bundles-by-slot.parts/452085215.json	12833		1 JSON document	0	eff7785f5d1645849988fe31cf5ae3b01043ae159c870593d7187704305f9784	local-only
+data/jito-bundles-by-slot.parts/452085216.json	17035		1 JSON document	0	fcdcff9e0cd8390d12c6604ac6203c62eb487b8906989b8864a6971147a740e4	local-only
+data/jito-bundles-by-slot.parts/452085217.json	13887		1 JSON document	0	9359e36b7a2c7934d71f9e468fa6df5f9a66ae3b5c4813d80e73bfb44fead1a0	local-only
+data/jito-bundles-by-slot.parts/452085218.json	12669		1 JSON document	0	50dcfbeef0759f73bc3fa2db26becfa713ea10813acccd6142cf3757d965af95	local-only
+data/jito-bundles-by-slot.parts/452085219.json	10981		1 JSON document	0	a6c2ac2bf54b7ed08c1c42d8895aa4bd40840e38e14492410761aeb64f7d124e	local-only
+data/jito-bundles-by-slot.parts/452085220.json	18541		1 JSON document	0	6564835951bfc0e5e11b2ccc34c6aee3fd43d93ef4ad8046e6fc5fabf0430185	local-only
+data/jito-bundles-by-slot.parts/452085221.json	22621		1 JSON document	0	7f37f23a3b7ffa04ae599d08538bb489735a74aee04ed5ba0fbcd29a484f6e5f	local-only
+data/jito-bundles-by-slot.parts/452085222.json	27805		1 JSON document	0	cac77e66ceee663db73397ec0beba405d19464c07244a346d83941f064b2938c	local-only
+data/jito-bundles-by-slot.parts/452085223.json	35644		1 JSON document	0	b2cf3b110f19d4b939a6147958f12142babeed555b29c7b5a8c9a81079a0b5ec	local-only
+data/jito-bundles-by-slot.parts/452085224.json	12358		1 JSON document	0	1b5b606e7bfa278ad5efcd8fb8a86adf3ef02731601a0564348a62443d6ad3a2	local-only
+data/jito-bundles-by-slot.parts/452085225.json	9153		1 JSON document	0	f7012cf19f5b6012f0ff06fb04f2b2d2d3264f0e1ce3ba8f6b3cd5357309a444	local-only
+data/jito-bundles-by-slot.parts/452085226.json	17323		1 JSON document	0	b097b4dd5c63c0406c7cfb1aa35f8f0dd410b3d6b3ad2a1c8b3a12a4733ba80f	local-only
+data/jito-bundles-by-slot.parts/452085227.json	21425		1 JSON document	0	fcdcb9158bbb9d05ce9d4270adbef2ac728e1e2f0afa7d74528724264a0244c8	local-only
+data/jito-bundles-by-slot.parts/452085228.json	16225		1 JSON document	0	e38a417a2e999664a9072631f1b3789cfe8bdb1a0ac6e7077a0655ec0eb92519	local-only
+data/jito-bundles-by-slot.parts/452085229.json	22036		1 JSON document	0	43174f09f91812c09004b44ae2c970b2ad33178620bd4158bc79fc4495f0ab40	local-only
+data/jito-bundles-by-slot.parts/452085230.json	17769		1 JSON document	0	df86e69e01785278e3af74ae0b9fab353ab7b9f13101caed198f501356f3d8d6	local-only
+data/jito-bundles-by-slot.parts/452085231.json	21008		1 JSON document	0	1405cf170abfb008cfb1b772ea8edd4268c088a2cfbfd61bed88e107b08352ce	local-only
+data/jito-bundles-by-slot.parts/452085232.json	28851		1 JSON document	0	a7bd03be7777d8f3cad14b81681db403a93b90a7ad83133f4533e1b83ebb58fe	local-only
+data/jito-bundles-by-slot.parts/452085233.json	30675		1 JSON document	0	b78019f3c4170be7f3758d773b6c4413dcdb2265f73e42d0dce23365d9483189	local-only
+data/jito-bundles-by-slot.parts/452085234.json	25783		1 JSON document	0	ce2c76206dbdd300994b3b3b5e7641f8b32b4054d2c31323a183a1f1849fbe88	local-only
+data/jito-bundles-by-slot.parts/452085235.json	17707		1 JSON document	0	d099bfb8b2cb5f809bf410a0b6e27f8c887d3c54be194ab845074082d04e59c8	local-only
+data/jito-bundles-by-slot.parts/452085236.json	19369		1 JSON document	0	b6ba2817da95eb744a59b3f094a07366d4c1215300e8a784a9aa6259f243f088	local-only
+data/jito-bundles-by-slot.parts/452085237.json	13263		1 JSON document	0	3948a4fdab6965341580df1a5395831d345b615721afac61d601694545a56477	local-only
+data/jito-bundles-by-slot.parts/452085238.json	12577		1 JSON document	0	11a86427988a0e18ba139214c9e4820e2f811d75046554a5bdc019432de3858b	local-only
+data/jito-bundles-by-slot.parts/452085239.json	17245		1 JSON document	0	d6a8c850b496dad686b2f762b6af735c56a2531852786ff45609aaef13392bab	local-only
+data/jito-bundles-by-slot.parts/452085240.json	23804		1 JSON document	0	4040920d53b5e72436f71208d5981e28fc9bb648549cf24fd98d5f4c64cde2ab	local-only
+data/jito-bundles-by-slot.parts/452085241.json	15562		1 JSON document	0	0987e6c3b4472fed927ed74df07e467e71699b08fb487d0449fdf4edf1082a98	local-only
+data/jito-bundles-by-slot.parts/452085242.json	20083		1 JSON document	0	3b86fc96fdfdab684e295b99d8529f888331a2dff9ad7a5cb1a6e00fc968ccaf	local-only
+data/jito-bundles-by-slot.parts/452085243.json	20201		1 JSON document	0	9a796531c21469e279192b1cb1692fb80003c22a058fea1d0555b6429bc23821	local-only
+data/jito-bundles-by-slot.parts/452085244.json	8142		1 JSON document	0	d9d7e235d096c3c038be42a21d8892e1cf0560e3c538de20f5934ddbdc2081b9	local-only
+data/jito-bundles-by-slot.parts/452085245.json	12765		1 JSON document	0	3ca828aebd66bd1f169aa51c9e346633f71f633eafdb3bd694bb6001053d0dcd	local-only
+data/jito-bundles-by-slot.parts/452085246.json	13188		1 JSON document	0	4fbe976a4a53cf8d6c73f1d95257e8a795ab20286845364725a2b32c10203216	local-only
+data/jito-bundles-by-slot.parts/452085247.json	15210		1 JSON document	0	0186a683fec88dc07e25d2f5b3219b8a8137bac7b763118dbb2f926336a45a01	local-only
+data/jito-bundles-by-slot.parts/452085248.json	7617		1 JSON document	0	59605835630f92fe57a40bc0fb4071ec82f37683a78317e0dd2751b63aab6e7b	local-only
+data/jito-bundles-by-slot.parts/452085249.json	4144		1 JSON document	0	a63b138160dfbed9dcf36b64e6c986b881692b1c83ab4f7c5f7f54b6fe101271	local-only
+data/jito-bundles-by-slot.parts/452085250.json	5450		1 JSON document	0	1e47f79ef403fb15e2f2360e04eec40e53376164fcb8d2858f5dac6c2faec523	local-only
+data/jito-bundles-by-slot.parts/452085251.json	7610		1 JSON document	0	714c01028cf3f40a37653dffc37b19c322e56c83056131cb503997afcec01ba8	local-only
+data/jito-bundles-by-slot.parts/452085252.json	19269		1 JSON document	0	be3740ebd8c6a3e57678a5d8129e59092ffd01f92f6560b0c613c4a7c91c8004	local-only
+data/jito-bundles-by-slot.parts/452085253.json	26760		1 JSON document	0	809fbfa96fda298d6750e2f89bcbe4448edd0cd4c456bf61b8bb91a4226caabd	local-only
+data/jito-bundles-by-slot.parts/452085254.json	22815		1 JSON document	0	237124e9e94d160cd7699c9c85eb51c3e8117000e57a0c6a925b21246caf39d6	local-only
+data/jito-bundles-by-slot.parts/452085255.json	17787		1 JSON document	0	08c0103af7ae5957d832f4e6ce0694f81ec00e522ecf8f424409ad2a11c0781e	local-only
+data/jito-bundles-by-slot.parts/452085256.json	9210		1 JSON document	0	b10289e4c3d951d72b49c88360d81d94d68499a522acd778c69d46af09cb928a	local-only
+data/jito-bundles-by-slot.parts/452085257.json	12308		1 JSON document	0	7fde612ae53206239f26cddda2cd31c5598decc360b30a6ce2a228cf7254d9ef	local-only
+data/jito-bundles-by-slot.parts/452085258.json	15385		1 JSON document	0	b54faec76f3ed454e1352c9fd40d062a0a0e6d9db0463947a4042c233303b8f7	local-only
+data/jito-bundles-by-slot.parts/452085259.json	13524		1 JSON document	0	0229fa91b890f00db5e61a59a52a0732ed25fc374a0be2fe33fd50ad7edb4d62	local-only
+data/jito-bundles-by-slot.parts/452085260.json	5219		1 JSON document	0	b5404a9e83783e5a0304aea2eb9d47d4c6fb8100f81d5dd43b9533437b1d0c9c	local-only
+data/jito-bundles-by-slot.parts/452085261.json	5685		1 JSON document	0	6baaa59c708c393a386df7493800bba3ab8fafc7c9496166bc14f1000bc0ac09	local-only
+data/jito-bundles-by-slot.parts/452085262.json	11315		1 JSON document	0	f83a9cfe4553bff823f4d4f84164a8e843af51e4cb095abf9f036ced8e888ecb	local-only
+data/jito-bundles-by-slot.parts/452085263.json	8532		1 JSON document	0	3634663fb4c6252e04798a697b84232dafb95c3aca42be2a6aa112e8bc5ce59d	local-only
+data/jito-bundles-by-slot.parts/452085264.json	19256		1 JSON document	0	55620260932099295221536a11a5f61e2e39ec55e74ebea0cd88282b53e831b0	local-only
+data/jito-bundles-by-slot.parts/452085265.json	12446		1 JSON document	0	9bf82970c459ac1a9cad137f7f3680fa58a756c5c738252926fe561ca41d5784	local-only
+data/jito-bundles-by-slot.parts/452085266.json	10230		1 JSON document	0	c73ea8248ea91b6e18f5ed797ea0580f6217919c365061574b099687bd320319	local-only
+data/jito-bundles-by-slot.parts/452085267.json	10751		1 JSON document	0	228dd11366c81a32494c218e03768d37e0666e0fd47ef5c50ad11f4b28280d84	local-only
+data/jito-bundles-by-slot.parts/452085268.json	11500		1 JSON document	0	ac98918c3ec1a518f5a695ea62aef2d7214f0461e9a0278ea3bcfab9999e411a	local-only
+data/jito-bundles-by-slot.parts/452085269.json	5225		1 JSON document	0	f640808d108f03b0dccdeb1b463f0454f49aca7d480470d57f35cc165b76b958	local-only
+data/jito-bundles-by-slot.parts/452085270.json	6521		1 JSON document	0	12a5db3422c3e9973fdf19cdaec449cbc3ff196be9bd34e754e4c38a9064ccb9	local-only
+data/jito-bundles-by-slot.parts/452085271.json	5319		1 JSON document	0	8e8020f3f2ba4f07e20f02ce1e1419102d2353048f425418c9b47efae2dcfc11	local-only
+data/jito-bundles-by-slot.parts/452085272.json	9723		1 JSON document	0	20c7b5fb5302f4b9764893458e5939b102601f421c91f3782b26532beda51299	local-only
+data/jito-bundles-by-slot.parts/452085273.json	8612		1 JSON document	0	3460cb9790cb06127a9fb4a7a2a141e07ce1c19e5453f956ba6e6d44dc23ccdd	local-only
+data/jito-bundles-by-slot.parts/452085274.json	7708		1 JSON document	0	886495faa5ff9943f4d7df1f64247eb7219929ef9090c21b88e243b87a6348a2	local-only
+data/jito-bundles-by-slot.parts/452085275.json	6945		1 JSON document	0	44e4b2d68b960a430418c516c98af0e87ca2da5edd753cf5969e00225130029c	local-only
+data/jito-bundles-by-slot.parts/452085276.json	9773		1 JSON document	0	4f2b5e28c4b80b86029a5d5741289f4395e5cc9c6688ec8338b97d4829171274	local-only
+data/jito-bundles-by-slot.parts/452085277.json	12483		1 JSON document	0	583dd2f5f8d5cf13c879a33103f732fa687df260aa5823cb7910dc245f204f99	local-only
+data/jito-bundles-by-slot.parts/452085278.json	13251		1 JSON document	0	d40784f69e71ebe32524ac7c00ef428d3d868fa94cf110fa589b6e03389c751c	local-only
+data/jito-bundles-by-slot.parts/452085279.json	8231		1 JSON document	0	c9e544e736d026e9240704bcd52076799412d5b0051ec5bfb517d24c68926723	local-only
+data/jito-bundles-by-slot.parts/452085280.json	9824		1 JSON document	0	cc34e09bad133ff0f8de333b332c77edfc266e314c803afcfeebb3c4f82db46b	local-only
+data/jito-bundles-by-slot.parts/452085281.json	12941		1 JSON document	0	862380aed9fa107212f5ac4af033dd39326d28f2eaf5ed374cda0da39fb522bf	local-only
+data/jito-bundles-by-slot.parts/452085282.json	20571		1 JSON document	0	c36299eea61c2c14f95435824aac5ad80ad877f61387e6f5b61f7778890f7702	local-only
+data/jito-bundles-by-slot.parts/452085283.json	10188		1 JSON document	0	aa2d1f8b2bc75040f5e9ca3460a853c4c14ffa1ec12bb3f83f9319a1a610b2b7	local-only
+data/jito-bundles-by-slot.parts/452085284.json	6584		1 JSON document	0	e98116020c3d82390300d99c4174cfa93c7adf984d3656c5c25cce9006b69bd4	local-only
+data/jito-bundles-by-slot.parts/452085285.json	7002		1 JSON document	0	a65e995345568c974216c54a00c2eb685bbe97da0c5d972199b7d798410fb761	local-only
+data/jito-bundles-by-slot.parts/452085286.json	9953		1 JSON document	0	1716d0d68f50a3be44fa3e7dd7658e0fd697c467cd0a460c9afefb454ee5a44d	local-only
+data/jito-bundles-by-slot.parts/452085287.json	7362		1 JSON document	0	d8ae1739bd2c52bb287e3b39245221cdcb10d26774117112d731f05a0e05d6a7	local-only
+data/jito-bundles-by-slot.parts/452085288.json	7579		1 JSON document	0	3c6d915e0a25c704e3a74fa3f2ab54ef071f9beca54cc4084058eb97fd9ab464	local-only
+data/jito-bundles-by-slot.parts/452085289.json	579		1 JSON document	0	b9a85f114b3c2ec87f5a168f7bdd7a1fd0af5afc68f83acc4cf820082d1ad44d	local-only
+data/jito-bundles-by-slot.parts/452085290.json	8485		1 JSON document	0	045d598c883cee35937596ffd22a8e5612fbbf1bea65ca1e1c5e825d50a8f6ea	local-only
+data/jito-bundles-by-slot.parts/452085291.json	4606		1 JSON document	0	5c75997a4eb73cf590a1d54f20a7e32b2b2298e83142e623fa9b445ee3487a06	local-only
+data/jito-bundles-by-slot.parts/452085292.json	40536		1 JSON document	0	72772e7294242f1fafefecdc3237e73eaa5e332f9195f42ed4f6589ce681ddcb	local-only
+data/jito-bundles-by-slot.parts/452085293.json	22490		1 JSON document	0	26f58eab319c122e9507a930ec567985dae367d9a664babc366d891643e958b2	local-only
+data/jito-bundles-by-slot.parts/452085294.json	13982		1 JSON document	0	70a8ecb6aebea82a398d6418a4db031aed590f0f591f025d33f32620664cea69	local-only
+data/jito-bundles-by-slot.parts/452085295.json	16354		1 JSON document	0	96d30016650dcf18d23f01e5d22db13f11110d631592d448b88dbd22654e69ae	local-only
+data/jito-bundles-by-slot.parts/452085296.json	14753		1 JSON document	0	7b80d0ba355dd1f52effe686f4eae6d7a1a1ffd0a84481a314a0f7025dc92bcb	local-only
+data/jito-bundles-by-slot.parts/452085297.json	7506		1 JSON document	0	7836ba7c2b5cbd5ed54e0132935f0c4eb5502dc5a881df0634fca464a98508f6	local-only
+data/jito-bundles-by-slot.parts/452085298.json	12187		1 JSON document	0	af1397e00b4ab1158f95114c4ca0fb35920718813b471b0883e7f68cff26cc1c	local-only
+data/jito-bundles-by-slot.parts/452085299.json	9989		1 JSON document	0	18d58c92054eeb13d5f76a7272edd7504ec09f95d9439e9bcbd2dd1289046613	local-only
+data/jito-bundles-by-slot.parts/452085300.json	10599		1 JSON document	0	888288a102a5b48f33e643ccbeb53af1bcee7d5adeff0fdd912bfe9bad5af392	local-only
+data/jito-bundles-by-slot.parts/452085301.json	7609		1 JSON document	0	c92ab8906079b520469ca714106a5327240fbfea73a54a09c51d6521d3c06f0e	local-only
+data/jito-bundles-by-slot.parts/452085302.json	7453		1 JSON document	0	b72925287a29a47f05e8e0caeca48b13950c9b41f61f0f540a624d1a9a2b7a0a	local-only
+data/jito-bundles-by-slot.parts/452085303.json	6668		1 JSON document	0	f5af8e150947949c66f0c2f088b89fccbdcec703156ab1baf500457362810483	local-only
+data/jito-bundles-by-slot.parts/452085304.json	7508		1 JSON document	0	7452e88be675cdff668ba52d8eb141f3594031a68ee92424781f87b3d1eec305	local-only
+data/jito-bundles-by-slot.parts/452085305.json	7827		1 JSON document	0	a11ad393c4b7da4425a6c38f23d3ca2c77cfa80e76df4faef941691e26d4d486	local-only
+data/jito-bundles-by-slot.parts/452085306.json	6184		1 JSON document	0	905d5a500ec4f18f4be222973932ec510ad13079547ed65708c60e40bb151905	local-only
+data/jito-bundles-by-slot.parts/452085307.json	6451		1 JSON document	0	a295bd2c12f11bb9980b4c06e92c9350f55e5b599cacc3ea00dcac0fc49f15e7	local-only
+data/jito-bundles-by-slot.parts/452085308.json	14862		1 JSON document	0	8ef195b1f240869803d2b3b1210b161ae6a3d87fb7f93496aa553ccab9637da6	local-only
+data/jito-bundles-by-slot.parts/452085309.json	13965		1 JSON document	0	19c34af0dcfb399d74628893fc95b4eac80d6a3a1c66e5187c8a9a75dc3c9543	local-only
+data/jito-bundles-by-slot.parts/452085310.json	10388		1 JSON document	0	578f2e353d530f1bb549bfdde234fd1213bc92ce5117c89e739bf5ace0957382	local-only
+data/jito-bundles-by-slot.parts/452085311.json	14134		1 JSON document	0	1aa4f3057696126f70c219ffa08aa126eb0ab31babcefc0c365a7116bdf98121	local-only
+data/jito-bundles-by-slot.parts/452085312.json	14804		1 JSON document	0	f20a82a0d99dc71b42d1ad8ffbeb9357176a38fe16ba2483cd10ee5fc8061b2f	local-only
+data/jito-bundles-by-slot.parts/452085313.json	11048		1 JSON document	0	abcd1989142355a334ac53fad38d536bb6b7675fea24397678404165f0b65e2e	local-only
+data/jito-bundles-by-slot.parts/452085314.json	14034		1 JSON document	0	c709a59c95d99b3d8f96b77cee4539d707bf1041aa11e6d36152a4e7da3a2d64	local-only
+data/jito-bundles-by-slot.parts/452085315.json	14430		1 JSON document	0	37aec1d38b1de69599cdf8a9aa595f9c125a72288bbdc99bd88b2fa47a0ede9b	local-only
+data/jito-bundles-by-slot.parts/452085316.json	182		1 JSON document	0	bb3356ee31f473a077af1cca757e67168d448ebc9cb45e59278d15e73c83ee83	local-only
+data/jito-bundles-by-slot.parts/452085317.json	182		1 JSON document	0	bc56d6ef5022a07489e1b56993580df45f04d86c09e6ebb39b9e2ef1834030e5	local-only
+data/jito-bundles-by-slot.parts/452085318.json	182		1 JSON document	0	8dbcaed3cff654ceb620220b6f3f10b4b69925fd176a4c3103b2f6bbf239d2a1	local-only
+data/jito-bundles-by-slot.parts/452085319.json	182		1 JSON document	0	decf6286bc05e04726944a141e2a87311c2ddf0f321e6bb3f13dbb68d0ed9ccb	local-only
+data/jito-bundles-by-slot.parts/452085320.json	19958		1 JSON document	0	9b959b899fad4b5c53729f3e5572bc1d64fd79af8f5e082ce57ad9dacd896ec0	local-only
+data/jito-bundles-by-slot.parts/452085321.json	5736		1 JSON document	0	528104a113ca0e298b89845d45bc170293471f2b0c59228bd4b40415947cc6be	local-only
+data/jito-bundles-by-slot.parts/452085322.json	3533		1 JSON document	0	1bd07d7bf12413ac10cac80d3dae49a9c8f2f6ff49a0f070b989b5a7d7f3977d	local-only
+data/jito-bundles-by-slot.parts/452085323.json	5110		1 JSON document	0	f82586ce51e81a675dcd79bb4deb79e85adc448275b28b5da7d106d22ddf14a7	local-only
+data/jito-bundles-by-slot.parts/452085324.json	19015		1 JSON document	0	b6b0b7cfe027c51f1c791ae0f9e298a411fa00ffcdff5db9d33db14bf89f04e9	local-only
+data/jito-bundles-by-slot.parts/452085325.json	20821		1 JSON document	0	d97de377078e47faa7da9034bb376497a28de254f438cf35e9d6d62a01ed62b8	local-only
+data/jito-bundles-by-slot.parts/452085326.json	21985		1 JSON document	0	d253f501824d02d6d1747ab6e7f81e3fe795f87722a19308ab4be6c67a7a9193	local-only
+data/jito-bundles-by-slot.parts/452085327.json	19377		1 JSON document	0	0852a670748b9c0715da704f16606b601bf8ff90ce58a5fd9fdee5378013c6eb	local-only
+data/jito-bundles-by-slot.parts/452085328.json	15115		1 JSON document	0	6c335f6c0cb67162bfe60fbd7235dc891f74503f0345ff5de5ed2205ee8de3e1	local-only
+data/jito-bundles-by-slot.parts/452085329.json	8304		1 JSON document	0	0575a4cdb05c4acee0c569c98a974ccaa0d30a6cbc286e414ee4803318d06a22	local-only
+data/jito-bundles-by-slot.parts/452085330.json	14717		1 JSON document	0	d5ba284cbcdea6e446dc1f85b2351642d6a309bce1e9ff82ffa13e26f6113ec8	local-only
+data/jito-bundles-by-slot.parts/452085331.json	14747		1 JSON document	0	235eee17498ba084d2f34999c3ee113c9d859f35b3e270d3028349de5a14f70a	local-only
+data/jito-bundles-by-slot.parts/452085332.json	5270		1 JSON document	0	8f50543b272b5b76b364eac1b3ec4e5321c56505e0975c49a43a6dbb9da24593	local-only
+data/jito-bundles-by-slot.parts/452085333.json	6612		1 JSON document	0	9267f7cdb80119692543fecc002af9166f052edea8aa0be34012914c03f3e57f	local-only
+data/jito-bundles-by-slot.parts/452085334.json	9282		1 JSON document	0	b67672f7a39d5ed8b7a91e47761aa3642b47d548d7dfac29f1b695b5e6237962	local-only
+data/jito-bundles-by-slot.parts/452085335.json	12738		1 JSON document	0	8bb5af2c845506206d657248bc93e3b2aae2621eb45322583927aa29964c90c4	local-only
+data/jito-bundles-by-slot.parts/452085336.json	19768		1 JSON document	0	a31ee1fb43df7840befdd199bb625023fde213cb828a6a81ee88235a2ed797d3	local-only
+data/jito-bundles-by-slot.parts/452085337.json	15133		1 JSON document	0	4dc48fd38c5c6296b38c28422a0f4e9bd7ad743837c33539d50fd1729d734009	local-only
+data/jito-bundles-by-slot.parts/452085338.json	7367		1 JSON document	0	8f41a4a01cd9614372fb6ffce584ca4c1272c8ee019c9b84e3e15030b021df70	local-only
+data/jito-bundles-by-slot.parts/452085339.json	14134		1 JSON document	0	99aa5bd2a5fb8028718822054489b98c0aa6a20884d2de32b4a81c1aeb35e6fe	local-only
+data/jito-bundles-by-slot.parts/452085340.json	2362		1 JSON document	0	08330be6850e26221621e8c4ed1fef6b8a506c13736bcd10b8085072ee505756	local-only
+data/jito-bundles-by-slot.parts/452085341.json	8854		1 JSON document	0	1a1965c6c5c95cc66339183c87d5879d3fd601d440fba77cd9e4e5865855faac	local-only
+data/jito-bundles-by-slot.parts/452085342.json	6582		1 JSON document	0	d68a84fea7d95f732201e0e386d3a7a0c6404f19b963db08b25f51d342de451a	local-only
+data/jito-bundles-by-slot.parts/452085343.json	8494		1 JSON document	0	839d96cdb228588d12245013886bc9d8b2eadd4b814de2ebd029bfeb4ea717ad	local-only
+data/jito-bundles-by-slot.parts/452085344.json	16764		1 JSON document	0	9a0a1d1d1bf6e7966d86a89ae0d1644e76348d76aaaeacfa298245de335c1f9f	local-only
+data/jito-bundles-by-slot.parts/452085345.json	15612		1 JSON document	0	151310f1aa2857e80a57bcef7f6f935c4f9e3bdc683eb281b40582a984f92780	local-only
+data/jito-bundles-by-slot.parts/452085346.json	12280		1 JSON document	0	0428ece4bd312932937d2a59e6470f486ba7ceaf5a6da655526016fac79860da	local-only
+data/jito-bundles-by-slot.parts/452085347.json	13402		1 JSON document	0	938f97202b0e98c5a367e2b2733e9472fb0c7659a1082db1ec631547ade2b908	local-only
+data/jito-bundles-by-slot.parts/452085348.json	11522		1 JSON document	0	9451635b02f70c5f71f2b864dec973349c3e95424aaeea81503027ad13e96d31	local-only
+data/jito-bundles-by-slot.parts/452085349.json	14890		1 JSON document	0	b20bb2d4aba02df26c1af91167f83dc66e888cd029fd983c4127c50c68c0574c	local-only
+data/jito-bundles-by-slot.parts/452085350.json	17113		1 JSON document	0	c3865d5fa9ec10cbc48f326917b5e8da7ee26a0352920df59bfa3f261ee303fc	local-only
+data/jito-bundles-by-slot.parts/452085351.json	13252		1 JSON document	0	0bf934e5c5ab9a15594d3a187a1a32c4d7e9db42a06eeadc563688a0b1305a6d	local-only
+data/jito-bundles-by-slot.parts/452085352.json	9668		1 JSON document	0	09e3ce4276dc2cb49a8255b5649af332b6f3f33b3421ca5a59c91663c5f21a3f	local-only
+data/jito-bundles-by-slot.parts/452085353.json	10996		1 JSON document	0	fd5cc7da1b549ebb5e3ba71ee6dafa2be6255606e02e6f9b1ecf7e3309259fd4	local-only
+data/jito-bundles-by-slot.parts/452085354.json	12411		1 JSON document	0	a824d85c516b9e483e6ae225005443ffa7f825fd4a397ecc996b593964aa32c9	local-only
+data/jito-bundles-by-slot.parts/452085355.json	10666		1 JSON document	0	37dfc01e279b36e8cc7a76bc2f6b00ecad600a0689a28fa2bbc32c8e5e36f381	local-only
+data/jito-bundles-by-slot.parts/452085356.json	22345		1 JSON document	0	0986ffecd14ef451bc5f6e960484eac83afddc6d39b604995e1c9708a7b80304	local-only
+data/jito-bundles-by-slot.parts/452085357.json	11785		1 JSON document	0	8a1e61c9376e9aeacfd3056ade758e411707ea1cf92284034d2ee6c0be55dafa	local-only
+data/jito-bundles-by-slot.parts/452085358.json	14643		1 JSON document	0	480ef17b58e67bac865727595881044842af10b982f2d7de788c1b829dadff1f	local-only
+data/jito-bundles-by-slot.parts/452085359.json	17914		1 JSON document	0	8c80994926f51813f76991b0a2a584eb5dd08aefdda8d58e3a31217ecdd81f10	local-only
+data/jito-bundles-by-slot.parts/452085360.json	13216		1 JSON document	0	e8544cab3f472add15ba78f7673e217c8dcfcef92456d0a9f09c9e0478fe3283	local-only
+data/jito-bundles-by-slot.parts/452085361.json	15575		1 JSON document	0	95e624af92e0a0b0c0c42683f21487b58edd802522f26580c3eb46e2375c364f	local-only
+data/jito-bundles-by-slot.parts/452085362.json	21244		1 JSON document	0	b068d1a4ea8f5a98bc7929743f5fac7b391d41e3130ae9e96d11e02bde116d71	local-only
+data/jito-bundles-by-slot.parts/452085363.json	13789		1 JSON document	0	2c242743caef17f73dfa1b144dc57a7c5f8d890051017e91333dd3db76030326	local-only
+data/jito-bundles-by-slot.parts/452085364.json	9915		1 JSON document	0	749d941b8e872c077df2f0969a66979b2360159c7c511c9021c63d4f639b807f	local-only
+data/jito-bundles-by-slot.parts/452085365.json	17063		1 JSON document	0	bff8ed3874813dabff0bc1952af024451bf2fe698350f8db2a4d48c87a33caac	local-only
+data/jito-bundles-by-slot.parts/452085366.json	21089		1 JSON document	0	b16be97470aa7b1b610da96c945ecfd3031168a6ede5ee9e9a65706188615534	local-only
+data/jito-bundles-by-slot.parts/452085367.json	12862		1 JSON document	0	51412323ec8e4c9d9fb91592b90fb1a1944fdb5175fa9f6d7119171261ff9848	local-only
+data/jito-bundles-by-slot.parts/452085368.json	6743		1 JSON document	0	6fb17b7764a1327ce34f79bc3d252d2cd758a1cc11d79c3605ebf779ae6c7767	local-only
+data/jito-bundles-by-slot.parts/452085369.json	10060		1 JSON document	0	a09f8d23b7d15dc8358a6ace953318b62faf6a7e2c3b41797d4346d4b5e0d0a3	local-only
+data/jito-bundles-by-slot.parts/452085370.json	8309		1 JSON document	0	e961de91b623c948dfd97ccdc59e3753980e46d67680db72c13ff1518a8049be	local-only
+data/jito-bundles-by-slot.parts/452085371.json	5289		1 JSON document	0	d4f66e0ff3cfcf0b2b9ed3a61c64be15c42b78fed93974668fbf783055368124	local-only
+data/jito-bundles-by-slot.parts/452085372.json	5579		1 JSON document	0	c83192bde265ad0654ba406c2d882c8ee4287fa20ab7aca1307d638e82038a76	local-only
+data/jito-bundles-by-slot.parts/452085373.json	6934		1 JSON document	0	6c1fb18a52d1e9613fdcaf00c780bcbc735a5e486d53977504ed38449f074af6	local-only
+data/jito-bundles-by-slot.parts/452085374.json	5191		1 JSON document	0	081a5ec9ad17212ba889756a09d9760a2569303d94623682ef8eeaf5449ad537	local-only
+data/jito-bundles-by-slot.parts/452085375.json	8737		1 JSON document	0	7e61f9306390dfe5f093d0611ebaa5cff66660a289657e294d281fd6c81061af	local-only
+data/jito-bundles-by-slot.parts/452085376.json	11317		1 JSON document	0	6240103ef13da2a01b524e977a6f85b64c8001b7f5fe88ad8d7e63836dfb0ef1	local-only
+data/jito-bundles-by-slot.parts/452085377.json	15156		1 JSON document	0	b3e449f9a0ca7ceedc51386f97f20c98f19d8843317fe292e99ca450e3197387	local-only
+data/jito-bundles-by-slot.parts/452085378.json	17282		1 JSON document	0	442438f9d3a3edd740010a7690326aceb4251af1f6c4100c1e09d15f0da4712b	local-only
+data/jito-bundles-by-slot.parts/452085379.json	9978		1 JSON document	0	4e242117d05cf2dff0f0fc3c6d210cf1f41e3f30beab264820bcef43483fefde	local-only
+data/jito-bundles-by-slot.parts/452085380.json	3542		1 JSON document	0	97d55f818ba580d74fa7ccb3178c414e4dd36052464a2fd44266fa9b04f6c043	local-only
+data/jito-bundles-by-slot.parts/452085381.json	5733		1 JSON document	0	e842b452c213396b3b374c5dd736cb783cc193dca36991acabd19408eeb6c024	local-only
+data/jito-bundles-by-slot.parts/452085382.json	3849		1 JSON document	0	6a1e761fad3d3d61c48030b8ebf4d88dcb2000291ee1b719af71c5ed49ac1f22	local-only
+data/jito-bundles-by-slot.parts/452085383.json	579		1 JSON document	0	b1133640c736c3edd37f4609e92079fa977fcd6032f9380b60576253672cf961	local-only
+data/jito-bundles-by-slot.parts/452085384.json	16568		1 JSON document	0	f0cf08ef9288d7bc8b4cb8dd481b2d33ee7eb65237090a67f24cc706faae4f38	local-only
+data/jito-bundles-by-slot.parts/452085385.json	17488		1 JSON document	0	bb1416659f4f04fbec6f8a0dd3a0b2beaf2a9b300e892227ab2bf563d7cd799b	local-only
+data/jito-bundles-by-slot.parts/452085386.json	18623		1 JSON document	0	a633285007da6eb3623c5c316ed88040e0d464667f848eadafa2d9f6b0033447	local-only
+data/jito-bundles-by-slot.parts/452085387.json	18829		1 JSON document	0	cfa5d115d73af334a583d1ee272b53fd5426067ab418fd628cdb5197c0020eaf	local-only
+data/jito-bundles-by-slot.parts/452085388.json	8332		1 JSON document	0	6cc1e457a3771eedf97051a999ea550f7e54dc82ddc659efe650cd9fc6373b17	local-only
+data/jito-bundles-by-slot.parts/452085389.json	4878		1 JSON document	0	92218cddc04d7273177109420f8d57c028f8371df2c6e9dcb060f53577a70f92	local-only
+data/jito-bundles-by-slot.parts/452085390.json	7025		1 JSON document	0	42d0841307ca9ef152b5552fb1caf41d8a787070b139570b176571d75dd83cf4	local-only
+data/jito-bundles-by-slot.parts/452085391.json	7060		1 JSON document	0	7765a07f32cf371e535d218f27be48edb9208686c69a9bb527da6c0031af4b46	local-only
+data/jito-bundles-by-slot.parts/452085392.json	9935		1 JSON document	0	0960911320119c76d9fe857a9ce0d549d6ecd16c4daffae73b368da289613721	local-only
+data/jito-bundles-by-slot.parts/452085393.json	13610		1 JSON document	0	f70f671d0270f6d52fc8da03824367ad11ed104dc26bb5039e8efb9e68ac78a9	local-only
+data/jito-bundles-by-slot.parts/452085394.json	10981		1 JSON document	0	86191cad8d8736ee2a9e437dbd2068c14596f0e4fbbc4ab6145034063d9f528d	local-only
+data/jito-bundles-by-slot.parts/452085395.json	15479		1 JSON document	0	b873125acd7a37e44d5376c15151ea8a5aa993b0cf1dcbd9094bb630744b4444	local-only
+data/jito-bundles-by-slot.parts/452085396.json	11872		1 JSON document	0	86eb32d5e867a9e1361a02f9a7be1b0d96b6ef15f7458b7a3b33b3d7b0a568d5	local-only
+data/jito-bundles-by-slot.parts/452085397.json	16194		1 JSON document	0	9c019a41c64a3907d09bd7855f566c4ce6620ab24ac39bdfecfec5f756f673d8	local-only
+data/jito-bundles-by-slot.parts/452085398.json	10449		1 JSON document	0	8de6287e7265e5db5d2395d5ccb072bcd64908c3958802fcb4263f994a798db1	local-only
+data/jito-bundles-by-slot.parts/452085399.json	15742		1 JSON document	0	5b70fdec22c1c66455b72279ebb465e24f7b4f6eb215f1fa1ab0cadc32467ff4	local-only
+data/jito-bundles-by-slot.parts/452085400.json	8907		1 JSON document	0	58ed0bd5f0d49a9c976d1725912ad77b2da8196e902e9320e3ff1171a80ba756	local-only
+data/jito-bundles-by-slot.parts/452085401.json	9619		1 JSON document	0	23a296c355762066c8e62a3c29016949e6eaf3d3ca67311d44f6a105c8c7a6b2	local-only
+data/jito-bundles-by-slot.parts/452085402.json	9550		1 JSON document	0	552eb0cc114fa5347cc2ebe466d2b8564877776c98ce4d9e4a7b8ab5e5858d5d	local-only
+data/jito-bundles-by-slot.parts/452085403.json	5441		1 JSON document	0	9410b7192fc0af9943552960f413bdbbe9ca337edf1fb74a05cfe707c420db17	local-only
+data/jito-bundles-by-slot.parts/452085404.json	11853		1 JSON document	0	462dca15cba90d5dbf7df766b4fce7db210ceacdf06e423aa9b1ad17d3e65d49	local-only
+data/jito-bundles-by-slot.parts/452085405.json	16542		1 JSON document	0	28348ac600386d91f0a96cc3749aadc8af46e2246bfef42a3b97ec859cf18936	local-only
+data/jito-bundles-by-slot.parts/452085406.json	15347		1 JSON document	0	0b7217c75c5ed316b512ff72ccc422e26347af3f7d7df1b1f81edcb523eb79e8	local-only
+data/jito-bundles-by-slot.parts/452085407.json	13363		1 JSON document	0	abebed7c7d0fc1f0ab1e9472465b968e6e97b350c9c183dfe2ee1475b8279d35	local-only
+data/jito-bundles-by-slot.parts/452085408.json	16673		1 JSON document	0	03b1b34d13e808b0eb63cff6a4270b39186e1c29f397cdf22016ec71daa5e95f	local-only
+data/jito-bundles-by-slot.parts/452085409.json	17753		1 JSON document	0	87b9395e2c437ddeb8934efe1df6689fd482505d8c5cb927fb41efed8426adc0	local-only
+data/jito-bundles-by-slot.parts/452085410.json	15626		1 JSON document	0	e04b486b43a2a62d5649a084072cd43e4ac9da8c20e3b5abc8f4e479144da7c5	local-only
+data/jito-bundles-by-slot.parts/452085411.json	17676		1 JSON document	0	1a936fefb96ac854b8a4ef633b53a06d9ee36bea78a39a216bd655d6c13744c0	local-only
+data/jito-bundles-by-slot.parts/452085412.json	13962		1 JSON document	0	3921ff9870347eb7efb2bb0c8238a66ffabcb3e78e6a39a0b547eb49e53a4252	local-only
+data/jito-bundles-by-slot.parts/452085413.json	14427		1 JSON document	0	1e77b513ea1ca5e4efc312aa831cf338ed1555c5e9a103d56a18ddce8c02e6f7	local-only
+data/jito-bundles-by-slot.parts/452085414.json	11248		1 JSON document	0	1b618dead7979a982ffd5e8b8a6c6c87d0fbc439e90975ea1b830e41923ffcc8	local-only
+data/jito-bundles-by-slot.parts/452085415.json	13762		1 JSON document	0	fe4e1ec9296e4692d04365ba1604299c9bc0ba3d9f06ea165dc5a90adff4aa1a	local-only
+data/jito-bundles-by-slot.parts/452085416.json	182		1 JSON document	0	fa746d604e9245cce46699e8375fc14a49ec0c3bfc30225fc4f8e04e1ae8fe32	local-only
+data/jito-bundles-by-slot.parts/452085417.json	182		1 JSON document	0	efa553b2e4a81e1fd2866b4756d85db588d5cbb122d8f7caf3e33893d247d115	local-only
+data/jito-bundles-by-slot.parts/452085418.json	182		1 JSON document	0	e4c90da30872ec7bb69b98aa72f876f8ad1f1ddf1d75cf5d95fc24bab4a281b3	local-only
+data/jito-bundles-by-slot.parts/452085419.json	182		1 JSON document	0	a73742e6eca7e59ae894be6052639b8ecb9590467642688d817950072009b3cd	local-only
+data/jito-bundles-by-slot.parts/452085420.json	28142		1 JSON document	0	a8ab5d068e1498ec56763c3ccae8b1927846264d09bcc7d9003f6558881e3b48	local-only
+data/jito-bundles-by-slot.parts/452085421.json	11140		1 JSON document	0	4114f06365e0125d25e47823734cb1fc28ae95768e467268673e0b20fb466893	local-only
+data/jito-bundles-by-slot.parts/452085422.json	18319		1 JSON document	0	de94c2e83c30e210648795a641c199fbc183cc8683a97109dd79babdaf29a6f5	local-only
+data/jito-bundles-by-slot.parts/452085423.json	16377		1 JSON document	0	e7371ee0b3967d1ecefafc2e0933d582cc0b605da74ae5c60515ac04c5ee80cb	local-only
+data/jito-bundles-by-slot.parts/452085424.json	5258		1 JSON document	0	c0e72be7d119011a30debd2e5977abc5ad6cee5c29f751ae7566600d6ca58dd7	local-only
+data/jito-bundles-by-slot.parts/452085425.json	10739		1 JSON document	0	9cd75c9b3ac1a3321893daefddc3ce634a5fbdf218a3f544af0eadb4e7fe63b8	local-only
+data/jito-bundles-by-slot.parts/452085426.json	8918		1 JSON document	0	d6dcb3086c4bc6766d4e944073783885bd14dc5220fec4e8f6f9457ff8e5f4b8	local-only
+data/jito-bundles-by-slot.parts/452085427.json	10222		1 JSON document	0	cf7f659f29103cc86e990df6db9ff4742a38659bcd6f69a8969c0877891d9e6d	local-only
+data/jito-bundles-by-slot.parts/452085428.json	10916		1 JSON document	0	514a17bc85c69cc9e56d46d8ae9acf9650e9f13d203825b562a27baeaec867ec	local-only
+data/jito-bundles-by-slot.parts/452085429.json	10898		1 JSON document	0	9dfe531a230faf3c592ace9d1b98df30cd28e10bea9e12ee0c2875c80d504f53	local-only
+data/jito-bundles-by-slot.parts/452085430.json	11914		1 JSON document	0	885578abe61d1e80c92a1b962c8124dc858c48802a1d229e261e69f882caeb9f	local-only
+data/jito-bundles-by-slot.parts/452085431.json	17274		1 JSON document	0	db58462dbae443382593b9dc52b660933e5df4823c73d26f394a5e73a705a47d	local-only
+data/jito-bundles-by-slot.parts/452085432.json	11467		1 JSON document	0	d7c9559a2d7bb3b744697126ca68301cd5fba30e9dd95a66ad5635125a3884fa	local-only
+data/jito-bundles-by-slot.parts/452085433.json	12283		1 JSON document	0	4633dfb4bfbe8856c1ca7cf9258bd9d4455cddf60af4861f9d09ed51e3fdd8b7	local-only
+data/jito-bundles-by-slot.parts/452085434.json	10627		1 JSON document	0	8a919628928e13965aa6b2238db70f931298d1e65b5b57efbea37fadb3f738e2	local-only
+data/jito-bundles-by-slot.parts/452085435.json	17674		1 JSON document	0	134e8ec2cc53793f4796ffae56d0f1efc86ab5bd28d32dc1c5ce4f15cc45e7be	local-only
+data/jito-bundles-by-slot.parts/452085436.json	8199		1 JSON document	0	6f4ed0b2c9076bd76a7bc684718efa7019ed7ffb8892d4eadcdb757339c6cf2f	local-only
+data/jito-bundles-by-slot.parts/452085437.json	6924		1 JSON document	0	3fbddf8dc5670d77d03f48016db87dd4b401a75159cba4346ba18f5ed83caea6	local-only
+data/jito-bundles-by-slot.parts/452085438.json	5813		1 JSON document	0	38be385b9e39027bbf9c8954e191046250d6c18320256d13399d75862b55f2f7	local-only
+data/jito-bundles-by-slot.parts/452085439.json	10487		1 JSON document	0	444c225900f5d41ae315cbbf864560acc85a9466356b726453b8ee01ecfe4629	local-only
+data/jito-bundles-by-slot.parts/452085440.json	6159		1 JSON document	0	a3e4cd116cbbfabb52da78590ea3cb7446e89ae3da7a18d2c66ee27a8b2c4ea5	local-only
+data/jito-bundles-by-slot.parts/452085441.json	4822		1 JSON document	0	00c1e77d5b727b20c186c4d5d6cf68ee084f3b1add78ad3274c4842c2915cb53	local-only
+data/jito-bundles-by-slot.parts/452085442.json	4123		1 JSON document	0	b130b73be7e058b504df91c3ec8049451edc590b32567bd890b84aa6115b5a3b	local-only
+data/jito-bundles-by-slot.parts/452085443.json	9962		1 JSON document	0	59c32e0c57f83ef672717880868cba71082c4d4c359a8f3dc1e3519eef47b5ba	local-only
+data/jito-bundles-by-slot.parts/452085444.json	12859		1 JSON document	0	cdea2417521890efca742fa58f0ebe928eca81709f53ef8270a38bd4aa4a2cd0	local-only
+data/jito-bundles-by-slot.parts/452085445.json	18557		1 JSON document	0	e2348e0250c44bd3ca02a21558b5f805b10c324978ef0308ca0a7f42104f0fd5	local-only
+data/jito-bundles-by-slot.parts/452085446.json	15394		1 JSON document	0	f9695395dd1a7374a73a2ae8b0b32f29ca338e2d156f3915198f0f21e39cd2b2	local-only
+data/jito-bundles-by-slot.parts/452085447.json	13160		1 JSON document	0	dcdb8a48d8491b658ba6905c4d8973a8993c6a0e53b2c6194548c4d8ded5aaef	local-only
+data/jito-bundles-by-slot.parts/452085448.json	182		1 JSON document	0	6914748907ee9fb8d11afdffe72b892ca63ce1743a9fe4df5bae11f9526627cc	local-only
+data/jito-bundles-by-slot.parts/452085449.json	182		1 JSON document	0	a4612247b36f6c74ba7811755da06b3bd71407a9f4ed1c3cf76fbb1f335def76	local-only
+data/jito-bundles-by-slot.parts/452085450.json	182		1 JSON document	0	64e69eb2e2dd52f27a463459f073367562457086dec71f16f1dd093a56e58a5e	local-only
+data/jito-bundles-by-slot.parts/452085451.json	182		1 JSON document	0	6bb8dd5f111a2ecae8098f8f64c776d60d4fe6dd3fbaaf8d2f15e399f55213dc	local-only
+data/jito-bundles-by-slot.parts/452085452.json	27017		1 JSON document	0	597df73714b1884376e43e4fcd1a8fffe05e522e989379675296324046db1a4c	local-only
+data/jito-bundles-by-slot.parts/452085453.json	2460		1 JSON document	0	05eea30f31fe2aba6378428be2b87868457a6a821a1f9f939fcd62def4b437b2	local-only
+data/jito-bundles-by-slot.parts/452085454.json	4239		1 JSON document	0	1f50d1f31ff8b41f3e10166ef17a0e9951a6f64d82adf3eaec3461ecce77e46b	local-only
+data/jito-bundles-by-slot.parts/452085455.json	11587		1 JSON document	0	998fe2b59bc035570352ebf956b37b7b169d318e5afde9f2ec14a1f52ea6d584	local-only
+data/jito-bundles-by-slot.parts/452085456.json	14850		1 JSON document	0	9dd3f8b70b0deaf5f568db4e109f4246a8244c73e24701eb8042ec2fec8c578d	local-only
+data/jito-bundles-by-slot.parts/452085457.json	7603		1 JSON document	0	2b86b12b66d6c95686edcd70b7c8c3b954206a2126cf7c231098a79ceb3dc4d7	local-only
+data/jito-bundles-by-slot.parts/452085458.json	3953		1 JSON document	0	f592ec61a2deb139fb7fb04cb8f86a160bdd74269c45a23333a71b0d17330304	local-only
+data/jito-bundles-by-slot.parts/452085459.json	8641		1 JSON document	0	f0e5a9b692dfc7cca88ba573c14a53023879c423ec3d9c72f7891172164c0357	local-only
+data/jito-bundles-by-slot.parts/452085460.json	6894		1 JSON document	0	33edd0c62e8136d3112d9cd96316d2d562b9ceeadcc3a3c9c8c2b2fd488d1f59	local-only
+data/jito-bundles-by-slot.parts/452085461.json	7029		1 JSON document	0	6e3e5257e28fe6cec44bbc3c20fd72f78e87ec8674ffe6dff07557b6be40097a	local-only
+data/jito-bundles-by-slot.parts/452085462.json	6711		1 JSON document	0	09513092aa9a3e6837be37f49c27d5ec2d32e9ba0e4c5220805ab49ea4cffc33	local-only
+data/jito-bundles-by-slot.parts/452085463.json	5688		1 JSON document	0	cf9da391847395606bb11467148322a88d0267cce27aa767cf2123bd8e127156	local-only
+data/jito-bundles-by-slot.parts/452085464.json	11291		1 JSON document	0	e9556b8d47b4dc20fb21f684f7c38067e22a52c001c1a2e2659177c88a6d64ec	local-only
+data/prices.parts/00000.json	5685		1 JSON document	0	02f705ab2a037bc2f2758b34203c9cfc25aa565dff5843220d2d603debe17b63	local-only
+data/prices.parts/00001.json	5368		1 JSON document	0	5dd35ba431ca4ed24f6e1e82ab35f33f92bf4342384d1ba40687e1ce3a83d89f	local-only
+data/prices.parts/00002.json	5673		1 JSON document	0	31ba8cb0854fa8d2b318b02df7d578d06802c25ed044bf22bcc0890e805747d2	local-only
+data/prices.parts/00003.json	5976		1 JSON document	0	cde4ec410dcd9ab180ed19e5abb32b604b04225f4c33b0f9b3636a60eddf9e56	local-only
+data/prices.parts/00004.json	6118		1 JSON document	0	1586b272ec724bc0a84718a703e0d9ead187de2f642332b810f578d5a41a7427	local-only
+data/prices.parts/00005.json	6469		1 JSON document	0	48e8c56cb0ba4d089e7fbee7e106c2bb1f3cb22f67266fb569c5586c0d3c5708	local-only
+data/prices.parts/00006.json	7054		1 JSON document	0	65b4d68989e312b62afe09de87c45098ee34f34c5412829c6c85ca9637531015	local-only
+data/prices.parts/00007.json	5992		1 JSON document	0	6fbf447efe9a4eddafa8bb3cb55c0aca15275bff7a32af056649776f43467a44	local-only
+data/prices.parts/00008.json	5984		1 JSON document	0	c958eecc45743be1839c2cfbdc1e049101f5417989b9314fc04d149ca9435291	local-only
+data/prices.parts/00009.json	6146		1 JSON document	0	5c5a70bdc09161fa2051f9cf7d42e0fabad9965cf388806c670336723213a5cd	local-only
+data/prices.parts/00010.json	5962		1 JSON document	0	1f666956cfd21584c545e9099629934a4e9635a456e8dffaa14eefebd5c19120	local-only
+data/prices.parts/00011.json	5338		1 JSON document	0	86a5008b4c42469ea488db68357ad5fe877691b76c3453f07369a09c1bd9a07d	local-only
+data/prices.parts/00012.json	5512		1 JSON document	0	6659d714a398ed4e0e3b12955d63beb5dc4d9a69b7209b2279336359a8ecf3f4	local-only
+data/prices.parts/00013.json	6276		1 JSON document	0	fb5381856e755861d47d8843390c78fdd705e88fec852d4b0c59daa77bba37b0	local-only
+data/prices.parts/00014.json	6112		1 JSON document	0	88f4fa8a27a206014c6a4ed33c29211a4559abf5590a258b6a1823be9f39709d	local-only
+data/prices.parts/00015.json	5859		1 JSON document	0	5e1ef6cde812a5d7cf2376366440cfc812131c2e314cfef7a7bc85ad50c014cc	local-only
+data/prices.parts/00016.json	5823		1 JSON document	0	2172cab5e3b8543f70677d84e538e9790512f74c476c903d941d9cecf309fa4c	local-only
+data/prices.parts/00017.json	6152		1 JSON document	0	53315f5734f098fc329f613d0a147415f686f4f8c8bc03a9d87a5f874979c79c	local-only
+data/prices.parts/00018.json	6466		1 JSON document	0	e30cda9173119a19f130401ca665e4a8fb81b149a8d2d1fa34a7d5457eb67756	local-only
+data/prices.parts/00019.json	6504		1 JSON document	0	287402fd8a0b856b5241361d605ec33761095b5b88da360b1af05897f887714b	local-only
+data/prices.parts/00020.json	6606		1 JSON document	0	dee0023eff10ee39def3216479f892b4c8f4435010f3ee302447ab0a423b5969	local-only
+data/prices.parts/00021.json	5681		1 JSON document	0	e264f25e8e9f98f4a7eafb1ea91d919f9b9f04c6d8f9da74884ca7053b7e4df1	local-only
+data/prices.parts/00022.json	5854		1 JSON document	0	0f532a75c16c9553988569723c9d6c9263a89028f2b0c88448fca50eb7d04ce1	local-only
+data/prices.parts/00023.json	5382		1 JSON document	0	36633b550fc5aeae717fe5ea473c0dc8058151353f916110b76718ca291a0855	local-only
+data/prices.parts/00024.json	5710		1 JSON document	0	bba87fbd27b0a9c2c2bc632062a162ae7beb669591ab839a52cb5fe0360e78d8	local-only
+data/prices.parts/00025.json	6308		1 JSON document	0	e7f7ceb984d79e77287b537789a39b41cd4b9c48453907351c631efcfcdd70ef	local-only
+data/prices.parts/00026.json	6593		1 JSON document	0	3b441a75fc2f84b60a3e81f9916476768bcffde3fa8209097b852229a72d186d	local-only
+data/prices.parts/00027.json	5719		1 JSON document	0	a7e21220a9c6098e63432c095c483d3e20c6838ff52a13afe92df60b15e8c8f3	local-only
+data/prices.parts/00028.json	5394		1 JSON document	0	d2e2a2a1cf0959ee9039148bffccd738438de754c8914215229f1cb759d6d1e3	local-only
+data/prices.parts/00029.json	5375		1 JSON document	0	e54b3ea66b31a8aa4f119a078c01f748a566531d1602646d40ec27d14753c317	local-only
+data/prices.parts/00030.json	5385		1 JSON document	0	65cf41dd23fe0580a178f3cfd797bf18e45f65f379c820b926f4b2c30af4079b	local-only
+data/prices.parts/00031.json	5713		1 JSON document	0	49fce5948d31c4a5bd1958e78116e2d4dcb8bebb3b8430d97cb0d658c87e783c	local-only
+data/prices.parts/00032.json	5537		1 JSON document	0	9c89475197ff10e4df2672c080b3fbc5c603b076e7baa0a7fd92fc10d0456240	local-only
+data/prices.parts/00033.json	4916		1 JSON document	0	ba361d7cd8050feb6e118a56387f014d1c06f3809d14fe6fc687edf3c37432c7	local-only
+data/prices.parts/00034.json	5848		1 JSON document	0	e8499f71801cc939bef4415ebcd1aa8ddeb93cb69b0535137b25bca4806e8021	local-only
+data/prices.parts/00035.json	5696		1 JSON document	0	7803f5637d997ea0f238718aaf9858c68b3b30b91a6e0f4596367cd129a6de76	local-only
+data/prices.parts/00036.json	5231		1 JSON document	0	818c60a74f0ac892ca16b1802997ff840b75e79cc5d5a344fb91707b3a0eb524	local-only
+data/prices.parts/00037.json	5081		1 JSON document	0	b40042af0b6d7e0d87f6cb52b82a6103149e1a31b5aa5a060757f32eafaefda3	local-only
+data/prices.parts/00038.json	5221		1 JSON document	0	579af8a5a977ad536afaee9efbbbf3076a5b21db67a567328ddd0be4420ed3e7	local-only
+data/prices.parts/00039.json	5229		1 JSON document	0	6cb973d0215f17029831107dde3d110e6d2d1ebe02034265f3d943c2908255c5	local-only
+data/prices.parts/00040.json	5542		1 JSON document	0	646c5624df894744a7cbc4ad379cf01b5be443c6d9479212e86560d571efcdb1	local-only
+data/prices.parts/00041.json	5545		1 JSON document	0	96ebed93d391143d1f199598694a1fd58b9d36fc5a37729f727f5781c5008241	local-only
+data/prices.parts/00042.json	5086		1 JSON document	0	c338690e52141a0c02f446b13a5a356fbf2f0570bb82b817bca24e059b1951c4	local-only
+data/prices.parts/00043.json	4745		1 JSON document	0	bf8c84c1285271d5cf01992e9b6e2cfdee6621b1061d90264adb2f17b963537b	local-only
+data/prices.parts/00044.json	5216		1 JSON document	0	b8499a0ff3b90a6b91ccf5ebc48f52acdefe5f489e180afd13a5e0423e5e3964	local-only
+data/prices.parts/00045.json	5418		1 JSON document	0	17a5462afa36cbc59261e273ce1838bccf1b958a11f9ce440fb1ee1fa737f234	local-only
+data/prices.parts/00046.json	5077		1 JSON document	0	6628068662b0fc20ea033770f85b49e5339674c89c5a9d7d5948fec332986709	local-only
+data/prices.parts/00047.json	5231		1 JSON document	0	2874639ed3c6ffd828361a24287338aa7f3af4e399c3fc8a97812ff5152e8045	local-only
+data/prices.parts/00048.json	5722		1 JSON document	0	9e322911ec39b66ed35d7b517556da5fd94a529d8c51f649e75eb3274d7c5619	local-only
+data/prices.parts/00049.json	6018		1 JSON document	0	67a4f271cc96f21e46d5052939bc455983f3644737dded9b145782f22c55224f	local-only
+data/prices.parts/00050.json	4925		1 JSON document	0	9e06646f4afd53b75485532bfb6ac551c04d59a40dee2ff622092e7a1bfba0a8	local-only
+data/prices.parts/00051.json	4927		1 JSON document	0	861f8ccf7e239f268d06d5e342419f92dcbc8224a7779e35a20939206d0a397d	local-only
+data/prices.parts/00052.json	5559		1 JSON document	0	4e9b0a3a40001c439a41b7d2869529de91e05797e4f6cd082bd1f17fb3859370	local-only
+data/prices.parts/00053.json	4761		1 JSON document	0	8fae67536361db01a872806dae366c9a8ee0045ab5d725234f898d77feea659a	local-only
+data/prices.parts/00054.json	5061		1 JSON document	0	d5e6fc03d67b9af31e7f4e905e67c5a029e1f1e942f7223ca5f7e26b23c71fab	local-only
+data/prices.parts/00055.json	5074		1 JSON document	0	a6e7dca1186b121f5dcd8ab0ea3f52fe7bf3e0b8992686d1866f55344b9b67f5	local-only
+data/prices.parts/00056.json	4925		1 JSON document	0	d5bcb2c54dae9b72a5797fae7c4b4c4b2c70718c4a712f357322cd4aaf6416f5	local-only
+data/prices.parts/00057.json	5076		1 JSON document	0	a0fb936ca4f98ac500d695753058c7016e364f1951ef830c7ba0d220481a5da7	local-only
+data/prices.parts/00058.json	5389		1 JSON document	0	dc62ae48d0692520d722811faffb11c6305d2ddfe910dab77965a53998c9d415	local-only
+data/prices.parts/00059.json	5547		1 JSON document	0	6430e45454a23d44695c9635bd40fed04a9d256f2fe38688264d2f70a672813e	local-only
+data/prices.parts/00060.json	5862		1 JSON document	0	16d2703729bec7696d8ba1a97667683c4c4941aa9634abb221b5251274263fd1	local-only
+data/prices.parts/00061.json	5080		1 JSON document	0	5ab8d66ca5ea740d642f4c0e19367e7a328341069bdbd0b9f617c40772c8845e	local-only
+data/prices.parts/00062.json	5385		1 JSON document	0	2caac33bdc8ba1a5b2265707c3e1eddb667bd51a8ec94a0a6a753585b03d725e	local-only
+data/prices.parts/00063.json	4919		1 JSON document	0	245532623594f3fcc03337bc40af8c208987ed16c38d5208bc87c61acd3a0deb	local-only
+data/prices.parts/00064.json	4765		1 JSON document	0	c38036dc2c0bb29c9bf7f0b2747c4f9ebe9ce148fa0259565e7b4f8551e4e7be	local-only
+data/prices.parts/00065.json	5079		1 JSON document	0	7bfd1701ed84715964a0cc5882ecb2c81c27da459b11188c8fb609bdfd34742f	local-only
+data/prices.parts/00066.json	5534		1 JSON document	0	71bcd45a7591d5ad6004486cc6db77a6fc54e625db7f65871d985d8583dc9879	local-only
+data/prices.parts/00067.json	5222		1 JSON document	0	867121e305d4f3ba5096c3b4959774a1d1ac097e0760c01ec211a234fd68280f	local-only
+data/prices.parts/00068.json	5385		1 JSON document	0	35fcc95128e68f411c259deb5ce20b43654341fb227fd366e8c4deaa99a03bea	local-only
+data/prices.parts/00069.json	4918		1 JSON document	0	ecc41768e199570aa980247ff5f687e5825e31436bc4625e5df951b98cf5bc54	local-only
+data/prices.parts/00070.json	5232		1 JSON document	0	2ffbaaca6c21c9263de750deb5626de5c1dbf2de076176ae05af76a2918fea5f	local-only
+data/prices.parts/00071.json	1696		1 JSON document	0	7405518ab6e7a7dce1ce9a4123d89dcc1e93f0e8193ccbb28a825b1f7f6e444c	local-only
+data/raw-slots/slot-452084865.json.gz	860739	ok	1 JSON document	0	d7f42ea273ce787056627821cb6ad2dd75bd58c63b0a9f6785a5a1a9f9e69667	local-only
+data/raw-slots/slot-452084866.json.gz	848690	ok	1 JSON document	0	b333740a2416f93437ea68bad6e53c37ec465c8084de00344b6c59adf22f7cdf	local-only
+data/raw-slots/slot-452084867.json.gz	973415	ok	1 JSON document	0	c9de8dcc4916bede11ec61c173acff8f22b7da3272e88444951929c31a232b16	local-only
+data/raw-slots/slot-452084868.json.gz	643519	ok	1 JSON document	0	9e897d6264b2e28b3df46a6f784b761de53492f4444ff5e64f62067f210993c0	local-only
+data/raw-slots/slot-452084869.json.gz	936600	ok	1 JSON document	0	b7bb26128f0be127933317da77178fc8163b85c7e93877534602fbef276dccf5	local-only
+data/raw-slots/slot-452084870.json.gz	1746885	ok	1 JSON document	0	60bf55eb3b7ccf5da8e86e4e454cd0e1cf9ad357907236e151c6a0c3a83e8e34	local-only
+data/raw-slots/slot-452084871.json.gz	1202015	ok	1 JSON document	0	18e28686f85b535fc6b0d0065414c680c8a974c0f6230574305662c455328dc0	local-only
+data/raw-slots/slot-452084872.json.gz	1787056	ok	1 JSON document	0	b5987bfba94b58e807afcbd878853523abd5461cd2ae8917fb11bfc6a28b5f52	local-only
+data/raw-slots/slot-452084873.json.gz	1293128	ok	1 JSON document	0	980e0340d7212ed0fdd9fdac06826e9400b9cb95ebd2ebad0255cfc843d266ce	local-only
+data/raw-slots/slot-452084874.json.gz	1137328	ok	1 JSON document	0	e78871604773550e9d641eb3e2039c9e9959a5fee986c304593aca5e6dd01481	local-only
+data/raw-slots/slot-452084875.json.gz	1411811	ok	1 JSON document	0	f225bde8e81c72ab3790b17a2ed92c9bf703fe90782c5642642926364b656ef8	local-only
+data/raw-slots/slot-452084876.json.gz	590417	ok	1 JSON document	0	839aefb697ac08bf34fa305b3e995492739286867b7c9c06a8232416e77021b4	local-only
+data/raw-slots/slot-452084877.json.gz	559644	ok	1 JSON document	0	cf203381abf45e1b2f40dac5cfb6895aa226a093a1e861716f699e59621a9ad5	local-only
+data/raw-slots/slot-452084878.json.gz	918989	ok	1 JSON document	0	3e0371e9a4cbd66ae47a9904e0f7497159dfc64424b91d4ba84d704f27d33f80	local-only
+data/raw-slots/slot-452084879.json.gz	1278998	ok	1 JSON document	0	6980d9720a0085ea70b4ce9b3bfad908da5b7e43b97b8cc9f18d0aa35df91883	local-only
+data/raw-slots/slot-452084880.json.gz	873884	ok	1 JSON document	0	471c89cc71758286196b77e9144504a8504924fe773f46d20827a6cb614ebf41	local-only
+data/raw-slots/slot-452084881.json.gz	1314736	ok	1 JSON document	0	cfe5f06c23eaa155d1eb53723f972e146ad5d9a25fa4c42a9ca6da54ef7c3733	local-only
+data/raw-slots/slot-452084882.json.gz	1561733	ok	1 JSON document	0	661c5ad20a7bc5516c4cc81acf42b35433b9d8aa504ce7874b4b4b34b6596038	local-only
+data/raw-slots/slot-452084883.json.gz	1366563	ok	1 JSON document	0	087d4412740e007bb0e173d100b3da80a043cf8d169ed33d97829a75bc3a3dc8	local-only
+data/raw-slots/slot-452084884.json.gz	1483163	ok	1 JSON document	0	89ebe8d761db93888cfee1a202b60cd2685ad2e471c49eb289cd99d74e4dd443	local-only
+data/raw-slots/slot-452084885.json.gz	974846	ok	1 JSON document	0	03de84873874dfea5d9e25497ebe87c1bc3bd300feba8eefd278881b6ee7f7bf	local-only
+data/raw-slots/slot-452084886.json.gz	1043916	ok	1 JSON document	0	8fd82f8b885f6e36a0cacdd9c63b24f5fa846851183247431f79dc06d13da194	local-only
+data/raw-slots/slot-452084887.json.gz	1127499	ok	1 JSON document	0	05d305e66d0778b5d81a05bfbc99a578ce0e6f54922afd69aafdf05a46ca77a9	local-only
+data/raw-slots/slot-452084888.json.gz	974005	ok	1 JSON document	0	90ac8c4606dc9aef5f75c56f7e5e8ab25ae2556e840defd4064f4b79412fe6c4	local-only
+data/raw-slots/slot-452084889.json.gz	1175743	ok	1 JSON document	0	c85deda88afe9009a057ab95b7cb0cbcc22fff2da983dc392e3b9c326436bd21	local-only
+data/raw-slots/slot-452084890.json.gz	849600	ok	1 JSON document	0	eb8192b40deedc4598ffea202bd4d3c5520f27609c709cc886a8e731ff85c22e	local-only
+data/raw-slots/slot-452084891.json.gz	1018496	ok	1 JSON document	0	c63a94e8a257826bc8ee93db5c671f63ca1e080af7ac77d036bca9987a69207b	local-only
+data/raw-slots/slot-452084892.json.gz	949727	ok	1 JSON document	0	348a2bdcd70a965d773518bc6e837b85a0e26927fc2529b2726e59e255deb539	local-only
+data/raw-slots/slot-452084893.json.gz	892539	ok	1 JSON document	0	d7bfed4dbd16de17456af3997d17f22b52a8c5e43f1f73a20ac91a3fcced0d5e	local-only
+data/raw-slots/slot-452084894.json.gz	1099414	ok	1 JSON document	0	ac8f8266e63e8d5c796a75dd18e1020da75f0bb011bd420b8d1885bd33205ce3	local-only
+data/raw-slots/slot-452084895.json.gz	846046	ok	1 JSON document	0	45eaed29c9aee23e66d90c0488f14341bcc66877a205612751e96f3ae9c62221	local-only
+data/raw-slots/slot-452084896.json.gz	945382	ok	1 JSON document	0	97a2a7f7794e23911ea0051ff49c8066eda9c17929225143ae03269307c0ac48	local-only
+data/raw-slots/slot-452084897.json.gz	808243	ok	1 JSON document	0	7be4bdfc0b924e80c410b1174c6e94d7a1a4afe42deb0b08739d3eb36c481677	local-only
+data/raw-slots/slot-452084898.json.gz	952516	ok	1 JSON document	0	b5f2343f7277d34bf12fbb3fb1efbb6f2294f4b1d8628affc33a6b12ee59136e	local-only
+data/raw-slots/slot-452084899.json.gz	841142	ok	1 JSON document	0	6fb96e9fee4efe61a981ddfeafcc88c4c33d2022cd58d7ed48eef8d0f7b81bb8	local-only
+data/raw-slots/slot-452084900.json.gz	550452	ok	1 JSON document	0	a37ec758410b62621d6d14d4acfa3cda6cc14aef991fd04145da1e8a281b48a1	local-only
+data/raw-slots/slot-452084901.json.gz	1029173	ok	1 JSON document	0	e28a98ad639342c34b91fe4e0f87301c84f7c15aac0b42cde5e1e54601b1c51d	local-only
+data/raw-slots/slot-452084902.json.gz	467630	ok	1 JSON document	0	ad7c718022966abd4bd8c2db29ba23f3c1c6efadff08fed1dd92cdcc4ff3cab3	local-only
+data/raw-slots/slot-452084903.json.gz	1321098	ok	1 JSON document	0	ee35f6dabf17b20f92bd804e2586c2872ba41a6fd3ad3704d9dccc659642d7f1	local-only
+data/raw-slots/slot-452084904.json.gz	641012	ok	1 JSON document	0	107eaa1611d08b3bceb59406ad3b20e8ff548b6b9f53700bb48904a98b9e07af	local-only
+data/raw-slots/slot-452084905.json.gz	1039294	ok	1 JSON document	0	5a703bf5ce1607c3c2f5f07d67bc06979b8653facce6dba388c518bafb4d36da	local-only
+data/raw-slots/slot-452084906.json.gz	980023	ok	1 JSON document	0	cab7e06e0500e1260a6af98aebe6730d0226d0dc04a93d45616aba6c8bdf65a5	local-only
+data/raw-slots/slot-452084907.json.gz	1145738	ok	1 JSON document	0	dadaf82290f68ffa28e929c979f3ff2def9208348acef9695c90fb06a9cc5019	local-only
+data/raw-slots/slot-452084908.json.gz	998765	ok	1 JSON document	0	f48294fb997d47744a33d7fc9b62b95b7ed9c69aaba38973f0fa7543cc1210a1	local-only
+data/raw-slots/slot-452084909.json.gz	1095085	ok	1 JSON document	0	8e682b7ba37ab7dcee9e8ec2dbe079c7699e609391e1f7d2cd88dacba52e9c53	local-only
+data/raw-slots/slot-452084910.json.gz	1266052	ok	1 JSON document	0	67a70c48330aa0c3f537c736463f8dee0029422b94d4b00c8d9c6d01a4fbaacf	local-only
+data/raw-slots/slot-452084911.json.gz	1135244	ok	1 JSON document	0	1973cd287462d29f00597875feab5a4fe5c7a7eb817bc54f620dfe213df9839d	local-only
+data/raw-slots/slot-452084912.json.gz	878904	ok	1 JSON document	0	0e4a7d11b6026056e52cff5da8c4b30f2c4dea46706ddfa8b47922015fc5d7c7	local-only
+data/raw-slots/slot-452084913.json.gz	924969	ok	1 JSON document	0	d21a8a997116fa2118869abbb7120001e59cdaff9533259f16369f05db45bf2f	local-only
+data/raw-slots/slot-452084914.json.gz	938547	ok	1 JSON document	0	2d7c311d59f1eb68d2e427a7ad3ee0d62350dc0dc7600a71b12760824d908950	local-only
+data/raw-slots/slot-452084915.json.gz	1163385	ok	1 JSON document	0	8ce44d3927d492597a66a88fea832ba27583db1f79af4fb093c0b412a31352ca	local-only
+data/raw-slots/slot-452084916.json.gz	1062116	ok	1 JSON document	0	3e37096346a8b3d341a46dddc2764e52c77702467246252ae4d52397f96690ea	local-only
+data/raw-slots/slot-452084917.json.gz	1175839	ok	1 JSON document	0	f15a9eb5e78715b3e92c9663a6d2a4a16e8ec7ae3b9302fe4e0c37f43373306b	local-only
+data/raw-slots/slot-452084918.json.gz	1097794	ok	1 JSON document	0	d9525d73bdd2eb5e2aaf60c44cba4a7d563b6515151cf40f494134f5bb90cb75	local-only
+data/raw-slots/slot-452084919.json.gz	916399	ok	1 JSON document	0	9125be9d1042de3a0aa77eadd6bff0273c0763fb97e2d042a9216d1f17bda8d3	local-only
+data/raw-slots/slot-452084920.json.gz	957470	ok	1 JSON document	0	3d22e61fae84e22758821cde998573558033201b211403359714c3c2dfc3df24	local-only
+data/raw-slots/slot-452084921.json.gz	884231	ok	1 JSON document	0	421dfac3f4da4e7cd10bbd0f4b7e9cebda93d33e95db2d24154f4e655f6112a0	local-only
+data/raw-slots/slot-452084922.json.gz	1033865	ok	1 JSON document	0	6af04563c2024a243f59925bd8ed2336ea4beeb764faf9ff657154598e086cb2	local-only
+data/raw-slots/slot-452084923.json.gz	725639	ok	1 JSON document	0	fa6437992af979e768ebe1836fa68b3f4842216f9a142bf80cf6d326a936846b	local-only
+data/raw-slots/slot-452084924.json.gz	993392	ok	1 JSON document	0	1a1b96c35733358ee376815d5fdd75b8f27f08721e62448d7cc17e94ad6b6fe2	local-only
+data/raw-slots/slot-452084925.json.gz	1150505	ok	1 JSON document	0	d5fefed4974c9473a5f6b25c33b903daf0dcdbacb03c90202f9585598f4c7590	local-only
+data/raw-slots/slot-452084926.json.gz	910973	ok	1 JSON document	0	4ed83e48bafd247760ee647a24aba6969201a002dd60a00a61ab000f0053489a	local-only
+data/raw-slots/slot-452084927.json.gz	724609	ok	1 JSON document	0	638267e43f8dd402381839afbee6ceacdd55da6f2ccb6eb38910d60ecf74735f	local-only
+data/raw-slots/slot-452084928.json.gz	699576	ok	1 JSON document	0	eb1f7aa74c1e94c4d34c709961afe520f83a6814208d9881c33dedd806111acf	local-only
+data/raw-slots/slot-452084929.json.gz	820473	ok	1 JSON document	0	d5ffa77fbc3dfb9e3787207869e7d33f4fa66d931e3594c5af138d80962072d0	local-only
+data/raw-slots/slot-452084930.json.gz	901136	ok	1 JSON document	0	94448c658dd6937557ff850cb469ef4f6a7b3721f458b975d7b7ffaac7457d83	local-only
+data/raw-slots/slot-452084931.json.gz	878413	ok	1 JSON document	0	cf28980ad4f0c2e0e6cc639f6f7fd835acbbd7a935ded23681ee6d2f211b2499	local-only
+data/raw-slots/slot-452084932.json.gz	226012	ok	1 JSON document	0	39d79a5179c22ce38a5d56ce03b1d4c19c72cd5cd0ddb218e2b1c432271435f4	local-only
+data/raw-slots/slot-452084933.json.gz	896050	ok	1 JSON document	0	6b62de1e2046fb7b81a0b8646b31857cb5e4bbab63185a0ca46d9042d6804dd6	local-only
+data/raw-slots/slot-452084934.json.gz	1009136	ok	1 JSON document	0	c6b657476380f86e7050e1d226cbb274ae6c7735dcfd1bb68167e2a1f57272dc	local-only
+data/raw-slots/slot-452084935.json.gz	1153271	ok	1 JSON document	0	da175752a59ef6bfa45474cf39f874dfd2332e9550e8e22c2ad709dc49bb9a20	local-only
+data/raw-slots/slot-452084936.json.gz	1153314	ok	1 JSON document	0	b4a062b8415e2e0d4aeffb0b15c4fc68b05d7f90aa8157c1b12b11b0f70e3a15	local-only
+data/raw-slots/slot-452084937.json.gz	1046679	ok	1 JSON document	0	5482574f998dfa26835ad19ef407d67e0837a24305b97186da49596cbb879243	local-only
+data/raw-slots/slot-452084938.json.gz	951563	ok	1 JSON document	0	99b9526a896832183f32ffdbfe15740be469578fb6c68ca539397f0ecbbf7332	local-only
+data/raw-slots/slot-452084939.json.gz	1057774	ok	1 JSON document	0	968b35409177c79c64326180d91b5fddafcb02a1d504eab7307a61f25e08bd61	local-only
+data/raw-slots/slot-452084940.json.gz	1357994	ok	1 JSON document	0	f17d59182b140487a746583d85bdc6c87aaf5b699df47a3de013d2617a3cbddf	local-only
+data/raw-slots/slot-452084941.json.gz	1365888	ok	1 JSON document	0	784a5424c2ea6deb1cb85fcb0c8a500d3c3aa8104a07b894ad495e4658fcd4bd	local-only
+data/raw-slots/slot-452084942.json.gz	1106283	ok	1 JSON document	0	69ab4c42dac88a4a704b441c9cfcec68b1f15476cf6e3ae9fd70e8365d65b9c4	local-only
+data/raw-slots/slot-452084943.json.gz	1165841	ok	1 JSON document	0	3463579899d725ceece1211e06eca61dd4b8b5bcaa40cc43b2cdc5fdc7cb1a92	local-only
+data/raw-slots/slot-452084944.json.gz	1695908	ok	1 JSON document	0	2f61885e4b32e8bb6cca855648f14f995cd9accd3f39f5c963093d9b0ad658fc	local-only
+data/raw-slots/slot-452084945.json.gz	1126293	ok	1 JSON document	0	9f895b0add4ec6454cdea4b1e8c037131824153722a2254628f843c72a281ee9	local-only
+data/raw-slots/slot-452084946.json.gz	927752	ok	1 JSON document	0	3278cc23d8469bc7a006999d25e4e2da71cb8006921446ffc4dd69a8ccda62be	local-only
+data/raw-slots/slot-452084947.json.gz	1108355	ok	1 JSON document	0	f86f2bf705d3f4c2837346f1829f773c167811c7933c3ed5e4bd1809ddd2ac1c	local-only
+data/raw-slots/slot-452084948.json.gz	644501	ok	1 JSON document	0	e8c64966b44005a2ec9d59c4dd44a85dd266afa2db6ff1b98d882ee0e6a68948	local-only
+data/raw-slots/slot-452084949.json.gz	940425	ok	1 JSON document	0	0bfa428b3e4ba23fe42b35e8ad03125dc4462446ce2c6339773f5fd3dd0610ca	local-only
+data/raw-slots/slot-452084950.json.gz	1588223	ok	1 JSON document	0	6476ea81fedda866cc6700a7d0bc2e352e003f180a0318e6923347b5c6b19ba5	local-only
+data/raw-slots/slot-452084951.json.gz	954911	ok	1 JSON document	0	a9a1c65de5e3c7559bbfb9b278ad3df450ef8c5474c65ad08a40ae9a78d6e2be	local-only
+data/raw-slots/slot-452084952.json.gz	640073	ok	1 JSON document	0	8567c33fa652639baccd50a198612b3d861dae0de82f0cc5a197d29530aa47de	local-only
+data/raw-slots/slot-452084953.json.gz	1093753	ok	1 JSON document	0	04b32e6ea14c273f44c4d8c8ff3deb37993e10f1e7e0047bb66b00e8b1d4aec4	local-only
+data/raw-slots/slot-452084954.json.gz	847958	ok	1 JSON document	0	a320ed23267bc4af16a0b487c1f296bbed9075dd09cf063565f53ab119e467de	local-only
+data/raw-slots/slot-452084955.json.gz	939179	ok	1 JSON document	0	2c91766ff6417fce85e205e1713a66a16aa0a2d74df55ec55010d3fdc0a6e34f	local-only
+data/raw-slots/slot-452084956.json.gz	608464	ok	1 JSON document	0	2c0781555bddc0247ce35cc03cc6048d14d00ad2e7be249a0cf7d1d13f6898f1	local-only
+data/raw-slots/slot-452084957.json.gz	873056	ok	1 JSON document	0	89b46dfd4c037de05bd641e6b1fff83ea99e2c6f67c92ba524127ad9aeea8731	local-only
+data/raw-slots/slot-452084958.json.gz	956869	ok	1 JSON document	0	f9fff6582a8f6f46bc2ba5b95058a925952b596e30858395ced61d18f6423168	local-only
+data/raw-slots/slot-452084959.json.gz	849239	ok	1 JSON document	0	1d63e2c6b01bc64b9929e29e11609b9bc7050093f1f7ad5bdd44b8751089c719	local-only
+data/raw-slots/slot-452084960.json.gz	1485126	ok	1 JSON document	0	e7753de5f90cb2cb8a940cad8082db45f5f304f040411b6b040eaab0b24e3765	local-only
+data/raw-slots/slot-452084961.json.gz	927102	ok	1 JSON document	0	7c780766cace0ab678e6e02f769696e94de8bd0df353d099c713e1e4f2578c7f	local-only
+data/raw-slots/slot-452084962.json.gz	1125136	ok	1 JSON document	0	57c5b6a12b412c578a7316f9a8db83f321097191666c01153611e47ce5b1d3e1	local-only
+data/raw-slots/slot-452084963.json.gz	1552735	ok	1 JSON document	0	9bafefca106596d2178546d9625206c883204e20e3ed41c8d8934dbd42774407	local-only
+data/raw-slots/slot-452084964.json.gz	782561	ok	1 JSON document	0	eede592c20c2ff36c22502602aed83542b9279137c4057f06ec5c38ba618b6a7	local-only
+data/raw-slots/slot-452084965.json.gz	689497	ok	1 JSON document	0	ae090e8963fcd1a6ccb736629ddbcbc91985eeedf68a9800ded3538711566296	local-only
+data/raw-slots/slot-452084966.json.gz	581947	ok	1 JSON document	0	2386a6391fef1b3cbcf226472cef743d62bb9146992f28ecc20ebfb1f3c8292c	local-only
+data/raw-slots/slot-452084967.json.gz	1124259	ok	1 JSON document	0	64031fb9a61101b615b7c29dbf5a42e20659a6ee3768045ba9900cdbcb5fc7e9	local-only
+data/raw-slots/slot-452084968.json.gz	671725	ok	1 JSON document	0	e1d0da97eff6385fea8d4abada69cd35b1248bf6e2171a6862255c080c3ee9d0	local-only
+data/raw-slots/slot-452084969.json.gz	917135	ok	1 JSON document	0	6eddb181664377f378842c7c0b0eab7fa7dd0eff7f42b6394c8ca8876fbab6a5	local-only
+data/raw-slots/slot-452084970.json.gz	908034	ok	1 JSON document	0	31d8428d331e39c116aa4bf6f4e7d846f65d8535c5fc49580cee76022551db19	local-only
+data/raw-slots/slot-452084971.json.gz	1358416	ok	1 JSON document	0	88df27f8da6282a928003622add2c46fc9de912d44fb2a0fab8f5cdaedbd7ae9	local-only
+data/raw-slots/slot-452084972.json.gz	828922	ok	1 JSON document	0	b4d0d70c8a7ce93c996cfc521a769e46c6aea089394c10c92a3c5e620d73c12b	local-only
+data/raw-slots/slot-452084973.json.gz	924136	ok	1 JSON document	0	5e75b40b4f643ebed281da150eaae18817670a7cd2cdb6d6b322bb34734ac071	local-only
+data/raw-slots/slot-452084974.json.gz	974170	ok	1 JSON document	0	c0ca996abd13cb8bdef1209d5d08fd4e0406238ab4ca52e6db47b03f63ffbc6a	local-only
+data/raw-slots/slot-452084975.json.gz	1136420	ok	1 JSON document	0	0677ef5c276bf2e927bdf58d69250598dc6e8eeae32b6784adfec74734af06fb	local-only
+data/raw-slots/slot-452084976.json.gz	1010791	ok	1 JSON document	0	e4287839d01f035b4ecd801da52c5d5bcb0f454982a18134632c80253e5dcc96	local-only
+data/raw-slots/slot-452084977.json.gz	1052393	ok	1 JSON document	0	2eb85186157d542b16d3c36dfbacfd6c32928af63600ea37caded9b691fda806	local-only
+data/raw-slots/slot-452084978.json.gz	789833	ok	1 JSON document	0	d8dd629eeaa2a73d2c98bda286df86d15f972e09d298a6d4b76861b3b25dc819	local-only
+data/raw-slots/slot-452084979.json.gz	933124	ok	1 JSON document	0	a3d32922b350b84c9f8519d9fdf4709cc29b3b3d0e27975808d5e8e0ec46ca0e	local-only
+data/raw-slots/slot-452084980.json.gz	509343	ok	1 JSON document	0	91eec7fc57dcbce32bf2ed75e5c3f6337d700c5fd30e399c2f574c9a33c9c388	local-only
+data/raw-slots/slot-452084981.json.gz	656534	ok	1 JSON document	0	f498f3be29a7208b8710da5f30f43a8a41b8e3ab7deeabdab82ebcd1a42443b2	local-only
+data/raw-slots/slot-452084982.json.gz	1022919	ok	1 JSON document	0	c2f4e754daed4669f6398f83bb7a93d7791fd29c14a7cdd774f7ffee6754b0ea	local-only
+data/raw-slots/slot-452084983.json.gz	908729	ok	1 JSON document	0	386df5933ce4f2b8c5ade91fbf43a162bb1eba94e171f9dfb6194b00fb0594cc	local-only
+data/raw-slots/slot-452084984.json.gz	1089501	ok	1 JSON document	0	8821fe39f78a16898681265a8054e87dd56fd89b8d7ed3d50fa5e062f0be0141	local-only
+data/raw-slots/slot-452084985.json.gz	972893	ok	1 JSON document	0	27a65e47594a402352e4f1d05736f4452624fed873cbbb55ae25c3426ff7fc32	local-only
+data/raw-slots/slot-452084986.json.gz	1012381	ok	1 JSON document	0	cc780e3004d2fbdc4e11ef2478a69a3f42ac5fc07a23f0cf648ee8337a7e407d	local-only
+data/raw-slots/slot-452084987.json.gz	892253	ok	1 JSON document	0	752ec77822c452655d7d5fc2c41fce24dbc9e2d8cdf95cbb27aa2ab918fd0c93	local-only
+data/raw-slots/slot-452084988.json.gz	382362	ok	1 JSON document	0	5d12c02df7b7be891ac57709b69e033dfe1d5fceb86ab8a12fd8a4be4c8c5002	local-only
+data/raw-slots/slot-452084989.json.gz	246378	ok	1 JSON document	0	880def844f2662faeff9b0d148287438cfa331afdbe060f2ee3838c21494f0ae	local-only
+data/raw-slots/slot-452084990.json.gz	295251	ok	1 JSON document	0	0b1229fc27834ce0011bde03310e6857e056ae45f3d43025003381a22711ae4f	local-only
+data/raw-slots/slot-452084991.json.gz	257155	ok	1 JSON document	0	143928326cd7556417d1ac3cfb0125d20cf9cec0c4ad38db5b53e15455854e17	local-only
+data/raw-slots/slot-452084992.json.gz	1045461	ok	1 JSON document	0	11ebebff096f23051e3d1b84763f1bdd32563e85b15d0ee3e8930c63fdde4409	local-only
+data/raw-slots/slot-452084993.json.gz	809497	ok	1 JSON document	0	928da594675f24cb190656a56bd3d4b5d79074a30b7c8aa37f310078831f4de1	local-only
+data/raw-slots/slot-452084994.json.gz	1174554	ok	1 JSON document	0	fd9ffe6755c660888fff9d62b3c729a8c75ffeb648180b29041ac51694490b25	local-only
+data/raw-slots/slot-452084995.json.gz	1635763	ok	1 JSON document	0	56316cfced4d1aba6b804d7f034af5647a360b6045b98a9e4a9a1d7d9e378a87	local-only
+data/raw-slots/slot-452084996.json.gz	1567248	ok	1 JSON document	0	0dda913c2d14731ff2bbc066b2a7030cb5c977c890e86e11faa9cbd9db612a01	local-only
+data/raw-slots/slot-452084997.json.gz	1341587	ok	1 JSON document	0	ab0af1d7d3ad1c06e2c3bd9640c6bda36dcf560d0e212aaafa455b7013926872	local-only
+data/raw-slots/slot-452084998.json.gz	941152	ok	1 JSON document	0	b084c152374518e33e4eda9819ae271573ed7753ee3c928cd207bd62fabfaed5	local-only
+data/raw-slots/slot-452084999.json.gz	1144545	ok	1 JSON document	0	cd65777731dc9a6195c5afc745ffb18f54cf1c587a1d6dcb0f4b0b3634dc9483	local-only
+data/raw-slots/slot-452085000.json.gz	796321	ok	1 JSON document	0	f4d769999be1707987099e78776bda117b6b2ba30e6f909e5b7355755ccd03ce	local-only
+data/raw-slots/slot-452085001.json.gz	1189298	ok	1 JSON document	0	b5ebd853b71c11a0da2147a1f5e43578625c83a36fcfda5ddd6685c7ba91a291	local-only
+data/raw-slots/slot-452085002.json.gz	1122045	ok	1 JSON document	0	f22ca6e0e52590e68da01498c24ec8b2c7380204eaaebaa0a870f3cf68d9b917	local-only
+data/raw-slots/slot-452085003.json.gz	850530	ok	1 JSON document	0	452ccb0e22a747d5dfd5444f86f626b78d6610c8b39f663822335cf455ee918d	local-only
+data/raw-slots/slot-452085004.json.gz	1055358	ok	1 JSON document	0	ead5223a6371413c27d4ba1f928a6649a7937241ddd66fb94664d226ba3f5dc0	local-only
+data/raw-slots/slot-452085005.json.gz	698656	ok	1 JSON document	0	dd8d6dee57a8a2e92a5349225072643c986e50a136ee4ab2dcfcd42f4fc594d8	local-only
+data/raw-slots/slot-452085006.json.gz	623582	ok	1 JSON document	0	a7b12f20cd001e83b0288a9473ffbb2d9df18f8198d2eebd6ef3e8a318dfbdad	local-only
+data/raw-slots/slot-452085007.json.gz	713347	ok	1 JSON document	0	b772b012364021dcf686aaba0aa9ce2c38c189d620f22828da70a3d849cb2bd2	local-only
+data/raw-slots/slot-452085008.json.gz	1068144	ok	1 JSON document	0	8945060238349eb6f2271ac2777aefa1c35c43dc0eaeaa5b2fec7f3de324ed98	local-only
+data/raw-slots/slot-452085009.json.gz	947096	ok	1 JSON document	0	b2bc59398d632b3ab0172646fb10ad863e81d861cd6f8e8ccacfd45deb6dc1dd	local-only
+data/raw-slots/slot-452085010.json.gz	904826	ok	1 JSON document	0	15c9fb51cc3aca8dde158c6ddb8b586e2be130d65198b5467c255d4214a79a14	local-only
+data/raw-slots/slot-452085011.json.gz	1215161	ok	1 JSON document	0	288f0d5e1d1cda2c4058bd1780249dc25f161209f73b83e0a5b668bbc8e40af1	local-only
+data/raw-slots/slot-452085012.json.gz	552646	ok	1 JSON document	0	de7d012f581246a9fe1fb61ca169d2392d9fe335c067386ab5f503a7893a8161	local-only
+data/raw-slots/slot-452085013.json.gz	671926	ok	1 JSON document	0	41d7d04bd0cf50f257472b9ad5f2fe70873d7f4a0f014cfca3405580b03fba32	local-only
+data/raw-slots/slot-452085014.json.gz	1071858	ok	1 JSON document	0	81804c0f040bc87ffb99a8cea85e8e31fa72b483ebc726249e7724985f4fdf5f	local-only
+data/raw-slots/slot-452085015.json.gz	1002908	ok	1 JSON document	0	882453507190673ee2585251f1ec604e08eabb639c1dabf51e32f0c0aff2955c	local-only
+data/raw-slots/slot-452085016.json.gz	1288546	ok	1 JSON document	0	1b7bd6cb1d72548555a9613c0fd5c5433e6e8bc7660e80f51647702e73e295f4	local-only
+data/raw-slots/slot-452085017.json.gz	796233	ok	1 JSON document	0	3d5e3a1bec2306889f1511542c7157350c4066af27c5c6d23e6806b7ac0588d8	local-only
+data/raw-slots/slot-452085018.json.gz	826875	ok	1 JSON document	0	c7f1428565cb8167ffe676b16a4ea035e6c4d093f5161e04e5d3aeca4c63932e	local-only
+data/raw-slots/slot-452085019.json.gz	1011945	ok	1 JSON document	0	2e6028b00533454a761ccefe103cf9def29e6a5fc5b8416d2e70780e13c4758b	local-only
+data/raw-slots/slot-452085020.json.gz	841729	ok	1 JSON document	0	c630d36ae2fac7aadc6cd6e2662c7ab54fbbc52f5ec829913f2133eb1fdb2f79	local-only
+data/raw-slots/slot-452085021.json.gz	554285	ok	1 JSON document	0	b6993e6dcf7fe7450281cbbc81d9808cee11bc9babde39620d75850ac7d7ca29	local-only
+data/raw-slots/slot-452085022.json.gz	861815	ok	1 JSON document	0	473a59d7771f3a3e476dd16312e94429c6fb56d6c477e228af72abbe6d8b9014	local-only
+data/raw-slots/slot-452085023.json.gz	1256456	ok	1 JSON document	0	c90bf949d726499bfb52800c148b96d413f5313c03093fb72e12996bcbeacf58	local-only
+data/raw-slots/slot-452085024.json.gz	719601	ok	1 JSON document	0	ae698241f622cd525c80124d15ef40056685a0ca3bc71f2ab8af057c50deeaf5	local-only
+data/raw-slots/slot-452085025.json.gz	1118239	ok	1 JSON document	0	ee763399d578a7822ffe5ec284f890668f9667f62383446f2ada2c0eb29ad932	local-only
+data/raw-slots/slot-452085026.json.gz	825479	ok	1 JSON document	0	13bd4a9b84bf3535c6b7ef9cad39c5736876544dfba1d507d869b6808ffac0d3	local-only
+data/raw-slots/slot-452085027.json.gz	827227	ok	1 JSON document	0	6e1ae561633d128e04aeac4c59f40d19fbc9baf3355b7841c7127cee6f8dabb4	local-only
+data/raw-slots/slot-452085028.json.gz	1286211	ok	1 JSON document	0	d68d4b3f2b9dbec17b1ab0511be8b81de1d10141a5f296cfef03887190a06042	local-only
+data/raw-slots/slot-452085029.json.gz	817608	ok	1 JSON document	0	6436908120f81bde6da116b4723a39848f5814e09917afef2a30396ff8c2c9a2	local-only
+data/raw-slots/slot-452085030.json.gz	830796	ok	1 JSON document	0	dcb9d4e96c8f6a035ea2e86b9cc59212223b531decae773c3b67952f2bbdd7c1	local-only
+data/raw-slots/slot-452085031.json.gz	889919	ok	1 JSON document	0	08ccb945634671292ba12220820f3fc8b3538a11ebed2c2df876a2e571e7c581	local-only
+data/raw-slots/slot-452085032.json.gz	1120101	ok	1 JSON document	0	e259a63fca11b5a26fcb56046118ae80c58bbbb5dad8f366d97296495a3c2651	local-only
+data/raw-slots/slot-452085033.json.gz	1023337	ok	1 JSON document	0	451c661427bfa29dbdd512e74a1c8f282f01b4d0e2f13e76e4803c5077efcbba	local-only
+data/raw-slots/slot-452085034.json.gz	1067535	ok	1 JSON document	0	b8a22d543c2bc56c5d5eab6b599f5b35f3f995c7d2ea00e5fa436e3d055df081	local-only
+data/raw-slots/slot-452085035.json.gz	992811	ok	1 JSON document	0	7bdc429234fa6d2951c731d96349962ad32256b13fe976b8a13711e24602bd5a	local-only
+data/raw-slots/slot-452085036.json.gz	1265855	ok	1 JSON document	0	8ffa12dda1bb1a2a26029c339b2e529771d58cc2f253deac5ad00f0a44e06453	local-only
+data/raw-slots/slot-452085037.json.gz	1354066	ok	1 JSON document	0	6862af71ec4000b4d460aa9e80feb635b775c027726c65b526a069e2b1c7c085	local-only
+data/raw-slots/slot-452085038.json.gz	1113462	ok	1 JSON document	0	1eaee37533f079c80be5d47b92e34484f0aeb6c0223bcf775e41eafc094aaf97	local-only
+data/raw-slots/slot-452085039.json.gz	980133	ok	1 JSON document	0	d0ee147c889f54b018311fb34c5e37ccac0644669d8704802de7bb84d4757ddf	local-only
+data/raw-slots/slot-452085040.json.gz	780592	ok	1 JSON document	0	7fb47ed1fc09621dd49ebafa2cf9d57511f6eb3abe77ef05d25c844ae104c43e	local-only
+data/raw-slots/slot-452085041.json.gz	851262	ok	1 JSON document	0	2029c7b1019df9a45a3068be8dd14a6101787c07f4d0f8b2feb18daab845d5ff	local-only
+data/raw-slots/slot-452085042.json.gz	1216677	ok	1 JSON document	0	62519390bfd9a6df7c3bbfa356ed200a0be2e63d6757cd4791d2e832c66594e4	local-only
+data/raw-slots/slot-452085043.json.gz	160580	ok	1 JSON document	0	e52d693375870bfff41f785be24b7ddc7ea21b7e051b11a635daade5dd520e29	local-only
+data/raw-slots/slot-452085044.json.gz	557219	ok	1 JSON document	0	6ceb76ed9f8979df08456cb1165957c5f84a90e4ec8b56017325919694498ce3	local-only
+data/raw-slots/slot-452085045.json.gz	414600	ok	1 JSON document	0	b624923296a9eed6b12b849bd2cdacda426ac3074781595f216435bb3e07ade9	local-only
+data/raw-slots/slot-452085046.json.gz	551526	ok	1 JSON document	0	51fea9b4aae169b937ac936575603b92e44d229e76c3bdc056c4b94ebe3e788d	local-only
+data/raw-slots/slot-452085047.json.gz	703825	ok	1 JSON document	0	ed7aaa75abee81f19ced0561845246c19b7a62edd7f3aa2f4a2ff08034720be1	local-only
+data/raw-slots/slot-452085048.json.gz	1227278	ok	1 JSON document	0	8dc920f79c1712f3aa052f5af9d2fd62439d8a48d764533ba8aa50b78672a77f	local-only
+data/raw-slots/slot-452085049.json.gz	1254831	ok	1 JSON document	0	e75dd303c8c0d9f02328e816e1184d8073da8094f707bcc0091c35d45a6d528a	local-only
+data/raw-slots/slot-452085050.json.gz	1105331	ok	1 JSON document	0	cf16cf31156902990a0f232836fad53c5f2a5032321471a7c880525eb285edda	local-only
+data/raw-slots/slot-452085051.json.gz	766746	ok	1 JSON document	0	bcac2a1be68a4af0dfd928ca7030e679e715242ee1356e7ff3b93346b1a80893	local-only
+data/raw-slots/slot-452085052.json.gz	1018528	ok	1 JSON document	0	fe498010618648e883b48ac0caffb8917deecb9f074e54032f0e80c745f25064	local-only
+data/raw-slots/slot-452085053.json.gz	957839	ok	1 JSON document	0	017f73507f55230c18dc84f24b47474e0384b10c6c2abd4e31d810ea8c865aaf	local-only
+data/raw-slots/slot-452085054.json.gz	1263679	ok	1 JSON document	0	b8a3c93c28d8413cd7a515e319526d766a95da942cbe3d36c48d58677148bd88	local-only
+data/raw-slots/slot-452085055.json.gz	1571680	ok	1 JSON document	0	aee42b676463cffe88842a6757dc9259b20083ba2b0195e5daf6d812c6e544e3	local-only
+data/raw-slots/slot-452085056.json.gz	1561152	ok	1 JSON document	0	9d841d299486b45270fed14688ea6118da125d559f8931f2843757292c7410f0	local-only
+data/raw-slots/slot-452085057.json.gz	1707908	ok	1 JSON document	0	2ecfe78c734b00f7a08ca221e5724202bfa37ca5aeb14111665bf12b31089061	local-only
+data/raw-slots/slot-452085058.json.gz	1524625	ok	1 JSON document	0	f3c049d0c4eb19ea60b5b49e8c15606bd8a058569438ccf4ecee055eaf4a5bd5	local-only
+data/raw-slots/slot-452085059.json.gz	1758633	ok	1 JSON document	0	43e1cdf336cd76afbc64dd4e3182d11244c6791901f92308f2afc5929369d484	local-only
+data/raw-slots/slot-452085060.json.gz	1492421	ok	1 JSON document	0	42e44d9d54c840c66152bee8c5d1b5f819066fc161040c155c4055bed0ef4c9e	local-only
+data/raw-slots/slot-452085061.json.gz	1628316	ok	1 JSON document	0	e688aef347a4dea52ce158298ff9ddba4ce9cd9b0b5280e5bb71a00c742fea33	local-only
+data/raw-slots/slot-452085062.json.gz	1104593	ok	1 JSON document	0	931dc37af2a0b4a3fb7bacca6567123a7656f410f3d807b0f1669f4df85c0665	local-only
+data/raw-slots/slot-452085063.json.gz	1124283	ok	1 JSON document	0	6a32b1a4851306f161bb0fc02b7a45350445b89b22e63fd568a12ac4b373717f	local-only
+data/raw-slots/slot-452085064.json.gz	460227	ok	1 JSON document	0	6802347f269793b971cda0e45b221d5357db83a9e4402c5513921f2745262b64	local-only
+data/raw-slots/slot-452085065.json.gz	613430	ok	1 JSON document	0	d529581154ea908cf7987164b6bd53ca717afba9c97070eafcb2f5e231e81598	local-only
+data/raw-slots/slot-452085066.json.gz	645991	ok	1 JSON document	0	5b19e9d29e21d4b4b56ad8f78d23b84643204b2b3714798abb66a702f27daba3	local-only
+data/raw-slots/slot-452085067.json.gz	669279	ok	1 JSON document	0	896ea9358ad358b83ccebfab7cffa3aab3ee6d0583a345ae19be49f5edca8b51	local-only
+data/raw-slots/slot-452085068.json.gz	1464009	ok	1 JSON document	0	223848acd593228502c7c22555a7ffe4cc7a6d207e58fcd1546b791a92e53b0f	local-only
+data/raw-slots/slot-452085069.json.gz	1477415	ok	1 JSON document	0	085c4e34bd82ffa945919c0580064df8965ece53e2a4e976f94d5dff6cc89f83	local-only
+data/raw-slots/slot-452085070.json.gz	1329013	ok	1 JSON document	0	63dbe002e70027a4702bac6a2a5eb4ea3c884feabd00cb44f02e4c90c13626cb	local-only
+data/raw-slots/slot-452085071.json.gz	1025136	ok	1 JSON document	0	9d5e45d79daa2bb2e004617c8574c6d6571322fe28961bcd7bc1948b32ac996a	local-only
+data/raw-slots/slot-452085072.json.gz	976959	ok	1 JSON document	0	26dc094d4749fa679410193dc58a3fac2ba611b6b39daae6a1c30aef8610c93c	local-only
+data/raw-slots/slot-452085073.json.gz	580146	ok	1 JSON document	0	e7daad752ba1d2f29451c5a0fd720c34ffadfbd740f35752a1318ddd62ba920b	local-only
+data/raw-slots/slot-452085074.json.gz	728930	ok	1 JSON document	0	afc9d7c73968cb543df3376efa9b0ac0a4d78b7347c1acd8eeb5899a43a3b1d1	local-only
+data/raw-slots/slot-452085075.json.gz	1125035	ok	1 JSON document	0	d7f5458966dcdc8f7334a139818dfc33f01e66630b45faf5cefbec69fff1fbfb	local-only
+data/raw-slots/slot-452085076.json.gz	773578	ok	1 JSON document	0	b941d37ffd751225f17f8b0d9ed43f7c3b0bc2622e1761c0610c78a1ef392666	local-only
+data/raw-slots/slot-452085077.json.gz	578287	ok	1 JSON document	0	98ca87be76d31e32f510793a2acb16e682baed0a465b7d4990ede0c8a33fd28f	local-only
+data/raw-slots/slot-452085078.json.gz	916269	ok	1 JSON document	0	d78b39b4e1ebe9fcb13ac1d6cbad29ecec64ca79fc380cc2ea659a6d2fe4f51d	local-only
+data/raw-slots/slot-452085079.json.gz	969169	ok	1 JSON document	0	84948da84b49d4ce48f03102d71820a687c4fcae00e0dac9a032c764d57d4208	local-only
+data/raw-slots/slot-452085080.json.gz	1502451	ok	1 JSON document	0	f68df06c4b7479ce5416d9f64e07e2fd0d50159585ffd0458a5c7ded350fc3e5	local-only
+data/raw-slots/slot-452085081.json.gz	1197564	ok	1 JSON document	0	491868cb0585516f211ad23df92489cef17904c21e669e1219717baf3163e8b6	local-only
+data/raw-slots/slot-452085082.json.gz	1167656	ok	1 JSON document	0	630a85c7cc6de103dbe6be5fb03b928c6188a47f073678b805b20cacd86180f1	local-only
+data/raw-slots/slot-452085083.json.gz	1134367	ok	1 JSON document	0	a1877dd146076bab35e98acf9dd75ecf306f91894ecbcec240c0d21daac283f0	local-only
+data/raw-slots/slot-452085084.json.gz	722666	ok	1 JSON document	0	166871bb1e8c1d41804624207273e899a568653f793cf4c5b35d78b155ab2a78	local-only
+data/raw-slots/slot-452085085.json.gz	914237	ok	1 JSON document	0	19e2951a03fc2ce3d53978f764343f4276a1509ec63a136484b83fc3f2f03727	local-only
+data/raw-slots/slot-452085086.json.gz	746895	ok	1 JSON document	0	cf39e336c57057d41b56b7aa08072fa33fdb3ab3061d2cc70be601428dedbc1b	local-only
+data/raw-slots/slot-452085087.json.gz	768840	ok	1 JSON document	0	27356d8db99e0e3d0e5534964d67979a29154182f02091ad60edae6745624625	local-only
+data/raw-slots/slot-452085088.json.gz	973800	ok	1 JSON document	0	7d3e075a5f25277684f8a0cce985503b675e7ca9e07b220a0a4fc2b61f161b65	local-only
+data/raw-slots/slot-452085089.json.gz	836298	ok	1 JSON document	0	20a810f8f70809f9290006db9920614b9bd05aa4c4aad2c16416d4db29168b8c	local-only
+data/raw-slots/slot-452085090.json.gz	937046	ok	1 JSON document	0	85c3f9fe7ef170d28b17ec18abbeffb11c5a696999578aaaa392c6c8181c3bef	local-only
+data/raw-slots/slot-452085091.json.gz	1011775	ok	1 JSON document	0	bfaeac2a74022c9ec3332f088c19c95bceaaf7321ecb156ef7bdd544b0423ced	local-only
+data/raw-slots/slot-452085092.json.gz	1481189	ok	1 JSON document	0	9b1358b86d1f28eead3c58aeb317f4f93df49cd2f1f766120238360d829fa9e9	local-only
+data/raw-slots/slot-452085093.json.gz	1412500	ok	1 JSON document	0	6b40237f43b7246c77d5f2fe433a5493c590b3bbf9b02823a05549f6f6cabc43	local-only
+data/raw-slots/slot-452085094.json.gz	1271788	ok	1 JSON document	0	e6fd0e7e772a9699b014df9a5df9eea9272865a4e83b20f2803713b412b2dcbc	local-only
+data/raw-slots/slot-452085095.json.gz	1013667	ok	1 JSON document	0	6923b7a8d0bd597d80f066bc56fd0b5a60f55a0cd9d4d6b13795eee037175e4e	local-only
+data/raw-slots/slot-452085096.json.gz	816080	ok	1 JSON document	0	9eafed7cfbc3ca2c613f900034bceb0fdd7127669be89948e068a4cf158399bb	local-only
+data/raw-slots/slot-452085097.json.gz	852911	ok	1 JSON document	0	0209a5337f51bb7ef9870f95f9b49f9669d9acc5c95b0d240dc42160c78edafa	local-only
+data/raw-slots/slot-452085098.json.gz	820523	ok	1 JSON document	0	c7bfa8595a101b4d331a41d40c4f8a130850add50db23cf087f9d7b5d661ffd9	local-only
+data/raw-slots/slot-452085099.json.gz	1232712	ok	1 JSON document	0	fd407399baf6aaaf018739cb156e5a1aa56596d23f96b53e9ac1f4c62d273849	local-only
+data/raw-slots/slot-452085100.json.gz	626400	ok	1 JSON document	0	09ba36871eb6141ed262b2f2383c16829eef11e1f3e5352eb87b886d574d7f09	local-only
+data/raw-slots/slot-452085101.json.gz	800408	ok	1 JSON document	0	22ca5c505447cd9f27b1c2045551b11284a2a2caa9573f69ac2ff94813be0b62	local-only
+data/raw-slots/slot-452085102.json.gz	1157643	ok	1 JSON document	0	503205803698d4610daf6ce6c83b7fb9ad316cfbfc28aeb799cd219ff37c9979	local-only
+data/raw-slots/slot-452085103.json.gz	1251969	ok	1 JSON document	0	c0664e0886e45ed112e56b75ae42a262701b553dc0d1cd71274d1f64d5ed0d2e	local-only
+data/raw-slots/slot-452085104.json.gz	1646335	ok	1 JSON document	0	0b56f557e1db0008365af35019dc4a2ff5d596275f8d9a7d404eb7727173cf0a	local-only
+data/raw-slots/slot-452085105.json.gz	965595	ok	1 JSON document	0	0777b3f47fece61c4ca529e4593a86cc140ecce0a921adbb05897413ca54711c	local-only
+data/raw-slots/slot-452085106.json.gz	968289	ok	1 JSON document	0	fb60e800eebc08ec805090cdff1beef22873c75c67fb4db2d39c8a476995e026	local-only
+data/raw-slots/slot-452085107.json.gz	994807	ok	1 JSON document	0	fab0b0c6e748f6b52835900bdfb2c977918060a94e015ede2bfc512df3a43565	local-only
+data/raw-slots/slot-452085108.json.gz	962583	ok	1 JSON document	0	de654c677f7088658d8610e40338bbd7874fddc31d45a159e95701686e137ced	local-only
+data/raw-slots/slot-452085109.json.gz	723769	ok	1 JSON document	0	1e852f2c1b671ee9e63239a75fcbf2d580e5c2e4c647a9e35d22b05d6583b280	local-only
+data/raw-slots/slot-452085110.json.gz	667824	ok	1 JSON document	0	5c535358ce5dc73bbf0e095cb5e58a57de1f4ef4782423a0490463f8cc877675	local-only
+data/raw-slots/slot-452085111.json.gz	700611	ok	1 JSON document	0	533414eeeface7d693af19722119b81f521270589bc567e8b2648262b145ff2c	local-only
+data/raw-slots/slot-452085112.json.gz	790282	ok	1 JSON document	0	4c404261fd327f26807969c47dee4560b5b99d8cd02d7c919f1d879383689d37	local-only
+data/raw-slots/slot-452085113.json.gz	735057	ok	1 JSON document	0	80750c88befa2c392da2adc2cb725e7cac75a634280fcc13d5706a885aaadc1c	local-only
+data/raw-slots/slot-452085114.json.gz	691491	ok	1 JSON document	0	da938339fbd0868fc5e0924307f90e7e0c9594cc24269b94bbe59b020190656b	local-only
+data/raw-slots/slot-452085115.json.gz	756176	ok	1 JSON document	0	e34300afe3e957fe9e67a06490efd044ebc3655a6ccf4648ae8ccf94bc292dc6	local-only
+data/raw-slots/slot-452085116.json.gz	1107372	ok	1 JSON document	0	351a2f82a938ae30200a990ba9d75e18df8ea632dc2ad7ab3fa9e0b413b46dfe	local-only
+data/raw-slots/slot-452085117.json.gz	1114449	ok	1 JSON document	0	c8665f6bb3c1279f2203e749f7c5a8dcea93abe268946a9f22ea38b1b96d48f5	local-only
+data/raw-slots/slot-452085118.json.gz	1075187	ok	1 JSON document	0	1ea9e529661a07eb3b75631aa96648343b3e1b1764c796a27b4c3304015c74b8	local-only
+data/raw-slots/slot-452085119.json.gz	1219711	ok	1 JSON document	0	102d28a9179b23b4eaf821973f5d4f56f6045eb87e545093a4071a55795f3c3b	local-only
+data/raw-slots/slot-452085120.json.gz	1042191	ok	1 JSON document	0	616c3622911985de603360119ffd482808506d83c51488f3de4263835a2823a3	local-only
+data/raw-slots/slot-452085121.json.gz	902333	ok	1 JSON document	0	4869a86e7386e5737730232f9c811de863b2a38877ad6a7ddb3dc0786124e240	local-only
+data/raw-slots/slot-452085122.json.gz	971565	ok	1 JSON document	0	cb9db1b3ce9976589fddffaaceb1621f7766d42761aa1614151d6958d87f37df	local-only
+data/raw-slots/slot-452085123.json.gz	1084843	ok	1 JSON document	0	0869cc760ab557fab5eb663343a6e9461e97f40f8ebc3f60dcb4dbd9a4b01a78	local-only
+data/raw-slots/slot-452085124.json.gz	657877	ok	1 JSON document	0	dd45b37b83433b071567b81b1ec631c5d26373eb2847c0bb1613c75936ea5cbd	local-only
+data/raw-slots/slot-452085125.json.gz	1041195	ok	1 JSON document	0	7b528123daf328baea066d36cf4365eac03b3e6883834f26e36f23d448726b90	local-only
+data/raw-slots/slot-452085126.json.gz	1314553	ok	1 JSON document	0	8675a0656ff46840174b9f5bdb40a7115b185f255e2594af2bf98c3863d85a8a	local-only
+data/raw-slots/slot-452085127.json.gz	927575	ok	1 JSON document	0	8359c752d1a88aa39e0ea45d8a3264984502fc0028abf5cbb98023d76077f70e	local-only
+data/raw-slots/slot-452085128.json.gz	1396955	ok	1 JSON document	0	ee2b2915616b5cc8b0c54acb70f75bc465c86fe3b3cd4341e0abffee2e4ac1bf	local-only
+data/raw-slots/slot-452085129.json.gz	1598061	ok	1 JSON document	0	5edf7bf7079e21d4508e8f96f3c28af10c257a5262136d4cb9e5bc66f69de62f	local-only
+data/raw-slots/slot-452085130.json.gz	1342135	ok	1 JSON document	0	be28691ec037f61db8bb76eb1a4e63a334d5a54b81815119fde96386be4fb3c3	local-only
+data/raw-slots/slot-452085131.json.gz	1286441	ok	1 JSON document	0	499e75fb289f366e991ab708be2f071e41c9f79ec938840cd722f6025786fa78	local-only
+data/raw-slots/slot-452085132.json.gz	1148273	ok	1 JSON document	0	9921dba7859f87bf11703e3f12823d83ad8c6cbae159411f04b8ec55cc8b73ba	local-only
+data/raw-slots/slot-452085133.json.gz	924571	ok	1 JSON document	0	4330e892dfc5c6f47dbf037d7ec64f28831179c3c806cc50476994d56d26d02a	local-only
+data/raw-slots/slot-452085134.json.gz	1068834	ok	1 JSON document	0	9f305256e60d1a8d99df2fbef9cb42ece9ec23d460c14636c4fed8c82fa35663	local-only
+data/raw-slots/slot-452085135.json.gz	773010	ok	1 JSON document	0	762858d89e10ca47381e19f6d7acd011e777412b59d1c7e2fbabf2a9a5143732	local-only
+data/raw-slots/slot-452085136.json.gz	790149	ok	1 JSON document	0	9d2ab6a017d26a7679728ac5497afd55a995613dc953bb269aa2d84c2ca0d9b5	local-only
+data/raw-slots/slot-452085137.json.gz	871220	ok	1 JSON document	0	cae1879538d304e1c62818b3e4646b73379b34713406de07770ab0cc2cb24f9a	local-only
+data/raw-slots/slot-452085138.json.gz	866752	ok	1 JSON document	0	96170c9574ff3fc02fa78c1ccda86d9d7a5ae033f05f40f0961a4b00241fef87	local-only
+data/raw-slots/slot-452085139.json.gz	1011735	ok	1 JSON document	0	8daf3020e004c475bb05ed3d5b39972c2f11f2514a87ed9d55075a1bb49a2ccd	local-only
+data/raw-slots/slot-452085140.json.gz	688308	ok	1 JSON document	0	d388e2e42f9ecad47fafc856ac2560634990858f8cae64628981e6b3dad2fff3	local-only
+data/raw-slots/slot-452085141.json.gz	931006	ok	1 JSON document	0	d64f9a25ea029f50b8cbb8b782745891d6a2ebc64bc37a48a7dfb57b7a94b637	local-only
+data/raw-slots/slot-452085142.json.gz	1310218	ok	1 JSON document	0	3e44fa44dc473f15c713722b9044aab12ea00745a980dc19a1bec872790210af	local-only
+data/raw-slots/slot-452085143.json.gz	795066	ok	1 JSON document	0	077ef5ff905be8cc8944616f5e3cb35db450090b9af159411c39c4ad326c1f8d	local-only
+data/raw-slots/slot-452085144.json.gz	848118	ok	1 JSON document	0	080621501dae9c3d421c50f5de9f07b53f25efb341d5cae6f2014842aea57b4d	local-only
+data/raw-slots/slot-452085145.json.gz	991657	ok	1 JSON document	0	f36e20c5069198350400278d29433deaf264259d343a75deb22b7566f6aaf11f	local-only
+data/raw-slots/slot-452085146.json.gz	971209	ok	1 JSON document	0	e49763ccb01101e74a344408b0c21abb4f3dd88eb4e6211d743de874e25c3fc2	local-only
+data/raw-slots/slot-452085147.json.gz	1103470	ok	1 JSON document	0	9abda2659d2949963578591eccfb5e6270c40052f5c9744f569505659a3bf211	local-only
+data/raw-slots/slot-452085148.json.gz	1046123	ok	1 JSON document	0	5c41d4f4a5ed98260e5a34f98ec3f2fc9f9b445ac9fba90d4f630e81199d6315	local-only
+data/raw-slots/slot-452085149.json.gz	907564	ok	1 JSON document	0	fa6d0c71f009427c38cdab9356b5749b4a2955bc60cfd6d240ff7cb9abaf6ce1	local-only
+data/raw-slots/slot-452085150.json.gz	712366	ok	1 JSON document	0	44358810d3dd24420d074cecc3bafad21771fac2e368bbed8f888700d81cd99c	local-only
+data/raw-slots/slot-452085151.json.gz	1003417	ok	1 JSON document	0	9585b34e4774277fc04ec054d5d700d2996ee64596bc7590cb8726c26c959c34	local-only
+data/raw-slots/slot-452085152.json.gz	951842	ok	1 JSON document	0	2409c9f1445aa4c976b17d6f45f12ef17db3afb719bd8369632978019d6d1f7b	local-only
+data/raw-slots/slot-452085153.json.gz	889336	ok	1 JSON document	0	53aff33ddfc6a22e2d27ba49a17e668f7b4d92f1fa8ca2ce340dee029fb991d6	local-only
+data/raw-slots/slot-452085154.json.gz	936388	ok	1 JSON document	0	312f5373ffc567bc917cb1811f485cfb0b0657f95309b4e9da6d6666982bdea2	local-only
+data/raw-slots/slot-452085155.json.gz	1612824	ok	1 JSON document	0	2c1b2b574a60f8c77d249608f4213395cea49a9be8fd7a44f767483515899e68	local-only
+data/raw-slots/slot-452085156.json.gz	701239	ok	1 JSON document	0	34787a407e923b55a247c2aa65232f1dab55b883ea760cd4cf7ea1a986da6afb	local-only
+data/raw-slots/slot-452085157.json.gz	805843	ok	1 JSON document	0	ab431ae70a28b913e3f57eb4db0f930e22540ac571031fb8f9652707fd915a54	local-only
+data/raw-slots/slot-452085158.json.gz	848831	ok	1 JSON document	0	042cac87ae4739566b1a7dc004c18633ff51c6361e87642f30259becc1c1e6f1	local-only
+data/raw-slots/slot-452085159.json.gz	797392	ok	1 JSON document	0	95539e8a8b25700e19f9e2d3d36e9a632e05793adfcc0784a1a0c6728adf2592	local-only
+data/raw-slots/slot-452085160.json.gz	1233326	ok	1 JSON document	0	b69d716df13e99f20c3888771d1d62089b6959d69d44df1e9f8d107dc2b4fd42	local-only
+data/raw-slots/slot-452085161.json.gz	910103	ok	1 JSON document	0	e897e0b787fce65b99e2b2a586eddefded6104e570b1da42c0bbce890306fee9	local-only
+data/raw-slots/slot-452085162.json.gz	980455	ok	1 JSON document	0	0661c03b95a47cb40ae7d2987337172588fcddb949a8939e1e2487de0a8ed333	local-only
+data/raw-slots/slot-452085163.json.gz	926652	ok	1 JSON document	0	274c363668e26d3b8418b972bcbf690a2fff37e1ca247be7586fb0996270462a	local-only
+data/raw-slots/slot-452085164.json.gz	785269	ok	1 JSON document	0	968d129fe03e20e45f3ad7d22e53ec03c3e2025e9d51b62d577806351fe1e505	local-only
+data/raw-slots/slot-452085165.json.gz	1013671	ok	1 JSON document	0	5d68bc06d30f5df0739b4a4803826197e8b75c509f832447da202f809ac0c1b7	local-only
+data/raw-slots/slot-452085166.json.gz	961760	ok	1 JSON document	0	83cbaea33e07b061c8217568a51e732aa34ea5466ba3811933a0ddc8602291eb	local-only
+data/raw-slots/slot-452085167.json.gz	1077088	ok	1 JSON document	0	1d7becb79645121d368cd1c72d71e0e07b2e12c23328201f6908c10963383329	local-only
+data/raw-slots/slot-452085168.json.gz	1363655	ok	1 JSON document	0	c858b2cb475295b3a9afc93fa1f5d64f8d80e109817eaf2fe48e0cea9be40010	local-only
+data/raw-slots/slot-452085169.json.gz	923644	ok	1 JSON document	0	7fb54f0bb73101b184ce1c3f6aecba480b61b8c2be4365e14fc2e892cdd30dd4	local-only
+data/raw-slots/slot-452085170.json.gz	1085627	ok	1 JSON document	0	439c5569569d22d87d49df199ba60333cb7a614bca7e61269356435b5a1fcab4	local-only
+data/raw-slots/slot-452085171.json.gz	1201720	ok	1 JSON document	0	5444ae3d3ece37e06ae27e3c00ed839c7f5be29854329989fe38e45e7b9d9cd1	local-only
+data/raw-slots/slot-452085172.json.gz	810326	ok	1 JSON document	0	e34a7c1ab1d6c4068af5f36abcab1cc53ceb00b35dcb4ff37a82af1f1a077aa3	local-only
+data/raw-slots/slot-452085173.json.gz	838563	ok	1 JSON document	0	81121031f08a042b9ce13176a122acb53ce92f2a42a8ee896ad55152207dae54	local-only
+data/raw-slots/slot-452085174.json.gz	782133	ok	1 JSON document	0	e718b611ec6e725247afe4e49c3cae4c662aa0e9c47616d5699dc832900da8af	local-only
+data/raw-slots/slot-452085175.json.gz	801205	ok	1 JSON document	0	ad9c86a8b929768b5db7d5a6ead928faac940f069b4fcb2712c4c40e5b1023f5	local-only
+data/raw-slots/slot-452085176.json.gz	1251817	ok	1 JSON document	0	5836b2ab962a9918d0fa83e5b91df7cac1a2b301acc4e16e4757b22132a18d32	local-only
+data/raw-slots/slot-452085177.json.gz	846995	ok	1 JSON document	0	8e37e20356e1d87599d0ae867be01ac81143fbc952f5d6a0f1ec711f7a6d463a	local-only
+data/raw-slots/slot-452085178.json.gz	875231	ok	1 JSON document	0	09160c183308cf7a9ca132bed0fa87c2f4d7ad0e3dbfdcd3401d4ba7961f9975	local-only
+data/raw-slots/slot-452085179.json.gz	990728	ok	1 JSON document	0	f4079f18a6ea1efbfb1328816e58ba313dc24a6a6c0f6a62a0be928b15616203	local-only
+data/raw-slots/slot-452085180.json.gz	731029	ok	1 JSON document	0	a524c9f7c119fb12d1c513a13ffde218cb66f1d878c3a8ff40a0cd93d58eb9e2	local-only
+data/raw-slots/slot-452085181.json.gz	732555	ok	1 JSON document	0	63cce244f736aeba0077ce9719acff969ed2a43b1a93b07fe37bf64e0b4e16f1	local-only
+data/raw-slots/slot-452085182.json.gz	806194	ok	1 JSON document	0	8e9597ab7a2c1816781436eef350401f5b9920642c8ea4fa44479985d11a85dd	local-only
+data/raw-slots/slot-452085183.json.gz	974922	ok	1 JSON document	0	4b4e00338bc17359c8877d4f14cf8491af65386547941332bdfde3450630c637	local-only
+data/raw-slots/slot-452085184.json.gz	730620	ok	1 JSON document	0	04a0f7879534e5054446e15795d7bbc9e5a1f0a01df77461433302e2d3ee26f3	local-only
+data/raw-slots/slot-452085185.json.gz	664735	ok	1 JSON document	0	76bcc76a6191b468304189a721777f723e4eace48c3ed85e5954f6f670ea35af	local-only
+data/raw-slots/slot-452085186.json.gz	661991	ok	1 JSON document	0	c19f405293d0daa2f017a34ac52ccd164a7b0ff17e9fd83d9d0086fe07c9102d	local-only
+data/raw-slots/slot-452085187.json.gz	627610	ok	1 JSON document	0	ca982866959b515317d79f6a6612bbff2210827cd92379295ef7bf4389a045eb	local-only
+data/raw-slots/slot-452085188.json.gz	709529	ok	1 JSON document	0	333aff23302e8e722777a7339a9cb20c6d03bbb45f2c72826d59a00b2d7b4830	local-only
+data/raw-slots/slot-452085189.json.gz	737396	ok	1 JSON document	0	bf106cf3b82931c000cdb8bc4c77b5fe2651daec4c75a712c3003c45f60e0bfb	local-only
+data/raw-slots/slot-452085190.json.gz	628173	ok	1 JSON document	0	d3ac6c3c0859823b1bb70189b62da00c4a433bcd7a131a416bfec6e61c89d755	local-only
+data/raw-slots/slot-452085191.json.gz	738798	ok	1 JSON document	0	5d3f1de58c3a88d55b8d9e345054c714c4719bf4a6dbb960e104ae289feb2421	local-only
+data/raw-slots/slot-452085192.json.gz	984755	ok	1 JSON document	0	f8ca4258ab135fc3cb3cce399a258c1c17d48901fa7b8c4288be91a6a42752e7	local-only
+data/raw-slots/slot-452085193.json.gz	692787	ok	1 JSON document	0	9d5cba0e103908c143a6e7ba24c2382257d3a8905c1f6984e0b78d03c0d54cea	local-only
+data/raw-slots/slot-452085194.json.gz	891673	ok	1 JSON document	0	f863c6ee5127e1b314383e9af4ac1ac263fd6adf1eda677581cfe087fe53cfcc	local-only
+data/raw-slots/slot-452085195.json.gz	894302	ok	1 JSON document	0	4f80a1d151678eaab4ad70564c7231944f4f88903c489b7166a2eab4c0cb15c5	local-only
+data/raw-slots/slot-452085196.json.gz	1017800	ok	1 JSON document	0	db9d048d19275168b4cc537125eb635bb298e5949ac587c1c811c19320a45210	local-only
+data/raw-slots/slot-452085197.json.gz	810079	ok	1 JSON document	0	6f7b6152d167808cf12151b164e96e0c1360a5de08febe49f156acf67d316fe6	local-only
+data/raw-slots/slot-452085198.json.gz	1257849	ok	1 JSON document	0	a7f22eb178cb1afc7d3d6c576055ced20431c55e62fffa5baa864204480fd490	local-only
+data/raw-slots/slot-452085199.json.gz	1068947	ok	1 JSON document	0	ff17e9448dc78869dacc9fc8f3a72cc5bfaf29719c9f3b9a7136dac83d17c4ce	local-only
+data/raw-slots/slot-452085200.json.gz	932752	ok	1 JSON document	0	1d67615936fab3c5eb4072cd87cfd26b264f417dcbc06ecaae14488ba0aab84d	local-only
+data/raw-slots/slot-452085201.json.gz	789660	ok	1 JSON document	0	7f15a02b1aea4b18dec51608184e4a878d4c6b7a481fbacd94173453ad1ded7a	local-only
+data/raw-slots/slot-452085202.json.gz	980720	ok	1 JSON document	0	9eda7b028ba8eef4b4a96a9d77b0b2bb392efe864be450d4795b7eaea1f5d461	local-only
+data/raw-slots/slot-452085203.json.gz	730574	ok	1 JSON document	0	0382a19e2fa11a9db26da42c0ab910379dcb2ea6d01ab0ed03fca85e5a87a7a8	local-only
+data/raw-slots/slot-452085204.json.gz	743934	ok	1 JSON document	0	71d7ee6137aa103ef7f601a192707e16565ab4ebde205e68838c4c24c7bcaeaa	local-only
+data/raw-slots/slot-452085205.json.gz	798545	ok	1 JSON document	0	b19e1258f179b3eac4bd58c62a4b1dfb24a866e7dfdae35ba3d677a32c740812	local-only
+data/raw-slots/slot-452085206.json.gz	793927	ok	1 JSON document	0	40f6f5b2a4b7447b02d3f916d8008721251fb2b0fe4d1daa302b9ecf374c6505	local-only
+data/raw-slots/slot-452085207.json.gz	696845	ok	1 JSON document	0	216d3a9ee9792a02319c4adba27cf3d3d1f1f002a32fd76dd75136243b26dfd0	local-only
+data/raw-slots/slot-452085208.json.gz	1008431	ok	1 JSON document	0	b0cc9c356c31723d676153f4b70b6ffa3dd70ce6519ea798cec057cada4bf609	local-only
+data/raw-slots/slot-452085209.json.gz	886073	ok	1 JSON document	0	fd46616e0f34aef51f69946fe63461d83bd76ac22119104a142ce7543286cf0d	local-only
+data/raw-slots/slot-452085210.json.gz	910263	ok	1 JSON document	0	fc982f2010c1bd719eb7cbec658fba029c76840b17dd7ab29639f751bde945a1	local-only
+data/raw-slots/slot-452085211.json.gz	911830	ok	1 JSON document	0	7ce035c9d9dcd7141eb4fbe9df197594a30a8b04a1631ea943ac199c4745e613	local-only
+data/raw-slots/slot-452085212.json.gz	687914	ok	1 JSON document	0	81c65db29899f13ab44eb07da8245c83676b098a958a0ec062e0743982a5a724	local-only
+data/raw-slots/slot-452085213.json.gz	1192745	ok	1 JSON document	0	cab4ffb3ee9202b80ffc5ae0b51e4e14f25ec939a774cc38f7fded0c6dd209f1	local-only
+data/raw-slots/slot-452085214.json.gz	1148392	ok	1 JSON document	0	1d60a1228d82203c63351e66a6a1ac197775e3ebf908d9703339c8f6aad81958	local-only
+data/raw-slots/slot-452085215.json.gz	863711	ok	1 JSON document	0	8b8f5e162780b7803fd7fca527c56bdbf806d71c53703bab7e2dc9bd6f9923c1	local-only
+data/raw-slots/slot-452085216.json.gz	872080	ok	1 JSON document	0	8e075e76c750d82670f4cd9861918a9831bfe0a4270adc90d91811f3693b288d	local-only
+data/raw-slots/slot-452085217.json.gz	965859	ok	1 JSON document	0	e4b21415d74b2b8b4cb90e1e669981e1ab0681cbfea9b5226c6ad80393c8fbaa	local-only
+data/raw-slots/slot-452085218.json.gz	888802	ok	1 JSON document	0	2da6205e4af7648f28dbe6f4a329d0e292f7e19f7ce8c08c43adc922c9aba267	local-only
+data/raw-slots/slot-452085219.json.gz	905737	ok	1 JSON document	0	cefa60256341c12a2d63e809d787e8a1196f94f727d335bc8ecfe4802e33c4c2	local-only
+data/raw-slots/slot-452085220.json.gz	557533	ok	1 JSON document	0	8f38468b45a4fac57da77ed5b96bbdd68ea4d1c9237b70e1ecd8140f28420d8d	local-only
+data/raw-slots/slot-452085221.json.gz	757351	ok	1 JSON document	0	a698115e60cba5ab78f90a9125730ff0e42387324e1e5dd99b47abee6cec5d0d	local-only
+data/raw-slots/slot-452085222.json.gz	817640	ok	1 JSON document	0	0973ea89bc3d092213d7820d5592db4fe2e772f698d2fb282f9ee095d9abc0ee	local-only
+data/raw-slots/slot-452085223.json.gz	937638	ok	1 JSON document	0	b47c54e8283b1ee3dde70b12c571dd909e8a2d7b219b00ee344f06bcc5a46a4b	local-only
+data/raw-slots/slot-452085224.json.gz	1040386	ok	1 JSON document	0	70ca33f3d4b85009c445b9c89592c1f5c9b51b469e55dca9b258c2aa1238d53a	local-only
+data/raw-slots/slot-452085225.json.gz	842462	ok	1 JSON document	0	33663aebf68314e57442a698a5488f9e4323e2b12ddaae100f86046808b9a108	local-only
+data/raw-slots/slot-452085226.json.gz	1052744	ok	1 JSON document	0	f0cffc5d449ed24bde9908071aaa4c0c8e50326663003cc944bc13ba256851f7	local-only
+data/raw-slots/slot-452085227.json.gz	993624	ok	1 JSON document	0	54ab97a8c5cd859df8d4726abf1e8bd144fae5d29762effe5c63e5894f1e548e	local-only
+data/raw-slots/slot-452085228.json.gz	1272876	ok	1 JSON document	0	6484657a47e5c69849be401c9086e43a10103b430d3659d8f3174fae3f9c0f22	local-only
+data/raw-slots/slot-452085229.json.gz	902348	ok	1 JSON document	0	91d5a5541aeb26c7fc590c69b8d3bfbd2bcd9246511a1f2ba507073a66850021	local-only
+data/raw-slots/slot-452085230.json.gz	887367	ok	1 JSON document	0	530f3f16f95d3390044420c03970504c3d1972020390c86115c69ef0ccf42fbd	local-only
+data/raw-slots/slot-452085231.json.gz	888066	ok	1 JSON document	0	dd3418fcecb212e9e28e36d31b2284121604f4fcc83960779e1df0ce54240d11	local-only
+data/raw-slots/slot-452085232.json.gz	228368	ok	1 JSON document	0	e7f87626a4c27673e4170f778273519a5d3e8ad98400cd16cc082255bcb0f370	local-only
+data/raw-slots/slot-452085233.json.gz	235991	ok	1 JSON document	0	369b0cb1d0018ca5a2ef55345e8f949e89ea05d0435650e63709b57ea004c18c	local-only
+data/raw-slots/slot-452085234.json.gz	255413	ok	1 JSON document	0	0e01fcf272e74e88f26fcfd7d2ebc4d6d6e1d52b7866318d320cc6a5754b4338	local-only
+data/raw-slots/slot-452085235.json.gz	191516	ok	1 JSON document	0	7b65f68db972e5440b501c70cb021ddfa8f2f6c5a5334158d08186dea508c351	local-only
+data/raw-slots/slot-452085236.json.gz	1200921	ok	1 JSON document	0	5fa2fb6c0d5e920c2700e273834ed49a89ddab1ba18f3e21fc751ef099f81500	local-only
+data/raw-slots/slot-452085237.json.gz	990821	ok	1 JSON document	0	1c8ad0abd43c98c8cbf98a2f7a815367c63bf502320f5476f87e65dcaadb8208	local-only
+data/raw-slots/slot-452085238.json.gz	751725	ok	1 JSON document	0	71396d9a4906b4401fd49c568439b647024e6242ce2e251805ea56826114ed48	local-only
+data/raw-slots/slot-452085239.json.gz	1729822	ok	1 JSON document	0	ed99ae6aa836cf3fb54db4c958f5e6a26c7a2a2d6f951a0f032141633180b5c5	local-only
+data/raw-slots/slot-452085240.json.gz	1158958	ok	1 JSON document	0	df189258851c2a6f8d6c2eb2cee70edc151678e1677f607b0cd500970617c100	local-only
+data/raw-slots/slot-452085241.json.gz	925046	ok	1 JSON document	0	4486a48f19286082e843d21fc6226603d11fb6833997e76f938b656a87ab7da2	local-only
+data/raw-slots/slot-452085242.json.gz	818117	ok	1 JSON document	0	fbe1d77efea3bcbabfbd05a832c04238adae56e7d7ec70b4c39d5692aaed62f7	local-only
+data/raw-slots/slot-452085243.json.gz	814050	ok	1 JSON document	0	fedef787e08bf9761c4a6fe5b1cfce8061ab525111ded1d8a35f892a0a0101eb	local-only
+data/raw-slots/slot-452085244.json.gz	674969	ok	1 JSON document	0	f5c473888eea57825316cc5284d59708878cdb644a92b3032187c5f7b8d402fb	local-only
+data/raw-slots/slot-452085245.json.gz	1071765	ok	1 JSON document	0	a5c32fc511ee4f698a2b4e1711b454f9c201f70a25fb80077d5944776d45c58a	local-only
+data/raw-slots/slot-452085246.json.gz	983741	ok	1 JSON document	0	b1d81ab8779e00a4fc7af54a1a337e327cbadd2856a607bfa25154acd974c6cf	local-only
+data/raw-slots/slot-452085247.json.gz	912703	ok	1 JSON document	0	511e7bc9d2cdf92e8dc0057e3d6a00d9eeadf3a1b244c13a287b2c7cba992ccc	local-only
+data/raw-slots/slot-452085248.json.gz	1011224	ok	1 JSON document	0	3aaecaf8667208bc24789c6bf3a09cb07ebe10f2b96324cb5c054e595b324aba	local-only
+data/raw-slots/slot-452085249.json.gz	887327	ok	1 JSON document	0	00164769fcd9a72bd227c16d5b4d22b597b0dd3a8a268cf8a42ac676f387ad20	local-only
+data/raw-slots/slot-452085250.json.gz	1065165	ok	1 JSON document	0	1130210f8d1e0b514b190dd411b3e08f2f1dee65319cd45b6a9b6820630ca16e	local-only
+data/raw-slots/slot-452085251.json.gz	1084292	ok	1 JSON document	0	5e1cd60fa6cf4446cc754c535d275411a3d9529928ec349ebd2ae9cbc8f25d8c	local-only
+data/raw-slots/slot-452085252.json.gz	816728	ok	1 JSON document	0	06a09fcfe81f6687088e8f75d4a5ef1631ab89499a5ca3572394ca325f1b81a6	local-only
+data/raw-slots/slot-452085253.json.gz	1059365	ok	1 JSON document	0	59900ece649187fbca51f9ec8f55df59694bd4031af02e234a7036e384110444	local-only
+data/raw-slots/slot-452085254.json.gz	853838	ok	1 JSON document	0	16a4f2d3a1161428b58b7169ae93d0d26ee942818a2b3628854b169112a9c33b	local-only
+data/raw-slots/slot-452085255.json.gz	999661	ok	1 JSON document	0	e4a5749adcee31a3d8ffba3feeaa39bf3e3a21087a2ae4a19d633edbfa0f814d	local-only
+data/raw-slots/slot-452085256.json.gz	1059884	ok	1 JSON document	0	e294890f0ce3d1a83d890d4de7ca51202e7e48de8655c15d1684dc8612f8ca25	local-only
+data/raw-slots/slot-452085257.json.gz	968802	ok	1 JSON document	0	0cf7931db2b1a5baf6fbb55eefa06452a6097cb1c8a9aa2cd2d264029ec16857	local-only
+data/raw-slots/slot-452085258.json.gz	1019802	ok	1 JSON document	0	2b8c7d0bcc3d2d3600162d0d464bc3a66be634ad37e5fca8c0626e2723aa5f24	local-only
+data/raw-slots/slot-452085259.json.gz	1228919	ok	1 JSON document	0	6de0743ed53b0669808e6a93680a37f3f263c39a9572d6e112b9deccc2d604bb	local-only
+data/raw-slots/slot-452085260.json.gz	883358	ok	1 JSON document	0	392794612de406cdffd42a65eed6b1e513a8fa4612d21e3d3b8c40b674d40e36	local-only
+data/raw-slots/slot-452085261.json.gz	727200	ok	1 JSON document	0	2e4f464b16319784cc1035c00fef6bd31755480c613d3a320f08c88a5d32d817	local-only
+data/raw-slots/slot-452085262.json.gz	695043	ok	1 JSON document	0	7de4bc929ba994de5e78e6109f0743f89bb7510ed5bedf436db034977eb829cb	local-only
+data/raw-slots/slot-452085263.json.gz	830775	ok	1 JSON document	0	a54afd11dbb83d6fd54de5cd26e79f76eea6229df0cbc2b079020fa13d9feb52	local-only
+data/raw-slots/slot-452085264.json.gz	1316658	ok	1 JSON document	0	bc58016aa8dcb5e2f801e5a09c97b9f16cbbd921ed1323fb0263da03f63e3704	local-only
+data/raw-slots/slot-452085265.json.gz	896065	ok	1 JSON document	0	46f2bbc8bae33d90e8970931b69f6f8ca60c547fc0e20b63e55ac2370e2905d5	local-only
+data/raw-slots/slot-452085266.json.gz	827785	ok	1 JSON document	0	63e6edf4b722d6fee422d063ce7086dedae61a339a572888344feb90e42a6a39	local-only
+data/raw-slots/slot-452085267.json.gz	923568	ok	1 JSON document	0	bb3fb945c43c588c19877522383b166dcd520d072587b878a274d0e57e511d68	local-only
+data/raw-slots/slot-452085268.json.gz	1547281	ok	1 JSON document	0	0e98506096ba21bcb5587dcdb131e2a74c02efc365079b91e9e18c5229ce1736	local-only
+data/raw-slots/slot-452085269.json.gz	1118472	ok	1 JSON document	0	51b20aa259908ea92da3b1044c3cdc016b8fb94a2cea8f84d20d582293b1a4f6	local-only
+data/raw-slots/slot-452085270.json.gz	1315550	ok	1 JSON document	0	63938cdb212b33c0dd0b4f04cf140181353ed29eddc2aba3b377e21e725fda88	local-only
+data/raw-slots/slot-452085271.json.gz	1601776	ok	1 JSON document	0	5996001fa252219b68a5e889cde19e10cb49396acc6993d6c7593a25be2b6e00	local-only
+data/raw-slots/slot-452085272.json.gz	1119525	ok	1 JSON document	0	f982cee857234a0d1b0d05b609739f4415a3cb37e4938f087e6dbb35ad80ae12	local-only
+data/raw-slots/slot-452085273.json.gz	994184	ok	1 JSON document	0	790465038cff40bdabf6ad3c5cad8485cea52c5009c669165f128ce13d2eb3c0	local-only
+data/raw-slots/slot-452085274.json.gz	928134	ok	1 JSON document	0	db33f85210aef56b190d97565323fef391045c5022caea3ca1247e2ae9b4b72f	local-only
+data/raw-slots/slot-452085275.json.gz	926201	ok	1 JSON document	0	fbca77438688e248aaee1a03818cda016cac3617964ced07abb3be94bf85df3a	local-only
+data/raw-slots/slot-452085276.json.gz	596743	ok	1 JSON document	0	e50897c14fe00e1cb0c06354d03300426e150ece7d9e6ee7a1c297505b537286	local-only
+data/raw-slots/slot-452085277.json.gz	759806	ok	1 JSON document	0	221c27ae7730c5377b857abbeab453763afd76168d67c720bc5e41247f96f394	local-only
+data/raw-slots/slot-452085278.json.gz	1031307	ok	1 JSON document	0	c1520ce885b53a32a0911c96612bd8102ba40649a76cc0cfe3d2a7c35978dc80	local-only
+data/raw-slots/slot-452085279.json.gz	885155	ok	1 JSON document	0	b0c1259db58f0c4e7060f1e37cf1cb6fa99aa1b4b129f7f7654d9e7a9d2d7d1f	local-only
+data/raw-slots/slot-452085280.json.gz	682549	ok	1 JSON document	0	72e4346cc6aeb144274a4b54b5e649e2069363ea91f8fae20e52a32421159e25	local-only
+data/raw-slots/slot-452085281.json.gz	810037	ok	1 JSON document	0	8840f1f77c84eb610a286f19b37386f62f215ddd1b3473a3450a0dcd72658f39	local-only
+data/raw-slots/slot-452085282.json.gz	1219119	ok	1 JSON document	0	bcdd9a47dff43e92e1d8ed6862f42f9e974487f6ff5912ae0afa2fecb0dbaf20	local-only
+data/raw-slots/slot-452085283.json.gz	1023769	ok	1 JSON document	0	6878c40bf0117e13744eb603bdfc830be190f2793ef53031c80089b5093cb15a	local-only
+data/raw-slots/slot-452085284.json.gz	624030	ok	1 JSON document	0	0f2ebb225c774e6981d1076f8bc4f5de2d9b777fd9cfadb1c257a447f88d556e	local-only
+data/raw-slots/slot-452085285.json.gz	765587	ok	1 JSON document	0	633d28b70bbc09e38a075881dec0720d01ce317c3be44b14d37916a18d2e5fe1	local-only
+data/raw-slots/slot-452085286.json.gz	711571	ok	1 JSON document	0	4e5b22aac759b56bdfd5885b8a577f1ee94d9ff5ba4787106b55c0a7016ad4e3	local-only
+data/raw-slots/slot-452085287.json.gz	825628	ok	1 JSON document	0	a0c7f4a6ddc115c6774bf5b60fce36956314bb6eb305722001be6f836dd4b323	local-only
+data/raw-slots/slot-452085288.json.gz	517728	ok	1 JSON document	0	6dffd9c2a025e5a622f2c73b8fee24a570f708b88eca9795a2ac1e910e73ca5e	local-only
+data/raw-slots/slot-452085289.json.gz	417793	ok	1 JSON document	0	5d3bae676c8c3af98fd885fd536ed1b6649359f9d31d58f6f4b614a3c3032eb5	local-only
+data/raw-slots/slot-452085290.json.gz	600455	ok	1 JSON document	0	e9a9d22cc4b77dcf3e2c1aab616b46eb6ae02ebba2d1d2abcf486c4c584468f1	local-only
+data/raw-slots/slot-452085291.json.gz	603153	ok	1 JSON document	0	bb993d67f63a580c4918a1c8b00e6ec6a9ced3d03d0fdcb6a0142e5fb539b16b	local-only
+data/raw-slots/slot-452085292.json.gz	1597078	ok	1 JSON document	0	9d729744e055f86e6d4d5c3f941126c9074f206cb52781ba7680f232343dd9aa	local-only
+data/raw-slots/slot-452085293.json.gz	1515290	ok	1 JSON document	0	61c269e1a104dbf2674a24dbf7dd1d4ae3e311773543552b980823c70b0d96ba	local-only
+data/raw-slots/slot-452085294.json.gz	1375661	ok	1 JSON document	0	eaadc6441e0c69b42e63b9e09e083dce45d2212e6bfab44c2397c522c8a13a2e	local-only
+data/raw-slots/slot-452085295.json.gz	1057425	ok	1 JSON document	0	b14880df8bc26a4407b4f2ff1b7656399ba4ce12754386a3ddda21481d02e108	local-only
+data/raw-slots/slot-452085296.json.gz	893465	ok	1 JSON document	0	be2f51b620de60df363833a23013d060f5f093c5a0adf81a7e379366dd1de04c	local-only
+data/raw-slots/slot-452085297.json.gz	788396	ok	1 JSON document	0	9b6d38009f1338469afe60fe96889c5cc51eaad7e50e458ad235393be3c1fa73	local-only
+data/raw-slots/slot-452085298.json.gz	869070	ok	1 JSON document	0	0bc94874fe4b1a77193db3a198fd74c65fae095baf5cc5f2fbfcfa04bc733386	local-only
+data/raw-slots/slot-452085299.json.gz	746658	ok	1 JSON document	0	8efb4c84df4e89e6e9d4199f1ae8964f5db49e8630a45a66209fcbe36e85f027	local-only
+data/raw-slots/slot-452085300.json.gz	713105	ok	1 JSON document	0	065e1e611075a4695f425f5a6211e6c5e38ab7a87919a54bbf81b93ddaefe875	local-only
+data/raw-slots/slot-452085301.json.gz	680370	ok	1 JSON document	0	1d34639c80edf1eaee24592fd0dc7b3a8dca8582f1a3c1dc818eee2792c0e436	local-only
+data/raw-slots/slot-452085302.json.gz	639628	ok	1 JSON document	0	f717c4dc4191fd1e1de9389610921e04755e65d3979eb8b7b2a27ed68657ff92	local-only
+data/raw-slots/slot-452085303.json.gz	807138	ok	1 JSON document	0	95057a81b54aa4de8e5bb1bf574cbd4c24d24ea9d306fa1214de08cf60d4ae7c	local-only
+data/raw-slots/slot-452085304.json.gz	922616	ok	1 JSON document	0	53a504a4079bf7a98c3ee06f7486ea0867b805af5e7cb6876b674a289180da37	local-only
+data/raw-slots/slot-452085305.json.gz	857549	ok	1 JSON document	0	6afee937f8af4d6c16b7a7b87940d935e04558b98d4c43b5404ff65bf0749b11	local-only
+data/raw-slots/slot-452085306.json.gz	894472	ok	1 JSON document	0	f3116c5d45a7867f6c74f1b616646e140111ba42475f43826eb9a0d9d46fd18c	local-only
+data/raw-slots/slot-452085307.json.gz	778840	ok	1 JSON document	0	21007145309d019cbedf66dca13d0e8140c451695cb96a05c04f2e9e7139b355	local-only
+data/raw-slots/slot-452085308.json.gz	872520	ok	1 JSON document	0	7116c9a7bafdaf41b95fedbe8ca0057e7ce20cf7e347de57ccfa36619734546e	local-only
+data/raw-slots/slot-452085309.json.gz	634423	ok	1 JSON document	0	fe9cfe1921114bb5dfc8d49ec353b43895d8a4973c691c20c3fb8f0e50e3ca06	local-only
+data/raw-slots/slot-452085310.json.gz	653899	ok	1 JSON document	0	02d1657f7d7539bc3b9cc624eb79c8a0c8615082e8edb38c9c23eb6179948989	local-only
+data/raw-slots/slot-452085311.json.gz	634916	ok	1 JSON document	0	a894a9c720eda12f249917f64f777cf6cfefee130df901a00cc7b1a7757cda0a	local-only
+data/raw-slots/slot-452085312.json.gz	1040244	ok	1 JSON document	0	b2f8076a72974950d7e9ea416f6f4c79b4651d9ad52fd51a70ab942c61a99943	local-only
+data/raw-slots/slot-452085313.json.gz	782494	ok	1 JSON document	0	a87708b4cd00a5bcf2e6372e147b7f4594781180ec43d5dee430a7b6ebc57462	local-only
+data/raw-slots/slot-452085314.json.gz	812806	ok	1 JSON document	0	703f272aa48b0ba59b8aaad91a6606a9a1597bd9b1b6159a3109cd836d6579c4	local-only
+data/raw-slots/slot-452085315.json.gz	929232	ok	1 JSON document	0	c961d40431f94da527f33511dd41240d2c140de978f2ec3da967019fb719eb07	local-only
+data/raw-slots/slot-452085316.json.gz	1167761	ok	1 JSON document	0	1a259b05ba8d58170d9aced8d1114ae7a0bf6bcfc721c705314588e66cbaf6ca	local-only
+data/raw-slots/slot-452085317.json.gz	811944	ok	1 JSON document	0	68d3d8218b1094723c9e45b43eb55a73f62abc795526492089854b8fc0c99d19	local-only
+data/raw-slots/slot-452085318.json.gz	759441	ok	1 JSON document	0	fbaca5611b96de18205891659496d966813fd7a41b3a4dd21b2f76f4f33b969a	local-only
+data/raw-slots/slot-452085319.json.gz	860731	ok	1 JSON document	0	5fd74dd62b390530631514dce9c1a1c465ba27bda57856d12c2a43050927557f	local-only
+data/raw-slots/slot-452085320.json.gz	840903	ok	1 JSON document	0	d1353e2b4bc497d26a9359a33238a1191e735babb477745686d68ba946c839a6	local-only
+data/raw-slots/slot-452085321.json.gz	852362	ok	1 JSON document	0	93759b3197971b0620fa7af844147386e2d90c9c7fb855ed23ae1519502416ec	local-only
+data/raw-slots/slot-452085322.json.gz	946293	ok	1 JSON document	0	1bc9b35cad91e7f843dfa15b48789ca46785917ba16727bd47bc183dd88eecd9	local-only
+data/raw-slots/slot-452085323.json.gz	760707	ok	1 JSON document	0	0c2f59d34739b39d83629c203e5a8d861f7267a535331fa3e0822e665655e971	local-only
+data/raw-slots/slot-452085324.json.gz	795135	ok	1 JSON document	0	214e35fd7e96dab22a8fd13b6ae888910e5695ef5027f01c75b7a572ef1fe37a	local-only
+data/raw-slots/slot-452085325.json.gz	793333	ok	1 JSON document	0	bb19f85ec68c1de9a39938e3884985929192738959400c4d4f4fcac367f5532e	local-only
+data/raw-slots/slot-452085326.json.gz	830999	ok	1 JSON document	0	f175fa6ab224b2d90cfb13602b83d7d1e52fea3a3dd5e612751d8c401b7fb54f	local-only
+data/raw-slots/slot-452085327.json.gz	926474	ok	1 JSON document	0	9596b5ebfeb98312003bff5c000d33cfd5d6b91bf02d2638e181eb9c5d789445	local-only
+data/raw-slots/slot-452085328.json.gz	1066622	ok	1 JSON document	0	e5ed04d86445a914cf7b5b73ec5b1a5876742e9fec01615729b0cb3c6de6c89a	local-only
+data/raw-slots/slot-452085329.json.gz	932238	ok	1 JSON document	0	6898d6b58cf3720ff4552a8056107a586cbd84d939f719ed21aa8da1cfbd29c0	local-only
+data/raw-slots/slot-452085330.json.gz	1059222	ok	1 JSON document	0	d83ddd2c4762a0d410f116254adcb1dfba5e08fde33dd7f65b46c9348e7ab516	local-only
+data/raw-slots/slot-452085331.json.gz	882903	ok	1 JSON document	0	dcadf437fb8937b4eaa8df0b18535bcad57243e3a9865b9a3b1bd938d3aadcd4	local-only
+data/raw-slots/slot-452085332.json.gz	869385	ok	1 JSON document	0	4e771a59ab8db6782094f38a72253653ecf67c0a69999771ce5b1e74f1df21d2	local-only
+data/raw-slots/slot-452085333.json.gz	1013826	ok	1 JSON document	0	09da8d2159167c1fb19dc1c188a31d87ea4a3a1ee27cd0e46bd8fa9126311ba9	local-only
+data/raw-slots/slot-452085334.json.gz	691294	ok	1 JSON document	0	4af5b0835ba127e0995d8fa9071f85631c816ceb08e04fb21e5eb03a2729f627	local-only
+data/raw-slots/slot-452085335.json.gz	924195	ok	1 JSON document	0	1250079ebe0f37a19581637f98d9e50c810d07037db2386c3f8e3b06ad7175be	local-only
+data/raw-slots/slot-452085336.json.gz	705028	ok	1 JSON document	0	a7ec7565a56f6e0219c6121d10cfed6a298ff4972033c09ec8be179eca5bbd3b	local-only
+data/raw-slots/slot-452085337.json.gz	909956	ok	1 JSON document	0	c99a5aac2d8e1f18d4b563795afc878f7c739032d1fb7a2f1dbaf3e58de80d6b	local-only
+data/raw-slots/slot-452085338.json.gz	872879	ok	1 JSON document	0	0d4e57464041b9b98c7f07429225b2e3115b39a8148aa0dea278fe81b42af1c1	local-only
+data/raw-slots/slot-452085339.json.gz	1504451	ok	1 JSON document	0	e7066759c2223de46eee2fc940810d960a6c37a4af971cdc5aefe6886aa60cf1	local-only
+data/raw-slots/slot-452085340.json.gz	822144	ok	1 JSON document	0	b6688d42079f47a1f8453e1c6bc1c1b70cbcd933a076122448be509af616a259	local-only
+data/raw-slots/slot-452085341.json.gz	946844	ok	1 JSON document	0	da02dcbbda837a40f34d5d377d06a5c432fecb5f3318bd2833e99d5a6ed6964a	local-only
+data/raw-slots/slot-452085342.json.gz	818174	ok	1 JSON document	0	20e808c71dcc1bb9749de3c2f401b3316f9ded29cb32b50dcfa7465d4d218cd4	local-only
+data/raw-slots/slot-452085343.json.gz	875628	ok	1 JSON document	0	9d036567730bc10fed1fe86bb6dd37dba814c5dcc5ef4d990a15486b689aa140	local-only
+data/raw-slots/slot-452085344.json.gz	857800	ok	1 JSON document	0	83d33544ba39b8fb31467f5a78e75dfa5d490f6930eeb3e426ef104372c22a5f	local-only
+data/raw-slots/slot-452085345.json.gz	726593	ok	1 JSON document	0	372297597553de68a3319cba74d38268ed007d873613e2abbc37283acd9b7097	local-only
+data/raw-slots/slot-452085346.json.gz	684681	ok	1 JSON document	0	36df37a2fd07f7e0c5b2f713b5770b11f08a40c9becbd0c85a6522f286c91590	local-only
+data/raw-slots/slot-452085347.json.gz	708445	ok	1 JSON document	0	4b3eb5316038d46f57b6856437ff1730e94a6647a2ed8e8bed2655571d90885d	local-only
+data/raw-slots/slot-452085348.json.gz	1217348	ok	1 JSON document	0	63b4442e3505945bec3826e95dfa0cc4e5dc55dabc5d6fac35cf9cde30812f5c	local-only
+data/raw-slots/slot-452085349.json.gz	904283	ok	1 JSON document	0	c594a1d5f46eff784f97132fa6bbfac5761c9ac9dbcd34be02e91a746030084f	local-only
+data/raw-slots/slot-452085350.json.gz	826357	ok	1 JSON document	0	88eb5c469bf11a0d0f84fa4f09ebdffb97504e29c83a8b71b06fb25ba0241d8e	local-only
+data/raw-slots/slot-452085351.json.gz	882671	ok	1 JSON document	0	332ad61ed1051c379e798506b495e32b3f2ceb12b2014eeeab28b3e8236da222	local-only
+data/raw-slots/slot-452085352.json.gz	736703	ok	1 JSON document	0	c7dddce052838b0a6a42adf9113834db5784bbd85b41d38c72dee6fb638eda12	local-only
+data/raw-slots/slot-452085353.json.gz	751401	ok	1 JSON document	0	ee8a021c5ed07a499021987d4e6dced457288bfef03a02ea8749baa0b9866520	local-only
+data/raw-slots/slot-452085354.json.gz	940998	ok	1 JSON document	0	8b15eed9db9a440930e18c7685cb2e342604c499e556807f45ed707e99394657	local-only
+data/raw-slots/slot-452085355.json.gz	1697803	ok	1 JSON document	0	566a226f3e0e8cb4bde7534b902565f79e9491047688fe2660823b6f08ec99af	local-only
+data/raw-slots/slot-452085356.json.gz	754815	ok	1 JSON document	0	c84855c3f3d0ceeaad863674ae8298a2670b3513402a33b7a4bc39b26fe471cc	local-only
+data/raw-slots/slot-452085357.json.gz	681203	ok	1 JSON document	0	064f78dbb2a965f6fb084af176919bf08a1a204e78a13ec40ac732cec9946a29	local-only
+data/raw-slots/slot-452085358.json.gz	742354	ok	1 JSON document	0	ed40ec79e942528f6f9d0af4c09dcef897c48abae186d0d88b4c15346f2d9c82	local-only
+data/raw-slots/slot-452085359.json.gz	1318048	ok	1 JSON document	0	29d55bd85125d637feed344f60becca1c6da94a3fbb605a529b24a152fd1f16b	local-only
+data/raw-slots/slot-452085360.json.gz	416308	ok	1 JSON document	0	55e677a91136044e11cd18d289241dc4b5bdb68a4e079cde1cf1a9a16d93433c	local-only
+data/raw-slots/slot-452085361.json.gz	706767	ok	1 JSON document	0	1899910bba606d28b15c393a672cdc1cb63a4873e2cf955c7b979eb931c76e0b	local-only
+data/raw-slots/slot-452085362.json.gz	695842	ok	1 JSON document	0	929fe875dcc06cf42bdd759206d25c24d2fce3bc5d428cee176347dad3046bdd	local-only
+data/raw-slots/slot-452085363.json.gz	656558	ok	1 JSON document	0	6493af4a087af041b2a426fa419eaaf7e207d8029e45be7e19363ef0065b66ed	local-only
+data/raw-slots/slot-452085364.json.gz	840032	ok	1 JSON document	0	5ca22cce74bdecd40429adecc74c04e98ddd53b7a35514301f2d0366b1313e3e	local-only
+data/raw-slots/slot-452085365.json.gz	893899	ok	1 JSON document	0	b39869f997cfcd3c6c35bd96535366b9b0ca40b2a7ef702102754e084fd60463	local-only
+data/raw-slots/slot-452085366.json.gz	1272294	ok	1 JSON document	0	54c858c48bff7ca126118f444f0af2849bf042b2712e3a038a434cb1989101ed	local-only
+data/raw-slots/slot-452085367.json.gz	1014617	ok	1 JSON document	0	fd8f06b64e854f7ac048b693a3ec897004f340b26d58bf7c9e32da40c63dd54c	local-only
+data/raw-slots/slot-452085368.json.gz	694403	ok	1 JSON document	0	af8551e3c3851aa56e5588538cfc0eb4a205a447f77cfdd4a0251c34640be434	local-only
+data/raw-slots/slot-452085369.json.gz	775540	ok	1 JSON document	0	339f92e8024231bf0b55c853e9075a3b94c1e5063a778611715b3ac023a7c9e7	local-only
+data/raw-slots/slot-452085370.json.gz	692675	ok	1 JSON document	0	233ad6c66fdcf5cecbfea1a61bd2fdb79993a9fa4834be38b06204b4fe787f17	local-only
+data/raw-slots/slot-452085371.json.gz	688678	ok	1 JSON document	0	79067c369144ba94d8d6d1dc7d55b3e45da6e88df1617560c76aa7c1b471837f	local-only
+data/raw-slots/slot-452085372.json.gz	811446	ok	1 JSON document	0	c976518d0a89f9400b256332e9deff90fc8d4e78bcc1a11853aa4a4fc7767a11	local-only
+data/raw-slots/slot-452085373.json.gz	959295	ok	1 JSON document	0	4f1d7356f962b761366f23ccf47a0d6f0f1bfbacd5acede1912f253bbb30ae2c	local-only
+data/raw-slots/slot-452085374.json.gz	699892	ok	1 JSON document	0	8ea442f0883b5d2360c6c0afb3979ebfc9415ffccfa9026bf40ac35dcb3aac4a	local-only
+data/raw-slots/slot-452085375.json.gz	723304	ok	1 JSON document	0	f92dec9c964e136bd5c47eb0f00893e77f8cdfffa577535727d5e30ef6f2db32	local-only
+data/raw-slots/slot-452085376.json.gz	730172	ok	1 JSON document	0	4013f2f45cfe6a0b077b9f50bcabd32306d7a6b694377ff2e2e9a792dfbfdcf7	local-only
+data/raw-slots/slot-452085377.json.gz	819316	ok	1 JSON document	0	8b079a3e1138c3959ef9ff330b7c24620a22d4661c4e01f1d5ab7682c1246354	local-only
+data/raw-slots/slot-452085378.json.gz	838146	ok	1 JSON document	0	b7e222e1ac0e56c305c26e93788d76eebfd640c42045801f824387a1bce23759	local-only
+data/raw-slots/slot-452085379.json.gz	1018203	ok	1 JSON document	0	c35d2fc892fd8a265b78aa9658bc2f82594b8607a6cf0e16392c8ff327df4fbc	local-only
+data/raw-slots/slot-452085380.json.gz	1233559	ok	1 JSON document	0	efaf7bf8d049328c9445ab6d4a4d34ca75e1de0469c8f32fcbd57dff97b00eca	local-only
+data/raw-slots/slot-452085381.json.gz	734776	ok	1 JSON document	0	efa41ed14e555d3a8ba2d1d6fa4ab1e5e1cc07aa0e89c2899a72bfa37ee2dc3c	local-only
+data/raw-slots/slot-452085382.json.gz	763706	ok	1 JSON document	0	b5bb8f56fa73c1fdf01b1d6deaf0285a3d57f8813f69fe6db73bfb57b76d6d10	local-only
+data/raw-slots/slot-452085383.json.gz	763129	ok	1 JSON document	0	943df4ef70580df60771251308edcb8e4d24de4401b369569bc76366583a4f71	local-only
+data/raw-slots/slot-452085384.json.gz	725944	ok	1 JSON document	0	ee12fac19f3f02cc758f6c2c29c9123ce91baba4a3d05463f91b5fe43fea537e	local-only
+data/raw-slots/slot-452085385.json.gz	933980	ok	1 JSON document	0	efb86d932d34dc640d79a89c306f33d4ac4a187cdc35e106b49309219ae3e663	local-only
+data/raw-slots/slot-452085386.json.gz	926152	ok	1 JSON document	0	7df76caf48990defca47cf2a26ecde2033fa561e310d2c0771708602afb27fa8	local-only
+data/raw-slots/slot-452085387.json.gz	1684617	ok	1 JSON document	0	de3dedbfb3c0bd659ae4f6246e6369a171550d0963630551d002a550e56cee4e	local-only
+data/raw-slots/slot-452085388.json.gz	828064	ok	1 JSON document	0	22f8eed8331c543fe37b9a06bcc2b2284b1f2fd4c9c6a79aac35c7cd48f61b29	local-only
+data/raw-slots/slot-452085389.json.gz	763637	ok	1 JSON document	0	4cc6880f206700423d1e7c9ec519af084cc8bbb0d32ffccb6ef0fc69fec3b818	local-only
+data/raw-slots/slot-452085390.json.gz	808589	ok	1 JSON document	0	81c5de47eadd884c9087cf5928bbbe4e1321d8671ea6351f73d5e592f3ae3b81	local-only
+data/raw-slots/slot-452085391.json.gz	1116415	ok	1 JSON document	0	0de88ab2ef488e1c914ed13558a57f9407f3f467c632d926bc243d96695fe610	local-only
+data/raw-slots/slot-452085392.json.gz	753687	ok	1 JSON document	0	c373f44e929d2e331d1608978cc276fecce5a0b33bdfe404d4f1338be0ab8f99	local-only
+data/raw-slots/slot-452085393.json.gz	693941	ok	1 JSON document	0	8b1c3103ffac78d72ce0e510ec6a7d9678692d4e8471cf719c27aca38b852c4d	local-only
+data/raw-slots/slot-452085394.json.gz	725828	ok	1 JSON document	0	0e312e039ed6b305d5b572b034423f3eacd4e49365f65c2447cb8b265da84b6e	local-only
+data/raw-slots/slot-452085395.json.gz	725381	ok	1 JSON document	0	e2a7fc8d9463472e58d55abf573c7db695117fea74432478394091b6b2fab98e	local-only
+data/raw-slots/slot-452085396.json.gz	967398	ok	1 JSON document	0	1e0e9abf3d15712bcfbafc5886fa54b612be2475152761bf1fefe6b4ac202b23	local-only
+data/raw-slots/slot-452085397.json.gz	688037	ok	1 JSON document	0	5470995f4915b020fe9e6fc64ac03d64c871764b4cb3a07fd1367f893ec03599	local-only
+data/raw-slots/slot-452085398.json.gz	580732	ok	1 JSON document	0	cf3529d9136fbaf63dff0b410911c7e75cf37df5f32c9493885bfe09a2c1d9a7	local-only
+data/raw-slots/slot-452085399.json.gz	691992	ok	1 JSON document	0	30cee7f03f04f96572b63e957122082862e3d8d47be0ba987487ee39e50369c7	local-only
+data/raw-slots/slot-452085400.json.gz	1225725	ok	1 JSON document	0	9f6dab83bca9df0a0dfa9d08c42605e3e5d7194307fc2892346566306bcb809e	local-only
+data/raw-slots/slot-452085401.json.gz	1217765	ok	1 JSON document	0	309648f604dd7007d0407d95c20ca01cb23cb882f65887e4bf86a14e7104a6ce	local-only
+data/raw-slots/slot-452085402.json.gz	902840	ok	1 JSON document	0	75242fbd99e77820946238344572e586c88d64a3e530a94481ecacd90724907c	local-only
+data/raw-slots/slot-452085403.json.gz	746140	ok	1 JSON document	0	c6c324086275da9ecd93c6b520162dc6b186c71552a83a988e22987a585def8c	local-only
+data/raw-slots/slot-452085404.json.gz	842634	ok	1 JSON document	0	502d38b5f76b59e98d629e80d7ebb4344d3c1ce878ed5dcee1fc4e5c3e3a51b8	local-only
+data/raw-slots/slot-452085405.json.gz	970084	ok	1 JSON document	0	1f43b8b8c66ab8179509047fba754ba6776b8ac2818a0c78f87266a8aa49840b	local-only
+data/raw-slots/slot-452085406.json.gz	929977	ok	1 JSON document	0	22840189c27f50f052d01f795a36472b9625df04393d6b8d115128ac7c646e14	local-only
+data/raw-slots/slot-452085407.json.gz	921921	ok	1 JSON document	0	379bd15802ac70d9a3600a0225c574233bce608907f514bf46bd34381911d29d	local-only
+data/raw-slots/slot-452085408.json.gz	719425	ok	1 JSON document	0	2c089de385e669b90583ad3409fd22452f0926b51cd681ed6f8727fce5c2a6da	local-only
+data/raw-slots/slot-452085409.json.gz	725133	ok	1 JSON document	0	6e0d7ecd35a0728a0c237230d08708da23d22031cb6de46590d5245bee25a15d	local-only
+data/raw-slots/slot-452085410.json.gz	704126	ok	1 JSON document	0	1c60a0efdaec4412970f803d4a457bafdc54fac03f78f976bb06a4087f4d1868	local-only
+data/raw-slots/slot-452085411.json.gz	805111	ok	1 JSON document	0	0a650da6d08a86d1bd447bd349e13e2fc58bf1eec596c8971e12fb60be2e471e	local-only
+data/raw-slots/slot-452085412.json.gz	1260235	ok	1 JSON document	0	f3c24129739fd7a1c3ed04ebcf076c62b9318af71177974d7ccfeb50856052f7	local-only
+data/raw-slots/slot-452085413.json.gz	878006	ok	1 JSON document	0	5f7b470ad117cf8c8cd24302779e67a9bc6a52be43f2d7d9ff0daa05fd683249	local-only
+data/raw-slots/slot-452085414.json.gz	671883	ok	1 JSON document	0	a30d3f410069b147d58a565933f71718dafba129a0be77d523500649641c07cc	local-only
+data/raw-slots/slot-452085415.json.gz	1281248	ok	1 JSON document	0	824c91594f46668458faa91efb83647bb39feabbd76c13307ada05ed7c6a6f86	local-only
+data/raw-slots/slot-452085416.json.gz	1111707	ok	1 JSON document	0	215d0cffd950a76d5a23708f27beb6738f797efb57254ca42078ab002130d188	local-only
+data/raw-slots/slot-452085417.json.gz	852819	ok	1 JSON document	0	d6357930f429b87f167893f2a4c16424b43f86bb1b4eabf21df7a0cbc948bbed	local-only
+data/raw-slots/slot-452085418.json.gz	889192	ok	1 JSON document	0	3a4ebc411a9c023a6db897a9e5c123a1aa728fdbaa73fbb6e81a3b464d6cd52d	local-only
+data/raw-slots/slot-452085419.json.gz	906022	ok	1 JSON document	0	2a7499c7455e7b081da13bca646c3bc418eab8a928607859d6916788edc35269	local-only
+data/raw-slots/slot-452085420.json.gz	1060559	ok	1 JSON document	0	fa0261acce88659d9f55f9a36543d8e484ae0f98239367bf7436ecf764822d8d	local-only
+data/raw-slots/slot-452085421.json.gz	692154	ok	1 JSON document	0	4bd86809d19afe36316dc16599094cba4a7537bd8cece2d06fce1ad888479d40	local-only
+data/raw-slots/slot-452085422.json.gz	759792	ok	1 JSON document	0	67edb5016f8e54d3133594e34848fde5987784dfe486d46a3b6889acf4506313	local-only
+data/raw-slots/slot-452085423.json.gz	703846	ok	1 JSON document	0	7945e068ddbaae34513f78535a5c23b91ce05cf013003595c0785942e09adbed	local-only
+data/raw-slots/slot-452085424.json.gz	647736	ok	1 JSON document	0	d174b9c766930cd0e4607b92e44876b372027d9bff61c1fe5065533a643b06c1	local-only
+data/raw-slots/slot-452085425.json.gz	927147	ok	1 JSON document	0	2270938d39321613199560e703acfe322d7de3514d89afd0df5ac1837ce73791	local-only
+data/raw-slots/slot-452085426.json.gz	1014298	ok	1 JSON document	0	751136938faf36c280cccad407f793db7b5b0c550d0d35e433f4da3adae732ed	local-only
+data/raw-slots/slot-452085427.json.gz	855230	ok	1 JSON document	0	ce325e885cdf3bc7c8aebe0409cec4954c4d6feea179ec53a8bc1e79691de5e9	local-only
+data/raw-slots/slot-452085428.json.gz	993328	ok	1 JSON document	0	29611486b0cba58eb96462cf2f1bd37a1b813cd08c50e67481d357d9edd2f7d1	local-only
+data/raw-slots/slot-452085429.json.gz	732191	ok	1 JSON document	0	f28251d7707d61a603d3fb5479c782db467a7b50894c03cc43e84e7b066b195f	local-only
+data/raw-slots/slot-452085430.json.gz	786482	ok	1 JSON document	0	fb96775b4c9c82e3bfc3f473718faf81852a7c6147865bc1fada10d2626d7383	local-only
+data/raw-slots/slot-452085431.json.gz	757569	ok	1 JSON document	0	f80709bcb0580e66164515ff4e08e47abf08ba3ffc4a421fd17c92a6ea7168d2	local-only
+data/raw-slots/slot-452085432.json.gz	813311	ok	1 JSON document	0	1ae301fe4cb62701aec5fc5aef137c1bd9ce837ebe8d0ede4aa78f65533e97e3	local-only
+data/raw-slots/slot-452085433.json.gz	1025651	ok	1 JSON document	0	397262144eb277b38e02b16d5948d4aabd4213bc2a8ac9a74b035a0d513ea8d0	local-only
+data/raw-slots/slot-452085434.json.gz	882033	ok	1 JSON document	0	537229db794d98e22bd8a104a2aafee05f70ef53e02ded3362d8162bc465be9a	local-only
+data/raw-slots/slot-452085435.json.gz	918258	ok	1 JSON document	0	83b0603aefa29eb4b351e900f7f517ef81acaba7743ae4c6916486527b5fd37b	local-only
+data/raw-slots/slot-452085436.json.gz	876823	ok	1 JSON document	0	6ab65100b5de3cb021509652447a3cba81027cac90b77af0342f0ffa10b5dc09	local-only
+data/raw-slots/slot-452085437.json.gz	843531	ok	1 JSON document	0	2a49abf94113f9e97862bc1bb8054247f8dfef22ab96ea93985ccc4ce6924cbb	local-only
+data/raw-slots/slot-452085438.json.gz	881326	ok	1 JSON document	0	e3095e678b5e53e8753f71a98aae8f665a43f1c637b2ec35873509da215af273	local-only
+data/raw-slots/slot-452085439.json.gz	1076506	ok	1 JSON document	0	c630ae0a7fd476792c7b6cf3207e356e138a36681279b5dfedd2f87858d7ba84	local-only
+data/raw-slots/slot-452085440.json.gz	1206299	ok	1 JSON document	0	5ec6b95844cde34bce9d82cf07a97908892117debe999f8e5e41b4a5aa664b25	local-only
+data/raw-slots/slot-452085441.json.gz	966794	ok	1 JSON document	0	ec45c10ecbb1fc5fdb8ec72dd666a8fab97d134123dd61d9858459abe166cdf0	local-only
+data/raw-slots/slot-452085442.json.gz	961464	ok	1 JSON document	0	daf50fe5e2b17180b007f6cd720e7429842c027d7b5aa7b8e0247e292a0552f5	local-only
+data/raw-slots/slot-452085443.json.gz	992579	ok	1 JSON document	0	3ab13e0c953a28b3c9a3aa9eea16e8bf0ecf031d40c07ccf3789b80d0a3d9bf8	local-only
+data/raw-slots/slot-452085444.json.gz	766282	ok	1 JSON document	0	c4c4a00c6b6821d98f1032e2f7463210cf6883dcf7c5a3e96f99736b711a97f8	local-only
+data/raw-slots/slot-452085445.json.gz	736317	ok	1 JSON document	0	4163dc3eb5ce6b8667dbec61c38e757c7d4929dda410cf8c70c21399c0907106	local-only
+data/raw-slots/slot-452085446.json.gz	858905	ok	1 JSON document	0	d2b9fea0065983de78d57faa7749ef43a24e8f37f26c62e8ccd8de68c73c9c58	local-only
+data/raw-slots/slot-452085447.json.gz	808621	ok	1 JSON document	0	c7f8215727ab86f3034ea9d55b86abdac0d8480be2c4ae8363adcfbe40d748a4	local-only
+data/raw-slots/slot-452085448.json.gz	1329563	ok	1 JSON document	0	a3a4031b56b06bc5e56db718a493a33b200fd0e5ef2431f42b9a8f5aa4a1a286	local-only
+data/raw-slots/slot-452085449.json.gz	773769	ok	1 JSON document	0	bf8f6623eb3493f900f3f96cb6f1619f52da22c5e25773072eb77043537b9c52	local-only
+data/raw-slots/slot-452085450.json.gz	807078	ok	1 JSON document	0	423eecf68124fdb5b944c88676694333408238f1e5db9a7cbaadfab93e6c5005	local-only
+data/raw-slots/slot-452085451.json.gz	830390	ok	1 JSON document	0	e9e60049446c0def224108825ac4992ae183ed3d4d92f4e0a9e0d2f343ef5d9a	local-only
+data/raw-slots/slot-452085452.json.gz	727659	ok	1 JSON document	0	f1497401ced6b2a7a09773a0865699662ccd434b15aa99e4e8fbee20c4e28fd6	local-only
+data/raw-slots/slot-452085453.json.gz	807729	ok	1 JSON document	0	34550ae72a388ea369a43de36b5ca35f350d0bd6dc1b7fc3923b97ba41c6a21e	local-only
+data/raw-slots/slot-452085454.json.gz	872465	ok	1 JSON document	0	40547b29ab4138a6dbfc3c790f608c6106d3eb542bc85da00b0e25fad95f558b	local-only
+data/raw-slots/slot-452085455.json.gz	1292485	ok	1 JSON document	0	53715906e4961117abb9a5b7e11c1bf9755d3a48383020ce8bf37b5e5f627bba	local-only
+data/raw-slots/slot-452085456.json.gz	1300526	ok	1 JSON document	0	de74c8731464352bf3b82aab9cb36ae3e99fe517f6f9ed666add51bd2c44947b	local-only
+data/raw-slots/slot-452085457.json.gz	860175	ok	1 JSON document	0	0fff65e053a7f4892082548e950dcd054e40d444036b054f6d52584716313f45	local-only
+data/raw-slots/slot-452085458.json.gz	933424	ok	1 JSON document	0	016aa1a7b9edd89c54af7750dee0edcd73adf24b91d46a9259d866df2325c2e4	local-only
+data/raw-slots/slot-452085459.json.gz	991213	ok	1 JSON document	0	f354080895822469e1cde790c8dc75e3b32517d214796e1faf1db207c2206a77	local-only
+data/raw-slots/slot-452085460.json.gz	771668	ok	1 JSON document	0	8ab50ab257e531e9a128b0e006a33ed83929e387afb38b1e9c77ef2388d89066	local-only
+data/raw-slots/slot-452085461.json.gz	820324	ok	1 JSON document	0	e24c3c542d9064830baab54dc8aab0a25ef3793d4e1f36280d938279f84e81ed	local-only
+data/raw-slots/slot-452085462.json.gz	1157928	ok	1 JSON document	0	6ad7ee1af349d6b1e030e2b7e9338d6fa7f69ad1845ad58fcecfaf12fe6b8a5b	local-only
+data/raw-slots/slot-452085463.json.gz	944921	ok	1 JSON document	0	315f8dac669f0b0f99e4eab96b3cca847b50d56f94f6036ebacf23402d17085b	local-only
+data/raw-slots/slot-452085464.json.gz	1522490	ok	1 JSON document	0	af2750999e69dbc8d8f5f355d4059bf976e8df64c59d2a614007efd1faf385c3	local-only
