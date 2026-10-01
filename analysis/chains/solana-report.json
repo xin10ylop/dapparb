@@ -1,0 +1,670 @@
+{
+ "window": {
+  "slots": 600,
+  "seconds": 159.4,
+  "sol_usd": 117.9164322318644
+ },
+ "counts": {
+  "dex_ok": 109823,
+  "dex_ok_2plus_amm_legs": 18688,
+  "venue_only_not_trader": 9824,
+  "dex_failed": 33717,
+  "arb_priced": 1768,
+  "liquidity_or_fee_op_excluded": 749,
+  "arb_profit_unpriced": 222,
+  "excluded_gain_over_5pct": 157,
+  "excluded_gain_unpriced": 12
+ },
+ "priced_arbs": 1768,
+ "gross_usd": 258.6895974540726,
+ "gross_usd_per_hour": 5842.425036603899,
+ "tx_fees_usd": 39.948074524574345,
+ "jito_tips_usd": 39.3472404237017,
+ "cost_share_of_gross": 0.306526879042185,
+ "net_after_fees_tips_usd_per_hour": 4051.5647240957824,
+ "profit_asset_sol_share": 0.7217194570135747,
+ "by_size": {
+  "$0.10-1": {
+   "arbs": 136,
+   "gross_usd": 45.09,
+   "fee_tip_share": 0.148
+  },
+  "$1-10": {
+   "arbs": 55,
+   "gross_usd": 125.94,
+   "fee_tip_share": 0.264
+  },
+  "$10-100": {
+   "arbs": 4,
+   "gross_usd": 75.19,
+   "fee_tip_share": 0.453
+  },
+  "<$0.10": {
+   "arbs": 1573,
+   "gross_usd": 12.47,
+   "fee_tip_share": 0.426
+  }
+ },
+ "signers": 197,
+ "failed_dex_tx_fees_of_arb_signers_usd": 44.19496666197573,
+ "operator_net_usd_per_hour_after_failed_fees": 3053.434987689806,
+ "signers_net_positive_after_failed_fees": 164,
+ "top_signers": [
+  {
+   "signer": "MriyaNN8TMp6qRWjfr723PK7xgQK7yCt7Kg2v2PQu7X",
+   "arbs": 37,
+   "gross_usd": 39.92,
+   "fee_tip_usd": 9.815,
+   "failed_dex_txs": 71,
+   "failed_fee_usd": 4.701,
+   "net_usd": 25.41
+  },
+  {
+   "signer": "Luckywzbt7nYBhmEZLnzqAsQmRE8bMmgyduxsP5kktR",
+   "arbs": 9,
+   "gross_usd": 34.08,
+   "fee_tip_usd": 0.01,
+   "failed_dex_txs": 0,
+   "failed_fee_usd": 0.0,
+   "net_usd": 34.07
+  },
+  {
+   "signer": "4B8srvotmWddTZuMt4RrBQrnx1sQj2Z7FaXgLbWvpVdd",
+   "arbs": 62,
+   "gross_usd": 32.26,
+   "fee_tip_usd": 27.299,
+   "failed_dex_txs": 356,
+   "failed_fee_usd": 0.932,
+   "net_usd": 4.03
+  },
+  {
+   "signer": "HvFdDWS3RqymRAVx1ZdoL2RjiC38r5dtt19Z8op5jqDK",
+   "arbs": 4,
+   "gross_usd": 19.22,
+   "fee_tip_usd": 12.269,
+   "failed_dex_txs": 171,
+   "failed_fee_usd": 2.268,
+   "net_usd": 4.68
+  },
+  {
+   "signer": "8oSD5a9EG933qyuL8YdnSy6YPF7peNiXm7PAx19R1phB",
+   "arbs": 3,
+   "gross_usd": 12.35,
+   "fee_tip_usd": 6.66,
+   "failed_dex_txs": 1,
+   "failed_fee_usd": 0.004,
+   "net_usd": 5.69
+  },
+  {
+   "signer": "CatyeC3LgBxub7HcpW2n7cZZZ66CUKdcZ8DzHucHrSiP",
+   "arbs": 6,
+   "gross_usd": 11.91,
+   "fee_tip_usd": 6.148,
+   "failed_dex_txs": 66,
+   "failed_fee_usd": 3.778,
+   "net_usd": 1.98
+  },
+  {
+   "signer": "3KvsoNxgn64nsuHKPBHQJsguef3DgEkP2izE49k6CSAZ",
+   "arbs": 12,
+   "gross_usd": 6.41,
+   "fee_tip_usd": 0.078,
+   "failed_dex_txs": 15,
+   "failed_fee_usd": 0.031,
+   "net_usd": 6.3
+  },
+  {
+   "signer": "9EwQoN74Hzw747EM7wB3WtvgAdRGH1czaPtbqZj1qDj4",
+   "arbs": 5,
+   "gross_usd": 4.97,
+   "fee_tip_usd": 3.699,
+   "failed_dex_txs": 58,
+   "failed_fee_usd": 0.14,
+   "net_usd": 1.13
+  },
+  {
+   "signer": "9Xd8bZXW5RVvgPQjBTv87WLnfXSmTXJ3omt9zC2XWgUy",
+   "arbs": 6,
+   "gross_usd": 4.76,
+   "fee_tip_usd": 0.139,
+   "failed_dex_txs": 20,
+   "failed_fee_usd": 1.58,
+   "net_usd": 3.04
+  },
+  {
+   "signer": "FUJKrQhxWYu4z59G6JGVfZstjQKi1fY1BZNwoekgs9vL",
+   "arbs": 8,
+   "gross_usd": 4.48,
+   "fee_tip_usd": 0.016,
+   "failed_dex_txs": 0,
+   "failed_fee_usd": 0.0,
+   "net_usd": 4.47
+  },
+  {
+   "signer": "4YP7YJFDpjJ9DePSH64ouj8cs52CZip7UfCbGBK98Nyg",
+   "arbs": 2,
+   "gross_usd": 3.92,
+   "fee_tip_usd": 0.011,
+   "failed_dex_txs": 1,
+   "failed_fee_usd": 0.004,
+   "net_usd": 3.91
+  },
+  {
+   "signer": "AXmnRBrNtYYyyo82cLBBhnWJ7o1iqNLZbuEVpDB3V666",
+   "arbs": 16,
+   "gross_usd": 3.84,
+   "fee_tip_usd": 0.012,
+   "failed_dex_txs": 0,
+   "failed_fee_usd": 0.0,
+   "net_usd": 3.83
+  },
+  {
+   "signer": "7dGrdJRYtsNR8UYxZ3TnifXGjGc9eRYLq9sELwYpuuUu",
+   "arbs": 11,
+   "gross_usd": 3.7,
+   "fee_tip_usd": 0.051,
+   "failed_dex_txs": 342,
+   "failed_fee_usd": 5.209,
+   "net_usd": -1.56
+  },
+  {
+   "signer": "rLsi2DPwRLovHzLV5XYxa8B597bv8w8nX7fZHJJf8uy",
+   "arbs": 9,
+   "gross_usd": 3.54,
+   "fee_tip_usd": 2.603,
+   "failed_dex_txs": 0,
+   "failed_fee_usd": 0.0,
+   "net_usd": 0.94
+  },
+  {
+   "signer": "AjkDC1KdkgPaFRtrCbeSh6B6dhVX2JM4o2XhPSs2qu4b",
+   "arbs": 10,
+   "gross_usd": 2.65,
+   "fee_tip_usd": 0.009,
+   "failed_dex_txs": 0,
+   "failed_fee_usd": 0.0,
+   "net_usd": 2.64
+  }
+ ],
+ "top_arbs": [
+  {
+   "sig": "gUD9FZ4cqvGmz3TkvxSNcVEND1DJRKmx3cT3m5xmioYtMUZtyv9yCeFAUidyRXxk2fFtUtwLjhXHXnNAy1HFj7T",
+   "slot": 452085021,
+   "signer": "Luckywzbt7nYBhmEZLnzqAsQmRE8bMmgyduxsP5kktR",
+   "asset": "SOL",
+   "gross_usd": 29.402811763404095,
+   "fee_usd": 0.0005895821611593221,
+   "tip_usd": 0.0005421797554021126,
+   "dex_invocations": 6,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)",
+    "Raydium CLMM"
+   ],
+   "dex_instructions": [
+    "BuyExactQuoteIn",
+    "Swap",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "5NNNZwojS3qvszV5ko7G7z7pkwSqYr9VTwE1FphaMLYpsqDW6mhDKLQGfrhrjcEvqR2qvJm2LB3FHmjLgxfoqW7u",
+   "slot": 452085452,
+   "signer": "4B8srvotmWddTZuMt4RrBQrnx1sQj2Z7FaXgLbWvpVdd",
+   "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "gross_usd": 21.436878160151196,
+   "fee_usd": 0.0005895821611593221,
+   "tip_usd": 18.55474160884221,
+   "dex_invocations": 3,
+   "programs": [
+    "Manifest",
+    "Raydium CLMM",
+    "TesseraV"
+   ],
+   "dex_instructions": [
+    "SwapV2"
+   ]
+  },
+  {
+   "sig": "Qza6PwZWBNXP5DSKm8LchKvDRN4PS8VhfvPsmMDbEDfXoZ1VvjoBMxyd7M4ZFmQXLjLnjdMWRWooC8KCh85LV17",
+   "slot": 452084965,
+   "signer": "HvFdDWS3RqymRAVx1ZdoL2RjiC38r5dtt19Z8op5jqDK",
+   "asset": "SOL",
+   "gross_usd": 12.228519123781073,
+   "fee_usd": 8.981213897806901,
+   "tip_usd": 0.0,
+   "dex_invocations": 6,
+   "programs": [
+    "Manifest",
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)"
+   ],
+   "dex_instructions": [
+    "BuyExactQuoteIn",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "5NSFCkVwWnAX21KnTw9pioLBDZdQ1RJYae7HMq49Q1T1pkho7Me2HrJ6c3ZDob4y8GNpw8DqZe2553HwiACi9NCg",
+   "slot": 452085196,
+   "signer": "8oSD5a9EG933qyuL8YdnSy6YPF7peNiXm7PAx19R1phB",
+   "asset": "SOL",
+   "gross_usd": 12.124801952485704,
+   "fee_usd": 6.5272916986399965,
+   "tip_usd": 0.0,
+   "dex_invocations": 6,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)",
+    "Raydium CLMM"
+   ],
+   "dex_instructions": [
+    "BuyExactQuoteIn",
+    "Swap2",
+    "SwapV2"
+   ]
+  },
+  {
+   "sig": "U9TxEKpdU12M2RQ2K2fr7Xs87HFFYUZ2VBfzeR8wApY24pgRHoGXiKNEj5qo9zkr3jM4WVfdCHPGYrCh5pD3UWz",
+   "slot": 452085462,
+   "signer": "CatyeC3LgBxub7HcpW2n7cZZZ66CUKdcZ8DzHucHrSiP",
+   "asset": "SOL",
+   "gross_usd": 4.990128843073852,
+   "fee_usd": 3.24417324761766,
+   "tip_usd": 0.0,
+   "dex_invocations": 5,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)"
+   ],
+   "dex_instructions": [
+    "BuyExactQuoteIn",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "3fsRWVzEDv6y8N46Tk4vMWoT38ynNaXpGdygf5nopkqsa5N68S9FRpWwBZpjCEAUgFcgA7hkkbDadjGR4BNNGB92",
+   "slot": 452085043,
+   "signer": "4B8srvotmWddTZuMt4RrBQrnx1sQj2Z7FaXgLbWvpVdd",
+   "asset": "SOL",
+   "gross_usd": 4.623962120649217,
+   "fee_usd": 4.2083950164396375,
+   "tip_usd": 0.0,
+   "dex_invocations": 5,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)"
+   ],
+   "dex_instructions": [
+    "BuyExactQuoteIn",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "5DYhh9n6LzAPhkfkSHMwLXADBkBxKdsiMkDAkADb64Ues3HnytVAYEdhZk5XvQKRRtKTL6otDsBG6Uc6WZjFE1Qe",
+   "slot": 452085035,
+   "signer": "Luckywzbt7nYBhmEZLnzqAsQmRE8bMmgyduxsP5kktR",
+   "asset": "SOL",
+   "gross_usd": 4.480748132879193,
+   "fee_usd": 0.0005895821611593221,
+   "tip_usd": 0.00012510933459800814,
+   "dex_invocations": 6,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)",
+    "Raydium CLMM"
+   ],
+   "dex_instructions": [
+    "BuyExactQuoteIn",
+    "Swap",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "2Rn8dbCh6BU4X6gVWGqsapwhr2Rjk8Q9hZ2AVi4b8SRvmdXoKdHPeUxswh83A86p8kWpJxsD8rimoPPKgcXyjjca",
+   "slot": 452085151,
+   "signer": "9EwQoN74Hzw747EM7wB3WtvgAdRGH1czaPtbqZj1qDj4",
+   "asset": "SOL",
+   "gross_usd": 4.414575671522884,
+   "fee_usd": 3.3110791491824525,
+   "tip_usd": 0.0,
+   "dex_invocations": 5,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)"
+   ],
+   "dex_instructions": [
+    "Sell",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "qEg3bYiGMt4vfwpUnZYWDssQqxXs3xhTyX9uYtumfer2U1ByadGfiWhQvF3fu2JS2z4wJqQNBoYgkhFzCazzSvb",
+   "slot": 452085255,
+   "signer": "MriyaNN8TMp6qRWjfr723PK7xgQK7yCt7Kg2v2PQu7X",
+   "asset": "SOL",
+   "gross_usd": 4.177994863129507,
+   "fee_usd": 0.0005895821611593221,
+   "tip_usd": 1.4246961670827403,
+   "dex_invocations": 6,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)",
+    "Raydium CLMM"
+   ],
+   "dex_instructions": [
+    "Sell",
+    "Swap",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "pu5WjAdVTk8LmJET6D5Tgexpxm61rcc6b4HBZ7sA31UNXELY7H4RRxYoY9Lz7uvdFvN757abGUW8h2vWGUt2RUQ",
+   "slot": 452084980,
+   "signer": "HvFdDWS3RqymRAVx1ZdoL2RjiC38r5dtt19Z8op5jqDK",
+   "asset": "SOL",
+   "gross_usd": 4.171942566412343,
+   "fee_usd": 0.0005895821611593221,
+   "tip_usd": 3.170676289156836,
+   "dex_invocations": 6,
+   "programs": [
+    "Manifest",
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)"
+   ],
+   "dex_instructions": [
+    "BuyExactQuoteIn",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "5PTYigZrdk51pijAPHXHRnACKBctsMntkQTMW5ienmCVTLjJqtU5yLJdcitJCCpokoiYFYHu5hWNCiZjUvCX13dN",
+   "slot": 452084985,
+   "signer": "MriyaNN8TMp6qRWjfr723PK7xgQK7yCt7Kg2v2PQu7X",
+   "asset": "SOL",
+   "gross_usd": 4.0177647087734005,
+   "fee_usd": 1.4382834417359536,
+   "tip_usd": 0.0,
+   "dex_invocations": 5,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)"
+   ],
+   "dex_instructions": [
+    "Sell",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "2hTUsbXnADShPDPC9k7SvSXmjg2hsKJwotqUY6emo8ntDKjnYxH8zt2R9ZAS9SaQuJkKYe4dxhXYRYAGav2KF21p",
+   "slot": 452085453,
+   "signer": "4B8srvotmWddTZuMt4RrBQrnx1sQj2Z7FaXgLbWvpVdd",
+   "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "gross_usd": 3.9851573666291222,
+   "fee_usd": 0.0005895821611593221,
+   "tip_usd": 3.4493624613387013,
+   "dex_invocations": 5,
+   "programs": [
+    "Meteora DLMM",
+    "Orca Whirlpool",
+    "Raydium CLMM"
+   ],
+   "dex_instructions": [
+    "Swap",
+    "SwapV2"
+   ]
+  },
+  {
+   "sig": "4r82h5ATfk86s8D2D4DNJ2CVZMe9wLuBjymGzeVSX1rz7S6eTXLLuuKiSSToYpgvi5W9mbpTh4gexbSkuZbaikdb",
+   "slot": 452085055,
+   "signer": "4YP7YJFDpjJ9DePSH64ouj8cs52CZip7UfCbGBK98Nyg",
+   "asset": "SOL",
+   "gross_usd": 3.9244889196357313,
+   "fee_usd": 0.009827509211500276,
+   "tip_usd": 0.0,
+   "dex_invocations": 5,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)"
+   ],
+   "dex_instructions": [
+    "BuyExactQuoteIn",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "5n5rQmkTcgkgST63buoGCp2zateBHUeGaxTJto26q8evAtn4GR6cZd4VdC8mZuEuWAo972CF5G9K1wX1aeKHxncu",
+   "slot": 452084984,
+   "signer": "FUJKrQhxWYu4z59G6JGVfZstjQKi1fY1BZNwoekgs9vL",
+   "asset": "SOL",
+   "gross_usd": 3.760386625477994,
+   "fee_usd": 0.0029139508733138334,
+   "tip_usd": 0.0,
+   "dex_invocations": 6,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)",
+    "Raydium CLMM"
+   ],
+   "dex_instructions": [
+    "BuyExactQuoteIn",
+    "Swap2",
+    "SwapV2"
+   ]
+  },
+  {
+   "sig": "3Q8HmxXyCvMytkstYqtEyf7a9hWDtceJnMT1M58UQXEye8CjemCXwB71kjDCvGxXMXAVEfYc2V1JU9bdLz7a4rYR",
+   "slot": 452085288,
+   "signer": "rLsi2DPwRLovHzLV5XYxa8B597bv8w8nX7fZHJJf8uy",
+   "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "gross_usd": 3.5064198812674148,
+   "fee_usd": 0.0005895821611593221,
+   "tip_usd": 2.5698709598941174,
+   "dex_invocations": 6,
+   "programs": [
+    "Meteora DAMM v2 (CP-AMM)",
+    "Meteora DLMM",
+    "Raydium CLMM"
+   ],
+   "dex_instructions": [
+    "Swap",
+    "Swap2",
+    "SwapV2"
+   ]
+  },
+  {
+   "sig": "3RadcYkPfgHAyUPNRqsGcrDLnmqD9bUx9rHuL2V3hG5pWWaBL3cfbQ2B99v2DZmHsF2pVLMK1w1tvdL4tAqJyS9W",
+   "slot": 452084868,
+   "signer": "MriyaNN8TMp6qRWjfr723PK7xgQK7yCt7Kg2v2PQu7X",
+   "asset": "SOL",
+   "gross_usd": 3.2739504484163082,
+   "fee_usd": 0.0005895821611593221,
+   "tip_usd": 1.1164170974858052,
+   "dex_invocations": 5,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)"
+   ],
+   "dex_instructions": [
+    "Sell",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "2iFf6oCi72bfFb8MmaV81tk1ANEUgbmXASAKWK3gTcmyaXnNFdyyhgxkDkqARiAcYRJTXjHwSr1Nj4ezbMp3bn4t",
+   "slot": 452085097,
+   "signer": "MriyaNN8TMp6qRWjfr723PK7xgQK7yCt7Kg2v2PQu7X",
+   "asset": "SOL",
+   "gross_usd": 3.0493164612709367,
+   "fee_usd": 0.0005895821611593221,
+   "tip_usd": 1.692705831741036,
+   "dex_invocations": 6,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)",
+    "Raydium CLMM"
+   ],
+   "dex_instructions": [
+    "Sell",
+    "Swap",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "3n68MrrtvKQUZcwEUJVpPLD6YrfAtd4qkUvCCQucZ9ePWxD5Rhhh1ugCZVh2mfow5dRk6H7g4Zf1AEGCyUKLFnBF",
+   "slot": 452085462,
+   "signer": "CatyeC3LgBxub7HcpW2n7cZZZ66CUKdcZ8DzHucHrSiP",
+   "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "gross_usd": 2.892936220061242,
+   "fee_usd": 1.8808938542628864,
+   "tip_usd": 0.0,
+   "dex_invocations": 8,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)"
+   ],
+   "dex_instructions": [
+    "BuyExactQuoteIn",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "4LjQeBnCVLzvDTkQJRTNXGPUfSduFtwqvFoyibdvG26YGASTwWn1YBHgXJz89cVhjsVBUTQyEHUbCsYzz11zFCQA",
+   "slot": 452084868,
+   "signer": "MriyaNN8TMp6qRWjfr723PK7xgQK7yCt7Kg2v2PQu7X",
+   "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "gross_usd": 2.694627584585952,
+   "fee_usd": 0.920305326550838,
+   "tip_usd": 0.0,
+   "dex_invocations": 6,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)",
+    "Raydium CLMM"
+   ],
+   "dex_instructions": [
+    "Sell",
+    "Swap",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "2f7VrtCE5xsmEGXunTZE7LUydNABKqXWwdWLQ1RUy2FqaSbdez84Gwca4tExTYnwZ5BhSPnZGq7Jk4VVqZJfMDAo",
+   "slot": 452085091,
+   "signer": "HvFdDWS3RqymRAVx1ZdoL2RjiC38r5dtt19Z8op5jqDK",
+   "asset": "SOL",
+   "gross_usd": 2.6735165559151204,
+   "fee_usd": 0.004926312705782831,
+   "tip_usd": 0.0,
+   "dex_invocations": 6,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)",
+    "Raydium CLMM"
+   ],
+   "dex_instructions": [
+    "BuyExactQuoteIn",
+    "Swap",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "4Jzhg8kbueAzVkeKdfdugxz6VsbidACThLs3JTKXjhgeWmAhyBMMMWMs22qvtYLtSdAAuS527uwUgYmgbT8FcU1C",
+   "slot": 452084927,
+   "signer": "MriyaNN8TMp6qRWjfr723PK7xgQK7yCt7Kg2v2PQu7X",
+   "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "gross_usd": 2.5758827483201285,
+   "fee_usd": 0.004755923461207788,
+   "tip_usd": 0.0,
+   "dex_invocations": 6,
+   "programs": [
+    "Meteora DLMM",
+    "PancakeSwap",
+    "PumpSwap (pump.fun AMM)"
+   ],
+   "dex_instructions": [
+    "BuyExactQuoteIn",
+    "Swap",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "4xP1bECpVnDa5BFXnbGg8B27Jvx7zucEfnLweGRpW7oGokJa5Af9aWZ6R4KVqkL2cmhALmQF6gFRYYAv5sKaoeSc",
+   "slot": 452084993,
+   "signer": "3KvsoNxgn64nsuHKPBHQJsguef3DgEkP2izE49k6CSAZ",
+   "asset": "SOL",
+   "gross_usd": 2.5232444442609934,
+   "fee_usd": 0.03121342294323236,
+   "tip_usd": 0.0,
+   "dex_invocations": 6,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)",
+    "Raydium CLMM"
+   ],
+   "dex_instructions": [
+    "BuyExactQuoteIn",
+    "Swap",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "67RNJR2je1FLuNmmwf6wkg2nm6a1xSYHnSkeYZecB6zVetbSM69xggheQB6dvkYQ6tKbnvcd6BmbVPWLkCwLcXmj",
+   "slot": 452084987,
+   "signer": "AXmnRBrNtYYyyo82cLBBhnWJ7o1iqNLZbuEVpDB3V666",
+   "asset": "SOL",
+   "gross_usd": 2.4646784181986643,
+   "fee_usd": 0.0006225987621842441,
+   "tip_usd": 0.0,
+   "dex_invocations": 6,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)",
+    "Raydium CLMM"
+   ],
+   "dex_instructions": [
+    "BuyExactQuoteIn",
+    "Swap2",
+    "SwapV2"
+   ]
+  },
+  {
+   "sig": "31MVfXVHqGopZsmYe9SWDb83Tf8kFJPr3f3SuctQznjzKfk6BugFWBYxZGLF9opki6M3C6F7njCmdY2V3woQkykA",
+   "slot": 452084989,
+   "signer": "MriyaNN8TMp6qRWjfr723PK7xgQK7yCt7Kg2v2PQu7X",
+   "asset": "SOL",
+   "gross_usd": 2.4213585151581865,
+   "fee_usd": 0.0005895821611593221,
+   "tip_usd": 0.8589324177356615,
+   "dex_invocations": 5,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)"
+   ],
+   "dex_instructions": [
+    "Sell",
+    "Swap2"
+   ]
+  },
+  {
+   "sig": "4YaCSk6289gEJoCzNkWRVexT3799J9NtPMKzbEcKUMWFPv3es272d6BHEqevXjnrkCwKNWfUbu8brjGi2sDigFbs",
+   "slot": 452084987,
+   "signer": "3KvsoNxgn64nsuHKPBHQJsguef3DgEkP2izE49k6CSAZ",
+   "asset": "SOL",
+   "gross_usd": 2.414059488003034,
+   "fee_usd": 0.0029251529343758604,
+   "tip_usd": 0.0,
+   "dex_invocations": 6,
+   "programs": [
+    "Meteora DLMM",
+    "PumpSwap (pump.fun AMM)",
+    "Raydium CLMM"
+   ],
+   "dex_instructions": [
+    "BuyExactQuoteIn",
+    "Swap",
+    "Swap2"
+   ]
+  }
+ ]
+}

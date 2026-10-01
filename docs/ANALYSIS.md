@@ -188,6 +188,14 @@ breadth of the searcher.
    transactions it netted −$0.09. The four bots that share the most active pair in this universe net $0.66,
    $1.99, $1.49 and $0.83 an hour, about $5/hour for the pair, which is the §2.5 ceiling seen from the other
    side. The income is real, fully captured, split among incumbents, and worth tens of dollars a day each.
+6. **Every pool, every chain (§7).** On-chain censuses of every landed arbitrage settle the gaps this section left
+   open.
+   * Base atomic arbitrage grosses about $650/hour across all pools. 56 % of it is in Uniswap V4 pools.
+   * 87 % is same-block backrunning, which no block-boundary searcher sees.
+   * The block-boundary part is about $42/hour after fees for all bots combined.
+   * All 234 operators together net about $250/hour, the top 10 take 87 % of that, and 26 make over $1/hour.
+   * V4 launch pools, older V2 pairs and shallow pools are each small. The other L2s are near zero, and BSC is
+     ordered by builders with exclusive searchers.
 
 ## 4. Engineering results (phase 2)
 
@@ -264,3 +272,210 @@ npx tsx src/research/carry.ts                         # funding / basis snapshot
 
 Raw records from the runs referenced above are not committed (they are in `bot/data/`, git-ignored) but the
 scripts regenerate them in minutes.
+
+## 7. The unmeasured gaps, measured (2026-10-01)
+
+§2–§5 measured what a searcher sees at block boundaries in a chosen pool universe. This section measures the other
+side: every atomic arbitrage that actually landed on chain, in every pool, using the raw material in
+`research-material/` (index: `research-material/README.md`). Scripts and outputs are in `analysis/`.
+
+### 7.1 Method
+
+* **Classifier** (`analysis/arb_census.py`). A successful transaction with at least two swap logs is a cyclic arbitrage
+  when the venues it touched, taken together, lose exactly one token and every other token nets to zero.
+  * **Venue flows:**
+    * ERC-20 `Transfer`s to and from the swap-log emitters.
+    * WETH `Deposit`/`Withdrawal` on those pools.
+    * Uniswap V4 `Swap` deltas. The pool side is the negated event amounts, and native ETH counts as WETH.
+    * V4 hook fees minted as ERC-6909 claims to third parties.
+    * PoolManager payouts to anyone other than the sender, its contract or a pool. These are hook and protocol fees,
+      or a user's recipient.
+  * **Exclusions:**
+    * Transactions with liquidity events (V2/V3/Aerodrome mint, burn, collect, claim).
+    * Rows where none of the profit token was paid into a venue. This means an invisible native-ETH leg, as in
+      Curve stETH/ETH or a pool wrapping ETH itself.
+  * **Valuation:** WETH, USDC, USDbC, DAI, USDT, cbBTC, cbETH, wstETH, weETH, EURC and ezETH are valued at anchored
+    engine prices. Other tokens are valued only with a DefiLlama price at confidence ≥ 0.9, and only for the 12 other
+    chains. A row is dropped when the venues gained another token worth more than 5 % of the profit, or a token with no
+    reliable price. Such rows are user trades.
+  * **Validation:** the largest rows were decoded by hand (`analysis/inspect_tx.py`). Every false positive found was
+    traced to one of the cases above and fixed. The fixes were:
+    * Aerodrome `Fees` transfers.
+    * Liquidity removals.
+    * Garbage long-tail prices.
+    * User purchases.
+    * A V4 hook fee.
+    * A pool that wraps its own ETH.
+    * A Kyber stETH swap.
+* **Operator = beneficiary.** The operator is the address that received the profit, because bots rotate sender EOAs:
+  one beneficiary took profit from 400+ one-shot senders. Each operator is charged every transaction its EOAs sent to
+  its contracts in the window: wins, reverts and empty landings.
+* **Backrun.** An arbitrage counts as a backrun when another sender's successful swap touched one of its pools earlier
+  in the same block. A block-boundary searcher cannot see a backrun gap.
+* **Base census:** blocks 51,995,609–52,017,160 (11.97 h, 30 Sep–1 Oct 2026), ETH $2,684.88.
+* **Other chains:** one-hour censuses, and six hours for Ethereum.
+* **Solana:** 600 consecutive slots (159 s) with the same venue-side test (`analysis/solana_report.py`). On Solana the
+  signers' own balances must mirror the venue's loss, and the transaction must contain at least two real AMM legs.
+* **Limits:**
+  * 2,572 Base arbitrages whose profit is in a long-tail token have no reliable price and are not in the dollar
+    figures.
+  * On Ethereum, 4,226 transactions through 181 V4 pools whose keys could not be fetched without an API key were
+    skipped. Ethereum builder payments are internal transfers, so Ethereum costs are understated. The same holds for
+    BSC builder bribes.
+  * On Solana, bots that keep profit in a program-owned account are not detected.
+
+### 7.2 Base: where the arbitrage income is (11.97 h, 29,093 valued arbitrages, $647/hour gross)
+
+| Pools touched | Arbs | Gross $/h | Priority fee / gross | Share of gross that is a same-block backrun |
+|---|---|---|---|---|
+| Engine universe, every pool ≥ 0.1 ETH | 17,563 | 204.45 | 39.5 % | 80.6 % |
+| Uniswap V4 with hooks, pool ≥ 1 h old | 1,202 | 186.18 | 41.4 % | 91.8 % |
+| Uniswap V4 without hooks | 3,861 | 160.63 | 13.7 % | 91.5 % |
+| Pools the engine never enumerated (§7.3) | 5,737 | 78.49 | 21.0 % | 79.4 % |
+| Uniswap V4 with hooks, pool < 1 h old (launches) | 314 | 16.42 | 47.4 % | 94.6 % |
+| Engine universe, a pool < 0.1 ETH | 416 | 0.87 | 22.2 % | 69.7 % |
+| **All** | **29,093** | **647.03** | **31.6 %** | **86.7 %** |
+
+* **Backruns dominate.** 87 % of the income closes a gap opened earlier in the same block by someone else's swap.
+  None of it is visible to a block-boundary engine like the one in §2.
+* **The cross-block part is small.** The part that is visible at block boundaries totals $86/hour gross and
+  $42/hour after the winners' own transaction fees (priority fee 47.5 % of gross), shared by 140 beneficiaries.
+  * It swings between $18 and $234 an hour.
+  * The engine's universe accounts for $12.35/hour of the net, within a factor of three of the §2.5/§2.6 ceiling
+    ($1.97–4.77/hour).
+* **The money is lumpy.** 12 arbitrages of ≥ $100 make 40 % of all gross.
+* **Most dollars are not bid away.** 55 % of all gross was won while paying under 5 % of it as priority fee. The
+  "winner keeps 3 %" outcome of §2.6 is real, but it is the contested regime:
+  * The two contracts of the XDP-pair bot grossed $1,179 and $463 and spent $1,108 and $385, keeping 6 % and 17 %.
+  * The large prizes are won by position, not by bid. The top 8 beneficiaries landed **the very next transaction after
+    the swap that opened the gap** for 88 % of their gross, at 0.1–2.5 % priority. That requires seeing the triggering
+    transaction before it is sequenced. Logs cannot show how they get it.
+
+**Who earns it (234 beneficiaries, all their transactions charged):**
+* All operators combined net **$251/hour**. A further $49/hour is spent by 2,592 zero-win senders calling shared
+  contracts that could not be attributed.
+* 150 operators (64 %) are net positive.
+* The top 1, 3 and 10 take 28 %, 63 % and 87 % of the positive net.
+* Only 26 net more than $1/hour, 11 more than $5/hour, and 7 more than $10/hour.
+* The top two net about $100/hour each:
+  * Their profit is mostly V4 backruns: 89 % of the first one's gross is hookless V4, and 63 % of the second's is
+    hooked V4.
+  * Each one's three largest trades make 47 % and 64 % of its gross.
+
+### 7.3 The eight lines, one by one
+
+**1. Uniswap V4 on Base ("the biggest gap").**
+* **Measured: yes, the biggest pool category.**
+  * V4 pools carry $363/hour gross, 56 % of all Base arbitrage income.
+  * 92 % of it is same-block backruns of user swaps.
+  * The non-backrun V4 part is $29.9/hour gross, $18.4/hour after fees.
+* **Why the engine missed it.** The engine's all-V4 live test (`research-material/02-v4-live-test`, 20 min) had a
+  $0.62/hour ceiling and no V4 episode, and it could not have found one. 98.4 % of V4 pools have hooks or dynamic fees
+  that the engine cannot price locally, and the income is intra-block anyway.
+
+**2. Older V2 pairs ("almost all abandoned").**
+* **Mostly true.**
+  * Of a random sample, 0.17 % hold ≥ 0.1 ETH and 0.065 % traded in 24 h.
+  * On chain, older pairs of the V2 factories the engine supports carried $18.65/hour gross. One $169 trade is 76 %
+    of that, and 98 % of it was backruns.
+* **Not on the list, but larger:**
+  * Uniswap V3 / Aerodrome CL / PancakeSwap V3 pools whose pair the engine never enumerated: $33.6/hour gross. V3
+    pools cannot be listed through a V2 factory.
+  * DEXes the engine does not support: $26.3/hour gross.
+
+**3. Pools under 0.1 ETH.**
+* **True.**
+  * Arbitrage through engine-universe pools with a pool under 0.1 ETH: $0.87/hour gross.
+  * The shallow live test had a $1.12/hour ceiling, $0.28/hour of it in tokens with a reliable price.
+* **Blocking and taxing tokens.** 93 % of the tokens that block or tax transfers sit in pools under 0.1 ETH. The
+  per-token rate is 20.2 % in the 0.001–0.1 ETH band, against 7.2 % in deep pools.
+
+**4. Other chains, live.** Same classifier and costs, one census window per chain.
+
+| Chain | Window | Valued arbs | Gross $/h | All operators' net $/h | Beneficiaries | Top-3 share of gross | Backrun share | V4 share |
+|---|---|---|---|---|---|---|---|---|
+| Ethereum | 6 h | 1,086 | 1,469 | 286 (builder payments not seen) | 164 | 58 % | 45 % | 61 % |
+| Polygon | 1 h | 915 | 368 | −40 | 46 | 49 % | 61 % | 6 % |
+| BSC | 1 h | 1,185 | 148 | 128 (bribes not seen) | 59 | 68 % | 70 % | 18 % |
+| Mantle | 1 h | 10 | 5.34 | 2.63 | 3 | 100 % | 3 % | 0 |
+| Arbitrum | 1 h | 79 | 3.90 | −2.51 | 10 | 91 % | 42 % | 53 % |
+| Abstract | 1 h | 16 | 3.72 | 2.75 | 5 | 95 % | 4 % | 0 |
+| Optimism | 1 h | 400 | 2.17 | −3.09 | 41 | 74 % | 41 % | 24 % |
+| Ink | 1 h | 42 | 1.78 | 1.24 | 11 | 98 % | 17 % | 100 % |
+| zkSync | 1 h | 10 | 0.79 | 0.09 | 2 | 100 % | 0 | 0 |
+| World Chain | 1 h | 21 | 0.38 | 0.30 | 7 | 99 % | 51 % | 75 % |
+| Soneium | 1 h | 92 | 0.38 | −0.22 | 11 | 97 % | 15 % | 0 |
+| Unichain | 1 h | 100 | 0.23 | 0.11 | 9 | 64 % | 61 % | 82 % |
+
+* **Solana** (159 s, 600 slots):
+  * 1,768 valued arbitrages: $259 gross, i.e. $5,842/hour.
+  * Fees and Jito tips take 31 % of gross, and 43 % of arbitrages under $0.10.
+  * After fees, tips and the signers' failed transactions, all 197 signers net $3,053/hour; 164 are net positive.
+  * The tips in the window, $889/hour, are about 10 % of Jito's 1,880 SOL/day total.
+  * The window is 2.6 minutes, so the hourly figure is an order of magnitude, not an estimate.
+* **Reading.** No L2 other than Base has an atomic-arbitrage market worth a dollar figure for a newcomer. Polygon is
+  large but net negative across its operators (spam). Ethereum, BSC and Solana are large but ordered by builders or
+  validators through bundles.
+
+**5. V4 launches ("the one place a bigger number could appear").**
+* **Not a bigger number.** Pools under one hour old carried $16.42/hour gross; two trades make 69 % of it.
+* **The flow is contested.** 95 % is backruns, priority fees took 47 % of gross, and 106 of the 314 arbitrages paid
+  more than half their gross as priority fee.
+* **Where the large V4 money is.** It is in older hooked and hookless pools, won by being first behind a user's swap.
+
+**6. BSC ordering through private builders.**
+* **Confirmed** (`analysis/bsc_builders.py`, 8,000 blocks):
+  * BlockRazor builds 43 % of blocks and the 48 Club builders 52 %.
+  * 57 % of arbitrage gross is in zero-gas-price transactions, which only a builder can include.
+  * 50 % of arbitrage gross is at block positions 0–2.
+* **Exclusive flow.** Several searchers land only through one builder:
+  * The #1 beneficiary holds 39 % of all arbitrage gross and lands 95 % of it in 48 Club blocks; 48 Club builds 52 %
+    of blocks.
+  * The #2 beneficiary lands 100 % of its gross in BlockRazor blocks.
+  * The #3 lands 96 % in BlockRoute blocks, though BlockRoute builds 0.5 % of blocks.
+  * Even the arbitrages at position ≥ 10 are 75 % zero-gas bundles, and the top three beneficiaries take 81 % of them.
+
+**7. Chain-wide studies** (checked against the texts in `research-material/08-sources`).
+
+| Claim | What the source says | Our census |
+|---|---|---|
+| Arbitrum ≈ $4,700/day | arXiv 2509.22143 Table 1: $433,121 regular + $69,806 Timeboosted profit, 17 Apr–31 Jul 2025 = **$4,790/day** | 30 Sep 2026, one hour: $3.90/hour gross ($94/day pace), 10 beneficiaries |
+| Base: 4,365 bots, 21.4 M arbitrages, nine months | arXiv 2606.00720 §4.1, verbatim: 21,374,434 cyclic arbitrages by 4,365 bot addresses, 1 Jun 2025–28 Feb 2026 (≈ 3,250/hour) | 2,430 valued arbitrages/hour (+ 215/hour unvalued long-tail) |
+| Only 28 % of those bots profitable after failed transactions | Not in 2606.00720. arXiv 2607.24172 Table 6 (Base, Sep 2023–Jul 2025): arbitrage bots profitable after state-invariant transaction costs: **23.4 %** speculative, **25.1 %** non-speculative; all MEV bots ≈ 26 % | 14.5 % of sending EOAs net positive (1,272 of 8,753, counting zero-win senders to arbitrage contracts); 64 % of beneficiaries that won at least once |
+
+The line merges two papers. The 4,365 bots are not the population behind the 23–27 %.
+
+**8. "Full V4 coverage is the one gap I wouldn't predict."**
+* **Measured** via the census rather than a rerun, because the live test cannot see intra-block income (§7.2).
+* **Answer.** V4 is where most of Base's arbitrage income is, but almost all of it is backrunning.
+
+### 7.4 What this changes for the $/hour answer
+
+The new evidence moves the totals, not the share a newcomer can take:
+
+* **Block-boundary bot, any coverage** (the §2 engine; Alchemy + a VPS is enough). Cross-block income on Base for all
+  bots together is about $42/hour after their fees: $86/hour gross, half of it bid away as priority fee. It is shared
+  by 140 beneficiaries, and the top three take 45 %. Full V4, V3 and extra-DEX coverage would raise the engine's
+  addressable ceiling from about $12/hour to that $42/hour. At the capture rates in §2.6, that is a few percent for a
+  newcomer: roughly **$1–3/hour**, versus $0.50–1.50/hour before.
+* **Same-block backrunning** is 87 % of the income: $561/hour gross. Its top earners make about $100/hour each by
+  landing directly behind the swap that opened the gap, at near-zero priority fee. That needs pre-sequencing
+  visibility of Base transactions and a submission path that lands in the next slot. Polling an RPC provider does not
+  give either. Even inside this market, only 26 of 234 operators clear $1/hour.
+* **Other chains** do not offer an easier version. The L2s other than Base are near zero. BSC, Ethereum and Solana
+  route the income through builders, validators and bundles, where the incumbents have exclusive paths.
+
+To reproduce, with the material in `research-material/` (the large originals are local-only; see its README):
+
+```bash
+cd analysis
+python3 arb_census.py --census ../research-material/05-base-onchain --chain base --out base \
+  --weth 0x4200000000000000000000000000000000000006 --pool-manager 0x498581ff718922c3f8e6a244956af099b2652b2b \
+  --prices ../research-material/02-v4-live-test/v4universe-prices.csv.gz --prices ../research-material/04-shallow-pools/prices.csv.gz \
+  --v4-init "../research-material/01-v4-pools/initialize-part-*.csv.gz" \
+  --v4-init ../research-material/01-v4-pools/v4-window2-initialize-part-0001.csv.gz \
+  --v4-init ../research-material/02-v4-live-test/initialize-topup.csv.gz --native-usd 2684.88
+python3 base_report.py && python3 outside_breakdown.py
+python3 v4keys_fetch.py && bash run_other_chains.sh && python3 chain_report.py && python3 bsc_builders.py
+python3 solana_report.py
+```

@@ -1,0 +1,29 @@
+{
+ "older pair of a supported V2 factory": {
+  "arbs": 568,
+  "gross_usd_per_hour": 18.65,
+  "net_of_arb_tx_fees_usd_per_hour": 17.69,
+  "priority_share": 0.039,
+  "backrun_share_of_gross": 0.984,
+  "largest_usd": 169.31,
+  "largest_share": 0.758
+ },
+ "unsupported DEX": {
+  "arbs": 2920,
+  "gross_usd_per_hour": 26.28,
+  "net_of_arb_tx_fees_usd_per_hour": 20.09,
+  "priority_share": 0.192,
+  "backrun_share_of_gross": 0.586,
+  "largest_usd": 109.31,
+  "largest_share": 0.347
+ },
+ "V3-style pool, pair not enumerated": {
+  "arbs": 2249,
+  "gross_usd_per_hour": 33.57,
+  "net_of_arb_tx_fees_usd_per_hour": 21.6,
+  "priority_share": 0.318,
+  "backrun_share_of_gross": 0.852,
+  "largest_usd": 51.84,
+  "largest_share": 0.129
+ }
+}

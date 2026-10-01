@@ -1,0 +1,16 @@
+{
+ "candidate_lines": 398,
+ "multi_swap_success_txs": 165,
+ "skipped_liquidity_event_txs": 5,
+ "v4_needed": 34,
+ "v4_resolved": 30,
+ "counts": {
+  "arb": 111,
+  "arb_priced": 110,
+  "pools_gain_other_tokens_flag": 58,
+  "v4_unresolved_tx": 29,
+  "not_single_loss_token": 25,
+  "pos_unpriced_kept": 2
+ },
+ "native_usd": 2690.9298
+}

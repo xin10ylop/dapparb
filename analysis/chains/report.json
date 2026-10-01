@@ -1,0 +1,746 @@
+{
+ "arbitrum": {
+  "hours": 1.0,
+  "beneficiaries": 10,
+  "top3_beneficiary_gross_share": 0.914,
+  "backrun_share_of_gross": 0.418,
+  "v4_share_of_gross": 0.53,
+  "v4_unresolved_txs_skipped": 4,
+  "blocks": 13257,
+  "arbs_valued": 79,
+  "excluded": {
+   "no_profit_token_inflow_invisible_leg": 363,
+   "pools_gained_other_token_over_5pct": 7,
+   "payout_consumes_profit": 4
+  },
+  "gross_usd": 3.9,
+  "gross_usd_per_hour": 3.9,
+  "fees_on_arbs_usd": 1.87,
+  "priority_on_arbs_usd": 0.55,
+  "operators": 36,
+  "operator_spend_all_txs_usd": 6.41,
+  "operator_net_usd_per_hour": -2.51,
+  "operators_net_positive": 10,
+  "top3_net_share": 0.944,
+  "largest": [
+   {
+    "tx": "0x32bc7795c90b274846bb2aa16eadd6cc1a65aded3f09370b646c7195ee112ab4",
+    "gross_usd": 1.31,
+    "priority_usd": 0.2274
+   },
+   {
+    "tx": "0xeb770f992e8b37065e7b5d0e8389f6205d40872cb002f716861cfdca4ef12683",
+    "gross_usd": 0.88,
+    "priority_usd": 0.0836
+   },
+   {
+    "tx": "0x4b514b5bb2b214d86e2f376a2857c24b1f99abf062231bbc1d350095a05d393f",
+    "gross_usd": 0.14,
+    "priority_usd": 0.0473
+   },
+   {
+    "tx": "0x27a3ba5256af9cbd72c8f84ccf944b71b54d4520296e28dab73528a417e2c48e",
+    "gross_usd": 0.09,
+    "priority_usd": 0.0309
+   },
+   {
+    "tx": "0x3ef433281a25f5752111150d5ba07687e61848652333031eeb7b7690e943e659",
+    "gross_usd": 0.07,
+    "priority_usd": 0.0246
+   }
+  ],
+  "by_size": {
+   "$1-10": {
+    "arbs": 1,
+    "gross_usd": 1.31,
+    "priority_share": 0.174
+   },
+   "<$1": {
+    "arbs": 78,
+    "gross_usd": 2.6,
+    "priority_share": 0.126
+   }
+  }
+ },
+ "optimism": {
+  "hours": 0.999,
+  "beneficiaries": 41,
+  "top3_beneficiary_gross_share": 0.739,
+  "backrun_share_of_gross": 0.405,
+  "v4_share_of_gross": 0.236,
+  "v4_unresolved_txs_skipped": 2,
+  "blocks": 1800,
+  "arbs_valued": 400,
+  "excluded": {
+   "no_profit_token_inflow_invisible_leg": 512,
+   "pools_gained_other_token_over_5pct": 193,
+   "payout_consumes_profit": 6
+  },
+  "gross_usd": 2.16,
+  "gross_usd_per_hour": 2.17,
+  "fees_on_arbs_usd": 0.73,
+  "priority_on_arbs_usd": 0.72,
+  "operators": 79,
+  "operator_spend_all_txs_usd": 5.25,
+  "operator_net_usd_per_hour": -3.09,
+  "operators_net_positive": 35,
+  "top3_net_share": 0.806,
+  "largest": [
+   {
+    "tx": "0x0677c90d92c1a38b3d55c06b6154471a7e3ee6f05c904f854f3e06e83432cd46",
+    "gross_usd": 0.49,
+    "priority_usd": 0.3596
+   },
+   {
+    "tx": "0xd6fb3b9b11936bac89424e8525e767739135f3dd3449a38a034c115cfcfbd544",
+    "gross_usd": 0.4,
+    "priority_usd": 0.2937
+   },
+   {
+    "tx": "0x57dfe6956e94b8a76ecaba9e2ec10aca63dbeec41bd898cc6d1b8cfddc831c47",
+    "gross_usd": 0.35,
+    "priority_usd": 0.0037
+   },
+   {
+    "tx": "0xfee8dd41c7a3f11cd9ecec3bdd533b34e4859042322388ec791ebfa71ec8d94a",
+    "gross_usd": 0.18,
+    "priority_usd": 0.0019
+   },
+   {
+    "tx": "0xcad7f7ce45a9b9dccb35426da310db73e426641d9df0a840fbb3dadd4c0f0b58",
+    "gross_usd": 0.15,
+    "priority_usd": 0.0019
+   }
+  ],
+  "by_size": {
+   "<$1": {
+    "arbs": 400,
+    "gross_usd": 2.16,
+    "priority_share": 0.333
+   }
+  }
+ },
+ "unichain": {
+  "hours": 1.0,
+  "beneficiaries": 9,
+  "top3_beneficiary_gross_share": 0.637,
+  "backrun_share_of_gross": 0.613,
+  "v4_share_of_gross": 0.823,
+  "v4_unresolved_txs_skipped": 0,
+  "blocks": 3600,
+  "arbs_valued": 100,
+  "excluded": {
+   "no_profit_token_inflow_invisible_leg": 23,
+   "payout_consumes_profit": 1
+  },
+  "gross_usd": 0.23,
+  "gross_usd_per_hour": 0.23,
+  "fees_on_arbs_usd": 0.12,
+  "priority_on_arbs_usd": 0.05,
+  "operators": 70,
+  "operator_spend_all_txs_usd": 0.12,
+  "operator_net_usd_per_hour": 0.11,
+  "operators_net_positive": 41,
+  "top3_net_share": 0.419,
+  "largest": [
+   {
+    "tx": "0xc54fc1f8863eb067387bbf3af855576882b2bb51a78cc5dfa62b8820cbf96063",
+    "gross_usd": 0.03,
+    "priority_usd": 0.0
+   },
+   {
+    "tx": "0x90e2c88de233299bb4d88619cf3d074e1ad7be4e5c2fbc326c20228ef1e8d649",
+    "gross_usd": 0.01,
+    "priority_usd": 0.0
+   },
+   {
+    "tx": "0x5a1ad3cd58bf96e7c0798f223ae6bb5dcea1d665ec60ce4a2920313eadef3f0c",
+    "gross_usd": 0.01,
+    "priority_usd": 0.0
+   },
+   {
+    "tx": "0xcc6f71bab1685d14d6a6c5fb27267fc97fd7cd82b681ace35a7bdca127cb8870",
+    "gross_usd": 0.01,
+    "priority_usd": 0.0032
+   },
+   {
+    "tx": "0xfaa0f89ae8e1d1be8cc10211e22144393906fe518be12c81a5ce19d7abb39a41",
+    "gross_usd": 0.01,
+    "priority_usd": 0.0042
+   }
+  ],
+  "by_size": {
+   "<$1": {
+    "arbs": 100,
+    "gross_usd": 0.23,
+    "priority_share": 0.206
+   }
+  }
+ },
+ "ethereum": {
+  "hours": 5.997,
+  "beneficiaries": 164,
+  "top3_beneficiary_gross_share": 0.583,
+  "backrun_share_of_gross": 0.445,
+  "v4_share_of_gross": 0.614,
+  "v4_unresolved_txs_skipped": 4226,
+  "blocks": 1792,
+  "arbs_valued": 1086,
+  "excluded": {
+   "no_profit_token_inflow_invisible_leg": 9662,
+   "payout_consumes_profit": 145,
+   "pools_gained_other_token_over_5pct": 141,
+   "profit_token_unvalued": 28,
+   "pool_gain_token_unvalued": 14
+  },
+  "gross_usd": 8812.07,
+  "gross_usd_per_hour": 1469.49,
+  "fees_on_arbs_usd": 558.58,
+  "priority_on_arbs_usd": 128.85,
+  "operators": 319,
+  "operator_spend_all_txs_usd": 7095.24,
+  "operator_net_usd_per_hour": 286.3,
+  "operators_net_positive": 230,
+  "top3_net_share": 0.628,
+  "largest": [
+   {
+    "tx": "0xe97113193bc11596098d120eeb4c88ff139870d0d979797147ef662b5f459d40",
+    "gross_usd": 3328.44,
+    "priority_usd": 0.0
+   },
+   {
+    "tx": "0xaaa91e823f7db64cf595bf06a0d4616327c571dda57ef4ae8e0cc15c5d21ad00",
+    "gross_usd": 1266.71,
+    "priority_usd": 21.4701
+   },
+   {
+    "tx": "0x3bd9e0f56c7b7e1bea9f5c7f0bbb528604d390e1585756a00661bf58188f4356",
+    "gross_usd": 305.21,
+    "priority_usd": 0.0
+   },
+   {
+    "tx": "0x51fee33ed30a4360ad9f5ec7552e41ec170a62806eb06770009e1c9dc7b5bacb",
+    "gross_usd": 273.8,
+    "priority_usd": 0.147
+   },
+   {
+    "tx": "0x245e0871fcd329b0b6275f405fde607b8f6bf5e62860ae605480bc8324af7efd",
+    "gross_usd": 216.2,
+    "priority_usd": 0.0
+   }
+  ],
+  "by_size": {
+   "$1-10": {
+    "arbs": 326,
+    "gross_usd": 997.04,
+    "priority_share": 0.046
+   },
+   "$10-100": {
+    "arbs": 66,
+    "gross_usd": 1634.16,
+    "priority_share": 0.024
+   },
+   "<$1": {
+    "arbs": 685,
+    "gross_usd": 286.84,
+    "priority_share": 0.078
+   },
+   ">=$100": {
+    "arbs": 9,
+    "gross_usd": 5894.02,
+    "priority_share": 0.004
+   }
+  }
+ },
+ "polygon": {
+  "hours": 0.999,
+  "beneficiaries": 46,
+  "top3_beneficiary_gross_share": 0.49,
+  "backrun_share_of_gross": 0.614,
+  "v4_share_of_gross": 0.062,
+  "v4_unresolved_txs_skipped": 2,
+  "blocks": 2400,
+  "arbs_valued": 915,
+  "excluded": {
+   "no_profit_token_inflow_invisible_leg": 1609,
+   "pools_gained_other_token_over_5pct": 38,
+   "payout_consumes_profit": 28,
+   "pool_gain_token_unvalued": 1,
+   "profit_token_unvalued": 1
+  },
+  "gross_usd": 367.42,
+  "gross_usd_per_hour": 367.63,
+  "fees_on_arbs_usd": 43.94,
+  "priority_on_arbs_usd": 32.51,
+  "operators": 414,
+  "operator_spend_all_txs_usd": 407.57,
+  "operator_net_usd_per_hour": -40.17,
+  "operators_net_positive": 193,
+  "top3_net_share": 0.313,
+  "largest": [
+   {
+    "tx": "0x42eb4244e44e6c3019493b6868779a1924ac3176e4356c3447ee9a55cf5c833d",
+    "gross_usd": 35.44,
+    "priority_usd": 0.0014
+   },
+   {
+    "tx": "0x64f88b98be2b413998d784222224094340d62ea3a2828f2230a56a3e822d8046",
+    "gross_usd": 34.81,
+    "priority_usd": 0.3067
+   },
+   {
+    "tx": "0xfeba98065a6d1eda671a16fb9c97639206330afbe3f664159329523ae6a3c121",
+    "gross_usd": 27.46,
+    "priority_usd": 0.0149
+   },
+   {
+    "tx": "0xa0faab3c74a9349eb448d453dcc69e8b78242a5368a50018e0b6fa6ee87da573",
+    "gross_usd": 26.79,
+    "priority_usd": 3.9728
+   },
+   {
+    "tx": "0xabf3f225d851f13928ce9248b4fa59284c163269cb76395222f233421864edf6",
+    "gross_usd": 21.38,
+    "priority_usd": 12.0883
+   }
+  ],
+  "by_size": {
+   "$1-10": {
+    "arbs": 36,
+    "gross_usd": 118.95,
+    "priority_share": 0.041
+   },
+   "$10-100": {
+    "arbs": 9,
+    "gross_usd": 197.55,
+    "priority_share": 0.083
+   },
+   "<$1": {
+    "arbs": 870,
+    "gross_usd": 50.92,
+    "priority_share": 0.221
+   }
+  }
+ },
+ "ink": {
+  "hours": 1.0,
+  "beneficiaries": 11,
+  "top3_beneficiary_gross_share": 0.984,
+  "backrun_share_of_gross": 0.166,
+  "v4_share_of_gross": 1.0,
+  "v4_unresolved_txs_skipped": 29,
+  "blocks": 3600,
+  "arbs_valued": 42,
+  "excluded": {
+   "no_profit_token_inflow_invisible_leg": 61,
+   "pool_gain_token_unvalued": 1,
+   "payout_consumes_profit": 7
+  },
+  "gross_usd": 1.78,
+  "gross_usd_per_hour": 1.78,
+  "fees_on_arbs_usd": 0.15,
+  "priority_on_arbs_usd": 0.15,
+  "operators": 13,
+  "operator_spend_all_txs_usd": 0.54,
+  "operator_net_usd_per_hour": 1.24,
+  "operators_net_positive": 9,
+  "top3_net_share": 0.998,
+  "largest": [
+   {
+    "tx": "0x97dc3889cf07ed0a2482a0c7bdc2b909b3c772deb00de7de0d94972da85cc802",
+    "gross_usd": 0.55,
+    "priority_usd": 0.0007
+   },
+   {
+    "tx": "0xa530d3e9edb6c95ef286d840eae83958f23a41ed9b7b0ff3a0732b816ee2fc56",
+    "gross_usd": 0.49,
+    "priority_usd": 0.0007
+   },
+   {
+    "tx": "0xaeaf508b3ce3ca9a144b8f1988c129811b66f723731d686b9fbc13003abe365f",
+    "gross_usd": 0.44,
+    "priority_usd": 0.0885
+   },
+   {
+    "tx": "0x798b70dc6e7275e678e0bad578387f368ac5c5e85055fab145387fcc6b202ba4",
+    "gross_usd": 0.27,
+    "priority_usd": 0.0569
+   },
+   {
+    "tx": "0xe79a113c3551cbec9bfb4318252dc32b25dc0c2cebc38caed6351eb7b0a53aab",
+    "gross_usd": 0.01,
+    "priority_usd": 0.0013
+   }
+  ],
+  "by_size": {
+   "<$1": {
+    "arbs": 42,
+    "gross_usd": 1.78,
+    "priority_share": 0.085
+   }
+  }
+ },
+ "mantle": {
+  "hours": 0.999,
+  "beneficiaries": 3,
+  "top3_beneficiary_gross_share": 1.0,
+  "backrun_share_of_gross": 0.03,
+  "v4_share_of_gross": 0.0,
+  "v4_unresolved_txs_skipped": 0,
+  "blocks": 1800,
+  "arbs_valued": 10,
+  "excluded": {
+   "no_profit_token_inflow_invisible_leg": 8
+  },
+  "gross_usd": 5.33,
+  "gross_usd_per_hour": 5.34,
+  "fees_on_arbs_usd": 2.7,
+  "priority_on_arbs_usd": 2.53,
+  "operators": 3,
+  "operator_spend_all_txs_usd": 2.71,
+  "operator_net_usd_per_hour": 2.63,
+  "operators_net_positive": 2,
+  "top3_net_share": 1.0,
+  "largest": [
+   {
+    "tx": "0xd1c612c2b68ac9f672bd74897ca3808fd5118cd760a068167738e754ede5928a",
+    "gross_usd": 4.2,
+    "priority_usd": 2.0684
+   },
+   {
+    "tx": "0x53e333ba4ac6232a29ebe7a24fe695560cdfd9bf768f56407b842939e8a056f0",
+    "gross_usd": 0.63,
+    "priority_usd": 0.3253
+   },
+   {
+    "tx": "0x1c7fcb044fdedd19ca07993c5c87e88758c5694a8c1e778aff193b6598b47f7e",
+    "gross_usd": 0.25,
+    "priority_usd": 0.1195
+   },
+   {
+    "tx": "0x29072d8ff4ff4ab76599e70f03f4221ea220b0a02bc1e3cf35befc47f0222858",
+    "gross_usd": 0.13,
+    "priority_usd": 0.0016
+   },
+   {
+    "tx": "0xe1ebf50040e3e5ccad79c108813b5d206661fed8b6b579eb8aeddc3712359342",
+    "gross_usd": 0.06,
+    "priority_usd": 0.014
+   }
+  ],
+  "by_size": {
+   "$1-10": {
+    "arbs": 1,
+    "gross_usd": 4.2,
+    "priority_share": 0.492
+   },
+   "<$1": {
+    "arbs": 9,
+    "gross_usd": 1.13,
+    "priority_share": 0.413
+   }
+  }
+ },
+ "abstract": {
+  "hours": 1.0,
+  "beneficiaries": 5,
+  "top3_beneficiary_gross_share": 0.946,
+  "backrun_share_of_gross": 0.04,
+  "v4_share_of_gross": 0.0,
+  "v4_unresolved_txs_skipped": 0,
+  "blocks": 4719,
+  "arbs_valued": 16,
+  "excluded": {
+   "no_profit_token_inflow_invisible_leg": 44
+  },
+  "gross_usd": 3.72,
+  "gross_usd_per_hour": 3.72,
+  "fees_on_arbs_usd": 0.71,
+  "priority_on_arbs_usd": 0.0,
+  "operators": 7,
+  "operator_spend_all_txs_usd": 0.98,
+  "operator_net_usd_per_hour": 2.75,
+  "operators_net_positive": 5,
+  "top3_net_share": 0.976,
+  "largest": [
+   {
+    "tx": "0x234699b314df2194b32c85cabdd0e3876e4bfcf2350383c2ad32c8962dca5904",
+    "gross_usd": 1.42,
+    "priority_usd": 0.0
+   },
+   {
+    "tx": "0x9afada0bb92449e12ec1df16274618f3b8ed3805b20bfea5ed41d8ece54aafdb",
+    "gross_usd": 0.63,
+    "priority_usd": 0.0
+   },
+   {
+    "tx": "0x8e0b4eed040923defa05d90065593ae97f93f38548864650be10aaf9ec69196c",
+    "gross_usd": 0.3,
+    "priority_usd": 0.0
+   },
+   {
+    "tx": "0x2667a174ad35c2c5da7387a6e8f2801578018cda7571e1af12b8ac3fbd4002fe",
+    "gross_usd": 0.26,
+    "priority_usd": 0.0
+   },
+   {
+    "tx": "0xd80fca0e678c8cfcc312bba3596959476c785860171faf498d97cb4735f47043",
+    "gross_usd": 0.24,
+    "priority_usd": 0.0
+   }
+  ],
+  "by_size": {
+   "$1-10": {
+    "arbs": 1,
+    "gross_usd": 1.42,
+    "priority_share": 0.0
+   },
+   "<$1": {
+    "arbs": 15,
+    "gross_usd": 2.3,
+    "priority_share": 0.0
+   }
+  }
+ },
+ "worldchain": {
+  "hours": 0.999,
+  "beneficiaries": 7,
+  "top3_beneficiary_gross_share": 0.992,
+  "backrun_share_of_gross": 0.509,
+  "v4_share_of_gross": 0.754,
+  "v4_unresolved_txs_skipped": 0,
+  "blocks": 1800,
+  "arbs_valued": 21,
+  "excluded": {
+   "no_profit_token_inflow_invisible_leg": 534,
+   "pool_gain_token_unvalued": 22,
+   "pools_gained_other_token_over_5pct": 10
+  },
+  "gross_usd": 0.38,
+  "gross_usd_per_hour": 0.38,
+  "fees_on_arbs_usd": 0.07,
+  "priority_on_arbs_usd": 0.06,
+  "operators": 8,
+  "operator_spend_all_txs_usd": 0.08,
+  "operator_net_usd_per_hour": 0.3,
+  "operators_net_positive": 4,
+  "top3_net_share": 1.0,
+  "largest": [
+   {
+    "tx": "0x4488ccc80aae061b4c9411cb2502f16477209875456faa8e469f8c64571876dc",
+    "gross_usd": 0.13,
+    "priority_usd": 0.0034
+   },
+   {
+    "tx": "0x06c7c0ad0e53e3139e2c93eb5b10a5e1e0ce1806ae07afca90ac95e964f4ae49",
+    "gross_usd": 0.03,
+    "priority_usd": 0.0045
+   },
+   {
+    "tx": "0x04dd6365865312b0e1fc3f1ef60ad426e2d018d0cbc56c6648ef75f1460b59d9",
+    "gross_usd": 0.02,
+    "priority_usd": 0.0042
+   },
+   {
+    "tx": "0xabbbac40cd6c3855f3242127065d240b1e57461a19b999553ac6649d855e14a3",
+    "gross_usd": 0.02,
+    "priority_usd": 0.0044
+   },
+   {
+    "tx": "0xa9ccd700aa9767c33bc2d817dee8f6a9e89bd91887c5a8f9356e97e8ff096d3c",
+    "gross_usd": 0.02,
+    "priority_usd": 0.0044
+   }
+  ],
+  "by_size": {
+   "<$1": {
+    "arbs": 21,
+    "gross_usd": 0.38,
+    "priority_share": 0.163
+   }
+  }
+ },
+ "zksync": {
+  "hours": 1.0,
+  "beneficiaries": 2,
+  "top3_beneficiary_gross_share": 1.0,
+  "backrun_share_of_gross": 0.0,
+  "v4_share_of_gross": 0.0,
+  "v4_unresolved_txs_skipped": 0,
+  "blocks": 583,
+  "arbs_valued": 10,
+  "excluded": {
+   "no_profit_token_inflow_invisible_leg": 10
+  },
+  "gross_usd": 0.79,
+  "gross_usd_per_hour": 0.79,
+  "fees_on_arbs_usd": 0.36,
+  "priority_on_arbs_usd": 0.0,
+  "operators": 2,
+  "operator_spend_all_txs_usd": 0.69,
+  "operator_net_usd_per_hour": 0.09,
+  "operators_net_positive": 1,
+  "top3_net_share": 0.438,
+  "largest": [
+   {
+    "tx": "0x70f30aa76550f90ea5354c4a5e18b7dbb3f1c9dcfabd5c44ac699bc283c30b8f",
+    "gross_usd": 0.37,
+    "priority_usd": 0.0
+   },
+   {
+    "tx": "0xc369527eeaae0b25a4c849a077228b3f74163440b6ecef882ec852d84191badb",
+    "gross_usd": 0.07,
+    "priority_usd": 0.0
+   },
+   {
+    "tx": "0xd7630e8792eea497094c0a732343553b68f66acf41632bd965ff08c45646d8c2",
+    "gross_usd": 0.06,
+    "priority_usd": 0.0
+   },
+   {
+    "tx": "0xfce2cd2a8d468a9cb4d3437a81af5aebd53330effbaff93ba43557e2bd64bffa",
+    "gross_usd": 0.06,
+    "priority_usd": 0.0
+   },
+   {
+    "tx": "0x39c1ca6c940aa976bb7ebb3d2fd467c9d2ba1041d86691d82019be584eef1d80",
+    "gross_usd": 0.05,
+    "priority_usd": 0.0
+   }
+  ],
+  "by_size": {
+   "<$1": {
+    "arbs": 10,
+    "gross_usd": 0.79,
+    "priority_share": 0.0
+   }
+  }
+ },
+ "soneium": {
+  "hours": 0.999,
+  "beneficiaries": 11,
+  "top3_beneficiary_gross_share": 0.969,
+  "backrun_share_of_gross": 0.153,
+  "v4_share_of_gross": 0.001,
+  "v4_unresolved_txs_skipped": 0,
+  "blocks": 1800,
+  "arbs_valued": 92,
+  "excluded": {
+   "no_profit_token_inflow_invisible_leg": 76,
+   "pools_gained_other_token_over_5pct": 7
+  },
+  "gross_usd": 0.38,
+  "gross_usd_per_hour": 0.38,
+  "fees_on_arbs_usd": 0.34,
+  "priority_on_arbs_usd": 0.34,
+  "operators": 33,
+  "operator_spend_all_txs_usd": 0.6,
+  "operator_net_usd_per_hour": -0.22,
+  "operators_net_positive": 11,
+  "top3_net_share": 0.889,
+  "largest": [
+   {
+    "tx": "0x97c1e5ff184ebbac627a48e021c0febb03a3800202dcb1ffaf31d69a7cc2da9a",
+    "gross_usd": 0.31,
+    "priority_usd": 0.2939
+   },
+   {
+    "tx": "0xef0fc4f84a41b4dd36ab7836c4250878bc091f9d30e67b5e68341b829ee18097",
+    "gross_usd": 0.02,
+    "priority_usd": 0.0123
+   },
+   {
+    "tx": "0xe28a6c70a6414fd3d66ac007e839b7db480915d669ac958f01fb896733b1388a",
+    "gross_usd": 0.02,
+    "priority_usd": 0.0034
+   },
+   {
+    "tx": "0xfc8ebb41192c031f36230b1cc8db590bede1516a89f73e6c58592d9511688719",
+    "gross_usd": 0.01,
+    "priority_usd": 0.004
+   },
+   {
+    "tx": "0x1dd70956848a21d6c9c8ab7da6855fad071435b0f84bde2cb97656e09f26af86",
+    "gross_usd": 0.0,
+    "priority_usd": 0.0014
+   }
+  ],
+  "by_size": {
+   "<$1": {
+    "arbs": 92,
+    "gross_usd": 0.38,
+    "priority_share": 0.885
+   }
+  }
+ },
+ "bsc": {
+  "hours": 1.0,
+  "beneficiaries": 59,
+  "top3_beneficiary_gross_share": 0.682,
+  "backrun_share_of_gross": 0.696,
+  "v4_share_of_gross": 0.18,
+  "v4_unresolved_txs_skipped": 6,
+  "blocks": 8000,
+  "arbs_valued": 1185,
+  "excluded": {
+   "no_profit_token_inflow_invisible_leg": 20677,
+   "pools_gained_other_token_over_5pct": 125,
+   "profit_token_unvalued": 62,
+   "payout_consumes_profit": 78,
+   "pool_gain_token_unvalued": 14
+  },
+  "gross_usd": 148.26,
+  "gross_usd_per_hour": 148.26,
+  "fees_on_arbs_usd": 6.78,
+  "priority_on_arbs_usd": 6.78,
+  "operators": 364,
+  "operator_spend_all_txs_usd": 20.27,
+  "operator_net_usd_per_hour": 127.98,
+  "operators_net_positive": 267,
+  "top3_net_share": 0.56,
+  "largest": [
+   {
+    "tx": "0x0dba49775f4de1071b2a767a496ff7cb5cf4c31b29ca8afb4bac7ad5177e7fce",
+    "gross_usd": 14.55,
+    "priority_usd": 0.0
+   },
+   {
+    "tx": "0xf1d9c227e7e3788688dc57a608da91d1217efebd62c9e4278ed7e7d9fda09be2",
+    "gross_usd": 11.29,
+    "priority_usd": 0.0
+   },
+   {
+    "tx": "0xa6304a0bee5bc94538446843d30b4bcb02a43be08945db2bee01af8768405da4",
+    "gross_usd": 8.51,
+    "priority_usd": 0.0234
+   },
+   {
+    "tx": "0x23691e139bc7a733b941eebbc6f4cd0edb75407f1d67adb7967129f3863f806d",
+    "gross_usd": 7.98,
+    "priority_usd": 0.0202
+   },
+   {
+    "tx": "0xbb5943eb6782cf599b7de0d1972a242f9c1dd1c84cdb88ba350a9e46d30a0dcb",
+    "gross_usd": 5.65,
+    "priority_usd": 0.0
+   }
+  ],
+  "by_size": {
+   "$1-10": {
+    "arbs": 24,
+    "gross_usd": 74.01,
+    "priority_share": 0.003
+   },
+   "$10-100": {
+    "arbs": 2,
+    "gross_usd": 25.84,
+    "priority_share": 0.0
+   },
+   "<$1": {
+    "arbs": 1159,
+    "gross_usd": 48.41,
+    "priority_share": 0.136
+   }
+  }
+ }
+}

@@ -1,0 +1,133 @@
+{
+ "blocks": 8000,
+ "builder_block_share": {
+  "48club": 0.5196,
+  "blockrazor": 0.4335,
+  "nodereal": 0.0175,
+  "unknown": 0.0175,
+  "jetbldr": 0.0065,
+  "blockroute": 0.005,
+  "none (no builder)": 0.0004
+ },
+ "arbs": 1185,
+ "gross_usd": 148.26,
+ "gross_share_by_builder": {
+  "48club": 0.588,
+  "blockrazor": 0.277,
+  "blockroute": 0.111,
+  "unknown": 0.021,
+  "nodereal": 0.001,
+  "jetbldr": 0.001
+ },
+ "position": {
+  "index 0-2": {
+   "arbs": 141,
+   "gross_share": 0.503
+  },
+  "index 10+": {
+   "arbs": 678,
+   "gross_share": 0.35
+  },
+  "index 3-9": {
+   "arbs": 366,
+   "gross_share": 0.147
+  }
+ },
+ "zero_gas_price": {
+  "arbs": 648,
+  "gross_share": 0.571
+ },
+ "top_beneficiaries": [
+  {
+   "beneficiary": "0x9999b0cdd35d7f3b281ba02efc0d228486940515",
+   "gross_usd": 57.83,
+   "share_of_all": 0.39,
+   "by_builder": {
+    "48club": 0.949,
+    "unknown": 0.051
+   }
+  },
+  {
+   "beneficiary": "0xb585639ff3d61de1187d960cc18924d033f2768f",
+   "gross_usd": 26.02,
+   "share_of_all": 0.176,
+   "by_builder": {
+    "blockrazor": 1.0
+   }
+  },
+  {
+   "beneficiary": "0x0543a9a19646cd9f0b8c011728c0f9622e4b403e",
+   "gross_usd": 17.19,
+   "share_of_all": 0.116,
+   "by_builder": {
+    "blockroute": 0.96,
+    "48club": 0.038,
+    "blockrazor": 0.002
+   }
+  },
+  {
+   "beneficiary": "0xbb812100e952126a2f7989ca1ca8da8c905e41ee",
+   "gross_usd": 5.58,
+   "share_of_all": 0.038,
+   "by_builder": {
+    "48club": 1.0
+   }
+  },
+  {
+   "beneficiary": "0x0000000000645c269656ef907ab3d69fed12aa30",
+   "gross_usd": 4.84,
+   "share_of_all": 0.033,
+   "by_builder": {
+    "48club": 1.0
+   }
+  },
+  {
+   "beneficiary": "0xaac6434b3b43f844ed2fe9dbf5d16ddd20a3d1a3",
+   "gross_usd": 4.45,
+   "share_of_all": 0.03,
+   "by_builder": {
+    "48club": 1.0
+   }
+  },
+  {
+   "beneficiary": "0x0a3df0f7df957952aba71ea2e1319ae75f9b7c54",
+   "gross_usd": 4.31,
+   "share_of_all": 0.029,
+   "by_builder": {
+    "48club": 0.591,
+    "blockrazor": 0.384,
+    "unknown": 0.018,
+    "nodereal": 0.007
+   }
+  },
+  {
+   "beneficiary": "0x9b991a666aa9b11c7ecb58682e349e6820fdcf77",
+   "gross_usd": 4.21,
+   "share_of_all": 0.028,
+   "by_builder": {
+    "blockrazor": 0.961,
+    "48club": 0.039
+   }
+  },
+  {
+   "beneficiary": "0xcfc344af0fecbbc7e14d05510992931a5e702213",
+   "gross_usd": 3.44,
+   "share_of_all": 0.023,
+   "by_builder": {
+    "48club": 0.676,
+    "blockrazor": 0.302,
+    "jetbldr": 0.011,
+    "nodereal": 0.009
+   }
+  },
+  {
+   "beneficiary": "0x7b7a3ab466c81b49d1391675f04ccd538b96758a",
+   "gross_usd": 3.07,
+   "share_of_all": 0.021,
+   "by_builder": {
+    "blockrazor": 0.923,
+    "48club": 0.077
+   }
+  }
+ ]
+}
