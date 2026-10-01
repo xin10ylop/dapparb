@@ -392,13 +392,19 @@ async function main() {
       log.info("subscribed to newHeads via websocket");
     } else {
       let last = 0n;
+      const everyMs = Math.max(150, cfg.blockTimeMs / 4);
       setInterval(async () => {
-        const bn = await client.getBlockNumber();
-        if (bn !== last) {
-          last = bn;
-          void tick({ block: bn, index: 0 });
+        try {
+          const bn = await client.getBlockNumber();
+          if (bn !== last) {
+            last = bn;
+            void tick({ block: bn, index: 0 });
+          }
+        } catch (e) {
+          log.warn({ err: String(e).slice(0, 200) }, "block-number poll failed");
         }
-      }, Math.max(150, cfg.blockTimeMs / 4));
+      }, everyMs);
+      log.info({ everyMs }, "polling eth_blockNumber over HTTP (no websocket)");
     }
   }
 

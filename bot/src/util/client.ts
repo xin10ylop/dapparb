@@ -17,6 +17,8 @@ export function makeHttpClient(cfg: ChainConfig): PublicClient<Transport, Chain>
 }
 
 export function makeWsClient(cfg: ChainConfig): PublicClient<Transport, Chain> | null {
+  // NO_WS=1: no websocket; callers fall back to polling eth_blockNumber over HTTP (for networks that cannot upgrade to ws).
+  if (process.env.NO_WS === "1") return null;
   const url = cfg.wsUrls?.[0];
   if (!url) return null;
   return createPublicClient({ chain: viemChain(cfg), transport: webSocket(url, { reconnect: true, timeout: 20_000 }) });
