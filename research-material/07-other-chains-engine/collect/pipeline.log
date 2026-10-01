@@ -28,3 +28,11 @@
 [run_scan 2026-09-30T22:49:27Z] scan-base-config done (exit=143 capped=1)
 [run_scan 2026-09-30T22:49:27Z] scan-base-top attempt 1 started pid=1938 flags: --chain base --universe top --blocks 901 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-base-top.jsonl cap=31min
 [run_scan 2026-09-30T22:49:48Z] scan-arbitrum-top first block scanned
+[restart 2026-10-01T01:04:58Z] relaunch after container restart (all processes died ~22:58Z)
+[run_all 2026-10-01T01:04:58Z] pipeline start
+[run_scan 2026-10-01T01:04:58Z] scan-base-config already done; skipping
+[run_scan 2026-10-01T01:04:58Z] scan-mainnet-config already done; skipping
+[run_scan 2026-10-01T01:04:58Z] scan-arbitrum-config already done; skipping
+[run_scan 2026-10-01T01:04:58Z] scan-mainnet-top attempt 1 started pid=1070 flags: --chain mainnet --universe top --blocks 151 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-mainnet-top.jsonl cap=31min
+[run_scan 2026-10-01T01:04:58Z] scan-base-top attempt 1 started pid=1067 flags: --chain base --universe top --blocks 901 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-base-top.jsonl cap=31min
+[run_scan 2026-10-01T01:04:58Z] scan-arbitrum-top attempt 1 started pid=1079 flags: --chain arbitrum --universe top --blocks 7201 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-arbitrum-top.jsonl cap=31min

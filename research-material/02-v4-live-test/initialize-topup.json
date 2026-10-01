@@ -1,15 +1,15 @@
 {
  "dataset": "Uniswap V4 PoolManager Initialize events, Base (chain 8453), top-up after the V4INIT pin",
  "file": "initialize-topup.csv.gz",
- "rows": 263,
+ "rows": 678,
  "block_from": 52006303,
- "block_to": 52008576,
+ "block_to": 52013625,
  "pin": {
   "from_block": 52006303,
-  "to_block": 52008576,
+  "to_block": 52013625,
   "to_block_source": "eth_blockNumber(publicnode) - 10",
-  "head_at_pin": 52008586,
-  "pinned_at_utc": "2026-09-30T22:15:19Z",
+  "head_at_pin": 52013635,
+  "pinned_at_utc": "2026-10-01T01:03:38Z",
   "v4init_block_to": 52006302,
   "chunk_size": 1000,
   "topic0": "0xdd466e674ea557f56295e2d0218a125ea4b4f0f6f3307b95f85e6110838d6438",
@@ -44,16 +44,22 @@
   "hf_after_add_liquidity_returns_delta",
   "hf_after_remove_liquidity_returns_delta"
  ],
- "chunks": 3,
+ "chunks": 8,
  "gaps": 0,
  "endpoint_per_chunk": {
   "52006303_52007302": "publicnode",
   "52007303_52008302": "publicnode",
-  "52008303_52008576": "publicnode"
+  "52008303_52008576": "publicnode",
+  "52008303_52009302": "publicnode",
+  "52009303_52010302": "publicnode",
+  "52010303_52011302": "publicnode",
+  "52011303_52012302": "publicnode",
+  "52012303_52013302": "publicnode",
+  "52013303_52013625": "publicnode"
  },
- "sha256": "dc55fe606dd97c0b3a63822f6ea961ab83e53d796d1fe2e058da1240d019796e",
- "bytes": 34257,
+ "sha256": "172f97ee781f1603ab1b2837d155aa84dd5ffa4a7d473958b466b29f73fdcff6",
+ "bytes": 87536,
  "decoder": "/home/user/dapparb/research-material/01-v4-pools/collect/common.py",
  "decoder_sha256": "d7f5ce6cb625422088bc550155e44a90f6a5e2159aac92c31b170759ffe9241c",
- "written_utc": "2026-09-30T22:15:20Z"
+ "written_utc": "2026-10-01T01:03:40Z"
 }

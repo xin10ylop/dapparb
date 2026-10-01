@@ -1,0 +1,4 @@
+launch 2026-09-30T22:23:56.186Z spec=/home/user/dapparb/research-material/01-v4-pools/initialize-part-*.csv.gz,/home/user/dapparb/research-material/02-v4-live-test/initialize-topup.csv.gz
+pid 28764 pgid 28764
+ready_detected 2026-09-30T22:54:07.664Z
+stopped 2026-09-30T22:54:08.671Z rc=0

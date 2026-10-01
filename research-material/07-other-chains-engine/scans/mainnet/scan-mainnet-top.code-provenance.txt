@@ -1,13 +1,7 @@
-captured_utc: 2026-09-30T22:45:10Z
-git_head: aedfc4e3ac60fff992a967b02b86588e0db65712
+captured_utc: 2026-10-01T01:04:58Z
+git_head: 5c1baf2b6a5537163957e65967ab1c77929736c7
 git_status_bot_src (uncommitted changes present in the working tree when the run started):
- M bot/src/main.ts
- M bot/src/pools/v4.ts
-?? bot/src/pools/v4file.ts
 git_diff_stat_bot_src:
- bot/src/main.ts     | 21 +++++++++++++++++++--
- bot/src/pools/v4.ts | 33 +++++++++++++++++++--------------
- 2 files changed, 38 insertions(+), 16 deletions(-)
 sha256 of bot/src/**/*.ts:
 bd1e6f833e006afc1da52bdf0760b39bd3cf63e1154accb11424f4ff6a115a87  bot/src/abi.ts
 ff61fa479fed7243eb15f2f07a1a2bf6cb6f2b6dc06d8e358446239a6733a0eb  bot/src/arb/depth.ts
