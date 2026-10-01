@@ -108,23 +108,28 @@ export async function discoverV4Pools(client: PublicClient, cfg: ChainConfig, to
     const t0 = c0 === zeroAddress ? weth : universe.get(c0.toLowerCase());
     const t1 = c1 === zeroAddress ? weth : universe.get(c1.toLowerCase());
     if (!t0 || !t1) return void stats.outOfUniverse++;
-    const poolId = gt[i]!.address as Hex;
-    pools.push({
-      address: poolId.slice(0, 42) as Address, // synthetic unique address (first 20 bytes of the id) for graph keys
-      dex: "UniswapV4",
-      kind: "univ3",
-      token0: t0.address,
-      token1: t1.address,
-      dec0: t0.decimals,
-      dec1: t1.decimals,
-      block: 0n,
-      tier: fee,
-      state: { sqrtPriceX96: 0n, tick: 0, liquidity: 0n, fee, tickSpacing, bitmap: new Map(), ticks: new Map(), wordRange: { min: 0, max: -1 } },
-      v4: { poolId, key, manager: a.poolManager, stateView: a.stateView },
-    });
+    pools.push(makeV4Pool(a, gt[i]!.address as Hex, key, t0, t1));
   });
   log.info({ listed: gt.length, kept: pools.length, ...stats }, "uniswap v4 pools discovered");
   return pools;
+}
+
+/** Engine pool object for a resolved V4 key (shared by the GeckoTerminal discovery and the --v4-pools file loader). */
+export function makeV4Pool(a: V4Addresses, poolId: Hex, key: PoolKey, t0: TokenConfig, t1: TokenConfig): V4Pool {
+  const { fee, tickSpacing } = key;
+  return {
+    address: poolId.slice(0, 42) as Address, // synthetic unique address (first 20 bytes of the id) for graph keys
+    dex: "UniswapV4",
+    kind: "univ3",
+    token0: t0.address,
+    token1: t1.address,
+    dec0: t0.decimals,
+    dec1: t1.decimals,
+    block: 0n,
+    tier: fee,
+    state: { sqrtPriceX96: 0n, tick: 0, liquidity: 0n, fee, tickSpacing, bitmap: new Map(), ticks: new Map(), wordRange: { min: 0, max: -1 } },
+    v4: { poolId, key, manager: a.poolManager, stateView: a.stateView },
+  };
 }
 
 export const isV4 = (p: unknown): p is V4Pool => typeof p === "object" && p !== null && (p as { v4?: unknown }).v4 !== undefined;

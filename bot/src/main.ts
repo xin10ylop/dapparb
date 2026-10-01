@@ -9,6 +9,8 @@
  *   --universe config|top         token universe: hand-picked config list or GeckoTerminal top-volume tokens
  *   --min-profit-usd 0.05         minimum simulated net profit to act on
  *   --top 3                       max candidates simulated per tick
+ *   --v4-pools <file|glob>[,...]  opt-in: Uniswap V4 pools from PoolManager Initialize CSV(.gz) data instead of
+ *                                 GeckoTerminal listings (see src/pools/v4file.ts)
  */
 import "dotenv/config";
 import fs from "node:fs";
@@ -27,7 +29,8 @@ import { FlashblocksClient } from "./exec/flashblocks.js";
 import { buildTokenUniverse } from "./research/tokens.js";
 import { isV2, type Pool } from "./pools/types.js";
 import { OP_GAS_ORACLE_ABI } from "./abi.js";
-import { discoverV4Pools } from "./pools/v4.js";
+import { discoverV4Pools, isV4 } from "./pools/v4.js";
+import { loadV4PoolsFromFile, type V4FileStats } from "./pools/v4file.js";
 import { enumerateUniverse } from "./pools/enumerate.js";
 import { applyLogs, fetchBlockLogsViaReceipts, PoolIndex } from "./pools/events.js";
 import { fetchTickData } from "./pools/state.js";
@@ -52,6 +55,7 @@ const minProfitUsd = Number(arg("min-profit-usd", "0.05"));
 const topK = Number(arg("top", "3"));
 const minDepthEth = Number(arg("min-depth-eth", "0.2"));
 const triangles = arg("triangles", "1") !== "0";
+const v4PoolsSpec = arg("v4-pools");
 const contract = (process.env.ARB_CONTRACT ?? arg("contract") ?? (mode === "dry" ? getAddress("0x00000000000000000000000000000000000a4bb0") : undefined)) as Address | undefined;
 /** Dry-run with no deployment: inject the compiled runtime at a placeholder address via state override. */
 const codeOverride: Hex | undefined =
@@ -109,12 +113,25 @@ async function main() {
     symbolOf.set(t.address.toLowerCase(), t.symbol);
     decimalsOf.set(t.address.toLowerCase(), t.decimals);
   }
-  if (arg("v4", "1") !== "0") pools.push(...(await discoverV4Pools(client, cfg, tokens, universe === "top" ? 3 : 2)));
+  let v4File: V4FileStats | null = null;
+  if (v4PoolsSpec) {
+    const r = await loadV4PoolsFromFile(client, cfg, v4PoolsSpec, tokens);
+    tokens = [...tokens, ...r.tokensAdded];
+    for (const t of r.tokensAdded) {
+      symbolOf.set(t.address.toLowerCase(), t.symbol);
+      decimalsOf.set(t.address.toLowerCase(), t.decimals);
+    }
+    pools.push(...r.pools);
+    v4File = r.stats;
+  } else if (arg("v4", "1") !== "0") pools.push(...(await discoverV4Pools(client, cfg, tokens, universe === "top" ? 3 : 2)));
   await loadStaticMetadata(client, cfg, pools);
   await syncPools(client, cfg, pools, { force: true });
+  const startupSync = { startupSyncPools: syncStats.total, startupSyncStalePools: syncStats.stale, startupSyncChunkFailures: syncStats.chunkFailures };
   pools = pruneEmpty(pools);
+  const v4AfterPrune = pools.filter(isV4).length;
   let prices = buildEthPrices(cfg, pools);
   pools = filterByDepth(pools, prices, minDepthEth);
+  if (v4File) log.info({ spec: v4PoolsSpec, ...v4File, ...startupSync, v4AfterPruneEmpty: v4AfterPrune, v4AfterDepthFilter: pools.filter(isV4).length, minDepthEth }, "v4 pools loaded from file");
   const poolIndex = new PoolIndex(pools);
   const cycleIndex = new CycleIndex(pools);
   log.info({ tokens: tokens.length, pools: pools.length, cycles: cycleIndex.candidates.length, minDepthEth, source, mode, contract: contract ?? "(none)", codeOverride: !!codeOverride }, "searcher ready");
