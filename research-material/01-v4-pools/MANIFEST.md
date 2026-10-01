@@ -2,6 +2,8 @@
 
 STATUS: V4INIT, V4RECENT and V4STATE are COMPLETE (sentinels DONE). HOOKLABELS (item 4 refresh: Blockscout metadata for all hooks
 with >= 20 pools, launch-tx samples, rebuild of hooks.csv) is IN PROGRESS. See "Collector status" at the bottom.
+UPDATE 2026-10-01 02:09Z: HOOKLABELS is COMPLETE (sentinel HOOKLABELS.DONE). The first run was OOM-killed at 22:07Z; it was re-run
+after a memory fix. See section "HOOKLABELS re-run 2026-10-01 (memory fix of launch_tx_samples.py)" at the end of this file.
 
 This directory contains collected data only. It holds no analysis, rankings or conclusions. Columns marked "derived" are
 deterministic, lossless decodings of the raw values.
@@ -207,6 +209,10 @@ doppler-hooks); Bunni v2 README; KyberSwap dex-lib Flaunch and Clanker hook cons
 | `hook-docs/zora-hook-registry-events.csv` | 16 (21 raw logs) | | |
 | `hook-docs/blockscout/index.jsonl.gz` | 79 addresses at 21:5xZ; HOOKLABELS adds 134 (hooks with >= 20 pools in the final data not yet queried) | | |
 
+Update 2026-10-01: the hooks.csv / hook-labels-long.csv / blockscout counts above are from before the HOOKLABELS re-run. Final counts
+(hooks.csv 1,198; hook-labels-long.csv 1,388; index.jsonl.gz 213; launch-tx-samples 639 tx rows and 18,869 log rows) are in the
+section "HOOKLABELS re-run 2026-10-01 (memory fix of launch_tx_samples.py)" at the end of this file.
+
 Consistency check: blocks 51,704,033-52,006,302 are fetched independently by V4INIT (mainnet.base.org / Tenderly / developer-access,
 2,000-block chunks) and by V4RECENT (publicnode / developer-access / Tenderly, 2,000-block chunks aligned differently). Both give
 29,893 Initialize rows, and the two row sets are identical.
@@ -296,6 +302,10 @@ Endpoints used:
 | V4RECENT | `.sentinels/V4RECENT.DONE` | `collect/v4recent.log` (and `collect/v4recent.run1.log`) | DONE 21:12:21Z |
 | V4STATE | `.sentinels/V4STATE.DONE` | `collect/v4recent.log` | DONE 21:46:25Z |
 | HOOKLABELS (item 4 refresh) | `.sentinels/HOOKLABELS.DONE` / `.FAILED` | `collect/hooks_pipeline.log`, `collect/hook_blockscout.log`, `collect/launch_tx_samples.log`, `collect/build_hooks_csv.log` | RUNNING (detached `collect/hooks_pipeline.sh`). When it finishes, `hooks.csv`, `hook-labels-long.csv`, `hook-docs/blockscout/*` and `hook-docs/launch-tx-samples-*.csv.gz` are final; the counts in the table above for those files are then outdated. The next agent re-counts them. |
+
+Update 2026-10-01: the RUNNING status above is outdated. `launch_tx_samples.py` was OOM-killed at 22:07Z and
+`.sentinels/HOOKLABELS.FAILED` was written. It was fixed and re-run on 2026-10-01 01:18-02:09Z; the sentinel is now
+`HOOKLABELS.DONE`. See section "HOOKLABELS re-run 2026-10-01 (memory fix of launch_tx_samples.py)" at the end of this file.
 
 Files in this directory NOT produced by the collectors described here: `initialize-compact/` (with its own `compact-index.json`),
 `collect/compact_initialize.py`, `collect/compact_initialize.log`, `collect/expand_initialize.py`. They appeared at about 21:46-21:57Z,

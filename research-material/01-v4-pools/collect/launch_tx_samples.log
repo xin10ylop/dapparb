@@ -21,3 +21,22 @@
 2026-10-01T02:00:44Z emitters resolved 1200 of 1374 maxrss_mb 424
 2026-10-01T02:05:37Z emitters resolved 1300 of 1374 maxrss_mb 424
 2026-10-01T02:07:01Z done; resolved topic names 6124 maxrss_mb 424
+==== 2026-10-01T02:08:53Z re-run from checkpoints (selection + tx cache) to refetch 8 Blockscout responses with http_status -1; outputs rewritten ====
+2026-10-01T02:08:53Z selection loaded from checkpoint state/launch-tx-samples-selection.json
+2026-10-01T02:08:53Z hooks 213 samples 639 maxrss_mb 29
+2026-10-01T02:08:53Z tx cache entries 626
+2026-10-01T02:08:53Z txs 639 logs 18869 distinct emitters 1374 fetched_now 0 maxrss_mb 58
+2026-10-01T02:08:53Z emitters resolved 100 of 1374 maxrss_mb 62
+2026-10-01T02:08:53Z emitters resolved 200 of 1374 maxrss_mb 62
+2026-10-01T02:08:54Z emitters resolved 300 of 1374 maxrss_mb 64
+2026-10-01T02:08:55Z emitters resolved 400 of 1374 maxrss_mb 65
+2026-10-01T02:08:56Z emitters resolved 500 of 1374 maxrss_mb 65
+2026-10-01T02:08:57Z emitters resolved 600 of 1374 maxrss_mb 65
+2026-10-01T02:08:57Z emitters resolved 700 of 1374 maxrss_mb 66
+2026-10-01T02:08:57Z emitters resolved 800 of 1374 maxrss_mb 66
+2026-10-01T02:08:58Z emitters resolved 900 of 1374 maxrss_mb 66
+2026-10-01T02:08:58Z emitters resolved 1000 of 1374 maxrss_mb 66
+2026-10-01T02:08:58Z emitters resolved 1100 of 1374 maxrss_mb 66
+2026-10-01T02:08:59Z emitters resolved 1200 of 1374 maxrss_mb 66
+2026-10-01T02:08:59Z emitters resolved 1300 of 1374 maxrss_mb 66
+2026-10-01T02:09:00Z done; resolved topic names 6143 maxrss_mb 66
