@@ -54,7 +54,7 @@ export async function loadStaticMetadata(client: PublicClient, cfg: ChainConfig,
 /** Result of the last syncPools call: how many pools could not be refreshed (their state is stale). */
 export const syncStats = { stale: 0, total: 0, chunkFailures: 0 };
 
-export async function syncPools(client: PublicClient, cfg: ChainConfig, pools: Pool[], opts: { force?: boolean; blockNumber?: bigint; pending?: boolean } = {}): Promise<bigint> {
+export async function syncPools(client: PublicClient, cfg: ChainConfig, pools: Pool[], opts: { force?: boolean; blockNumber?: bigint; pending?: boolean; skipTicks?: boolean } = {}): Promise<bigint> {
   // pending=true reads the node's pending state (flashblocks on Base preconf RPC) and is not pinned to a block.
   const blockNumber = opts.pending ? 0n : (opts.blockNumber ?? (await client.getBlockNumber()));
   const tag = opts.pending ? { blockTag: "pending" as const } : { blockNumber };
@@ -126,7 +126,9 @@ export async function syncPools(client: PublicClient, cfg: ChainConfig, pools: P
   syncStats.stale = dead.size;
   syncStats.total = pools.length;
 
-  // Tick data for V3 pools whose word window no longer covers the current tick (or on force).
+  // Tick data for V3 pools whose word window no longer covers the current tick (or on force). `skipTicks` leaves it
+  // for later (startup: price and depth-filter a large candidate set first, then fetch ticks for the survivors only).
+  if (opts.skipTicks) return blockNumber;
   const needTicks = pools.filter((p): p is V3Pool => {
     if (!isV3(p) || dead.has(p.address) || p.state.sqrtPriceX96 === 0n) return false;
     if (opts.force) return true;
@@ -136,6 +138,23 @@ export async function syncPools(client: PublicClient, cfg: ChainConfig, pools: P
   });
   if (needTicks.length > 0) await fetchTickData(client, cfg, needTicks, opts.pending ? undefined : blockNumber);
   return blockNumber;
+}
+
+/**
+ * Exact Slipstream fees at a block. Slipstream fees come from a dynamic module and are not in the Swap event, so in
+ * event mode (where full syncs are minutes apart) the fee must be read for the pools a tick is about to price.
+ * Unlike syncPools' window max, this sets the fee a swap at `blockNumber` would pay.
+ */
+export async function refreshAeroClFees(client: PublicClient, cfg: ChainConfig, pools: V3Pool[], blockNumber: bigint): Promise<void> {
+  const cl = pools.filter((p) => p.kind === "aero-cl");
+  if (cl.length === 0) return;
+  const res = await multicallChunked(client, cfg.multicall3, cl.map((p) => ({ address: p.address, abi: V3_POOL_ABI, functionName: "fee" })), { blockNumber });
+  res.forEach((r, i) => {
+    if (r.status !== "success") return;
+    const st = cl[i]!.state;
+    st.fee = Number(r.result);
+    st.feeHistory = [st.fee];
+  });
 }
 
 export async function fetchTickData(client: PublicClient, cfg: ChainConfig, pools: V3Pool[], blockNumber?: bigint): Promise<void> {

@@ -188,16 +188,18 @@ export class Executor {
     return this.simulateWith(this.opts.client, opp, minProfit, blockTag);
   }
 
-  async simulateWith(client: PublicClient, opp: Opportunity, minProfit: bigint, blockTag: "latest" | "pending" = "latest"): Promise<SimResult> {
+  /** `at` is a block tag, or a block number to simulate on exactly the state the search used. */
+  async simulateWith(client: PublicClient, opp: Opportunity, minProfit: bigint, at: "latest" | "pending" | bigint = "latest"): Promise<SimResult> {
     const t0 = Date.now();
     const from = await this.fromAddress();
     const data = this.calldata(opp, minProfit, 0n);
     const stateOverride = this.opts.codeOverride ? [{ address: this.opts.contract, code: this.opts.codeOverride }] : undefined;
+    const tag = typeof at === "bigint" ? { blockNumber: at } : { blockTag: at };
     try {
-      const call = await client.call({ account: from, to: this.opts.contract, data, blockTag, stateOverride });
+      const call = await client.call({ account: from, to: this.opts.contract, data, ...tag, stateOverride });
       const profit = call.data ? BigInt(call.data) : 0n;
       // Gas estimate is best-effort (some RPCs reject estimateGas with overrides); fall back to the local estimate.
-      const gas = await client.estimateGas({ account: from, to: this.opts.contract, data, blockTag, stateOverride }).catch(() => 0n);
+      const gas = await client.estimateGas({ account: from, to: this.opts.contract, data, ...tag, stateOverride }).catch(() => 0n);
       return { ok: true, profit, gasUsed: gas, latencyMs: Date.now() - t0 };
     } catch (e) {
       const msg = decodeRevert(e);

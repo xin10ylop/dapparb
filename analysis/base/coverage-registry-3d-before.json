@@ -1,0 +1,56 @@
+{
+ "min_depth_eth": null,
+ "universe_sizes": {
+  "old": 11799,
+  "new": 20560,
+  "new_minus_old": 17118
+ },
+ "oos_before_block": [
+  51995609,
+  1000000000000
+ ],
+ "all / full window": {
+  "arbs": 29093,
+  "gross_usd": 7747.14,
+  "old_covered_share": 0.366,
+  "new_covered_share": 0.592,
+  "new_uncovered_by_reason": {
+   "V4 pool missing": 0.278,
+   "4+ legs": 0.095,
+   "V2/V3 pool missing": 0.036
+  }
+ },
+ "all / out of sample": {
+  "arbs": 29093,
+  "gross_usd": 7747.14,
+  "old_covered_share": 0.366,
+  "new_covered_share": 0.592,
+  "new_uncovered_by_reason": {
+   "V4 pool missing": 0.278,
+   "4+ legs": 0.095,
+   "V2/V3 pool missing": 0.036
+  }
+ },
+ "non_backrun / full window": {
+  "arbs": 6811,
+  "gross_usd": 1030.35,
+  "old_covered_share": 0.483,
+  "new_covered_share": 0.617,
+  "new_uncovered_by_reason": {
+   "V2/V3 pool missing": 0.121,
+   "4+ legs": 0.073,
+   "V4 pool missing": 0.189
+  }
+ },
+ "non_backrun / out of sample": {
+  "arbs": 6811,
+  "gross_usd": 1030.35,
+  "old_covered_share": 0.483,
+  "new_covered_share": 0.617,
+  "new_uncovered_by_reason": {
+   "V2/V3 pool missing": 0.121,
+   "4+ legs": 0.073,
+   "V4 pool missing": 0.189
+  }
+ }
+}

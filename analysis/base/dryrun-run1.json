@@ -1,0 +1,79 @@
+{
+ "file": "../../bot/data/live-activeonly3.jsonl",
+ "hours": 0.249,
+ "simulations": 202,
+ "pinned": {
+  "TransferFailed": 116,
+  "CannotRepay": 62,
+  "OK": 19
+ },
+ "latest": {
+  "CannotRepay": 65,
+  "TransferFailed": 119,
+  "OK": 18
+ },
+ "ok_at_block": {
+  "n": 19,
+  "gross_usd": 1.1648,
+  "gross_usd_per_hour": 4.6831,
+  "split": {
+   "2 legs": 0.6067,
+   "uses a pool outside the old universe": 0.6495,
+   "old-universe pools only": 0.5153,
+   "3 legs": 0.5581
+  }
+ },
+ "ok_at_latest": {
+  "n": 18,
+  "gross_usd": 1.1494,
+  "net_after_gas_usd": 1.0511,
+  "net_usd_per_hour": 4.226,
+  "split": {
+   "2 legs": 0.5913,
+   "uses a pool outside the old universe": 0.6341,
+   "old-universe pools only": 0.5153,
+   "3 legs": 0.5581
+  }
+ },
+ "distinct_ok_routes": 9,
+ "ok_routes": [
+  [
+   "XDP>USDT@UniswapV4/90 USDT>XDP@UniswapV3/100",
+   3
+  ],
+  [
+   "USDC>XDP@UniswapV3/100 XDP>USDT@UniswapV3/100 USDT>USDC@UniswapV4/7",
+   3
+  ],
+  [
+   "USDC>USDT@AerodromeCL/1 USDT>XDP@UniswapV3/100 XDP>USDC@UniswapV3/100",
+   2
+  ],
+  [
+   "USDC>USDT@UniswapV4/7 USDT>XDP@UniswapV3/100 XDP>USDC@UniswapV3/100",
+   2
+  ],
+  [
+   "USDC>XDP@UniswapV3/100 XDP>USDT@UniswapV3/100 USDT>USDC@UniswapV4/8",
+   2
+  ],
+  [
+   "USDC>XDP@UniswapV3/100 XDP>USDT@UniswapV3/100 USDT>USDC@AerodromeCL/1",
+   2
+  ],
+  [
+   "USDC>USDT@UniswapV4/8 USDT>XDP@UniswapV3/100 XDP>USDC@UniswapV3/100",
+   2
+  ],
+  [
+   "XDP>USDT@UniswapV3/100 USDT>XDP@UniswapV4/90",
+   1
+  ],
+  [
+   "WETH>cbXRP@PancakeV3/500 cbXRP>WETH@AerodromeCL3/100",
+   1
+  ]
+ ],
+ "tokens_parked": 0,
+ "live_merges": 6
+}

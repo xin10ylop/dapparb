@@ -11,6 +11,11 @@
  *   --top 3                       max candidates simulated per tick
  *   --v4-pools <file|glob>[,...]  opt-in: Uniswap V4 pools from PoolManager Initialize CSV(.gz) data instead of
  *                                 GeckoTerminal listings (see src/pools/v4file.ts)
+ *   --active-lookback <blocks>    add every pool that swapped in the last <blocks> blocks (Swap-log discovery, see
+ *                                 src/pools/activity.ts); the registry persists, so restarts only scan new blocks
+ *   --registry <file>             pool registry file (default data/pool-registry-<chain>.json)
+ *   --logs-rpc <url>              endpoint for the Swap-log scan (default LOGS_RPC_URL, else the first RPC)
+ *   --dump-pools <file>           write every non-empty candidate pool with its depth (JSON lines) before the depth filter
  */
 import "dotenv/config";
 import fs from "node:fs";
@@ -23,7 +28,7 @@ import { loadStaticMetadata, pruneEmpty, syncPools, syncStats } from "./pools/st
 import { findOpportunities, type Opportunity } from "./arb/search.js";
 import { findTriangles } from "./arb/triangles.js";
 import { buildEthPrices, toEth } from "./arb/pricing.js";
-import { filterByDepth } from "./arb/depth.js";
+import { filterByDepth, poolDepthEth } from "./arb/depth.js";
 import { Executor } from "./exec/executor.js";
 import { FlashblocksClient } from "./exec/flashblocks.js";
 import { buildTokenUniverse } from "./research/tokens.js";
@@ -32,8 +37,10 @@ import { OP_GAS_ORACLE_ABI } from "./abi.js";
 import { discoverV4Pools, isV4 } from "./pools/v4.js";
 import { loadV4PoolsFromFile, type V4FileStats } from "./pools/v4file.js";
 import { enumerateUniverse } from "./pools/enumerate.js";
+import { classifyActivity, poolsFromRegistry, refreshRegistry, registryPath, saveRegistry, scanSwapActivity, verifyCloneFactories, type Registry } from "./pools/activity.js";
 import { applyLogs, fetchBlockLogsViaReceipts, PoolIndex } from "./pools/events.js";
-import { fetchTickData } from "./pools/state.js";
+import { fetchTickData, refreshAeroClFees } from "./pools/state.js";
+import { evalRoute } from "./arb/triangles.js";
 import { CycleIndex } from "./arb/incremental.js";
 import { isV3 as isV3Pool, type V3Pool } from "./pools/types.js";
 import { log } from "./util/log.js";
@@ -56,6 +63,9 @@ const topK = Number(arg("top", "3"));
 const minDepthEth = Number(arg("min-depth-eth", "0.2"));
 const triangles = arg("triangles", "1") !== "0";
 const v4PoolsSpec = arg("v4-pools");
+const activeLookback = Number(arg("active-lookback", "0"));
+const registryRefreshMs = Number(arg("registry-refresh-s", "300")) * 1000;
+const dumpPools = arg("dump-pools");
 const contract = (process.env.ARB_CONTRACT ?? arg("contract") ?? (mode === "dry" ? getAddress("0x00000000000000000000000000000000000a4bb0") : undefined)) as Address | undefined;
 /** Dry-run with no deployment: inject the compiled runtime at a placeholder address via state override. */
 const codeOverride: Hex | undefined =
@@ -89,10 +99,12 @@ interface Stats {
   profitEth: number;
   gasSpentEth: number;
   staleTicks: number;
+  simOkAtBlock: number;
+  droppedByFeeRefresh: number;
   logsApplied: number;
   touchedPools: number;
 }
-const stats: Stats = { ticks: 0, gross: 0, net: 0, simulated: 0, simOk: 0, sent: 0, landed: 0, failed: 0, profitEth: 0, gasSpentEth: 0, staleTicks: 0, logsApplied: 0, touchedPools: 0 };
+const stats: Stats = { ticks: 0, gross: 0, net: 0, simulated: 0, simOk: 0, sent: 0, landed: 0, failed: 0, profitEth: 0, gasSpentEth: 0, staleTicks: 0, simOkAtBlock: 0, droppedByFeeRefresh: 0, logsApplied: 0, touchedPools: 0 };
 
 async function main() {
   if (mode === "live" && (!contract || !privateKey)) throw new Error("live mode needs ARB_CONTRACT and PRIVATE_KEY");
@@ -106,7 +118,8 @@ async function main() {
     tokens = [...cfg.tokens, ...u.tokens.filter((t) => !cfg.tokens.some((c) => c.address.toLowerCase() === t.address.toLowerCase()))];
     pools = u.pools;
   } else {
-    tokens = universe === "top" ? await buildTokenUniverse(client, cfg, Number(arg("pages", "5")), Number(arg("max-tokens", "200"))) : cfg.tokens;
+    // a copy: tokens found later (V4 files, the activity registry) are appended to it and must not leak into cfg.tokens
+    tokens = universe === "top" ? await buildTokenUniverse(client, cfg, Number(arg("pages", "5")), Number(arg("max-tokens", "200"))) : [...cfg.tokens];
     pools = await discoverPools(client, cfg, tokens, universe === "top" ? longTailPairs(cfg, tokens) : undefined);
   }
   for (const t of tokens) {
@@ -124,16 +137,44 @@ async function main() {
     pools.push(...r.pools);
     v4File = r.stats;
   } else if (arg("v4", "1") !== "0") pools.push(...(await discoverV4Pools(client, cfg, tokens, universe === "top" ? 3 : 2)));
+  const regFile = arg("registry", registryPath(cfg))!;
+  const logsUrl = arg("logs-rpc", process.env.LOGS_RPC_URL ?? cfg.rpcUrls[0])!;
+  let registry: Registry | null = null;
+  if (activeLookback > 0) {
+    const { reg } = await refreshRegistry(client, cfg, regFile, activeLookback, logsUrl);
+    registry = reg;
+    const fromReg = poolsFromRegistry(reg, cfg);
+    const poolKey = (p: Pool) => (isV4(p) ? p.v4.poolId : p.address).toLowerCase();
+    const have = new Set(pools.map(poolKey));
+    let added = 0;
+    for (const p of fromReg.pools) if (!have.has(poolKey(p))) { pools.push(p); have.add(poolKey(p)); added++; }
+    const known = new Set(tokens.map((t) => t.address.toLowerCase()));
+    for (const t of fromReg.tokens) if (!known.has(t.address.toLowerCase())) {
+      tokens.push(t);
+      known.add(t.address.toLowerCase());
+      symbolOf.set(t.address.toLowerCase(), t.symbol);
+      decimalsOf.set(t.address.toLowerCase(), t.decimals);
+    }
+    log.info({ registryPools: fromReg.pools.length, addedToUniverse: added, universeBeforeFilters: pools.length }, "active pools merged");
+  }
   await loadStaticMetadata(client, cfg, pools);
-  await syncPools(client, cfg, pools, { force: true });
+  // Price and depth-filter on slot0/liquidity/reserves first; tick data only for the survivors.
+  const syncedAt = await syncPools(client, cfg, pools, { force: true, skipTicks: true });
   const startupSync = { startupSyncPools: syncStats.total, startupSyncStalePools: syncStats.stale, startupSyncChunkFailures: syncStats.chunkFailures };
   pools = pruneEmpty(pools);
   const v4AfterPrune = pools.filter(isV4).length;
   let prices = buildEthPrices(cfg, pools);
+  if (dumpPools) {
+    // every non-empty candidate with its depth, so coverage can be evaluated offline for any --min-depth-eth
+    fs.mkdirSync(path.dirname(dumpPools), { recursive: true });
+    fs.writeFileSync(dumpPools, pools.map((p) => JSON.stringify({ address: p.address, poolId: isV4(p) ? p.v4.poolId : undefined, dex: p.dex, kind: p.kind, token0: p.token0, token1: p.token1, tier: isV2(p) ? undefined : p.tier, depthEth: +poolDepthEth(p, prices).toPrecision(6) })).join("\n") + "\n");
+    log.info({ file: dumpPools, pools: pools.length, minDepthEth }, "pool candidates written (with depth; the universe is depthEth >= minDepthEth)");
+  }
   pools = filterByDepth(pools, prices, minDepthEth);
+  await fetchTickData(client, cfg, pools.filter((p): p is V3Pool => isV3Pool(p)), syncedAt);
   if (v4File) log.info({ spec: v4PoolsSpec, ...v4File, ...startupSync, v4AfterPruneEmpty: v4AfterPrune, v4AfterDepthFilter: pools.filter(isV4).length, minDepthEth }, "v4 pools loaded from file");
   const poolIndex = new PoolIndex(pools);
-  const cycleIndex = new CycleIndex(pools);
+  const cycleIndex = new CycleIndex(pools, [cfg.weth, cfg.usdc]);
   log.info({ tokens: tokens.length, pools: pools.length, cycles: cycleIndex.candidates.length, minDepthEth, source, mode, contract: contract ?? "(none)", codeOverride: !!codeOverride }, "searcher ready");
 
   const executor = contract
@@ -176,6 +217,49 @@ async function main() {
   await refreshGas();
   setInterval(refreshGas, 10_000).unref();
 
+  // Live discovery: every few minutes scan the Swap logs since the registry's last block, classify new emitters, and
+  // stage the ones that pass the empty/depth filters; tick() merges them into the pool set, indexes and searches.
+  const staged: Pool[] = [];
+  const poolKeyOf = (p: Pool) => (isV4(p) ? p.v4.poolId : p.address).toLowerCase();
+  const inUniverse = new Set(pools.map(poolKeyOf));
+  let regBusy = false;
+  const refreshLive = async () => {
+    if (!registry || regBusy) return;
+    regBusy = true;
+    try {
+      const head = Number(await client.getBlockNumber());
+      if (head <= registry.scannedTo) return;
+      const from = registry.scannedTo + 1;
+      const scan = await scanSwapActivity(logsUrl, from, head);
+      for (const [id, key] of scan.v4Init) (registry.v4Init ??= {})[id] = key;
+      const cls = await classifyActivity(client, cfg, registry, scan.activity);
+      await verifyCloneFactories(client, cfg, registry);
+      registry.scannedTo = head;
+      saveRegistry(regFile, registry);
+      const keys = cls.added.filter((k) => !inUniverse.has(k));
+      if (keys.length === 0) return;
+      const fresh = poolsFromRegistry(registry, cfg, keys);
+      for (const t of fresh.tokens) {
+        symbolOf.set(t.address.toLowerCase(), t.symbol);
+        decimalsOf.set(t.address.toLowerCase(), t.decimals);
+      }
+      await loadStaticMetadata(client, cfg, fresh.pools);
+      const at = await syncPools(client, cfg, fresh.pools, { force: true, skipTicks: true });
+      let ok = pruneEmpty(fresh.pools);
+      ok = filterByDepth(ok, buildEthPrices(cfg, [...pools, ...ok]), minDepthEth);
+      await fetchTickData(client, cfg, ok.filter((p): p is V3Pool => isV3Pool(p)), at);
+      staged.push(...ok);
+      log.info({ blocks: head - from + 1, emitters: scan.activity.size, classifiedNew: cls.added.length, passedFilters: ok.length }, "live discovery");
+    } catch (e) {
+      log.warn({ err: String(e).slice(0, 200) }, "live discovery failed");
+    } finally {
+      regBusy = false;
+    }
+  };
+  if (registry) setInterval(() => void refreshLive(), registryRefreshMs).unref();
+
+  /** Block at which each Slipstream pool's fee was last read exactly (event mode). */
+  const feeFreshAt = new Map<string, bigint>();
   let busy = false;
   let pendingTrigger: { block: bigint; index: number } | null = null;
   let lastForce = 0;
@@ -183,6 +267,22 @@ async function main() {
   /** Routes whose simulation reverted repeatedly (transfer-restricted tokens, paused pools, mispriced pools). */
   const revertCount = new Map<string, number>();
   const blacklistUntil = new Map<string, number>(); // route key or token -> tick index
+  // Tokens that make our transfers fail (blocked, taxed, paused). The broader universe and triangle search route
+  // through many of them, each time via a different pool combination, so strikes are counted per token and the
+  // verdict is kept across restarts.
+  const badTokensFile = path.resolve(`data/bad-tokens-${cfg.name}.json`);
+  const tokenStrikes = new Map<string, number>();
+  const badTokens = new Set<string>(((): string[] => {
+    try {
+      return JSON.parse(fs.readFileSync(badTokensFile, "utf8")) as string[];
+    } catch {
+      return [];
+    }
+  })());
+  for (const t of badTokens) blacklistUntil.set(t, Number.MAX_SAFE_INTEGER);
+  const protectedTokens = new Set([cfg.weth, cfg.usdc, ...cfg.tokens.map((t) => t.address)].map((a) => a.toLowerCase()));
+  const okTokens = new Set<string>();
+  if (badTokens.size > 0) log.info({ file: badTokensFile, tokens: badTokens.size }, "transfer-failing tokens loaded");
   const isBlacklisted = (routeKey: string, tokens: string[]) => {
     const now = stats.ticks;
     if ((blacklistUntil.get(routeKey) ?? -1) > now) return true;
@@ -198,6 +298,18 @@ async function main() {
     try {
       const t0 = Date.now();
       stats.ticks++;
+      if (staged.length > 0) {
+        const add = staged.splice(0).filter((p) => !inUniverse.has(poolKeyOf(p)));
+        // they were synced when discovered; bring them to this tick's block (event mode only sees their logs from now on)
+        if (add.length > 0) await syncPools(client, cfg, add, { blockNumber: trigger.block, force: true });
+        for (const p of add) {
+          inUniverse.add(poolKeyOf(p));
+          pools.push(p);
+          poolIndex.add(p);
+          cycleIndex.add(p);
+        }
+        log.info({ added: add.length, pools: pools.length }, "live-discovered pools merged");
+      }
       const usePending = source === "flashblocks";
       const stateClient = usePending ? preconf : client;
       let touched: Set<string> | null = null;
@@ -210,6 +322,12 @@ async function main() {
           const logs = await fetchBlockLogsViaReceipts(client, poolIndex, receiptsTag === "pending" ? "pending" : trigger.block);
           const res = applyLogs(poolIndex, logs, trigger.block);
           if (res.dirtyTicks.size > 0) await fetchTickData(client, cfg, pools.filter((p): p is V3Pool => isV3Pool(p) && res.dirtyTicks.has(p.address.toLowerCase())), trigger.block);
+          // Slipstream fees move without an event: read them for the touched pools at this block
+          const touchedCl = [...res.touched].map((k) => poolIndex.byAddress.get(k)).filter((p): p is V3Pool => !!p && p.kind === "aero-cl");
+          if (touchedCl.length > 0) {
+            await refreshAeroClFees(client, cfg, touchedCl, trigger.block);
+            for (const p of touchedCl) feeFreshAt.set(p.address.toLowerCase(), trigger.block);
+          }
           touched = res.touched;
           stats.logsApplied += res.applied;
         }
@@ -229,7 +347,7 @@ async function main() {
       if (stats.ticks % 50 === 1) prices = buildEthPrices(cfg, pools);
       const ethUsd = 1 / (prices.get(cfg.usdc.toLowerCase()) ?? NaN);
       const opps = touched
-        ? cycleIndex.search(touched, 150) // only cycles through pools that changed in this block
+        ? [...cycleIndex.search(touched, 150), ...(triangles ? cycleIndex.searchTriangles(touched, 150) : [])].sort((a, b) => (b.profit > a.profit ? 1 : b.profit < a.profit ? -1 : 0)) // only cycles through pools that changed in this block
         : [...findOpportunities(pools), ...(triangles ? findTriangles(pools, { startTokens: new Set([cfg.weth.toLowerCase(), cfg.usdc.toLowerCase()]) }) : [])].sort((a, b) => (b.profit > a.profit ? 1 : b.profit < a.profit ? -1 : 0));
       if (touched) stats.touchedPools += touched.size;
       const tSearch = Date.now();
@@ -258,6 +376,34 @@ async function main() {
         if (candidates.length >= topK) break;
       }
 
+      // Event mode: a candidate through a Slipstream pool whose fee was not read at this block is re-priced with the
+      // exact fee first; candidates that no longer clear the threshold are dropped before any simulation.
+      if (touched && candidates.length > 0) {
+        const stale = new Map<string, V3Pool>();
+        for (const c of candidates) for (const h of c.o.hops) if (h.pool.kind === "aero-cl" && feeFreshAt.get(h.pool.address.toLowerCase()) !== trigger.block) stale.set(h.pool.address.toLowerCase(), h.pool as V3Pool);
+        if (stale.size > 0) {
+          await refreshAeroClFees(client, cfg, [...stale.values()], trigger.block);
+          for (const k of stale.keys()) feeFreshAt.set(k, trigger.block);
+          for (let i = candidates.length - 1; i >= 0; i--) {
+            const c = candidates[i]!;
+            if (!c.o.hops.some((h) => stale.has(h.pool.address.toLowerCase()))) continue;
+            const ev = evalRoute(c.o.hops.map((h) => ({ pool: h.pool, tokenIn: h.tokenIn, tokenOut: h.tokenOut })), c.o.amountIn);
+            const profit = ev.valid ? ev.amountOut - c.o.amountIn : -1n;
+            const profitEth = profit > 0n ? toEth(prices, c.o.token, profit, decimalsOf.get(c.o.token.toLowerCase()) ?? 18) : NaN;
+            const netUsd = (profitEth - c.gasEth) * ethUsd;
+            if (!(netUsd > minProfitUsd)) {
+              candidates.splice(i, 1);
+              stats.droppedByFeeRefresh++;
+              continue;
+            }
+            c.o = { ...c.o, hops: ev.hops, amountOut: ev.amountOut, profit };
+            c.profitEth = profitEth;
+            c.netEth = profitEth - c.gasEth;
+            c.netUsd = netUsd;
+          }
+        }
+      }
+
       for (const c of candidates) {
         const rec: any = {
           t: new Date().toISOString(),
@@ -283,6 +429,17 @@ async function main() {
         if ((inFlight.get(routeKey) ?? -10) > stats.ticks - 3) continue; // sent recently, wait for outcome
         stats.simulated++;
         const minProfit = 1n; // the contract enforces > 0; we decide on simulated numbers below
+        if (source === "logs" && touched) {
+          // Event mode: also simulate on exactly the block the state came from. This separates "the opportunity was real
+          // in our state" from "it was still there when we looked again" (a load-balanced RPC can answer `latest` from
+          // a node a block behind or ahead).
+          const pinned = await executor.simulateWith(client, c.o, minProfit, trigger.block);
+          rec.simAtBlock = pinned.ok ? { profitUsd: +(toEth(prices, c.o.token, pinned.profit!, decimalsOf.get(c.o.token.toLowerCase()) ?? 18) * ethUsd).toFixed(4), ms: pinned.latencyMs } : { error: pinned.error, ms: pinned.latencyMs };
+          if (pinned.ok) {
+            stats.simOkAtBlock++;
+            for (const t of routeTokens) okTokens.add(t);
+          }
+        }
         let sim = await executor.simulate(c.o, minProfit, usePending ? "pending" : "latest");
         rec.sim = sim.ok ? { profitUsd: +(toEth(prices, c.o.token, sim.profit!, decimalsOf.get(c.o.token.toLowerCase()) ?? 18) * ethUsd).toFixed(4), gas: Number(sim.gasUsed), ms: sim.latencyMs } : { error: sim.error, ms: sim.latencyMs };
         if (!sim.ok && usePending && /unknown reason/.test(sim.error ?? "")) {
@@ -291,6 +448,25 @@ async function main() {
           const again = await executor.simulateWith(client, c.o, minProfit, "latest");
           rec.simLatest = again.ok ? { profitUsd: +(toEth(prices, c.o.token, again.profit!, decimalsOf.get(c.o.token.toLowerCase()) ?? 18) * ethUsd).toFixed(4), ms: again.latencyMs } : { error: again.error, ms: again.latencyMs };
           if (again.ok) sim = again;
+        }
+        if (sim.ok) for (const t of routeTokens) okTokens.add(t);
+        if (!sim.ok && /TransferFailed/.test(sim.error ?? "")) {
+          // Only a non-base token can be the culprit. Blame is split between the route's suspects (a triangle through a
+          // good token and a blocked one must not condemn the good one), and a token that ever simulated fine, or is
+          // one of the hand-picked config tokens, is never parked. Two full strikes park a token.
+          const suspects = routeTokens.filter((t) => !protectedTokens.has(t) && !okTokens.has(t) && !badTokens.has(t));
+          for (const t of suspects) {
+            const k = (tokenStrikes.get(t) ?? 0) + 1 / suspects.length;
+            tokenStrikes.set(t, k);
+            if (k >= 2) {
+              badTokens.add(t);
+              blacklistUntil.set(t, Number.MAX_SAFE_INTEGER);
+              try {
+                fs.writeFileSync(badTokensFile, JSON.stringify([...badTokens]));
+              } catch {}
+              log.info({ token: t, symbol: sym(t as Address), strikes: +k.toFixed(2) }, "token parked: transfers fail");
+            }
+          }
         }
         if (!sim.ok) {
           const n = (revertCount.get(routeKey) ?? 0) + 1;

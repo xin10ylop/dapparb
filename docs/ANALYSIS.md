@@ -479,3 +479,82 @@ python3 base_report.py && python3 outside_breakdown.py
 python3 v4keys_fetch.py && bash run_other_chains.sh && python3 chain_report.py && python3 bsc_builders.py
 python3 solana_report.py
 ```
+
+### 7.5 Step 1 done: pool coverage extended (2026-10-01)
+
+**What changed in the engine** (`bot/`):
+
+* **Pools are discovered from their own Swap logs** (`src/pools/activity.ts`, `--active-lookback`, `src/cli/registry.ts`),
+  not only from factory enumeration.
+  * The scan covers UniV2, Aerodrome V2, V3/Slipstream, PancakeSwap V3 and Uniswap V4 swaps.
+  * Each emitter is classified by `factory()`. An unknown factory is accepted only for V3/PancakeSwap-style pools whose
+    bytecode calls the callback the executor implements, and only after the factory passes an on-chain check: its
+    busiest pools are quoted locally and executed on chain at the same block, and every quote must match to the wei.
+    16 of 17 clone factories passed. One "UniswapV3Factory" clone charges 0.35 % where its pools report 0.30 %; it was
+    excluded after its routes failed 73 dry-run simulations.
+  * V4 pool ids are resolved through `PositionManager.poolKeys`, or from `Initialize` logs for pools the
+    PositionManager never saw. They are kept when the key is locally priceable.
+  * Everything goes into `data/pool-registry-<chain>.json`, so restarts only scan new blocks.
+* **Scan cost on the public `mainnet.base.org` endpoint:**
+  * 12 hours of Base: 1.08 M swap logs in 140 calls (40 s).
+  * 3 days: 7.49 M swap logs in 992 calls (4 min), giving 20,560 accepted pools.
+* **Live discovery.** Every `--registry-refresh-s` seconds (default 300) the engine scans the new blocks, and the new
+  pools that pass the empty and depth filters join the running search. Observed: 4–6 pools per 2-minute refresh.
+* **Startup.** The engine prices and depth-filters on slot0/liquidity/reserves first and fetches tick data only for
+  the survivors. An activity-only universe starts in about 1 minute instead of about 9, and has 5.4 k pools after the
+  0.1 ETH depth filter, against 3.2 k in §2.6.
+* **Triangles in the event-driven search.** `CycleIndex` now also enumerates three-pool cycles through every touched
+  pool, starting in WETH or USDC where possible, and accepts pools added at run time. Three-leg cycles are 58 % of the
+  census's block-boundary income; before this change the `--source logs` path searched only two-pool cycles.
+
+**Local math is exact on every pool type.** `src/research/quotecheck.ts` synced 15 pools of each type at one block and
+compared `quote()` with on-chain execution at 0.01 %, 0.1 % and 1 % of in-range depth, both directions. The on-chain
+side was `contracts/src/test-helpers/PoolQuoter.sol`, injected by state override, for V3-style pools, and the official
+V4Quoter for V4. All 728 quotes matched to the wei:
+
+| Pool type | Uniswap V3 | PancakeSwap V3 | Slipstream (3 factories) | Sushi V3 | V3 clones | PancakeSwap V3 clones | Uniswap V4 |
+|---|---|---|---|---|---|---|---|
+| Quotes / exact | 77 / 77 | 89 / 89 | 254 / 254 | 84 / 84 | 87 / 87 | 61 / 61 | 76 / 76 |
+
+The sample above did not include the failing clone factory; the engine now runs the same check itself on every
+clone factory before using its pools.
+
+**Coverage of the census income** (`analysis/coverage.py`). An arbitrage counts as covered when every pool it used is in
+the universe and it has at most three legs. All figures are out of sample: the registry was built from blocks that do
+not include the arbitrage.
+
+"Before" is factory enumeration plus every priceable V4 pool, at depth ≥ 0.1 ETH, scored on the same arbitrages.
+
+| New universe (scored on) | All income: before → after | Block-boundary income: before → after |
+|---|---|---|
+| Registry of the 12 h after the census, depth ≥ 0.1 ETH (the 20,594 census arbitrages it did not scan) | 36.4 % → 41.3 % | 50.1 % → 59.2 % |
+| Same, plus factory enumeration | 36.4 % → 41.3 % | 50.1 % → 59.3 % |
+| Registry of the 3 days before the census (all 29,093 census arbitrages) | 36.6 % → **59.2 %** | 48.3 % → **61.7 %** |
+
+* Factory enumeration on top of the registry adds nothing measurable (59.2 % with or without it), and the depth
+  threshold between 0.01 and 0.1 ETH changes block-boundary coverage by under 0.5 points.
+* **What is still not covered** of block-boundary income (3-day registry):
+
+  | Gap | Share | Why |
+  |---|---|---|
+  | V4 pools | 18.9 % | 96 % of the uncovered V4 pools have swap hooks (launch platforms) and cannot be priced with local math. |
+  | Other V2/V3 pools | 12.1 % | Algebra Integral, Balancer V3, WOOFi, Maverick, Solidly V3, V2 forks with unknown fees, and pools that did not trade in the scanned days. |
+  | Routes with four or more legs | 7.3 % | |
+
+**Dry runs with the extended universe** (`--universe config --active-lookback 21600 --min-depth-eth 0.1
+--min-profit-usd 0.01`, event mode, public RPCs, nothing sent; summaries in `analysis/base/dryrun-*.json` by
+`analysis/dryrun_summary.py`). Each candidate is now also simulated on exactly the block its state came from, which
+separates a wrong state from a gap that closed. Four problems surfaced and were fixed between runs:
+
+| Run | Simulations | OK at the state's block | Main failure | Fix |
+|---|---|---|---|---|
+| 1 (18 min) | 202 | 19 | `TransferFailed` (116): blocked or taxed tokens reached through ever-new triangles | Per-token strikes. Blame is split between a route's unproven tokens, and config tokens or tokens with a successful simulation are never blamed. Verdicts persist in `data/bad-tokens-<chain>.json`. |
+| 2 (13 min) | 176 | 10 | `CannotRepay` (130), 73 of them through one clone factory | On-chain check of every clone factory (above). Also: with `--universe config` the token list aliased `cfg.tokens`, so every discovered token counted as a protected config token and was never parked. |
+| 3 (10 min) | 66 | 17 | `CannotRepay` (43), 42 of them through a Slipstream pool (−0.64 %) | Slipstream fees come from a dynamic module and are not in the Swap event. Event mode now reads `fee()` at the exact block for every touched Slipstream pool, and re-prices candidates through any other Slipstream pool before simulating. |
+| 4 (12 min) | 12 | **9** (+1 `CannotRepay`, 1 `TransferFailed`) | | |
+
+In run 4, the simulated opportunities were worth $0.60 gross ($4.4/hour; $4.1/hour after gas) **if every one were won**.
+Runs 3 and 4 together come to $4–6/hour gross. In run 3, 67 % of that value went through pools outside the old
+universe and 44 % through three-leg routes; run 4 had 11 % and 21 %. These are 10–13-minute windows. They show that
+the extended search finds real opportunities and wastes almost no simulations. They do not measure capture: §2.6 and
+§7.2 show that contested block-boundary gaps are mostly bid away.

@@ -89,6 +89,11 @@ export class PoolIndex {
       else this.byAddress.set(p.address.toLowerCase(), p);
     }
   }
+  /** Track a pool added while running (live discovery). */
+  add(p: Pool): void {
+    if (isV4(p)) this.v4ByManagerAndId.set(`${p.v4.manager.toLowerCase()}:${p.v4.poolId.toLowerCase()}`, p);
+    else this.byAddress.set(p.address.toLowerCase(), p);
+  }
   /** Addresses to pass as an eth_getLogs filter (V4 pools share the PoolManager). */
   addresses(): Address[] {
     const set = new Set<string>(this.byAddress.keys());

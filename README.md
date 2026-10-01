@@ -59,6 +59,10 @@ npx tsx src/main.ts --chain base --mode dry --source logs --universe top --min-p
 #    on a flashblocks-aware node: --receipts-tag pending (200 ms state); public endpoints cannot sustain that rate
 #    …or every pool the factories know about (46k found on Base, ~3.2k with ≥ 0.1 ETH of anchored depth; see docs/ANALYSIS.md §2.6)
 npx tsx src/main.ts --chain base --mode dry --source logs --universe all --max-per-factory 6000 --min-depth-eth 0.1 --min-profit-usd 0.01
+#    …or (recommended) every pool that actually trades, discovered from Swap logs (docs/ANALYSIS.md §7.5): build the
+#    registry once (~4 min for 3 days on mainnet.base.org), then start in ~1 min; it keeps discovering new pools live
+npx tsx src/cli/registry.ts --chain base --lookback 129600 --logs-rpc https://mainnet.base.org
+npx tsx src/main.ts --chain base --mode dry --source logs --universe config --active-lookback 21600 --min-depth-eth 0.1 --min-profit-usd 0.01
 
 # 3) deploy + go live (only after the dry run shows simulated net profit that you believe)
 cd ../contracts && forge script script/Deploy.s.sol --rpc-url base --broadcast --private-key $PRIVATE_KEY
@@ -92,6 +96,8 @@ cd contracts && forge test -vv                               # 31 fork tests (Ba
 cd bot && npx tsx --test src/math/v2.test.ts                 # integer math
 cd bot && npx tsx --test src/math/v3.live.test.ts            # local V3 sim vs on-chain quoters (live)
 cd bot && npx tsx --test src/arb/pipeline.fork.test.ts       # push a pool on Anvil → search → simulate → send
+cd bot && npx tsx --test src/arb/incremental.test.ts         # event-mode two-pool cycles and triangles, incremental add
+cd bot && npx tsx src/research/quotecheck.ts --per-dex 15    # local quote vs on-chain swap for every pool type (live)
 ```
 
 ## Safety notes
