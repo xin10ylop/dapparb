@@ -1,0 +1,29 @@
+{
+ "pinned_block": 52008246,
+ "endpoint": "https://base-mainnet.public.blastapi.io",
+ "recipient": "0xa875ba6c6102637ce162c2fb6c20ebaa6e411629",
+ "batcher_address": "0x000000000000000000000000000000000070b3e1",
+ "eth_call_gas": 60000000,
+ "per_probe_transfer_gas_cap": 1500000,
+ "bps_values": [
+  100,
+  1
+ ],
+ "bps_passes_in_separate_eth_calls": true,
+ "batch_size_tokens": 16,
+ "compiler": "solc 0.8.28 via forge Version: 1.5.1-stable, optimizer 200 runs, evm cancun",
+ "probe_source": "collect/src/TransferProbe.sol",
+ "probe_runtime_sha256": "5fae749a811ea37ff5d42ee4cc18e969a9e86f1675078bdeae106b6a52a21418",
+ "holders_file": "transfer-probe/holders.csv.gz (copy of collect/work/holders.csv.gz, built by collect/select_holders.py)",
+ "holders_file_sha256": "bba284fe6b20d724fcc07d3bfd131036cd25700246b9bdacaf32a42fff890505",
+ "raw_batches_file": "transfer-probe/probe-batches-raw.jsonl.gz (one line per eth_call: batch_id, bps, items [holder, token], raw result hex or error)",
+ "batches": 3714,
+ "batches_with_rpc_error": 0,
+ "rows": 67194,
+ "rows_by_status": {
+  "ok": 59406,
+  "no_holder": 7788
+ },
+ "output_sha256": "da46ce84a09b7bdf4bf7c6b79b22284aea6de9b9c505251d4ce8d5618068b4c2",
+ "built_utc": "2026-10-01T02:19:16Z"
+}
