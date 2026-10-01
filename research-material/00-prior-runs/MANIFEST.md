@@ -1,20 +1,30 @@
 # 00-prior-runs: raw data from the earlier sessions of 2026-09-30
 
 Status: COMPLETE WITH GAPS (static copies; inventory verified 2026-10-01). Gaps:
-1. competitor-ledgers: the ledgers of XDP senders 0x000000c557fa9a96d66cd6371abde62d879d0e61 and
-   0x3be22b314654c396a12c5e8d79abdd65aac3caaf were computed but not saved (only summary rows exist, in docs/ANALYSIS.md §2.6).
+(Gap 1 removed 2026-10-01: the ledgers of XDP senders 0x000000c557fa9a96d66cd6371abde62d879d0e61 and
+0x3be22b314654c396a12c5e8d79abdd65aac3caaf, previously "computed but not saved", were recomputed as raw per-block balance
+ledgers plus receipts; see the section "competitor-ledgers/: recomputed XDP-sender ledgers (added 2026-10-01)". The other
+gaps keep their numbers.)
 2. competitor-ledgers/mine.json holds only `amountIn` and the off-chain value `mine`; the on-chain `getAmountOut` values
    and the pool address are not stored in the file.
 3. research-runs: no cextri .jsonl (the original `bot/data/cextri.jsonl` is 0 bytes); only `cextri.log.gz` exists.
 4. Earlier-session outputs that exist only in the local, git-ignored `bot/data/` and were NOT copied here:
    `dry-blocks-long3.log` (9 bytes, content `EXIT 143`), `live-base-blocks-long2.jsonl`, `live-base-blocks-long3.jsonl`,
-   `live-base-blocks-long4.jsonl` (0 bytes each), the `scan-*` block-scan files
-   (`scan-base.jsonl`, `scan-base-run1..3.log`, `scan-base-run4.jsonl/.log`, `scan-base-longtail.jsonl/.log`,
-   `scan-arb.jsonl/.log`, `scan-arb2.jsonl/.log`, `scan-mainnet.jsonl/.log`), `prof.log` and `repro.log`.
+   `live-base-blocks-long4.jsonl` (0 bytes each).
+   (Corrected 2026-10-01, block-scans fixup: this item also listed the `scan-*` block-scan files (`scan-base.jsonl`,
+   `scan-base-run1..3.log`, `scan-base-run4.jsonl/.log`, `scan-base-longtail.jsonl/.log`, `scan-arb.jsonl/.log`,
+   `scan-arb2.jsonl/.log`, `scan-mainnet.jsonl/.log`), `prof.log` and `repro.log` as not copied. That is no longer true:
+   all 16 were copied (gzip) to `block-scans/` on 2026-10-01 by the main session, commit 9c8a37c. See the sections
+   "block-scans/ (added 2026-10-01 by the main session)" and "Verified inventory (2026-10-01)", and "block-scans/
+   fixup (2026-10-01)" at the end of this file.)
    Fresh block scans are in `research-material/07-other-chains-engine/scans/`.
 
 No collector sentinel exists for this folder (it was not produced by a collector). Collected by the main session; files
 are gzip copies of what the earlier runs wrote. Descriptions state how each file was produced. They contain no findings.
+(Corrected 2026-10-01: six files in competitor-ledgers/ — `ledger_0x000000c5.raw.csv.gz`, `ledger_0x3be22b31.raw.csv.gz`,
+`receipts_0x000000c5.csv.gz`, `receipts_0x3be22b31.csv.gz`, `receipts_0x000000c5.full.jsonl.gz`,
+`receipts_0x3be22b31.full.jsonl.gz` — are not copies of earlier-run output; they were collected on 2026-10-01 by
+`competitor-ledgers/collect/xdp_ledgers.py`, described in the section added at the end of this file.)
 
 All data files are stored gzip-compressed; in the sections below a name without `.gz` (e.g. `live-base.jsonl`) refers
 to the `.gz` file in this folder. Verified 2026-10-01: for the 32 files in engine-runs/ and research-runs/, the
@@ -30,11 +40,11 @@ Mapping only (question line number → files in this folder).
 | 1 | engine-runs/dry-all.log.gz, engine-runs/dry-all-v0.log.gz, engine-runs/live-base-all.jsonl.gz, engine-runs/live-base-all-v0.jsonl.gz, engine-runs/dry-blocks-long5.log.gz, misc/geckoterminal-top-pools-base.json.gz, misc/v4-poolmanager-logs-sample.jsonl.gz, misc/section-2.6-draft.md |
 | 2 | engine-runs/dry-all.log.gz, engine-runs/dry-all-v0.log.gz, misc/section-2.6-draft.md |
 | 3 | engine-runs/dry-all.log.gz, engine-runs/dry-all-v0.log.gz, engine-runs/live-base-all.jsonl.gz, engine-runs/live-base-all-v0.jsonl.gz, misc/section-2.6-draft.md |
-| 4 | research-runs/crosschain.jsonl.gz, research-runs/crosschain.log.gz, misc/defillama-arbitrum-timeboost.json.gz |
-| 5 | engine-runs/live-base-all-v0.jsonl.gz, engine-runs/dry-all-v0.log.gz, competitor-ledgers/competitor_txs.json.gz, competitor-ledgers/competitor_pnl.json.gz, competitor-ledgers/competitor_perblock.json.gz, competitor-ledgers/arbers_XDP.json.gz, competitor-ledgers/arbers_WETHUSDC.json.gz, competitor-ledgers/ledger_0x778951.json.gz, competitor-ledgers/ledger_0x0190f0.json.gz, misc/v4-poolmanager-logs-sample.jsonl.gz, misc/section-2.6-draft.md |
+| 4 | research-runs/crosschain.jsonl.gz, research-runs/crosschain.log.gz, misc/defillama-arbitrum-timeboost.json.gz, block-scans/scan-arb.jsonl.gz, block-scans/scan-arb.log.gz, block-scans/scan-arb2.jsonl.gz, block-scans/scan-arb2.log.gz, block-scans/scan-mainnet.jsonl.gz, block-scans/scan-mainnet.log.gz, block-scans/scan-base.jsonl.gz, block-scans/scan-base-run1.log.gz, block-scans/scan-base-run2.log.gz, block-scans/scan-base-run3.log.gz, block-scans/scan-base-run4.jsonl.gz, block-scans/scan-base-run4.log.gz, block-scans/scan-base-longtail.jsonl.gz, block-scans/scan-base-longtail.log.gz |
+| 5 | engine-runs/live-base-all-v0.jsonl.gz, engine-runs/dry-all-v0.log.gz, competitor-ledgers/competitor_txs.json.gz, competitor-ledgers/competitor_pnl.json.gz, competitor-ledgers/competitor_perblock.json.gz, competitor-ledgers/arbers_XDP.json.gz, competitor-ledgers/arbers_WETHUSDC.json.gz, competitor-ledgers/ledger_0x778951.json.gz, competitor-ledgers/ledger_0x0190f0.json.gz, competitor-ledgers/ledger_0x000000c5.raw.csv.gz, competitor-ledgers/ledger_0x3be22b31.raw.csv.gz, competitor-ledgers/receipts_0x000000c5.csv.gz, competitor-ledgers/receipts_0x3be22b31.csv.gz, competitor-ledgers/receipts_0x000000c5.full.jsonl.gz, competitor-ledgers/receipts_0x3be22b31.full.jsonl.gz, misc/v4-poolmanager-logs-sample.jsonl.gz, misc/section-2.6-draft.md |
 | 6 | — (no file in this folder) |
 | 7 | papers-fetched-earlier/ (all 8 files), misc/defillama-arbitrum-timeboost.json.gz |
-| 8 | engine-runs/dry-all.log.gz, engine-runs/live-base-all.jsonl.gz, engine-runs/dry-all-v0.log.gz, engine-runs/live-base-all-v0.jsonl.gz, engine-runs/dry-blocks-long5.log.gz, engine-runs/live-base-blocks-long5.jsonl.gz, misc/v4-poolmanager-logs-sample.jsonl.gz, misc/section-2.6-draft.md |
+| 8 | engine-runs/dry-all.log.gz, engine-runs/live-base-all.jsonl.gz, engine-runs/dry-all-v0.log.gz, engine-runs/live-base-all-v0.jsonl.gz, engine-runs/dry-blocks-long5.log.gz, engine-runs/live-base-blocks-long5.jsonl.gz, misc/v4-poolmanager-logs-sample.jsonl.gz, misc/section-2.6-draft.md, block-scans/ (all 16 files: the 14 `scan-*` files listed under line 4, plus block-scans/prof.log.gz and block-scans/repro.log.gz) |
 
 Not mapped to a question line: engine-runs/live-base.jsonl.gz, live-base-validate.jsonl.gz, live-base-long.jsonl.gz,
 live-base-logs.jsonl.gz, live-base-blocks-long.jsonl.gz, dry-validate.log.gz, dry-long.log.gz, dry-flashblocks-run1.log.gz,
@@ -42,6 +52,43 @@ dry-logs.log.gz, dry-blocks-long.log.gz, dry-blocks-long2.log.gz, dry-blocks-lon
 lev.log.gz; competitor-ledgers/mine.json.gz; research-runs/cexcex.*, cextri.log.gz, feetiming.*, leadlag.*, leadlag-multi.*.
 
 (Corrected 2026-10-01: this section previously quoted question text and described runs; it is now a numbered mapping.)
+
+Files added 2026-10-01 (xdp-ledgers fill), one row per file:
+
+| File | Line |
+|---|---|
+| competitor-ledgers/ledger_0x000000c5.raw.csv.gz | 5 |
+| competitor-ledgers/ledger_0x3be22b31.raw.csv.gz | 5 |
+| competitor-ledgers/receipts_0x000000c5.csv.gz | 5 |
+| competitor-ledgers/receipts_0x3be22b31.csv.gz | 5 |
+| competitor-ledgers/receipts_0x000000c5.full.jsonl.gz | 5 |
+| competitor-ledgers/receipts_0x3be22b31.full.jsonl.gz | 5 |
+| competitor-ledgers/collect/ (xdp_ledgers.py, verify_xdp_ledgers.py and their logs, token_decimals.log) | — (provenance only) |
+
+Files in block-scans/ (copied 2026-10-01 by the main session, commit 9c8a37c; mapped 2026-10-01 in the block-scans fixup),
+one row per file:
+
+| File | Line |
+|---|---|
+| block-scans/scan-arb.jsonl.gz | 4, 8 |
+| block-scans/scan-arb.log.gz | 4, 8 |
+| block-scans/scan-arb2.jsonl.gz | 4, 8 |
+| block-scans/scan-arb2.log.gz | 4, 8 |
+| block-scans/scan-mainnet.jsonl.gz | 4, 8 |
+| block-scans/scan-mainnet.log.gz | 4, 8 |
+| block-scans/scan-base.jsonl.gz | 4, 8 |
+| block-scans/scan-base-run1.log.gz | 4, 8 |
+| block-scans/scan-base-run2.log.gz | 4, 8 |
+| block-scans/scan-base-run3.log.gz | 4, 8 |
+| block-scans/scan-base-run4.jsonl.gz | 4, 8 |
+| block-scans/scan-base-run4.log.gz | 4, 8 |
+| block-scans/scan-base-longtail.jsonl.gz | 4, 8 |
+| block-scans/scan-base-longtail.log.gz | 4, 8 |
+| block-scans/prof.log.gz | 8 |
+| block-scans/repro.log.gz | 8 |
+
+`misc/section-2.6-draft.md` appears in the rows above as prior session text, not data: prose with conclusions written by
+the earlier session (see misc/). (Label added 2026-10-01.)
 
 ## engine-runs/
 
@@ -61,9 +108,13 @@ and the WETH/USDC price at the time. (Added 2026-10-01: some records in live-bas
 also include a `blacklisted` field; no record in any file of this folder contains `simLatest`.)
 
 Provenance notes (facts about the code version that produced each file):
-- Every file except `live-base-all.jsonl` was produced BEFORE commit fd8d236 (anchored pricing). Their USD values for
-  long-tail tokens come from the earlier unanchored price map (that map could price a token through any of its pools,
-  without the minimum anchor-side depth that fd8d236 added; see misc/section-2.6-draft.md). (Reworded 2026-10-01.)
+- Every file except `live-base-all.jsonl` and `dry-all.log` was produced BEFORE commit fd8d236 (anchored pricing). Their
+  USD values for long-tail tokens come from the earlier unanchored price map (that map could price a token through any of
+  its pools, without the minimum anchor-side depth that fd8d236 added; see misc/section-2.6-draft.md). (Reworded
+  2026-10-01.) (Corrected 2026-10-01: the sentence previously excepted only `live-base-all.jsonl`. `dry-all.log` is the
+  log of that same anchored-pricing §2.6 run (table below; pino pid 8931 throughout the log). Timestamps: the log's first
+  line is 16:55:48 UTC (factory enumeration), its `searcher ready` line 17:03:54, the first record of `live-base-all.jsonl`
+  17:04:25; commit fd8d236 has commit time 2026-09-30 16:57:59 UTC, so the log's first ~2 minutes precede that commit time.)
 - Files produced before the revert-decoding rewrite show `unknown reason` in `sim.error`; later files show decoded errors
   (`CannotRepay(have,owed)`, `TransferFailed()`, `Error(UniswapV2: K)`, `revert 0xa932492f` = Aerodrome `K()`).
 
@@ -125,8 +176,11 @@ and the Blockscout v2 API. ETH/USD used where a USD figure was needed: 2,692.47 
 | ledger_0x778951.json, ledger_0x0190f0.json | Row = [block, delta_eth, fee_eth, xdp_units_delta] for the last 60 txs of senders 0x7789515e58bf00c99f11337bc267db8c30872351 (contract 0x952f339d…) and 0x0190f008a0118f41b43b3ee13b7162590fd925cc (contract 0xcd447b60…); delta_eth = change of ETH + WETH + USDC + XDP (XDP valued at 0.021453 USDC) over EOA + contract between block-1 and block. Verified (added 2026-10-01): one row per distinct block; ledger_0x778951 has 57 rows (blocks 51998995–51999349), ledger_0x0190f0 has 54 rows (blocks 51998915–51999355). |
 | mine.json | Off-chain vs on-chain `getAmountOut` comparison for one Aerodrome V2 pool at 4 sizes. (Corrected 2026-10-01: the file holds 4 rows with fields `amountIn` and `mine` only; see Gaps.) |
 
-Gap: the ledgers of the other two XDP senders (0x000000c557fa9a96d66cd6371abde62d879d0e61, 0x3be22b314654c396a12c5e8d79abdd65aac3caaf)
-were computed but not saved; only their summary rows exist, in docs/ANALYSIS.md §2.6.
+(Gap removed 2026-10-01. It read: "the ledgers of the other two XDP senders (0x000000c557fa9a96d66cd6371abde62d879d0e61,
+0x3be22b314654c396a12c5e8d79abdd65aac3caaf) were computed but not saved; only their summary rows exist, in docs/ANALYSIS.md
+§2.6." Raw balance ledgers and receipts for these two senders were recomputed on 2026-10-01; see the section
+"competitor-ledgers/: recomputed XDP-sender ledgers (added 2026-10-01)" at the end of this file. The earlier session's saved
+values for them still exist only as the summary rows in docs/ANALYSIS.md §2.6.)
 
 ## papers-fetched-earlier/
 
@@ -167,13 +221,22 @@ Verified 2026-10-01:
   0xdd466e674ea557f56295e2d0218a125ea4b4f0f6f3307b95f85e6110838d6438 (= keccak256 of
   `Initialize(bytes32,address,address,uint24,int24,address,uint160,int24)`), blocks 51978430–51990415.
 - section-2.6-draft.md: 64 lines of prose written by the earlier session (kept unmodified as source material).
+  **Label (added 2026-10-01): prior session text, not data.** It is the earlier session's draft prose and contains that
+  session's conclusions and evaluative statements. Treat it as claims made by that session, not as measurements; the raw
+  files it refers to are the engine-runs/ and competitor-ledgers/ files listed above.
 
 ## Verified inventory (2026-10-01)
 
 53 files including this manifest; all 53 are tracked by git (none matches a .gitignore rule), so there are no local-only
-files in this folder and nothing needs regenerating. Every `.gz` passes `gzip -t`; every `.json.gz` parses as one JSON
+files in this folder and nothing needs regenerating. (Corrected 2026-10-01, xdp-ledgers fill: this count and the git
+statement describe the folder before that fill. It added 6 data files in competitor-ledgers/ (rows marked "untracked" at
+the end of the table below) and 6 files in competitor-ledgers/collect/ (2 scripts, 4 logs). None of them was committed
+when this note was written; none matches a .gitignore rule. The block-scans/ files added by the main session are listed
+in their own section, not in this table.) (Corrected 2026-10-01, block-scans fixup: the 16 block-scans/ files, committed
+in 9c8a37c, are now rows at the end of this table; the count of 53 does not include them.) Every `.gz` passes `gzip -t`; every `.json.gz` parses as one JSON
 document; every non-blank line of every `.jsonl.gz` parses as JSON. Largest committed file: 318,740 bytes
-(competitor-ledgers/arbers_XDP.json.gz); no file exceeds 90 MB. Line counts are newline counts of the decompressed
+(competitor-ledgers/arbers_XDP.json.gz); no file exceeds 90 MB. (Corrected 2026-10-01, block-scans fixup: counting
+block-scans/, the largest committed file is block-scans/scan-arb2.jsonl.gz, 1,113,206 bytes; still no file exceeds 90 MB.) Line counts are newline counts of the decompressed
 content; the `.json.gz` files are single JSON documents (0 newlines, 1 in mine.json) and are described by their
 top-level structure instead.
 
@@ -232,6 +295,28 @@ top-level structure instead.
 | papers-fetched-earlier/optimistic-mev-l2s.txt.gz | 36,966 | 103,229 | 2,429 lines | `8f6eb7d6230915d8e18a12ea72fa1f41c80b1eb157f8ce2c04da01b445994cc2` | committed |
 | papers-fetched-earlier/quantifying-value-of-revert-protection.txt.gz | 17,496 | 54,293 | 1,571 lines | `67686f0dc2f1be717a2754bdece83595c5bd3353262a495403b6d1f9c2e2e311` | committed |
 | papers-fetched-earlier/sandwich-l2.txt.gz | 17,210 | 44,528 | 1,178 lines | `c26bbe7e2ce7e54c7d64bcc07acc8c86687441d8886f2a4c6ced8faafab6552d` | committed |
+| competitor-ledgers/ledger_0x000000c5.raw.csv.gz (added 2026-10-01) | 5,031 | 107,263 | 929 lines = header + 928 rows | `0aebfeb4e76d2f9aafc73d1a89b3095a8a9608452ca2270f2140f90e91edee2e` | untracked |
+| competitor-ledgers/ledger_0x3be22b31.raw.csv.gz (added 2026-10-01) | 4,711 | 94,061 | 785 lines = header + 784 rows | `574c7fa70dc01bf0daa043b85ce7d2fbc4a5a79b77161c412b2eb2a9b7813b9f` | untracked |
+| competitor-ledgers/receipts_0x000000c5.csv.gz (added 2026-10-01) | 7,606 | 23,003 | 61 lines = header + 60 rows | `036432fb04163fcb6fac96b8ba99b2656d6078a0a722c892d15988ab74555a53` | untracked |
+| competitor-ledgers/receipts_0x3be22b31.csv.gz (added 2026-10-01) | 7,367 | 23,458 | 61 lines = header + 60 rows | `678f562b1614428a2c0a8582dd5877307cc888077972458efd0a0fe9976ebf71` | untracked |
+| competitor-ledgers/receipts_0x000000c5.full.jsonl.gz (added 2026-10-01) | 18,510 | 293,708 | 60 lines = 60 JSON records | `ed1e39c86a8bb3046b588be3ec25292f894a28cb03c19494a0d4b03d8e73ab43` | untracked |
+| competitor-ledgers/receipts_0x3be22b31.full.jsonl.gz (added 2026-10-01) | 17,434 | 293,734 | 60 lines = 60 JSON records | `7f55e6d101895f39af83eac31276074c3cbd3d61d1d9385daa526c29958481ab` | untracked |
+| block-scans/prof.log.gz (row added 2026-10-01) | 786 | 2,370 | 34 lines | `d3e79e4deca501aac2b78eb58a6ece730656c64eaba66e7ab017ade33b82c7f3` | committed |
+| block-scans/repro.log.gz (row added 2026-10-01) | 2,203 | 7,144 | 64 lines | `04aaf0c6980ad420a3c14ce9d9a461dd110b5019da061819fce8a8d508c968a4` | committed |
+| block-scans/scan-arb.jsonl.gz (row added 2026-10-01) | 986,170 | 9,915,782 | 23,277 lines = 23,277 JSON records | `02b6989015b9baae2eaf64308a8f3bc3ca858924ccd153ce6e9215679161491f` | committed |
+| block-scans/scan-arb.log.gz (row added 2026-10-01) | 12,778 | 279,859 | 4,256 lines | `9f346802fa0bd7293f7c156f005ee709302ca300c4844e90dbf079f80efdd5e8` | committed |
+| block-scans/scan-arb2.jsonl.gz (row added 2026-10-01) | 1,113,206 | 10,106,913 | 22,353 lines = 22,353 JSON records | `27193eba5b6063ec10533d772af019ed9085b873be85345e06e37080d53be5bf` | committed |
+| block-scans/scan-arb2.log.gz (row added 2026-10-01) | 8,856 | 190,118 | 2,828 lines | `ef38db6098b5069944d4af0116926ca70df5c426ad397e514930192dc60a5bee` | committed |
+| block-scans/scan-base-longtail.jsonl.gz (row added 2026-10-01) | 615,569 | 4,598,217 | 10,115 lines = 10,115 JSON records | `cfa6fb99b3d57edd2a07f3f8b711e9365628ecc6af8c12a3a0e04989d3821780` | committed |
+| block-scans/scan-base-longtail.log.gz (row added 2026-10-01) | 4,532 | 59,679 | 887 lines | `deae99add64609ae350ed2c6c7c75ab74afe431bd903a2ad901708a44e3bbbf6` | committed |
+| block-scans/scan-base-run1.log.gz (row added 2026-10-01) | 1,086 | 8,981 | 382 lines | `62f96e524bdbf04ae2e6a3cda15231ca2adb6e0e5c471f1c8a33d7a39f6fd2dc` | committed |
+| block-scans/scan-base-run2.log.gz (row added 2026-10-01) | 5,303 | 112,389 | 1,712 lines | `c2e5b722a6168189d54f85550471b62f0148b2116fedf70574fd899729eb2b75` | committed |
+| block-scans/scan-base-run3.log.gz (row added 2026-10-01) | 3,128 | 56,857 | 874 lines | `8968a42f258efae4352fc1de70e1c76e3de8d091c547161a5d6f5caea803fcf4` | committed |
+| block-scans/scan-base-run4.jsonl.gz (row added 2026-10-01) | 278,092 | 2,411,615 | 5,239 lines = 5,239 JSON records | `3ab4601f1ca258f5e62ad8bddd4319aab97283cba8dbf3899c3bcf332fc50a5d` | committed |
+| block-scans/scan-base-run4.log.gz (row added 2026-10-01) | 3,488 | 59,026 | 884 lines | `0ae8174146f0a172fc16eda5b81c6d18ee5e7e33f24967272a3ad6bc363c516c` | committed |
+| block-scans/scan-base.jsonl.gz (row added 2026-10-01) | 14,231 | 461,946 | 1,173 lines = 1,173 JSON records | `68c57290b5191cf3976d08d7fb2a3cd8bc2271e495226075d17312d50a8dd886` | committed |
+| block-scans/scan-mainnet.jsonl.gz (row added 2026-10-01) | 107,631 | 938,054 | 2,071 lines = 2,071 JSON records | `0def6979ae7421439fce7038c0eff247f03b5af00ca8d872ec4e8f6478c69413` | committed |
+| block-scans/scan-mainnet.log.gz (row added 2026-10-01) | 2,517 | 21,316 | 316 lines | `d844eb0e9d71b1194fe4d1f8d0b30da16987ced189ecb2192abe24f56fc6853d` | committed |
 
 ## block-scans/ (added 2026-10-01 by the main session)
 
@@ -252,3 +337,163 @@ Line counts of the `.jsonl` files: scan-arb 23,277; scan-arb2 22,353; scan-base-
 scan-base 1,173; scan-mainnet 2,071. Each line is one route evaluated at one block (fields: block, key, token, route, and
 the scan's per-route values). The exact flags of each run are in the head of its log. The pairing of scan-base.jsonl with
 run 3 is inferred from file modification times (10:49 for both).
+
+## competitor-ledgers/: recomputed XDP-sender ledgers (added 2026-10-01)
+
+Fills former gap 1. Collected 2026-10-01 by `competitor-ledgers/collect/xdp_ledgers.py` (Python 3, requests). Raw values
+only: no deltas, fee sums, conversions or USD values were computed.
+
+**Input and selection** (same selection as `ledger_0x778951` / `ledger_0x0190f0`, see the competitor-ledgers/ table):
+- Input: `competitor-ledgers/arbers_XDP.json.gz`, keys `0x000000c557fa9a96d66cd6371abde62d879d0e61` (163 rows) and
+  `0x3be22b314654c396a12c5e8d79abdd65aac3caaf` (146 rows).
+- Per sender: rows sorted by block (stable sort, file order kept within a block), last 60 taken. The cut does not split a
+  block: the 61st-from-last row is at block 51,998,229 (0x000000c5) and 51,998,984 (0x3be22b31); the script asserts this.
+- Addresses read: the EOA and every distinct `to` of the 60 txs. That is one contract per sender:
+  0x0ce14aeebb7ad6625585979f4c1846946e248e02 for 0x000000c5, and 0x08c61873dc64c5131758ae27cb4d84e773d66d82 for 0x3be22b31.
+- Assets read: ETH (`eth_getBalance`), and `balanceOf(address)` (selector 0x70a08231, `eth_call`) on
+  WETH 0x4200000000000000000000000000000000000006, USDC 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913 and
+  XDP 0x07b3d902783c3c12b077508c3b5c00113d1291d0.
+- Token `decimals()` at block 51,999,354: WETH 18, USDC 6, XDP 18 (`collect/token_decimals.log`). Recorded as metadata; the
+  stored balances are not scaled.
+- Blocks: for every distinct block b holding one of the 60 txs, state at block numbers b-1 and b.
+- Receipts: `eth_getTransactionReceipt` for each of the 60 txs.
+
+**Endpoint and run.** Endpoint: `https://base-mainnet.public.blastapi.io` (archive), with JSON-RPC batches of at most 25
+calls and at most 2 batches in flight. The block parameter is the block number as a hex quantity; the archive state was
+read about 11 h after the blocks. Run times (UTC, 2026-10-01):
+- smoke test 04:04:37, 12 calls (`collect/smoke_xdp_ledgers.log`);
+- full fetch 04:04:37–04:05:19 (`collect/xdp_ledgers.log`): 1,720 distinct calls, 111 HTTP batch requests.
+  - The 1,720 calls are 1,600 balance reads plus 120 receipts. The balance reads are 880 for 0x000000c5 and 720 for 0x3be22b31,
+    one per distinct (queried block, address, asset).
+  - blastapi answered 384 batch items with per-item error 429 ("compute units per second"). Those items were retried with
+    backoff until valid.
+  - Final check: 0 missing or invalid results. A balance result counts as valid if it is a hex quantity; an `eth_call`
+    result must be exactly 32 bytes; a receipt must be non-null.
+- 04:05:48: re-run from the local result cache, with no new RPC calls, after the `block_timestamp` column was added. The
+  result cache (`collect/state/`) was deleted afterwards, so a new run fetches everything again.
+
+Commands (from `research-material/00-prior-runs/competitor-ledgers/collect/`):
+`python3 xdp_ledgers.py --smoke`; `setsid nohup python3 xdp_ledgers.py >> xdp_ledgers.log 2>&1 &`;
+`python3 verify_xdp_ledgers.py > verify_xdp_ledgers.log`.
+
+**`ledger_0x000000c5.raw.csv.gz`, `ledger_0x3be22b31.raw.csv.gz`.** One row per (block, block_tag, address, asset). Rows are
+ordered by block, then tag (b-1 first), then address (EOA first), then asset (ETH, WETH, USDC, XDP).
+
+| Column | Content |
+|---|---|
+| block | block b that holds at least one of the 60 selected txs of the sender |
+| block_tag | `b-1` or `b` |
+| queried_block | block number passed to the RPC call (b-1 or b) |
+| address | lowercase address read |
+| address_role | `eoa` (the sender) or `to_contract` (a `to` of its selected txs) |
+| asset | `ETH`, `WETH`, `USDC` or `XDP` |
+| asset_address | token contract; empty for ETH |
+| balance | raw balance, base-10 integer string in the asset's smallest unit (wei for ETH and WETH) |
+
+Row counts:
+- ledger_0x000000c5: 928 rows = 58 blocks × 2 tags × 2 addresses × 4 assets. Tx blocks 51,998,274–51,999,354; queried
+  blocks 51,998,273–51,999,354 (110 distinct).
+- ledger_0x3be22b31: 784 rows = 49 blocks × 2 tags × 2 addresses × 4 assets. Tx blocks 51,998,986–51,999,352; queried
+  blocks 51,998,985–51,999,352 (90 distinct).
+- Where b-1 of one selected block is itself a selected block (6 cases for 0x000000c5, 8 for 0x3be22b31), the same
+  (queried block, address, asset) value appears in two rows. It was fetched once.
+
+**`receipts_0x000000c5.csv.gz`, `receipts_0x3be22b31.csv.gz`.** 60 rows each, one per selected tx, ordered by input block.
+Integers are base-10 strings converted from the RPC hex quantities. Columns:
+- `sender`, `tx_hash`.
+- `input_block`: the block given in arbers_XDP.json.
+- `block_number`, `block_hash`, `transaction_index`, `from`, `to`, `type`, `status`, `gas_used`, `cumulative_gas_used`,
+  `effective_gas_price` (wei), `l1_fee` (wei), `l1_gas_used`, `l1_gas_price`, `l1_base_fee_scalar`, `l1_blob_base_fee`,
+  `l1_blob_base_fee_scalar`: receipt fields.
+- `block_timestamp` (unix seconds): blastapi returns `blockTimestamp` only inside log entries, so the value comes from the
+  receipt's logs. Every selected tx has logs.
+- `logs_count`.
+- `input_max_priority_fee_gwei`: the third field of the input row, copied verbatim (Python float repr).
+
+Descriptive coverage:
+- 0x000000c5: 60 txs in 58 blocks; block timestamps 2026-09-30 16:31:35–17:07:35 UTC; receipt `type` 0 for all; `status` 1
+  for all; 2 blocks hold 2 of its txs.
+- 0x3be22b31: 60 txs in 49 blocks; 16:55:19–17:07:31 UTC; `type` 2 for all; `status` 1 for all; 9 blocks hold more than one
+  of its txs (at most 3).
+- For all 120 receipts, block number, `from` and `to` match the input row, and `l1Fee` is present.
+
+**`receipts_0x000000c5.full.jsonl.gz`, `receipts_0x3be22b31.full.jsonl.gz`.** The same 60 + 60 `eth_getTransactionReceipt`
+result objects, verbatim. They keep the hex quantities as returned (lowercase), with keys sorted, one per line. They include
+`logs` (every log of the tx, e.g. ERC-20 Transfer and pool Swap events), `logsBloom`, `blobGasUsed` and
+`daFootprintGasScalar`.
+
+**Verification** (`collect/verify_xdp_ledgers.py`, `collect/verify_xdp_ledgers.log`, 04:06:16–04:06:38 UTC):
+- Ledgers: row count equals blocks × 2 × addresses × 4, with no duplicate key; every balance is a non-negative integer
+  string; `queried_block` is consistent with `block_tag`.
+- Receipts: the 60 tx hashes equal the selection, and no cell is empty.
+- Second endpoint: per sender, 20 random ledger rows and 5 receipts (gas_used, effective_gas_price, l1_fee, status,
+  block_number) were re-read from `https://gateway.tenderly.co/public/base`, with 0 mismatches.
+- Total problems: 0.
+
+**Coverage limits:**
+- Balances are block-level state, not per-tx. The difference between b-1 and b includes every selected tx of the sender in
+  block b (up to 3) and any other tx in that block that touched these addresses and tokens.
+- Only the four assets and only the EOA plus its `to` contract were read. Other tokens, and other addresses such as a
+  separate payout address, are not in the ledgers. The full receipts' logs list every token transfer of the selected txs.
+- Native-ETH movements are visible only as `eth_getBalance` differences. No traces (internal calls) were collected.
+- Not collected: transaction objects (`eth_getTransactionByHash`: value, nonce, fee caps, input data) and block headers
+  (base fee).
+- The earlier session's ledgers for these two senders (summary rows in docs/ANALYSIS.md §2.6) were not saved, so these
+  files cannot be compared with them row by row. The new files use the same selection, addresses and assets as the method
+  described for ledger_0x778951 / ledger_0x0190f0, but they store raw balances and receipt fields rather than that
+  method's derived `delta_eth`, `fee_eth` and `xdp_units_delta`.
+
+## block-scans/ fixup (2026-10-01)
+
+Manifest-only fix made by a fixup agent on 2026-10-01 (~04:45Z). No data file was created, changed or moved; nothing was
+fetched from the network.
+
+What changed in this file:
+- Gap 4: the statement that the `scan-*` files, `prof.log` and `repro.log` were not copied was wrong after the main
+  session copied them to `block-scans/` (commit 9c8a37c, 2026-10-01T02:57:03Z). The item now says so; the original list is
+  kept inside the correction note.
+- "Question lines served": block-scans/ added to lines 4 and 8, plus a one-row-per-file table for the 16 files.
+- "Verified inventory (2026-10-01)": 16 rows added for block-scans/, and notes on the file count and the largest file.
+- engine-runs/ provenance note: `dry-all.log` added to the exception for commit fd8d236 (it is the log of the same run as
+  `live-base-all.jsonl`), with the timestamps.
+- misc/: `section-2.6-draft.md` labelled "prior session text, not data".
+
+Checks run on the 16 block-scans/ files (commands from `research-material/00-prior-runs/block-scans/`):
+- `gzip -t <file>`: all 16 pass.
+- `stat -c %s`, `zcat | wc -c`, `zcat | wc -l`, `sha256sum` (of the .gz): values in the inventory rows.
+- `zcat <file> | sha256sum` compared with `sha256sum` of the original of the same name in the git-ignored `bot/data/`
+  (still on disk): all 16 decompressed copies are byte-identical to their originals. Original modification times
+  (2026-09-30 UTC): scan-base-run1.log 10:29:52, scan-base-run2.log 10:39:20, scan-base.jsonl 10:49:32,
+  scan-base-run3.log 10:49:33, prof.log 11:52:23, repro.log 11:54:39, scan-base-run4.jsonl/.log 11:59:52,
+  scan-base-longtail.jsonl/.log 12:02:28, scan-mainnet.jsonl/.log 12:03:07-12:03:08, scan-arb.jsonl/.log 12:06:57-12:06:58,
+  scan-arb2.jsonl/.log 12:15:13.
+- `git status`: all 16 are committed (9c8a37c) with no working-tree change.
+- Every non-blank line of the 6 `.jsonl.gz` files parses as JSON (0 failures). Every record has the same 11 keys:
+  `amountIn`, `block`, `gapBps`, `gas`, `gasEth`, `key`, `netEth`, `profitEth`, `profitToken`, `route`, `token`.
+
+Descriptive metadata (read from the files; no values computed from the scan results):
+
+| File | Records | Distinct `block` values | `block` min-max |
+|---|---:|---:|---|
+| scan-arb.jsonl.gz | 23,277 | 300 | 510,339,422-510,341,080 |
+| scan-arb2.jsonl.gz | 22,353 | 200 | 510,340,911-510,342,914 |
+| scan-mainnet.jsonl.gz | 2,071 | 20 | 26,090,150-26,090,169 |
+| scan-base.jsonl.gz | 1,173 | 60 | 51,987,924-51,988,011 |
+| scan-base-run4.jsonl.gz | 5,239 | 60 | 51,990,047-51,990,122 |
+| scan-base-longtail.jsonl.gz | 10,115 | 60 | 51,990,118-51,990,200 |
+
+| Log | First / last bracketed timestamp (UTC, 2026-09-30) | First `discovering pools` line: chain, tokens | `EXIT` line |
+|---|---|---|---|
+| scan-base-run1.log.gz | 10:28:23-10:29:52 | base, 20 | none |
+| scan-base-run2.log.gz | 10:33:35-10:39:20 | base, 19 | none |
+| scan-base-run3.log.gz | 10:46:21-10:49:32 | base, 19 | none |
+| scan-base-run4.log.gz | 11:57:08-11:59:52 | base, 19 | EXIT 0 |
+| scan-base-longtail.log.gz | 11:59:22-12:02:28 | base, 19 | EXIT 0 |
+| scan-mainnet.log.gz | 11:59:21-12:03:07 | mainnet, 12 | EXIT 0 |
+| scan-arb.log.gz | 11:59:22-12:06:57 | arbitrum, 12 | EXIT 0 |
+| scan-arb2.log.gz | 12:05:56-12:15:13 | arbitrum, 12 | EXIT 0 |
+
+- `prof.log.gz`: first line `start 2026-09-30T11:48:25.740Z`, last line `EXIT 124`. `repro.log.gz`: per-size quote
+  traces for one SushiV2 / AerodromeCL pool pair (pool state at block 51989959), no timestamps.
+- Note on the block-scans/ table above: its row for runs 1-3 says "20 tokens". The `discovering pools` line prints
+  `tokens: 20` for run 1 and `tokens: 19` for runs 2 and 3.

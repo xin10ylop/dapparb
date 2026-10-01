@@ -1,0 +1,112 @@
+{
+ "chain": "worldchain",
+ "head_at_pin": 35746340,
+ "end_tag": "latest",
+ "head_margin": 5,
+ "start_block": 35744536,
+ "end_block": 35746335,
+ "start_timestamp": 1790824711,
+ "end_timestamp": 1790828309,
+ "window_rule": "all blocks with timestamp in (end_timestamp - 3600 s, end_timestamp]",
+ "window_seconds_requested": 3600,
+ "pinned_at_utc": "2026-10-01T04:18:41Z",
+ "chain_id": 480,
+ "endpoints": {
+  "primary": "https://worldchain-mainnet.gateway.tenderly.co",
+  "fallbacks": [
+   "https://480.rpc.thirdweb.com",
+   "https://sparkling-autumn-dinghy.worldchain-mainnet.quiknode.pro"
+  ]
+ },
+ "config": {
+  "chain_id": 480,
+  "window_s": 3600,
+  "end_tag": "latest",
+  "head_margin": 5,
+  "batch": 4,
+  "seg_blocks": 300,
+  "nominal_interval": 2.0,
+  "sentinel": "EVM_CENSUS_WORLDCHAIN",
+  "extra_logs": {},
+  "extra_data_text": false
+ },
+ "status": "complete",
+ "collector": "census.py",
+ "finalized_at_utc": "2026-10-01T04:19:51Z",
+ "n_blocks_in_window": 1800,
+ "measured_block_interval_s": 2.0,
+ "measured_block_interval_note": "(end_timestamp - start_timestamp) / (end_block - start_block); timestamps have 1 s resolution",
+ "counts": {
+  "blocks_written": 1800,
+  "txs": 27246,
+  "reverted": 199,
+  "candidates_A": 769,
+  "candidates_B": 2885,
+  "extra": {},
+  "receipts_not_in_block_tx_list": 0,
+  "distinct_topic0_keys": 485,
+  "gap_blocks": 0
+ },
+ "files": {
+  "blocks": {
+   "files": [
+    "blocks.csv.gz"
+   ],
+   "lines_including_headers": 1801,
+   "sizes_bytes": {
+    "blocks.csv.gz": 104145
+   }
+  },
+  "txs": {
+   "files": [
+    "txs-001.csv.gz"
+   ],
+   "lines_including_headers": 27247,
+   "sizes_bytes": {
+    "txs-001.csv.gz": 1712554
+   }
+  },
+  "reverted": {
+   "files": [
+    "reverted-001.csv.gz"
+   ],
+   "lines_including_headers": 200,
+   "sizes_bytes": {
+    "reverted-001.csv.gz": 16392
+   }
+  },
+  "candidates": {
+   "files": [
+    "candidates-001.jsonl.gz"
+   ],
+   "lines_including_headers": 3654,
+   "sizes_bytes": {
+    "candidates-001.jsonl.gz": 5280681
+   }
+  }
+ },
+ "checks": {
+  "parent_hash_breaks_at": [],
+  "blocks_missing_from_blocks_csv": [],
+  "n_blocks_missing": 0,
+  "canonical_recheck": {
+   "35744536": {
+    "rpc_hash": "0x3021d11c8251f566953d69e648a47033d18d40e940751e39a1d7e0930c021167",
+    "stored_hash": "0x3021d11c8251f566953d69e648a47033d18d40e940751e39a1d7e0930c021167",
+    "match": true
+   },
+   "35746335": {
+    "rpc_hash": "0x4845fdd5713d507bd04c1664e7a19deeb99f7c02d4b696aa11f0b7a3542e7e24",
+    "stored_hash": "0x4845fdd5713d507bd04c1664e7a19deeb99f7c02d4b696aa11f0b7a3542e7e24",
+    "match": true
+   }
+  }
+ },
+ "rpc_requests_by_endpoint": {
+  "https://worldchain-mainnet.gateway.tenderly.co": 494
+ },
+ "rpc_errors_by_endpoint_kind": {
+  "https://worldchain-mainnet.gateway.tenderly.co|retry": 44,
+  "https://worldchain-mainnet.gateway.tenderly.co|item-retry": 176
+ }
+}

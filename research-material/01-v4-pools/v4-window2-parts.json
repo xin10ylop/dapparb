@@ -1,0 +1,371 @@
+{
+ "assembled_utc": "2026-10-01T03:55:58Z",
+ "census_consistency": {
+  "block_hash_different": 0,
+  "block_hash_different_blocks": [],
+  "block_hash_equal": 10595,
+  "blocks_not_in_census": 0,
+  "blocks_with_logs": 10595,
+  "census_blocks_file": "05-base-onchain/blocks.csv.gz",
+  "census_tx_files": [
+   "05-base-onchain/data/txs-bf-0001.csv.gz",
+   "05-base-onchain/data/txs-bf2-0001.csv.gz",
+   "05-base-onchain/data/txs-bf2-0002.csv.gz",
+   "05-base-onchain/data/txs-bf3-0001.csv.gz",
+   "05-base-onchain/data/txs-bf4-0001.csv.gz",
+   "05-base-onchain/data/txs-fw-0001.csv.gz",
+   "05-base-onchain/data/txs-fw-0002.csv.gz",
+   "05-base-onchain/data/txs-gf1-0001.csv.gz"
+  ],
+  "tx_hash_different": 0,
+  "tx_hash_equal": 58372,
+  "txs_not_in_census": 0,
+  "txs_with_census_status_not_1": 0,
+  "txs_with_logs": 58372
+ },
+ "chunks": [
+  {
+   "act_subrequest_blocks": 250,
+   "endpoint": "tenderly",
+   "endpoint_url": "https://gateway.tenderly.co/public/base",
+   "failed_attempts_before": 0,
+   "fetched_utc": "2026-10-01T03:55:26Z",
+   "from": 52006433,
+   "init_request_blocks": 1000,
+   "rows": {
+    "donate": 2,
+    "initialize": 109,
+    "modify_liquidity": 3722,
+    "swap": 8576
+   },
+   "to": 52007432,
+   "xcheck_endpoint": "mainnet.base.org",
+   "xcheck_identical": true,
+   "xcheck_utc": "2026-10-01T03:55:35Z"
+  },
+  {
+   "act_subrequest_blocks": 250,
+   "endpoint": "tenderly",
+   "endpoint_url": "https://gateway.tenderly.co/public/base",
+   "failed_attempts_before": 0,
+   "fetched_utc": "2026-10-01T03:55:27Z",
+   "from": 52007433,
+   "init_request_blocks": 1000,
+   "rows": {
+    "donate": 0,
+    "initialize": 133,
+    "modify_liquidity": 4312,
+    "swap": 10398
+   },
+   "to": 52008432,
+   "xcheck_endpoint": "mainnet.base.org",
+   "xcheck_identical": true,
+   "xcheck_utc": "2026-10-01T03:55:36Z"
+  },
+  {
+   "act_subrequest_blocks": 250,
+   "endpoint": "tenderly",
+   "endpoint_url": "https://gateway.tenderly.co/public/base",
+   "failed_attempts_before": 0,
+   "fetched_utc": "2026-10-01T03:55:28Z",
+   "from": 52008433,
+   "init_request_blocks": 1000,
+   "rows": {
+    "donate": 2,
+    "initialize": 96,
+    "modify_liquidity": 3723,
+    "swap": 9597
+   },
+   "to": 52009432,
+   "xcheck_endpoint": "mainnet.base.org",
+   "xcheck_identical": true,
+   "xcheck_utc": "2026-10-01T03:55:37Z"
+  },
+  {
+   "act_subrequest_blocks": 250,
+   "endpoint": "tenderly",
+   "endpoint_url": "https://gateway.tenderly.co/public/base",
+   "failed_attempts_before": 0,
+   "fetched_utc": "2026-10-01T03:55:28Z",
+   "from": 52009433,
+   "init_request_blocks": 1000,
+   "rows": {
+    "donate": 1,
+    "initialize": 70,
+    "modify_liquidity": 3139,
+    "swap": 7497
+   },
+   "to": 52010432,
+   "xcheck_endpoint": "mainnet.base.org",
+   "xcheck_identical": true,
+   "xcheck_utc": "2026-10-01T03:55:37Z"
+  },
+  {
+   "act_subrequest_blocks": 250,
+   "endpoint": "tenderly",
+   "endpoint_url": "https://gateway.tenderly.co/public/base",
+   "failed_attempts_before": 0,
+   "fetched_utc": "2026-10-01T03:55:30Z",
+   "from": 52010433,
+   "init_request_blocks": 1000,
+   "rows": {
+    "donate": 3,
+    "initialize": 82,
+    "modify_liquidity": 3233,
+    "swap": 6199
+   },
+   "to": 52011432,
+   "xcheck_endpoint": "mainnet.base.org",
+   "xcheck_identical": true,
+   "xcheck_utc": "2026-10-01T03:55:39Z"
+  },
+  {
+   "act_subrequest_blocks": 250,
+   "endpoint": "tenderly",
+   "endpoint_url": "https://gateway.tenderly.co/public/base",
+   "failed_attempts_before": 0,
+   "fetched_utc": "2026-10-01T03:55:30Z",
+   "from": 52011433,
+   "init_request_blocks": 1000,
+   "rows": {
+    "donate": 3,
+    "initialize": 93,
+    "modify_liquidity": 3975,
+    "swap": 6419
+   },
+   "to": 52012432,
+   "xcheck_endpoint": "mainnet.base.org",
+   "xcheck_identical": true,
+   "xcheck_utc": "2026-10-01T03:55:39Z"
+  },
+  {
+   "act_subrequest_blocks": 250,
+   "endpoint": "tenderly",
+   "endpoint_url": "https://gateway.tenderly.co/public/base",
+   "failed_attempts_before": 0,
+   "fetched_utc": "2026-10-01T03:55:31Z",
+   "from": 52012433,
+   "init_request_blocks": 1000,
+   "rows": {
+    "donate": 1,
+    "initialize": 68,
+    "modify_liquidity": 3794,
+    "swap": 5931
+   },
+   "to": 52013432,
+   "xcheck_endpoint": "mainnet.base.org",
+   "xcheck_identical": true,
+   "xcheck_utc": "2026-10-01T03:55:40Z"
+  },
+  {
+   "act_subrequest_blocks": 250,
+   "endpoint": "tenderly",
+   "endpoint_url": "https://gateway.tenderly.co/public/base",
+   "failed_attempts_before": 0,
+   "fetched_utc": "2026-10-01T03:55:31Z",
+   "from": 52013433,
+   "init_request_blocks": 1000,
+   "rows": {
+    "donate": 1,
+    "initialize": 75,
+    "modify_liquidity": 3829,
+    "swap": 6409
+   },
+   "to": 52014432,
+   "xcheck_endpoint": "mainnet.base.org",
+   "xcheck_identical": true,
+   "xcheck_utc": "2026-10-01T03:55:41Z"
+  },
+  {
+   "act_subrequest_blocks": 250,
+   "endpoint": "tenderly",
+   "endpoint_url": "https://gateway.tenderly.co/public/base",
+   "failed_attempts_before": 0,
+   "fetched_utc": "2026-10-01T03:55:32Z",
+   "from": 52014433,
+   "init_request_blocks": 1000,
+   "rows": {
+    "donate": 1,
+    "initialize": 107,
+    "modify_liquidity": 3107,
+    "swap": 6445
+   },
+   "to": 52015432,
+   "xcheck_endpoint": "mainnet.base.org",
+   "xcheck_identical": true,
+   "xcheck_utc": "2026-10-01T03:55:42Z"
+  },
+  {
+   "act_subrequest_blocks": 250,
+   "endpoint": "tenderly",
+   "endpoint_url": "https://gateway.tenderly.co/public/base",
+   "failed_attempts_before": 0,
+   "fetched_utc": "2026-10-01T03:55:32Z",
+   "from": 52015433,
+   "init_request_blocks": 1000,
+   "rows": {
+    "donate": 1,
+    "initialize": 75,
+    "modify_liquidity": 3345,
+    "swap": 7055
+   },
+   "to": 52016432,
+   "xcheck_endpoint": "mainnet.base.org",
+   "xcheck_identical": true,
+   "xcheck_utc": "2026-10-01T03:55:43Z"
+  },
+  {
+   "act_subrequest_blocks": 250,
+   "endpoint": "tenderly",
+   "endpoint_url": "https://gateway.tenderly.co/public/base",
+   "failed_attempts_before": 0,
+   "fetched_utc": "2026-10-01T03:55:33Z",
+   "from": 52016433,
+   "init_request_blocks": 1000,
+   "rows": {
+    "donate": 0,
+    "initialize": 57,
+    "modify_liquidity": 2773,
+    "swap": 4598
+   },
+   "to": 52017160,
+   "xcheck_endpoint": "mainnet.base.org",
+   "xcheck_identical": true,
+   "xcheck_utc": "2026-10-01T03:55:43Z"
+  }
+ ],
+ "columns": {
+  "donate": [
+   "block_number",
+   "tx_hash",
+   "tx_index",
+   "log_index",
+   "pool_id",
+   "sender",
+   "amount0",
+   "amount1"
+  ],
+  "initialize": [
+   "block_number",
+   "tx_hash",
+   "tx_index",
+   "log_index",
+   "pool_id",
+   "currency0",
+   "currency1",
+   "fee_raw",
+   "tick_spacing",
+   "hooks",
+   "sqrt_price_x96",
+   "tick",
+   "dynamic_fee",
+   "hf_before_initialize",
+   "hf_after_initialize",
+   "hf_before_add_liquidity",
+   "hf_after_add_liquidity",
+   "hf_before_remove_liquidity",
+   "hf_after_remove_liquidity",
+   "hf_before_swap",
+   "hf_after_swap",
+   "hf_before_donate",
+   "hf_after_donate",
+   "hf_before_swap_returns_delta",
+   "hf_after_swap_returns_delta",
+   "hf_after_add_liquidity_returns_delta",
+   "hf_after_remove_liquidity_returns_delta"
+  ],
+  "modify_liquidity": [
+   "block_number",
+   "tx_hash",
+   "tx_index",
+   "log_index",
+   "pool_id",
+   "sender",
+   "tick_lower",
+   "tick_upper",
+   "liquidity_delta",
+   "salt"
+  ],
+  "swap": [
+   "block_number",
+   "tx_hash",
+   "tx_index",
+   "log_index",
+   "pool_id",
+   "sender",
+   "amount0",
+   "amount1",
+   "sqrt_price_x96",
+   "liquidity",
+   "tick",
+   "fee"
+  ]
+ },
+ "dataset": "Uniswap V4 PoolManager Swap / ModifyLiquidity / Donate / Initialize logs, Base (chain 8453), window 2",
+ "gaps": [],
+ "parts": {
+  "donate": [
+   {
+    "block_from": 52006433,
+    "block_to": 52017160,
+    "bytes": 1536,
+    "file": "v4-window2-donate-part-0001.csv.gz",
+    "rows": 15,
+    "sha256": "0fb57f21b3a9657920bcd07c16d36ef79ce7694b8225e630d12d013cd0707d0c"
+   }
+  ],
+  "initialize": [
+   {
+    "block_from": 52006433,
+    "block_to": 52017160,
+    "bytes": 125083,
+    "file": "v4-window2-initialize-part-0001.csv.gz",
+    "rows": 965,
+    "sha256": "a3dfe58eb20c5b1094927e2c8a9becf8bfa5862b915c74acd399b7cae184c547"
+   }
+  ],
+  "modify_liquidity": [
+   {
+    "block_from": 52006433,
+    "block_to": 52017160,
+    "bytes": 1280950,
+    "file": "v4-window2-modify-liquidity-part-0001.csv.gz",
+    "rows": 38952,
+    "sha256": "c4cb399dbf2ea068bd628abeb2d7af705775c9098b6bda0d1758ecc7620b36ec"
+   }
+  ],
+  "swap": [
+   {
+    "block_from": 52006433,
+    "block_to": 52017160,
+    "bytes": 7482392,
+    "file": "v4-window2-swap-part-0001.csv.gz",
+    "rows": 79124,
+    "sha256": "305adfbcd6e41a5cc2df67207857a855d8fc2dd085944d7fb4c6c6050ec55e78"
+   }
+  ]
+ },
+ "pool_manager": "0x498581ff718922c3f8e6a244956af099b2652b2b",
+ "rows": {
+  "donate": 15,
+  "initialize": 965,
+  "modify_liquidity": 38952,
+  "swap": 79124
+ },
+ "sort": "block_number, log_index ascending",
+ "topics": {
+  "donate": "0x29ef05caaff9404b7cb6d1c0e9bbae9eaa7ab2541feba1a9c4248594c08156cb",
+  "initialize": "0xdd466e674ea557f56295e2d0218a125ea4b4f0f6f3307b95f85e6110838d6438",
+  "modify_liquidity": "0xf208f4912782fd25c7f114ca3723a2d5dd6f3bcc3ac8db5af63baa85f711d5ec",
+  "swap": "0x40e9cecb9f5f1f1c5b9c97dec2917b7ee92e57ba5563708daca94dd84ad7112f"
+ },
+ "window": {
+  "block_from": 52006433,
+  "block_from_source": "recent-parts.json pin.pinned_block (52006432) + 1",
+  "block_to": 52017160,
+  "block_to_source": ".sentinels/BASE_CENSUS.DONE summary.range_last_block",
+  "blocks": 10728,
+  "utc_from": "2026-09-30T21:03:33Z",
+  "utc_to": "2026-10-01T03:01:07Z"
+ }
+}

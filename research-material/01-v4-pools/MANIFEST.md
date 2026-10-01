@@ -1,14 +1,19 @@
 # 01-v4-pools: Uniswap V4 pools on Base (raw material)
 
-STATUS: COMPLETE WITH GAPS (checked 2026-10-01). All four collectors of this folder finished. Their sentinels in
-`research-material/.sentinels/` are `V4INIT.DONE`, `V4RECENT.DONE`, `V4STATE.DONE` and `HOOKLABELS.DONE`. None of them has a
-`.FAILED` sentinel. The gaps are:
+STATUS: COMPLETE WITH GAPS (checked 2026-10-01). All five collectors of this folder finished. Their sentinels in
+`research-material/.sentinels/` are `V4INIT.DONE`, `V4RECENT.DONE`, `V4STATE.DONE`, `HOOKLABELS.DONE` and `V4WINDOW2.DONE`.
+None of them has a `.FAILED` sentinel. The gaps are:
 1. **Original Initialize files are local-only.** The 22 original V4INIT files `initialize-part-0001..0022.csv.gz` (1,821,644,422
    bytes) are git-ignored. The repository instead holds the compact copy `initialize-compact/`, and `collect/expand_initialize.py`
    rebuilds the original rows from it. 26 of the 27 columns are rebuilt offline. `tx_hash` is rebuilt only with
    `--rpc <Base RPC URL>`, at one `eth_getTransactionByBlockNumberAndIndex` call per row. See section "`initialize-compact/`".
 2. **Wrong `bytes` and `sha256` in `initialize-compact/compact-index.json`.** The values are wrong for all 8 compact parts; the
    row counts are correct. The correct values are in "Verified inventory (2026-10-01)".
+   (Corrected 2026-10-01, fixup: no longer a gap. The main session recomputed `bytes` and `sha256` of every part in
+   `compact-index.json` on 2026-10-01 (commit 9c8a37c, 02:57:03Z) and fixed `collect/compact_initialize.py` to flush the gzip
+   trailer before hashing. Re-checked at ~05:00Z: `bytes` and `sha256` in the index equal `stat` and `sha256sum` of all 8
+   `initialize-compact/pools-part-*.csv.gz` files and the inventory rows. See "Fixup (2026-10-01): compact-index.json and
+   tx-hash-recovery-check.json" at the end of this file.)
 3. **`collect/state/` and `collect/work/` are local-only.** `collect/state/` holds the pins, the V4STATE checkpoints, the hook
    candidate lists and the launch-tx selection checkpoint. `collect/work/` holds the per-chunk checkpoint files and the tx cache.
    Notes R1-R9 in the inventory say how to rebuild each one.
@@ -17,6 +22,12 @@ STATUS: COMPLETE WITH GAPS (checked 2026-10-01). All four collectors of this fol
 5. **Coverage limits of the collection itself**, all listed in "Coverage limits and gaps": a 24 h activity window, a snapshot
    pool set limited to active and recently initialized pools, pinned end blocks, and no mempool, priority-fee or
    transfer-tax data.
+
+Correction 2026-10-01 (V4WINDOW2, about 04:00Z): the status line above said "All four collectors" and listed four sentinels.
+A fifth collector, V4WINDOW2 (`collect/v4window2_collector.py`), was added afterwards; it covers blocks 52,006,433-52,017,160,
+the span after the 24 h activity window up to the end of the Base census. Item 5 ("a 24 h activity window") therefore now reads:
+a 24 h activity window (51,963,233-52,006,432) plus a second window (52,006,433-52,017,160). See section "V4WINDOW2 (2026-10-01):
+PoolManager logs for blocks 52,006,433-52,017,160 and snapshot at block 52,017,008" at the end of this file.
 
 Earlier status lines, kept for provenance:
 - First version of this file: "V4INIT, V4RECENT and V4STATE are COMPLETE (sentinels DONE). HOOKLABELS (item 4 refresh:
@@ -47,6 +58,26 @@ folder serves is quoted verbatim below the table.
 | 5 | `v4-initialize-7d-part-0001.csv.gz`, `v4-swap-part-0001.csv.gz`, `v4-modify-liquidity-part-0001.csv.gz`, `v4-donate-part-0001.csv.gz`, `recent-parts.json`, `initialize-compact/` (all files) with `collect/expand_initialize.py`, `initialize-parts.json` (and the local-only `initialize-part-0001..0022.csv.gz`), `state-snapshot.csv.gz`, `pool-keys-snapshot.csv.gz`, `token-metadata.csv.gz`, `state-index.json`, `hooks.csv`, `hook-labels-long.csv`, `hook-pool-counts-all.csv.gz`, `hook-docs/launch-tx-samples-tx.csv.gz`, `hook-docs/launch-tx-samples-logs.csv.gz`, `hook-docs/` (other files), `timestamps-check.csv` |
 | 8 | `initialize-compact/` (all files) with `collect/expand_initialize.py`, `initialize-parts.json` (and the local-only `initialize-part-0001..0022.csv.gz`), `collect/v4init_collector.py`, `collect/find_deploy_block.py`, `collect/find_deploy_block.log`, `v4-initialize-7d-part-0001.csv.gz`, `v4-swap-part-0001.csv.gz`, `v4-modify-liquidity-part-0001.csv.gz`, `v4-donate-part-0001.csv.gz`, `recent-parts.json`, `collect/v4recent_collector.py`, `state-snapshot.csv.gz`, `pool-keys-snapshot.csv.gz`, `token-metadata.csv.gz`, `state-index.json`, `hooks.csv`, `hook-labels-long.csv`, `hook-pool-counts-all.csv.gz`, `hook-docs/` (all files), `timestamps-check.csv` |
 | 2, 4, 6, 7 | none |
+
+Additions 2026-10-01 (V4WINDOW2), one row per new file. Each file serves the lines its V4RECENT/V4STATE counterpart serves in
+the table above (counterpart in brackets); nothing in V4WINDOW2 serves lines 2, 4, 6 or 7.
+
+| new file | lines | counterpart in the table above |
+|---|---|---|
+| `v4-window2-swap-part-0001.csv.gz` | 1, 3 (V4 pools only), 5, 8 | `v4-swap-part-0001.csv.gz` |
+| `v4-window2-modify-liquidity-part-0001.csv.gz` | 1, 3 (V4 pools only), 5, 8 | `v4-modify-liquidity-part-0001.csv.gz` |
+| `v4-window2-donate-part-0001.csv.gz` | 1, 3 (V4 pools only), 5, 8 | `v4-donate-part-0001.csv.gz` |
+| `v4-window2-initialize-part-0001.csv.gz` | 1, 5, 8 | `v4-initialize-7d-part-0001.csv.gz` |
+| `v4-window2-parts.json` | 1, 3 (V4 pools only), 5, 8 | `recent-parts.json` |
+| `v4-window2-state-snapshot.csv.gz` | 1, 3 (V4 pools only), 5, 8 | `state-snapshot.csv.gz` |
+| `v4-window2-pool-keys.csv.gz` | 1, 3 (V4 pools only), 5, 8 | `pool-keys-snapshot.csv.gz` |
+| `v4-window2-token-metadata.csv.gz` | 1, 3 (V4 pools only), 5, 8 | `token-metadata.csv.gz` |
+| `v4-window2-state-index.json` | 1, 3 (V4 pools only), 5, 8 | `state-index.json` |
+| `collect/v4window2_collector.py` | 8 | `collect/v4recent_collector.py` |
+| `collect/v4window2.log` | 8 | (collector log) |
+| `collect/smoke_v4window2.log` | 8 | (smoke-test log) |
+| `collect/v4window2_consistency.py` | 8 | (consistency checks, no counterpart) |
+| `collect/v4window2_consistency.log` | 8 | (consistency checks, no counterpart) |
 
 Question lines served (verbatim):
 - 1: 'Uniswap V4 on Base. This is the biggest gap. Clanker and Zora launch new tokens as V4 pools with hooks, and I only had 20 V4 pools. The engine supports V4. It just doesn't list every V4 pool yet.'
@@ -143,6 +174,10 @@ to 21:57Z so that the V4INIT data fits in git:
 - `collect/compact_initialize.py` writes the compact copy; its log is `collect/compact_initialize.log`.
 - `collect/expand_initialize.py` does the reverse.
 - `tx-hash-recovery-check.json` was written at 21:56:49Z. The script that wrote it is not in this folder.
+  (Added 2026-10-01, fixup: the main session wrote it with an inline script that was not saved as a file. The script took a
+  40-row sample of the original Initialize rows and called `eth_getTransactionByBlockNumberAndIndex(block_number, tx_index)` on
+  `https://base-mainnet.public.blastapi.io` for each; the file stores the returned hashes and the counts `checked` 40 /
+  `matched` 40.)
 
 Correction 2026-10-01: an earlier version of this manifest said these files "appeared at about 21:46-21:57Z, written by another
 agent ... They are not described or maintained by this manifest." They are now described here.
@@ -151,7 +186,7 @@ agent ... They are not described or maintained by this manifest." They are now d
 |---|---|
 | `pools-part-0001..0008.csv.gz` | one row per row of `initialize-part-*`, in the same order. Columns: block_number, tx_index, log_index, currency0, currency1, fee_raw, tick_spacing, hook_id, sqrt_price_x96, tick. Values are copied unchanged from the originals. hook_id is the `hook_id` of the hook address in `initialize-compact/hooks.csv` |
 | `hooks.csv` | hook_id, hooks (address), and the 14 `hf_*` columns copied from the originals. One row per distinct `hooks` address (74,887), numbered in order of first appearance. `compact_initialize.py` aborts if one address carries different flags in two rows |
-| `compact-index.json` | source_parts (the 22 originals), total_rows 15,333,247, pool_id_recomputed_mismatches 0, block_logindex_order_violations 0, distinct_hooks 74,887, parts[] (file, rows, block_from, block_to, bytes, sha256), and `rebuild` (text). **The `bytes` and `sha256` values in parts[] are wrong for all 8 parts** (see below). `rows`, `block_from` and `block_to` are correct |
+| `compact-index.json` | source_parts (the 22 originals), total_rows 15,333,247, pool_id_recomputed_mismatches 0, block_logindex_order_violations 0, distinct_hooks 74,887, parts[] (file, rows, block_from, block_to, bytes, sha256), and `rebuild` (text). **The `bytes` and `sha256` values in parts[] are wrong for all 8 parts** (see below). `rows`, `block_from` and `block_to` are correct. *(Corrected 2026-10-01, fixup: since commit 9c8a37c the `bytes` and `sha256` values in parts[] are correct for all 8 parts, re-checked against the files; the file also has a new key `index_correction` describing the recomputation.)* |
 | `tx-hash-recovery-check.json` | method (`eth_getTransactionByBlockNumberAndIndex on base-mainnet.public.blastapi.io`), checked 40, matched 40, and rows[] of 40 (block_number, tx_index, tx_hash returned by the RPC) |
 
 The columns left out of the compact copy, and how to rebuild them exactly:
@@ -184,6 +219,8 @@ Checks done on 2026-10-01 (this documentation pass; read-only):
     trailer. `compact_initialize.py` hashed each part before the last bytes were flushed to disk.
   - All 8 files pass `gzip -t`, and their row counts equal `compact-index.json`.
   - The correct bytes and sha256 values are in the inventory table.
+  - (Added 2026-10-01, fixup: this describes the index as first written. The main session has since recomputed the values in
+    `compact-index.json` and fixed `compact_initialize.py`; the index now matches the files.)
 
 ### `v4-swap-part-NNNN.csv.gz`
 Columns, all raw:
@@ -444,17 +481,26 @@ Endpoints used:
   - V4RECENT was restarted in the same way (`collect/v4recent.run1.log`).
   - No data from the first runs was dropped: each chunk file is complete or absent.
 - **Pinned heads.** Initialize events after block 52,006,302 are not in `initialize-part-*` / `initialize-compact/`. Those up to 52,006,432 are in `v4-initialize-7d-*`.
+  Addition 2026-10-01 (V4WINDOW2): those from 52,006,433 to 52,017,160 are in `v4-window2-initialize-part-0001.csv.gz`.
+  Initialize events after block 52,017,160 were not collected.
 - **Launch activity is covered at block level only for one day.**
   - The 24 h activity window runs from 2026-09-29T21:03Z to 2026-09-30T21:03Z. Earlier Swap/ModifyLiquidity/Donate history was
     not collected.
   - Pending or mempool transactions were not collected, and neither were the priority fees paid by swaps.
+  - Correction 2026-10-01 (V4WINDOW2): "only for one day" is no longer accurate. Swap/ModifyLiquidity/Donate logs are now also
+    collected for blocks 52,006,433-52,017,160 (2026-09-30T21:03:33Z to 2026-10-01T03:01:07Z) in `v4-window2-*`, so block-level
+    activity covers 51,963,233-52,017,160 without a gap. History before 51,963,233 and after 52,017,160 was not collected.
 - **State snapshot scope.**
   - The snapshot covers only pools active in the 24 h window or initialized in the 7-day window, at one block.
+  - Addition 2026-10-01 (V4WINDOW2): a second snapshot, `v4-window2-state-snapshot.csv.gz`, covers the pools that appear in the
+    window-2 logs, at block 52,017,008. See the V4WINDOW2 section for its scope.
   - Tick-level liquidity (tick bitmap / ticks) was not collected.
   - Hook contract internal state (fees set by dynamic-fee hooks, anti-snipe windows) was not collected. The only exception is
     the verified sources saved in hook-docs/blockscout/*.smart_contract.json.gz.
 - **Token metadata** covers only currencies of the snapshot pools, not every currency in the full Initialize set. Transfer
   restrictions or taxes of tokens were not probed.
+  Addition 2026-10-01 (V4WINDOW2): `v4-window2-token-metadata.csv.gz` adds the currencies of the window-2 pools that are not in
+  `token-metadata.csv.gz`. Together, the two files cover every currency of both snapshots.
 - **Hook labels.**
   - Blockscout metadata was fetched only for the candidate lists in `collect/state/`. These lists are local-only; note R7 says
     how to rebuild them exactly from the committed `hook-docs/blockscout/index.jsonl.gz`.
@@ -484,6 +530,7 @@ Endpoints used:
 | V4RECENT | `.sentinels/V4RECENT.DONE` | `collect/v4recent.log` (and `collect/v4recent.run1.log`) | DONE 2026-09-30T21:12:21Z |
 | V4STATE | `.sentinels/V4STATE.DONE` | `collect/v4recent.log` | DONE 2026-09-30T21:46:25Z |
 | HOOKLABELS (item 4 refresh) | `.sentinels/HOOKLABELS.DONE` | `collect/hooks_pipeline.log`, `collect/hook_blockscout.log`, `collect/launch_tx_samples.log`, `collect/build_hooks_csv.log`, `collect/verify_launch_tx_selection.log` | DONE 2026-10-01T02:09:44Z, after a re-run. The first run was killed at about 22:07-22:09Z on 2026-09-30, and `HOOKLABELS.FAILED` was written at that time. `hooks.csv`, `hook-labels-long.csv`, `hook-docs/blockscout/*` and `hook-docs/launch-tx-samples-*.csv.gz` are final |
+| V4WINDOW2 (row added 2026-10-01) | `.sentinels/V4WINDOW2.DONE` | `collect/v4window2.log`, `collect/smoke_v4window2.log`, `collect/v4window2_consistency.log` | DONE 2026-10-01T03:57:28Z, single run, no restart. Blocks 52,006,433-52,017,160, 11 chunks, 0 gaps. See the V4WINDOW2 section at the end of this file |
 
 Correction 2026-10-01: this table first gave the status at 2026-09-30 ~21:56Z, with HOOKLABELS "RUNNING (detached
 `collect/hooks_pipeline.sh`)" and the note "When it finishes ... the counts in the table above for those files are then outdated.
@@ -505,8 +552,11 @@ Stable file layout for downstream readers:
 - `initialize-parts.json` lists the V4INIT parts (`initialize-part-NNNN.csv.gz`, NNNN = 0001..0022). These parts are
   local-only.
 - `initialize-compact/compact-index.json` lists the committed compact parts. Take bytes and sha256 from the inventory below, not
-  from that file.
+  from that file. (Corrected 2026-10-01, fixup: since commit 9c8a37c the bytes and sha256 in that file are correct and equal the
+  inventory.)
 - `recent-parts.json` lists the V4RECENT parts, and `state-index.json` lists the V4STATE files.
+- (Added 2026-10-01, V4WINDOW2) `v4-window2-parts.json` lists the V4WINDOW2 log parts with the per-chunk endpoints, and
+  `v4-window2-state-index.json` lists the V4WINDOW2 snapshot files.
 
 ## HOOKLABELS re-run 2026-10-01 (memory fix of launch_tx_samples.py)
 
@@ -635,6 +685,10 @@ All counts in this table were re-checked on 2026-10-01 and match.
 
 ## Verified inventory (2026-10-01)
 
+Note added 2026-10-01 (V4WINDOW2): this inventory was taken before V4WINDOW2 ran. Its file totals (for example "16,767 files")
+and tables do not include the V4WINDOW2 files. Those files are listed, with bytes, rows and sha256, in the V4WINDOW2 section at
+the end of this file.
+
 **Method.** Every file in the folder was read once by streaming; no data file was modified. For each file the check recorded:
 - size in bytes and sha256. Every file is at most 100 MB; the largest is 89,919,415 bytes.
 - `gzip -t` for every `.gz` file.
@@ -657,7 +711,8 @@ The verification processes used under 150 MB RSS each, as observed with `ps`.
     contiguous over 25,350,988-52,006,302.
   - `recent-parts.json`: rows, bytes and sha256 match all 4 parts.
   - `initialize-compact/compact-index.json`: rows match all 8 parts (sum 15,333,247). Bytes and sha256 match none of them; see
-    section "`initialize-compact/`".
+    section "`initialize-compact/`". (Corrected 2026-10-01, fixup: after the main session's recomputation (commit 9c8a37c),
+    rows, bytes and sha256 match all 8 parts.)
 - **Rebuild.** The rows rebuilt by `collect/expand_initialize.py` equal the 22 originals in all 26 columns other than
   `tx_hash`, with 0 mismatches over 15,333,247 rows. All 40 tx-hash-recovery-check rows match.
 - **Work chunks.**
@@ -766,7 +821,7 @@ The verification processes used under 150 MB RSS each, as observed with `ps`.
 
 | file | bytes | rows / lines | sha256 | git |
 |---|---|---|---|---|
-| `initialize-compact/compact-index.json` | 3,645 | JSON dict, parses | `66608d148888ace7429e49b147906e052496cd6f205373f9c00950b11b3db7f1` | committed |
+| `initialize-compact/compact-index.json` | 3,904 | JSON dict, parses; parts[] bytes/sha256 match the 8 part files (re-checked 2026-10-01 fixup). Corrected row: previously 3,645 bytes, sha256 `66608d148888ace7429e49b147906e052496cd6f205373f9c00950b11b3db7f1` (version of commit 7639ca0, before the recomputation) | `494c2463eddcb606123b093a2b23759ec3cfb50f39eb2deb585198df3d11e164` | committed (9c8a37c) |
 | `initialize-compact/hooks.csv` | 5,755,540 | 74,887 rows | `0c04c318d0e5266f6b3201eadb4a5048546facd2cebed5ef2c2419ce1850ba15` | committed |
 | `initialize-compact/pools-part-0001.csv.gz` | 89,308,775 | 2,200,000 rows | `81245894dd3b38dfd84085e79cdfd81d6991eef91dc4c1e536a9776019e7cec5` | committed |
 | `initialize-compact/pools-part-0002.csv.gz` | 89,919,415 | 2,260,000 rows | `304089ca3f14c727a8739820c3f0ed8e0a66c67925e1967a734d2c8602fcfe3a` | committed |
@@ -888,7 +943,7 @@ The verification processes used under 150 MB RSS each, as observed with `ps`.
 | `collect/build_hooks_csv.py` | 7,405 | 120 lines | `2186f4e99229ef406e28421dde62855e3bed5aab3f41ba1fd670da19601b1746` | committed |
 | `collect/common.py` | 16,747 | 407 lines | `d7f5ce6cb625422088bc550155e44a90f6a5e2159aac92c31b170759ffe9241c` | committed |
 | `collect/compact_initialize.log` | 1,355 | 16 lines | `4a08cb9791329048a08e1d8d968e60fdecfb498a802f99315f744c5fa619dc32` | committed |
-| `collect/compact_initialize.py` | 5,089 | 94 lines | `f3050bab42c5d49245d55df46bf52baf3658b9f165fa4d1914020dbca4940869` | committed |
+| `collect/compact_initialize.py` | 5,271 | 95 lines | `b99fd2735f02ffc17c76fbb4b65812e4879e306320870a283f02ecd62e71b580` | committed (9c8a37c). Corrected row (2026-10-01 fixup): previously 5,089 bytes, 94 lines, sha256 `f3050bab42c5d49245d55df46bf52baf3658b9f165fa4d1914020dbca4940869`, the version before the gzip-trailer fix |
 | `collect/expand_initialize.py` | 2,771 | 43 lines | `2c156b1ac052c24796a463c11fa7a415547955d5e02415959987c55e9619d336` | committed |
 | `collect/fetch_docs.log` | 4,182 | 38 lines | `00bc518b3e689d74a799c21094aad388592b9968eb9cd471adf28828b04e2e6d` | committed |
 | `collect/fetch_docs.py` | 9,706 | 190 lines | `e0b55391931123ed22d25266e50092dba301568a9ad995938c9c4a832c22a3a9` | committed |
@@ -955,3 +1010,226 @@ The verification processes used under 150 MB RSS each, as observed with `ps`.
 | `collect/work/v4recent/` `init_*.csv.gz` | 152 | 3,950,419 | 29,900 lines in total (no header line in these files) | `a6e41003a0a6ee408513c8f7ca1759af443a2b605f582eb7e24f333f0fc16cd6` | local-only (R3) |
 | `collect/work/v4recent/` `*` | 325 | 60,971,753 | act + init together | `c17ef81524b3008b1f91bdb3f8e67835737b28ac96b71e1f213753b1dc422e74` | local-only (R3) |
 | `collect/__pycache__/` `*.pyc` | 5 | 76,892 | compiled Python bytecode | `794b582c80d3d7d98c896918bbbf804925034d8c8c722b5722fa20628585a4f2` | local-only (R9) |
+
+## V4WINDOW2 (2026-10-01): PoolManager logs for blocks 52,006,433-52,017,160 and snapshot at block 52,017,008
+
+Added by a later collection pass to close a completeness gap: the span after the V4RECENT 24 h activity window, up to the end
+of the Base block census, was not covered by any Uniswap V4 log file in this folder. That span contains the shallow-pool live
+test and the valid V4 live test (blocks 52,016,408-52,017,008, 2026-10-01T02:36:03Z to 02:56:03Z; see `../02-v4-live-test/`
+and `../04-shallow-pools/`). Raw data only; nothing below interprets it.
+
+Sentinel: `.sentinels/V4WINDOW2.DONE` (2026-10-01T03:57:28Z). Script: `collect/v4window2_collector.py`. Logs:
+`collect/v4window2.log` (full run), `collect/smoke_v4window2.log` (smoke test), `collect/v4window2_consistency.log`
+(read-only checks by `collect/v4window2_consistency.py`). One run from 03:55:24Z to 03:57:28Z, with no restart and no
+chunk-level failure. Request-level retries are not logged.
+
+### Window and pinned blocks
+
+| item | value | source |
+|---|---|---|
+| first block (W0) | 52,006,433 (2026-09-30T21:03:33Z) | `recent-parts.json` `pin.pinned_block` (52,006,432) + 1, so the window starts right after the V4RECENT activity window |
+| last block (W1) | 52,017,160 (2026-10-01T03:01:07Z) | `.sentinels/BASE_CENSUS.DONE` `summary.range_last_block` (last block of `../05-base-onchain/`) |
+| blocks | 10,728, inclusive | |
+| snapshot block (S) | 52,017,008 (2026-10-01T02:56:03Z) | the last block of the valid V4 live test, as specified for this pass |
+| chain state at start | head 52,018,788, `finalized` block 52,018,149 (Tenderly, 03:55:24Z); W1 was below the finalized block | `collect/state/v4window2-run.json` (local-only); also the first line of `collect/v4window2.log` |
+
+The window is a constant in the script (no head pin), so a rerun covers the same blocks. Timestamps follow
+`timestamp = 1686789347 + 2 * block_number` (see "Block and time conventions").
+
+### Method (logs)
+
+- The window is split into 11 chunks of 1,000 blocks aligned at W0; the last chunk (52,016,433-52,017,160) has 728 blocks.
+- Per chunk, two `eth_getLogs` queries with `address` = PoolManager `0x498581ff718922c3f8e6a244956af099b2652b2b`:
+  - topics `[[Swap, ModifyLiquidity, Donate]]`, sent as 250-block sub-requests (the same 250-block size V4RECENT used);
+  - topic0 = Initialize, one request over the whole chunk.
+- `common.get_logs_range` is reused unchanged: bisection on range or size errors, any response with at least 5,000 logs
+  re-fetched as two halves, every log checked for block inside the requested range and `removed == false`. Counted from the
+  output, the largest 250-block sub-range holds 4,004 logs, below the 5,000-log re-fetch threshold. Request-level retries and
+  bisections on range errors inside `get_logs_range` are not logged, so the log files cannot show whether any happened.
+- Decoding reuses the V4RECENT code unchanged: `common.decode_activity` for Swap/ModifyLiquidity/Donate (with the same
+  de-duplication on (block_number, log_index) and the same sort as `v4recent_collector.fetch_act`), and
+  `v4init_collector.decode_chunk` for Initialize. decode_chunk checks `pool_id == keccak256(abi.encode(PoolKey))` on every row.
+  The output columns are therefore identical to `v4-swap-part-0001.csv.gz`, `v4-modify-liquidity-part-0001.csv.gz`,
+  `v4-donate-part-0001.csv.gz` and `v4-initialize-7d-part-0001.csv.gz`.
+- Primary endpoint: gateway.tenderly.co/public/base (at most 2 requests in flight). The script falls back to mainnet.base.org,
+  then developer-access-mainnet.base.org, if a chunk fails. No fallback was needed: Tenderly served all 11 chunks on the first
+  attempt.
+- Cross-check: each of the 11 chunks was fetched a second time from mainnet.base.org (2,000-block limit; same 250-block
+  sub-requests, at most 2 in flight) and decoded the same way. For all 11 chunks the decoded rows of all four event types were
+  identical, and so were the `blockHash` values of every block with a log.
+- Smoke test before the run (`collect/smoke_v4window2.log`): blocks 52,016,961-52,017,160 from Tenderly and mainnet.base.org
+  gave identical rows (1,186 Swap, 460 ModifyLiquidity, 0 Donate, 6 Initialize) and identical block hashes. One Swap log
+  (tx `0x2b0536050759437cc96df0d5b90b6948e0cdcdb121d4ea891c7bc1eb9bcf7f0e`, log index 71) was decoded by hand with
+  `cast decode-abi "f(int128,int128,uint160,uint128,int24,uint24)"` from its receipt; all six values equal the decoder output.
+- Gaps: none. Every chunk has a primary fetch and an identical cross-check, and the chunks are contiguous from W0 to W1. No
+  `collect/state/v4window2-gaps.json` exists; the script writes it, and `V4WINDOW2.FAILED`, only if a chunk is missing or its
+  cross-check differs.
+
+Per-chunk endpoints (also in `v4-window2-parts.json` `chunks[]`, with fetch times):
+
+| chunk (blocks) | primary endpoint | Swap | ModifyLiquidity | Donate | Initialize | cross-check endpoint | cross-check |
+|---|---|---|---|---|---|---|---|
+| 52,006,433-52,007,432 | tenderly | 8,576 | 3,722 | 2 | 109 | mainnet.base.org | identical |
+| 52,007,433-52,008,432 | tenderly | 10,398 | 4,312 | 0 | 133 | mainnet.base.org | identical |
+| 52,008,433-52,009,432 | tenderly | 9,597 | 3,723 | 2 | 96 | mainnet.base.org | identical |
+| 52,009,433-52,010,432 | tenderly | 7,497 | 3,139 | 1 | 70 | mainnet.base.org | identical |
+| 52,010,433-52,011,432 | tenderly | 6,199 | 3,233 | 3 | 82 | mainnet.base.org | identical |
+| 52,011,433-52,012,432 | tenderly | 6,419 | 3,975 | 3 | 93 | mainnet.base.org | identical |
+| 52,012,433-52,013,432 | tenderly | 5,931 | 3,794 | 1 | 68 | mainnet.base.org | identical |
+| 52,013,433-52,014,432 | tenderly | 6,409 | 3,829 | 1 | 75 | mainnet.base.org | identical |
+| 52,014,433-52,015,432 | tenderly | 6,445 | 3,107 | 1 | 107 | mainnet.base.org | identical |
+| 52,015,433-52,016,432 | tenderly | 7,055 | 3,345 | 1 | 75 | mainnet.base.org | identical |
+| 52,016,433-52,017,160 | tenderly | 4,598 | 2,773 | 0 | 57 | mainnet.base.org | identical |
+
+### Consistency checks against other folders (descriptive; no data file was changed)
+
+Results are in `v4-window2-parts.json` `census_consistency` and in `collect/v4window2_consistency.log`.
+- **Block hashes.** The 10,595 blocks that have at least one of these logs were compared with `block_hash` in
+  `../05-base-onchain/blocks.csv.gz`. All 10,595 are equal, 0 differ and 0 are missing from the census.
+- **Transactions.** The 58,372 distinct (block_number, tx_index) pairs in the four log files were looked up in
+  `../05-base-onchain/data/txs-*.csv.gz`. All 58,372 are present with the same tx_hash, and all have census `status` 1.
+- **Initialize top-up of 02-v4-live-test.** On blocks 52,006,433-52,015,481, the overlap with
+  `../02-v4-live-test/initialize-topup.csv.gz`, both files hold 840 rows with the same header. The (block_number, log_index)
+  sets are the same, and 0 rows differ in any of the 27 columns.
+- **Adjacency.** The V4RECENT activity parts end at block 52,006,432 (`recent-parts.json`), and window 2 starts at 52,006,433.
+- **Snapshot against the logs.** Pools whose last Swap in the window is at or before block 52,017,008, or that have no Swap but
+  were initialized in the window at or before that block, were compared with the `getSlot0` result at 52,017,008. Each pool was
+  compared on the `sqrt_price_x96` and `tick` of that last Swap (3,841 pools) or Initialize (602 pools). All 4,443 pools are
+  equal on both values, and 0 differ. The other 359 snapshot pools were not compared, because they have no Swap and no
+  Initialize in the window at or before S. Their window events at or before S are ModifyLiquidity/Donate only, or all their
+  window events come after S; the 6 pools initialized after S are among them.
+
+### Method (snapshot, pool keys, token metadata)
+
+- **Pool set.** Every pool_id in any of the four window-2 log files: 4,802 pools. 4,794 have a Swap, ModifyLiquidity or
+  Donate in the window, and 965 have their Initialize in the window. 957 pools have both, 3,837 have only activity and 8 have
+  only an Initialize.
+- **State.** `v4recent_collector.snapshot_state` is reused unchanged. It calls `StateView.getSlot0(poolId)` and
+  `getLiquidity(poolId)` through Multicall3 `aggregate3` (allowFailure, 250 pools = 500 calls per eth_call, 3 parallel
+  batches) at blockTag 52,017,008. It tries base-mainnet.public.blastapi.io, developer-access-mainnet.base.org, base.drpc.org
+  and gateway.tenderly.co/public/base in random order, with at most 1 request in flight per endpoint. A failed item is retried
+  as a direct eth_call. `slot0_ok` = 1 and `liquidity_ok` = 1 on all 4,802 rows. As in V4STATE, the file does not record
+  whether a value came from the multicall or from the direct-call retry.
+- **Pool keys.** Resolved for all 4,802 pools from Initialize logs only, in this order:
+  1. the window-2 Initialize rows (965, `key_source` = `initialize_log_window2`);
+  2. `pool-keys-snapshot.csv.gz` (2,305 rows, copied with their `key_source`: 697 `initialize_log_7d`, 1,608 `initialize_log_v4init`);
+  3. a streaming scan of the local V4INIT originals `initialize-part-0001..0022.csv.gz` (1,532 rows, `initialize_log_v4init`).
+  In a fresh clone, where the originals are absent, the script reads `initialize-compact/` through
+  `expand_initialize.iter_rows()` instead. That fallback was checked for import and for its first row, but was not run in full.
+
+  Every key was re-checked with `keccak256(abi.encode(currency0, currency1, fee, tickSpacing, hooks)) == pool_id`. There were
+  0 mismatches and 0 unresolved pools.
+- **Token metadata.** The 4,802 keys contain 3,676 distinct currencies: native ETH (`0x000…000`), 1,751 addresses already in
+  `token-metadata.csv.gz`, and 1,924 new addresses. Only the 1,924 new addresses were queried, with
+  `v4recent_collector.token_metadata` unchanged: `symbol()`, `name()`, `decimals()` and `totalSupply()` in Multicall3 batches of
+  100 tokens, with a retry multicall of failed items and a direct eth_call for items still failing. The call block was
+  52,017,008.
+
+  When all four calls for an address return success with empty return data, the script reads `eth_getCode` at 52,017,008. If
+  there is no code at that block, it calls the four functions again at W1 = 52,017,160. This happened for 5 addresses; each had
+  no code at 52,017,008 (getCode on blastapi):
+  - `0x2929843e25beee024173e0f1d033b2714cc42bdc`
+  - `0x349a345b126b9435e949e368b7a3cdfc285e9106`
+  - `0x87aa4de41c1ee8a6b6697899137b18456e0f8b07`
+  - `0x96588176b8c74fd7f6005f7206bd15ab53446680`
+  - `0xe9551896c2b105ca41078da76fbd7590ce70da5a`
+
+  These 5 rows carry `call_block` 52,017,160, and the other 1,919 carry 52,017,008. In the final file all 1,924 x 4 calls have
+  `_ok` = 1 and `_call_mode` = `multicall`, and no row has an empty return on all four calls. The file has no native row,
+  because the native row is already in `token-metadata.csv.gz`.
+
+### File schemas (V4WINDOW2)
+
+| file | columns |
+|---|---|
+| `v4-window2-swap-part-NNNN.csv.gz` | identical to `v4-swap-part-NNNN.csv.gz` (12 columns: block_number, tx_hash, tx_index, log_index, pool_id, sender, amount0, amount1, sqrt_price_x96, liquidity, tick, fee); all raw |
+| `v4-window2-modify-liquidity-part-NNNN.csv.gz` | identical to `v4-modify-liquidity-part-NNNN.csv.gz` (10 columns); all raw |
+| `v4-window2-donate-part-NNNN.csv.gz` | identical to `v4-donate-part-NNNN.csv.gz` (8 columns); all raw |
+| `v4-window2-initialize-part-NNNN.csv.gz` | identical to `v4-initialize-7d-part-NNNN.csv.gz` / `initialize-part-NNNN.csv.gz` (27 columns; `dynamic_fee` and the 14 `hf_*` columns are derived as described there) |
+| `v4-window2-state-snapshot.csv.gz` | the same 11 columns in the same order as `state-snapshot.csv.gz`, with columns 2 and 3 renamed to fit this window: pool_id, **active_window2** (1 if the pool has any Swap/ModifyLiquidity/Donate in 52,006,433-52,017,160), **initialized_window2** (1 if its Initialize is in 52,006,433-52,017,160), snapshot_block (52017008), slot0_ok, sqrt_price_x96, tick, protocol_fee, lp_fee, liquidity_ok, liquidity. Decoding is as for `state-snapshot.csv.gz` (derived, lossless) |
+| `v4-window2-pool-keys.csv.gz` | identical to `pool-keys-snapshot.csv.gz` (pool_id, currency0, currency1, fee_raw, tick_spacing, hooks, init_block, key_source). The key_source values used are `initialize_log_window2` (new: from `v4-window2-initialize-part-0001.csv.gz`), `initialize_log_7d` and `initialize_log_v4init`. `position_manager_poolKeys_at_snapshot` and `unresolved` do not occur. One row per pool of the window-2 snapshot |
+| `v4-window2-token-metadata.csv.gz` | the 22 columns of `token-metadata.csv.gz` in the same order and with the same meaning, plus a trailing column **call_block**: the block at which the four calls were made (52017008, or 52017160 for the 5 addresses above). One row per currency of the window-2 pools that is not an address in `token-metadata.csv.gz`; `is_native` is 0 on every row |
+| `v4-window2-parts.json` | dataset, pool_manager, window (block_from, block_to, blocks, sources, utc_from, utc_to), topics, rows, columns, parts{swap, modify_liquidity, donate, initialize}[] (file, rows, block_from, block_to, bytes, sha256), chunks[] (from, to, endpoint, endpoint_url, rows, fetched_utc, act_subrequest_blocks 250, init_request_blocks 1000, failed_attempts_before, xcheck_endpoint, xcheck_identical, xcheck_utc), gaps ([]), census_consistency, sort, assembled_utc |
+| `v4-window2-state-index.json` | snapshot_block, window, pool counts (pools, pools_active_window2, pools_initialized_window2, pools_initialized_after_snapshot_block), keys (counts per source, unresolved), currency and token counts, token_recall_checks (the 5 getCode results), files, columns, call_endpoints, completed_utc |
+
+General conventions are those of "File schemas" above. Rows are sorted by (block_number, log_index); hex is lowercase 0x;
+integers are base-10 strings; amounts are raw base units. Note from the existing schema: StateView returns zeros (success) for a
+pool id that does not exist. The 6 pools whose Initialize is in blocks 52,017,009-52,017,160 (after S) have
+`sqrt_price_x96` = 0, `tick` = 0, `protocol_fee` = 0, `lp_fee` = 0 and `liquidity` = 0 in the snapshot.
+
+### Row counts and files (V4WINDOW2; each re-read after writing, all `.gz` pass `gzip -t`)
+
+| file | bytes | rows | block range of rows | sha256 | git |
+|---|---|---|---|---|---|
+| `v4-window2-swap-part-0001.csv.gz` | 7,482,392 | 79,124 | 52,006,433-52,017,160 | `305adfbcd6e41a5cc2df67207857a855d8fc2dd085944d7fb4c6c6050ec55e78` | committed |
+| `v4-window2-modify-liquidity-part-0001.csv.gz` | 1,280,950 | 38,952 | 52,006,433-52,017,158 | `c4cb399dbf2ea068bd628abeb2d7af705775c9098b6bda0d1758ecc7620b36ec` | committed |
+| `v4-window2-donate-part-0001.csv.gz` | 1,536 | 15 | 52,006,551-52,016,045 | `0fb57f21b3a9657920bcd07c16d36ef79ce7694b8225e630d12d013cd0707d0c` | committed |
+| `v4-window2-initialize-part-0001.csv.gz` | 125,083 | 965 | 52,006,449-52,017,133 | `a3dfe58eb20c5b1094927e2c8a9becf8bfa5862b915c74acd399b7cae184c547` | committed |
+| `v4-window2-state-snapshot.csv.gz` | 338,960 | 4,802 | block 52,017,008 | `b86d5d9a5d54418d481717aafac9fd9f66f9ca488529a5203c6eb0a5949ae5b3` | committed |
+| `v4-window2-pool-keys.csv.gz` | 375,833 | 4,802 | | `3c9f6c9c78d9e56b8323a7958dd4cb45ee5e9e5e700ea73f8f406de4d009bef2` | committed |
+| `v4-window2-token-metadata.csv.gz` | 134,007 | 1,924 | blocks 52,017,008 / 52,017,160 | `54cefccc07ca5c7a7726e19b5834ec256d1dc407a1efd2b728499d2d6e6d0e7b` | committed |
+| `v4-window2-parts.json` | 9,501 | JSON, parses | | `a2c5104efb7ae41f5df8d95c9144de5cafb64881c0ed45116d3d81105a85d539` | committed |
+| `v4-window2-state-index.json` | 2,575 | JSON, parses | | `b51e227b31aab3490eb5e5d3537165bd6f91b8aa544e8191c11399ff53ebd56e` | committed |
+| `collect/v4window2_collector.py` | 30,451 | 568 lines | | `3a526b4fa18d922e134d84302a53a3f4a3707ccf1f005aa3a6c5b84fd86d3381` | committed |
+| `collect/v4window2_consistency.py` | 4,188 | 87 lines | | `3ef5278bbc2bf08aea07f1b52a09f2c16665692576ca2f11ec4c4094412321fc` | committed |
+| `collect/v4window2.log` | 4,576 | 33 lines | | `86bfe5c4de12294c7fd9ef24914fdc8d51e01be930f91923ae5238164e2fdc74` | committed |
+| `collect/v4window2_consistency.log` | 653 | 3 lines | | `3bfc386bdb49ef16d596367a08ff905521b795c7151f65424b56f6a26695ecf8` | committed |
+| `collect/smoke_v4window2.log` | 3,247 | 9 lines | | `79e4042f3977f87ff0ca58fbd717b74dada6b023b04c7b7383208ef41133d7a5` | committed |
+| `collect/work/v4window2/` (`act_*`, `init_*` .csv.gz without header, `meta_*`, `xcheck_*` .json; 11 of each) | 9,765,136 total | 44 files | | | local-only (git-ignored) |
+| `collect/state/v4window2-{run,slot0,keys,meta,recall}.json` | | 5 files | | | local-only (git-ignored) |
+
+`collect/work/v4window2/meta_<from>_<to>.json` also stores the `blockHash` of every block with a log in the chunk. That is the
+input of the block-hash check above, and it exists only locally; the check's result is in the committed `v4-window2-parts.json`.
+Each data file is one part (the largest is 7.5 MB, far below the 85 MB rotation size). The sha256 values in
+`v4-window2-parts.json` equal the table above.
+
+### Reproduce (V4WINDOW2)
+
+```
+cd /home/user/dapparb/research-material/01-v4-pools/collect
+export REQUESTS_CA_BUNDLE=/root/.ccr/ca-bundle.crt SSL_CERT_FILE=/root/.ccr/ca-bundle.crt
+python3 -u v4window2_collector.py --smoke > smoke_v4window2.log 2>&1      # optional; 200 blocks on both log endpoints + 20-pool snapshot; writes nothing under ..
+setsid nohup python3 -u v4window2_collector.py > v4window2.log 2>&1 < /dev/null &   # resumable; skips chunks/checkpoints that exist
+python3 v4window2_consistency.py > v4window2_consistency.log             # read-only checks (no RPC)
+```
+To fetch everything again, delete `collect/work/v4window2/` and `collect/state/v4window2-*.json`. The script refuses to run if
+W1 is above the chain's `finalized` block.
+
+### Coverage limits (V4WINDOW2)
+
+- Only blocks 52,006,433-52,017,160. Activity after 52,017,160 and before 51,963,233 was not collected.
+- One snapshot block, 52,017,008. Pools initialized after it (6) have all-zero state rows, because StateView returns zeros for
+  pools that do not exist yet. Their keys and initial prices are in `v4-window2-initialize-part-0001.csv.gz` and
+  `v4-window2-pool-keys.csv.gz`.
+- The endpoint that answered each snapshot or metadata multicall batch was not recorded; the same holds for V4STATE.
+- Currencies that are already in `token-metadata.csv.gz` were not queried again. Their metadata there is as of block
+  52,006,432, and `totalSupply` may have changed since.
+- As in V4STATE, nothing else was collected: no tick-level liquidity, no hook internal state, no transfer-tax or transfer-block
+  probes, and no mempool data. Per-transaction gas and fee fields for these transactions are in `../05-base-onchain/data/txs-*`
+  (the tx check above shows that every transaction of these logs is there).
+- base.drpc.org and base-rpc.publicnode.com were not used for getLogs in this pass.
+
+## Fixup (2026-10-01): compact-index.json and tx-hash-recovery-check.json
+
+Manifest-only change by a fixup agent at ~05:00Z on 2026-10-01. No data file was changed and nothing was fetched.
+
+- `initialize-compact/compact-index.json` was corrected by the main session on 2026-10-01 (commit 9c8a37c, 02:57:03Z):
+  - `bytes` and `sha256` of every part were recomputed from the files on disk, and a key `index_correction` was added.
+  - `collect/compact_initialize.py` was fixed to close the underlying file, which flushes the gzip trailer, before hashing.
+  - The data files were not changed.
+- Re-check done in this fixup, with Python `hashlib.sha256` and `os.path.getsize` over `initialize-compact/pools-part-0001..0008.csv.gz`:
+  - For all 8 parts, `bytes` and `sha256` in `compact-index.json` equal the files on disk and the existing inventory rows.
+  - `rows` sum to 15,333,247.
+  - Every text in this manifest that said the index values were wrong now carries a correction note: status gap 2, the
+    `initialize-compact/` table and "Cause of the wrong values", "Stable file layout", "Index files", and the inventory rows of
+    `compact-index.json` and `collect/compact_initialize.py`.
+  - New inventory values: `compact-index.json` is 3,904 bytes, sha256 `494c2463eddcb606123b093a2b23759ec3cfb50f39eb2deb585198df3d11e164`.
+    `collect/compact_initialize.py` is 5,271 bytes, 95 lines, sha256 `b99fd2735f02ffc17c76fbb4b65812e4879e306320870a283f02ecd62e71b580`.
+    Both equal their committed versions in 9c8a37c.
+- `initialize-compact/tx-hash-recovery-check.json` (written 2026-09-30 21:56:49Z):
+  - The main session wrote it with an inline script, which was not saved as a file.
+  - The script took a 40-row sample of (block_number, tx_index) from the original Initialize rows and called
+    `eth_getTransactionByBlockNumberAndIndex` on `https://base-mainnet.public.blastapi.io` for each row.
+  - The file stores the method string, `checked` 40, `matched` 40 and the 40 returned rows. It does not say how the sample
+    was drawn.
+  - The 2026-10-01 documentation pass checked all 40 `tx_hash` values against the original rows: 40 of 40 equal.

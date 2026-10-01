@@ -1,0 +1,53 @@
+SOURCE_URL: https://docs.mantle.xyz/network/system-information/transaction-lifecycle.md
+FINAL_URL: https://docs.mantle.xyz/network/system-information/transaction-lifecycle.md
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:50Z
+EXTRACTION: raw markdown/plain-text body, unmodified; gzip copy in the .raw.gz file next to this one
+
+> For the complete documentation index, see [llms.txt](https://docs.mantle.xyz/network/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.mantle.xyz/network/system-information/transaction-lifecycle.md).
+
+# Transaction Lifecycle
+
+## L2 -> L1 Workflow[​](https://docs-v2.mantle.xyz/devs/concepts/tx-lifecycle#l2---l1-workflow) <a href="#l2---l1-workflow" id="l2---l1-workflow"></a>
+
+### 1. The Initiation[​](https://docs-v2.mantle.xyz/devs/concepts/tx-lifecycle#1-the-initiation) <a href="#id-1-the-initiation" id="id-1-the-initiation"></a>
+
+Wallet users, dApps, or some scripts may wish to utilize a blockchain-based system to transfer funds or execute tasks.
+
+* For users, they have connected to Mantle network by adding the sequencer node's RPC endpoint to their wallet.
+* On the other hand, dApps have integrated the [Mantle SDK](https://sdk.mantle.xyz/index.html) and instantiated it to communicate with Mantle network. They are ready to send requests containing the recipient's address and the amount they want to transfer.
+
+As with any other service, this operation requires payment. It is not just for the transfer itself, but also for maintaining a permanent, immutable public record that anyone can verify. Their wallet or dApp must ensure there is a sufficient balance to execute this operation.
+
+* For wallets, things are simpler; as it is easier to calculate the required fee.
+* dApps need to do more detailed calculations; for more information, please refer to this [section](/network/system-information/fee-mechanism.md).
+
+They use the tools at hand to compose a request, sign it using their private keys, and send it to Mantle Network where a sequencer is ready to process it. This is where the transaction first enters Mantle. More details [here](/network/system-information/off-chain-system/node-introduction.md#sequencer).
+
+### 2. The Handling[​](https://docs-v2.mantle.xyz/devs/concepts/tx-lifecycle#2-the-handling) <a href="#id-2-the-handling" id="id-2-the-handling"></a>
+
+The transaction triggers the standard state verification process, executed by the Ethereum Virtual Machine (EVM) software ([`op-geth`](/network/system-information/off-chain-system/node-introduction.md#op-geth)) running on these nodes. This is to ensure that the transaction is fundamentally valid, the necessary fees have been paid, and nothing exceptional has occurred.&#x20;
+
+After block execution, Mantle enters the **batching → DA → proving → L1 finalization** pipeline.
+
+{% hint style="info" %}
+It's important to note that state submission doesn't need to be executed after every transaction, but can be chosen to be submitted after a tx-batch.
+{% endhint %}
+
+### 3. The Storage[​](https://docs-v2.mantle.xyz/devs/concepts/tx-lifecycle#3-the-storage) <a href="#id-3-the-storage" id="id-3-the-storage"></a>
+
+Mantle follows the standard OP Stack data availability model by publishing rollup data to Ethereum L1 using EIP-4844 blob-carrying transactions.
+
+The `op-batcher` periodically aggregates executed Rollup blocks, encodes and compresses the rollup data, and submits it to Ethereum as blobs. The corresponding blob commitments are recorded on-chain and serve as the canonical reference for data availability.
+
+Blobs provide temporary but sufficient data availability guarantees for rollup verification, while significantly reducing L1 data costs compared to calldata. Full nodes and provers can retrieve the blob data from the Ethereum data availability layer during the blob retention window to reconstruct Rollup state transitions.&#x20;
+
+### 4. The Proving
+
+After data batches are published to Ethereum L1 as blobs, Mantle’s proving system runs independently to provide cryptographic validity guarantees for Rollup state transitions.
+
+This process is coordinated by the Mantle Succinct Proposer, which monitors Rollup block progression and determines when new validity proofs should be generated.
+
+The proving system retrieves the required rollup data from Ethereum blobs, reconstructs the corresponding Rollup state transitions, and generates ZK validity proofs through Mantle’s proving pipeline. These proofs attest that all included Rollup blocks were executed correctly according to EVM rules.
+
+Once a proof is ready, the Succinct Proposer submits it—together with the associated state root—to the `MantleSuccinctL2OutputOracle` contract on Ethereum. After on-chain verification, the proven block range becomes finalized without the need for a challenge period.

@@ -1,6 +1,6 @@
 # BSC (BNB Smart Chain) on-chain census, builder material, ordering/MEV docs, DEX landscape
 
-Status: COMPLETE WITH GAPS (finalized 2026-10-01). Gaps: (a) 5 of the 28 swap topics in `census/swap-topics.csv` were not observed in the window and are unverified on BSC; (b) 11 of 44 validator MEV RPC entries did not answer `mev_params`; (c) 5 of the 92 entries in `docs/index.csv` have no page content (blocksmith-docs and blocksmith-send-bundle: network error; uniswap-v4-deployments and uniswap-v3-bnb-deployments: HTTP 429; pancakeswap-infinity-hooks-md: HTTP 404; substitutes are listed in 'Coverage limits and gaps' item 10); (d) `census/raw/` (40 files, 434,972,682 bytes) is git-ignored and stays local-only, so it is not in the repository. Sentinel BSC_CENSUS.DONE exists (the sentinel file is git-ignored; its text is reproduced in `../MANIFEST.md`). Last data write 2026-09-30T21:38Z, before the ~23:00Z container restart of 2026-09-30; nothing in this directory was interrupted or re-run. Every file was re-verified on 2026-10-01 (section 'Verified inventory (2026-10-01)').
+Status: COMPLETE WITH GAPS (finalized 2026-10-01). Gaps: (a) 5 of the 28 swap topics in `census/swap-topics.csv` were not observed in the window and are unverified on BSC; (b) 11 of 44 validator MEV RPC entries did not answer `mev_params`; (c) 5 of the 92 entries in `docs/index.csv` have no page content (blocksmith-docs and blocksmith-send-bundle: network error; uniswap-v4-deployments and uniswap-v3-bnb-deployments: HTTP 429; pancakeswap-infinity-hooks-md: HTTP 404; substitutes are listed in 'Coverage limits and gaps' item 10); (d) `census/raw/` (40 files, 434,972,682 bytes) is git-ignored and stays local-only, so it is not in the repository. Sentinel BSC_CENSUS.DONE exists (the sentinel file is git-ignored; its text is reproduced in `../MANIFEST.md`). Last data write 2026-09-30T21:38Z, before the ~23:00Z container restart of 2026-09-30; nothing in this directory was interrupted or re-run. Every file was re-verified on 2026-10-01 (section 'Verified inventory (2026-10-01)'). [2026-10-01 addition: on 2026-10-01 between 04:37Z and 04:39Z DefiLlama TVL files were added to `dex/` and a script and two logs to `collect/` (section 'DefiLlama TVL for BSC DEX protocols (added 2026-10-01)'); 'Last data write 2026-09-30T21:38Z' and 'nothing in this directory was interrupted or re-run' describe the directory before that addition. No pre-existing file was modified.]
 
 Collector's status line (kept as written): COMPLETE (all collectors finished; no process left running). Sentinel: `/home/user/dapparb/research-material/.sentinels/BSC_CENSUS.DONE` (written 2026-09-30T21:08:09Z).
 
@@ -30,7 +30,7 @@ Rewritten 2026-10-01 as a mapping only (the collector's summary sentence above t
 | 1 (Q1) | `dex/dex-address-excerpts.txt`; docs with Q1 in `docs/index.csv` column question_lines (`<id>.txt` + `raw/<id>.*`): pancakeswap-infinity-addresses, pancakeswap-infinity-overview, pancakeswap-infinity-hooks-md, uniswap-v4-deployments, uniswap-sdk-core-addresses-ts; `census/swap-topics.csv` and `census/candidates-00*.jsonl.gz` (Uniswap V4 PoolManager and PancakeSwap Infinity swap logs) |
 | 2 (Q2) | none |
 | 3 (Q3) | none |
-| 4 (Q4) | `census/window.json`, `census/blocks.csv.gz`, `census/txs-001.csv.gz`, `census/reverted-001.csv.gz`, `census/candidates-001.jsonl.gz`, `census/candidates-002.jsonl.gz`, `census/swap-topics.csv`, `census/topic0-inventory.csv.gz`, `census/topic0-signatures.csv.gz`, `census/postprocess-summary.json`, `census/raw/` (local-only), `dex/defillama-overview-dexs-bsc.json.gz`, `dex/defillama-overview-dexs-bsc.meta.json`, `dex/dex-address-excerpts.txt`; the 36 docs with Q4 in `docs/index.csv` |
+| 4 (Q4) | `census/window.json`, `census/blocks.csv.gz`, `census/txs-001.csv.gz`, `census/reverted-001.csv.gz`, `census/candidates-001.jsonl.gz`, `census/candidates-002.jsonl.gz`, `census/swap-topics.csv`, `census/topic0-inventory.csv.gz`, `census/topic0-signatures.csv.gz`, `census/postprocess-summary.json`, `census/raw/` (local-only), `dex/defillama-overview-dexs-bsc.json.gz`, `dex/defillama-overview-dexs-bsc.meta.json`, `dex/dex-address-excerpts.txt`; the 36 docs with Q4 in `docs/index.csv`; added 2026-10-01: `dex/defillama-protocols.json.gz`, `dex/defillama-protocols.meta.json`, `dex/defillama-v2-chains.json.gz`, `dex/defillama-protocols-bsc-dex-selection.csv`, `dex/defillama-tvl-index.csv`, the 15 `dex/defillama-protocol-bsc-dex-<slug>.json.gz` files |
 | 5 (Q5) | `census/txs-001.csv.gz`, `census/candidates-001.jsonl.gz`, `census/candidates-002.jsonl.gz`, `census/swap-topics.csv`, `census/raw/` (local-only), `builder/builder-material-001.jsonl.gz`, `dex/dex-address-excerpts.txt`; the 18 docs with Q5 in `docs/index.csv` |
 | 6 (Q6) | `census/window.json`, `census/blocks.csv.gz`, `census/txs-001.csv.gz`, `census/reverted-001.csv.gz`, `census/candidates-001.jsonl.gz`, `census/candidates-002.jsonl.gz`, `census/raw/` (local-only), `builder/builder-material-001.jsonl.gz`, `builder/block-mev-info.csv.gz`, `builder/block-mev-info-gaps.csv`, `builders.csv`, `validators-onchain.csv`, `validator-mev-rpc-probe.jsonl.gz`, `docs/excerpts.txt`; the 68 docs with Q6 in `docs/index.csv` |
 | 7 (Q7) | `census/txs-001.csv.gz`, `census/reverted-001.csv.gz`, `census/candidates-001.jsonl.gz`, `census/candidates-002.jsonl.gz`, `census/swap-topics.csv`, `census/topic0-inventory.csv.gz`, `census/topic0-signatures.csv.gz`, `census/raw/` (local-only) |
@@ -57,6 +57,27 @@ File to question-line map (collector's table):
 | `docs/*.txt`, `docs/raw/*`, `docs/index.csv`, `docs/excerpts.txt` | per `question_lines` column of `docs/index.csv` (Q4/Q5/Q6, some Q1) |
 | `dex/defillama-overview-dexs-bsc.json.gz` (+ `.meta.json`) | Q4 |
 | `dex/dex-address-excerpts.txt` | Q4, Q1, Q5 |
+| `dex/defillama-protocols.json.gz` (added 2026-10-01) | Q4 (DefiLlama /protocols snapshot: current TVL per protocol and chain; also the source of the Base selection in 08-sources) |
+| `dex/defillama-protocols.meta.json` (added 2026-10-01) | Q4 (fetch metadata of the snapshot) |
+| `dex/defillama-v2-chains.json.gz` (added 2026-10-01) | Q4 (DefiLlama chain list; documents that chain names BSC and Binance both carry chainId 56) |
+| `dex/defillama-protocols-bsc-dex-selection.csv` (added 2026-10-01, derived) | Q4 (which BSC DEX protocols were selected and why) |
+| `dex/defillama-tvl-index.csv` (added 2026-10-01) | Q4 (url, status, size, sha256 of each new DefiLlama response) |
+| `dex/defillama-protocol-bsc-dex-apeswap-amm.json.gz` (added 2026-10-01) | Q4 (DefiLlama TVL history of `apeswap-amm`, all chains; BSC series under chainTvls.Binance) |
+| `dex/defillama-protocol-bsc-dex-bakeryswap.json.gz` (added 2026-10-01) | Q4 (DefiLlama TVL history of `bakeryswap`, all chains; BSC series under chainTvls.Binance) |
+| `dex/defillama-protocol-bsc-dex-biswap-v2.json.gz` (added 2026-10-01) | Q4 (DefiLlama TVL history of `biswap-v2`, all chains; BSC series under chainTvls.Binance) |
+| `dex/defillama-protocol-bsc-dex-bscswap.json.gz` (added 2026-10-01) | Q4 (DefiLlama TVL history of `bscswap`, all chains; BSC series under chainTvls.Binance) |
+| `dex/defillama-protocol-bsc-dex-dodo-amm.json.gz` (added 2026-10-01) | Q4 (DefiLlama TVL history of `dodo-amm`, all chains; BSC series under chainTvls.Binance) |
+| `dex/defillama-protocol-bsc-dex-fstswap.json.gz` (added 2026-10-01) | Q4 (DefiLlama TVL history of `fstswap`, all chains; BSC series under chainTvls.Binance) |
+| `dex/defillama-protocol-bsc-dex-lista-dex.json.gz` (added 2026-10-01) | Q4 (DefiLlama TVL history of `lista-dex`, all chains; BSC series under chainTvls.Binance) |
+| `dex/defillama-protocol-bsc-dex-pancakeswap-amm-v3.json.gz` (added 2026-10-01) | Q4 (DefiLlama TVL history of `pancakeswap-amm-v3`, all chains; BSC series under chainTvls.Binance) |
+| `dex/defillama-protocol-bsc-dex-pancakeswap-amm.json.gz` (added 2026-10-01) | Q4 (DefiLlama TVL history of `pancakeswap-amm`, all chains; BSC series under chainTvls.Binance) |
+| `dex/defillama-protocol-bsc-dex-pancakeswap-infinity.json.gz` (added 2026-10-01) | Q4 (DefiLlama TVL history of `pancakeswap-infinity`, all chains; BSC series under chainTvls.Binance) |
+| `dex/defillama-protocol-bsc-dex-pancakeswap-stableswap.json.gz` (added 2026-10-01) | Q4 (DefiLlama TVL history of `pancakeswap-stableswap`, all chains; BSC series under chainTvls.Binance) |
+| `dex/defillama-protocol-bsc-dex-thena-integral.json.gz` (added 2026-10-01) | Q4 (DefiLlama TVL history of `thena-integral`, all chains; BSC series under chainTvls.Binance) |
+| `dex/defillama-protocol-bsc-dex-uniswap-v2.json.gz` (added 2026-10-01) | Q4 (DefiLlama TVL history of `uniswap-v2`, all chains; BSC series under chainTvls.Binance) |
+| `dex/defillama-protocol-bsc-dex-uniswap-v3.json.gz` (added 2026-10-01) | Q4 (DefiLlama TVL history of `uniswap-v3`, all chains; BSC series under chainTvls.Binance) |
+| `dex/defillama-protocol-bsc-dex-uniswap-v4.json.gz` (added 2026-10-01) | Q4 (DefiLlama TVL history of `uniswap-v4`, all chains; BSC series under chainTvls.Binance) |
+| `collect/fetch_defillama_tvl.py`, `collect/fetch_defillama_tvl.log`, `collect/fetch_defillama_tvl_select.log` (added 2026-10-01) | - (collector and logs of the files above) |
 
 ## Window (census and builder material)
 
@@ -92,6 +113,7 @@ python3 builders.py               # builders.csv (needs the clones + docs/*.txt)
 python3 validators_onchain.py     # validators-onchain.csv (state at head-5 at run time)
 python3 validator_mev_params.py   # validator-mev-rpc-probe.jsonl.gz
 python3 fetch_dex.py              # dex/*
+python3 fetch_defillama_tvl.py --chain Binance --protocols-file ../dex/defillama-protocols.json.gz --out-dir ../dex --prefix defillama-protocol-bsc-dex- --index ../dex/defillama-tvl-index.csv --selection-csv ../dex/defillama-protocols-bsc-dex-selection.csv --extra https://api.llama.fi/v2/chains defillama-v2-chains.json.gz   # added 2026-10-01; see section 'DefiLlama TVL for BSC DEX protocols'
 python3 excerpts.py               # docs/excerpts.txt
 ```
 Logs: `collect/*.log`. Smoke tests before launch used 40 blocks for the downloader and 200 blocks for the postprocessor. Their output went to the scratchpad and was checked by hand.
@@ -218,6 +240,7 @@ Content covered:
   - Uniswap sdk-core BNB block, including v4PoolManagerAddress 0x28e2ea09...9e9df;
   - Four.meme TokenManager addresses;
   - Flap BNB Chain contracts.
+- Added 2026-10-01: `defillama-protocols.json.gz` (+ `.meta.json`), `defillama-v2-chains.json.gz`, `defillama-protocols-bsc-dex-selection.csv`, `defillama-tvl-index.csv` and 15 `defillama-protocol-bsc-dex-<slug>.json.gz`. Schemas and method in section 'DefiLlama TVL for BSC DEX protocols (added 2026-10-01)'.
 
 ## Coverage limits and gaps
 
@@ -251,7 +274,7 @@ Content covered:
 
 Verified on 2026-10-01 by streaming every file in this directory, including the local-only raw chunks (no data file was modified). Checks: `gzip -t` on every .gz file; CSV files parsed with Python's csv module (rows exclude the header line; `builders.csv` and `validators-onchain.csv` have quoted fields that contain newlines, so their physical line counts are larger than their row counts); every JSONL line and every JSON document parsed with Python's json module; sha256 over the stored bytes. Git column: "committed" = tracked in git, present in the repository; "local-only" = git-ignored by the repository .gitignore, present only on the collection machine.
 
-Result: 272 files (232 committed, 40 local-only). All 92 .gz files pass `gzip -t`; every JSON document and JSONL line parses; every CSV record has as many fields as its header. Largest committed file: census/candidates-001.jsonl.gz (83,906,821 bytes); no committed file exceeds 90 MB.
+[2026-10-01, later: the counts and the table in this section describe the directory before the DefiLlama TVL addition; the 23 files added then are inventoried in section 'DefiLlama TVL for BSC DEX protocols (added 2026-10-01)'.] Result: 272 files (232 committed, 40 local-only). All 92 .gz files pass `gzip -t`; every JSON document and JSONL line parses; every CSV record has as many fields as its header. Largest committed file: census/candidates-001.jsonl.gz (83,906,821 bytes); no committed file exceeds 90 MB.
 
 Counts stated in this manifest compared with the verified counts (all equal, no corrections needed): census/blocks.csv.gz 8,000; census/txs-001.csv.gz 502,872; census/reverted-001.csv.gz 13,864; census/candidates-001/002.jsonl.gz 48,094 + 11,896 = 59,990 (criterion A 26,076 + 6,481 = 32,557; criterion B 22,018 + 5,415 = 27,433); census/swap-topics.csv 28 (23 with verified_example_tx, 5 without); census/topic0-inventory.csv.gz 5,207 (sum of log_count 3,139,184); census/topic0-signatures.csv.gz 5,206 (2,709 with at least one signature); builder/builder-material-001.jsonl.gz 8,000; builder/block-mev-info.csv.gz 8,000 (hash_matches_census = 1 in all rows; block-mev-info-gaps.csv header only); builders.csv 144 (sources 33 + 47 + 2 + 50 + 12); validators-onchain.csv 56 (queried_block 124979813); validator-mev-rpc-probe.jsonl.gz 176 (33 mev_params responses with a result); docs/index.csv 92; dex/defillama-overview-dexs-bsc.json.gz 181 protocols; census/raw/ 40 files with 200 JSON lines each (8,000 blocks).
 
@@ -531,3 +554,97 @@ Local-only files and how to regenerate them: `census/raw/chunk-<first>-<last>.js
 | validator-mev-rpc-probe.jsonl.gz | 3,834 | 176 JSON lines | a84727d8502df1ab2218e850c9932387197f35033f93be5b526a4cfc971206cd | committed |
 | validators-onchain.csv | 18,347 | 56 rows + header (59 physical lines; quoted fields contain newlines) | 186cfb252a2c568b85ac307db5e5dd5a85d48fc1aaceb4f78414895d61f8d726 | committed |
 | MANIFEST.md | (changes when edited) | documentation | not recorded (edited 2026-10-01) | committed |
+
+## DefiLlama TVL for BSC DEX protocols (added 2026-10-01)
+
+Added 2026-10-01 by a collection-only agent (task "papers-and-tvl"). Raw DefiLlama JSON only; nothing here interprets the values.
+
+### Method and endpoints
+
+1. `https://api.llama.fi/protocols` was fetched once at 2026-10-01T04:37:38Z (HTTP 200, 9,029,553 bytes, 8,440 entries) and saved unchanged (gzip) as `dex/defillama-protocols.json.gz`; URL, time, status, bytes, sha256 (of the uncompressed body) and content type are in `dex/defillama-protocols.meta.json`. The same file is the source of the Base selection in `research-material/08-sources/defillama/protocols-base-dex-*` (not fetched a second time).
+2. Filter: entries whose `chains` list contains the chain name and whose `category` is exactly `Dexs`. The task named the chain "BSC". The /protocols response has no chain named "BSC": it names BNB Smart Chain "Binance" in `chains` (1,130 entries) and in `chainTvls` (keys `Binance`, `Binance-staking`, `Binance-pool2`, `Binance-borrowed`, `Binance-vesting`). `dex/defillama-v2-chains.json.gz` (`https://api.llama.fi/v2/chains`, fetched 2026-10-01T04:38:22Z) lists both a chain "BSC" and a chain "Binance", each with chainId 56. The filter therefore used `Binance`; the first attempt with the literal string "BSC" matched 0 entries and is kept in `collect/fetch_defillama_tvl_select.log`. The opBNB chain (`Op_Bnb`) is a different chain and is not included. Result: 249 entries, 247 of them with a `chainTvls.Binance` value and 2 without (`brokoli-network`, `demodyfi`).
+3. Selection: the 247 entries ordered by `chainTvls.Binance` (the JSON number as served, compared as a decimal; ties by slug), first 15 selected. Selected, in that order: pancakeswap-amm, pancakeswap-amm-v3, uniswap-v4, pancakeswap-infinity, uniswap-v3, fstswap, apeswap-amm, lista-dex, biswap-v2, bscswap, dodo-amm, bakeryswap, pancakeswap-stableswap, thena-integral, uniswap-v2.
+4. `https://api.llama.fi/protocol/<slug>` for each selected slug, 2026-10-01T04:38:25Z to 04:39:39Z, one request at a time (>= 2 s apart), all HTTP 200 on the first attempt. Each body is streamed unchanged into `dex/defillama-protocol-bsc-dex-<slug>.json.gz`. `dex/defillama-tvl-index.csv` lists file, url, http_status, bytes, sha256 (of the uncompressed body) and fetched_at_utc for these 15 files, for `defillama-protocols.json.gz` and for `defillama-v2-chains.json.gz` (17 rows).
+
+Peak RSS of the collector and of the verification pass: below 0.5 GB.
+
+### Schemas
+
+- `dex/defillama-protocols.json.gz`: JSON array of 8,440 objects as served (fields include id, name, slug, category, chains, chainTvls {chain key: current TVL in USD}, tvl, parentProtocol, methodology, tvlCodePath, change_1h/1d/7d, mcap).
+- `dex/defillama-v2-chains.json.gz`: JSON array of 468 objects as served (gecko_id, gasTokenGeckoId, tvl, tokenSymbol, cmcId, name, chainId).
+- `dex/defillama-protocol-bsc-dex-<slug>.json.gz`: one JSON object as served. Keys include name, slug-related metadata (id, parentProtocol, parentProtocolSlug, otherProtocols), category, chains, methodology, tvlCodePath, misrepresentedTokens, hacks, raises, currentChainTvls {chain key: number}, `tvl` (array of {date: unix seconds UTC, totalLiquidityUSD}), `tokens` and `tokensInUsd` (arrays of {date, tokens: {symbol: amount}}), and `chainTvls` {chain key: {tvl, tokens, tokensInUsd}} with the same array shapes per chain. The BSC series is `chainTvls.Binance`. In the top-level `tvl` arrays, all points before the last are at 00:00 UTC, except 147 points in the dodo-amm file; the last point carries a later time (02:58Z to 03:35Z on 2026-10-01 in 13 of the 15 files; 2026-10-01T00:03:23Z for uniswap-v2; 2026-09-29T00:00:00Z for uniswap-v4), as served.
+- `dex/defillama-protocols-bsc-dex-selection.csv` (derived, 249 rows + header, 13 columns): selection_order (position in the ordering of step 3; empty for the 2 entries without chainTvls.Binance), selected (1/0), slug, name, category, parentProtocol, chainTvls_Binance (literal JSON number token), tvl (literal JSON number token, all chains), chains (space-separated as served), id, source_file, source_fetched_at_utc, protocol_file (file name for the 15 selected rows).
+
+Per-file content (from a full parse of each file on 2026-10-01; date ranges are UTC days of the first and last point):
+
+| File | name | tvl points (range) | chainTvls.Binance.tvl points (range) | chainTvls keys |
+|---|---|---|---|---|
+| `dex/defillama-protocol-bsc-dex-pancakeswap-amm.json.gz` | PancakeSwap AMM | 1,980 (2021-04-22..2026-10-01) | 1,980 (2021-04-22..2026-10-01) | 16 |
+| `dex/defillama-protocol-bsc-dex-pancakeswap-amm-v3.json.gz` | PancakeSwap AMM V3 | 1,263 (2023-04-02..2026-10-01) | 1,263 (2023-04-02..2026-10-01) | 11 |
+| `dex/defillama-protocol-bsc-dex-uniswap-v4.json.gz` | Uniswap V4 | 606 (2025-01-29..2026-09-29) | 605 (2025-01-29..2026-09-29) | 19 |
+| `dex/defillama-protocol-bsc-dex-pancakeswap-infinity.json.gz` | PancakeSwap Infinity | 507 (2025-05-05..2026-10-01) | 507 (2025-05-05..2026-10-01) | 2 |
+| `dex/defillama-protocol-bsc-dex-uniswap-v3.json.gz` | Uniswap V3 | 1,963 (2021-05-06..2026-10-01) | 1,284 (2023-03-16..2026-10-01) | 44 |
+| `dex/defillama-protocol-bsc-dex-fstswap.json.gz` | FstSwap | 1,474 (2022-09-20..2026-10-01) | 1,474 (2022-09-20..2026-10-01) | 1 |
+| `dex/defillama-protocol-bsc-dex-apeswap-amm.json.gz` | ApeSwap AMM | 1,911 (2021-07-09..2026-10-01) | 1,911 (2021-07-09..2026-10-01) | 7 |
+| `dex/defillama-protocol-bsc-dex-lista-dex.json.gz` | Lista DEX | 186 (2026-03-31..2026-10-01) | 186 (2026-03-31..2026-10-01) | 2 |
+| `dex/defillama-protocol-bsc-dex-biswap-v2.json.gz` | Biswap V2 | 1,957 (2021-05-24..2026-10-01) | 1,957 (2021-05-24..2026-10-01) | 3 |
+| `dex/defillama-protocol-bsc-dex-bscswap.json.gz` | BSCSwap | 1,778 (2021-11-20..2026-10-01) | 1,778 (2021-11-20..2026-10-01) | 3 |
+| `dex/defillama-protocol-bsc-dex-dodo-amm.json.gz` | DODO AMM | 2,047 (2020-11-09..2026-10-01) | 1,852 (2021-06-03..2026-10-01) | 15 |
+| `dex/defillama-protocol-bsc-dex-bakeryswap.json.gz` | BakerySwap | 1,909 (2021-07-12..2026-10-01) | 1,909 (2021-07-12..2026-10-01) | 3 |
+| `dex/defillama-protocol-bsc-dex-pancakeswap-stableswap.json.gz` | PancakeSwap StableSwap | 1,451 (2022-10-13..2026-10-01) | 1,451 (2022-10-13..2026-10-01) | 3 |
+| `dex/defillama-protocol-bsc-dex-thena-integral.json.gz` | THENA INTEGRAL | 694 (2024-11-07..2026-10-01) | 694 (2024-11-07..2026-10-01) | 1 |
+| `dex/defillama-protocol-bsc-dex-uniswap-v2.json.gz` | Uniswap V2 | 2,341 (2020-05-06..2026-10-01) | 950 (2024-02-22..2026-10-01) | 16 |
+
+### Commands
+
+```
+cd research-material/06-other-chains-onchain/bsc/collect
+# selection only (first run: fetches /protocols; later runs reuse ../dex/defillama-protocols.json.gz and never refetch it)
+python3 fetch_defillama_tvl.py --chain Binance --protocols-file ../dex/defillama-protocols.json.gz --out-dir ../dex \
+    --prefix defillama-protocol-bsc-dex- --index ../dex/defillama-tvl-index.csv \
+    --selection-csv ../dex/defillama-protocols-bsc-dex-selection.csv --select-only >> fetch_defillama_tvl_select.log 2>&1
+# full run (resumable: files listed with HTTP 200 in the index are skipped)
+setsid nohup python3 fetch_defillama_tvl.py --chain Binance --protocols-file ../dex/defillama-protocols.json.gz --out-dir ../dex \
+    --prefix defillama-protocol-bsc-dex- --index ../dex/defillama-tvl-index.csv \
+    --selection-csv ../dex/defillama-protocols-bsc-dex-selection.csv \
+    --extra https://api.llama.fi/v2/chains defillama-v2-chains.json.gz > fetch_defillama_tvl.log 2>&1 < /dev/null &
+```
+To take a new snapshot, delete `../dex/defillama-protocols.json.gz` and its `.meta.json` first (the selection may then differ).
+
+### Coverage limits
+
+- One /protocols snapshot (2026-10-01T04:37:38Z). The selection depends on the `chainTvls.Binance` values at that moment; no other time was sampled.
+- Category `Dexs` only. DefiLlama entries in other categories that also trade on BSC (for example `DEX Aggregator`, `Derivatives`, `Launchpad`) are not in the filter. Sub-protocols are separate entries (for example PancakeSwap AMM, AMM V3, Infinity and StableSwap, all with parentProtocol `parent#pancakeswap`); parent-protocol responses (`/protocol/pancakeswap` etc.) were not fetched.
+- Each `/protocol/<slug>` response covers every chain of that protocol, not only BSC. TVL values and their history are DefiLlama's computation (see each response's `methodology`, `tvlCodePath` and `misrepresentedTokens` fields); they were not checked on-chain.
+- The responses for uniswap-v2, uniswap-v3, uniswap-v4 and pancakeswap-amm-v3 are also saved under `research-material/08-sources/defillama/protocols-base-dex-*.json.gz` (fetched one to two minutes later; the uncompressed bodies have the same sha256, listed in the two index files).
+- No DEX volume, fee or pool-level data were added here; DEX volume for BSC is in `dex/defillama-overview-dexs-bsc.json.gz` (2026-09-30).
+
+### Inventory of the added files (2026-10-01)
+
+Bytes = size on disk; Uncompressed = size of the decompressed body for `.gz`; sha256 = of the file as stored. All files are tracked-eligible (not git-ignored; the `.log` files match the `.gitignore` exception `!research-material/**/*.log`). All `.gz` files decompress and parse as JSON; no file exceeds 90 MB.
+
+| File | Bytes | Uncompressed | Content | sha256 (file as stored) |
+|---|---|---|---|---|
+| `dex/defillama-protocol-bsc-dex-apeswap-amm.json.gz` | 6,986,148 | 31,199,988 | JSON parses; object, 32 keys | 7b283c648d9ae8615c99dd6cad714f1b5cc5ebc7cf09798832c009474b162098 |
+| `dex/defillama-protocol-bsc-dex-bakeryswap.json.gz` | 2,851,289 | 15,870,808 | JSON parses; object, 29 keys | 80d798e209fba264c5866e1e39cd20c22efa59c7a91dd7058d794e27e208e8c8 |
+| `dex/defillama-protocol-bsc-dex-biswap-v2.json.gz` | 4,785,740 | 19,743,288 | JSON parses; object, 33 keys | 5317ac125ea8e04b2633f6dfeb7b3401b8ec66097c96101a2d2097e0aa8f47d7 |
+| `dex/defillama-protocol-bsc-dex-bscswap.json.gz` | 371,428 | 1,777,177 | JSON parses; object, 29 keys | 5d83ac630e7bae582e39db9dc7ad3a6fe0dea96527eb69da2434932469a12134 |
+| `dex/defillama-protocol-bsc-dex-dodo-amm.json.gz` | 15,267,925 | 63,844,269 | JSON parses; object, 31 keys | b2ce2f75391050fe2bd427d72859daa15d4bd30cbf2140db054310c55cb831db |
+| `dex/defillama-protocol-bsc-dex-fstswap.json.gz` | 768,290 | 3,981,049 | JSON parses; object, 32 keys | de1b3a2bc71074f52951c1ea031758fba20b2fac12062023df1515cb166f1ae4 |
+| `dex/defillama-protocol-bsc-dex-lista-dex.json.gz` | 55,709 | 203,153 | JSON parses; object, 31 keys | 5c6734b128d205f7f732e9ad4806b55c1674d804392f28d75c1d97e3b7af340a |
+| `dex/defillama-protocol-bsc-dex-pancakeswap-amm-v3.json.gz` | 99,638 | 558,131 | JSON parses; object, 32 keys | dc7543567603f0171c9f3577b7d74dd4291d171ccbec2ad34cbc09f2664a5e03 |
+| `dex/defillama-protocol-bsc-dex-pancakeswap-amm.json.gz` | 2,973,873 | 14,082,221 | JSON parses; object, 33 keys | 03578c7a41a7db5671403d4246f20ab78828a7b7f61ebb4e1166488149cf1c8a |
+| `dex/defillama-protocol-bsc-dex-pancakeswap-infinity.json.gz` | 11,665,043 | 37,322,860 | JSON parses; object, 31 keys | 045af197b03457d1e73b3d439e83b44c3de075a9503674c07040b6607dd413ac |
+| `dex/defillama-protocol-bsc-dex-pancakeswap-stableswap.json.gz` | 566,806 | 2,049,336 | JSON parses; object, 31 keys | 0f44fde638a133aea9539f3041bc501c19d232774a3ef7019cf50401c3e331ca |
+| `dex/defillama-protocol-bsc-dex-thena-integral.json.gz` | 884,274 | 3,421,613 | JSON parses; object, 31 keys | 55f8cdf9371bbeaa1d9523837965d43d5aaa956360c37a609bd3bc6723e73337 |
+| `dex/defillama-protocol-bsc-dex-uniswap-v2.json.gz` | 5,249,977 | 20,325,092 | JSON parses; object, 33 keys | d437133ebfc16156b3997459f6041a6454075770e3c8cfbab282bab1b99aa1e4 |
+| `dex/defillama-protocol-bsc-dex-uniswap-v3.json.gz` | 297,907 | 1,706,983 | JSON parses; object, 34 keys | 5f6fea02e6bc76e870284e50da88a79574f26c6deb7997d958af575c2f6bd294 |
+| `dex/defillama-protocol-bsc-dex-uniswap-v4.json.gz` | 70,237 | 449,518 | JSON parses; object, 32 keys | d884bea03844cf5f65e8e5efb6804d1028ca0dfd48bc7eec32b14bdcf71daa69 |
+| `dex/defillama-protocols-bsc-dex-selection.csv` | 41,059 | - | 249 rows + header (13 cols) | f449551fe4075a36fa0ad59030ea1259a909e7ac11ed2367dacd87e719dac70e |
+| `dex/defillama-protocols.json.gz` | 2,240,940 | 9,029,553 | JSON parses; list of 8440 | 7ac126084ac36331a215aec0249c59cffb3922d03784d732c435b24a6571e6ab |
+| `dex/defillama-protocols.meta.json` | 304 | - | JSON parses; object, 7 keys | 141ceb5338d6be089a7bb6398b079e2034094f61e26c4c2840e218c0634e03c2 |
+| `dex/defillama-tvl-index.csv` | 3,218 | - | 17 rows + header (6 cols) | 11acd61bfaa2e613455b3a6232158576d26bce827073fa075b7db8784c61c119 |
+| `dex/defillama-v2-chains.json.gz` | 14,634 | 64,222 | JSON parses; list of 468 | f1c978d654ab73563c706a681bc6add2947e59b456fa3bf21c13ac8e31046878 |
+| `collect/fetch_defillama_tvl.py` | 11,476 | - | 213 lines | 693bcf9417faf447b423b4abac52f0e01e10779fbf9ba6fc7734a3a383179081 |
+| `collect/fetch_defillama_tvl.log` | 4,739 | - | 52 lines | 82cc6aa90afec9e801a61e8a989f929bc7ad21e33ba56e95e9c4333cdbbefedc |
+| `collect/fetch_defillama_tvl_select.log` | 1,985 | - | 24 lines | d6e8c37f7ad62bdb4978b04093d9b72f715f54e5b81676e560a748f94ad00df7 |

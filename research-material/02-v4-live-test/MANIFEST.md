@@ -10,6 +10,8 @@ not filled in here". The run has finished and the counts are filled in below.)
 
 This directory contains collected data only: engine output, run metadata and copies of earlier runs. It holds no analysis,
 rankings or conclusions. No analyzer was run on any output.
+(Addition 2026-10-01: the folder also holds the V4UNIVERSE files `v4universe-*`, a pinned-block reconstruction of the run's
+engine universe collected after the run; see the section "V4UNIVERSE" at the end.)
 
 - Chain: Base (chain id 8453), 2-second blocks. Block timestamp: `1686789347 + 2 * block_number` (checked in
   `../01-v4-pools/timestamps-check.csv`).
@@ -43,6 +45,24 @@ corresponding line number (Q-OLDV2 and Q-SMALL as "2, 3 (incidental)"); the earl
 `prior/live-base-blocks-long5.jsonl.gz` / `prior/dry-blocks-long5.log.gz` to Q-BEYOND/Q-MEASURE, which is kept above. The
 attempt folder and the `collect/` method files are additions. The earlier text also said: "Not covered here: other chains, BSC
 ordering, chain-wide studies (other directories)."
+
+Additions 2026-10-01 (V4UNIVERSE, section "V4UNIVERSE: per-pool reconstruction ..."; one row per new file):
+
+| file | lines |
+|---|---|
+| `v4universe-pools-prefilter.csv.gz` | 1, 5, 8; 2, 3 (incidental: the non-V4 pools of the same universe and the 0.1 ETH depth flag of every pool) |
+| `v4universe-pools-pruned-empty.csv.gz` | 1, 8; 2 (incidental) |
+| `v4universe-prices.csv.gz` | 1, 8; 3 (incidental) |
+| `v4universe-meta.json` | 1, 5, 8 |
+| `v4universe-failed-calls.jsonl.gz` | 1, 8 (provenance) |
+| `v4universe-rpc-errors.jsonl.gz` | 1, 8 (provenance) |
+| `collect/v4_universe_snapshot.ts` | 1, 8 (method) |
+| `collect/run_v4_universe.sh` | 1, 8 (method) |
+| `collect/v4_universe_snapshot.log` | 1, 8 (provenance) |
+| `collect/run_v4_universe.log` | 1, 8 (provenance) |
+| `collect/v4_universe_memtest.ts` | 1, 8 (method diagnostic) |
+| `collect/v4_universe_memtest.log` | 1, 8 (method diagnostic) |
+| `collect/work/v4universe/` (local-only checkpoints) | 1, 8 (provenance) |
 
 ## Run history (UTC)
 
@@ -418,7 +438,8 @@ writing)" and gave `liquidityBlock` as the pre-filter block.)
 - **Startup sync failures** (whole multicall chunks rejected by a public RPC) leave pools with empty state; `pruneEmpty` then removes
   them. Their number is `startupSyncStalePools` (all pool kinds). Failed tick-data calls are not counted by the engine.
 - **Depth filter**: pools under `--min-depth-eth 0.1` are not searched in this run; only `v4AfterPruneEmpty` vs `v4AfterDepthFilter`
-  are recorded for V4. The shallow-pool run is in `../04-shallow-pools/`.
+  are recorded for V4. The shallow-pool run is in `../04-shallow-pools/`. (Addition 2026-10-01: a per-pool reconstruction of the universe at
+  block 52,015,721, collected after the run, is in the section "V4UNIVERSE"; the live run itself still recorded only these counts.)
 - **Non-V4 universe**: identical flags to the section 2.6 run, so the newest 6,000 pools per V2-style factory at launch time (not the
   same pools as at 17:00Z); older V2 pairs are not enumerated.
 - **Block trigger**: HTTP `eth_blockNumber` polling every 500 ms (`NO_WS=1`), while the section 2.6 reference run used the websocket
@@ -438,6 +459,7 @@ writing)" and gave `liquidityBlock` as the pre-filter block.)
 | name | sentinel | log | status |
 |---|---|---|---|
 | V4LIVE | `/home/user/dapparb/research-material/.sentinels/V4LIVE.DONE` ("ok: ran 1200 s after searcher ready", 2026-10-01T02:56:05.719Z) | `collect/run_v4_live.log`, `live-v4.log` | DONE (valid run, `NO_WS=1`); the attempt's earlier DONE sentinel is kept as `attempts/20261001T010337Z-no-blocks/V4LIVE.DONE.invalidated` |
+| V4UNIVERSE | `/home/user/dapparb/research-material/.sentinels/V4UNIVERSE.DONE` ("ok pinned_block=52015721 pools_after_prune=118168 v4_after_prune=82443 chunk_throws_after_retries=0", 2026-10-01T04:24:40.982Z) | `collect/run_v4_universe.log`, `collect/v4_universe_snapshot.log` | DONE (added 2026-10-01; reconstruction at block 52,015,721, see section "V4UNIVERSE") |
 
 (Correction 2026-10-01: the status column said "scheduled / running".)
 
@@ -510,6 +532,8 @@ The `collect/work/topup/` chunk files have no header line (data rows only); thei
 rows of `initialize-topup.csv.gz`. `topup_initialize.py --repin` deletes every chunk file before pinning, so only the chunks of the
 02:05:29Z pin are present.
 
+(Addition 2026-10-01: the V4UNIVERSE files added after this check are inventoried in the section "V4UNIVERSE".)
+
 ## Corrections made on 2026-10-01 (summary)
 
 - Status: "IN PROGRESS / scheduled" -> COMPLETE; collector status "scheduled / running" -> DONE.
@@ -520,3 +544,207 @@ rows of `initialize-topup.csv.gz`. `topup_initialize.py --repin` deletes every c
 - `collect/verify-startup.jsonl`: the engine ran one tick before the stop (not "no ticks").
 - Top-up: the file on disk is the 02:05:29Z pin (847 rows); the 678-row 01:03:38Z pin belonged to the invalid attempt.
 - Verification startup, time windows and blocks, endpoints, reproduce command and the `collect/` table filled in or updated.
+
+## V4UNIVERSE: per-pool reconstruction of the V4LIVE engine universe (added 2026-10-01)
+
+The valid V4LIVE run logged only aggregate counts of the pools it searched (`v4 pools loaded from file`, `searcher ready`). The
+`v4universe-*` files list that universe one row per pool. **They are a reconstruction, not output of the live engine.** They
+were collected on 2026-10-01 between 03:58Z and 04:25Z (1-2 hours after the run), with every on-chain read pinned at one
+historical block inside the run window, block 52,015,721. Pool state differs from the state the live engine held. See
+"Differences from the live run" below.
+
+### Method
+- Script: `collect/v4_universe_snapshot.ts`, modelled on `../04-shallow-pools/collect/snapshot.ts`. It runs with `npx tsx` from
+  `/home/user/dapparb/bot` and imports the engine modules unchanged by relative path. `bot/src` was not modified. The last
+  `bot/src` commit is `44f92d5`, and `bot/src` had no uncommitted changes at run time (recorded in `v4universe-meta.json`).
+- Sequence, as in `bot/src/main.ts` for the run's flags (`--universe all --max-per-factory 6000 --v4-pools <spec>
+  --min-depth-eth 0.1`):
+  1. `enumerateUniverse(maxPerFactory 6000)`, then tokens = `cfg.tokens` ∪ enumerated tokens.
+  2. `loadV4PoolsFromFile(client, cfg, spec, tokens)` (`bot/src/pools/v4file.ts`), then tokens += `tokensAdded`.
+  3. `loadStaticMetadata`, then `syncPools(force, blockNumber = PIN)`, then `pruneEmpty`.
+  4. `buildEthPrices(kept)`, then `filterByDepth(kept, prices, 0.1)`.
+
+  The script also counts `new CycleIndex(afterDepth).candidates.length` (the `cycles` field of `searcher ready`). GeckoTerminal
+  is not used: `main.ts` does not call `discoverV4Pools` when `--v4-pools` is given.
+- Spec: `run-times.json.v4_pools_spec` =
+  `/home/user/dapparb/research-material/01-v4-pools/initialize-part-*.csv.gz,/home/user/dapparb/research-material/02-v4-live-test/initialize-topup.csv.gz`
+  (23 files, the local originals; no rebuild was needed). Before the run, every one of the 22 parts matched the sha256 and byte
+  size in `../01-v4-pools/initialize-parts.json`. `initialize-topup.csv.gz` matched the sha256 in `run-times.json.topup.index`
+  (`5c73fd6c...1203`). Byte sizes and mtimes of all 23 files are in `v4universe-meta.json.v4_pool_files`.
+- Pin: PIN = 52,015,721 (block timestamp 2026-10-01T02:13:09Z, hash
+  `0xc53755578274901718014052ef5028d182226e57b914a9153facd4bccd5e3475`). This is the `liquidityHeadAfter` value of the run's
+  `v4 pools loaded from file` record. A Proxy around the engine's viem client pins the reads:
+  - It adds `blockNumber = PIN` to every `multicall` / `readContract` that names no block.
+  - It returns PIN from `getBlockNumber`. As a result, this snapshot's `liquidityHeadBefore` and `liquidityHeadAfter` are both
+    52015721, and the loader's liquidity pre-filter reads at PIN instead of at `latest`.
+
+  `syncPools` is called with `blockNumber: PIN`. All engine reads, including the tick bitmap and tick reads, are at PIN.
+- Endpoint: only `https://base-mainnet.public.blastapi.io` (archive `eth_call`). The script uses the engine's `makeHttpClient`
+  with `rpcUrls` replaced by this one URL. The run instead used the four-endpoint fallback publicnode → drpc → blastapi →
+  mainnet.base.org at `latest`.
+  - JSON-RPC batching is the engine's (batchSize 100, wait 10 ms). `multicallChunked` runs at concurrency 4, so at most 4
+    multicalls are in flight.
+  - A `fetch` wrapper adds a browser-like User-Agent.
+  - Transient errors are retried up to 7 attempts, with backoff from 2 s to 60 s, before the engine's own chunk bisection.
+  - Recorded: 0 RPC errors and 0 chunk throws. Failed sub-calls: 24 `decimals` and 25 `symbol`, all in the enumeration stage
+    (the engine drops tokens whose `decimals()` fails). They are listed in `v4universe-failed-calls.jsonl.gz`.
+- Deviations from a plain engine start (they change no pool or price value):
+  - (a) `syncPools` runs on 17 consecutive batches of 8,000 pools (the last batch has 577) instead of one call. Per-pool reads
+    are independent and all at PIN. `syncStats` are summed over the batches. Smoke check (`--max-per-factory 25`, top-up file
+    only): runs with 50-pool batches and with a single batch gave byte-identical pool files after decompression.
+  - (b) viem `isAddressCache` flat-key patch, against memory growth (see "Run log").
+  - (c) V8 heap capped at 1280 MB (`NODE_OPTIONS=--max-old-space-size=1280`).
+- Resumable: checkpoints are kept in `collect/work/v4universe/` (local-only; 19 files, 38.6 MB): `A-enumerate.json.gz`,
+  `B-v4load-static.json.gz` and `C-sync-0000..0016.json.gz`. A re-run with the same pin, spec, flags, endpoint and batch size
+  continues from the last checkpoint (`checkpoint_key` `5d8c02def8272b73` in the meta). Smoke check: a re-run from checkpoints
+  gave identical files.
+- Extra read, not part of the engine sequence: ERC-20 `balanceOf(pool)` at PIN for the two tokens of every non-V4 pool (92,268
+  calls, 0 failed). It fills the balance columns as in `../04-shallow-pools/`.
+
+### Run log (UTC, 2026-10-01; `collect/run_v4_universe.log`, `collect/v4_universe_snapshot.log`)
+- 03:58:08Z: launch of `collect/run_v4_universe.sh` (head 52,018,871). The enumeration finished at 04:06:31Z (500 s) and was
+  saved as checkpoint A.
+- The next three attempts (the first, and two automatic restarts that resumed from checkpoint A at 04:07:12Z and 04:07:57Z)
+  ended with exit code 134. Each was a V8 `JavaScript heap out of memory` error at the 1280 MB cap, inside
+  `loadV4PoolsFromFile` while it parsed the files. The stack traces are in `collect/v4_universe_snapshot.log`. The script wrote
+  `V4UNIVERSE.FAILED`.
+- Cause, found with a heap snapshot of a 150,000-row test and then measured with `collect/v4_universe_memtest.ts`:
+  - viem's `isAddressCache` is an `LruMap` of 8,192 entries keyed `${address}.${strict}`.
+  - Its keys are built from the loader's raw CSV field strings (via `poolIdOf(key)`). Those strings are slices of 1 MB
+    decompressed chunks, so each cached key keeps its whole chunk alive.
+  - On parts 0001-0004 (2,944,692 rows), heap after GC was 797 MB without flat keys and 13 MB with them
+    (`collect/v4_universe_memtest.log`).
+  - The patch stores a flat copy of each key in both viem builds: CJS, which the engine modules load under tsx here, and ESM. It
+    does not change any returned value.
+- 04:13:35Z: relaunch with the patch (head 52,019,334). It resumed from checkpoint A. Stage times: V4 load 178 s, static
+  metadata 13 s, sync 422 s. It finished at 04:24:41Z (head 52,019,666).
+- Sentinel `/home/user/dapparb/research-material/.sentinels/V4UNIVERSE.DONE` ("ok pinned_block=52015721
+  pools_after_prune=118168 v4_after_prune=82443 chunk_throws_after_retries=0", 04:24:40.982Z).
+- Sampled RSS maximum: 834 MB (enumeration, first process) and 781 MB (relaunch).
+- After the run, a comment in `collect/v4_universe_snapshot.ts` was edited to cite `collect/v4_universe_memtest.log`. No code
+  changed.
+
+### Counts: this reconstruction next to the live run's records
+Values only. The live column is copied from `live-v4.log` and `run-times.json`.
+
+| record / field | reconstruction (PIN 52,015,721) | live run (`live-v4.log`) |
+|---|---|---|
+| `factory enumerated` total: AerodromeCL / AerodromeCL3 / AerodromeCL2 / Aerodrome | 3,648 / 2,841 / 2,260 / 29,603 | 3,648 / 2,840 / 2,260 / 29,603 |
+| `factory enumerated` total: UniswapV2 / SushiV2 / PancakeV2 / BaseSwap | 3,063,786 / 6,095 / 15,243 / 8,258 | 3,063,783 / 6,095 / 15,243 / 8,258 |
+| `universe enumerated`: enumeratedPools / tokens / pairs | 38,749 / 33,606 / 37,339 | 38,748 / 33,605 / 37,338 |
+| `pool discovery complete`: candidates / found | 1,344,204 / 46,134 | 1,344,168 / 46,133 |
+| loader: rowsRead / priceable / priceableHookless / priceableWithHook | 15,334,094 / 240,087 / 238,606 / 1,481 | 15,334,094 / 240,087 / 238,606 / 1,481 |
+| loader: droppedDynamicFee / droppedHookSwapFlags / droppedSameTokenAfterNativeMapping | 3,359,021 / 11,734,986 / 5 | 3,359,021 / 11,734,986 / 5 |
+| loader: liquidityChecked / liquidityPositive / droppedLiquidityZero / droppedLiquidityCallFailed | 240,082 / 82,443 / 157,639 / 0 | 240,082 / 82,443 / 157,639 / 0 |
+| loader: liquidityHeadBefore / liquidityHeadAfter | 52,015,721 / 52,015,721 (pinned) | 52,015,682 / 52,015,721 (`latest`) |
+| loader: tokensNotInUniverse / tokensAdded / tokenMetadataFailed / v4PoolsBuilt | 41,402 / 41,402 / 0 / 82,443 | 41,402 / 41,402 / 0 / 82,443 |
+| startupSyncPools / startupSyncStalePools / startupSyncChunkFailures | 128,577 / 0 / 0 | 128,576 / 0 / 0 |
+| v4AfterPruneEmpty / v4AfterDepthFilter (minDepthEth 0.1) | 82,443 / 8,612 | 82,443 / 8,612 |
+| `searcher ready`: tokens / pools / cycles | 75,008 / 11,782 / 9,512 | 75,007 / 11,779 / 9,512 |
+| pools after `pruneEmpty` (all kinds) / pruned | 118,168 / 10,409 | not logged |
+
+### Differences from the live run (state and method)
+- **Read blocks.** The live engine read at `latest`, spread over several blocks:
+  - factory enumeration and pool discovery: log times 02:05:34.9Z-02:11:05.7Z, about blocks 52,015,493-52,015,659 (derived from
+    the log timestamps with the 2-s block rule);
+  - liquidity pre-filter: heads 52,015,682-52,015,721 (logged);
+  - startup sync and its tick data: the head when `syncPools` started. That head is not logged. It came after the 02:13:50.2Z
+    record "v4 pools built; starting the engine's startup sync", so it is at or above about block 52,015,741 (derived).
+
+  Here, all of these reads are at 52,015,721. A pool whose reserves, liquidity, ticks or fee changed between those blocks has
+  other values here than in the engine. Factory lengths also differ for AerodromeCL3 and UniswapV2 (table above), so the
+  "newest 6,000" window of UniswapV2 starts 3 indices later here.
+- **No per-pool comparison.** Equal counts do not establish identical per-pool sets. The live run recorded no per-pool list, so
+  the two sets cannot be compared pool by pool.
+- **Startup state only.** During the window the live engine updated pool state from logs (`--source logs`). This snapshot has
+  only the startup state. The engine's pool set is fixed at startup (see "Coverage limits and gaps").
+- **Endpoint.** One archive endpoint here; the run used the four-endpoint fallback (both report 0 stale pools).
+
+### Files
+- `v4universe-pools-prefilter.csv.gz`: every pool after `pruneEmpty`, 118,168 rows (82,443 V4).
+  - The 43-column header is byte-identical to `../04-shallow-pools/pools-prefilter.csv.gz`, and the column meanings are those
+    in `../04-shallow-pools/MANIFEST.md` ("Snapshot (step 1)").
+  - Differences from that schema:
+    - the V4 key columns (`v4_currency0`, `v4_currency1`, `v4_fee_raw`, `v4_tick_spacing`, `v4_hooks`) come from the Initialize
+      rows read by the loader, not from `PositionManager.poolKeys`;
+    - `state_block` is 52015721 in every row;
+    - the balance columns are empty for V4 rows.
+  - `passes_min_depth_0_1_derived` is membership in `filterByDepth(kept, prices, 0.1)`, the run's `--min-depth-eth 0.1`. It is
+    true in 11,782 rows (8,612 of them V4).
+  - Rows with a non-zero `v4_hooks`: 256. Rows with `v4_currency0` = native ETH: 21,148.
+  - 9 rows contain line breaks inside quoted symbol fields, so the file has 118,180 lines. Read it with a CSV parser.
+- `v4universe-pools-pruned-empty.csv.gz`: every pool removed by `pruneEmpty`, 10,409 rows, same 43 columns. It has no
+  `recheck_*` columns, `passes_min_depth_0_1_derived` is empty, and it contains 0 V4 rows.
+- `v4universe-prices.csv.gz`: the full engine price map (`buildEthPrices` over the 118,168 kept pools), 8,814 rows. Columns as
+  in `../04-shallow-pools/prices.csv.gz`: `token`, `symbol`, `decimals`, `engine_price_eth_derived`, `is_weth`, `is_usdc`.
+- `v4universe-meta.json`:
+  - pin (number, timestamp, hash), heads at start and end, flags, spec files, endpoint, git commits, `checkpoint_key`, the
+    patched viem files, and `live_run_reference` (launch/ready/stop heads from `run-times.json`);
+  - per-stage timings and counts, `fn_stats_by_stage` (calls/ok/fail per stage and function), failure counters, and the list of
+    output files;
+  - `v4_loader_counts`: the loader's `V4FileStats` plus startupSync*, v4AfterPruneEmpty and v4AfterDepthFilter, with the same
+    keys as the run's `v4 pools loaded from file` record;
+  - `searcher_ready_equivalent` (tokens, pools, cycles).
+- `v4universe-failed-calls.jsonl.gz`: 49 lines, `{stage, fn, address, args, err}`.
+- `v4universe-rpc-errors.jsonl.gz`: 0 lines (a valid empty gzip).
+- `collect/v4_universe_snapshot.ts`: the collector.
+- `collect/run_v4_universe.sh`: detached launcher, up to 3 attempts, heap cap.
+- `collect/v4_universe_snapshot.log`: collector stdout/stderr, all attempts appended, including the OOM traces.
+- `collect/run_v4_universe.log`: launcher log.
+- `collect/v4_universe_memtest.ts` and `collect/v4_universe_memtest.log`: the parse-memory diagnostic. It makes no RPC calls.
+- `collect/work/v4universe/` (local-only): the checkpoints.
+
+### Reproduce
+```
+# full run (detached, resumable; writes ../v4universe-* and .sentinels/V4UNIVERSE.DONE|FAILED)
+setsid nohup /home/user/dapparb/research-material/02-v4-live-test/collect/run_v4_universe.sh \
+  >> /home/user/dapparb/research-material/02-v4-live-test/collect/run_v4_universe.log 2>&1 < /dev/null &
+# which runs, from /home/user/dapparb/bot:
+#   NODE_OPTIONS=--max-old-space-size=1280 LOG_JSON=1 npx tsx ../research-material/02-v4-live-test/collect/v4_universe_snapshot.ts \
+#     >> ../research-material/02-v4-live-test/collect/v4_universe_snapshot.log 2>&1
+# defaults: --pin 52015721 --spec <run-times.json v4_pools_spec> --max-per-factory 6000 --min-depth-eth 0.1
+#           --rpc https://base-mainnet.public.blastapi.io --sync-batch 8000 --out 02-v4-live-test --work collect/work/v4universe
+# smoke test used before the full run (outputs in the scratchpad, not kept):
+#   ... v4_universe_snapshot.ts --max-per-factory 25 --spec .../02-v4-live-test/initialize-topup.csv.gz --out <scratch> \
+#       --work <scratch>/work --sentinel none [--sync-batch 50]
+# memory diagnostic:
+#   NODE_OPTIONS="--max-old-space-size=4000 --expose-gc" [PATCH=1] npx tsx ../research-material/02-v4-live-test/collect/v4_universe_memtest.ts \
+#     <comma-separated part files>
+```
+
+### Coverage limits
+- **Reconstruction.** The pool state is the state at block 52,015,721, read later from an archive node, and not the state the
+  live engine held (see "Differences from the live run").
+- **No tick table.** CL and V4 tick data were fetched by `syncPools(force)` but are not dumped. Only the per-pool counts
+  `cl_bitmap_words_fetched` and `cl_initialized_ticks_fetched` are written. The checkpoints in `collect/work/v4universe/C-sync-*`
+  hold them locally.
+- **Dropped V4 rows are counted, not listed.** There is no per-pool list of:
+  - the 157,639 V4 candidates dropped by the liquidity pre-filter;
+  - the 3,359,021 dynamic-fee rows;
+  - the 11,734,986 rows whose hook has swap flags;
+  - the 5 rows with the same token after native-to-WETH mapping.
+
+  Their keys are in the Initialize files (`../01-v4-pools/initialize-part-*.csv.gz`, `initialize-topup.csv.gz`).
+- **No V4 balances.** PoolManager-held balances of V4 currencies were not read here (`../04-shallow-pools` read them for its 9 V4
+  pools).
+- **Symbols.** Symbols are the engine's, sliced to 12 characters.
+
+### Inventory of the V4UNIVERSE files (2026-10-01, after the run)
+Lines are newline counts; for `.gz` files they count the decompressed content, and CSV counts include the header. Every `.gz`
+file passed `gzip -t`. "new" means not yet in git (this task does not commit).
+
+| file | bytes | lines | sha256 | git |
+|---|---|---|---|---|
+| `v4universe-pools-prefilter.csv.gz` | 14703584 | 118180 | `638886f720601ab9bc7cd335d9dd0d025c8c97acd4605a3634d3da0abff2f6d0` | new |
+| `v4universe-pools-pruned-empty.csv.gz` | 725382 | 10410 | `8fe472d43cd2f53c75ff6ccc82976b7614dde5823244a129b784ef0f0e119ef9` | new |
+| `v4universe-prices.csv.gz` | 333443 | 8815 | `47ddb6fd2bc90597776c985647b359e93b91c11f858235d6dd91d9c1b1229e28` | new |
+| `v4universe-meta.json` | 13030 | 559 | `776e7c0427b829379733cd420c098791af359bef5519a9d094c061dbc6e30629` | new |
+| `v4universe-failed-calls.jsonl.gz` | 920 | 49 | `15b60e5700b4d1ebb769905109746ed6d4d9f6534aececba8176541bf2c9ecda` | new |
+| `v4universe-rpc-errors.jsonl.gz` | 20 | 0 | `f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec` | new |
+| `collect/v4_universe_snapshot.ts` | 26923 | 477 | `284df2d886e40929a50eeec1c0f7682ec7d62e1327598412cbec6a56d50e94db` | new |
+| `collect/run_v4_universe.sh` | 1551 | 23 | `c0c71c8d4bbcd6e210a38a83f9e173fd6430d10c13134314b6a0154d4eb36c09` | new |
+| `collect/v4_universe_snapshot.log` | 14168 | 129 | `ecd50a78b80c314c362c240c3d6a2b5dd153c1e9951295b045d8fa7e7ec0441f` | new |
+| `collect/run_v4_universe.log` | 576 | 9 | `1f61e2bdc65025c25276685ce21e1af03eb26c7b4fc643b514e1cac6c28b60bc` | new |
+| `collect/v4_universe_memtest.ts` | 2284 | 37 | `7823bbdae3f92ed0329d157297203e3abced51625d4b95718cbeee0cacc3d956` | new |
+| `collect/v4_universe_memtest.log` | 1291 | 4 | `9d4ed9e6120c245bb85617609ae3c7d0baf9bb9b8701c2e8951e08d4edb8e1ec` | new |
+| `collect/work/v4universe/` (19 files) | 38617440 (total) | | | local-only (git-ignored) |

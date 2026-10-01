@@ -1,0 +1,37 @@
+[
+ {
+  "file": "docs.zksync.io_zksync-network_zksync-era.txt",
+  "start": "* Sequencer — Orders and executes transactions off-chain to produce state updates.",
+  "end": "* Sequencer — Orders and executes transactions off-chain to produce state updates."
+ },
+ {
+  "file": "docs.zksync.io_zksync-protocol_era-vm_transactions_transaction-lifecycle.txt",
+  "start": "Users submit their transactions to the sequencer",
+  "end": "soft confirmation to users about the execution of their transactions."
+ },
+ {
+  "file": "docs.zksync.io_zksync-protocol_era-vm_transactions_transaction-lifecycle.txt",
+  "start": "The sequencer collects transactions into blocks",
+  "end": "through small block sizes."
+ },
+ {
+  "file": "docs.zksync.io_zksync-protocol_era-vm_transactions_transaction-lifecycle.txt",
+  "start": "* maxPriorityFeePerGas : Recommended to be set to 0 for ZKsync transactions.",
+  "end": "the maxPriorityFeePerGas parameter is not utilized"
+ },
+ {
+  "file": "docs.zksync.io_zksync-protocol_era-vm_transactions_blocks.txt",
+  "start": "While L2 blocks are crucial, their importance will increase",
+  "end": "encompassing all transactions received within that timeframe."
+ },
+ {
+  "file": "docs.zksync.io_zk-stack_components_server.txt",
+  "start": "maintain Layer 2 (L2) state, and manage the order of incoming transactions.",
+  "end": "maintain Layer 2 (L2) state, and manage the order of incoming transactions."
+ },
+ {
+  "file": "docs.zksync.io_zksync-protocol_era-vm_contracts_system-contracts.txt",
+  "start": "L2BaseToken Address: 0x000000000000000000000000000000000000800a",
+  "end": "This contract does NOT provide ERC20 interface."
+ }
+]

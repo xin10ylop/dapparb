@@ -6,6 +6,8 @@ Collected 2026-09-30 (UTC). Raw material only: no analysis, estimates or conclus
 
 `bsc/` and `solana/` in this parent directory are produced by separate collectors with their own manifests and are not indexed here (correction 2026-10-01: the collector's text named only `bsc/`). The folder-level index is `MANIFEST.md`.
 
+Correction 2026-10-01 (other-l2-censuses): this index now also covers six L2 census directories added on 2026-10-01: ink/, mantle/, abstract/, worldchain/, zksync/ and soneium/. Their rows are at the end of the Index table, and the section 'Additional L2 chains (2026-10-01)' at the end of this file has their question-line mapping and method notes. They have 12 more DONE sentinels (EVM_CENSUS_* and EVM_TOKENPRICES_* for the six chains). The title, the status line and the sections up to 'Verified inventory (2026-10-01)' were written for the first five chains and are otherwise unchanged.
+
 ## Question-line IDs (verbatim user text)
 
 Column "Line" (added 2026-10-01) is the number of the line in the list of 8 question lines in `MANIFEST.md`.
@@ -48,6 +50,12 @@ Restated by line number on 2026-10-01 (the collector's table used Q-IDs, short n
 | Unichain | unichain/ | 60 min: 2026-09-30T20:07:22Z to 2026-09-30T21:07:21Z | 60050483 to 60054082 (3600) | 1.0000 s | EVM_CENSUS_UNICHAIN (DONE); EVM_TOKENPRICES_UNICHAIN (DONE) | census complete |
 | Ethereum mainnet | ethereum/ | 6 h: 2026-09-30T15:06:59Z to 2026-09-30T21:06:47Z | 26091086 to 26092877 (1792) | 12.0536 s | EVM_CENSUS_ETHEREUM (DONE); EVM_TOKENPRICES_ETHEREUM (DONE) | census complete |
 | Polygon PoS | polygon/ | 60 min: 2026-09-30T20:07:32Z to 2026-09-30T21:07:30Z | 94729141 to 94731540 (2400) | 1.4998 s | EVM_CENSUS_POLYGON (DONE); EVM_TOKENPRICES_POLYGON (DONE) | census complete |
+| Ink (added 2026-10-01) | ink/ | 60 min: 2026-10-01T03:18:30Z to 2026-10-01T04:18:29Z | 57326299 to 57329898 (3600) | 1.0000 s | EVM_CENSUS_INK (DONE); EVM_TOKENPRICES_INK (DONE) | census complete |
+| Mantle (added 2026-10-01) | mantle/ | 60 min: 2026-10-01T03:18:30Z to 2026-10-01T04:18:28Z | 101347199 to 101348998 (1800) | 2.0000 s | EVM_CENSUS_MANTLE (DONE); EVM_TOKENPRICES_MANTLE (DONE) | census complete |
+| Abstract (added 2026-10-01) | abstract/ | 60 min: 2026-10-01T03:18:33Z to 2026-10-01T04:18:32Z | 86310808 to 86315526 (4719) | 0.7628 s | EVM_CENSUS_ABSTRACT (DONE); EVM_TOKENPRICES_ABSTRACT (DONE) | census complete |
+| World Chain (added 2026-10-01) | worldchain/ | 60 min: 2026-10-01T03:18:31Z to 2026-10-01T04:18:29Z | 35744536 to 35746335 (1800) | 2.0000 s | EVM_CENSUS_WORLDCHAIN (DONE); EVM_TOKENPRICES_WORLDCHAIN (DONE) | census complete |
+| ZKsync Era (added 2026-10-01) | zksync/ | 60 min: 2026-10-01T03:18:09Z to 2026-10-01T04:18:08Z | 72284916 to 72285498 (583) | 6.1838 s | EVM_CENSUS_ZKSYNC (DONE); EVM_TOKENPRICES_ZKSYNC (DONE) | census complete |
+| Soneium (added 2026-10-01) | soneium/ | 60 min: 2026-10-01T03:18:31Z to 2026-10-01T04:18:29Z | 28844980 to 28846779 (1800) | 2.0000 s | EVM_CENSUS_SONEIUM (DONE); EVM_TOKENPRICES_SONEIUM (DONE) | census complete |
 
 ## Per-chain contents (same layout in every chain directory)
 
@@ -57,7 +65,7 @@ Restated by line number on 2026-10-01 (the collector's table used Q-IDs, short n
 * `window.json`: pinned window, endpoints, request/error counts, integrity checks, measured block interval.
 * `tokens-onchain-meta.csv.gz`, `prices-defillama-historical.jsonl.gz`, `native-price-chart-defillama.json`: token decimals/symbols and DefiLlama USD reference prices for tokens seen in candidates.
 * `defillama-dexs.json`: raw https://api.llama.fi/overview/dexs/<chain>.
-* `docs/` (arbitrum, optimism, unichain only): official transaction-ordering documentation, verbatim text + raw bodies + index.csv with URL and fetch time.
+* `docs/` (arbitrum, optimism, unichain only): official transaction-ordering documentation, verbatim text + raw bodies + index.csv with URL and fetch time. (Correction 2026-10-01: the six chains added on 2026-10-01 also have `docs/`, plus `docs/excerpts.jsonl` with verbatim excerpts; "only" refers to the first five chains.)
 * `collect/`: the collector scripts and their logs. `_shared_collect/` in this parent holds the master copies of the same scripts (identical md5) plus write_manifest_evm.py, which generated this file. (Checked 2026-10-01: census.py, fetch_defillama.py, fetch_docs.py, make_swap_topics.py, run_token_prices_all.sh, swap_signatures.csv, token_prices.py and write_manifest.py have identical md5 in `_shared_collect/` and in all five chain `collect/` directories; `solana/collect/fetch_docs.py` is also identical. This file was edited by hand on 2026-10-01; re-running write_manifest_evm.py would regenerate the collector's version without these edits.)
 
 ## Shared method notes
@@ -71,7 +79,7 @@ Restated by line number on 2026-10-01 (the collector's table used Q-IDs, short n
 * One window per chain, same evening (UTC); no repetition across days/times.
 * No calldata, no traces (internal transfers, coinbase payments, revert reasons), no mempool/private-orderflow/bundle data, no flashblock-level ordering data for any chain.
 * Swap detection is signature-based (see each swap-topics.csv and the list of unmatched venue types in each chain's MANIFEST.md).
-* Chains not in this set: Base (other directories), BSC (bsc/, separate collector), Solana (solana/, separate collector; correction 2026-10-01: the collector's text did not point to it), and all other L2s/L1s (Blast, Linea, zkSync, Scroll, Mantle, Avalanche, Sonic, ...).
+* Chains not in this set: Base (other directories), BSC (bsc/, separate collector), Solana (solana/, separate collector; correction 2026-10-01: the collector's text did not point to it), and all other L2s/L1s (Blast, Linea, zkSync, Scroll, Mantle, Avalanche, Sonic, ...). (Correction 2026-10-01: zkSync (ZKsync Era, zksync/) and Mantle (mantle/) are now in this set, together with Ink, Abstract, World Chain and Soneium; Blast, Linea and Scroll remain outside it. See 'Additional L2 chains (2026-10-01)'.)
 * Literature on the EVM chains (arXiv papers quoted in the repository file docs/ANALYSIS.md, section 4.1) is not collected in these EVM directories. Solana literature is in solana/docs/literature/.
 
 ## Verified inventory (2026-10-01)
@@ -95,3 +103,32 @@ Local-only file and how to regenerate it: `_shared_collect/__pycache__/write_man
 | _shared_collect/write_manifest.py | 23,378 | 204 lines | 3684ce234e6cb758ab382ea50c0130c407e92959833184d1e424143e9cb41970 | committed |
 | _shared_collect/write_manifest_evm.py | 8,331 | 78 lines | 83d8d4cbea12a33dd8fa77eabcbfa17b22c0d445c31552e0a7c3636677bab4f5 | committed |
 | MANIFEST-evm.md | (changes when edited) | documentation | not recorded (edited 2026-10-01) | committed |
+
+## Additional L2 chains (2026-10-01)
+
+Added by the other-l2-censuses collection on 2026-10-01. Six chain directories follow the same layout and shared definition as the five chains above: ink/, mantle/, abstract/, worldchain/, zksync/ and soneium/. Their Index rows are at the end of the Index table. How they were chosen (DefiLlama 24 h DEX volume among 11 candidate L2s whose public RPC serves eth_getBlockReceipts) is in `selection.csv` and in `MANIFEST.md`, section 'Additional L2 censuses (2026-10-01)'. That section also has the sentinel texts, commands and the inventory of the new top-level files. Each chain directory's MANIFEST.md has its schemas, endpoints, docs, excerpts, chain-specific notes, coverage limits and verified per-file inventory.
+
+### Method differences from the five chains above (descriptive)
+
+* Same scripts: census.py, make_swap_topics.py, swap_signatures.csv, fetch_defillama.py, fetch_docs.py and token_prices.py in each `<chain>/collect/` are byte-identical to `_shared_collect/` (md5 checked 2026-10-01). Because census.py and token_prices.py hold chain settings in hard-coded dicts, the new chains are run through two wrappers that add the settings at run time and call the unmodified `main()`: `collect/census_l2.py` and `collect/token_prices_l2.py`, with settings in `collect/l2_config.py`. Masters are in `collect/` in this directory; copies in each chain's `collect/` are identical.
+* Windows: 60 min each, pinned 2026-10-01T04:18:40-04:18:42Z, ending between 04:18:08Z and 04:18:32Z chain time. The five chains above were pinned 2026-09-30T21:07:32Z.
+* Endpoints (primary): ink-rpc.publicnode.com, mantle-rpc.publicnode.com, api.mainnet.abs.xyz, worldchain-mainnet.gateway.tenderly.co, mainnet.era.zksync.io, soneium-rpc.publicnode.com; fallbacks and request/error counts are in each window.json.
+* Docs: `docs/` for all six chains, plus `docs/excerpts.jsonl`: verbatim excerpts with source URL, fetch time and character offsets into the stored text. They are written by `collect/make_doc_excerpts.py` from `collect/docs_excerpts_spec.json`.
+* Manifests written by `collect/write_manifest_l2.py` (not by write_manifest.py), with the question-line mapping by line number and a verified inventory.
+
+### Question lines served (mapping only)
+
+`<l2>` = each of ink/, mantle/, abstract/, worldchain/, zksync/, soneium/. "census files" and "token/price files" as in the table above; the same mapping is in each `<l2>/MANIFEST.md`.
+
+| Line | ink/ | mantle/ | abstract/ | worldchain/ | zksync/ | soneium/ |
+|---|---|---|---|---|---|---|
+| 1 | none | none | none | none | none | none |
+| 2 | candidates-001.jsonl.gz, tokens-onchain-meta.csv.gz | same | same | same | same | same |
+| 3 | candidates-001.jsonl.gz, tokens-onchain-meta.csv.gz | same | same | same | same | same |
+| 4 | census files, token/price files, defillama-dexs.json (+ .fetch.json) | same | same | same | same | same |
+| 5 | candidates-001.jsonl.gz, blocks.csv.gz, txs-001.csv.gz, docs/ (incl. excerpts.jsonl) | same | same | same | same | same |
+| 6 | docs/ (incl. excerpts.jsonl) | same | same | same | same | same |
+| 7 | census files, token/price files | same | same | same | same | same |
+| 8 | census files | same | same | same | same | same |
+
+Top-level files added with these chains (`selection.csv`, `defillama-overview-dexs-all-chains.json.gz` + `.fetch.json`, `defillama-overview-dexs-candidates.jsonl.gz`, `rpc-receipts-probe-candidates.jsonl.gz`) serve line 4. `collect/` holds scripts and logs and is not mapped.

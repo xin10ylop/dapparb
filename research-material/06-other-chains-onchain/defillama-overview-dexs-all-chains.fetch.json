@@ -1,0 +1,8 @@
+{
+ "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true",
+ "fetched_at_utc": "2026-10-01T04:16:42Z",
+ "http_status": 200,
+ "bytes_uncompressed": 19891380,
+ "sha256_uncompressed": "2fc7b7a585cfef768fb1233661bb36651bdf8bc9ac38c32ef2516166d73dc78b",
+ "stored_as": "defillama-overview-dexs-all-chains.json.gz (gzip of the unmodified response body)"
+}

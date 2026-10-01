@@ -1,0 +1,285 @@
+SOURCE_URL: https://docs.zksync.io/zksync-protocol/era-vm/transactions/fee-model
+FINAL_URL: https://docs.zksync.io/zksync-protocol/era-vm/transactions/fee-model
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:48Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+Fee model - ZKsync Docs
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+* ZKsync Network
+
+* ZK Stack
+
+* ZKsync Protocol
+
+Getting started with ZKsync protocol
+ZKsync protocol overview ZKsync protocol overview Bridging assets Finality Data availability Pubdata compression
+
+ZKsync OS ZKsync OS Overview Double Resource Accounting Bootloader Execution Environments System Processing of Transactions System Hooks Runner Flow
+
+Web3 API API Overview Conventions Ethereum JSON-RPC API Debug JSON-RPC API ZKsync JSON-RPC API PubSub JSON-RPC API
+
+Contracts ZKsync contracts
+L1 contracts L1 contracts L1 ecosystem contracts Shared bridges ZKsync Chain addresses
+
+Protocol security Audits Bug bounty Withdrawal delay
+
+EraVM Chains EraVM Overview
+Transactions Transaction lifecycle Blocks and batches L1 <-> L2 communication
+Fee model Fee model How L2 gas price works How ZKsync Chains charges for pubdata ZKsync fee structure
+
+EraVM ZKsync Virtual Machine primer VM formal specification
+
+Contracts ZKsync contracts Bootloader System contracts Handling L1->L2 ops on ZKsync Handling pubdata Pubdata post 4844
+
+Circuits Overview ZK terminology
+Concrete circuits Overview Circuit testing CodeDecommitter DemuxLogQueue ECRecover KeccakRoundFunction L1MessagesHasher LogSorter Main VM RAMPermutation Sha256RoundFunction StorageApplication
+Sorting and deduplicating Overview SortDecommitments StorageSorter LogSorter
+
+Boojum gadgets Boojum function - `check_if_satisfied`
+
+Compilers Compiler toolchain overview Compiler toolchain overview LLVM framework
+
+Differences from L1 EVM instructions Nonces Libraries Precompiles Native AA vs EIP 4337 Contract deployment
+
+EVM Bytecode Interpreter Overview EVM bytecode deployment and execution EraVM ↔ EVM Contract Interactions Differences Between the EVM Bytecode Interpreter and Ethereum Technical Architecture of the EVM Interpreter EVM Gas Interpretation Pre Deployed Contracts EVM Bytecode Interpreter FAQ
+
+Account Abstraction Introduction Design Paymasters Building smart accounts Signature validation Extending EIP-4337
+
+ZKsync Gateway Gateway Overview Features Data Availability Considerations Frequently Asked Questions
+
+Upgrades and migrations
+
+ZKsync Docs
+* ZKsync Protocol
+
+* EraVM Chains
+
+* Transactions
+
+* Fee model
+
+## Fee model
+
+Overview of ZKsync's fee model.
+
+This document will assume that you already know how gas & fees work on Ethereum .
+On Ethereum, all the computational, as well as storage costs, are represented via one unit: gas.
+Each operation costs a certain amount of gas, which is generally constant
+(though it may change during upgrades ).
+
+##
+Main differences from EVM
+ZKsync as well as other L2s have the issue that does not allow the adoption of the same model as the one for Ethereum so easily:
+the main reason is the requirement for publishing the pubdata on Ethereum.
+This means that prices for L2 transactions will depend on the volatile L1 gas prices and can not be simply hard coded.
+Also, ZKsync, being a zkRollup is required to prove every operation with zero-knowledge proofs.
+That comes with a few nuances.
+
+##
+Different opcode pricing
+The operations tend to have different “complexity”/”pricing” in zero-knowledge proof terms than in standard CPU terms.
+For instance, keccak256 which was optimized for CPU performance, will cost more to prove.
+That’s why you will find the prices for operations on ZKsync a lot different from the ones on Ethereum.
+
+##
+I/O pricing
+On Ethereum, whenever a storage slot is read/written to for the first time,
+a certain amount of gas is charged for the fact that the slot has been accessed for the first time.
+A similar mechanism is used for accounts: whenever an account is accessed for the first time,
+a certain amount of gas is charged for reading the account's data.
+On EVM, an account's data includes its nonce, balance, and code. We use a similar mechanism but with a few differences.
+
+##
+Storage costs
+Just like EVM, we also support "warm" and "cold" storage slots. However, the flow is a bit different:
+
+* The user is firstly precharged with the maximum (cold) cost.
+
+* The operator is asked for a refund.
+
+* Then, the refund is given out to the user in place.
+
+In other words, unlike EVM, the user should always have enough gas for the worst case (even if the storage slot is "warm").
+Also, the control of the refunds is currently enforced by the operator only and not by the circuits.
+
+##
+Code decommitment and account access costs
+Unlike EVM, our storage does not couple accounts' balances, nonces, and bytecodes.
+Balance, nonce, and code hash are three separate storage variables that use standard storage "warm" and "cold" mechanisms.
+A different approach is used for accessing bytecodes though.
+We call the process of unpacking the bytecode as, code decommitment ,
+since it is a process of transforming a commitment to code (i.e., the versioned code hash) into its preimage.
+Whenever a contract with a certain code hash is called, the following logic is executed:
+
+* The operator is asked whether this is the first time this bytecode has been decommitted.
+
+* If the operator returns "yes", then the user is charged the full cost. Otherwise, the user does not pay for decommit.
+
+* If needed, the code is decommitted to the code page.
+
+Unlike storage interactions, the correctness of this process is partially enforced by circuits,
+i.e., if step (3) is reached, i.e., the code is being decommitted, it will be proven that the operator responded correctly on step (1).
+However, if the program runs out of gas on step (2), the correctness of the first statement won't be proven.
+The reason for that is it is hard to prove in circuits at the time the decommitment is invoked whether it is indeed the first decommitment or not.
+Note that in the case of an honest operator, this approach offers a better UX,
+since there is no need to be precharged with the full cost beforehand.
+However, no program should rely on this fact.
+
+##
+Conclusion
+As a conclusion, ZKsync Chains support a similar "cold"/"warm" mechanism to EVM,
+but for now, these are only enforced by the operator, i.e., the users of the applications should not rely on these.
+The execution is guaranteed to be correct as long as the user has enough gas to pay for the worst, i.e. "cold" scenario.
+
+##
+Memory pricing
+ZKsync Chains have different memory pricing rules:
+
+* Whenever a user contract is called, 2^12 bytes of memory are given out for free, before starting to charge users linearly according to its length.
+
+* Whenever a kernel space (i.e., a system) contract is called, 2^21 bytes of memory are given out for free,
+before starting to charge users linearly according to the length.
+
+Note that, unlike EVM, we never use a quadratic component of the price for memory expansion.
+
+##
+Different intrinsic costs
+Unlike Ethereum, where the intrinsic cost of transactions ( 21000 gas) is used to cover the price of updating the balances of the users,
+the nonce and signature verification, on ZKsync these prices are not included in the intrinsic costs for transactions,
+due to the native support of account abstraction, meaning that each account type may have their own transaction cost.
+In theory, some may even use more zk-friendly signature schemes or other kinds of optimizations to allow cheaper transactions for their users.
+That being said, ZKsync transactions do come with some small intrinsic costs,
+but they are mostly used to cover costs related to the processing of the transaction by the bootloader
+which can not be easily measured in code in real-time.
+These are measured via testing and are hard coded.
+
+##
+Charging for pubdata
+An important cost factor for users is the pubdata. ZKsync Chains are state diff-based rollups,
+meaning that the pubdata is published not for the transaction data, but for the state changes:
+modified storage slots, deployed bytecodes, L2->L1 messages.
+This allows for applications that modify the same storage slot multiple times such as oracles,
+to update the storage slots multiple times while maintaining a constant footprint on L1 pubdata.
+Correctly a state diff rollups requires a special solution to charging for pubdata.
+It is explored in the next section.
+
+L1 <-> L2 communication
+
+How L2 gas price works
+
+Table of Contents
+* Main differences from EVM
+* Different opcode pricing
+
+* I/O pricing
+
+* Memory pricing
+
+* Different intrinsic costs
+
+* Charging for pubdata
+
+Edit this page Share feedback Open in ChatGPT Open in Claude Get Help
+
+Made with ❤️ by the ZKsync Community

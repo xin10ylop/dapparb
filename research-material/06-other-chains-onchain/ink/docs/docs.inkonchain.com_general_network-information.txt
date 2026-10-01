@@ -1,0 +1,193 @@
+SOURCE_URL: https://docs.inkonchain.com/general/network-information
+FINAL_URL: https://docs.inkonchain.com/general/network-information
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:47Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+Network Information | Ink Docs
+*
+*
+*
+*
+*
+* 🎉 Mainnet is LIVE! 🎉
+
+Status Page ↗ Faucets
+
+GitHub
+
+* General
+
+* About Ink
+
+* Network Information
+
+* Connect Wallet
+
+* Bridge
+
+* Faucet
+
+* Support
+* Troubleshooting
+
+*
+
+* Build On Ink
+
+* Getting Started
+
+* Onchain Clients
+
+* Running Ink Nodes ↗
+
+* Transaction Fees
+
+* Paymaster Integration
+* Overview
+
+* Pay Gas with Stablecoins
+
+* Payment Tokens
+
+* Custom Account Clients
+
+* EIP-7702
+
+* Troubleshooting
+
+* SDK API Reference ↗
+
+* Ink Kit (archived)
+
+* Tutorials
+* Deploying a Smart Contract
+* Foundry
+
+* Hardhat
+
+* Remix
+
+* Verifying a Smart Contract
+
+* Shipping on the Superchain
+
+* Deploying a SuperchainERC20
+
+*
+
+* Ink Builder Program
+
+* Overview
+
+* Inkworks ↗
+
+* Spark Program
+
+* Forge Program
+
+* Echo Program
+
+* Office Hours
+
+*
+
+* Tools
+
+* Account Abstraction
+
+* Block Explorers
+
+* Bridges
+
+* Crosschain
+
+* Faucets
+
+* Indexers
+
+* Multisig
+
+* Oracles
+
+* RPC
+
+* Security
+
+* VRF
+
+*
+
+* Useful Information
+
+* Contracts
+
+* Ink Contracts
+
+* The Superchain
+
+*
+
+* Work with Ink
+
+* Community
+
+* Contribution Guide
+
+* Brand Kit
+
+*
+
+* FAQ
+
+* Status Page ↗
+
+## On this page
+
+* Mainnet
+
+* Testnet
+
+Edit this page on GitHub
+
+General Network Information
+
+## Network Information
+
+## Mainnet
+
+Field Information
+Network Name Ink
+Description Ink’s public mainnet
+RPC Endpoint (HTTPS) (primary) https://rpc-gel.inkonchain.com
+RPC Endpoint (WSS) (primary) wss://rpc-gel.inkonchain.com
+RPC Endpoint (HTTPS) (secondary) https://rpc-qnd.inkonchain.com
+RPC Endpoint (WSS) (secondary) wss://rpc-qnd.inkonchain.com
+Subblocks Stream (WSS) wss://subblocks.inkonchain.com/ws
+Chain ID 57073
+Currency Symbol ETH
+Block Explorer https://explorer.inkonchain.com
+
+## Testnet
+
+Field Information
+Network Name Ink Sepolia
+Description Ink’s public testnet
+RPC Endpoint (HTTPS) (primary) https://rpc-gel-sepolia.inkonchain.com
+RPC Endpoint (WSS) (primary) wss://rpc-gel-sepolia.inkonchain.com
+RPC Endpoint (HTTPS) (secondary) https://rpc-qnd-sepolia.inkonchain.com
+RPC Endpoint (WSS) (secondary) wss://rpc-qnd-sepolia.inkonchain.com
+Subblocks Stream (WSS) wss://subblocks-sepolia.inkonchain.com/ws
+Chain ID 763373
+Currency Symbol ETH
+Block Explorer https://explorer-sepolia.inkonchain.com
+
+Click here for a list of vendors offering private RPC endpoints.
+
+See Subblocks for details on the subblocks stream.
+
+About Ink Connect Wallet
+
+Made with 💜 by the Ink team
+Privacy Notice
+Terms of Service

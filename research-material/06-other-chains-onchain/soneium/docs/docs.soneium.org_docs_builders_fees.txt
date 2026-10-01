@@ -1,0 +1,127 @@
+SOURCE_URL: https://docs.soneium.org/docs/builders/fees
+FINAL_URL: https://docs.soneium.org/docs/builders/fees
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:48Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+Fees | Soneium Docs
+
+*
+
+*
+
+*
+
+*
+*
+*
+*
+*
+*
+
+*
+
+*
+* Skip to main content
+
+Developers Learn Users About
+
+Search Docs...
+
+* Build on Soneium
+
+* Notices
+
+* Restriction on Write Path to Sequencer
+
+* Network Information
+
+* Soneium Contracts
+
+* Fees
+
+*
+
+* Tools
+
+* Node Providers
+
+* User Onboarding
+
+* Account Abstraction
+
+* Debuggers
+
+* Explorers
+
+* Faucets
+
+* Indexers
+
+* Interoperability
+
+* Onramps
+
+* Oracles
+
+* VRFs
+
+* Client Integration
+
+* Viem
+
+* Web3.js
+
+* Ethers.js
+
+* FAQ
+
+*
+
+* Fees
+
+On this page
+
+## Fees
+
+## How do network fees work? ​
+
+Every transaction consists of two costs: an L2 (execution) fee and an L1 (security) fee. The L2 fee is the cost to execute your transaction on the L2, and the L1 fee is the estimated cost to publish the transaction on the L1. Typically the L1 security fee is higher than the L2 execution fee.
+
+The L1 fee will vary depending on the amount of transactions on the L1. If the timing of your transaction is flexible, you can save costs by submitting transactions during periods of lower gas on the L1 (for example, over the weekend). Similarly, the L2 fee can increase and decrease depending on how many transactions are being submitted to the L2. This adjustment mechanism has the same implementation as the L1; you can read more about EIP-1559 here .
+
+For additional details about fee calculation, please refer to the OP-stack developer documentation .
+
+On This Page
+
+* How do network fees work?
+
+More
+Join our community Follow us Receive latest updates
+
+Bridge
+
+* Bridge
+
+Community
+
+* Ecosystem
+
+Developers
+
+* Let's Build
+
+* GitHub
+
+* Block Explorer
+
+About
+
+* Vision
+
+* Blog
+
+* Contact Us
+
+copyright: © 2026 Soneium Foundation. All rights reserved. Privacy policy
+Terms of Use

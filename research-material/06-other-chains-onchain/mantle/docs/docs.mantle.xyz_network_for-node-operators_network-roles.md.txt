@@ -1,0 +1,40 @@
+SOURCE_URL: https://docs.mantle.xyz/network/for-node-operators/network-roles.md
+FINAL_URL: https://docs.mantle.xyz/network/for-node-operators/network-roles.md
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:49Z
+EXTRACTION: raw markdown/plain-text body, unmodified; gzip copy in the .raw.gz file next to this one
+
+> For the complete documentation index, see [llms.txt](https://docs.mantle.xyz/network/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.mantle.xyz/network/for-node-operators/network-roles.md).
+
+# Network Roles
+
+Welcome to our Node Deployment service. This service covers different types of nodes, supporting the normal operation and various functionalities of the network. Please follow the instructions below to configure and deploy nodes.
+
+## Available Node Types[​](https://docs-v2.mantle.xyz/nodes/overviews#available-node-types) <a href="#available-node-types" id="available-node-types"></a>
+
+### Verifier Nodes[​](https://docs-v2.mantle.xyz/nodes/overviews#verifier-nodes) <a href="#verifier-nodes" id="verifier-nodes"></a>
+
+[Verifier](/network/system-information/off-chain-system/node-introduction.md#verifier) nodes are used to verify the validity of transactions and blocks on the chain. It is a crucial component of the network, ensuring the security and reliability of the Mantle Network blockchain. Detailed [Verifier Node Deployment documentation](/network/for-node-operators/deployment-guides.md) has already been provided.
+
+### Sequencer Nodes[​](https://docs-v2.mantle.xyz/nodes/overviews#sequencer-nodes) <a href="#sequencer-nodes" id="sequencer-nodes"></a>
+
+[Sequencers](/network/system-information/off-chain-system/node-introduction.md#sequencer) are responsible for sequentially packing transactions into layer-2 blocks, providing a deterministic order for transactions. Currently, Sequencer nodes are not yet open due to security reasons.
+
+### Proposer Nodes[​](https://docs-v2.mantle.xyz/nodes/overviews#proposer-nodes) <a href="#proposer-nodes" id="proposer-nodes"></a>
+
+[Proposer](/network/system-information/off-chain-system/node-introduction.md#op-proposer) nodes are used to create new state roots and send them to layer 1. Currently, Proposer nodes are not yet open due to security reasons.
+
+### Batcher Nodes[​](https://docs-v2.mantle.xyz/nodes/overviews#batcher-nodes) <a href="#batcher-nodes" id="batcher-nodes"></a>
+
+[Batcher](/network/system-information/off-chain-system/node-introduction.md#op-batcher) nodes are used to bundle a batch of transactions into a block to improve processing efficiency. Currently, Batcher nodes are not yet open due to security reasons.
+
+### Data Availability (DA) Nodes[​](https://docs-v2.mantle.xyz/nodes/overviews#data-availability-da-nodes) <a href="#data-availability-da-nodes" id="data-availability-da-nodes"></a>
+
+[DA nodes](/network/system-information/off-chain-system/node-introduction.md#da-nodes) ensure the availability of transaction data. Currently, DA nodes are not yet open due to security reasons.
+
+## Why Run a Rollup Verifier Node?[​](https://docs-v2.mantle.xyz/nodes/overviews#why-run-a-rollup-verifier-node) <a href="#why-run-a-rollup-verifier-node" id="why-run-a-rollup-verifier-node"></a>
+
+There are multiple advantages of running a Rollup Verifier node.
+
+1. It grants many of the benefits of running an Ethereum node, such as the ability to simulate Rollup transactions locally without rate-limiting (public RPCs may face such limitations).
+2. Allows anyone to verify the work performed by Sequencers by re-deriving output roots and comparing them against those submitted by the Sequencer. In case of a mismatch, verifiers will be able to perform a fault check and claim rewards by submitting fraud proofs on future versions of Mantle Network Mainnet.

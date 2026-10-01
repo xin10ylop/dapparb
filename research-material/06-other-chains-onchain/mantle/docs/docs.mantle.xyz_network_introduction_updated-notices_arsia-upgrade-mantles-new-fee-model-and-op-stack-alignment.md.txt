@@ -1,0 +1,97 @@
+SOURCE_URL: https://docs.mantle.xyz/network/introduction/updated-notices/arsia-upgrade-mantles-new-fee-model-and-op-stack-alignment.md
+FINAL_URL: https://docs.mantle.xyz/network/introduction/updated-notices/arsia-upgrade-mantles-new-fee-model-and-op-stack-alignment.md
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:48Z
+EXTRACTION: raw markdown/plain-text body, unmodified; gzip copy in the .raw.gz file next to this one
+
+> For the complete documentation index, see [llms.txt](https://docs.mantle.xyz/network/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.mantle.xyz/network/introduction/updated-notices/arsia-upgrade-mantles-new-fee-model-and-op-stack-alignment.md).
+
+# Arsia Upgrade: Mantle's New Fee Model and OP Stack Alignment
+
+### Overview
+
+Mantle Network will complete the **Arsia Upgrade** on Sepolia.
+
+This is a major network upgrade that replaces the legacy Bedrock-era fee model with a modern compression-based fee architecture, introduces an operator fee, and aligns Mantle with the latest OP Stack protocol versions (Canyon through Jovian).
+
+The upgrade brings significant improvements to fee accuracy, base fee dynamics, and block capacity management.
+
+### Purpose of the Upgrade
+
+The Arsia Upgrade addresses several long-standing limitations in Mantle's fee model and protocol alignment:
+
+1. **Accurate L1 data cost pricing** -- The legacy Bedrock model estimates L1 costs using raw byte counts and a flat overhead. Arsia replaces this with a compression-based model that uses FastLZ to estimate the actual DA size, resulting in more accurate and generally lower L1 data fees.
+2. **Operator fee mechanism** -- A new fee component allows the network operator to charge a configurable fee for sequencing services, separate from L1 data costs and L2 execution costs.
+3. **Dynamic EIP-1559 parameters** -- The base fee is no longer a fixed value. Arsia enables the sequencer to adjust EIP-1559 curve parameters (denominator, elasticity, minimum base fee) per block via the block's extra data field, enabling responsive fee markets.
+4. **DA footprint-aware block sizing** -- A new DA footprint gas scalar converts each transaction's estimated DA size into a gas-equivalent value used for base fee targeting, preventing blocks from growing too large in data terms even when execution gas is low.
+5. **OP Stack fork alignment** -- Arsia simultaneously activates the equivalent of Optimism's Canyon, Delta, Ecotone, Fjord, Granite, Holocene, Isthmus, and Jovian forks, bringing Mantle's protocol layer up to date with the latest OP Stack features.
+
+### What's New in This Upgrade?
+
+#### **Compression-Based L1 Data Fee**
+
+The L1 rollup fee calculation is fundamentally redesigned:
+
+* Transaction data is compressed using **FastLZ**, and the compressed size is mapped to an estimated Brotli-compressed DA size via linear regression.
+* The new formula uses dual scalars -- `baseFeeScalar` for calldata pricing and `blobBaseFeeScalar` for blob fee pricing -- replacing the legacy flat `overhead + scalar` model.
+
+For the detailed formula, see [Fee Model Handbook](/network/system-information/fee-mechanism/fee-model-handbook-after-arsia.md).
+
+#### **Operator Fee**
+
+A new **operator fee** is introduced as a third fee component:
+
+* Calculated as: `gasUsed * operatorFeeScalar * 100 + operatorFeeConstant`
+* Collected by the new **`OperatorFeeVault`** contract.
+* Parameters are stored in the `L1Block` contract and configured through `SystemConfig` on L1.
+
+The total transaction fee is now: **L2 Execution Fee + L1 Data Fee + Operator Fee**.
+
+#### **Dynamic EIP-1559 Base Fee**
+
+* The block `extraData` field now carries EIP-1559 parameters: denominator, elasticity, and a minimum base fee.
+* The base fee is no longer fixed at 0.02 gwei. It adjusts dynamically based on network utilization.
+* The DA footprint (estimated data size per block) is used alongside execution gas for base fee targeting, preventing data-heavy blocks from being underpriced.
+
+#### **New RPC API**
+
+* **`eth_estimateTotalFee`** -- A new RPC method that returns the total estimated transaction cost, including all three fee components (L2 execution, L1 data, and operator fee).
+* **`eth_getBlockRange`** is deprecated and will be removed in a future upgrade.
+
+#### **Contract Upgrades**
+
+At the Arsia activation block, the following L2 contracts are upgraded via deposit transactions:
+
+* **L1Block** -- New storage layout with operator fee and DA footprint gas scalar fields.
+* **GasPriceOracle** -- Compression-based fee calculation and token ratio bounds enforcement.
+* **OperatorFeeVault** -- New contract for collecting operator fees.
+
+We also upgrade the L1 contract here:
+
+* **SystemConfig --** The SystemConfig contract on Ethereum L1 is upgraded to support Arsia's new fee parameters.
+  * The upgrade adds owner-callable functions for configuring Arsia-specific parameters: `setGasConfigArsia` (dual base fee / blob fee scalars), `setOperatorFeeScalars`, `setEIP1559Params`, `setMinBaseFee`, and `setDAFootprintGasScalar`. These parameters are propagated to L2 via `ConfigUpdate` events and picked up by the L2 derivation pipeline.
+  * The legacy `setGasConfig(overhead, scalar)` function is deprecated.
+
+#### **Node-Level Improvements**
+
+* **OP Stack baseline** -- The node stack is rebased on Optimism op-node v1.16.3.
+* **Blob encoding migration** -- Starting with Arsia, the batcher switches from Mantle's custom blob encoding (RLP-encoded frame array spanning multiple blobs) to the standard OP Stack blob format (one frame per blob). The derivation pipeline handles this transition with dual-mode decoding: it first attempts the legacy Mantle format, and upon failure, falls back to the standard format and switches permanently for subsequent blocks.
+
+### Impact Assessment
+
+**For users**: Transaction fees will be calculated differently. The overall fee structure becomes more transparent with three clearly separated components. Users should see more predictable and generally fair pricing that reflects actual DA costs.
+
+**For developers**: The `estimateGas` RPC continues to work, but developers should adopt the new `eth_estimateTotalFee` API for more accurate total fee estimates. The fee model documentation has been updated -- see the [Fee Model Handbook here](/network/system-information/fee-mechanism/fee-model-handbook-after-arsia.md).&#x20;
+
+**For node operators**: This is a **required upgrade**. All operators of Mantle Network must update their node software before the fork activation time. See the Arsia changelog for component versions and upgrade instructions.
+
+### Summary
+
+The Arsia Upgrade is a comprehensive protocol upgrade that modernizes Mantle's fee model and aligns the network with the latest OP Stack advances. After the upgrade, Mantle will:
+
+* Use compression-based L1 data fee pricing for more accurate cost estimation
+* Support a transparent three-component fee structure (L2 execution + L1 data + operator fee)
+* Feature a dynamic EIP-1559 base fee with DA-aware block targeting
+* Offer the `eth_estimateTotalFee` API for comprehensive fee estimation
+
+The Mantle team will continue to monitor network conditions and provide updates to the community before and after the upgrade.

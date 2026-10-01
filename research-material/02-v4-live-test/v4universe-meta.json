@@ -1,0 +1,560 @@
+{
+ "name": "V4UNIVERSE",
+ "started_utc": "2026-10-01T04:13:36.794Z",
+ "checkpoint_key": "5d8c02def8272b73",
+ "engine_sequence": "bot/src/main.ts (universe=all, --v4-pools): enumerateUniverse -> loadV4PoolsFromFile -> loadStaticMetadata -> syncPools(force) -> pruneEmpty -> buildEthPrices -> filterByDepth",
+ "repo_git_head": "5119e45885b75b4cef0ab43011714d839180e68a",
+ "engine_bot_src_last_commit": "44f92d5597af698c773ed2c2bb68f86b38c7a14a",
+ "engine_bot_src_uncommitted_changes": "",
+ "flags": {
+  "universe": "all",
+  "max_per_factory": 6000,
+  "min_depth_eth": 0.1,
+  "v4_pools_spec": "/home/user/dapparb/research-material/01-v4-pools/initialize-part-*.csv.gz,/home/user/dapparb/research-material/02-v4-live-test/initialize-topup.csv.gz"
+ },
+ "v4_pool_files": [
+  {
+   "file": "initialize-part-0001.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85009113,
+   "mtime_utc": "2026-09-30T21:36:02.406Z"
+  },
+  {
+   "file": "initialize-part-0002.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85344079,
+   "mtime_utc": "2026-09-30T21:36:20.062Z"
+  },
+  {
+   "file": "initialize-part-0003.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85056842,
+   "mtime_utc": "2026-09-30T21:36:37.570Z"
+  },
+  {
+   "file": "initialize-part-0004.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85213605,
+   "mtime_utc": "2026-09-30T21:36:55.146Z"
+  },
+  {
+   "file": "initialize-part-0005.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85017880,
+   "mtime_utc": "2026-09-30T21:37:12.858Z"
+  },
+  {
+   "file": "initialize-part-0006.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85054159,
+   "mtime_utc": "2026-09-30T21:37:30.374Z"
+  },
+  {
+   "file": "initialize-part-0007.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85010821,
+   "mtime_utc": "2026-09-30T21:37:47.698Z"
+  },
+  {
+   "file": "initialize-part-0008.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85118198,
+   "mtime_utc": "2026-09-30T21:38:04.766Z"
+  },
+  {
+   "file": "initialize-part-0009.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85133593,
+   "mtime_utc": "2026-09-30T21:38:22.082Z"
+  },
+  {
+   "file": "initialize-part-0010.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85311249,
+   "mtime_utc": "2026-09-30T21:38:39.302Z"
+  },
+  {
+   "file": "initialize-part-0011.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85441483,
+   "mtime_utc": "2026-09-30T21:38:56.759Z"
+  },
+  {
+   "file": "initialize-part-0012.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85509481,
+   "mtime_utc": "2026-09-30T21:39:14.382Z"
+  },
+  {
+   "file": "initialize-part-0013.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85339980,
+   "mtime_utc": "2026-09-30T21:39:31.966Z"
+  },
+  {
+   "file": "initialize-part-0014.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85383408,
+   "mtime_utc": "2026-09-30T21:39:49.818Z"
+  },
+  {
+   "file": "initialize-part-0015.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85127330,
+   "mtime_utc": "2026-09-30T21:40:07.878Z"
+  },
+  {
+   "file": "initialize-part-0016.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85192028,
+   "mtime_utc": "2026-09-30T21:40:26.158Z"
+  },
+  {
+   "file": "initialize-part-0017.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85117281,
+   "mtime_utc": "2026-09-30T21:40:43.738Z"
+  },
+  {
+   "file": "initialize-part-0018.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85177860,
+   "mtime_utc": "2026-09-30T21:41:01.670Z"
+  },
+  {
+   "file": "initialize-part-0019.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85295070,
+   "mtime_utc": "2026-09-30T21:41:19.310Z"
+  },
+  {
+   "file": "initialize-part-0020.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85143083,
+   "mtime_utc": "2026-09-30T21:41:36.482Z"
+  },
+  {
+   "file": "initialize-part-0021.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 85026983,
+   "mtime_utc": "2026-09-30T21:41:53.462Z"
+  },
+  {
+   "file": "initialize-part-0022.csv.gz",
+   "dir": "/home/user/dapparb/research-material/01-v4-pools",
+   "bytes": 32620896,
+   "mtime_utc": "2026-09-30T21:41:59.982Z"
+  },
+  {
+   "file": "initialize-topup.csv.gz",
+   "dir": "/home/user/dapparb/research-material/02-v4-live-test",
+   "bytes": 109006,
+   "mtime_utc": "2026-10-01T02:05:31.906Z"
+  }
+ ],
+ "rpc_url": "https://base-mainnet.public.blastapi.io",
+ "sync_batch_pools": 8000,
+ "viem_isAddressCache_flat_key_patch": [
+  "/home/user/dapparb/bot/node_modules/viem/_cjs/utils/address/isAddress.js",
+  "/home/user/dapparb/bot/node_modules/viem/_esm/utils/address/isAddress.js"
+ ],
+ "min_anchor_eth": 0.05,
+ "stages": {
+  "enumerate": {
+   "ms": 499956,
+   "tokens_total": 33606,
+   "cfg_tokens": 19,
+   "enumerated_tokens": 33606,
+   "discovered_pools": 46134,
+   "resumed_from_checkpoint": true
+  },
+  "v4load": {
+   "ms": 177700,
+   "v4_pools_built": 82443,
+   "tokens_added": 41402,
+   "tokens_total": 75008
+  },
+  "static": {
+   "ms": 12733
+  },
+  "sync": {
+   "ms": 422354,
+   "block": 52015721,
+   "batches": 17,
+   "batches_resumed_from_checkpoint": 0,
+   "syncStats_summed": {
+    "stale": 0,
+    "total": 128577,
+    "chunkFailures": 0
+   }
+  },
+  "prune_price": {
+   "pools_before_prune": 128577,
+   "pools_after_prune": 118168,
+   "pools_pruned": 10409,
+   "v4_before_prune": 82443,
+   "v4_after_prune_empty": 82443,
+   "priced_tokens": 8814,
+   "min_depth_eth": 0.1,
+   "pools_after_depth_filter": 11782,
+   "v4_after_depth_filter": 8612,
+   "tokens_total": 75008,
+   "cycle_candidates_CycleIndex": 9512
+  },
+  "extra_balances": {
+   "ms": 45274,
+   "balance_calls": 92268,
+   "failed": 0
+  }
+ },
+ "live_run_reference": {
+  "file": "run-times.json",
+  "launch_utc": "2026-10-01T02:05:32.677Z",
+  "head_at_launch": 52015492,
+  "ready_log_utc": "2026-10-01T02:36:04.248Z",
+  "head_at_ready": 52016409,
+  "head_at_stop": 52017008
+ },
+ "head_at_start": 52019334,
+ "pinned_block": 52015721,
+ "pinned_block_timestamp": 1790820789,
+ "pinned_block_time_utc": "2026-10-01T02:13:09.000Z",
+ "pinned_block_hash": "0xc53755578274901718014052ef5028d182226e57b914a9153facd4bccd5e3475",
+ "v4_loader_counts": {
+  "spec": "/home/user/dapparb/research-material/01-v4-pools/initialize-part-*.csv.gz,/home/user/dapparb/research-material/02-v4-live-test/initialize-topup.csv.gz",
+  "files": 23,
+  "rowsRead": 15334094,
+  "rowsPerFile": [
+   {
+    "file": "initialize-part-0001.csv.gz",
+    "rows": 721377,
+    "indexRows": 721377
+   },
+   {
+    "file": "initialize-part-0002.csv.gz",
+    "rows": 761851,
+    "indexRows": 761851
+   },
+   {
+    "file": "initialize-part-0003.csv.gz",
+    "rows": 733829,
+    "indexRows": 733829
+   },
+   {
+    "file": "initialize-part-0004.csv.gz",
+    "rows": 727635,
+    "indexRows": 727635
+   },
+   {
+    "file": "initialize-part-0005.csv.gz",
+    "rows": 720394,
+    "indexRows": 720394
+   },
+   {
+    "file": "initialize-part-0006.csv.gz",
+    "rows": 711695,
+    "indexRows": 711695
+   },
+   {
+    "file": "initialize-part-0007.csv.gz",
+    "rows": 697745,
+    "indexRows": 697745
+   },
+   {
+    "file": "initialize-part-0008.csv.gz",
+    "rows": 701413,
+    "indexRows": 701413
+   },
+   {
+    "file": "initialize-part-0009.csv.gz",
+    "rows": 717106,
+    "indexRows": 717106
+   },
+   {
+    "file": "initialize-part-0010.csv.gz",
+    "rows": 687845,
+    "indexRows": 687845
+   },
+   {
+    "file": "initialize-part-0011.csv.gz",
+    "rows": 694791,
+    "indexRows": 694791
+   },
+   {
+    "file": "initialize-part-0012.csv.gz",
+    "rows": 698913,
+    "indexRows": 698913
+   },
+   {
+    "file": "initialize-part-0013.csv.gz",
+    "rows": 701283,
+    "indexRows": 701283
+   },
+   {
+    "file": "initialize-part-0014.csv.gz",
+    "rows": 723125,
+    "indexRows": 723125
+   },
+   {
+    "file": "initialize-part-0015.csv.gz",
+    "rows": 753457,
+    "indexRows": 753457
+   },
+   {
+    "file": "initialize-part-0016.csv.gz",
+    "rows": 758096,
+    "indexRows": 758096
+   },
+   {
+    "file": "initialize-part-0017.csv.gz",
+    "rows": 727450,
+    "indexRows": 727450
+   },
+   {
+    "file": "initialize-part-0018.csv.gz",
+    "rows": 737152,
+    "indexRows": 737152
+   },
+   {
+    "file": "initialize-part-0019.csv.gz",
+    "rows": 714746,
+    "indexRows": 714746
+   },
+   {
+    "file": "initialize-part-0020.csv.gz",
+    "rows": 704481,
+    "indexRows": 704481
+   },
+   {
+    "file": "initialize-part-0021.csv.gz",
+    "rows": 680378,
+    "indexRows": 680378
+   },
+   {
+    "file": "initialize-part-0022.csv.gz",
+    "rows": 258485,
+    "indexRows": 258485
+   },
+   {
+    "file": "initialize-topup.csv.gz",
+    "rows": 847
+   }
+  ],
+  "indexRowMismatches": 0,
+  "blockMin": 25352561,
+  "blockMax": 52015467,
+  "priceable": 240087,
+  "priceableHookless": 238606,
+  "priceableWithHook": 1481,
+  "droppedDynamicFee": 3359021,
+  "droppedHookSwapFlags": 11734986,
+  "droppedMalformed": 0,
+  "droppedDuplicatePoolId": 0,
+  "droppedPoolIdMismatch": 0,
+  "droppedSameTokenAfterNativeMapping": 5,
+  "liquidityChecked": 240082,
+  "liquidityHeadBefore": "52015721",
+  "liquidityHeadAfter": "52015721",
+  "liquidityPositive": 82443,
+  "droppedLiquidityZero": 157639,
+  "droppedLiquidityCallFailed": 0,
+  "tokensNotInUniverse": 41402,
+  "tokensAdded": 41402,
+  "tokenMetadataFailed": 0,
+  "droppedTokenMetadataFailed": 0,
+  "v4PoolsBuilt": 82443,
+  "parseMs": 40595,
+  "liquidityMs": 95646,
+  "metadataMs": 38312,
+  "startupSyncPools": 128577,
+  "startupSyncStalePools": 0,
+  "startupSyncChunkFailures": 0,
+  "v4AfterPruneEmpty": 82443,
+  "v4AfterDepthFilter": 8612,
+  "minDepthEth": 0.1
+ },
+ "searcher_ready_equivalent": {
+  "tokens": 75008,
+  "pools": 11782,
+  "cycles": 9512,
+  "minDepthEth": 0.1
+ },
+ "non_v4_discovered_pools": 46134,
+ "fn_stats_by_stage": {
+  "enumerate": {
+   "allPools": {
+    "calls": 14749,
+    "ok": 14749,
+    "fail": 0
+   },
+   "allPairs": {
+    "calls": 24000,
+    "ok": 24000,
+    "fail": 0
+   },
+   "token0": {
+    "calls": 38749,
+    "ok": 38749,
+    "fail": 0
+   },
+   "token1": {
+    "calls": 38749,
+    "ok": 38749,
+    "fail": 0
+   },
+   "decimals": {
+    "calls": 33630,
+    "ok": 33606,
+    "fail": 24
+   },
+   "symbol": {
+    "calls": 33630,
+    "ok": 33605,
+    "fail": 25
+   },
+   "getPool": {
+    "calls": 1194848,
+    "ok": 1194848,
+    "fail": 0
+   },
+   "getPair": {
+    "calls": 149356,
+    "ok": 149356,
+    "fail": 0
+   }
+  },
+  "v4load": {
+   "getLiquidity": {
+    "calls": 240082,
+    "ok": 240082,
+    "fail": 0
+   },
+   "decimals": {
+    "calls": 41402,
+    "ok": 41402,
+    "fail": 0
+   },
+   "symbol": {
+    "calls": 41402,
+    "ok": 41402,
+    "fail": 0
+   }
+  },
+  "static": {
+   "tickSpacing": {
+    "calls": 11640,
+    "ok": 11640,
+    "fail": 0
+   },
+   "fee": {
+    "calls": 11640,
+    "ok": 11640,
+    "fail": 0
+   },
+   "getFee": {
+    "calls": 7262,
+    "ok": 7262,
+    "fail": 0
+   }
+  },
+  "sync": {
+   "slot0": {
+    "calls": 11640,
+    "ok": 11640,
+    "fail": 0
+   },
+   "liquidity": {
+    "calls": 11640,
+    "ok": 11640,
+    "fail": 0
+   },
+   "fee": {
+    "calls": 6951,
+    "ok": 6951,
+    "fail": 0
+   },
+   "getReserves": {
+    "calls": 34494,
+    "ok": 34494,
+    "fail": 0
+   },
+   "tickBitmap": {
+    "calls": 89937,
+    "ok": 89937,
+    "fail": 0
+   },
+   "ticks": {
+    "calls": 95328,
+    "ok": 95328,
+    "fail": 0
+   },
+   "getSlot0": {
+    "calls": 82443,
+    "ok": 82443,
+    "fail": 0
+   },
+   "getLiquidity": {
+    "calls": 82443,
+    "ok": 82443,
+    "fail": 0
+   },
+   "getTickBitmap": {
+    "calls": 492011,
+    "ok": 492011,
+    "fail": 0
+   },
+   "getTickInfo": {
+    "calls": 154192,
+    "ok": 154192,
+    "fail": 0
+   }
+  },
+  "extra_balances": {
+   "balanceOf": {
+    "calls": 92268,
+    "ok": 92268,
+    "fail": 0
+   }
+  }
+ },
+ "failed_calls_kept": 49,
+ "failed_calls_dropped_over_cap": 0,
+ "chunk_throws_after_retries": 0,
+ "chunk_throws_by_stage": {},
+ "failed_calls_by_stage": {
+  "enumerate:decimals": 24,
+  "enumerate:symbol": 25
+ },
+ "rpc_errors_logged": 0,
+ "head_at_end": 52019666,
+ "finished_utc": "2026-10-01T04:24:40.975Z",
+ "rss_mb_at_end": 781,
+ "peak_rss_mb_sampled_this_process": 781,
+ "files": [
+  {
+   "file": "v4universe-pools-prefilter.csv.gz",
+   "rows": 118168,
+   "bytes": 14703584
+  },
+  {
+   "file": "v4universe-pools-pruned-empty.csv.gz",
+   "rows": 10409,
+   "bytes": 725382
+  },
+  {
+   "file": "v4universe-prices.csv.gz",
+   "rows": 8814,
+   "bytes": 333443
+  },
+  {
+   "file": "v4universe-failed-calls.jsonl.gz",
+   "rows": 49,
+   "bytes": 920
+  },
+  {
+   "file": "v4universe-rpc-errors.jsonl.gz",
+   "rows": 0,
+   "bytes": 20
+  }
+ ]
+}

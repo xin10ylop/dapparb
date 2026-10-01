@@ -1,0 +1,262 @@
+SOURCE_URL: https://docs.zksync.io/zksync-network/zksync-os
+FINAL_URL: https://docs.zksync.io/zksync-network/zksync-os
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:49Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+ZKsync OS Overview - ZKsync Docs
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+* ZKsync Network
+
+* ZK Stack
+
+* ZKsync Protocol
+
+Introduction
+Quickstart Setup Deploy your first contract Interact with your contract Build a Frontend
+
+Environment Elastic Network Chains L1 contracts System contracts
+
+ZKsync Connect Overview Transaction Bundles Crosschain Asset Transfers Messaging
+
+ZKsync OS Developer Preview ZKsync OS Overview Network Details Developer Quickstart FAQs
+
+ZKsync Era (EraVM chains) About ZKsync Era ZKsync Era RPC Features Custom Tooling Ecosystem Security and best practices
+
+Contributing Contributing to Documentation Protocol Contributions
+
+ZKsync Docs
+* ZKsync Network
+
+* ZKsync OS Developer Preview
+
+## ZKsync OS Overview
+
+Learn about the ZKsync OS Developer Preview testnet and its architecture.
+
+The ZKsync OS Developer Preview testnet is a new environment that runs on the latest architecture introduced in the Atlas upgrade .
+It includes all major components released in that upgrade — ZKsync OS , the new Sequencer , and the Airbender prover — giving developers
+early access to the full next-generation ZK Stack.
+This testnet allows builders to deploy contracts, profile system performance, and explore how the ZK Stack has
+evolved across execution, sequencing, and proving.
+
+##
+Overview
+ZKsync OS is the new operating system of the ZK Stack.
+It defines the system-level state transition function of a chain and supports multiple Execution Environments (EEs) .
+Unlike earlier implementations, ZKsync OS unifies execution and proving logic in one codebase and compiles it to two targets — x86 for
+the sequencer runtime and RISC-V for the Airbender proving system.
+The Developer Preview testnet runs ZKsync OS alongside the new Sequencer and Airbender prover , providing a complete
+environment for testing the latest stack.
+
+##
+Architecture
+The core protocol is organized into two primary layers:
+
+* Execution layer: defines transaction logic, memory handling, and IO. It computes new state from the previous block state and inputs.
+
+* Proving layer: generates ZK proofs that attest to the correctness of that state transition.
+
+ZKsync OS is implemented in Rust and compiled to two targets:
+
+* x86: used by the Sequencer to execute transactions
+
+* RISC-V: used by the Airbender prover to generate ZK proofs of correctness
+
+This “one program, two targets” model ensures what you execute is what you prove , eliminating discrepancies between
+runtime and proof generation and reducing the audit surface.
+Execution and proving operate as decoupled services (sequencer vs. prover) while sharing the exact same program and semantics.
+
+##
+Components
+
+##
+ZKsync OS
+The core of the system.
+ZKsync OS provides a modular execution framework that supports multiple execution environments and defines the rules for state transitions.
+
+* Bootloader : initializes the system and coordinates transaction execution.
+
+* Execution Environments : interpreters that run user contracts and system logic.
+
+* System Layer : handles low-level IO (storage, events, L1 messages) and manages memory.
+
+The Developer Preview currently supports a fully EVM-equivalent environment , allowing developers to use
+existing EVM tools (e.g. Foundry, Hardhat, solc) and deploy contracts without modification.
+Future versions may include EraVM , WASM and native RISC-V environments.
+Learn more about ZKsync OS in the protocol documentation .
+
+##
+Sequencer
+The new Sequencer , introduced as part of the Atlas upgrade , is designed for:
+
+* High throughput — sustained >15K TPS in ERC-20 transfer benchmarks
+
+* Low latency — sub-second inclusion, typically 250–500 ms
+
+* Modularity — clear separation of execution, API, and proving layers
+
+It offloads batching and L1 coordination to asynchronous services, simplifying the execution pipeline and improving resilience.
+For developers, this means faster transaction processing and easier scaling for custom ZK Stack chains.
+
+##
+Airbender Prover
+Airbender is the proving system used in the Developer Preview testnet.
+It is a general-purpose, open-source RISC-V zkVM integrated directly with ZKsync OS.
+Key properties:
+
+* Efficient hardware utilization — can run on a single GPU.
+
+* Low cost — proving an ERC-20 transfer costs roughly $0.0001.
+
+* Fast proofs — Airbender can be scaled horizontally to generate ~1 second block proofs and minutes-to-Ethereum finality .
+
+Because both execution and proving compile from the same Rust source, Airbender proves the exact code path executed by ZKsync OS.
+This reduces audit complexity and guarantees consistency between runtime and proofs.
+Learn more about Airbender in the protocol documentation .
+
+##
+Developer Preview Testnet
+The Developer Preview testnet includes:
+
+* ZKsync OS — modular execution layer with full EVM equivalence.
+
+* New Sequencer — redesigned high-performance execution engine.
+
+* Airbender — integrated real-time RISC-V prover.
+
+Developers can use this testnet to:
+
+* Deploy and test contracts using familiar EVM tooling
+
+* Benchmark transaction throughput and latency
+
+* Integration test for infrastructure tools
+
+* Evaluate how the new architecture supports specific workloads
+
+Messaging
+Learn about how send and verify messages with ZKsync Connect.
+
+Network Details
+Connect to ZKsync OS Developer Preview testnet
+
+Table of Contents
+* Overview
+
+* Architecture
+
+* Components
+* ZKsync OS
+
+* Sequencer
+
+* Airbender Prover
+
+* Developer Preview Testnet
+
+Edit this page Share feedback Open in ChatGPT Open in Claude Get Help
+
+Made with ❤️ by the ZKsync Community

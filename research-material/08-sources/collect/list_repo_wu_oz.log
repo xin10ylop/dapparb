@@ -1,0 +1,21 @@
+run_at_utc: 2026-10-01T04:34:24Z
+repository: https://github.com/M1kuW1ll/base_arbitrage_competition
+== git ls-remote https://github.com/M1kuW1ll/base_arbitrage_competition
+ea76128dc4ca9147941aee9da352ac608ecc6a79	HEAD
+ea76128dc4ca9147941aee9da352ac608ecc6a79	refs/heads/main
+== shallow clone (--depth 1 --filter=blob:none --no-checkout), git log -1
+commit ea76128dc4ca9147941aee9da352ac608ecc6a79
+author Fei Wu
+author_date 2026-08-04T11:33:33+01:00
+committer GitHub
+commit_date 2026-08-04T11:33:33+01:00
+subject Rename ex3_classify_subtrees_txs.py to tx_classifier_subtree.py
+== git ls-tree -r -l HEAD (mode type blob_sha size path)
+100644 blob 09befff3e11b9711657629a8668515db12e018be    9752	base_atomic_arbitrage.sql
+100644 blob 7e4a056b6341fa874f3e38fb4fa4be4cc8e7822c    7036	base_bot_spam_weekly_by_bot.sql
+100644 blob 067e12bb6701c99a8a8037154d68b28747c14d29    6764	base_bot_spam_weekly_summary.sql
+100644 blob 71f95601eb1ce98ad04dbade26a48230950feb84    2011	base_pool_commitment_inputs_by_hash.sql
+100644 blob 7fab96b6882e24d9e4d3066efab3d95891f501ce   52535	tx_classifier_subtree.py
+== files named README* (case-insensitive) at HEAD
+(none)
+done_at_utc: 2026-10-01T04:34:28Z

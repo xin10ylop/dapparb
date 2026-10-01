@@ -1,0 +1,174 @@
+SOURCE_URL: https://docs.soneium.org/docs/builders/overview
+FINAL_URL: https://docs.soneium.org/docs/builders/overview
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:49Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+Network Information | Soneium Docs
+
+*
+
+*
+
+*
+
+*
+*
+*
+*
+*
+*
+
+*
+
+*
+* Skip to main content
+
+Developers Learn Users About
+
+Search Docs...
+
+* Build on Soneium
+
+* Notices
+
+* Restriction on Write Path to Sequencer
+
+* Network Information
+
+* Soneium Contracts
+
+* Fees
+
+*
+
+* Tools
+
+* Node Providers
+
+* User Onboarding
+
+* Account Abstraction
+
+* Debuggers
+
+* Explorers
+
+* Faucets
+
+* Indexers
+
+* Interoperability
+
+* Onramps
+
+* Oracles
+
+* VRFs
+
+* Client Integration
+
+* Viem
+
+* Web3.js
+
+* Ethers.js
+
+* FAQ
+
+*
+
+* Network Information
+
+On this page
+
+## Network Information
+
+## What is an RPC Node? ​
+
+* RPC nodes can be queried for information and used to initiate transactions.
+
+* The purpose of RPC nodes is to allow decentralized applications and clients to communicate with a blockchain network.
+
+* RPC nodes listen for requests, respond with the necessary data, or execute the requested transaction.
+
+* Common usage of RPC nodes includes querying the blockchain for information, sending transactions, and executing smart contract functions.
+
+* RPC nodes are important for decentralized applications to function and interact with a blockchain network, allowing for decentralized exchange and other use cases.
+
+## Public Endpoints ​
+
+info
+The free endpoints below are dedicated to end users, they can be used to interact with dApps or deploy/call smart contracts.
+They limit the rate of API calls , so they are not suitable for high demand, such as a dApp UI constantly scraping blockchain data or an indexer.
+
+tip
+To meet the demands of a production dApp you can run your own RPC node or get your own API key from one of our infrastructure partners .
+
+* Soneium Mainnet
+
+* Soneium Minato (Testnet)
+
+Name Value
+Network Soneium
+Parent chain Ethereum
+RPC Endpoint https://rpc.soneium.org/
+RPC Endpoint (WS) Not yet available
+Chain ID 1868
+Currency Symbol ETH
+Block Explorer Please refer to the Explorers page .
+
+Name Value
+Network Soneium Minato
+Parent chain Sepolia
+RPC Endpoint https://rpc.minato.soneium.org/
+RPC Endpoint (WS) Not yet available
+Chain ID 1946
+Currency Symbol ETH
+Block Explorer https://soneium-minato.blockscout.com/
+
+Test command
+
+curl -i -X POST \
+
+--data '{"id": 1, "jsonrpc": "2.0", "method": "eth_blockNumber"}' \
+
+-H "Content-Type: application/json" \
+
+"https://rpc.minato.soneium.org/"
+
+On This Page
+
+* What is an RPC Node?
+
+* Public Endpoints
+
+More
+Join our community Follow us Receive latest updates
+
+Bridge
+
+* Bridge
+
+Community
+
+* Ecosystem
+
+Developers
+
+* Let's Build
+
+* GitHub
+
+* Block Explorer
+
+About
+
+* Vision
+
+* Blog
+
+* Contact Us
+
+copyright: © 2026 Soneium Foundation. All rights reserved. Privacy policy
+Terms of Use

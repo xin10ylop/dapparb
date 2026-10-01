@@ -1,0 +1,371 @@
+SOURCE_URL: https://docs.inkonchain.com/tools/rpc
+FINAL_URL: https://docs.inkonchain.com/tools/rpc
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:47Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+RPC | Ink Docs
+*
+*
+*
+*
+*
+* 🎉 Mainnet is LIVE! 🎉
+
+Status Page ↗ Faucets
+
+GitHub
+
+* General
+
+* About Ink
+
+* Network Information
+
+* Connect Wallet
+
+* Bridge
+
+* Faucet
+
+* Support
+* Troubleshooting
+
+*
+
+* Build On Ink
+
+* Getting Started
+
+* Onchain Clients
+
+* Running Ink Nodes ↗
+
+* Transaction Fees
+
+* Paymaster Integration
+* Overview
+
+* Pay Gas with Stablecoins
+
+* Payment Tokens
+
+* Custom Account Clients
+
+* EIP-7702
+
+* Troubleshooting
+
+* SDK API Reference ↗
+
+* Ink Kit (archived)
+
+* Tutorials
+* Deploying a Smart Contract
+* Foundry
+
+* Hardhat
+
+* Remix
+
+* Verifying a Smart Contract
+
+* Shipping on the Superchain
+
+* Deploying a SuperchainERC20
+
+*
+
+* Ink Builder Program
+
+* Overview
+
+* Inkworks ↗
+
+* Spark Program
+
+* Forge Program
+
+* Echo Program
+
+* Office Hours
+
+*
+
+* Tools
+
+* Account Abstraction
+
+* Block Explorers
+
+* Bridges
+
+* Crosschain
+
+* Faucets
+
+* Indexers
+
+* Multisig
+
+* Oracles
+
+* RPC
+
+* Security
+
+* VRF
+
+*
+
+* Useful Information
+
+* Contracts
+
+* Ink Contracts
+
+* The Superchain
+
+*
+
+* Work with Ink
+
+* Community
+
+* Contribution Guide
+
+* Brand Kit
+
+*
+
+* FAQ
+
+* Status Page ↗
+
+## On this page
+
+* Alchemy
+
+* Gelato
+
+* QuickNode
+
+* Tenderly
+
+* dRPC
+
+* Uniblock
+
+* BoltRPC
+
+* 1. Gelato
+
+* Ink Mainnet
+
+* Ink Sepolia
+
+* 2. Tenderly
+
+* Ink Mainnet
+
+* Ink Sepolia
+
+* 3. QuickNode
+
+* Ink Mainnet
+
+* Ink Sepolia
+
+* 4. dRPC
+
+* Ink Mainnet
+
+* Ink Sepolia
+
+* Subblocks
+
+* Ink Mainnet
+
+* Ink Sepolia
+
+Edit this page on GitHub
+
+Tools RPC
+
+## RPC
+
+## Alchemy
+
+Alchemy provides fast and reliable private RPC endpoints alongside a full suite of tools to help support your development needs.
+
+Supported Networks
+
+* Ink Mainnet
+
+* Ink Sepolia
+
+## Gelato
+
+Gelato provides public and private RPC endpoints for Ink, along with websocket support.
+
+Supported Networks
+
+* Ink Mainnet
+
+* Ink Sepolia
+
+## QuickNode
+
+QuickNode provides public and private RPC endpoints for Ink, along with websocket support and a suite of tools to help you ship.
+
+Supported Networks
+
+* Ink Mainnet
+
+* Ink Sepolia
+
+Need a managed node solution?
+QuickNode offers Ink nodes with APIs,
+tools, and an easy-to-use control panel.
+
+## Tenderly
+
+Tenderly provides robust RPC infrastructure with advanced debugging capabilities and comprehensive monitoring tools.
+
+Supported Networks
+
+* Ink Mainnet
+
+* Ink Sepolia
+
+Looking for advanced debugging tools?
+Tenderly provides detailed transaction
+insights and monitoring capabilities for Ink.
+
+## dRPC
+
+dRPC provides enterprise-level RPC infrastructure with globally distributed nodes, decentralized architecture and focus on privacy.
+
+Supported Networks
+
+* Ink Mainnet
+
+* Ink Sepolia
+
+Searching for reliable RPC infrastructure?
+dRPC works seamlessly with Ink and all Superchain networks.
+
+## Uniblock
+
+Uniblock provides a unified JSON-RPC endpoint that routes requests across 55+ upstream providers with automatic failover.
+
+Supported Networks
+
+* Ink Mainnet
+
+* Ink Sepolia
+
+## BoltRPC
+
+BoltRPC provides dedicated HTTPS and WebSocket RPC endpoints for Ink, operated by Matrixed.Link on production-grade infrastructure with transparent request-unit pricing and multi-chain access under a single API key.
+
+Supported Networks
+
+* Ink Mainnet
+
+## Public Endpoints
+
+To connect to Ink Sepolia or Ink Mainnet, you can select from multiple RPC providers, each offering reliable infrastructure with unique features and capabilities.
+
+ℹ️
+Interested in running your own node? Check out our
+tutorial .
+
+## 1. Gelato
+
+Gelato provides high-performance, globally distributed RPC endpoints with automatic failover.
+
+## Ink Mainnet
+
+* HTTPS: https://rpc-gel.inkonchain.com
+
+* Websocket: wss://ws-gel.inkonchain.com
+
+## Ink Sepolia
+
+* HTTPS: https://rpc-gel-sepolia.inkonchain.com
+
+* Websocket: wss://ws-gel-sepolia.inkonchain.com
+
+## 2. Tenderly
+
+Tenderly provides robust RPC endpoints with detailed transaction debugging capabilities.
+
+## Ink Mainnet
+
+* HTTPS: https://rpc-ten.inkonchain.com
+
+* Websocket: wss://rpc-ten.inkonchain.com
+
+## Ink Sepolia
+
+* HTTPS: https://rpc-ten-sepolia.inkonchain.com
+
+* Websocket: wss://rpc-ten-sepolia.inkonchain.com
+
+## 3. QuickNode
+
+QuickNode provides public and private RPC endpoints for Ink, along with websocket support and a suite of tools to help you ship.
+
+## Ink Mainnet
+
+* HTTPS: https://rpc-qnd.inkonchain.com
+
+* Websocket: wss://rpc-qnd.inkonchain.com
+
+## Ink Sepolia
+
+* HTTPS: https://rpc-qnd-sepolia.inkonchain.com
+
+* Websocket: wss://rpc-qnd-sepolia.inkonchain.com
+
+## 4. dRPC
+
+dRPC provides globally distributed nodes for public and premium Ink RPC endpoints, including websocket support.
+
+## Ink Mainnet
+
+* HTTPS: https://ink.drpc.org
+
+* Websocket: wss://ink.drpc.org
+
+## Ink Sepolia
+
+* HTTPS: https://ink-sepolia.drpc.org
+
+* Websocket: wss://ink-sepolia.drpc.org
+
+## Subblocks
+
+Subblocks (formerly Flashblocks) are partial blocks that the Ink sequencer streams while it is still building the full block, roughly every 200 ms. They let your application see a transaction’s outcome as a pre-confirmation, before the block is sealed.
+
+The subblocks endpoints are WebSocket streams. Each message is a JSON payload with a payload_id , an index , and a diff of the block being built. The first message for a block ( index 0) also includes a base containing the block header fields.
+
+## Ink Mainnet
+
+* Websocket: wss://subblocks.inkonchain.com/ws
+
+## Ink Sepolia
+
+* Websocket: wss://subblocks-sepolia.inkonchain.com/ws
+
+⚠️
+A pre-confirmation carries the sequencer’s trust assumption, not the protocol’s. It can be revoked under the same conditions that allow the sequencer to reorg unsafe blocks. In streamed payloads, state_root and block_hash are always zero, so do not treat them as authoritative.
+
+To read pre-confirmed state over JSON-RPC (for example with eth_call or eth_getBalance and the pending block tag), use an RPC provider that supports subblocks. See the Optimism subblocks documentation for more detail.
+
+Oracles Security
+
+Made with 💜 by the Ink team
+Privacy Notice
+Terms of Service

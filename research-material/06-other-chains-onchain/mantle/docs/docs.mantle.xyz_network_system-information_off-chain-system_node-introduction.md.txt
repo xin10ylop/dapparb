@@ -1,0 +1,64 @@
+SOURCE_URL: https://docs.mantle.xyz/network/system-information/off-chain-system/node-introduction.md
+FINAL_URL: https://docs.mantle.xyz/network/system-information/off-chain-system/node-introduction.md
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:49Z
+EXTRACTION: raw markdown/plain-text body, unmodified; gzip copy in the .raw.gz file next to this one
+
+> For the complete documentation index, see [llms.txt](https://docs.mantle.xyz/network/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.mantle.xyz/network/system-information/off-chain-system/node-introduction.md).
+
+# Node Introduction
+
+## Network Roles[​](https://docs-v2.mantle.xyz/intro/system-components/off-chain-system#network-roles) <a href="#network-roles" id="network-roles"></a>
+
+### Sequencer[​](https://docs-v2.mantle.xyz/intro/system-components/off-chain-system#sequencer) <a href="#sequencer" id="sequencer"></a>
+
+The sequencer acts as block producers in the network, composed of [`op-node`](/network/system-information/off-chain-system/node-introduction.md#op-node) and [`op-geth`](/network/system-information/off-chain-system/node-introduction.md#op-geth) in Mantle, with the following functions:
+
+* Accept off-chain transactions from users
+* Monitor user deposit transactions from L1
+* Produce blocks on Rollup
+
+### Verifier[​](https://docs-v2.mantle.xyz/intro/system-components/off-chain-system#verifier) <a href="#verifier" id="verifier"></a>
+
+The verifier exists in the network to provide Rollup data to users, also composed of [`op-node`](/network/system-information/off-chain-system/node-introduction.md#op-node) and [`op-geth`](/network/system-information/off-chain-system/node-introduction.md#op-geth), with the following functions:
+
+* Synchronize Rollup data from Mantle DA
+* Verify the state root submitted by `op-proposer` on Rollup
+* Initiate fraud proofs when invalid state data is detected
+* Provide verified block data and state to users
+
+### op-batcher[​](https://docs-v2.mantle.xyz/intro/system-components/off-chain-system#op-batcher) <a href="#op-batcher" id="op-batcher"></a>
+
+`op-batcher` is a crucial component that interacts with the DA provider in the network. It also handles transaction packing and uploading to L1, with specific functions:
+
+* Fetch data from the sequencer and process it (encoding and compressing) into frames based on different configurations, storing the frames as a [channel](/network/more/glossary.md#channel)
+* Interact with the DA provider through channels, providing batched transaction information
+* Upload processed batched transactions to L1
+
+### op-proposer[​](https://docs-v2.mantle.xyz/intro/system-components/off-chain-system#op-proposer) <a href="#op-proposer" id="op-proposer"></a>
+
+Similar to `op-batcher` but providing state root information. When submitting a single or batch of transactions, `op-proposer` needs to complete state changes through `op-geth` and write down state commitments sent to `L2OutputOracle` on L1.
+
+## Deep Dive into Nodes[​](https://docs-v2.mantle.xyz/intro/system-components/off-chain-system#appendix) <a href="#appendix" id="appendix"></a>
+
+Within the sequencer and the verifier, two different components are present:
+
+<figure><img src="https://docs-v2.mantle.xyz/assets/images/op-73b9e5890fcee4afa3a20a40ae713b08.svg" alt=""><figcaption></figcaption></figure>
+
+### op-geth[​](https://docs-v2.mantle.xyz/intro/system-components/off-chain-system#op-geth) <a href="#op-geth" id="op-geth"></a>
+
+As the execution client in the Mantle Network, `op-geth` has the following functions:
+
+* Responsible for executing blocks received from `op-node` and storing states.
+* Query blockchain data through the Engine API and submit transactions to the network.
+
+### op-node[​](https://docs-v2.mantle.xyz/intro/system-components/off-chain-system#op-node) <a href="#op-node" id="op-node"></a>
+
+As the consensus client in the Mantle Network, `op-node` has the following functions:
+
+* Derive Rollup blocks from L1.
+* Send blocks to `op-geth` via the Engine API.
+* Retrieve block information from Mantle DA for subsequent validity verification.
+* Synchronize with a P2P network to sequencer-constructed but unsubmitted blocks.
+
+<br>

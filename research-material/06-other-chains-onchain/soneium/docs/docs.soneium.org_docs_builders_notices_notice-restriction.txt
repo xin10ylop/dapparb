@@ -1,0 +1,175 @@
+SOURCE_URL: https://docs.soneium.org/docs/builders/notices/notice-restriction
+FINAL_URL: https://docs.soneium.org/docs/builders/notices/notice-restriction
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:47Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+Restriction on Write Path to Sequencer | Soneium Docs
+
+*
+
+*
+
+*
+
+*
+*
+*
+*
+*
+*
+
+*
+
+*
+* Skip to main content
+
+Developers Learn Users About
+
+Search Docs...
+
+* Build on Soneium
+
+* Notices
+
+* Restriction on Write Path to Sequencer
+
+* Network Information
+
+* Soneium Contracts
+
+* Fees
+
+*
+
+* Tools
+
+* Node Providers
+
+* User Onboarding
+
+* Account Abstraction
+
+* Debuggers
+
+* Explorers
+
+* Faucets
+
+* Indexers
+
+* Interoperability
+
+* Onramps
+
+* Oracles
+
+* VRFs
+
+* Client Integration
+
+* Viem
+
+* Web3.js
+
+* Ethers.js
+
+* FAQ
+
+*
+
+* Notices
+
+* Restriction on Write Path to Sequencer
+
+On this page
+
+## Restriction on Write Path to Sequencer in Soneium Minato (testnet) and Soneium (mainnet)
+
+Update (Oct 28, 2025 JST)
+The start date for restricting write-capable RPC paths on the mainnet has been rescheduled to October 28, 2025. References on this page have been updated accordingly.
+
+Thank you for building on Soneium.
+
+Soneium aims to unleash people's creativity and create a platform where anyone can become a creator. To achieve this, we need to build an environment that not only serves those who have previously engaged with Web3 in their daily lives, but also provides a secure and accessible experience for those who have never interacted with Web3 before. This requires us to balance the openness and permissionless nature that the onchain community values with strict regulatory compliance and adherence to legal requirements necessary for providing stable services.
+
+As part of our compliance efforts, we will transition to an operation that restricts permissionless write-capable RPC paths to the sequencer node. Currently, only a limited number of RPCs can access the sequencer node on both testnet and mainnet. Transaction submission to the network remains open to all users using public and private RPC endpoints, but running a permissionless write-capable node will no longer be supported.
+
+This measure is intended to comply with laws and regulations, fulfill our accountability to regulatory authorities, and protect the continuity of the network. We will minimize the impact while addressing the community's concerns and aim to strengthen decentralization in the future.
+
+## Summary of Changes ​
+
+*
+Both testnet (Soneium Minato) and mainnet will limit write requests to the sequencer node to those from compliance-approved RPCs only.
+
+*
+We will announce the compliance-approved RPC endpoints sequentially including the inquiry link to add newly compliance-approved RPCs.
+
+*
+Access via hopping (relay/proxy) will also be prohibited. DApps using hopping should consider migrating to accessible RPCs.
+
+*
+Schedule: Testnet changes will start on September 24, 2025, and mainnet changes are scheduled for October 28, 2025 (the schedule is subject to change without notice).
+
+## Actions Required for Node Operators and dApps Developers ​
+
+*
+Switch to Compliance-Approved RPC Endpoints By obtaining a compliance-approved endpoint. Update the RPC URL of your application/server/infrastructure to the corresponding endpoint
+
+*
+Verify Transmission Path Ensure that you are not using self-hosted relays, proxies, or hopping
+
+*
+Pre-Verification on Testnet Verify the operation after the switch on the testnet from September 24, 2025
+
+## Schedule ​
+
+*
+Testnet: Applicable from Wednesday, September 24, 2025
+
+*
+Mainnet: October 28, 2025
+
+*We recommend verification on the testnet before applying to the mainnet to ensure sufficient preparation time.
+
+*The schedule is subject to change without notice. Thank you for your understanding.
+
+We strive to balance network sustainability and compliance with laws and regulations while considering the community. Although this may cause inconvenience in the short term, we are committed to working together to achieve a stronger and more open ecosystem in the medium to long term. We appreciate your understanding and cooperation.
+
+On This Page
+
+* Summary of Changes
+
+* Actions Required for Node Operators and dApps Developers
+
+* Schedule
+
+More
+Join our community Follow us Receive latest updates
+
+Bridge
+
+* Bridge
+
+Community
+
+* Ecosystem
+
+Developers
+
+* Let's Build
+
+* GitHub
+
+* Block Explorer
+
+About
+
+* Vision
+
+* Blog
+
+* Contact Us
+
+copyright: © 2026 Soneium Foundation. All rights reserved. Privacy policy
+Terms of Use

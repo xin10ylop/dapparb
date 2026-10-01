@@ -1,0 +1,9 @@
+{
+ "url": "https://api.llama.fi/protocols",
+ "fetched_at_utc": "2026-10-01T04:37:38Z",
+ "http_status": 200,
+ "bytes": 9029553,
+ "sha256": "1890b1eeeeae7371cd514b192841fb8b3d2ccaaed43ba0c5123f45e96058c1f8",
+ "content_type": "application/json",
+ "note": "raw response body, gzip-compressed, not modified"
+}

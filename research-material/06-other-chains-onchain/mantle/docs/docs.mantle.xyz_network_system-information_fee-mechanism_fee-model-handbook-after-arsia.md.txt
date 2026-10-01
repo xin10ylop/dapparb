@@ -1,0 +1,148 @@
+SOURCE_URL: https://docs.mantle.xyz/network/system-information/fee-mechanism/fee-model-handbook-after-arsia.md
+FINAL_URL: https://docs.mantle.xyz/network/system-information/fee-mechanism/fee-model-handbook-after-arsia.md
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:48Z
+EXTRACTION: raw markdown/plain-text body, unmodified; gzip copy in the .raw.gz file next to this one
+
+> For the complete documentation index, see [llms.txt](https://docs.mantle.xyz/network/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.mantle.xyz/network/system-information/fee-mechanism/fee-model-handbook-after-arsia.md).
+
+# Fee Model Handbook (After Arsia)
+
+{% hint style="info" icon="exclamation" %}
+**Warning**
+
+The content of this fee model is effective only after the Mantle Arsia upgrade. It is currently valid solely on **Mantle Sepolia**.
+{% endhint %}
+
+### Overviews
+
+As a Rollup, Mantle has operated under a stable fee calculation model since the launch of Mantle v2 Tectonic. However, as the underlying technology has evolved, the original fee model is no longer fully compatible with current requirements. To address this, Mantle introduces a new Fee Model that modularizes transaction fees and aligns with the OP Stack’s Jovian upgrade, clearly distinguishing different sources of cost.
+
+#### The Pre-Arsia Era
+
+Before the Arsia upgrade, Mantle adopted a relatively coarse **"gas amplification"** strategy to handle L1 data costs. In this model, L1 costs were not explicitly separated; instead, they were implicitly embedded into L2 gas consumption. This manifested in the following ways:
+
+* Gas amplification mechanism
+  * Because Mantle uses **MNT** rather than **ETH** as its gas token, and the price difference between the two can be significant, Mantle’s gas values (e.g., `gasUsed`) differed by orders of magnitude from other L2s. This increased the adaptation burden for developers.
+* Inaccurate estimation semantics
+  * The legacy model converted L1 data costs and included them in the value returned by `eth_estimateGas`. As a result, L2 gas usage became tightly coupled with L1 fee market fluctuations. Even for identical transactions (e.g., a simple transfer), the estimated gas limit could vary significantly over time due to L1 fee volatility. This undermined the stability of gas limits as a measure of computational complexity and made accurate cost estimation difficult for developers.
+
+#### The Post-Arsia Era
+
+The current Mantle fee model adopts a **modular and decoupled design**. The total cost of a transaction is now clearly decomposed into three independent components, each corresponding to a distinct category of network resource consumption:
+
+```rust
+TotalFee = L2ExecutionFee + L1DataFee + OperatorFee
+```
+
+This model is aligned with the OP Stack Jovian upgrade and is specifically designed to support more complex and modular blockchain execution environments, such as ZK Rollups.
+
+{% hint style="info" %}
+For frontend developers, the `TotalFee` of the current transaction can be estimated by calling the `estimateTotalFee` method provided in the Mantle-Viem SDK.&#x20;
+
+For backend developers, a similar `eth_estimateTotalFee` RPC is available in Geth, which directly returns the total fee without requiring manual aggregation of individual components.
+{% endhint %}
+
+### L2 Execution Fee
+
+#### Design Rationale and Mechanism
+
+The **L2 Execution Fee** is the most fundamental component of the fee model. It strictly follows Ethereum’s standard EVM gas accounting rules and directly corresponds to the computational resources and state storage resources consumed by the Mantle Sequencer when executing a transaction. Its pricing fully adheres to the EIP-1559 model and is jointly determined by the **Base Fee** and the **Priority Fee**.
+
+**Difference between Pre-Arsia and Post-Arsia**
+
+<table data-header-hidden data-full-width="true"><thead><tr><th width="143.6484375"></th><th></th><th></th></tr></thead><tbody><tr><td><br></td><td><strong>Pre-Arsia</strong></td><td><strong>Post-Arsia</strong></td></tr><tr><td><strong>Difference</strong><br></td><td>Before Arsia, <code>eth_estimateGas</code> on Mantle returned a gas value that already incorporated amortized L1 data costs, instead of reflecting pure L2 execution.Although the model followed an EIP-1559 structure in form, the base fee was static with respect to block usage, and users were generally encouraged to set the priority fee to zero, resulting in a simplified version of EIP-1559.</td><td>The L2 execution fee returns to the fundamental definition of gas. The value returned by <code>eth_estimateGas</code> now reflects <strong>pure EVM execution cost only</strong>. This means that if your contract logic does not change, your estimated gas limit will remain stable regardless of L1 market fluctuations.</td></tr></tbody></table>
+
+{% hint style="info" %}
+With the Arsia upgrade, Mantle restores a full EIP-1559 execution fee model. The L2 base fee responds dynamically to block utilization, while priority fees are explicitly supported as a congestion signal. This ensures that gas pricing once again serves as a stable measure of execution complexity, independent of L1 fee volatility.
+{% endhint %}
+
+#### Formula
+
+With L1-related costs removed from gas estimation, the L2 execution fee becomes a direct function of gas usage and the EIP-1559 pricing parameters on Mantle L2. The fee calculation can therefore be expressed as:
+
+```rust
+// Calculate Total L2 Execution Fee
+L2ExecutionFee = L2GasUsed * L2GasPrice
+```
+
+**Parameter Breakdown**
+
+<table data-header-hidden><thead><tr><th width="144.24609375"></th><th></th><th></th></tr></thead><tbody><tr><td>Parameter</td><td>Description</td><td>How to obtain</td></tr><tr><td><code>L2GasUsed</code></td><td><em>Total gas consumed by EVM instruction execution</em></td><td>We recommend calling <code>eth_estimateGas</code> directly to retrieve it.</td></tr><tr><td><code>L2GasPrice</code></td><td><em>The current gas unit price of the L2 network.</em>Under EIP-1559, it is calculated as: <code>BaseFee + min(MaxPriorityFee, MaxFee − BaseFee)</code></td><td>We recommend calling <code>eth_gasPrice</code> directly to retrieve it.<br></td></tr></tbody></table>
+
+#### How to Retrieve the L2 Fee
+
+Retrieving the L2 Fee follows the standard Ethereum development workflow. You can use the standard RPC interface `eth_estimateGas` to obtain the amount of gas required for the transaction, and then use `eth_gasPrice` to fetch the current gas price.
+
+{% hint style="info" %}
+Under Mantle’s current design, the value returned by `eth_estimateGas` reflects only pure L2 execution costs. Unlike implementations prior to Mantle Arsia, it no longer includes L1 data costs. Therefore, when calculating the total transaction fee, it is critical not to omit the other two fee components.
+{% endhint %}
+
+### L1 Data Fee
+
+#### Design Rationale and Mechanism
+
+As a Rollup, Mantle must publish transaction data to Ethereum mainnet in order to inherit its security guarantees. Since Ethereum data storage is expensive, Mantle introduces a data compression–based fee estimation mechanism.The core of the L1 fee model is a **linear regression–based cost estimator**. Mantle does not compute the exact compressed size for each transaction by running full compression, as doing so would introduce significant time overhead in the sequencing pipeline. Instead, following the OP Stack approach, Mantle first applies the FastLZ algorithm to obtain an approximate size, then uses a pre-trained linear regression model to approximate the final on-chain data size. Although not perfectly precise, this estimation is sufficiently accurate for pricing purposes. The final fee is computed by combining the fitted `BaseFeeScalar` and `BlobFeeScalar`, and then converting from ETH to MNT using the ETH/MNT `TokenRatio`.
+
+**Difference between Pre-Arsia and Post-Arsia**
+
+<table data-header-hidden><thead><tr><th width="123.15234375"></th><th></th><th></th></tr></thead><tbody><tr><td><br></td><td><strong>Pre-Arsia</strong></td><td><strong>Post-Arsia</strong></td></tr><tr><td><strong>Difference</strong><br></td><td>L1 costs were converted into L2 gas, causing users to pay them implicitly as part of gas fees.</td><td>L1 costs are charged as an independent fee component. They no longer consume L2 gas limit, but are instead deducted directly from the sender’s balance as an additional MNT fee. This separation ensures that even sharp increases in L1 fees do not cause L2 transactions to fail due to block gas limit constraints.</td></tr></tbody></table>
+
+#### Formula
+
+Based on the estimation pipeline described above, the L1 fee can be expressed as a function of the estimated compressed data size, Ethereum L1 fee parameters, and the token conversion ratio. Formally, the L1 fee calculation is defined as follows:
+
+```rust
+// 1. Estimate compressed data size (Linear Regression)
+EstimatedSize = COST_INTERCEPT + (COST_FASTLZ_COEF * _fastLzSize)
+
+// 2. Compute weighted L1 fee (ETH)
+WeightedL1Fee = (BaseFeeScalar * L1BaseFee * 16) + (BlobFeeScalar * L1BlobFee)
+
+// 3. Compute final L1 data fee (MNT)
+L1DataFee = EstimatedSize * WeightedL1Fee * TokenRatio
+```
+
+**Parameter Breakdown**
+
+<table data-header-hidden><thead><tr><th width="181.984375"></th><th></th><th></th></tr></thead><tbody><tr><td>Parameter</td><td>Description</td><td>How to obtain</td></tr><tr><td><code>_fastLzSize</code></td><td>FastLZ-compressed transaction size; Byte length of the FastLZ-compressed input data plus 68 bytes (signature overhead)</td><td>Runtime calculation: <code>LibZip.flzCompress(_data).length + 68</code></td></tr><tr><td><code>COST_INTERCEPT</code></td><td>Regression intercept; Constant term in the linear regression model, used to correct estimation bias</td><td>Contract constant, hardcoded in <code>GasPriceOracle</code> (<code>-42_585_600</code>)</td></tr><tr><td><code>COST_FASTLZ_COEF</code></td><td>Regression coefficient; Slope of the linear regression, capturing the correlation between FastLZ and Brotli compression</td><td>Contract constant, hardcoded in <code>GasPriceOracle</code> (<code>836_500</code>)</td></tr><tr><td><code>BaseFeeScalar</code></td><td>Per-byte share of the L1 EVM gas cost incurred by the Batch Submitter<br></td><td>Stored in the <code>L1Block</code> contract; adjustable via governance</td></tr><tr><td><code>16</code></td><td>Gas cost of a non-zero byte in the Ethereum EVM</td><td>-</td></tr><tr><td><code>L1BaseFee</code></td><td>Current Ethereum base fee</td><td><em>Periodically synced into the <code>basefee</code> field of the <code>L1Block</code> contract</em></td></tr><tr><td><code>BlobFeeScalar</code></td><td><em>Per-byte share of Blob data usage introduced by the Batch Submitter</em></td><td><em>Stored in the <code>L1Block</code> contract; adjustable via governance</em></td></tr><tr><td><code>L1BlobFee</code></td><td>Current Blob base fee on Ethereum mainnet</td><td>Periodically synced into the <code>blobBaseFee</code> field of the <code>L1Block</code> contract</td></tr></tbody></table>
+
+#### How to Retrieve the L1 Fee
+
+Developers can query the on-chain `GasPriceOracle` contract and call the `getL1Fee(txBytes)` method to obtain an estimated value. To do so, you must provide the fully constructed, unsigned, and RLP-encoded transaction bytes as the input parameter in order to receive an L1 Fee estimate.
+
+{% hint style="info" %}
+Note that the value returned by this method is still denominated in ETH. To calculate the actual L1 Fee in Mantle’s native token (MNT), you must multiply it by the `TokenRatio`, which can also be retrieved from the `GasPriceOracle` contract.
+{% endhint %}
+
+Therefore:
+
+```rust
+L1 Fee = getL1Fee(txBytes) * TokenRatio
+```
+
+### Operator Fee
+
+#### Design Rationale and Mechanism
+
+The Operator Fee is designed to provide node operators with a sustainable revenue stream. It adopts a hybrid model of “fixed base + dynamic increment”: the fixed component covers baseline service costs, while the dynamic component scales linearly with transaction computational payload (gas used).
+
+**Difference between Pre-Arsia and Post-Arsia**
+
+<table data-header-hidden><thead><tr><th width="127.70703125"></th><th></th><th></th></tr></thead><tbody><tr><td><br></td><td><strong>Pre-Arsia</strong></td><td><strong>Post-Arsia</strong></td></tr><tr><td><strong>Difference</strong><br></td><td>Operational costs typically lacked an explicit pricing formula and were often implicitly absorbed by other fees or subsidized by the protocol.</td><td>An explicit Operator Fee formula is introduced. This makes network operational costs transparent and allows parameterized adjustment in response to changing network load.</td></tr></tbody></table>
+
+#### Formula
+
+Following this design, the Operator Fee is computed as the sum of a constant base fee and a gas-proportional component, as defined by the formula below:
+
+```rust
+OperatorFee = OperatorConstant + (OperatorScalar * 100 * L2GasUsed)
+```
+
+**Parameter Breakdown**
+
+<table data-header-hidden><thead><tr><th width="173.30859375"></th><th></th><th></th></tr></thead><tbody><tr><td>Parameter</td><td>Description</td><td>How to obtain</td></tr><tr><td><code>OperatorConstant</code></td><td><em>Fixed base fee per transaction</em></td><td><em><code>operatorFeeConstant</code> field in the <code>L1Block</code> contract</em></td></tr><tr><td><code>OperatorScalar</code></td><td><em>Weighting coefficient for how transaction payload affects operational cost</em></td><td><em><code>operatorFeeScalar</code> field in the <code>L1Block</code> contract</em></td></tr><tr><td><em><code>L2GasUsed</code></em></td><td>L2 gas consumption, used as a proxy for computational payload</td><td>Runtime input; gas estimate passed when calling the function</td></tr><tr><td><code>100</code></td><td>Constant multiplier used to amplify the scalar’s effect</td><td>Contract constant, hardcoded in the computation logic</td></tr></tbody></table>
+
+#### How to Retrieve the Operator Fee
+
+Similar to the L1 Fee, the Operator Fee is also obtained via the `GasPriceOracle` contract. The contract exposes an interface called `getOperatorFee`. You must pass the L2 gas estimate obtained from `eth_estimateGas` as the input parameter. Based on the network’s currently configured scalars and constants, the contract will compute the Operator Fee that you are required to pay.

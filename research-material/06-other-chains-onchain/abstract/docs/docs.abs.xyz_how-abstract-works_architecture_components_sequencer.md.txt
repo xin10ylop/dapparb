@@ -1,0 +1,49 @@
+SOURCE_URL: https://docs.abs.xyz/how-abstract-works/architecture/components/sequencer.md
+FINAL_URL: https://docs.abs.xyz/how-abstract-works/architecture/components/sequencer.md
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:46Z
+EXTRACTION: raw markdown/plain-text body, unmodified; gzip copy in the .raw.gz file next to this one
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.abs.xyz/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Sequencer
+
+> Learn more about the sequencer component of Abstract.
+
+The sequencer is composed of several services that work together
+to receive and process transactions on the L2,
+organize them into blocks, create transaction batches, and send these batches to Ethereum.
+
+It is composed of the following components:
+
+1. [RPC](#rpc): provides an API for the clients to interact with the chain (i.e. send transactions, query the state, etc).
+2. [Sequencer](#sequencer): processes L2 transactions, organizes them into blocks, and ensures they comply with the constraints of the proving system.
+3. [ETH Operator](#eth-operator): batches L2 transactions together and dispatches them to the L1.
+
+<Card title="View the source code" icon="github" href="https://github.com/matter-labs/zksync-era">
+  View the repositories for each component on the ZK stack docs.
+</Card>
+
+### RPC
+
+A [JSON-RPC](https://ethereum.org/en/developers/docs/apis/json-rpc/) API is exposed for clients (such as applications)
+to provide a set of methods that can be used to interact with Abstract.
+There are two types of APIs exposed:
+
+1. **HTTP API**: This API is used to interact with the chain using traditional HTTP requests.
+2. **WebSocket API**: This API is used to subscribe to events and receive real-time updates from the chain including PubSub events.
+
+### Sequencer
+
+Once transactions are received through the RPC API, the sequencer processes them,
+organizes them into blocks, and ensures they comply with the constraints of the proving system.
+
+### ETH Operator
+
+The ETH Operator module interfaces directly with the L1, responsible for:
+
+* Monitoring the L1 for specific events (such as deposits and system upgrades) and
+  ensuring the sequencer remains in sync with the L1.
+* Batching multiple L2 transactions together and dispatching them to the L1.

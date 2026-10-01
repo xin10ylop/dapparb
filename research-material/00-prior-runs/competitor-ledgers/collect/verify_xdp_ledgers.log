@@ -1,0 +1,7 @@
+2026-10-01T04:06:16Z 0x000000c5 ledger: rows 928 (expected 928), distinct keys 928, blocks 58 file-blocks 58, addresses ['0x000000c557fa9a96d66cd6371abde62d879d0e61', '0x0ce14aeebb7ad6625585979f4c1846946e248e02'], non-integer balances 0, queried_block mismatches 0, same-query inconsistencies 0
+2026-10-01T04:06:16Z 0x000000c5 receipts: rows 60, distinct hashes 60, match input selection True, empty cells per column {}
+2026-10-01T04:06:27Z 0x000000c5 second-endpoint check (https://gateway.tenderly.co/public/base): 20 balances + 5 receipts, mismatches 0
+2026-10-01T04:06:27Z 0x3be22b31 ledger: rows 784 (expected 784), distinct keys 784, blocks 49 file-blocks 49, addresses ['0x08c61873dc64c5131758ae27cb4d84e773d66d82', '0x3be22b314654c396a12c5e8d79abdd65aac3caaf'], non-integer balances 0, queried_block mismatches 0, same-query inconsistencies 0
+2026-10-01T04:06:27Z 0x3be22b31 receipts: rows 60, distinct hashes 60, match input selection True, empty cells per column {}
+2026-10-01T04:06:38Z 0x3be22b31 second-endpoint check (https://gateway.tenderly.co/public/base): 20 balances + 5 receipts, mismatches 0
+2026-10-01T04:06:38Z verification problems total 0

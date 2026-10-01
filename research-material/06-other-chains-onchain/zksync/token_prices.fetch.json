@@ -1,0 +1,21 @@
+{
+ "chain": "zksync",
+ "started_at_utc": "2026-10-01T04:24:38Z",
+ "rpc": [
+  "https://mainnet.era.zksync.io",
+  "https://zksync.drpc.org"
+ ],
+ "errors": [],
+ "n_tokens": 24,
+ "eth_call_block": "latest",
+ "eth_call_time_utc": "2026-10-01T04:24:41Z",
+ "defillama_requests": 3,
+ "price_timestamps_requested": [
+  1790824689,
+  1790826488,
+  1790828288
+ ],
+ "native_chart_url": "https://coins.llama.fi/chart/coingecko:ethereum?start=1790824689&span=13&period=5m",
+ "native_chart_http_status": 200,
+ "finished_at_utc": "2026-10-01T04:24:44Z"
+}

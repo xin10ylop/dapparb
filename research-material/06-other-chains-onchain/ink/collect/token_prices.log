@@ -1,0 +1,3 @@
+2026-10-01T04:20:02Z tokens 46
+2026-10-01T04:20:04Z onchain meta written
+2026-10-01T04:20:11Z done {"chain": "ink", "started_at_utc": "2026-10-01T04:20:02Z", "rpc": ["https://ink-rpc.publicnode.com", "https://rpc-gel.inkonchain.com"], "n_tokens": 46, "eth_call_block": "latest", "eth_call_time_utc": "2026-10-01T04:20:04Z", "defillama_requests": 6, "price_timestamps_requested": [1790824710, 1790826509, 1790828309], "native_chart_url": "https://coins.llama.fi/chart/coingecko:ethereum?start=1790824710&span=13&period=5m", "native_chart_http_status": 200, "finished_at_utc": "2026-10-01T04:20:11Z"}

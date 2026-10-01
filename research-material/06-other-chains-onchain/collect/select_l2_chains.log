@@ -1,0 +1,46 @@
+2026-10-01T04:16:44Z overview {"url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true", "fetched_at_utc": "2026-10-01T04:16:42Z", "http_status": 200, "bytes_uncompressed": 19891380, "sha256_uncompressed": "2fc7b7a585cfef768fb1233661bb36651bdf8bc9ac38c32ef2516166d73dc78b", "stored_as": "defillama-overview-dexs-all-chains.json.gz (gzip of the unmodified response body)"}
+2026-10-01T04:16:45Z per-chain Linea 200 364646.70999999996
+2026-10-01T04:16:47Z per-chain Scroll 200 354769.56
+2026-10-01T04:16:48Z per-chain ZKsync Era 200 592483.71
+2026-10-01T04:16:49Z per-chain Blast 200 36547.07
+2026-10-01T04:16:50Z per-chain Mantle 200 2489796.74
+2026-10-01T04:16:51Z per-chain Ink 200 3213379
+2026-10-01T04:16:52Z per-chain Soneium 200 364761.82
+2026-10-01T04:16:53Z per-chain World Chain 200 730528.1
+2026-10-01T04:16:54Z per-chain Abstract 200 1580386
+2026-10-01T04:16:56Z per-chain Taiko 200 132.59
+2026-10-01T04:16:57Z per-chain Mode 200 1547.16
+2026-10-01T04:16:59Z probe Linea https://rpc.linea.build True
+2026-10-01T04:17:00Z probe Linea https://linea-rpc.publicnode.com True
+2026-10-01T04:17:02Z probe Linea https://linea.drpc.org True
+2026-10-01T04:17:04Z probe Scroll https://rpc.scroll.io True
+2026-10-01T04:17:05Z probe Scroll https://scroll-rpc.publicnode.com True
+2026-10-01T04:17:07Z probe Scroll https://scroll.drpc.org True
+2026-10-01T04:17:08Z probe ZKsync Era https://mainnet.era.zksync.io True
+2026-10-01T04:17:09Z probe ZKsync Era https://zksync.drpc.org True
+2026-10-01T04:17:11Z probe Blast https://rpc.blast.io True
+2026-10-01T04:17:12Z probe Blast https://blast-rpc.publicnode.com True
+2026-10-01T04:17:14Z probe Blast https://blast.drpc.org True
+2026-10-01T04:17:15Z probe Mantle https://rpc.mantle.xyz True
+2026-10-01T04:17:17Z probe Mantle https://mantle-rpc.publicnode.com True
+2026-10-01T04:17:19Z probe Mantle https://mantle.drpc.org True
+2026-10-01T04:17:21Z probe Ink https://rpc-gel.inkonchain.com True
+2026-10-01T04:17:22Z probe Ink https://rpc-qnd.inkonchain.com True
+2026-10-01T04:17:23Z probe Ink https://ink-rpc.publicnode.com True
+2026-10-01T04:17:25Z probe Ink https://ink.drpc.org True
+2026-10-01T04:17:27Z probe Soneium https://rpc.soneium.org True
+2026-10-01T04:17:28Z probe Soneium https://soneium-rpc.publicnode.com True
+2026-10-01T04:17:30Z probe Soneium https://soneium.drpc.org True
+2026-10-01T04:17:31Z probe World Chain https://worldchain-mainnet.g.alchemy.com/public False
+2026-10-01T04:17:33Z probe World Chain https://480.rpc.thirdweb.com True
+2026-10-01T04:17:34Z probe World Chain https://worldchain-mainnet.gateway.tenderly.co True
+2026-10-01T04:17:36Z probe World Chain https://worldchain.drpc.org False
+2026-10-01T04:17:37Z probe World Chain https://sparkling-autumn-dinghy.worldchain-mainnet.quiknode.pro True
+2026-10-01T04:17:39Z probe Abstract https://api.mainnet.abs.xyz True
+2026-10-01T04:17:40Z probe Abstract https://abstract.drpc.org True
+2026-10-01T04:17:41Z probe Taiko https://rpc.mainnet.taiko.xyz True
+2026-10-01T04:17:43Z probe Taiko https://taiko-rpc.publicnode.com True
+2026-10-01T04:17:44Z probe Taiko https://taiko.drpc.org True
+2026-10-01T04:17:46Z probe Mode https://mainnet.mode.network True
+2026-10-01T04:17:47Z probe Mode https://mode.drpc.org True
+2026-10-01T04:17:47Z selection.csv written; selected: ['Ink', 'Mantle', 'Abstract', 'World Chain', 'ZKsync Era', 'Soneium']

@@ -337,6 +337,18 @@ with row counts and byte sizes.
    the engine does not record skipped blocks explicitly. Blocks with no heartbeat/candidate line are not listed individually.
    [2026-10-01: `live-shallow.log` contains 0 `tick failed` and 0 `gas refresh failed` lines.]
 9. **Concurrency**: another agent's engine run (V4 live test) and several collectors shared the same public endpoints during both runs.
+   [corrected 2026-10-01 (fixup), from the recorded timestamps: the V4 live-test engine did NOT run during both runs.
+   - Shallow live run (engine 2026-09-30 21:53:55.034Z-22:23:51.823Z): no V4 live-test engine process ran in this window.
+   - The V4 verification startup (`../02-v4-live-test/collect/verify-startup.times`: `launch 2026-09-30T22:23:56.186Z`,
+     `ready_detected 22:54:07.664Z`, `stopped 22:54:08.671Z`) started 4.4 s after the live run's engine exit. It overlapped only
+     the snapshot (22:04:05.057Z-22:49:30.463Z), from 22:23:56Z to the snapshot's end. It used the engine's viem fallback list
+     (publicnode, drpc, blastapi, mainnet.base.org), the same list as the snapshot.
+   - The V4 live attempts ran on 2026-10-01, after both runs: the invalid attempt's engine 01:03:43Z-01:57:19.654Z, and the valid
+     run 02:05:32.677Z-02:56:05.670Z (`../02-v4-live-test/MANIFEST.md`, "Run history"). The valid run overlapped transfer-probe
+     attempt 3 (02:12-02:19Z), which used only blastapi, the third endpoint of the engine's fallback list.
+   - Inside the live-run window, the 02 Initialize top-up (a getLogs collector, not an engine) ran at 22:13:00Z (smoke) and
+     22:15:19-22:15:20Z (pin, all chunks via publicnode).
+   - The statement about other collectors is kept. They are not listed individually here.]
 10. Only Base was collected here; no other chains.
 
 
@@ -438,3 +450,11 @@ holder_after, signed), outer_revert_hex, rpc_error, pinned_block, endpoint, batc
 Coverage limits: one block (52008246); one holder per token; the 3,894 tokens without a positive pool balance in the
 snapshot were not probed; only `transfer` from a pool to a fresh EOA-like address was simulated (no transferFrom, no
 sell direction into a pool, no router path); per-transfer gas cap 1.5 M.
+
+## Fixup (2026-10-01): coverage item 9 corrected
+
+Manifest-only change by a fixup agent (~04:55Z on 2026-10-01). No data file changed, nothing fetched. Coverage item 9 said a V4
+live-test engine shared the endpoints "during both runs". The note added under item 9 gives what the timestamps show. Sources:
+`run-times.json` (live run launch/stop/exit), `snapshot-meta.json` (`started_utc`, `finished_utc`),
+`../02-v4-live-test/collect/verify-startup.times`, `../02-v4-live-test/MANIFEST.md` "Run history" and "Endpoints",
+`../02-v4-live-test/collect/topup_smoke.log`, `../02-v4-live-test/collect/topup_initialize.verify.log`.

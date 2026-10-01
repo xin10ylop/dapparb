@@ -1,0 +1,33 @@
+2026-10-01T03:55:24Z window 52006433 52017160 chunks 11 head 52018788 finalized 52018149
+2026-10-01T03:55:26Z chunk 52006433 52007432 tenderly {'swap': 8576, 'modify_liquidity': 3722, 'donate': 2, 'initialize': 109} 2.1s
+2026-10-01T03:55:27Z chunk 52007433 52008432 tenderly {'swap': 10398, 'modify_liquidity': 4312, 'donate': 0, 'initialize': 133} 2.5s
+2026-10-01T03:55:28Z chunk 52008433 52009432 tenderly {'swap': 9597, 'modify_liquidity': 3723, 'donate': 2, 'initialize': 96} 1.8s
+2026-10-01T03:55:28Z chunk 52009433 52010432 tenderly {'swap': 7497, 'modify_liquidity': 3139, 'donate': 1, 'initialize': 70} 1.6s
+2026-10-01T03:55:30Z chunk 52010433 52011432 tenderly {'swap': 6199, 'modify_liquidity': 3233, 'donate': 3, 'initialize': 82} 1.4s
+2026-10-01T03:55:30Z chunk 52011433 52012432 tenderly {'swap': 6419, 'modify_liquidity': 3975, 'donate': 3, 'initialize': 93} 1.4s
+2026-10-01T03:55:31Z chunk 52012433 52013432 tenderly {'swap': 5931, 'modify_liquidity': 3794, 'donate': 1, 'initialize': 68} 1.3s
+2026-10-01T03:55:31Z chunk 52013433 52014432 tenderly {'swap': 6409, 'modify_liquidity': 3829, 'donate': 1, 'initialize': 75} 1.3s
+2026-10-01T03:55:32Z chunk 52014433 52015432 tenderly {'swap': 6445, 'modify_liquidity': 3107, 'donate': 1, 'initialize': 107} 1.3s
+2026-10-01T03:55:32Z chunk 52015433 52016432 tenderly {'swap': 7055, 'modify_liquidity': 3345, 'donate': 1, 'initialize': 75} 1.4s
+2026-10-01T03:55:33Z chunk 52016433 52017160 tenderly {'swap': 4598, 'modify_liquidity': 2773, 'donate': 0, 'initialize': 57} 0.8s
+2026-10-01T03:55:33Z primary round 1 missing 0
+2026-10-01T03:55:35Z xcheck 52006433 52007432 tenderly vs mainnet.base.org identical {'swap': 8576, 'modify_liquidity': 3722, 'donate': 2, 'initialize': 109}
+2026-10-01T03:55:36Z xcheck 52007433 52008432 tenderly vs mainnet.base.org identical {'swap': 10398, 'modify_liquidity': 4312, 'donate': 0, 'initialize': 133}
+2026-10-01T03:55:37Z xcheck 52008433 52009432 tenderly vs mainnet.base.org identical {'swap': 9597, 'modify_liquidity': 3723, 'donate': 2, 'initialize': 96}
+2026-10-01T03:55:37Z xcheck 52009433 52010432 tenderly vs mainnet.base.org identical {'swap': 7497, 'modify_liquidity': 3139, 'donate': 1, 'initialize': 70}
+2026-10-01T03:55:39Z xcheck 52010433 52011432 tenderly vs mainnet.base.org identical {'swap': 6199, 'modify_liquidity': 3233, 'donate': 3, 'initialize': 82}
+2026-10-01T03:55:39Z xcheck 52011433 52012432 tenderly vs mainnet.base.org identical {'swap': 6419, 'modify_liquidity': 3975, 'donate': 3, 'initialize': 93}
+2026-10-01T03:55:40Z xcheck 52012433 52013432 tenderly vs mainnet.base.org identical {'swap': 5931, 'modify_liquidity': 3794, 'donate': 1, 'initialize': 68}
+2026-10-01T03:55:41Z xcheck 52013433 52014432 tenderly vs mainnet.base.org identical {'swap': 6409, 'modify_liquidity': 3829, 'donate': 1, 'initialize': 75}
+2026-10-01T03:55:42Z xcheck 52014433 52015432 tenderly vs mainnet.base.org identical {'swap': 6445, 'modify_liquidity': 3107, 'donate': 1, 'initialize': 107}
+2026-10-01T03:55:43Z xcheck 52015433 52016432 tenderly vs mainnet.base.org identical {'swap': 7055, 'modify_liquidity': 3345, 'donate': 1, 'initialize': 75}
+2026-10-01T03:55:43Z xcheck 52016433 52017160 tenderly vs mainnet.base.org identical {'swap': 4598, 'modify_liquidity': 2773, 'donate': 0, 'initialize': 57}
+2026-10-01T03:55:43Z xcheck round 1 unchecked 0
+2026-10-01T03:55:56Z census checks {"blocks_with_logs": 10595, "txs_with_logs": 58372, "census_blocks_file": "05-base-onchain/blocks.csv.gz", "block_hash_equal": 10595, "block_hash_different": 0, "block_hash_different_blocks": [], "blocks_not_in_census": 0, "census_tx_files": ["05-base-onchain/data/txs-bf-0001.csv.gz", "05-base-onchain/data/txs-bf2-0001.csv.gz", "05-base-onchain/data/txs-bf2-0002.csv.gz", "05-base-onchain/data/txs-bf3-0001.csv.gz", "05-base-onchain/data/txs-bf4-0001.csv.gz", "05-base-onchain/data/txs-fw-0001.csv.gz", "05-base-onchain/data/txs-fw-0002.csv.gz", "05-base-onchain/data/txs-gf1-0001.csv.gz"], "tx_has
+2026-10-01T03:55:58Z logs assembled {'swap': 79124, 'modify_liquidity': 38952, 'donate': 15, 'initialize': 965}
+2026-10-01T03:55:59Z pools 4802 active 4794 initialized 965
+2026-10-01T03:56:10Z snapshot rows 4802
+2026-10-01T03:57:11Z keys {'from_window2_initialize': 965, 'from_pool_keys_snapshot': 2305, 'from_v4init_scan': 1532, 'v4init_scan_source': 'initialize-part-0001..0022.csv.gz', 'unresolved': 0}
+2026-10-01T03:57:12Z currencies 3676 already in token-metadata.csv.gz 1752 new 1924
+2026-10-01T03:57:28Z token rows 1924 recalled at W1 5
+2026-10-01T03:57:28Z V4WINDOW2 DONE

@@ -1,0 +1,47 @@
+[
+ {
+  "file": "docs.mantle.xyz_network_system-information_architecture.md.txt",
+  "start": "1. Users send signed transactions to Mantle through RPC nodes",
+  "end": "produces Rollup blocks."
+ },
+ {
+  "file": "docs.mantle.xyz_network_system-information_architecture.md.txt",
+  "start": "In Mantle v2, a transaction pool structure similar to Ethereum's mempool",
+  "end": "in the order of their base fee and priority fee."
+ },
+ {
+  "file": "docs.mantle.xyz_network_system-information_fee-mechanism.md.txt",
+  "start": "* **For** [**EIP-1559 transaction types**]",
+  "end": "does not affect the packing of transactions."
+ },
+ {
+  "file": "docs.mantle.xyz_network_system-information_fee-mechanism.md.txt",
+  "start": "The ordering of transactions is influenced by various factors.",
+  "end": "prioritizes packing `tx_B`."
+ },
+ {
+  "file": "docs.mantle.xyz_network_system-information_fee-mechanism_eip-1559-support.md.txt",
+  "start": "Mantle v2 Tectonic, in an effort to further reduce fees",
+  "end": "to minimize the impact of `priorityfee`."
+ },
+ {
+  "file": "docs.mantle.xyz_network_system-information_fee-mechanism_fee-model-handbook-after-arsia.md.txt",
+  "start": "With the Arsia upgrade, Mantle restores a full EIP-1559 execution fee model.",
+  "end": "priority fees are explicitly supported as a congestion signal."
+ },
+ {
+  "file": "docs.mantle.xyz_network_introduction_updated-notices_arsia-upgrade-mantles-new-fee-model-and-op-stack-alignment.md.txt",
+  "start": "3. **Dynamic EIP-1559 parameters**",
+  "end": "enabling responsive fee markets."
+ },
+ {
+  "file": "docs.mantle.xyz_network_for-node-operators_network-roles.md.txt",
+  "start": "are responsible for sequentially packing transactions into layer-2 blocks",
+  "end": "Sequencer nodes are not yet open due to security reasons."
+ },
+ {
+  "file": "docs.mantle.xyz_network_system-information_risk-management_forced-transaction-inclusion.md.txt",
+  "start": "When the transaction is submitted on L1, it will be processed on a First Come, First Served (FCFS) basis",
+  "end": "the transaction will be included in the Rollup chain."
+ }
+]

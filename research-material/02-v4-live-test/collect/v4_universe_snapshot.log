@@ -1,0 +1,129 @@
+{"t":"2026-10-01T03:58:10.664Z","msg":"pinned","rssMb":164,"pin":52015721,"head":52018871,"key":"5d8c02def8272b73","spec_files":23}
+{"level":30,"time":1790827091860,"pid":27399,"hostname":"vm","dex":"AerodromeCL","total":3648,"enumerated":3648,"msg":"factory enumerated"}
+{"level":30,"time":1790827092672,"pid":27399,"hostname":"vm","dex":"AerodromeCL3","total":2841,"enumerated":2841,"msg":"factory enumerated"}
+{"level":30,"time":1790827093291,"pid":27399,"hostname":"vm","dex":"AerodromeCL2","total":2260,"enumerated":2260,"msg":"factory enumerated"}
+{"level":30,"time":1790827095009,"pid":27399,"hostname":"vm","dex":"Aerodrome","total":29603,"enumerated":6000,"msg":"factory enumerated"}
+{"level":30,"time":1790827096836,"pid":27399,"hostname":"vm","dex":"UniswapV2","total":3063786,"enumerated":6000,"msg":"factory enumerated"}
+{"level":30,"time":1790827098515,"pid":27399,"hostname":"vm","dex":"SushiV2","total":6095,"enumerated":6000,"msg":"factory enumerated"}
+{"level":30,"time":1790827100249,"pid":27399,"hostname":"vm","dex":"PancakeV2","total":15243,"enumerated":6000,"msg":"factory enumerated"}
+{"level":30,"time":1790827101783,"pid":27399,"hostname":"vm","dex":"BaseSwap","total":8258,"enumerated":6000,"msg":"factory enumerated"}
+{"t":"2026-10-01T03:59:10.666Z","msg":"rss","rssMb":219,"stage":"enumerate"}
+{"level":30,"time":1790827164341,"pid":27399,"hostname":"vm","enumeratedPools":38749,"tokens":33606,"pairs":37339,"msg":"universe enumerated; resolving every venue per pair"}
+{"t":"2026-10-01T04:00:10.667Z","msg":"rss","rssMb":651,"stage":"enumerate"}
+{"t":"2026-10-01T04:01:10.668Z","msg":"rss","rssMb":639,"stage":"enumerate"}
+{"t":"2026-10-01T04:02:10.668Z","msg":"rss","rssMb":758,"stage":"enumerate"}
+{"t":"2026-10-01T04:03:10.669Z","msg":"rss","rssMb":731,"stage":"enumerate"}
+{"t":"2026-10-01T04:04:10.715Z","msg":"rss","rssMb":704,"stage":"enumerate"}
+{"t":"2026-10-01T04:05:10.715Z","msg":"rss","rssMb":715,"stage":"enumerate"}
+{"t":"2026-10-01T04:06:10.717Z","msg":"rss","rssMb":834,"stage":"enumerate"}
+{"level":30,"time":1790827590590,"pid":27399,"hostname":"vm","candidates":1344204,"found":46134,"msg":"pool discovery complete"}
+{"t":"2026-10-01T04:06:30.966Z","msg":"enumerated","rssMb":812,"ms":499956,"tokens_total":33606,"cfg_tokens":19,"enumerated_tokens":33606,"discovered_pools":46134}
+
+<--- Last few GCs --->
+
+[27399:0x12596000]   513541 ms: Mark-Compact (reduce) 1280.1 (1294.7) -> 1277.2 (1290.9) MB, pooled: 0 MB, 20.82 / 0.00 ms  (+ 1.1 ms in 0 steps since start of marking, biggest step 0.0 ms, walltime since start of marking 28 ms) (average mu = 0.496, curre[27399:0x12596000]   513570 ms: Mark-Compact 1279.0 (1291.9) -> 1277.1 (1294.9) MB, pooled: 0 MB, 26.41 / 0.00 ms  (average mu = 0.329, current mu = 0.093) allocation failure; scavenge might not succeed
+
+
+<--- JS stacktrace --->
+
+FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 0xe42d60 node::OOMErrorHandler(char const*, v8::OOMDetails const&) [/opt/node22/bin/node]
+ 2: 0x121ded0 v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, v8::OOMDetails const&) [/opt/node22/bin/node]
+ 3: 0x121e1a7 v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, v8::OOMDetails const&) [/opt/node22/bin/node]
+ 4: 0x144d015  [/opt/node22/bin/node]
+ 5: 0x14668a9 v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [/opt/node22/bin/node]
+ 6: 0x143afa8 v8::internal::HeapAllocator::AllocateRawWithLightRetrySlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment) [/opt/node22/bin/node]
+ 7: 0x143bed5 v8::internal::HeapAllocator::AllocateRawWithRetryOrFailSlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment) [/opt/node22/bin/node]
+ 8: 0x1414ade v8::internal::Factory::NewFillerObject(int, v8::internal::AllocationAlignment, v8::internal::AllocationType, v8::internal::AllocationOrigin) [/opt/node22/bin/node]
+ 9: 0x18772bc v8::internal::Runtime_AllocateInYoungGeneration(int, unsigned long*, v8::internal::Isolate*) [/opt/node22/bin/node]
+10: 0x1dd5af6  [/opt/node22/bin/node]
+{"t":"2026-10-01T04:07:14.706Z","msg":"pinned","rssMb":149,"pin":52015721,"head":52019143,"key":"5d8c02def8272b73","spec_files":23}
+{"t":"2026-10-01T04:07:15.547Z","msg":"enumerate: resumed from checkpoint","rssMb":339,"ms":499956,"tokens_total":33606,"cfg_tokens":19,"enumerated_tokens":33606,"discovered_pools":46134,"resumed_from_checkpoint":true}
+
+<--- Last few GCs --->
+
+[29205:0xa694000]    13906 ms: Mark-Compact 1276.5 (1293.8) -> 1275.8 (1298.0) MB, pooled: 0 MB, 29.46 / 0.00 ms  (average mu = 0.148, current mu = 0.071) allocation failure; scavenge might not succeed
+[29205:0xa694000]    13941 ms: Mark-Compact (reduce) 1279.7 (1299.3) -> 1277.5 (1292.5) MB, pooled: 0 MB, 16.40 / 0.00 ms  (+ 5.0 ms in 0 steps since start of marking, biggest step 0.0 ms, walltime since start of marking 32 ms) (average mu = 0.278, curren
+
+<--- JS stacktrace --->
+
+FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 0xe42d60 node::OOMErrorHandler(char const*, v8::OOMDetails const&) [/opt/node22/bin/node]
+ 2: 0x121ded0 v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, v8::OOMDetails const&) [/opt/node22/bin/node]
+ 3: 0x121e1a7 v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, v8::OOMDetails const&) [/opt/node22/bin/node]
+ 4: 0x144d015  [/opt/node22/bin/node]
+ 5: 0x14668a9 v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [/opt/node22/bin/node]
+ 6: 0x143afa8 v8::internal::HeapAllocator::AllocateRawWithLightRetrySlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment) [/opt/node22/bin/node]
+ 7: 0x143bed5 v8::internal::HeapAllocator::AllocateRawWithRetryOrFailSlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment) [/opt/node22/bin/node]
+ 8: 0x14141fe v8::internal::Factory::AllocateRaw(int, v8::internal::AllocationType, v8::internal::AllocationAlignment) [/opt/node22/bin/node]
+ 9: 0x1403034 v8::internal::FactoryBase<v8::internal::Factory>::AllocateRawWithImmortalMap(int, v8::internal::AllocationType, v8::internal::Tagged<v8::internal::Map>, v8::internal::AllocationAlignment) [/opt/node22/bin/node]
+10: 0x14044fe v8::internal::FactoryBase<v8::internal::Factory>::NewRawOneByteString(int, v8::internal::AllocationType) [/opt/node22/bin/node]
+11: 0x141fc39 v8::internal::Factory::NewStringFromUtf8(v8::base::Vector<char const>, v8::internal::AllocationType) [/opt/node22/bin/node]
+12: 0x123a19d v8::String::NewFromUtf8(v8::Isolate*, char const*, v8::NewStringType, int) [/opt/node22/bin/node]
+13: 0x1105fb9  [/opt/node22/bin/node]
+14: 0xf65ee6  [/opt/node22/bin/node]
+15: 0x1d385e2  [/opt/node22/bin/node]
+{"t":"2026-10-01T04:07:59.029Z","msg":"pinned","rssMb":147,"pin":52015721,"head":52019165,"key":"5d8c02def8272b73","spec_files":23}
+{"t":"2026-10-01T04:07:59.762Z","msg":"enumerate: resumed from checkpoint","rssMb":341,"ms":499956,"tokens_total":33606,"cfg_tokens":19,"enumerated_tokens":33606,"discovered_pools":46134,"resumed_from_checkpoint":true}
+
+<--- Last few GCs --->
+
+[29435:0xa02e000]    13489 ms: Mark-Compact 1278.6 (1295.7) -> 1275.7 (1293.4) MB, pooled: 2 MB, 55.37 / 0.00 ms  (average mu = 0.130, current mu = 0.087) allocation failure; scavenge might not succeed
+
+
+<--- JS stacktrace --->
+
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 0xe42d60 node::OOMErrorHandler(char const*, v8::OOMDetails const&) [/opt/node22/bin/node]
+ 2: 0x121ded0 v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, v8::OOMDetails const&) [/opt/node22/bin/node]
+ 3: 0x121e1a7 v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, v8::OOMDetails const&) [/opt/node22/bin/node]
+ 4: 0x144d015  [/opt/node22/bin/node]
+ 5: 0x144d043  [/opt/node22/bin/node]
+ 6: 0x146611a  [/opt/node22/bin/node]
+ 7: 0x14692e8  [/opt/node22/bin/node]
+ 8: 0x1cd07a1  [/opt/node22/bin/node]
+{"t":"2026-10-01T04:13:35Z","msg":"relaunch after adding the viem isAddressCache flat-key patch; the three runs above ended with V8 heap OOM in stage v4load"}
+{"t":"2026-10-01T04:13:37.148Z","msg":"pinned","rssMb":148,"pin":52015721,"head":52019334,"key":"5d8c02def8272b73","spec_files":23}
+{"t":"2026-10-01T04:13:37.967Z","msg":"enumerate: resumed from checkpoint","rssMb":338,"ms":499956,"tokens_total":33606,"cfg_tokens":19,"enumerated_tokens":33606,"discovered_pools":46134,"resumed_from_checkpoint":true}
+{"level":30,"time":1790828058564,"pid":31183,"hostname":"vm","files":23,"rowsRead":15334094,"priceable":240087,"candidates":240082,"parseMs":40595,"msg":"v4 pool files parsed; checking liquidity"}
+{"t":"2026-10-01T04:14:37.148Z","msg":"rss","rssMb":451,"stage":"v4load"}
+{"t":"2026-10-01T04:15:37.148Z","msg":"rss","rssMb":463,"stage":"v4load"}
+{"level":30,"time":1790828154210,"pid":31183,"hostname":"vm","liquidityHeadBefore":"52015721","liquidityHeadAfter":"52015721","liquidityChecked":240082,"liquidityPositive":82443,"droppedLiquidityZero":157639,"droppedLiquidityCallFailed":0,"liquidityMs":95646,"msg":"v4 pool liquidity checked; fetching token metadata"}
+{"level":30,"time":1790828195661,"pid":31183,"hostname":"vm","tokensNotInUniverse":41402,"tokensAdded":41402,"tokenMetadataFailed":0,"v4PoolsBuilt":82443,"metadataMs":38312,"msg":"v4 pools built; starting the engine's startup sync"}
+{"t":"2026-10-01T04:16:35.667Z","msg":"v4 loaded","rssMb":475,"ms":177700,"v4_pools_built":82443,"tokens_added":41402,"tokens_total":75008}
+{"t":"2026-10-01T04:16:37.148Z","msg":"rss","rssMb":486,"stage":"static"}
+{"t":"2026-10-01T04:16:49.798Z","msg":"static done","rssMb":748,"ms":12733}
+{"t":"2026-10-01T04:17:37.148Z","msg":"rss","rssMb":526,"stage":"sync"}
+{"t":"2026-10-01T04:17:50.036Z","msg":"sync batch","rssMb":550,"batch":1,"of":17,"lo":0,"hi":8000,"ms":60237,"syncStats":{"stale":0,"total":8000,"chunkFailures":0}}
+{"t":"2026-10-01T04:18:05.876Z","msg":"sync batch","rssMb":500,"batch":2,"of":17,"lo":8000,"hi":16000,"ms":15840,"syncStats":{"stale":0,"total":8000,"chunkFailures":0}}
+{"t":"2026-10-01T04:18:11.830Z","msg":"sync batch","rssMb":508,"batch":3,"of":17,"lo":16000,"hi":24000,"ms":5954,"syncStats":{"stale":0,"total":8000,"chunkFailures":0}}
+{"t":"2026-10-01T04:18:19.949Z","msg":"sync batch","rssMb":521,"batch":4,"of":17,"lo":24000,"hi":32000,"ms":8118,"syncStats":{"stale":0,"total":8000,"chunkFailures":0}}
+{"t":"2026-10-01T04:18:26.290Z","msg":"sync batch","rssMb":531,"batch":5,"of":17,"lo":32000,"hi":40000,"ms":6341,"syncStats":{"stale":0,"total":8000,"chunkFailures":0}}
+{"t":"2026-10-01T04:18:37.149Z","msg":"rss","rssMb":513,"stage":"sync"}
+{"t":"2026-10-01T04:18:41.743Z","msg":"sync batch","rssMb":527,"batch":6,"of":17,"lo":40000,"hi":48000,"ms":15453,"syncStats":{"stale":0,"total":8000,"chunkFailures":0}}
+{"t":"2026-10-01T04:19:10.626Z","msg":"sync batch","rssMb":547,"batch":7,"of":17,"lo":48000,"hi":56000,"ms":28883,"syncStats":{"stale":0,"total":8000,"chunkFailures":0}}
+{"t":"2026-10-01T04:19:37.149Z","msg":"rss","rssMb":558,"stage":"sync"}
+{"t":"2026-10-01T04:19:43.394Z","msg":"sync batch","rssMb":525,"batch":8,"of":17,"lo":56000,"hi":64000,"ms":32768,"syncStats":{"stale":0,"total":8000,"chunkFailures":0}}
+{"t":"2026-10-01T04:20:13.635Z","msg":"sync batch","rssMb":570,"batch":9,"of":17,"lo":64000,"hi":72000,"ms":30240,"syncStats":{"stale":0,"total":8000,"chunkFailures":0}}
+{"t":"2026-10-01T04:20:37.149Z","msg":"rss","rssMb":520,"stage":"sync"}
+{"t":"2026-10-01T04:20:43.423Z","msg":"sync batch","rssMb":552,"batch":10,"of":17,"lo":72000,"hi":80000,"ms":29788,"syncStats":{"stale":0,"total":8000,"chunkFailures":0}}
+{"t":"2026-10-01T04:21:13.138Z","msg":"sync batch","rssMb":513,"batch":11,"of":17,"lo":80000,"hi":88000,"ms":29715,"syncStats":{"stale":0,"total":8000,"chunkFailures":0}}
+{"t":"2026-10-01T04:21:37.148Z","msg":"rss","rssMb":517,"stage":"sync"}
+{"t":"2026-10-01T04:21:42.578Z","msg":"sync batch","rssMb":551,"batch":12,"of":17,"lo":88000,"hi":96000,"ms":29439,"syncStats":{"stale":0,"total":8000,"chunkFailures":0}}
+{"t":"2026-10-01T04:22:14.118Z","msg":"sync batch","rssMb":536,"batch":13,"of":17,"lo":96000,"hi":104000,"ms":31540,"syncStats":{"stale":0,"total":8000,"chunkFailures":0}}
+{"t":"2026-10-01T04:22:37.149Z","msg":"rss","rssMb":537,"stage":"sync"}
+{"t":"2026-10-01T04:22:44.701Z","msg":"sync batch","rssMb":511,"batch":14,"of":17,"lo":104000,"hi":112000,"ms":30583,"syncStats":{"stale":0,"total":8000,"chunkFailures":0}}
+{"t":"2026-10-01T04:23:17.399Z","msg":"sync batch","rssMb":565,"batch":15,"of":17,"lo":112000,"hi":120000,"ms":32698,"syncStats":{"stale":0,"total":8000,"chunkFailures":0}}
+{"t":"2026-10-01T04:23:37.149Z","msg":"rss","rssMb":532,"stage":"sync"}
+{"t":"2026-10-01T04:23:49.726Z","msg":"sync batch","rssMb":549,"batch":16,"of":17,"lo":120000,"hi":128000,"ms":32326,"syncStats":{"stale":0,"total":8000,"chunkFailures":0}}
+{"t":"2026-10-01T04:23:52.152Z","msg":"sync batch","rssMb":546,"batch":17,"of":17,"lo":128000,"hi":128577,"ms":2425,"syncStats":{"stale":0,"total":577,"chunkFailures":0}}
+{"t":"2026-10-01T04:23:52.153Z","msg":"synced","rssMb":546,"ms":422354,"block":52015721,"batches":17,"batches_resumed_from_checkpoint":0,"syncStats_summed":{"stale":0,"total":128577,"chunkFailures":0}}
+{"t":"2026-10-01T04:23:52.421Z","msg":"pruned/priced","rssMb":556,"pools_before_prune":128577,"pools_after_prune":118168,"pools_pruned":10409,"v4_before_prune":82443,"v4_after_prune_empty":82443,"priced_tokens":8814,"min_depth_eth":0.1,"pools_after_depth_filter":11782,"v4_after_depth_filter":8612,"tokens_total":75008,"cycle_candidates_CycleIndex":9512}
+{"t":"2026-10-01T04:24:37.155Z","msg":"rss","rssMb":540,"stage":"extra_balances"}
+{"t":"2026-10-01T04:24:40.976Z","msg":"done","rssMb":781,"files":5}

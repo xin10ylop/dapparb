@@ -3,7 +3,7 @@
 Status: COMPLETE WITH GAPS (status re-checked 2026-10-01). Sentinel `research-material/.sentinels/SOURCES.DONE` (written 2026-09-30T22:22:37Z;
 "sources=92 (all status ok) excerpts=206 searches=58 defillama_files=12 texts=123 raw=157") is present and there is no SOURCES.FAILED. All 313 files
 in the folder pass the checks listed under "Verified inventory (2026-10-01)". No file in this folder was modified after 2026-09-30T22:22Z, so the
-container restart at ~23:00Z on 2026-09-30 did not affect it, and the collector was not re-run. Gaps (items that were sought but are not saved here;
+container restart at ~23:00Z on 2026-09-30 did not affect it, and the collector was not re-run. [2026-10-01, later: these statements and counts describe the folder before the additions of 2026-10-01 04:34Z-04:41Z (section 'Additions 2026-10-01: ESMA and sandwich papers, Wu & Oz repository, data-availability excerpts, Base DEX TVL'). Then 7 sources were added and fetched with `fetch_sources.py --only` (no existing source was re-fetched), `build_excerpts.py` and `make_searches_csv.py` were re-run (the 206 earlier excerpt records and 58 earlier search rows are unchanged), and 15 DefiLlama responses were added. Counts after the additions: sources 99 (all status ok), excerpts 246, searches 66, defillama JSON files 27, texts 131, raw 166, files in the folder 351. SOURCES.DONE was not rewritten.] Gaps (items that were sought but are not saved here;
 details under "Coverage limits and gaps"):
 - the dataset/report behind the Entropy Advisors forum post #7 (Arbitrum forum, 2026-06-16) was not located, and the Entropy Dune dashboards were not fetched (client-side rendered, need an API key);
 - the x.com post on the Base minimum-base-fee increase cited as [7] in arXiv 2606.00720 was not fetched (x.com needs a login);
@@ -36,18 +36,20 @@ The user's lines, verbatim. Q5 and Q7 are split into sub-keys because they conta
 | Q7-PROFIT-28 | and only 28% of those bots were profitable after paying for failed transactions. |
 | Q8-V4MEASURE | So the search went far beyond selected pairs, but it did not cover everything. The one gap where I wouldn't predict the result is full Uniswap V4 coverage on Base. Measuring it means listing every V4 pool from the pool manager's creation events and rerunning the same 20-minute live test. |
 
+| DATA-AVAILABILITY | Added 2026-10-01; not a question line. Data and code availability statements, data-source availability passages and repository URLs of the line-7 studies arXiv 2509.22143, 2606.00720 and 2607.24172 (excerpts), and the files of the repository named in arXiv 2606.00720 (sources.csv rows). Serves line 7. |
+
 Header lines "What is still unmeasured:" and "Would the gaps change the answer?" carry no claim of their own.
 
 ## Files
 
 | Path | What | Question lines |
 |---|---|---|
-| `sources.csv` | one row per fetched source (92 rows; 92 status ok) | column `question_lines` |
-| `excerpts.jsonl` | 206 verbatim passages, one JSON object per line | field `question_line` |
-| `searches.csv` | 58 search/lookup records (query, date, tool, top result URLs) | all |
-| `texts/<slug>.txt.gz` | extracted text of each source (123 files, incl. `<slug>.pdf.txt.gz` for arXiv PDFs) | per `sources.csv` |
-| `raw/<slug>.<part>.<ext>.gz` | raw HTTP bodies, gzip of the unchanged bytes (157 files) | per `sources.csv` |
-| `defillama/*.json.gz` + `defillama/index.csv` | raw DefiLlama API responses (12 files) | Q4-OTHERCHAINS, Q1-V4GAP, Q2-OLDV2, Q6-BSCORDER |
+| `sources.csv` | one row per fetched source (92 rows; 92 status ok) [2026-10-01 additions: 99 rows, 99 ok] | column `question_lines` |
+| `excerpts.jsonl` | 206 verbatim passages, one JSON object per line [2026-10-01 additions: 246] | field `question_line` |
+| `searches.csv` | 58 search/lookup records (query, date, tool, top result URLs) [2026-10-01 additions: 66] | all |
+| `texts/<slug>.txt.gz` | extracted text of each source (123 files [2026-10-01 additions: 131], incl. `<slug>.pdf.txt.gz` for arXiv PDFs) | per `sources.csv` |
+| `raw/<slug>.<part>.<ext>.gz` | raw HTTP bodies, gzip of the unchanged bytes (157 files [2026-10-01 additions: 166]) | per `sources.csv` |
+| `defillama/*.json.gz` + `defillama/index.csv` | raw DefiLlama API responses (12 files [2026-10-01 additions: 27, incl. 15 `protocols-base-dex-<slug>.json.gz`; plus `protocols-base-dex-selection.csv`, Q1-V4GAP Q2-OLDV2 Q4-OTHERCHAINS]) | Q4-OTHERCHAINS, Q1-V4GAP, Q2-OLDV2, Q6-BSCORDER |
 | `collect/` | collector scripts, source list, excerpt specs, logs, checkpoint (see Reproduce) | - |
 
 ## Question lines served
@@ -59,14 +61,61 @@ For every slug listed, the files are the ones named in that slug's `text_files` 
 
 | Line | Keys | excerpts.jsonl records | sources.csv rows | defillama/ files | Source slugs (texts/ + raw/) |
 |---|---|---|---|---|---|
-| 1 | Q1-V4GAP | 16 (`Q1-V4GAP`) | 21 | `defillama/summary-dexs-uniswap-v4.json.gz`, `defillama/summary-dexs-uniswap.json.gz`, `defillama/overview-dexs-base.json.gz`, `defillama/index.csv` | `0x-uniswap-v4-hooks-were-a-mistake`, `uniswap-foundation-how-to-navigate-v4-data`, `docs-uniswap-v4-poolmanager`, `docs-uniswap-v4-hooks`, `docs-uniswap-v4-dynamic-fees`, `clanker-docs-v4`, `clanker-docs-v4-clankerhook`, `clanker-docs-v4-clankerhookdynamicfee`, `clanker-docs-v4-clankerhookv2`, `clanker-docs-llms-index`, `zora-docs-coins-hook`, `virtuals-launch-mechanics`, `flaunch-docs-home`, `dune-spellbook-dex-base-base-trades-sql`, `dune-spellbook-uniswap-v4-base-base-trades-sql`, `blog-uniswap-continuous-clearing-auctions`, `blog-uniswap-launch-aggregator`, `clanker-paragraph-v4-1-sniper-tech`, `flaunch-docs-fixed-price-fair-launch`, `flaunch-docs-hooks`, `geckoterminal-api-v2-swagger` |
-| 2 | Q2-OLDV2 | 8 (`Q2-OLDV2`) | 9 | `defillama/summary-dexs-uniswap-v2.json.gz`, `defillama/summary-dexs-uniswap.json.gz`, `defillama/index.csv` | `arxiv-2602.13480-melt-memecoin-launch-trace-solana`, `arxiv-2507.01963-midsummer-memes-dream-meme-coin-manipulation`, `arxiv-2601.22185-memechain-cross-chain-meme-coin-dataset`, `arxiv-2603.24625-rug-pull-scams-solana`, `arxiv-2502.10512-naviglio-tarantelli-lillo-price-manipulation-new-tokens`, `arxiv-2503.04850-slow-liquidity-drain-scams`, `docs-uniswap-v2-deployments`, `dune-spellbook-uniswap-v2-base-base-trades-sql`, `arxiv-2609.10246-meme-coin-factories-pump-fun` |
+| 1 | Q1-V4GAP | 16 (`Q1-V4GAP`) | 21 | `defillama/summary-dexs-uniswap-v4.json.gz`, `defillama/summary-dexs-uniswap.json.gz`, `defillama/overview-dexs-base.json.gz`, `defillama/index.csv`; added 2026-10-01: the 15 Base DEX TVL files (`defillama/protocols-base-dex-uniswap-v3.json.gz`, `defillama/protocols-base-dex-aerodrome-slipstream.json.gz`, `defillama/protocols-base-dex-aerodrome-v1.json.gz`, `defillama/protocols-base-dex-uniswap-v2.json.gz`, `defillama/protocols-base-dex-uniswap-v4.json.gz`, `defillama/protocols-base-dex-pancakeswap-amm-v3.json.gz`, `defillama/protocols-base-dex-curve-dex.json.gz`, `defillama/protocols-base-dex-fluid-dex.json.gz`, `defillama/protocols-base-dex-hydrex-integral.json.gz`, `defillama/protocols-base-dex-quickswap-v4.json.gz`, `defillama/protocols-base-dex-sushiswap-v3.json.gz`, `defillama/protocols-base-dex-sushiswap.json.gz`, `defillama/protocols-base-dex-elfomofi.json.gz`, `defillama/protocols-base-dex-alien-base-v3.json.gz`, `defillama/protocols-base-dex-balancer-v3.json.gz`) and `defillama/protocols-base-dex-selection.csv` | `0x-uniswap-v4-hooks-were-a-mistake`, `uniswap-foundation-how-to-navigate-v4-data`, `docs-uniswap-v4-poolmanager`, `docs-uniswap-v4-hooks`, `docs-uniswap-v4-dynamic-fees`, `clanker-docs-v4`, `clanker-docs-v4-clankerhook`, `clanker-docs-v4-clankerhookdynamicfee`, `clanker-docs-v4-clankerhookv2`, `clanker-docs-llms-index`, `zora-docs-coins-hook`, `virtuals-launch-mechanics`, `flaunch-docs-home`, `dune-spellbook-dex-base-base-trades-sql`, `dune-spellbook-uniswap-v4-base-base-trades-sql`, `blog-uniswap-continuous-clearing-auctions`, `blog-uniswap-launch-aggregator`, `clanker-paragraph-v4-1-sniper-tech`, `flaunch-docs-fixed-price-fair-launch`, `flaunch-docs-hooks`, `geckoterminal-api-v2-swagger` |
+| 2 | Q2-OLDV2 | 8 (`Q2-OLDV2`) | 9 | `defillama/summary-dexs-uniswap-v2.json.gz`, `defillama/summary-dexs-uniswap.json.gz`, `defillama/index.csv`; added 2026-10-01: `defillama/protocols-base-dex-uniswap-v2.json.gz` | `arxiv-2602.13480-melt-memecoin-launch-trace-solana`, `arxiv-2507.01963-midsummer-memes-dream-meme-coin-manipulation`, `arxiv-2601.22185-memechain-cross-chain-meme-coin-dataset`, `arxiv-2603.24625-rug-pull-scams-solana`, `arxiv-2502.10512-naviglio-tarantelli-lillo-price-manipulation-new-tokens`, `arxiv-2503.04850-slow-liquidity-drain-scams`, `docs-uniswap-v2-deployments`, `dune-spellbook-uniswap-v2-base-base-trades-sql`, `arxiv-2609.10246-meme-coin-factories-pump-fun` |
 | 3 | Q3-SMALLPOOLS | 14 (`Q3-SMALLPOOLS`) | 7 | - | `arxiv-2504.13398-yang-qin-yaish-zhang-insecurity-through-obscurity`, `arxiv-2601.22185-memechain-cross-chain-meme-coin-dataset`, `arxiv-2502.10512-naviglio-tarantelli-lillo-price-manipulation-new-tokens`, `arxiv-2503.04850-slow-liquidity-drain-scams`, `arxiv-2309.04700-trapdoor-tokens-uniswap`, `arxiv-2305.14604-milionis-moallemi-roughgarden-arbitrage-profits-fees`, `0x-uniswap-v4-hooks-were-a-mistake` |
-| 4 | Q4-OTHERCHAINS | 34 (`Q4-OTHERCHAINS`) | 31 | `defillama/overview-dexs-arbitrum.json.gz`, `defillama/overview-dexs-base.json.gz`, `defillama/overview-dexs-bsc.json.gz`, `defillama/overview-dexs-ethereum.json.gz`, `defillama/overview-dexs-optimism.json.gz`, `defillama/overview-dexs-polygon.json.gz`, `defillama/overview-dexs-solana.json.gz`, `defillama/overview-dexs-unichain.json.gz`, `defillama/summary-dexs-uniswap-v2.json.gz`, `defillama/summary-dexs-uniswap-v3.json.gz`, `defillama/summary-dexs-uniswap-v4.json.gz`, `defillama/summary-dexs-uniswap.json.gz`, `defillama/index.csv` | `arxiv-2606.00720-wu-oz-to-wait-or-to-probe`, `arxiv-2509.22143-messias-torres-timeboost`, `arxiv-2509.22143v1-messias-torres-timeboost`, `arxiv-2607.24172-pahari-messias-torres-there-will-be-spam`, `arbitrum-forum-aip-pga-transition-incl-entropy-advisors-post7`, `arxiv-2602.15395-wang-et-al-mev-in-binance-builder`, `blocksec-bsc-after-full-pbs`, `arxiv-2604.00234-wang-saraf-heimbach-babel-zhang-blockspace-under-pressure`, `arxiv-2506.14768-solmaz-et-al-optimistic-mev-l2s`, `arxiv-2506.01462-gogol-schneider-tessone-when-priority-fails`, `arxiv-2406.02172-gogol-et-al-cross-rollup-mev`, `arxiv-2501.17335-oz-et-al-cross-chain-arbitrage`, `arxiv-2511.18328-timeboost-ahead-of-time-auctions`, `arxiv-2512.10094-auctioning-time-latency-races`, `arxiv-2508.21473-polygon-atomic-arbitrage`, `arxiv-2609.28115-no-place-to-hide-protected-order-flow-sandwich`, `arxiv-2602.22032-mazorra-schlegel-mamageishvili-timing-games`, `flashbots-mev-and-the-limits-of-scaling`, `docs-optimism-stake-based-priority-ordering`, `blog-uniswap-flashblocks-are-live-unichain`, `blog-uniswap-rollup-boost-live-on-unichain`, `blog-arbitrum-competing-for-transaction-priority`, `blog-arbitrum-foundation-new-ordering-mechanism`, `docs-arbitrum-timeboost-gentle-introduction`, `arxiv-2607.28424-demystifying-solana-bots`, `arxiv-2504.18055-failed-transactions-solana`, `helius-solana-mev-report`, `docs-jito-low-latency-txn-send`, `dune-spellbook-dex-arbitrum-base-trades-sql`, `dune-spellbook-dex-optimism-base-trades-sql`, `dune-spellbook-dex-bnb-base-trades-sql` |
-| 5 | Q5-V4LAUNCH Q5-CONTEST | 25 (`Q5-V4LAUNCH`) + 31 (`Q5-CONTEST`) | 42 | - | `arxiv-2606.00720-wu-oz-to-wait-or-to-probe`, `arxiv-2504.13398-yang-qin-yaish-zhang-insecurity-through-obscurity`, `arbitrum-forum-aip-pga-transition-incl-entropy-advisors-post7`, `docs-base-llms-index`, `docs-base-transaction-ordering`, `docs-base-flashblocks`, `docs-base-network-fees`, `docs-base-fees-ordering-lifecycle`, `docs-base-eth-maxpriorityfeepergas`, `docs-base-denim-overview`, `docs-base-denim-200ms-blocks`, `docs-base-denim-migrate-from-flashblocks`, `docs-base-jovian-exec-engine`, `blog-base-accelerating-base-with-flashblocks`, `arxiv-2506.01462-gogol-schneider-tessone-when-priority-fails`, `arxiv-2604.27979-origins-of-mev-arbitrage-opportunity-creation`, `arxiv-2602.22032-mazorra-schlegel-mamageishvili-timing-games`, `arxiv-2410.19106-zhu-et-al-value-of-revert-protection`, `flashbots-collective-dealing-with-spam-onchain-searching`, `docs-base-configuration-changelog`, `arxiv-2602.13480-melt-memecoin-launch-trace-solana`, `arxiv-2507.01963-midsummer-memes-dream-meme-coin-manipulation`, `arxiv-2601.22185-memechain-cross-chain-meme-coin-dataset`, `clanker-docs-v4`, `clanker-docs-v4-clankerhook`, `clanker-docs-v4-clankerhookdynamicfee`, `clanker-docs-v4-clankerhookv2`, `clanker-docs-v4-mev-modules`, `clanker-docs-v4-mev-2blockdelay`, `clanker-docs-v4-sniper-auction-v0`, `clanker-docs-v4-mev-descending-fees`, `zora-docs-coins-hook`, `virtuals-anti-sniper-protection`, `virtuals-launch-mechanics`, `flaunch-docs-home`, `blog-uniswap-continuous-clearing-auctions`, `blog-uniswap-launch-aggregator`, `arxiv-2609.10246-meme-coin-factories-pump-fun`, `arxiv-1904.05234-daian-et-al-flash-boys-2`, `clanker-paragraph-v4-1-sniper-tech`, `flaunch-docs-sniper-protection`, `flaunch-docs-fixed-price-fair-launch` |
+| 4 | Q4-OTHERCHAINS | 40 (`Q4-OTHERCHAINS`) [34 before the 2026-10-01 additions] | 33 [31 before the 2026-10-01 additions] | `defillama/overview-dexs-arbitrum.json.gz`, `defillama/overview-dexs-base.json.gz`, `defillama/overview-dexs-bsc.json.gz`, `defillama/overview-dexs-ethereum.json.gz`, `defillama/overview-dexs-optimism.json.gz`, `defillama/overview-dexs-polygon.json.gz`, `defillama/overview-dexs-solana.json.gz`, `defillama/overview-dexs-unichain.json.gz`, `defillama/summary-dexs-uniswap-v2.json.gz`, `defillama/summary-dexs-uniswap-v3.json.gz`, `defillama/summary-dexs-uniswap-v4.json.gz`, `defillama/summary-dexs-uniswap.json.gz`, `defillama/index.csv`; added 2026-10-01: the 15 `defillama/protocols-base-dex-<slug>.json.gz` and `defillama/protocols-base-dex-selection.csv` (Base counterpart of the BSC TVL files in `research-material/06-other-chains-onchain/bsc/dex/`) | `arxiv-2606.00720-wu-oz-to-wait-or-to-probe`, `arxiv-2509.22143-messias-torres-timeboost`, `arxiv-2509.22143v1-messias-torres-timeboost`, `arxiv-2607.24172-pahari-messias-torres-there-will-be-spam`, `arbitrum-forum-aip-pga-transition-incl-entropy-advisors-post7`, `arxiv-2602.15395-wang-et-al-mev-in-binance-builder`, `blocksec-bsc-after-full-pbs`, `arxiv-2604.00234-wang-saraf-heimbach-babel-zhang-blockspace-under-pressure`, `arxiv-2506.14768-solmaz-et-al-optimistic-mev-l2s`, `arxiv-2506.01462-gogol-schneider-tessone-when-priority-fails`, `arxiv-2406.02172-gogol-et-al-cross-rollup-mev`, `arxiv-2501.17335-oz-et-al-cross-chain-arbitrage`, `arxiv-2511.18328-timeboost-ahead-of-time-auctions`, `arxiv-2512.10094-auctioning-time-latency-races`, `arxiv-2508.21473-polygon-atomic-arbitrage`, `arxiv-2609.28115-no-place-to-hide-protected-order-flow-sandwich`, `arxiv-2602.22032-mazorra-schlegel-mamageishvili-timing-games`, `flashbots-mev-and-the-limits-of-scaling`, `docs-optimism-stake-based-priority-ordering`, `blog-uniswap-flashblocks-are-live-unichain`, `blog-uniswap-rollup-boost-live-on-unichain`, `blog-arbitrum-competing-for-transaction-priority`, `blog-arbitrum-foundation-new-ordering-mechanism`, `docs-arbitrum-timeboost-gentle-introduction`, `arxiv-2607.28424-demystifying-solana-bots`, `arxiv-2504.18055-failed-transactions-solana`, `helius-solana-mev-report`, `docs-jito-low-latency-txn-send`, `dune-spellbook-dex-arbitrum-base-trades-sql`, `dune-spellbook-dex-optimism-base-trades-sql`, `dune-spellbook-dex-bnb-base-trades-sql`, added 2026-10-01: `esma-trv-2025-maximal-extractable-value-crypto-markets`, `arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools` |
+| 5 | Q5-V4LAUNCH Q5-CONTEST | 25 (`Q5-V4LAUNCH`) + 37 (`Q5-CONTEST`) [Q5-CONTEST 31 before the 2026-10-01 additions] | 44 [42 before the 2026-10-01 additions] | - | `arxiv-2606.00720-wu-oz-to-wait-or-to-probe`, `arxiv-2504.13398-yang-qin-yaish-zhang-insecurity-through-obscurity`, `arbitrum-forum-aip-pga-transition-incl-entropy-advisors-post7`, `docs-base-llms-index`, `docs-base-transaction-ordering`, `docs-base-flashblocks`, `docs-base-network-fees`, `docs-base-fees-ordering-lifecycle`, `docs-base-eth-maxpriorityfeepergas`, `docs-base-denim-overview`, `docs-base-denim-200ms-blocks`, `docs-base-denim-migrate-from-flashblocks`, `docs-base-jovian-exec-engine`, `blog-base-accelerating-base-with-flashblocks`, `arxiv-2506.01462-gogol-schneider-tessone-when-priority-fails`, `arxiv-2604.27979-origins-of-mev-arbitrage-opportunity-creation`, `arxiv-2602.22032-mazorra-schlegel-mamageishvili-timing-games`, `arxiv-2410.19106-zhu-et-al-value-of-revert-protection`, `flashbots-collective-dealing-with-spam-onchain-searching`, `docs-base-configuration-changelog`, `arxiv-2602.13480-melt-memecoin-launch-trace-solana`, `arxiv-2507.01963-midsummer-memes-dream-meme-coin-manipulation`, `arxiv-2601.22185-memechain-cross-chain-meme-coin-dataset`, `clanker-docs-v4`, `clanker-docs-v4-clankerhook`, `clanker-docs-v4-clankerhookdynamicfee`, `clanker-docs-v4-clankerhookv2`, `clanker-docs-v4-mev-modules`, `clanker-docs-v4-mev-2blockdelay`, `clanker-docs-v4-sniper-auction-v0`, `clanker-docs-v4-mev-descending-fees`, `zora-docs-coins-hook`, `virtuals-anti-sniper-protection`, `virtuals-launch-mechanics`, `flaunch-docs-home`, `blog-uniswap-continuous-clearing-auctions`, `blog-uniswap-launch-aggregator`, `arxiv-2609.10246-meme-coin-factories-pump-fun`, `arxiv-1904.05234-daian-et-al-flash-boys-2`, `clanker-paragraph-v4-1-sniper-tech`, `flaunch-docs-sniper-protection`, `flaunch-docs-fixed-price-fair-launch`, added 2026-10-01: `esma-trv-2025-maximal-extractable-value-crypto-markets`, `arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools` |
 | 6 | Q6-BSCORDER | 15 (`Q6-BSCORDER`) | 8 | `defillama/overview-dexs-bsc.json.gz`, `defillama/index.csv` | `docs-base-transaction-ordering`, `arxiv-2602.15395-wang-et-al-mev-in-binance-builder`, `blocksec-bsc-after-full-pbs`, `docs-bnbchain-mev-overview`, `docs-bnbchain-mev-user-guide`, `arxiv-2604.00234-wang-saraf-heimbach-babel-zhang-blockspace-under-pressure`, `arxiv-2609.28115-no-place-to-hide-protected-order-flow-sandwich`, `dune-spellbook-dex-bnb-base-trades-sql` |
-| 7 | Q7-CHAINWIDE-METHOD Q7-ARB-4700 Q7-BASE-21M Q7-PROFIT-28 | 26 (`Q7-CHAINWIDE-METHOD`) + 12 (`Q7-ARB-4700`) + 6 (`Q7-BASE-21M`) + 13 (`Q7-PROFIT-28`) | 29 | - | `arxiv-2606.00720-wu-oz-to-wait-or-to-probe`, `arxiv-2509.22143-messias-torres-timeboost`, `arxiv-2509.22143v1-messias-torres-timeboost`, `arxiv-2607.24172-pahari-messias-torres-there-will-be-spam`, `arbitrum-forum-aip-pga-transition-incl-entropy-advisors-post7`, `arxiv-2604.00234-wang-saraf-heimbach-babel-zhang-blockspace-under-pressure`, `arxiv-2506.14768-solmaz-et-al-optimistic-mev-l2s`, `arxiv-2506.01462-gogol-schneider-tessone-when-priority-fails`, `arxiv-2511.18328-timeboost-ahead-of-time-auctions`, `arxiv-2512.10094-auctioning-time-latency-races`, `arxiv-2508.21473-polygon-atomic-arbitrage`, `arxiv-2604.27979-origins-of-mev-arbitrage-opportunity-creation`, `arxiv-2410.19106-zhu-et-al-value-of-revert-protection`, `flashbots-mev-and-the-limits-of-scaling`, `flashbots-collective-dealing-with-spam-onchain-searching`, `blog-arbitrum-competing-for-transaction-priority`, `blog-arbitrum-foundation-new-ordering-mechanism`, `arbitrum-forum-entropy-advisors-data-dashboards-catalog`, `docs-base-configuration-changelog`, `arxiv-2504.18055-failed-transactions-solana`, `arxiv-2405.00138-torres-et-al-rolling-in-the-shadows`, `docs-dune-dex-trades-overview`, `dune-spellbook-dex-base-base-trades-sql`, `dune-spellbook-uniswap-v4-base-base-trades-sql`, `dune-spellbook-uniswap-v2-base-base-trades-sql`, `dune-spellbook-aerodrome-base-base-trades-sql`, `dune-spellbook-dex-arbitrum-base-trades-sql`, `dune-spellbook-dex-optimism-base-trades-sql`, `dune-spellbook-dex-bnb-base-trades-sql` |
+| 7 | Q7-CHAINWIDE-METHOD Q7-ARB-4700 Q7-BASE-21M Q7-PROFIT-28 | 40 (`Q7-CHAINWIDE-METHOD`) + 12 (`Q7-ARB-4700`) + 6 (`Q7-BASE-21M`) + 15 (`Q7-PROFIT-28`) [26 and 13 before the 2026-10-01 additions]; added 2026-10-01: 12 (`DATA-AVAILABILITY`, slugs `arxiv-2509.22143-messias-torres-timeboost`, `arxiv-2606.00720-wu-oz-to-wait-or-to-probe`, `arxiv-2607.24172-pahari-messias-torres-there-will-be-spam`) | 36 [29 before the 2026-10-01 additions] | - | `arxiv-2606.00720-wu-oz-to-wait-or-to-probe`, `arxiv-2509.22143-messias-torres-timeboost`, `arxiv-2509.22143v1-messias-torres-timeboost`, `arxiv-2607.24172-pahari-messias-torres-there-will-be-spam`, `arbitrum-forum-aip-pga-transition-incl-entropy-advisors-post7`, `arxiv-2604.00234-wang-saraf-heimbach-babel-zhang-blockspace-under-pressure`, `arxiv-2506.14768-solmaz-et-al-optimistic-mev-l2s`, `arxiv-2506.01462-gogol-schneider-tessone-when-priority-fails`, `arxiv-2511.18328-timeboost-ahead-of-time-auctions`, `arxiv-2512.10094-auctioning-time-latency-races`, `arxiv-2508.21473-polygon-atomic-arbitrage`, `arxiv-2604.27979-origins-of-mev-arbitrage-opportunity-creation`, `arxiv-2410.19106-zhu-et-al-value-of-revert-protection`, `flashbots-mev-and-the-limits-of-scaling`, `flashbots-collective-dealing-with-spam-onchain-searching`, `blog-arbitrum-competing-for-transaction-priority`, `blog-arbitrum-foundation-new-ordering-mechanism`, `arbitrum-forum-entropy-advisors-data-dashboards-catalog`, `docs-base-configuration-changelog`, `arxiv-2504.18055-failed-transactions-solana`, `arxiv-2405.00138-torres-et-al-rolling-in-the-shadows`, `docs-dune-dex-trades-overview`, `dune-spellbook-dex-base-base-trades-sql`, `dune-spellbook-uniswap-v4-base-base-trades-sql`, `dune-spellbook-uniswap-v2-base-base-trades-sql`, `dune-spellbook-aerodrome-base-base-trades-sql`, `dune-spellbook-dex-arbitrum-base-trades-sql`, `dune-spellbook-dex-optimism-base-trades-sql`, `dune-spellbook-dex-bnb-base-trades-sql`, added 2026-10-01: `esma-trv-2025-maximal-extractable-value-crypto-markets`, `arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools`, `github-m1kuw1ll-base-arbitrage-competition-base-atomic-arbitrage-sql`, `github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-by-bot-sql`, `github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-summary-sql`, `github-m1kuw1ll-base-arbitrage-competition-base-pool-commitment-inputs-by-hash-sql`, `github-m1kuw1ll-base-arbitrage-competition-tx-classifier-subtree-py` |
 | 8 | Q8-V4MEASURE | 6 (`Q8-V4MEASURE`) | 8 | - | `docs-base-denim-overview`, `docs-base-denim-200ms-blocks`, `0x-uniswap-v4-hooks-were-a-mistake`, `uniswap-foundation-how-to-navigate-v4-data`, `docs-uniswap-v4-poolmanager`, `docs-uniswap-v4-hooks`, `docs-uniswap-v4-dynamic-fees`, `geckoterminal-api-v2-swagger` |
+
+### Files added 2026-10-01 (one row per file)
+
+Added by the 2026-10-01 additions (section 'Additions 2026-10-01: ESMA and sandwich papers, Wu & Oz repository, data-availability excerpts, Base DEX TVL'). Lines = question-line numbers; Keys = keys of `sources.csv` column question_lines (texts/raw) or the keys the file relates to.
+
+| File | Lines | Keys |
+|---|---|---|
+| `texts/esma-trv-2025-maximal-extractable-value-crypto-markets.txt.gz` | 4, 5, 7 | Q7-CHAINWIDE-METHOD Q4-OTHERCHAINS Q5-CONTEST |
+| `raw/esma-trv-2025-maximal-extractable-value-crypto-markets.doc.pdf.gz` | 4, 5, 7 | Q7-CHAINWIDE-METHOD Q4-OTHERCHAINS Q5-CONTEST |
+| `texts/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools.txt.gz` | 4, 5, 7 | Q4-OTHERCHAINS Q7-CHAINWIDE-METHOD Q5-CONTEST |
+| `texts/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools.pdf.txt.gz` | 4, 5, 7 | Q4-OTHERCHAINS Q7-CHAINWIDE-METHOD Q5-CONTEST |
+| `raw/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools.abs.html.gz` | 4, 5, 7 | Q4-OTHERCHAINS Q7-CHAINWIDE-METHOD Q5-CONTEST |
+| `raw/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools.html-v1.html.gz` | 4, 5, 7 | Q4-OTHERCHAINS Q7-CHAINWIDE-METHOD Q5-CONTEST |
+| `raw/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools.pdf-v1.pdf.gz` | 4, 5, 7 | Q4-OTHERCHAINS Q7-CHAINWIDE-METHOD Q5-CONTEST |
+| `texts/github-m1kuw1ll-base-arbitrage-competition-base-atomic-arbitrage-sql.txt.gz` | 7 | DATA-AVAILABILITY Q7-CHAINWIDE-METHOD Q7-BASE-21M |
+| `raw/github-m1kuw1ll-base-arbitrage-competition-base-atomic-arbitrage-sql.body.sql.gz` | 7 | DATA-AVAILABILITY Q7-CHAINWIDE-METHOD Q7-BASE-21M |
+| `texts/github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-by-bot-sql.txt.gz` | 7 | DATA-AVAILABILITY Q7-CHAINWIDE-METHOD Q7-PROFIT-28 |
+| `raw/github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-by-bot-sql.body.sql.gz` | 7 | DATA-AVAILABILITY Q7-CHAINWIDE-METHOD Q7-PROFIT-28 |
+| `texts/github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-summary-sql.txt.gz` | 7 | DATA-AVAILABILITY Q7-CHAINWIDE-METHOD Q7-PROFIT-28 |
+| `raw/github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-summary-sql.body.sql.gz` | 7 | DATA-AVAILABILITY Q7-CHAINWIDE-METHOD Q7-PROFIT-28 |
+| `texts/github-m1kuw1ll-base-arbitrage-competition-base-pool-commitment-inputs-by-hash-sql.txt.gz` | 7 | DATA-AVAILABILITY Q7-CHAINWIDE-METHOD |
+| `raw/github-m1kuw1ll-base-arbitrage-competition-base-pool-commitment-inputs-by-hash-sql.body.sql.gz` | 7 | DATA-AVAILABILITY Q7-CHAINWIDE-METHOD |
+| `texts/github-m1kuw1ll-base-arbitrage-competition-tx-classifier-subtree-py.txt.gz` | 7 | DATA-AVAILABILITY Q7-CHAINWIDE-METHOD |
+| `raw/github-m1kuw1ll-base-arbitrage-competition-tx-classifier-subtree-py.body.py.gz` | 7 | DATA-AVAILABILITY Q7-CHAINWIDE-METHOD |
+| `defillama/protocols-base-dex-uniswap-v3.json.gz` | 1, 4 | Q1-V4GAP Q4-OTHERCHAINS |
+| `defillama/protocols-base-dex-aerodrome-slipstream.json.gz` | 1, 4 | Q1-V4GAP Q4-OTHERCHAINS |
+| `defillama/protocols-base-dex-aerodrome-v1.json.gz` | 1, 4 | Q1-V4GAP Q4-OTHERCHAINS |
+| `defillama/protocols-base-dex-uniswap-v2.json.gz` | 1, 2, 4 | Q1-V4GAP Q4-OTHERCHAINS Q2-OLDV2 |
+| `defillama/protocols-base-dex-uniswap-v4.json.gz` | 1, 4 | Q1-V4GAP Q4-OTHERCHAINS |
+| `defillama/protocols-base-dex-pancakeswap-amm-v3.json.gz` | 1, 4 | Q1-V4GAP Q4-OTHERCHAINS |
+| `defillama/protocols-base-dex-curve-dex.json.gz` | 1, 4 | Q1-V4GAP Q4-OTHERCHAINS |
+| `defillama/protocols-base-dex-fluid-dex.json.gz` | 1, 4 | Q1-V4GAP Q4-OTHERCHAINS |
+| `defillama/protocols-base-dex-hydrex-integral.json.gz` | 1, 4 | Q1-V4GAP Q4-OTHERCHAINS |
+| `defillama/protocols-base-dex-quickswap-v4.json.gz` | 1, 4 | Q1-V4GAP Q4-OTHERCHAINS |
+| `defillama/protocols-base-dex-sushiswap-v3.json.gz` | 1, 4 | Q1-V4GAP Q4-OTHERCHAINS |
+| `defillama/protocols-base-dex-sushiswap.json.gz` | 1, 4 | Q1-V4GAP Q4-OTHERCHAINS |
+| `defillama/protocols-base-dex-elfomofi.json.gz` | 1, 4 | Q1-V4GAP Q4-OTHERCHAINS |
+| `defillama/protocols-base-dex-alien-base-v3.json.gz` | 1, 4 | Q1-V4GAP Q4-OTHERCHAINS |
+| `defillama/protocols-base-dex-balancer-v3.json.gz` | 1, 4 | Q1-V4GAP Q4-OTHERCHAINS |
+| `defillama/protocols-base-dex-selection.csv` (derived) | 1, 4 | Q1-V4GAP Q4-OTHERCHAINS |
+| `defillama/index.csv` (15 rows added) | 1, 2, 4 | as the files it lists |
+| `sources.csv`, `excerpts.jsonl`, `searches.csv` (rows/records added) | 4, 5, 7 | per row / record |
+| `collect/list_repo_wu_oz.sh` | - | collector / log of the files above |
+| `collect/list_repo_wu_oz.log` | - | collector / log of the files above |
+| `collect/fetch_sources_batch5.log` | - | collector / log of the files above |
+| `collect/fetch_defillama_tvl.py` | - | collector / log of the files above |
+| `collect/fetch_defillama_tvl_base.log` | - | collector / log of the files above |
 
 ## Sources and the lines they relate to
 
@@ -166,15 +215,23 @@ Counts are excerpts in `excerpts.jsonl` per source. Title/authors/date as stated
 | `flaunch-docs-fixed-price-fair-launch` | text | Fixed Price Fair Launch (Flaunch Docs) | Flaunch |  | Q5-V4LAUNCH Q1-V4GAP | 1 |
 | `flaunch-docs-hooks` | text | Hooks (Flaunch Docs) | Flaunch |  | Q1-V4GAP | 1 |
 | `geckoterminal-api-v2-swagger` | json | GeckoTerminal Public API v2 (OpenAPI/Swagger definition) | GeckoTerminal (CoinGecko) |  | Q1-V4GAP Q8-V4MEASURE | 2 |
+| `esma-trv-2025-maximal-extractable-value-crypto-markets` | pdf | Maximal Extractable Value - Implications for crypto markets (ESMA TRV Risk Analysis, Financial Innovation; ESM | European Securities and Markets Authority (ESMA); page 3 footnote 1: ' | 1 July 2025 (stated on the cover page) | Q7-CHAINWIDE-METHOD Q4-OTHERCHAINS Q5-CONTEST | 12 |
+| `arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools` | arxiv | How to Serve Your Sandwich? MEV Attacks in Private L2 Mempools | Gogol, Krzysztof; Schneider, Manvir; Gorzny, Jan; Tessone, Claudio | v1 2026/01/27; latest v1; history: Submission history From: ... | Q4-OTHERCHAINS Q7-CHAINWIDE-METHOD Q5-CONTEST | 10 |
+| `github-m1kuw1ll-base-arbitrage-competition-base-atomic-arbitrage-sql` | text | base_atomic_arbitrage.sql (GitHub repository M1kuW1ll/base_arbitrage_competition, commit ea76128d) | GitHub repository M1kuW1ll/base_arbitrage_competition (git author of c | commit ea76128dc4ca9147941aee9da352ac608ecc6a79, committed 2... | DATA-AVAILABILITY Q7-CHAINWIDE-METHOD Q7-BASE-21M | 2 |
+| `github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-by-bot-sql` | text | base_bot_spam_weekly_by_bot.sql (GitHub repository M1kuW1ll/base_arbitrage_competition, commit ea76128d) | GitHub repository M1kuW1ll/base_arbitrage_competition (git author of c | commit ea76128dc4ca9147941aee9da352ac608ecc6a79, committed 2... | DATA-AVAILABILITY Q7-CHAINWIDE-METHOD Q7-PROFIT-28 | 1 |
+| `github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-summary-sql` | text | base_bot_spam_weekly_summary.sql (GitHub repository M1kuW1ll/base_arbitrage_competition, commit ea76128d) | GitHub repository M1kuW1ll/base_arbitrage_competition (git author of c | commit ea76128dc4ca9147941aee9da352ac608ecc6a79, committed 2... | DATA-AVAILABILITY Q7-CHAINWIDE-METHOD Q7-PROFIT-28 | 1 |
+| `github-m1kuw1ll-base-arbitrage-competition-base-pool-commitment-inputs-by-hash-sql` | text | base_pool_commitment_inputs_by_hash.sql (GitHub repository M1kuW1ll/base_arbitrage_competition, commit ea76128 | GitHub repository M1kuW1ll/base_arbitrage_competition (git author of c | commit ea76128dc4ca9147941aee9da352ac608ecc6a79, committed 2... | DATA-AVAILABILITY Q7-CHAINWIDE-METHOD | 1 |
+| `github-m1kuw1ll-base-arbitrage-competition-tx-classifier-subtree-py` | text | tx_classifier_subtree.py (GitHub repository M1kuW1ll/base_arbitrage_competition, commit ea76128d) | GitHub repository M1kuW1ll/base_arbitrage_competition (git author of c | commit ea76128dc4ca9147941aee9da352ac608ecc6a79, committed 2... | DATA-AVAILABILITY Q7-CHAINWIDE-METHOD | 1 |
 
-Excerpts per question-line key: Q1-V4GAP 16, Q2-OLDV2 8, Q3-SMALLPOOLS 14, Q4-OTHERCHAINS 34, Q5-V4LAUNCH 25, Q5-CONTEST 31, Q6-BSCORDER 15, Q7-CHAINWIDE-METHOD 26, Q7-ARB-4700 12, Q7-BASE-21M 6, Q7-PROFIT-28 13, Q8-V4MEASURE 6.
+Excerpts per question-line key: Q1-V4GAP 16, Q2-OLDV2 8, Q3-SMALLPOOLS 14, Q4-OTHERCHAINS 34, Q5-V4LAUNCH 25, Q5-CONTEST 31, Q6-BSCORDER 15, Q7-CHAINWIDE-METHOD 26, Q7-ARB-4700 12, Q7-BASE-21M 6, Q7-PROFIT-28 13, Q8-V4MEASURE 6. [2026-10-01 additions: the last 7 rows of the table above were added; counts now Q1-V4GAP 16, Q2-OLDV2 8, Q3-SMALLPOOLS 14, Q4-OTHERCHAINS 40, Q5-V4LAUNCH 25, Q5-CONTEST 37, Q6-BSCORDER 15, Q7-CHAINWIDE-METHOD 40, Q7-ARB-4700 12, Q7-BASE-21M 6, Q7-PROFIT-28 15, Q8-V4MEASURE 6, DATA-AVAILABILITY 12; 246 records in total. The earlier rows' excerpt counts are unchanged except `arxiv-2509.22143-messias-torres-timeboost` 10, `arxiv-2606.00720-wu-oz-to-wait-or-to-probe` 34 and `arxiv-2607.24172-pahari-messias-torres-there-will-be-spam` 18 (DATA-AVAILABILITY records added; their `sources.csv` rows were not changed).]
 
 ## Related material saved by other collectors (not duplicated here)
 
 - `research-material/01-v4-pools/hook-docs/` - Clanker, Zora, Doppler, Flaunch, Bunni and Uniswap v4 docs/source files (deployments, IPoolManager.sol, Hooks.sol, hooklist) and the Zora hook registry. Q1-V4GAP, Q5-V4LAUNCH, Q8-V4MEASURE.
 - `research-material/06-other-chains-onchain/bsc/docs/` - BNB Chain BEPs (BEP-322 builder API, BEP-619 block interval, ...), 48Club / BlockRazor / Blocksmith / bloXroute builder docs and BNB Chain MEV blog posts. Q6-BSCORDER.
 - `research-material/06-other-chains-onchain/solana/docs/` and `.../solana/tip-floor.jsonl` - Jito docs and tip-floor snapshots. Q4-OTHERCHAINS.
-- `research-material/00-prior-runs/papers-fetched-earlier/` - the paper texts read in the earlier session (no provenance metadata); fresh copies of the same papers are here.
+- `research-material/00-prior-runs/papers-fetched-earlier/` - the paper texts read in the earlier session (no provenance metadata); fresh copies of the same papers are here. [Correction 2026-10-01: until the 2026-10-01 additions this was not true for two of the eight files: `esma.txt.gz` (ESMA TRV risk analysis, 1 July 2025, ESMA50-481369926-29744) and `sandwich-l2.txt.gz` (Gogol, Schneider, Gorzny, Tessone, arXiv 2601.19570) had no copy here. Both now have one (slugs `esma-trv-2025-maximal-extractable-value-crypto-markets` and `arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools`). File-to-slug map of the eight files: `arxiv-2501.17335-cross-chain-arbitrage.txt.gz` -> `arxiv-2501.17335-oz-et-al-cross-chain-arbitrage`; `arxiv-2606.00720-to-wait-or-to-probe.txt.gz` -> `arxiv-2606.00720-wu-oz-to-wait-or-to-probe`; `blockspace-under-pressure-spam-mev.txt.gz` -> `arxiv-2604.00234-wang-saraf-heimbach-babel-zhang-blockspace-under-pressure`; `cross-rollup-mev-non-atomic-arbitrage.txt.gz` -> `arxiv-2406.02172-gogol-et-al-cross-rollup-mev`; `esma.txt.gz` -> `esma-trv-2025-maximal-extractable-value-crypto-markets`; `optimistic-mev-l2s.txt.gz` -> `arxiv-2506.14768-solmaz-et-al-optimistic-mev-l2s`; `quantifying-value-of-revert-protection.txt.gz` -> `arxiv-2410.19106-zhu-et-al-value-of-revert-protection`; `sandwich-l2.txt.gz` -> `arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools`. The map is by title; the versions of the earlier copies were not recorded, so a fresh copy may be a different arXiv version (the versions fetched are in `sources.csv`).]
+- `research-material/06-other-chains-onchain/bsc/dex/defillama-protocols.json.gz` (+ `.meta.json`) - the DefiLlama /protocols snapshot (2026-10-01T04:37:38Z) from which the `defillama/protocols-base-dex-*` files were selected (added 2026-10-01); the BSC DEX TVL files selected from the same snapshot are next to it. Q4-OTHERCHAINS.
 - `research-material/04-shallow-pools/MANIFEST.md` - Uniswap V2 `allPairsLength` on Base (Q2-OLDV2 on-chain count).
 - `research-material/05-base-onchain/rsr-episode/` and `00-prior-runs/competitor-ledgers/` - the RSR trade itself (Q5-CONTEST).
 
@@ -236,7 +293,7 @@ unless listed under Coverage limits).
 `https://api.llama.fi/summary/dexs/<protocol>` (uniswap-v4, uniswap-v2, uniswap-v3, and the parent `uniswap`). Top-level keys include
 `totalDataChart` ([unix_day_utc, usd_volume]), `totalDataChartBreakdown` ([unix_day_utc, {protocol: usd_volume}]), `total24h`, `total7d`, `total30d`,
 `protocols` (overview) or `chainBreakdown` (summary). Daily points end at unix 1790726400 = 2026-09-30T00:00Z. `index.csv`: file, url, http_status,
-bytes, sha256 (of the uncompressed body), fetched_at_utc.
+bytes, sha256 (of the uncompressed body), fetched_at_utc. [2026-10-01 additions: `protocols-base-dex-<slug>.json.gz` (15 files, `https://api.llama.fi/protocol/<slug>`) and `protocols-base-dex-selection.csv`; schema in section 'Additions 2026-10-01: ESMA and sandwich papers, Wu & Oz repository, data-availability excerpts, Base DEX TVL'; their rows are in `index.csv`.]
 
 | File | HTTP | Bytes (uncompressed) | Fetched (UTC) |
 |---|---|---|---|
@@ -260,7 +317,7 @@ top_result_urls (space-separated, in the order returned). Web search rankings ar
 
 ## Time window
 
-All HTTP requests: 2026-09-30T21:55:05Z to 2026-09-30T22:21:45Z (UTC), 2026-09-30. Responses by HTTP status: 200: 175, 429: 2.
+All HTTP requests: 2026-09-30T21:55:05Z to 2026-09-30T22:21:45Z (UTC), 2026-09-30. Responses by HTTP status: 200: 175, 429: 2. [2026-10-01 additions: further requests 2026-10-01T04:34:40Z to 04:41:20Z (fetch_sources.py: 9 requests, all HTTP 200, in `collect/fetch-log.jsonl`, now 186 records; DefiLlama: 15 requests, all HTTP 200, in `defillama/index.csv`).]
 Documents are as served at fetch time; arXiv versions are pinned in `sources.csv`/`texts` headers.
 
 ## Reproduce
@@ -274,6 +331,7 @@ python3 build_excerpts.py           # ../excerpts.jsonl from excerpt-specs.jsonl
 python3 make_searches_csv.py        # ../searches.csv from searches.jsonl
 python3 make_manifest.py            # this file
 ```
+[2026-10-01 additions: commands in section 'Additions 2026-10-01: ESMA and sandwich papers, Wu & Oz repository, data-availability excerpts, Base DEX TVL'.]
 Requirements: python3 with requests, beautifulsoup4, PyMuPDF (`fitz`). Requests are sequential per host with >= 1.5-3 s spacing;
 HTTP 429/5xx are retried with backoff honouring Retry-After. Logs: `collect/fetch_sources*.log`, `collect/fetch_defillama.log`, `collect/fetch-log.jsonl`.
 
@@ -294,6 +352,8 @@ HTTP 429/5xx are retried with backoff honouring Retry-After. Logs: `collect/fetc
 - arXiv HTML artefact: in the LaTeXML HTML of arXiv 2509.22143v1, digit-group separators render as the word "true" (e.g. "11true613true936" for 11,613,936). Excerpts from v1 are therefore taken from the PDF text (texts/arxiv-2509.22143v1-...pdf.txt.gz); the HTML-derived v1 text is kept unchanged.
 
 ## Verified inventory (2026-10-01)
+
+[2026-10-01, later: this inventory describes the folder before the 2026-10-01 additions. The 38 files added then and the 10 files rewritten then (`sources.csv`, `excerpts.jsonl`, `searches.csv`, `defillama/index.csv`, `collect/sources.json`, `collect/fetch-state.json`, `collect/fetch-log.jsonl`, `collect/excerpt-specs.jsonl`, `collect/searches.jsonl`, `collect/excerpt-failures.jsonl`, the last rewritten with identical empty content; the bytes and sha256 of the other nine in the table below are the earlier values) are inventoried in section 'Additions 2026-10-01: ESMA and sandwich papers, Wu & Oz repository, data-availability excerpts, Base DEX TVL'.]
 
 Checks run on 2026-10-01 by streaming reads (no data file was modified, moved or re-fetched):
 
@@ -621,3 +681,150 @@ Checks run on 2026-10-01 by streaming reads (no data file was modified, moved or
 | `texts/virtuals-anti-sniper-protection.txt.gz` | 1527 | 3730 | 85 lines | c2f62179820bbd84d322cbb8094469784eb3305a1b5eb3ce0b67f3cc0b7c5f5d | committed |
 | `texts/virtuals-launch-mechanics.txt.gz` | 2636 | 6473 | 129 lines | 9d23d5e853c0c73c94570e2472562ce5e301a75dbdfa5a9bb40b1ea684ee4ad5 | committed |
 | `texts/zora-docs-coins-hook.txt.gz` | 3604 | 10173 | 305 lines | a741eafa939ec100b7fe5e210e2a6fdfb325e6ec0e14130af029a0d0234fd8b3 | committed |
+
+## Additions 2026-10-01: ESMA and sandwich papers, Wu & Oz repository, data-availability excerpts, Base DEX TVL
+
+Written by hand on 2026-10-01 by a collection-only agent (task "papers-and-tvl"); `collect/make_manifest.py` does not produce this section. Nothing here interprets the sources or the data. All HTTP requests of these additions: 2026-10-01T04:34:40Z to 04:41:20Z, all HTTP 200.
+
+### A. Two papers that existed only in 00-prior-runs/papers-fetched-earlier/
+
+| Slug | Earlier copy | What was fetched |
+|---|---|---|
+| `esma-trv-2025-maximal-extractable-value-crypto-markets` (kind pdf) | `00-prior-runs/papers-fetched-earlier/esma.txt.gz` | `https://www.esma.europa.eu/sites/default/files/2025-07/ESMA50-481369926-29744_Maximal_Extractable_Value_Implications_for_crypto_markets.pdf`, the "Main Document" linked from the ESMA document page `https://www.esma.europa.eu/document/trv-article-maximal-extractable-value-implications-crypto-markets` (page looked up 2026-10-01, recorded in `searches.csv`). 558,932 bytes, 17 pages, fetched 2026-10-01T04:34:40Z. Cover: "ESMA TRV Risk Analysis / Financial Innovation / Maximal Extractable Value / Implications for crypto markets", "1 July 2025", "ESMA50-481369926-29744". PDF metadata: author "ESMA", creation date D:20250701095947+02'00', empty title (title, authors_or_org and publication date in `sources.csv` are set in `collect/sources.json`; authors as printed in page 3 footnote 1). |
+| `arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools` (kind arxiv) | `00-prior-runs/papers-fetched-earlier/sandwich-l2.txt.gz` | arXiv 2601.19570 "How to Serve Your Sandwich? MEV Attacks in Private L2 Mempools" (Gogol, Schneider, Gorzny, Tessone). The id was read from the page-1 margin of the earlier copy ("arXiv:2601.19570v1 [cs.CR] 27 Jan 2026") and matched by a web search (`searches.csv`). The abs page lists v1 only (Tue, 27 Jan 2026 13:00:33 UTC); abs page, LaTeXML HTML v1 and PDF v1 (18 pages) fetched 2026-10-01T04:34:43Z-04:34:49Z. |
+
+Both were fetched with the existing fetcher (`fetch_sources.py --only <slug> ...`), producing `texts/`, `raw/`, `sources.csv` rows and `collect/fetch-log.jsonl` records exactly like the other sources. Excerpts (verbatim, built by `build_excerpts.py` from new specs appended to `collect/excerpt-specs.jsonl`): ESMA 12 (Q7-CHAINWIDE-METHOD 6, Q4-OTHERCHAINS 4, Q5-CONTEST 2); arXiv 2601.19570 10 (Q5-CONTEST 4, Q7-CHAINWIDE-METHOD 4, Q4-OTHERCHAINS 2). The fresh texts were not compared with the earlier copies.
+
+### B. Data and code availability of arXiv 2509.22143, 2606.00720 and 2607.24172 (key DATA-AVAILABILITY)
+
+Method: case-insensitive text search of the saved texts (`texts/<slug>.txt.gz` and `texts/<slug>.pdf.txt.gz` of `arxiv-2509.22143-messias-torres-timeboost` (v2), `arxiv-2509.22143v1-messias-torres-timeboost` (v1), `arxiv-2606.00720-wu-oz-to-wait-or-to-probe` (v2) and `arxiv-2607.24172-pahari-messias-torres-there-will-be-spam` (v1)) for: github, gitlab, zenodo, figshare, osf.io, huggingface, repositor, availab, open source, artifact, reproducib, code and data, our data, our code, dataset, release, publicly, source code, scripts, upon request, on request, and every https:// URL; the matching passages were read and those about the availability of data or code, or naming a repository or public dataset, were excerpted verbatim (12 records, field `question_line` = `DATA-AVAILABILITY`). The search is recorded in `searches.csv`.
+
+| Paper | DATA-AVAILABILITY records | What the records contain |
+|---|---|---|
+| arXiv 2509.22143 v2 | 3 | the "Reproducibility" item of the contribution list (Section 1); the "Historical Bid Data" paragraph (Section 3) on the Arbitrum Foundation bid-history archive; reference [31] with its docs.arbitrum.io URL (PDF page 23) |
+| arXiv 2509.22143 v1 | 0 | the search found no passage on releasing data or code and no repository URL in the v1 texts |
+| arXiv 2606.00720 v2 | 2 | the "Source Code: https://github.com/M1kuW1ll/base_arbitrage_competition" line (HTML front matter) and the same line on PDF page 1 ("Supplementary Material") |
+| arXiv 2607.24172 v1 | 7 | two passages on the public address-poisoning dataset of Tsuchiya et al. (Sections 3.2.2 and 3.3), one on Flashbots Mempool Dumpster public data (Section 4.3), and reference entries [5] EVMole (github.com/cdump/evmole), [11] Mempool Dumpster, [28] WhatsABI (github.com/shazow/whatsabi), [31] Tsuchiya et al. (PDF pages 20-21); the search found no passage on releasing the authors' own data or code |
+
+Repository named in arXiv 2606.00720: `https://github.com/M1kuW1ll/base_arbitrage_competition`. `collect/list_repo_wu_oz.sh` (output `collect/list_repo_wu_oz.log`, run 2026-10-01T04:34:24Z) records its state with plain git (api.github.com answered HTTP 403 in this container): one branch `main` at commit `ea76128dc4ca9147941aee9da352ac608ecc6a79` (author Fei Wu, 2026-08-04T11:33:33+01:00, "Rename ex3_classify_subtrees_txs.py to tx_classifier_subtree.py"), 5 files and no README. Because there is no README, the five files themselves were saved, each as a kind-text source fetched from `https://raw.githubusercontent.com/M1kuW1ll/base_arbitrage_competition/ea76128dc4ca9147941aee9da352ac608ecc6a79/<file>` (pinned to the commit): `base_atomic_arbitrage.sql`, `base_bot_spam_weekly_by_bot.sql`, `base_bot_spam_weekly_summary.sql`, `base_pool_commitment_inputs_by_hash.sql`, `tx_classifier_subtree.py` (slugs `github-m1kuw1ll-base-arbitrage-competition-*`). The git blob SHA-1 of each saved body equals the blob id in the tree listing. 6 excerpt records were taken from these files (Q7-CHAINWIDE-METHOD 4, Q7-PROFIT-28 2). Two web searches for repositories of arXiv 2509.22143 and 2607.24172 returned no repository URL (result URLs in `searches.csv`); the READMEs of the third-party tool repositories cited by arXiv 2607.24172 (cdump/evmole, shazow/whatsabi) were not saved.
+
+Notes on the repository files (descriptive): the SQL files contain Dune query parameters (`{{start_date}}`, `{{end_date}}`, `{{bot_values}}`, `{{tx_hash_values}}`); the two spam queries read the Dune table `dune.rig_ef.result_base_atomic_arbitrage`; `base_pool_commitment_inputs_by_hash.sql` names `compute_pool_commitment.py` and `tx_classifier_subtree.py` names `datasets/Base_atomic_arbitrage.csv`; neither of these two files nor any query result is in the repository at this commit. The parameter values used for the paper and the query outputs were not collected.
+
+### C. Base DEX TVL (DefiLlama)
+
+- Source of the selection: the DefiLlama `https://api.llama.fi/protocols` snapshot saved once as `research-material/06-other-chains-onchain/bsc/dex/defillama-protocols.json.gz` (fetched 2026-10-01T04:37:38Z, 8,440 entries; fetch metadata in the `.meta.json` next to it). It was not fetched a second time for Base.
+- Filter: `chains` contains `Base` (exact chain name) and `category` == `Dexs`: 172 entries, all with `chainTvls.Base`. Ordered by `chainTvls.Base` (JSON number as served, compared as a decimal; ties by slug); first 15 selected, in that order: uniswap-v3, aerodrome-slipstream, aerodrome-v1, uniswap-v2, uniswap-v4, pancakeswap-amm-v3, curve-dex, fluid-dex, hydrex-integral, quickswap-v4, sushiswap-v3, sushiswap, elfomofi, alien-base-v3, balancer-v3.
+- `https://api.llama.fi/protocol/<slug>` for each, 2026-10-01T04:40:32Z to 04:41:20Z, one request at a time (>= 2 s apart), all HTTP 200 on the first attempt; bodies streamed unchanged into `defillama/protocols-base-dex-<slug>.json.gz`; 15 rows (file, url, http_status, bytes, sha256 of the uncompressed body, fetched_at_utc) merged into `defillama/index.csv` (the 12 earlier rows are unchanged).
+- `defillama/protocols-base-dex-selection.csv` (derived, 172 rows + header, 13 columns): selection_order, selected (1/0), slug, name, category, parentProtocol, chainTvls_Base (literal JSON number token), tvl (literal JSON number token, all chains), chains (space-separated as served), id, source_file, source_fetched_at_utc, protocol_file (file name for the 15 selected rows).
+- Schema of each `protocols-base-dex-<slug>.json.gz`: one JSON object as served, with `tvl` (array of {date: unix seconds UTC, totalLiquidityUSD}), `tokens`, `tokensInUsd` (arrays of {date, tokens: {symbol: amount}}), `chainTvls` {chain key: {tvl, tokens, tokensInUsd}}, `currentChainTvls`, and metadata (name, category, chains, methodology, tvlCodePath, misrepresentedTokens, parentProtocol, hacks, raises, ...). The Base series is `chainTvls.Base`. In the top-level `tvl` arrays all points before the last are at 00:00 UTC, except 175 points in the sushiswap file; the last point carries a later time (02:40Z to 03:35Z on 2026-10-01 in 13 files; 2026-10-01T00:03:23Z for uniswap-v2; 2026-09-29T00:00:00Z for uniswap-v4), as served.
+
+| File | name | tvl points (range) | chainTvls.Base.tvl points (range) | chainTvls keys |
+|---|---|---|---|---|
+| `defillama/protocols-base-dex-uniswap-v3.json.gz` | Uniswap V3 | 1,963 (2021-05-06..2026-10-01) | 1,142 (2023-08-08..2026-10-01) | 44 |
+| `defillama/protocols-base-dex-aerodrome-slipstream.json.gz` | Aerodrome Slipstream | 890 (2024-04-26..2026-10-01) | 890 (2024-04-26..2026-10-01) | 2 |
+| `defillama/protocols-base-dex-aerodrome-v1.json.gz` | Aerodrome V1 | 1,130 (2023-08-29..2026-10-01) | 1,130 (2023-08-29..2026-10-01) | 1 |
+| `defillama/protocols-base-dex-uniswap-v2.json.gz` | Uniswap V2 | 2,341 (2020-05-06..2026-10-01) | 950 (2024-02-22..2026-10-01) | 16 |
+| `defillama/protocols-base-dex-uniswap-v4.json.gz` | Uniswap V4 | 606 (2025-01-29..2026-09-29) | 606 (2025-01-29..2026-09-29) | 19 |
+| `defillama/protocols-base-dex-pancakeswap-amm-v3.json.gz` | PancakeSwap AMM V3 | 1,263 (2023-04-02..2026-10-01) | 1,127 (2023-08-29..2026-10-01) | 11 |
+| `defillama/protocols-base-dex-curve-dex.json.gz` | Curve DEX | 2,420 (2020-02-09..2026-10-01) | 1,122 (2023-09-02..2026-10-01) | 34 |
+| `defillama/protocols-base-dex-fluid-dex.json.gz` | Fluid DEX | 134 (2026-05-22..2026-10-01) | 134 (2026-05-22..2026-10-01) | 5 |
+| `defillama/protocols-base-dex-hydrex-integral.json.gz` | Hydrex Integral | 442 (2025-06-28..2026-10-01) | 442 (2025-06-28..2026-10-01) | 1 |
+| `defillama/protocols-base-dex-quickswap-v4.json.gz` | Quickswap V4 | 624 (2025-01-16..2026-10-01) | 624 (2025-01-16..2026-10-01) | 6 |
+| `defillama/protocols-base-dex-sushiswap-v3.json.gz` | SushiSwap V3 | 1,209 (2023-04-02..2026-10-01) | 1,087 (2023-08-02..2026-10-01) | 31 |
+| `defillama/protocols-base-dex-sushiswap.json.gz` | SushiSwap | 2,183 (2020-09-04..2026-10-01) | 1,036 (2023-11-10..2026-10-01) | 41 |
+| `defillama/protocols-base-dex-elfomofi.json.gz` | ElfomoFi | 37 (2026-08-27..2026-10-01) | 37 (2026-08-27..2026-10-01) | 2 |
+| `defillama/protocols-base-dex-alien-base-v3.json.gz` | Alien Base V3 | 1,008 (2023-12-06..2026-10-01) | 1,008 (2023-12-06..2026-10-01) | 1 |
+| `defillama/protocols-base-dex-balancer-v3.json.gz` | Balancer V3 | 661 (2024-12-11..2026-10-01) | 595 (2025-02-15..2026-10-01) | 9 |
+
+Coverage limits: one /protocols snapshot (2026-10-01T04:37:38Z) decides the selection; category `Dexs` only (DefiLlama categories such as `DEX Aggregator` or `Derivatives` are not in the filter); sub-protocols are separate entries and parent-protocol responses (e.g. `/protocol/uniswap`, `/protocol/aerodrome`) were not fetched; each response covers all chains of the protocol; TVL values and history are DefiLlama's computation (`methodology`, `tvlCodePath`, `misrepresentedTokens` fields), not checked on-chain. The responses for uniswap-v2, uniswap-v3, uniswap-v4 and pancakeswap-amm-v3 are also saved in `research-material/06-other-chains-onchain/bsc/dex/` (fetched one to two minutes earlier; the uncompressed bodies have the same sha256). The BSC counterpart (filter on DefiLlama's chain name `Binance`) is documented in `research-material/06-other-chains-onchain/bsc/MANIFEST.md`, section "DefiLlama TVL for BSC DEX protocols (added 2026-10-01)".
+
+### Commands
+
+```bash
+cd research-material/08-sources/collect
+export REQUESTS_CA_BUNDLE=/root/.ccr/ca-bundle.crt SSL_CERT_FILE=/root/.ccr/ca-bundle.crt   # only behind the proxy
+./list_repo_wu_oz.sh > list_repo_wu_oz.log 2>&1
+python3 fetch_sources.py --only esma-trv-2025-maximal-extractable-value-crypto-markets \
+    arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools \
+    github-m1kuw1ll-base-arbitrage-competition-base-atomic-arbitrage-sql \
+    github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-by-bot-sql \
+    github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-summary-sql \
+    github-m1kuw1ll-base-arbitrage-competition-base-pool-commitment-inputs-by-hash-sql \
+    github-m1kuw1ll-base-arbitrage-competition-tx-classifier-subtree-py > fetch_sources_batch5.log 2>&1
+python3 fetch_sources.py --rebuild-csv     # after the ESMA authors_or_org edit in sources.json (no network)
+python3 build_excerpts.py                  # 246 specs -> 246 excerpts, 0 failures
+python3 make_searches_csv.py               # 66 rows
+# Base DEX TVL; needs ../../06-other-chains-onchain/bsc/dex/defillama-protocols.json.gz (never refetched here)
+python3 fetch_defillama_tvl.py --chain Base \
+    --protocols-file ../../06-other-chains-onchain/bsc/dex/defillama-protocols.json.gz --no-fetch-protocols \
+    --out-dir ../defillama --prefix protocols-base-dex- --index ../defillama/index.csv \
+    --selection-csv ../defillama/protocols-base-dex-selection.csv > fetch_defillama_tvl_base.log 2>&1
+```
+`collect/fetch_defillama_tvl.py` is byte-identical to `research-material/06-other-chains-onchain/bsc/collect/fetch_defillama_tvl.py`. Re-running `fetch_sources.py` without `--only` fetches nothing (all 99 entries are ok in the checkpoint).
+
+### Other coverage notes
+
+- ESMA PDF text (PyMuPDF): the two-column layout, footnotes and chart labels are interleaved in `texts/esma-...txt.gz`; footnote marks stay inline (e.g. "public. 14 This"), and chart data appear only as the numbers and labels printed in the PDF. The raw PDF is in `raw/`.
+- arXiv 2601.19570 HTML text: formulas are LaTeX `alttext` (e.g. `\sim 200ms`), as for the other arXiv sources.
+- `sources.csv` rows of the three papers in section B were not changed (their `question_lines` do not list DATA-AVAILABILITY); the records are found by `question_line` in `excerpts.jsonl`.
+- The sentinel `research-material/.sentinels/SOURCES.DONE` was not rewritten; its counts are those of 2026-09-30.
+
+### Inventory of the added files (2026-10-01)
+
+Bytes = size on disk; Uncompressed = decompressed size for `.gz`; sha256 = of the file as stored (the sha256 of each decompressed `raw/` and `defillama/` body is in `collect/fetch-log.jsonl` or `defillama/index.csv`). Every `.gz` decompresses; every JSON parses; every `excerpts.jsonl` record satisfies `text[char_start:char_end] == quote` (246 of 246); every path in the `text_files`/`raw_files` columns of `sources.csv` exists and every file in `texts/` and `raw/` is named there. None of the files is git-ignored. No file exceeds 90 MB (largest added: `defillama/protocols-base-dex-curve-dex.json.gz`, 20,884,722 bytes).
+
+| File | Bytes | Uncompressed | Content | sha256 (file as stored) |
+|---|---|---|---|---|
+| `defillama/protocols-base-dex-aerodrome-slipstream.json.gz` | 7,424,140 | 21,353,890 | JSON parses; object, 31 keys | cdc1d25b0b564d9eee75e1b9f4d9b6d02fcf9cbf102e16d5fa723ee8f0050829 |
+| `defillama/protocols-base-dex-aerodrome-v1.json.gz` | 3,377,240 | 11,706,823 | JSON parses; object, 32 keys | a69275249255f3082e814224790f1b45674064a085c7c7e0b4bfad9587f258f6 |
+| `defillama/protocols-base-dex-alien-base-v3.json.gz` | 625,605 | 2,584,997 | JSON parses; object, 30 keys | b288a048f370e246a5031802662776886ce34ea1603d4075776b99b453fffe37 |
+| `defillama/protocols-base-dex-balancer-v3.json.gz` | 5,068,543 | 20,018,619 | JSON parses; object, 30 keys | 1d8a0f51fdc8c4aeaa8b06cd47c552792abe5e836ccb348f611ded245cc4b97f |
+| `defillama/protocols-base-dex-curve-dex.json.gz` | 20,884,722 | 69,246,581 | JSON parses; object, 33 keys | 8f1e63e3d8e318d3734dc0ce35e6d7b073d211ff839c131bfe039bedbcae418d |
+| `defillama/protocols-base-dex-elfomofi.json.gz` | 2,381 | 15,237 | JSON parses; object, 27 keys | 93b25df881beb54768a85e44ba3eb612d80575b42b2c3c2bc889276dbccbfdfe |
+| `defillama/protocols-base-dex-fluid-dex.json.gz` | 241,481 | 784,188 | JSON parses; object, 32 keys | e3c6763ba2cb8c0fe86eb7f67f3be56b1bbe13db0f9206f59655ccf8bfa4f38f |
+| `defillama/protocols-base-dex-hydrex-integral.json.gz` | 1,120,885 | 3,349,486 | JSON parses; object, 33 keys | 90708f3a67b4f71a3d373eb67569d511d603f0b4d4bbd382966c0efd7c8405a8 |
+| `defillama/protocols-base-dex-pancakeswap-amm-v3.json.gz` | 99,630 | 558,131 | JSON parses; object, 32 keys | bf3a1eeee07ff74e4ef8164bda596eedd18ff2ac34c8a1ebf85ead3ff3dd17a6 |
+| `defillama/protocols-base-dex-quickswap-v4.json.gz` | 622,931 | 2,171,362 | JSON parses; object, 31 keys | dcd80f5c048e2a6f66f1f31036a605537140f63fa5eba56d55d4582b50a5046a |
+| `defillama/protocols-base-dex-selection.csv` | 30,869 | - | 172 rows + header (13 cols) | 0a0475991321f1d56d06c255b63a557465cd2515ea8b739b9e1718ba42427e61 |
+| `defillama/protocols-base-dex-sushiswap-v3.json.gz` | 13,132,991 | 55,521,440 | JSON parses; object, 31 keys | d25505c9b193d0a8e5b81b1e6363f42f7a49bd7aa1a0af04fd54f5b4ad2e85cc |
+| `defillama/protocols-base-dex-sushiswap.json.gz` | 403,915 | 2,549,473 | JSON parses; object, 33 keys | 0543206cca88aee2bb13c5813f907c700c1981a7004127a1569e20c7752be4fa |
+| `defillama/protocols-base-dex-uniswap-v2.json.gz` | 5,249,969 | 20,325,092 | JSON parses; object, 33 keys | c66d00a44c40788a70b926081aa1fe0597e935590199d850ce7d4171c987094d |
+| `defillama/protocols-base-dex-uniswap-v3.json.gz` | 297,899 | 1,706,983 | JSON parses; object, 34 keys | 14444ccd497ab37c4c6b6efc71919583be049c416f65c0b583105b7b7933e919 |
+| `defillama/protocols-base-dex-uniswap-v4.json.gz` | 70,229 | 449,518 | JSON parses; object, 32 keys | 7043d43023c3aa22a762a2dfaa9df81dcfe86c6b2f75133db03c9699a024cf66 |
+| `raw/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools.abs.html.gz` | 8,949 | 41,159 | 623 lines | 7d5e3613a872ebe1a733314f5a322b73bbc1f7fdefb4cf2cf41215020a85278c |
+| `raw/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools.html-v1.html.gz` | 40,155 | 240,322 | 1675 lines | e0ab8434e8355c594454c75de9a31ea527e19811365460f8bfcd0895fa55e577 |
+| `raw/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools.pdf-v1.pdf.gz` | 945,688 | 1,126,965 | binary PDF | a304e48e8bbe1e464c90fba4ff792764151ffe13badaa569723134bac8a78272 |
+| `raw/esma-trv-2025-maximal-extractable-value-crypto-markets.doc.pdf.gz` | 514,668 | 558,932 | binary PDF | eaf06473784adc3af9d400f9f11a74c519cc8e14b267af1b645438c5e740de59 |
+| `raw/github-m1kuw1ll-base-arbitrage-competition-base-atomic-arbitrage-sql.body.sql.gz` | 3,285 | 9,752 | 247 lines | 566e12d7094a361de747f4d17afeb2397db99415b2b61c72840814a644ce4f43 |
+| `raw/github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-by-bot-sql.body.sql.gz` | 1,714 | 7,036 | 211 lines | 47052587d7af242a15a03923feeb8a340a1ae1a161e07c37d5cd9839e3e4b0d2 |
+| `raw/github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-summary-sql.body.sql.gz` | 1,644 | 6,764 | 195 lines | 6133f2851669c64a7aa4a58b915d14e1e056ba23315a52ee55b03c2fd7ca48fd |
+| `raw/github-m1kuw1ll-base-arbitrage-competition-base-pool-commitment-inputs-by-hash-sql.body.sql.gz` | 860 | 2,011 | 61 lines | 955f1ff39e4ab4be972985c9f46f18128c5e44d6841208fb515b2313c1229290 |
+| `raw/github-m1kuw1ll-base-arbitrage-competition-tx-classifier-subtree-py.body.py.gz` | 12,925 | 52,535 | 1412 lines | 748e75942a2b47990e58bf8613c31643b956f5244b231c99e7b4c14447abc4e0 |
+| `texts/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools.pdf.txt.gz` | 17,544 | 46,340 | 1205 lines | a7be5936d2419582c00bebe35a4c9d5530b3f399483563aff560b339b708475e |
+| `texts/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools.txt.gz` | 18,710 | 51,394 | 1004 lines | b16dd9d3748cc5d36b03ecb9e3b19faeeb81046c714587f31bf42c0230e5e94d |
+| `texts/esma-trv-2025-maximal-extractable-value-crypto-markets.txt.gz` | 22,078 | 60,037 | 1686 lines | accf65fe2b5f0ef9eb2d8f9f09b7b324efc00ebde15d9833acf1085fb9e6911b |
+| `texts/github-m1kuw1ll-base-arbitrage-competition-base-atomic-arbitrage-sql.txt.gz` | 3,287 | 9,752 | 247 lines | c8c1badfbad4be6709478e5d99eb226b8631464cba59267769d68e756d4282c1 |
+| `texts/github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-by-bot-sql.txt.gz` | 1,716 | 7,036 | 211 lines | 0f2fc28ffc22d295bfa322b58430883ae15f66fdca730c9e22e466ffffc056ab |
+| `texts/github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-summary-sql.txt.gz` | 1,646 | 6,764 | 195 lines | db0c3f7f2ccbc434411d16848ed8ea5f5761fb1c3f219a08baaf8d92aacd8622 |
+| `texts/github-m1kuw1ll-base-arbitrage-competition-base-pool-commitment-inputs-by-hash-sql.txt.gz` | 861 | 2,011 | 61 lines | 6c876d7ea5195c34cf4a5ca7640eb2353cba455944cc89a81fa0b87a5d5b6ff2 |
+| `texts/github-m1kuw1ll-base-arbitrage-competition-tx-classifier-subtree-py.txt.gz` | 12,927 | 52,535 | 1412 lines | 25cc676a25083358ef50ee3c023a35cf7881718171a38cdc7ffbfb511eba6b33 |
+| `collect/list_repo_wu_oz.sh` | 1,310 | - | 22 lines | 874f923759aa5f3c53635a1dfb9da801ab3707ad330cbf916e0c6736f0aa4064 |
+| `collect/list_repo_wu_oz.log` | 1,185 | - | 21 lines | 5b30b65d61d1990c2da04de10bb002960f846b0bc75483b1e8c4e41633a2c8cb |
+| `collect/fetch_sources_batch5.log` | 908 | - | 9 lines | 935c2ed0a0f2973e2b56e62af0302e6406cf6d438b9d2eebd82ef111a13f17ef |
+| `collect/fetch_defillama_tvl.py` | 11,476 | - | 213 lines | 693bcf9417faf447b423b4abac52f0e01e10779fbf9ba6fc7734a3a383179081 |
+| `collect/fetch_defillama_tvl_base.log` | 4,431 | - | 50 lines | 2c3671389332f0427b5ee3622a5621566cee7c849ec04e5e2f704ce363bdf0cf |
+
+Files rewritten on 2026-10-01 (state after the additions; earlier rows/records are unchanged, checked by comparing with copies taken before the run; `collect/excerpt-failures.jsonl` was rewritten empty):
+
+| File | Bytes | Uncompressed | Content | sha256 (file as stored) |
+|---|---|---|---|---|
+| `sources.csv` | 60,369 | - | 99 rows + header (12 cols) | 4e26c0fd5e0dea80fb3bc24a169445de559cb7566646f86ba36ee06244be9293 |
+| `excerpts.jsonl` | 224,307 | - | 246 records | 983c73f1112bf83c6f29c1d1ab1b70979acbbe339225bd266e895a6c32c6fb3d |
+| `searches.csv` | 44,708 | - | 66 rows + header (4 cols) | 972adcbc1ab9cdf209ee6d0b706b738dfdb8319854f2690b7c7ab25dd7b388bc |
+| `defillama/index.csv` | 5,359 | - | 27 rows + header (6 cols) | 0027238dcb663ab2a41e404d1cd22648d5fc289a044814f0f1b89c315fee470a |
+| `collect/sources.json` | 34,085 | - | JSON parses; list of 99 | e5a1a33144750799bc0099dbbfdb9660f33f278cbe6efde98fa5ff244acf9fc6 |
+| `collect/fetch-state.json` | 65,792 | - | JSON parses; object, 99 keys | b36014d6b1c98a56eefe5fb08b8d7f3a4371993897c0f67933ab8140484d4232 |
+| `collect/fetch-log.jsonl` | 63,110 | - | 186 records | 82ec17e98255ed433c5fd47cf18698dfedf0f2fc8073d1bf042f716712b6e66b |
+| `collect/excerpt-specs.jsonl` | 71,186 | - | 246 records | 9a51af214a12a408569cabd91bf5b4b0c7e52db9ac159b41bfd15a5e3918c8be |
+| `collect/searches.jsonl` | 48,563 | - | 66 records | a7abd7889bd9b8c8e65fe4f668aacc5f2bd6b8d13a6fff8578d9c2705acd321b |
+| `collect/excerpt-failures.jsonl` | 0 | - | 0 records | e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 |

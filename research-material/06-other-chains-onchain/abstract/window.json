@@ -1,0 +1,108 @@
+{
+ "chain": "abstract",
+ "head_at_pin": 86315536,
+ "end_tag": "latest",
+ "head_margin": 10,
+ "start_block": 86310808,
+ "end_block": 86315526,
+ "start_timestamp": 1790824713,
+ "end_timestamp": 1790828312,
+ "window_rule": "all blocks with timestamp in (end_timestamp - 3600 s, end_timestamp]",
+ "window_seconds_requested": 3600,
+ "pinned_at_utc": "2026-10-01T04:18:42Z",
+ "chain_id": 2741,
+ "endpoints": {
+  "primary": "https://api.mainnet.abs.xyz",
+  "fallbacks": [
+   "https://abstract.drpc.org"
+  ]
+ },
+ "config": {
+  "chain_id": 2741,
+  "window_s": 3600,
+  "end_tag": "latest",
+  "head_margin": 10,
+  "batch": 10,
+  "seg_blocks": 600,
+  "nominal_interval": 0.75,
+  "sentinel": "EVM_CENSUS_ABSTRACT",
+  "extra_logs": {},
+  "extra_data_text": false
+ },
+ "status": "complete",
+ "collector": "census.py",
+ "finalized_at_utc": "2026-10-01T04:19:21Z",
+ "n_blocks_in_window": 4719,
+ "measured_block_interval_s": 0.7628232301822806,
+ "measured_block_interval_note": "(end_timestamp - start_timestamp) / (end_block - start_block); timestamps have 1 s resolution",
+ "counts": {
+  "blocks_written": 4719,
+  "txs": 6416,
+  "reverted": 21,
+  "candidates_A": 62,
+  "candidates_B": 323,
+  "extra": {},
+  "receipts_not_in_block_tx_list": 0,
+  "distinct_topic0_keys": 177,
+  "gap_blocks": 0
+ },
+ "files": {
+  "blocks": {
+   "files": [
+    "blocks.csv.gz"
+   ],
+   "lines_including_headers": 4720,
+   "sizes_bytes": {
+    "blocks.csv.gz": 253818
+   }
+  },
+  "txs": {
+   "files": [
+    "txs-001.csv.gz"
+   ],
+   "lines_including_headers": 6417,
+   "sizes_bytes": {
+    "txs-001.csv.gz": 391369
+   }
+  },
+  "reverted": {
+   "files": [
+    "reverted-001.csv.gz"
+   ],
+   "lines_including_headers": 22,
+   "sizes_bytes": {
+    "reverted-001.csv.gz": 2173
+   }
+  },
+  "candidates": {
+   "files": [
+    "candidates-001.jsonl.gz"
+   ],
+   "lines_including_headers": 385,
+   "sizes_bytes": {
+    "candidates-001.jsonl.gz": 303159
+   }
+  }
+ },
+ "checks": {
+  "parent_hash_breaks_at": [],
+  "blocks_missing_from_blocks_csv": [],
+  "n_blocks_missing": 0,
+  "canonical_recheck": {
+   "86310808": {
+    "rpc_hash": "0x7aa4edee73f81d1a0bb5082f7ac6a21960359e2f53aa4c86cf74bbb5040be07e",
+    "stored_hash": "0x7aa4edee73f81d1a0bb5082f7ac6a21960359e2f53aa4c86cf74bbb5040be07e",
+    "match": true
+   },
+   "86315526": {
+    "rpc_hash": "0x209339f00cc53a6e6c3d06ea4ba79b4a8ec6612b12fa8d69fe91c3110563e4e5",
+    "stored_hash": "0x209339f00cc53a6e6c3d06ea4ba79b4a8ec6612b12fa8d69fe91c3110563e4e5",
+    "match": true
+   }
+  }
+ },
+ "rpc_requests_by_endpoint": {
+  "https://api.mainnet.abs.xyz": 472
+ },
+ "rpc_errors_by_endpoint_kind": {}
+}

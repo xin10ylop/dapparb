@@ -1,0 +1,362 @@
+SOURCE_URL: https://docs.zksync.io/zksync-protocol/era-vm/transactions/transaction-lifecycle
+FINAL_URL: https://docs.zksync.io/zksync-protocol/era-vm/transactions/transaction-lifecycle
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:47Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+Transaction lifecycle - ZKsync Docs
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+* ZKsync Network
+
+* ZK Stack
+
+* ZKsync Protocol
+
+Getting started with ZKsync protocol
+ZKsync protocol overview ZKsync protocol overview Bridging assets Finality Data availability Pubdata compression
+
+ZKsync OS ZKsync OS Overview Double Resource Accounting Bootloader Execution Environments System Processing of Transactions System Hooks Runner Flow
+
+Web3 API API Overview Conventions Ethereum JSON-RPC API Debug JSON-RPC API ZKsync JSON-RPC API PubSub JSON-RPC API
+
+Contracts ZKsync contracts
+L1 contracts L1 contracts L1 ecosystem contracts Shared bridges ZKsync Chain addresses
+
+Protocol security Audits Bug bounty Withdrawal delay
+
+EraVM Chains EraVM Overview
+Transactions Transaction lifecycle Blocks and batches L1 <-> L2 communication
+Fee model Fee model How L2 gas price works How ZKsync Chains charges for pubdata ZKsync fee structure
+
+EraVM ZKsync Virtual Machine primer VM formal specification
+
+Contracts ZKsync contracts Bootloader System contracts Handling L1->L2 ops on ZKsync Handling pubdata Pubdata post 4844
+
+Circuits Overview ZK terminology
+Concrete circuits Overview Circuit testing CodeDecommitter DemuxLogQueue ECRecover KeccakRoundFunction L1MessagesHasher LogSorter Main VM RAMPermutation Sha256RoundFunction StorageApplication
+Sorting and deduplicating Overview SortDecommitments StorageSorter LogSorter
+
+Boojum gadgets Boojum function - `check_if_satisfied`
+
+Compilers Compiler toolchain overview Compiler toolchain overview LLVM framework
+
+Differences from L1 EVM instructions Nonces Libraries Precompiles Native AA vs EIP 4337 Contract deployment
+
+EVM Bytecode Interpreter Overview EVM bytecode deployment and execution EraVM ↔ EVM Contract Interactions Differences Between the EVM Bytecode Interpreter and Ethereum Technical Architecture of the EVM Interpreter EVM Gas Interpretation Pre Deployed Contracts EVM Bytecode Interpreter FAQ
+
+Account Abstraction Introduction Design Paymasters Building smart accounts Signature validation Extending EIP-4337
+
+ZKsync Gateway Gateway Overview Features Data Availability Considerations Frequently Asked Questions
+
+Upgrades and migrations
+
+ZKsync Docs
+* ZKsync Protocol
+
+* EraVM Chains
+
+* Transactions
+
+## Transaction lifecycle
+
+An in-depth guide on the transaction lifecycle on ZKsync Chains, explaining the roles of the sequencer and prover, and detailing the transaction statuses and types.
+
+The ZK Stack facilitates the launch of rollups, which require certain operators like the sequencer and the prover.
+These operators are responsible for creating blocks and proofs, and submitting them to the L1 contract.
+Transactions are cryptographically signed instructions from accounts that aim to update the state of the Ethereum network.
+The simplest transaction involves transferring ETH from one account to another.
+Learn more about Ethereum transactions .
+
+##
+Workflow of Transactions
+Users submit their transactions to the sequencer, whose role is to collect and execute these transactions using the L2 Virtual Machine, EraVM.
+The sequencer also provides a soft confirmation to users about the execution of their transactions.
+Users have the option to force the inclusion of their transactions by submitting them through L1.
+After execution, the sequencer forwards the block to the prover, who then creates a cryptographic proof of the block's execution.
+This proof, along with the necessary data, is submitted to the L1 contract.
+An L1 smart contract verifies the validity of the proof and the completeness of the data submission, thereby updating the rollup's state on the contract.
+
+EraVM plays a crucial role similar to, yet distinct from, the traditional EVM in Ethereum.
+Transactions can also be initiated via L1, which facilitates L1<>L2 communication, providing censorship resistance and enabling trustless bridges to L1.
+The sequencer collects transactions into blocks and, to enhance user experience, ensures quick soft confirmations through small block sizes.
+Unlike Ethereum, EraVM distinguishes between blocks and batches ,
+where batches—collections of blocks—are processed by the prover.
+Before submitting a proof, the data is sent to L1.
+The method optimizes data submission by detailing only the changes in blockchain state, termed 'state diff.'
+This approach makes transactions affecting the same storage slots more cost-effective.
+At the final stage, proofs are generated and sent to L1 using our Boojum proof system,
+which operates efficiently on 16GB of GPU RAM, allowing for decentralization of proof generation.
+
+##
+Transaction data
+Transactions in ZKsync Chains are comparable to those on Ethereum ,
+allowing the use of the same wallets.
+Minor differences exist, particularly regarding fee settings.
+For details on fees, refer to the fee model documentation .
+Returned values from any RPC call outputting transaction details include:
+
+* is_l1_originated : bool
+
+* status : TransactionStatus , one of Pending , Included , Verified , or Failed . See Transaction statuses section below.
+
+* fee : U256 . See the fee mechanism documentation for more information.
+
+* initiator_address : Address
+
+* received_at : DateTime<Utc>
+
+* eth_commit_tx_hash : Option<H256>
+
+* eth_prove_tx_hash : Option<H256>
+
+* eth_execute_tx_hash : Option<H256>
+
+##
+Contract Deployment Transactions
+Contract deployment transactions interact with the ContractDeployer system contract and differ from standard transactions.
+Learn more about contract deployment in ZKsync .
+
+##
+Transaction statuses
+Transactions are always in one of the following statuses:
+
+* Pending : Awaiting inclusion in a block.
+
+* Included : Added to a block, but the block's batch is not yet committed.
+
+* Verified : Included and verified after batch commitment and execution on the Ethereum L1 network.
+
+* Failed : Transaction did not verify successfully.
+
+For more on transaction completion and irrevocability, see the finality documentation .
+
+##
+Transaction types
+ZKsync Chains support a range of transaction types that are compatible with Ethereum,
+yet they incorporate unique settings particularly around fee configurations.
+Here’s a detailed look at the transaction types,
+including legacy, EIP-2930, EIP-1559, and EIP-712, and how they are implemented in ZKsync.
+When using RPC methods like eth_getTransactionByHash ,
+the transaction type hex value is included in the output.
+
+##
+Legacy: 0x0
+This is the original Ethereum transaction format used before the introduction of typed transactions.
+
+##
+EIP-2930: 0x1
+Implemented to mitigate risks introduced by EIP-2929, EIP-2930: Optional access lists
+adds an accessList to transactions, which is an array of addresses and storage keys.
+
+##
+EIP-1559: 0x2
+Ethereum's EIP-1559 replaces gasPrice with a base fee and adds parameters like maxFeePerGas .
+
+* maxFeePerGas : Maximum total fee, including the base fee.
+
+* maxPriorityFeePerGas : Recommended to be set to 0 for ZKsync transactions.
+
+ZKsync Chains do not have a concept of priority fees; therefore, the maxPriorityFeePerGas parameter is not utilized
+
+##
+EIP-712: 0x71
+EIP-712: Typed structured data hashing and signing
+enables structured data hashing and signing within transactions.
+ZKsync Chains use this for features like native account abstraction and paymasters .
+"gasPerPubdata" : "1212" ,
+"customSignature" : "0x..." ,
+"paymasterParams" : {
+"paymaster" : "0x..." ,
+"paymasterInput" : "0x..."
+},
+"factoryDeps" : [ "0x..." ]
+
+* gasPerPubdata : Specifies the maximum gas payable per byte of public data.
+
+* customSignature : For transactions where the account is not an externally owned account (EOA).
+
+* paymasterParams : Configuration for custom paymasters, including address and inputs.
+
+* factoryDeps : Includes bytecode of contracts for deployment, essential for factory contracts.
+
+EIP-712 transactions are designated with a transaction_type of 113 due to the one-byte limit, differing from 712 .
+Instead of signing the RLP-encoded transaction, the user signs the following typed EIP-712 structure:
+
+* txType: uint256
+
+* from: uint256
+
+* to: uint256
+
+* gasLimit: uint256
+
+* gasPerPubdataByteLimit: uint256
+
+* maxFeePerGas: uint256
+
+* maxPriorityFeePerGas: uint256
+
+* paymaster: uint256
+
+* nonce: uint256
+
+* value: uint256
+
+* data: bytes
+
+* factoryDeps: bytes32[]
+
+* paymasterInput: bytes
+
+These fields are handled by our SDKs.
+
+##
+Priority: 0xff
+Each of these transaction types ensures that while a ZKsync Chain remains closely aligned with Ethereum standards,
+it also optimizes for its Layer 2 specific needs and functionalities.
+
+EraVM Overview
+Learn about protocol specifications for EraVM chains.
+
+Blocks and batches
+Explore how ZKsync Chains processes transactions by grouping them into blocks and batches, the role of sealing blocks, and the importance of rollbacks in the virtual machine.
+
+Table of Contents
+* Workflow of Transactions
+
+* Transaction data
+
+* Contract Deployment Transactions
+
+* Transaction statuses
+
+* Transaction types
+* Legacy: 0x0
+
+* EIP-2930: 0x1
+
+* EIP-1559: 0x2
+
+* EIP-712: 0x71
+
+* Priority: 0xff
+
+Edit this page Share feedback Open in ChatGPT Open in Claude Get Help
+
+Made with ❤️ by the ZKsync Community

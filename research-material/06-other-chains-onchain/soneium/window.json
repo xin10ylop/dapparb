@@ -1,0 +1,108 @@
+{
+ "chain": "soneium",
+ "head_at_pin": 28846784,
+ "end_tag": "latest",
+ "head_margin": 5,
+ "start_block": 28844980,
+ "end_block": 28846779,
+ "start_timestamp": 1790824711,
+ "end_timestamp": 1790828309,
+ "window_rule": "all blocks with timestamp in (end_timestamp - 3600 s, end_timestamp]",
+ "window_seconds_requested": 3600,
+ "pinned_at_utc": "2026-10-01T04:18:41Z",
+ "chain_id": 1868,
+ "endpoints": {
+  "primary": "https://soneium-rpc.publicnode.com",
+  "fallbacks": [
+   "https://rpc.soneium.org"
+  ]
+ },
+ "config": {
+  "chain_id": 1868,
+  "window_s": 3600,
+  "end_tag": "latest",
+  "head_margin": 5,
+  "batch": 4,
+  "seg_blocks": 300,
+  "nominal_interval": 2.0,
+  "sentinel": "EVM_CENSUS_SONEIUM",
+  "extra_logs": {},
+  "extra_data_text": false
+ },
+ "status": "complete",
+ "collector": "census.py",
+ "finalized_at_utc": "2026-10-01T04:18:52Z",
+ "n_blocks_in_window": 1800,
+ "measured_block_interval_s": 2.0,
+ "measured_block_interval_note": "(end_timestamp - start_timestamp) / (end_block - start_block); timestamps have 1 s resolution",
+ "counts": {
+  "blocks_written": 1800,
+  "txs": 21002,
+  "reverted": 106,
+  "candidates_A": 481,
+  "candidates_B": 115,
+  "extra": {},
+  "receipts_not_in_block_tx_list": 0,
+  "distinct_topic0_keys": 181,
+  "gap_blocks": 0
+ },
+ "files": {
+  "blocks": {
+   "files": [
+    "blocks.csv.gz"
+   ],
+   "lines_including_headers": 1801,
+   "sizes_bytes": {
+    "blocks.csv.gz": 103698
+   }
+  },
+  "txs": {
+   "files": [
+    "txs-001.csv.gz"
+   ],
+   "lines_including_headers": 21003,
+   "sizes_bytes": {
+    "txs-001.csv.gz": 1202837
+   }
+  },
+  "reverted": {
+   "files": [
+    "reverted-001.csv.gz"
+   ],
+   "lines_including_headers": 107,
+   "sizes_bytes": {
+    "reverted-001.csv.gz": 8804
+   }
+  },
+  "candidates": {
+   "files": [
+    "candidates-001.jsonl.gz"
+   ],
+   "lines_including_headers": 596,
+   "sizes_bytes": {
+    "candidates-001.jsonl.gz": 447791
+   }
+  }
+ },
+ "checks": {
+  "parent_hash_breaks_at": [],
+  "blocks_missing_from_blocks_csv": [],
+  "n_blocks_missing": 0,
+  "canonical_recheck": {
+   "28844980": {
+    "rpc_hash": "0x0fd2bf4a89532629a8baee648516982481b5b8e37ae2f9a800264e2b6cf2b708",
+    "stored_hash": "0x0fd2bf4a89532629a8baee648516982481b5b8e37ae2f9a800264e2b6cf2b708",
+    "match": true
+   },
+   "28846779": {
+    "rpc_hash": "0x49c29a635a75520f6356cdfd7615f63d0f55962dc589e872eecc186eca88b46e",
+    "stored_hash": "0x49c29a635a75520f6356cdfd7615f63d0f55962dc589e872eecc186eca88b46e",
+    "match": true
+   }
+  }
+ },
+ "rpc_requests_by_endpoint": {
+  "https://soneium-rpc.publicnode.com": 450
+ },
+ "rpc_errors_by_endpoint_kind": {}
+}

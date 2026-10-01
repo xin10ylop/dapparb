@@ -1,0 +1,27 @@
+[
+ {
+  "file": "docs.inkonchain.com_tools_rpc.txt",
+  "start": "Subblocks (formerly Flashblocks) are partial blocks",
+  "end": "before the block is sealed."
+ },
+ {
+  "file": "docs.inkonchain.com_tools_rpc.txt",
+  "start": "A pre-confirmation carries the sequencer",
+  "end": "do not treat them as authoritative."
+ },
+ {
+  "file": "docs.inkonchain.com_general_about.txt",
+  "start": "* Security : Sequencer-level security",
+  "end": "malicious intents and exploits."
+ },
+ {
+  "file": "docs.inkonchain.com_useful-information_the-superchain.txt",
+  "start": "Ink is an OP Chain (Ethereum Layer 2)",
+  "end": "which is part of the Superchain."
+ },
+ {
+  "file": "docs.inkonchain.com_useful-information_the-superchain.txt",
+  "start": "Configuration options for OP Chains",
+  "end": "sequencer address, etc."
+ }
+]

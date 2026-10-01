@@ -1,0 +1,286 @@
+SOURCE_URL: https://docs.soneium.org/docs/builders/faq
+FINAL_URL: https://docs.soneium.org/docs/builders/faq
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:46Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+FAQ | Soneium Docs
+
+*
+
+*
+
+*
+
+*
+*
+*
+*
+*
+*
+
+*
+
+*
+* Skip to main content
+
+Developers Learn Users About
+
+Search Docs...
+
+* Build on Soneium
+
+* Notices
+
+* Restriction on Write Path to Sequencer
+
+* Network Information
+
+* Soneium Contracts
+
+* Fees
+
+*
+
+* Tools
+
+* Node Providers
+
+* User Onboarding
+
+* Account Abstraction
+
+* Debuggers
+
+* Explorers
+
+* Faucets
+
+* Indexers
+
+* Interoperability
+
+* Onramps
+
+* Oracles
+
+* VRFs
+
+* Client Integration
+
+* Viem
+
+* Web3.js
+
+* Ethers.js
+
+* FAQ
+
+*
+
+* FAQ
+
+On this page
+
+## FAQ
+
+info
+This page addresses commonly asked questions about the architecture and operation of the Soneium Minato Testnet, which is built using Optimism's OP Stack . As a result, many questions, even if not explicitly listed here, can be answered by referring to standard OP chain documentation. We recommend reviewing the details on the differences between Ethereum and OP chains here . The information provided here will likely apply to the Soneium Mainnet as well, once it is released.
+
+## General ​
+
+## How Does Consensus Work on Soneium? ​
+
+Soneium uses the Optimism OP Stack and operates as an Optimistic Rollup . This means Soneium relies on the consensus mechanism (Proof of Stake) of its parent chain instead of providing its own. In the case of Soneium Minato, the parent blockchain is Ethereum Sepolia. For Soneium Mainnet, it will be Ethereum Mainnet. More in-depth information can be found in the relevant OP Stack documentation .
+
+## What Will Be the Native Token on Soneium? ​
+
+Currently, there are no plans for a native token on Soneium. Our native gas token is ETH (18 decimals).
+
+## Is There a Canonical Bridge Available for Soneium? ​
+
+Yes, please refer to the Soneium bridges page .
+
+## Does Soneium Support Every EVM Opcode? ​
+
+Yes, the OP Stack is designed to be EVM-equivalent . However, there are a few minor differences .
+
+## What Is Soneium’s Block Time? ​
+
+The block time on Soneium is set to 2 seconds.
+
+## Is There a Status Page Available for Soneium? ​
+
+There is currently no status page for Soneium, but it is on the roadmap — stay tuned!
+
+## Transactions ​
+
+## How Are Transaction Fees Calculated on Soneium? ​
+
+Please see the dedicated Fees page .
+
+## How Does Transaction Handling on Soneium Differ from Ethereum? ​
+
+The mempool is private (only visible to the Sequencer), and transactions are executed in priority fee order (highest fee first).
+
+## How to Determine the Status of a Transaction? ​
+
+There are three possible states for transactions on Soneium:
+
+* Unsafe Transactions : Transactions that have been processed but are not yet written to Ethereum. A batcher fault might cause these transactions to be dropped.
+
+* Safe Transactions : Transactions that are already processed and written to Ethereum but might be dropped due to a reorganization at the L1 level.
+
+* Finalized Transactions : Transactions that are written to an Ethereum block that is old enough to be extremely unlikely to be re-organized.
+
+Example: Determining the Status of a Transaction
+
+* Validate that your transaction is included in a specific block. This can be done using the eth_getBlockByNumber JSON-RPC call and inspecting the transactions object to locate your transaction hash:
+
+curl http://rpc.minato.soneium.org \
+
+-X POST \
+
+-H "Content-Type: application/json" \
+
+-d '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x24df4f", false],"id":1}' | jq -r '.result.transactions[]'
+
+* Depending on your use case, get the number of the latest safe or finalized block. If the result is greater than or equal to the block number of the transaction, the transaction is considered safe or finalized . This can be done using the eth_getBlockByNumber JSON-RPC call together with the safe or finalized parameter:
+
+curl http://rpc.minato.soneium.org \
+
+-X POST \
+
+-H "Content-Type: application/json" \
+
+-d '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["finalized", false],"id":1}' | jq -r '.result.number'
+
+note
+A Soneium Minato block is considered finalized when it has been included in a block by the Sequencer, that block has been published to Ethereum Sepolia, and the corresponding Ethereum Sepolia block has been finalized . This means the status of the Soneium Minato block is derived from the underlying Ethereum Sepolia chain.
+
+## Node ​
+
+## Operation ​
+
+## Hardware Requirements ​
+
+We recommend using the i3.2xlarge AWS instance type or equivalent hardware. If you want to set it up as a public RPC, you will need to adjust node resources based on your traffic. Please also consider the official Optimism documentation on the topic.
+
+## Are Public Snapshots Available? ​
+
+Currently, no snapshots are available.
+
+## How Can Our Project Obtain a Private Archive RPC Node? ​
+
+Please contact Startale Cloud Services (SCS) with your request.
+
+## Interaction ​
+
+Soneium uses the Optimism OP Stack and its op-geth execution client, which is a fork of the go-ethereum client (also known as geth ). The following is a selection of frequently asked questions related to op-geth .
+
+tip
+In general, op-geth can be considered functionally equivalent to the standard geth client. For a list of implementation differences, please refer to the official op-geth documentation .
+
+## Does the Soneium Node Support Ethereum’s Standard JSON-RPC API? ​
+
+Yes, the standard JSON-RPC API is supported by op-geth . Additionally, JSON-RPC API responses also include L1 gas usage and price information.
+
+## Does the Soneium Node Support Standard geth Flags Like Specifying a Data Directory or Logging to stdout / stderr ? ​
+
+Yes, op-geth supports all standard geth flags . It logs to the console by default and also allows you to specify a custom read/write data directory using the --datadir flag.
+
+## Does the Soneium Node Support Sending EIP-1559 Transactions Through the JSON-RPC API? ​
+
+Yes, all transaction types , including 0x0 (legacy transactions), 0x1 (introduced in EIP-2930 ), and 0x2 (introduced in EIP-1559 ) are supported through the JSON-RPC API.
+
+## Does the Soneium Node Support EIP-1898? ​
+
+Yes, this feature is supported in op-geth . With EIP-1898 , an additional blockHash option was added to JSON-RPC methods that support the defaultBlock parameter.
+
+## Does the Soneium Node Support All Error Messages Observed on geth ? ​
+
+Yes.
+
+## Tooling ​
+
+## Block Explorer ​
+
+## What Is the Genesis Date of Soneium Minato Testnet? ​
+
+The Soneium Minato Testnet uses the BlockScout block explorer . The data for the genesis block can be found by looking up block #0 here .
+
+Date of Genesis Block : 1723194336 (Aug-09-2024 09:05:36 AM +UTC)
+
+## How to Obtain the ABI of Verified Contracts with the Block Explorer API? ​
+
+Please refer to the available API documentation here .
+
+Example: Get ABI for a Verified Contract
+
+https://soneium-minato.blockscout.com/api
+
+?module = contract
+
+& action = getabi
+
+& address = 0x4200000000000000000000000000000000000006
+
+On This Page
+
+* General
+* How Does Consensus Work on Soneium?
+
+* What Will Be the Native Token on Soneium?
+
+* Is There a Canonical Bridge Available for Soneium?
+
+* Does Soneium Support Every EVM Opcode?
+
+* What Is Soneium’s Block Time?
+
+* Is There a Status Page Available for Soneium?
+
+* Transactions
+* How Are Transaction Fees Calculated on Soneium?
+
+* How Does Transaction Handling on Soneium Differ from Ethereum?
+
+* How to Determine the Status of a Transaction?
+
+* Node
+* Operation
+
+* Interaction
+
+* Tooling
+* Block Explorer
+
+More
+Join our community Follow us Receive latest updates
+
+Bridge
+
+* Bridge
+
+Community
+
+* Ecosystem
+
+Developers
+
+* Let's Build
+
+* GitHub
+
+* Block Explorer
+
+About
+
+* Vision
+
+* Blog
+
+* Contact Us
+
+copyright: © 2026 Soneium Foundation. All rights reserved. Privacy policy
+Terms of Use

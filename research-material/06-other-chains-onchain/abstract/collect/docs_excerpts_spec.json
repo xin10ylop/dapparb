@@ -1,0 +1,27 @@
+[
+ {
+  "file": "docs.abs.xyz_how-abstract-works_architecture_components_sequencer.md.txt",
+  "start": "The sequencer is composed of several services",
+  "end": "send these batches to Ethereum."
+ },
+ {
+  "file": "docs.abs.xyz_how-abstract-works_architecture_components_sequencer.md.txt",
+  "start": "Once transactions are received through the RPC API, the sequencer processes them,",
+  "end": "constraints of the proving system."
+ },
+ {
+  "file": "docs.abs.xyz_how-abstract-works_architecture_transaction-lifecycle.md.txt",
+  "start": "The transaction is executed and soft confirmation is",
+  "end": "batch containing transactions from multiple blocks."
+ },
+ {
+  "file": "docs.abs.xyz_how-abstract-works_evm-differences_gas-fees.md.txt",
+  "start": "| **Fee Composition** |",
+  "end": "Split between offchain (fixed) and onchain (variable) components. |"
+ },
+ {
+  "file": "docs.abs.xyz_how-abstract-works_system-contracts_list-of-system-contracts.md.txt",
+  "start": "This contract holds the balances of ETH for all accounts on the L2",
+  "end": "**Contract Address:** `0x000000000000000000000000000000000000800a`"
+ }
+]

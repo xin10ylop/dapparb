@@ -957,5 +957,103 @@
   "title": "GeckoTerminal Public API v2 (OpenAPI/Swagger definition)",
   "authors_or_org": "GeckoTerminal (CoinGecko)",
   "access_notes": "the engine's V4 pool list came from GeckoTerminal pool listings (bot/src/research/tokens.ts, bot/src/pools/v4file.ts); this is the API definition incl. pagination and rate-limit text"
+ },
+ {
+  "slug": "esma-trv-2025-maximal-extractable-value-crypto-markets",
+  "kind": "pdf",
+  "url": "https://www.esma.europa.eu/sites/default/files/2025-07/ESMA50-481369926-29744_Maximal_Extractable_Value_Implications_for_crypto_markets.pdf",
+  "question_lines": [
+   "Q7-CHAINWIDE-METHOD",
+   "Q4-OTHERCHAINS",
+   "Q5-CONTEST"
+  ],
+  "title": "Maximal Extractable Value - Implications for crypto markets (ESMA TRV Risk Analysis, Financial Innovation; ESMA50-481369926-29744)",
+  "authors_or_org": "European Securities and Markets Authority (ESMA); page 3 footnote 1: 'This article was written by Anne Chone and Max Diaz I Canals.'",
+  "publication_date": "1 July 2025 (stated on the cover page)",
+  "access_notes": "added 2026-10-01: provenance-tracked copy of the paper present only as 00-prior-runs/papers-fetched-earlier/esma.txt.gz; PDF is the 'Main Document' linked from https://www.esma.europa.eu/document/trv-article-maximal-extractable-value-implications-crypto-markets (landing page looked up 2026-10-01, see searches.csv)"
+ },
+ {
+  "slug": "arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools",
+  "kind": "arxiv",
+  "id": "2601.19570",
+  "question_lines": [
+   "Q4-OTHERCHAINS",
+   "Q7-CHAINWIDE-METHOD",
+   "Q5-CONTEST"
+  ],
+  "access_notes": "added 2026-10-01: provenance-tracked copy of the paper present only as 00-prior-runs/papers-fetched-earlier/sandwich-l2.txt.gz (that copy shows arXiv:2601.19570v1 in its page-1 margin)"
+ },
+ {
+  "slug": "github-m1kuw1ll-base-arbitrage-competition-base-atomic-arbitrage-sql",
+  "kind": "text",
+  "ext": "sql",
+  "url": "https://raw.githubusercontent.com/M1kuW1ll/base_arbitrage_competition/ea76128dc4ca9147941aee9da352ac608ecc6a79/base_atomic_arbitrage.sql",
+  "question_lines": [
+   "DATA-AVAILABILITY",
+   "Q7-CHAINWIDE-METHOD",
+   "Q7-BASE-21M"
+  ],
+  "title": "base_atomic_arbitrage.sql (GitHub repository M1kuW1ll/base_arbitrage_competition, commit ea76128d)",
+  "authors_or_org": "GitHub repository M1kuW1ll/base_arbitrage_competition (git author of commit ea76128d: Fei Wu)",
+  "publication_date": "commit ea76128dc4ca9147941aee9da352ac608ecc6a79, committed 2026-08-04T11:33:33+01:00 (git metadata; the repository's only branch main pointed to this commit on 2026-10-01)",
+  "access_notes": "added 2026-10-01: file of the repository named as 'Source Code' (Supplementary Material) on page 1 of arXiv 2606.00720v2; the repository has no README (5 files at this commit, listing in collect/list_repo_wu_oz.log); fetched from raw.githubusercontent.com pinned to the commit hash"
+ },
+ {
+  "slug": "github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-by-bot-sql",
+  "kind": "text",
+  "ext": "sql",
+  "url": "https://raw.githubusercontent.com/M1kuW1ll/base_arbitrage_competition/ea76128dc4ca9147941aee9da352ac608ecc6a79/base_bot_spam_weekly_by_bot.sql",
+  "question_lines": [
+   "DATA-AVAILABILITY",
+   "Q7-CHAINWIDE-METHOD",
+   "Q7-PROFIT-28"
+  ],
+  "title": "base_bot_spam_weekly_by_bot.sql (GitHub repository M1kuW1ll/base_arbitrage_competition, commit ea76128d)",
+  "authors_or_org": "GitHub repository M1kuW1ll/base_arbitrage_competition (git author of commit ea76128d: Fei Wu)",
+  "publication_date": "commit ea76128dc4ca9147941aee9da352ac608ecc6a79, committed 2026-08-04T11:33:33+01:00 (git metadata; the repository's only branch main pointed to this commit on 2026-10-01)",
+  "access_notes": "added 2026-10-01: file of the repository named as 'Source Code' (Supplementary Material) on page 1 of arXiv 2606.00720v2; the repository has no README (5 files at this commit, listing in collect/list_repo_wu_oz.log); fetched from raw.githubusercontent.com pinned to the commit hash"
+ },
+ {
+  "slug": "github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-summary-sql",
+  "kind": "text",
+  "ext": "sql",
+  "url": "https://raw.githubusercontent.com/M1kuW1ll/base_arbitrage_competition/ea76128dc4ca9147941aee9da352ac608ecc6a79/base_bot_spam_weekly_summary.sql",
+  "question_lines": [
+   "DATA-AVAILABILITY",
+   "Q7-CHAINWIDE-METHOD",
+   "Q7-PROFIT-28"
+  ],
+  "title": "base_bot_spam_weekly_summary.sql (GitHub repository M1kuW1ll/base_arbitrage_competition, commit ea76128d)",
+  "authors_or_org": "GitHub repository M1kuW1ll/base_arbitrage_competition (git author of commit ea76128d: Fei Wu)",
+  "publication_date": "commit ea76128dc4ca9147941aee9da352ac608ecc6a79, committed 2026-08-04T11:33:33+01:00 (git metadata; the repository's only branch main pointed to this commit on 2026-10-01)",
+  "access_notes": "added 2026-10-01: file of the repository named as 'Source Code' (Supplementary Material) on page 1 of arXiv 2606.00720v2; the repository has no README (5 files at this commit, listing in collect/list_repo_wu_oz.log); fetched from raw.githubusercontent.com pinned to the commit hash"
+ },
+ {
+  "slug": "github-m1kuw1ll-base-arbitrage-competition-base-pool-commitment-inputs-by-hash-sql",
+  "kind": "text",
+  "ext": "sql",
+  "url": "https://raw.githubusercontent.com/M1kuW1ll/base_arbitrage_competition/ea76128dc4ca9147941aee9da352ac608ecc6a79/base_pool_commitment_inputs_by_hash.sql",
+  "question_lines": [
+   "DATA-AVAILABILITY",
+   "Q7-CHAINWIDE-METHOD"
+  ],
+  "title": "base_pool_commitment_inputs_by_hash.sql (GitHub repository M1kuW1ll/base_arbitrage_competition, commit ea76128d)",
+  "authors_or_org": "GitHub repository M1kuW1ll/base_arbitrage_competition (git author of commit ea76128d: Fei Wu)",
+  "publication_date": "commit ea76128dc4ca9147941aee9da352ac608ecc6a79, committed 2026-08-04T11:33:33+01:00 (git metadata; the repository's only branch main pointed to this commit on 2026-10-01)",
+  "access_notes": "added 2026-10-01: file of the repository named as 'Source Code' (Supplementary Material) on page 1 of arXiv 2606.00720v2; the repository has no README (5 files at this commit, listing in collect/list_repo_wu_oz.log); fetched from raw.githubusercontent.com pinned to the commit hash"
+ },
+ {
+  "slug": "github-m1kuw1ll-base-arbitrage-competition-tx-classifier-subtree-py",
+  "kind": "text",
+  "ext": "py",
+  "url": "https://raw.githubusercontent.com/M1kuW1ll/base_arbitrage_competition/ea76128dc4ca9147941aee9da352ac608ecc6a79/tx_classifier_subtree.py",
+  "question_lines": [
+   "DATA-AVAILABILITY",
+   "Q7-CHAINWIDE-METHOD"
+  ],
+  "title": "tx_classifier_subtree.py (GitHub repository M1kuW1ll/base_arbitrage_competition, commit ea76128d)",
+  "authors_or_org": "GitHub repository M1kuW1ll/base_arbitrage_competition (git author of commit ea76128d: Fei Wu)",
+  "publication_date": "commit ea76128dc4ca9147941aee9da352ac608ecc6a79, committed 2026-08-04T11:33:33+01:00 (git metadata; the repository's only branch main pointed to this commit on 2026-10-01)",
+  "access_notes": "added 2026-10-01: file of the repository named as 'Source Code' (Supplementary Material) on page 1 of arXiv 2606.00720v2; the repository has no README (5 files at this commit, listing in collect/list_repo_wu_oz.log); fetched from raw.githubusercontent.com pinned to the commit hash"
  }
 ]

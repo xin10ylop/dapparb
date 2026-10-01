@@ -1,0 +1,32 @@
+SOURCE_URL: https://docs.mantle.xyz/network/system-information/architecture.md
+FINAL_URL: https://docs.mantle.xyz/network/system-information/architecture.md
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:46Z
+EXTRACTION: raw markdown/plain-text body, unmodified; gzip copy in the .raw.gz file next to this one
+
+> For the complete documentation index, see [llms.txt](https://docs.mantle.xyz/network/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.mantle.xyz/network/system-information/architecture.md).
+
+# Architecture
+
+## Architecture Overviews[​](https://docs-v2.mantle.xyz/intro/system-components/architecture#architecture-overviews) <a href="#architecture-overviews" id="architecture-overviews"></a>
+
+<figure><img src="https://3885809119-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FQliZlRNwHhmzesDU1Ksq%2Fuploads%2FFYPlHUa4uy0zXD5u0SLP%2Fimage.png?alt=media&amp;token=fd249467-eff3-479e-8bb4-53800c38267e" alt=""><figcaption></figcaption></figure>
+
+This diagram illustrates how different network modules interact in Mantle v2 Skadi after the upgrade to **ZK Validity Proofs**. It shows how the execution layer, ZK proving module, and Ethereum DA (blobs) collaborate to process transactions, store rollup data, generate validity proofs, and publish verified state updates to Ethereum L1.
+
+Let's review the end-to-end transaction processing pipeline to understand how each module participates in Mantle’s architecture.
+
+1. Users send signed transactions to Mantle through RPC nodes, which forward them to the sequencer for processing.
+2. The sequencer orders incoming transactions and produces Rollup blocks. The `op-batcher` periodically collects Rollup blocks, encodes and compresses the rollup data, and submits it to Ethereum L1 using EIP-4844 blob-carrying transactions. The corresponding blob commitments are posted on-chain and serve as the canonical data reference for data availability and subsequent ZK validity proving.
+3. The **`Mantle-Succinct-Proposer`** periodically submits Mantle’s **ZK validity proofs** to the `MantleSuccinctL2OutputOracle` contract on Ethereum L1.
+4. Rollup transaction data is stored on Ethereum L1 and acts as the public data source for ZK proving.
+
+{% hint style="info" %}
+If you would like to learn more about on-chain and off-chain design in the Mantle Network, check out the [**on-chain system**](/network/system-information/on-chain-system.md) and [**off-chain system**](/network/system-information/off-chain-system.md) pages!
+{% endhint %}
+
+## Transaction Pool in Mantle[​](https://docs-v2.mantle.xyz/devs/concepts/tx-lifecycle#transaction-pool-in-mantle) <a href="#transaction-pool-in-mantle" id="transaction-pool-in-mantle"></a>
+
+In Mantle v2, a transaction pool structure similar to Ethereum's mempool is introduced for the temporary storage of transactions until they are included in a block. The introduction of the transaction pool in Rollup is aimed at improving transaction packing. With Mantle v2 Tectonic's support for [EIP-1559 transaction types](/network/more/glossary.md#eip-1559-transaction), users can control the transaction packing speed by manipulating the priority fee in transactions. The transaction pool is used to temporarily store those unpacked transactions.
+
+However, the introduction of the transaction pool also brings certain challenges, such as the impact of Miner Extractable Value (MEV). Therefore, in Mantle v2 Tectonic, the tx pool is designed to be private. If you want to submit a transaction, you need to configure [`op-geth`](/network/system-information/off-chain-system/node-introduction.md#op-geth) to send the transaction to the sequencer. The sequencer will then process transactions in the transaction pool in the order of their base fee and priority fee.

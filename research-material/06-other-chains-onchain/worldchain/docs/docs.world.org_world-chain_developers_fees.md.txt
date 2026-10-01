@@ -1,0 +1,21 @@
+SOURCE_URL: https://docs.world.org/world-chain/developers/fees.md
+FINAL_URL: https://docs.world.org/world-chain/developers/fees.md
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:47Z
+EXTRACTION: raw markdown/plain-text body, unmodified; gzip copy in the .raw.gz file next to this one
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.world.org/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Transaction Fees
+
+> Understand World Chain fees: L2 execution vs L1 security costs, variability, and ways to optimize gas.
+
+Every World Chain transaction consists of two costs: an L2 (execution) fee and an L1 (security) fee. The L2 fee is the cost to execute your transaction on the L2, while the L1 fee covers the estimated cost of publishing the transaction on the L1. Typically, the L1 security fee is higher than the L2 execution fee.
+
+The L1 fee fluctuates depending on the volume of transactions on the L1. If your transaction timing is flexible, you can save on costs by submitting during periods of lower gas fees on the L1 (for example, weekends) or using products like [GasHawk](https://gashawk.io/) which schedule transactions during periods of low demand.
+
+Similarly, the L2 fee can vary based on the number of transactions submitted to the L2. This dynamic adjustment works similarly to the L1; you can learn more about it [here](https://blog.thirdweb.com/eip-1559-ethereum-gas-fees/).
+
+For additional details about fee calculation on World Chain, please refer to the relevant [op-stack developer documentation](https://docs.optimism.io/stack/transactions/fees).

@@ -1,0 +1,115 @@
+{
+ "chain": "mantle",
+ "head_at_pin": 101349003,
+ "end_tag": "latest",
+ "head_margin": 5,
+ "start_block": 101347199,
+ "end_block": 101348998,
+ "start_timestamp": 1790824710,
+ "end_timestamp": 1790828308,
+ "window_rule": "all blocks with timestamp in (end_timestamp - 3600 s, end_timestamp]",
+ "window_seconds_requested": 3600,
+ "pinned_at_utc": "2026-10-01T04:18:41Z",
+ "chain_id": 5000,
+ "endpoints": {
+  "primary": "https://mantle-rpc.publicnode.com",
+  "fallbacks": [
+   "https://rpc.mantle.xyz",
+   "https://mantle.drpc.org"
+  ]
+ },
+ "config": {
+  "chain_id": 5000,
+  "window_s": 3600,
+  "end_tag": "latest",
+  "head_margin": 5,
+  "batch": 10,
+  "seg_blocks": 300,
+  "nominal_interval": 2.0,
+  "sentinel": "EVM_CENSUS_MANTLE",
+  "extra_logs": {},
+  "extra_data_text": false
+ },
+ "status": "complete",
+ "collector": "census.py",
+ "finalized_at_utc": "2026-10-01T04:19:38Z",
+ "n_blocks_in_window": 1800,
+ "measured_block_interval_s": 2.0,
+ "measured_block_interval_note": "(end_timestamp - start_timestamp) / (end_block - start_block); timestamps have 1 s resolution",
+ "counts": {
+  "blocks_written": 1800,
+  "txs": 2444,
+  "reverted": 47,
+  "candidates_A": 19,
+  "candidates_B": 19,
+  "extra": {},
+  "receipts_not_in_block_tx_list": 0,
+  "distinct_topic0_keys": 88,
+  "gap_blocks": 0
+ },
+ "files": {
+  "blocks": {
+   "files": [
+    "blocks.csv.gz"
+   ],
+   "lines_including_headers": 1801,
+   "sizes_bytes": {
+    "blocks.csv.gz": 93060
+   }
+  },
+  "txs": {
+   "files": [
+    "txs-001.csv.gz"
+   ],
+   "lines_including_headers": 2445,
+   "sizes_bytes": {
+    "txs-001.csv.gz": 129708
+   }
+  },
+  "reverted": {
+   "files": [
+    "reverted-001.csv.gz"
+   ],
+   "lines_including_headers": 48,
+   "sizes_bytes": {
+    "reverted-001.csv.gz": 4057
+   }
+  },
+  "candidates": {
+   "files": [
+    "candidates-001.jsonl.gz"
+   ],
+   "lines_including_headers": 38,
+   "sizes_bytes": {
+    "candidates-001.jsonl.gz": 29509
+   }
+  }
+ },
+ "checks": {
+  "parent_hash_breaks_at": [],
+  "blocks_missing_from_blocks_csv": [],
+  "n_blocks_missing": 0,
+  "canonical_recheck": {
+   "101347199": {
+    "rpc_hash": "0x58d3fe9c2a75e71d83d59c282d886bb00616410e11d5245e6ff20f83856d9ffd",
+    "stored_hash": "0x58d3fe9c2a75e71d83d59c282d886bb00616410e11d5245e6ff20f83856d9ffd",
+    "match": true
+   },
+   "101348998": {
+    "rpc_hash": "0x34b11dfee667892dcffc7b1d6cc65ec380f335952f4d04a802e4158d9678b945",
+    "stored_hash": "0x34b11dfee667892dcffc7b1d6cc65ec380f335952f4d04a802e4158d9678b945",
+    "match": true
+   }
+  }
+ },
+ "rpc_requests_by_endpoint": {
+  "https://mantle-rpc.publicnode.com": 215,
+  "https://mantle.drpc.org": 2
+ },
+ "rpc_errors_by_endpoint_kind": {
+  "https://mantle-rpc.publicnode.com|retry": 17,
+  "https://mantle-rpc.publicnode.com|item-retry": 170,
+  "https://mantle.drpc.org|retry": 2,
+  "https://mantle.drpc.org|item-retry": 20
+ }
+}

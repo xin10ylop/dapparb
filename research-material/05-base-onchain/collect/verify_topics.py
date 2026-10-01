@@ -13,9 +13,15 @@ Method: base.blockscout.com etherscan-compatible API module=logs&action=getLogs&
         confirming a log with that topic0 at that emitter exists in it. If nothing is found, the example columns stay
         empty and verification_method says which windows were searched.
 Sequential, 1 in-flight per endpoint, backoff on 429/5xx/timeouts. Writes ../swap-topics.csv after every topic;
-resumable (rows that already have verified_example_tx are kept and not re-queried).
+resumable (rows that already have verified_example_tx are kept and not re-queried; since 2026-10-01 also rows whose
+"no log found" search covered all 4 windows of the same pinned head with no failed window).
+Rate limit (added 2026-10-01): an HTTP 429 from Blockscout that carries x-ratelimit-reset (ms) is waited out
+(reset + 5 s, at most 1800 s) up to 8 times per window before the normal 6 tries/backoff apply.
+Optional: --head N pins head N instead of (live eth_blockNumber - 20). Added 2026-10-01 so the re-run after the
+container restart searched the same windows as the first run (head 52007824):
+    python3 -u verify_topics.py --head 52007824
 """
-import csv, json, os, sys, time
+import argparse, csv, json, os, sys, time
 import requests
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -45,12 +51,23 @@ def rpc(method, params):
     return None
 
 
+RL_WAITS = 8        # per window: HTTP 429 answers that carry x-ratelimit-reset are waited out this many times (not counted as tries)
+RL_CAP_S = 1800     # longest single wait for x-ratelimit-reset (s)
+
+
 def bs_logs(t, lo, hi):
-    back = 5
-    for i in range(6):
+    back = 5; rl = 0; i = 0
+    while i < 6:
         time.sleep(3)
         try:
             r = S.get(BS, params={'module': 'logs', 'action': 'getLogs', 'fromBlock': lo, 'toBlock': hi, 'topic0': t}, timeout=120)
+            reset = r.headers.get('x-ratelimit-reset', '')
+            if r.status_code == 429 and reset.isdigit() and rl < RL_WAITS:
+                # added 2026-10-01: Blockscout sends x-ratelimit-limit (10) and x-ratelimit-reset (ms until the quota resets)
+                rl += 1; wait = min(int(reset) / 1000.0 + 5, RL_CAP_S)
+                log('blockscout 429', t[:10], lo, hi, 'x-ratelimit-limit', r.headers.get('x-ratelimit-limit'),
+                    'x-ratelimit-reset_ms', reset, 'waiting %.0f s (rate-limit wait %d/%d)' % (wait, rl, RL_WAITS))
+                time.sleep(wait); continue
             if r.status_code == 429 or r.status_code >= 500:
                 raise RuntimeError('http %d' % r.status_code)
             j = r.json()
@@ -62,6 +79,7 @@ def bs_logs(t, lo, hi):
             raise RuntimeError(str(j)[:200])
         except Exception as e:
             log('blockscout retry', t[:10], lo, hi, e); time.sleep(back); back = min(back * 2, 90)
+        i += 1
     return None
 
 
@@ -93,21 +111,28 @@ def write_out(rows_by_topic, order):
 
 
 def main():
-    head = int(rpc('eth_blockNumber', []), 16) - 20
-    log('pinned head', head)
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--head', type=int, default=None, help='pin this head block instead of live eth_blockNumber - 20')
+    a = ap.parse_args()
+    head = a.head if a.head is not None else int(rpc('eth_blockNumber', []), 16) - 20
+    log('pinned head', head, '(--head)' if a.head is not None else '(live eth_blockNumber - 20)')
     with open(os.path.join(HERE, 'swap_topics_used.csv')) as f:
         topics = list(csv.DictReader(f))
     done = {}
     if os.path.exists(OUT):  # resume: keep rows already verified
         with open(OUT) as f:
             for r in csv.DictReader(f):
-                if r.get('verified_example_tx'):
+                vm = r.get('verification_method', '')
+                # added 2026-10-01: also keep a finished "no log found" search of all windows for this same head
+                searched_all = (vm.startswith('no log found') and 'failed:' not in vm
+                                and vm.count('-%d' % head) == len(WINDOWS))
+                if r.get('verified_example_tx') or searched_all:
                     done[r['topic0']] = {c: r.get(c, '') for c in COLS}
     rows = dict(done)
     for tr in topics:
         t = tr['topic0']
         if t in done:
-            log(t, 'already verified, kept'); continue
+            log(t, 'already done (verified, or all windows searched), kept'); continue
         ex = None; searched = []; errs = []
         for w in WINDOWS:
             lo = max(0, head - w + 1)

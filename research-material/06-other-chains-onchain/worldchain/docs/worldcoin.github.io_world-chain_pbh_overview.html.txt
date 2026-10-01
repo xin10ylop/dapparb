@@ -1,0 +1,57 @@
+SOURCE_URL: https://worldcoin.github.io/world-chain/pbh/overview.html
+FINAL_URL: https://worldcoin.github.io/world-chain/pbh/overview.html
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:49Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+Priority Blockspace for Humans - World Chain Specs
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+## Keyboard shortcuts
+
+Press ← or → to navigate between chapters
+
+Press S or / to search in the book
+
+Press ? to show this help
+
+Press Esc to hide this help
+
+* Auto
+
+* Light
+
+* Rust
+
+* Coal
+
+* Navy
+
+* Ayu
+
+## World Chain Specs
+
+## Priority Blockspace for Humans
+
+Priority Blockspace for Humans introduces a new transaction ordering policy on World Chain that grants verified World ID holders top-of-block priority, reducing friction and making transactions fairer for real users.
+
+Where bots create congestion , PBH is a highway for humans.

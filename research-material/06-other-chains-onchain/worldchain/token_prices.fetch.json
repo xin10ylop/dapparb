@@ -1,0 +1,21 @@
+{
+ "chain": "worldchain",
+ "started_at_utc": "2026-10-01T04:30:51Z",
+ "rpc": [
+  "https://worldchain-mainnet.g.alchemy.com/public",
+  "https://480.rpc.thirdweb.com"
+ ],
+ "errors": [],
+ "n_tokens": 445,
+ "eth_call_block": "latest",
+ "eth_call_time_utc": "2026-10-01T04:31:04Z",
+ "defillama_requests": 36,
+ "price_timestamps_requested": [
+  1790824711,
+  1790826510,
+  1790828309
+ ],
+ "native_chart_url": "https://coins.llama.fi/chart/coingecko:ethereum?start=1790824711&span=13&period=5m",
+ "native_chart_http_status": 200,
+ "finished_at_utc": "2026-10-01T04:31:41Z"
+}

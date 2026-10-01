@@ -1,0 +1,24 @@
+[2026-10-01T04:37:37Z] fetch https://api.llama.fi/protocols
+[2026-10-01T04:37:38Z]   /protocols HTTP 200 9029553 bytes sha256 1890b1eeeeae7371cd514b192841fb8b3d2ccaaed43ba0c5123f45e96058c1f8
+[2026-10-01T04:37:38Z] 8440 entries in /protocols snapshot
+[2026-10-01T04:37:38Z] filter chains contains 'BSC' and category == 'Dexs': 0 entries (0 with chainTvls['BSC'], 0 without)
+no entries; chain names resembling 'BSC': []
+[2026-10-01T04:38:13Z] reuse ../dex/defillama-protocols.json.gz (not refetched)
+[2026-10-01T04:38:13Z] 8440 entries in /protocols snapshot
+[2026-10-01T04:38:13Z] filter chains contains 'Binance' and category == 'Dexs': 249 entries (247 with chainTvls['Binance'], 2 without)
+[2026-10-01T04:38:13Z] selection written: ../dex/defillama-protocols-bsc-dex-selection.csv (249 rows, 15 selected)
+[2026-10-01T04:38:13Z]    1 pancakeswap-amm chainTvls[Binance]=1878556529.9054148
+[2026-10-01T04:38:13Z]    2 pancakeswap-amm-v3 chainTvls[Binance]=273439066.29749846
+[2026-10-01T04:38:13Z]    3 uniswap-v4 chainTvls[Binance]=92168996.83554688
+[2026-10-01T04:38:13Z]    4 pancakeswap-infinity chainTvls[Binance]=76794224.41983825
+[2026-10-01T04:38:13Z]    5 uniswap-v3 chainTvls[Binance]=45714367.887075186
+[2026-10-01T04:38:13Z]    6 fstswap chainTvls[Binance]=10665381.762353702
+[2026-10-01T04:38:13Z]    7 apeswap-amm chainTvls[Binance]=9510702.346464578
+[2026-10-01T04:38:13Z]    8 lista-dex chainTvls[Binance]=7522411.429020921
+[2026-10-01T04:38:13Z]    9 biswap-v2 chainTvls[Binance]=5999528.884171665
+[2026-10-01T04:38:13Z]   10 bscswap chainTvls[Binance]=5831290.359167092
+[2026-10-01T04:38:13Z]   11 dodo-amm chainTvls[Binance]=4406047.461285335
+[2026-10-01T04:38:13Z]   12 bakeryswap chainTvls[Binance]=4114110.8057658956
+[2026-10-01T04:38:13Z]   13 pancakeswap-stableswap chainTvls[Binance]=3275171.4335606564
+[2026-10-01T04:38:13Z]   14 thena-integral chainTvls[Binance]=3019722.6057376554
+[2026-10-01T04:38:13Z]   15 uniswap-v2 chainTvls[Binance]=2832538.1997123137

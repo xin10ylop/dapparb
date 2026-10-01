@@ -1,0 +1,21 @@
+{
+ "chain": "mantle",
+ "started_at_utc": "2026-10-01T04:20:11Z",
+ "rpc": [
+  "https://mantle-rpc.publicnode.com",
+  "https://rpc.mantle.xyz"
+ ],
+ "errors": [],
+ "n_tokens": 12,
+ "eth_call_block": "latest",
+ "eth_call_time_utc": "2026-10-01T04:20:12Z",
+ "defillama_requests": 3,
+ "price_timestamps_requested": [
+  1790824710,
+  1790826509,
+  1790828308
+ ],
+ "native_chart_url": "https://coins.llama.fi/chart/coingecko:mantle?start=1790824710&span=13&period=5m",
+ "native_chart_http_status": 200,
+ "finished_at_utc": "2026-10-01T04:20:16Z"
+}

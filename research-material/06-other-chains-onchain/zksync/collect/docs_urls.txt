@@ -1,0 +1,8 @@
+https://docs.zksync.io/zksync-network/zksync-era
+https://docs.zksync.io/zksync-protocol/era-vm/transactions/transaction-lifecycle
+https://docs.zksync.io/zksync-protocol/era-vm/transactions/blocks
+https://docs.zksync.io/zksync-protocol/era-vm/contracts/bootloader
+https://docs.zksync.io/zksync-protocol/era-vm/transactions/fee-model
+https://docs.zksync.io/zk-stack/components/server
+https://docs.zksync.io/zksync-network/zksync-os
+https://docs.zksync.io/zksync-protocol/era-vm/contracts/system-contracts

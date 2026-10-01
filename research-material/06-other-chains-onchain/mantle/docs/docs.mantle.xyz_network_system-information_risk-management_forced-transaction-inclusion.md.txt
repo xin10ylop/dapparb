@@ -1,0 +1,31 @@
+SOURCE_URL: https://docs.mantle.xyz/network/system-information/risk-management/forced-transaction-inclusion.md
+FINAL_URL: https://docs.mantle.xyz/network/system-information/risk-management/forced-transaction-inclusion.md
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:51Z
+EXTRACTION: raw markdown/plain-text body, unmodified; gzip copy in the .raw.gz file next to this one
+
+> For the complete documentation index, see [llms.txt](https://docs.mantle.xyz/network/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.mantle.xyz/network/system-information/risk-management/forced-transaction-inclusion.md).
+
+# Forced Transaction Inclusion
+
+As Rollup technologies host an increasing number of digital assets, ensuring the security of your assets in the event of an Rollup security incident has become a critical concern. A robust Rollup requires the ability to force Rollup assets to be extracted at layer 1 (L1) in case of unforeseen circumstances (e.g., downtime or misbehavior of sequencers and proposers, etc.).
+
+Censorship resistance is a crucial security feature, especially concerning the sequencer in the system. In situations where the sequencer refuses to execute your transaction requests or experiences prolonged downtime, a mechanism known as forced withdrawal or forced transaction inclusion becomes essential to better safeguard user funds.
+
+## How to Enable Forced Transaction Inclusion[​](https://docs-v2.mantle.xyz/intro/risk-management/fti#how-to-enable-forced-transaction-inclusion) <a href="#how-to-enable-forced-transaction-inclusion" id="how-to-enable-forced-transaction-inclusion"></a>
+
+On all OP Stack chains, there is one and only one [`OptimismPortal`](/network/system-information/on-chain-system/contract-introduction.md#optimismportalproxy) contract. This contract allows EOAs (Externally Owned Accounts) or smart contracts to create an Rollup transaction (`depositTransaction` of `OptimismPortal`) without going through the Sequencer, and transactions submitted in this way are indistinguishable from those built by the Sequencer on Rollup.
+
+When the transaction is submitted on L1, it will be processed on a First Come, First Served (FCFS) basis, along with some [inclusion rules](https://docs.optimism.io/stack/protocol/outages#inclusion-rules). If the transaction is not published on L1 within the `sequencer_window` time, a reorganization (reorg) will occur on Rollup, and the transaction will be included in the Rollup chain.
+
+## Different Sequencer Outage Scenarios[​](https://docs-v2.mantle.xyz/intro/risk-management/fti#different-sequencer-outage-scenarios) <a href="#different-sequencer-outage-scenarios" id="different-sequencer-outage-scenarios"></a>
+
+In practical applications, we may encounter different scenarios, such as:
+
+### Sequencer Completely Down[​](https://docs-v2.mantle.xyz/intro/risk-management/fti#sequencer-completely-down) <a href="#sequencer-completely-down" id="sequencer-completely-down"></a>
+
+In this scenario, the Sequencer remains unable to function and process transactions. Users must send their transactions directly to the `OptimismPortal` contract to ensure they are included in the Rollup chain. After the `sequencer_window` time (24 hours) has passed, these transactions will be automatically included in Rollup. For more details, see [here](https://docs.optimism.io/stack/protocol/outages#total-sequencer-outage).
+
+### Sequencer Temporarily Down[​](https://docs-v2.mantle.xyz/intro/risk-management/fti#sequencer-temporarily-down) <a href="#sequencer-temporarily-down" id="sequencer-temporarily-down"></a>
+
+In this scenario, the Sequencer experiences a temporary outage and then recovers. Since the `sequencer_window` time has not yet elapsed, even though the transaction has been submitted to the OptimismPortal, it will eventually be processed by the Sequencer and included in Rollup. For more details, see [here](https://docs.optimism.io/stack/protocol/outages#partial-sequencer-outage).

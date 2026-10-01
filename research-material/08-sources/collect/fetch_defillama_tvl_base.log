@@ -1,0 +1,50 @@
+[2026-10-01T04:40:31Z] reuse ../../06-other-chains-onchain/bsc/dex/defillama-protocols.json.gz (not refetched)
+[2026-10-01T04:40:31Z] 8440 entries in /protocols snapshot
+[2026-10-01T04:40:31Z] filter chains contains 'Base' and category == 'Dexs': 172 entries (172 with chainTvls['Base'], 0 without)
+[2026-10-01T04:40:31Z] selection written: ../defillama/protocols-base-dex-selection.csv (172 rows, 15 selected)
+[2026-10-01T04:40:31Z]    1 uniswap-v3 chainTvls[Base]=331590801.86468345
+[2026-10-01T04:40:31Z]    2 aerodrome-slipstream chainTvls[Base]=228092499.71298695
+[2026-10-01T04:40:31Z]    3 aerodrome-v1 chainTvls[Base]=147001811.5293888
+[2026-10-01T04:40:31Z]    4 uniswap-v2 chainTvls[Base]=104303801.2986475
+[2026-10-01T04:40:31Z]    5 uniswap-v4 chainTvls[Base]=61270455.74696793
+[2026-10-01T04:40:31Z]    6 pancakeswap-amm-v3 chainTvls[Base]=23079318.783395566
+[2026-10-01T04:40:31Z]    7 curve-dex chainTvls[Base]=9795910.818244714
+[2026-10-01T04:40:31Z]    8 fluid-dex chainTvls[Base]=6874871.10427477
+[2026-10-01T04:40:31Z]    9 hydrex-integral chainTvls[Base]=5866801.332583518
+[2026-10-01T04:40:31Z]   10 quickswap-v4 chainTvls[Base]=3062800.3545032726
+[2026-10-01T04:40:31Z]   11 sushiswap-v3 chainTvls[Base]=1936568.2330518507
+[2026-10-01T04:40:31Z]   12 sushiswap chainTvls[Base]=1787639.767424203
+[2026-10-01T04:40:31Z]   13 elfomofi chainTvls[Base]=1234126.206540951
+[2026-10-01T04:40:31Z]   14 alien-base-v3 chainTvls[Base]=1096676.3629382856
+[2026-10-01T04:40:31Z]   15 balancer-v3 chainTvls[Base]=929267.578167861
+[2026-10-01T04:40:31Z] fetch https://api.llama.fi/protocol/uniswap-v3
+[2026-10-01T04:40:32Z]   protocols-base-dex-uniswap-v3.json.gz HTTP 200 1706983 bytes (gz 297899) application/json
+[2026-10-01T04:40:32Z] fetch https://api.llama.fi/protocol/aerodrome-slipstream
+[2026-10-01T04:40:35Z]   protocols-base-dex-aerodrome-slipstream.json.gz HTTP 200 21353890 bytes (gz 7424140) application/json
+[2026-10-01T04:40:35Z] fetch https://api.llama.fi/protocol/aerodrome-v1
+[2026-10-01T04:40:38Z]   protocols-base-dex-aerodrome-v1.json.gz HTTP 200 11706823 bytes (gz 3377240) application/json
+[2026-10-01T04:40:38Z] fetch https://api.llama.fi/protocol/uniswap-v2
+[2026-10-01T04:40:41Z]   protocols-base-dex-uniswap-v2.json.gz HTTP 200 20325092 bytes (gz 5249969) application/json
+[2026-10-01T04:40:41Z] fetch https://api.llama.fi/protocol/uniswap-v4
+[2026-10-01T04:40:43Z]   protocols-base-dex-uniswap-v4.json.gz HTTP 200 449518 bytes (gz 70229) application/json
+[2026-10-01T04:40:43Z] fetch https://api.llama.fi/protocol/pancakeswap-amm-v3
+[2026-10-01T04:40:45Z]   protocols-base-dex-pancakeswap-amm-v3.json.gz HTTP 200 558131 bytes (gz 99630) application/json
+[2026-10-01T04:40:45Z] fetch https://api.llama.fi/protocol/curve-dex
+[2026-10-01T04:40:52Z]   protocols-base-dex-curve-dex.json.gz HTTP 200 69246581 bytes (gz 20884722) application/json
+[2026-10-01T04:40:52Z] fetch https://api.llama.fi/protocol/fluid-dex
+[2026-10-01T04:40:54Z]   protocols-base-dex-fluid-dex.json.gz HTTP 200 784188 bytes (gz 241481) application/json
+[2026-10-01T04:40:54Z] fetch https://api.llama.fi/protocol/hydrex-integral
+[2026-10-01T04:40:58Z]   protocols-base-dex-hydrex-integral.json.gz HTTP 200 3349486 bytes (gz 1120885) application/json
+[2026-10-01T04:40:58Z] fetch https://api.llama.fi/protocol/quickswap-v4
+[2026-10-01T04:41:01Z]   protocols-base-dex-quickswap-v4.json.gz HTTP 200 2171362 bytes (gz 622931) application/json
+[2026-10-01T04:41:01Z] fetch https://api.llama.fi/protocol/sushiswap-v3
+[2026-10-01T04:41:05Z]   protocols-base-dex-sushiswap-v3.json.gz HTTP 200 55521440 bytes (gz 13132991) application/json
+[2026-10-01T04:41:05Z] fetch https://api.llama.fi/protocol/sushiswap
+[2026-10-01T04:41:11Z]   protocols-base-dex-sushiswap.json.gz HTTP 200 2549473 bytes (gz 403915) application/json
+[2026-10-01T04:41:11Z] fetch https://api.llama.fi/protocol/elfomofi
+[2026-10-01T04:41:13Z]   protocols-base-dex-elfomofi.json.gz HTTP 200 15237 bytes (gz 2381) application/json
+[2026-10-01T04:41:13Z] fetch https://api.llama.fi/protocol/alien-base-v3
+[2026-10-01T04:41:16Z]   protocols-base-dex-alien-base-v3.json.gz HTTP 200 2584997 bytes (gz 625605) application/json
+[2026-10-01T04:41:16Z] fetch https://api.llama.fi/protocol/balancer-v3
+[2026-10-01T04:41:20Z]   protocols-base-dex-balancer-v3.json.gz HTTP 200 20018619 bytes (gz 5068543) application/json
+[2026-10-01T04:41:20Z] done; 15 selected, 0 not 200: []

@@ -1,0 +1,62 @@
+[
+ {
+  "file": "docs.world.org_world-chain_quick-start_features.md.txt",
+  "start": "PBH enables verified users to execute transactions guaranteeing top of block inclusion",
+  "end": "enabling a more frictionless user experience."
+ },
+ {
+  "file": "worldcoin.github.io_world-chain_pbh_overview.html.txt",
+  "start": "Priority Blockspace for Humans introduces a new transaction ordering policy",
+  "end": "making transactions fairer for real users."
+ },
+ {
+  "file": "worldcoin.github.io_world-chain_pbh_architecture.html.txt",
+  "start": "The World Chain Builder implements a custom block ordering policy",
+  "end": "adheres to the OP Stack spec."
+ },
+ {
+  "file": "worldcoin.github.io_world-chain_pbh_architecture.html.txt",
+  "start": "Each block has a “PBH blockspace capacity”",
+  "end": "to fill the remainder of the block."
+ },
+ {
+  "file": "worldcoin.github.io_world-chain_pbh_architecture.html.txt",
+  "start": "If the amount of pending PBH transactions exceed the PBH blockspace capacity",
+  "end": "transactions within PBH blockspace are ordered by priority fee."
+ },
+ {
+  "file": "worldcoin.github.io_world-chain_pbh_architecture.html.txt",
+  "start": "In the event that the block builder is offline",
+  "end": "with standard OP Stack ordering rules."
+ },
+ {
+  "file": "worldcoin.github.io_world-chain_pbh_architecture.html.txt",
+  "start": "Note that rollup-boost will always fallback",
+  "end": "returns an invalid block."
+ },
+ {
+  "file": "worldcoin.github.io_world-chain_pbh_txs.html.txt",
+  "start": "Upon submitting a PBH bundle to the network",
+  "end": "mark the bundle for priority inclusion."
+ },
+ {
+  "file": "world.org_blog_engineering_introducing-pbh-priority-blockspace-for-humans.txt",
+  "start": "When a user sends a transaction to a node, the pending transaction is forwarded to the sequencer",
+  "end": "advance the chain."
+ },
+ {
+  "file": "world.org_blog_engineering_introducing-pbh-priority-blockspace-for-humans.txt",
+  "start": "Note that transaction ordering within the payload builder is not enforced at the protocol level.",
+  "end": "in any order."
+ },
+ {
+  "file": "world.org_blog_engineering_introducing-pbh-priority-blockspace-for-humans.txt",
+  "start": "In order to implement priority blockspace for humans, a World Chain block builder is being developed",
+  "end": "included at the top of the block."
+ },
+ {
+  "file": "worldcoin.github.io_world-chain_flashblocks_p2p.html.txt",
+  "start": "This document is an extension to the original Flashblocks specification",
+  "end": "instead of WebSockets."
+ }
+]

@@ -1,0 +1,9 @@
+[2026-10-01T04:34:39Z] fetch esma-trv-2025-maximal-extractable-value-crypto-markets (pdf)
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+[2026-10-01T04:34:42Z] fetch arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools (arxiv)
+[2026-10-01T04:34:49Z] fetch github-m1kuw1ll-base-arbitrage-competition-base-atomic-arbitrage-sql (text)
+[2026-10-01T04:34:50Z] fetch github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-by-bot-sql (text)
+[2026-10-01T04:34:52Z] fetch github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-summary-sql (text)
+[2026-10-01T04:34:53Z] fetch github-m1kuw1ll-base-arbitrage-competition-base-pool-commitment-inputs-by-hash-sql (text)
+[2026-10-01T04:34:55Z] fetch github-m1kuw1ll-base-arbitrage-competition-tx-classifier-subtree-py (text)
+[2026-10-01T04:34:57Z] done; 99 sources, 0 not ok: []

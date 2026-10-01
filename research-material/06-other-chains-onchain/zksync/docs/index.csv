@@ -1,0 +1,9 @@
+url,final_url,http_status,fetched_at_utc,file_stem,note
+https://docs.zksync.io/zksync-network/zksync-era,https://docs.zksync.io/zksync-network/zksync-era,200,2026-10-01T04:22:46Z,docs.zksync.io_zksync-network_zksync-era,
+https://docs.zksync.io/zksync-protocol/era-vm/transactions/transaction-lifecycle,https://docs.zksync.io/zksync-protocol/era-vm/transactions/transaction-lifecycle,200,2026-10-01T04:22:47Z,docs.zksync.io_zksync-protocol_era-vm_transactions_transaction-lifecycle,
+https://docs.zksync.io/zksync-protocol/era-vm/transactions/blocks,https://docs.zksync.io/zksync-protocol/era-vm/transactions/blocks,200,2026-10-01T04:22:47Z,docs.zksync.io_zksync-protocol_era-vm_transactions_blocks,
+https://docs.zksync.io/zksync-protocol/era-vm/contracts/bootloader,https://docs.zksync.io/zksync-protocol/era-vm/contracts/bootloader,200,2026-10-01T04:22:48Z,docs.zksync.io_zksync-protocol_era-vm_contracts_bootloader,
+https://docs.zksync.io/zksync-protocol/era-vm/transactions/fee-model,https://docs.zksync.io/zksync-protocol/era-vm/transactions/fee-model,200,2026-10-01T04:22:48Z,docs.zksync.io_zksync-protocol_era-vm_transactions_fee-model,
+https://docs.zksync.io/zk-stack/components/server,https://docs.zksync.io/zk-stack/components/server,200,2026-10-01T04:22:49Z,docs.zksync.io_zk-stack_components_server,
+https://docs.zksync.io/zksync-network/zksync-os,https://docs.zksync.io/zksync-network/zksync-os,200,2026-10-01T04:22:49Z,docs.zksync.io_zksync-network_zksync-os,
+https://docs.zksync.io/zksync-protocol/era-vm/contracts/system-contracts,https://docs.zksync.io/zksync-protocol/era-vm/contracts/system-contracts,200,2026-10-01T04:33:13Z,docs.zksync.io_zksync-protocol_era-vm_contracts_system-contracts,

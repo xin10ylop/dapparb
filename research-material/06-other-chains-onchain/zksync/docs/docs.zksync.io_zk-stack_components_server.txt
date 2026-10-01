@@ -1,0 +1,184 @@
+SOURCE_URL: https://docs.zksync.io/zk-stack/components/server
+FINAL_URL: https://docs.zksync.io/zk-stack/components/server
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:49Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+ZKsync OS Server - ZKsync Docs
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+* ZKsync Network
+
+* ZK Stack
+
+* ZKsync Protocol
+
+ZK Stack Overview ZKsync Chains
+Components ZK Stack Components Overview ZKsync OS ZKsync OS Server
+ZKsync Airbender Airbender Overview Airbender Deep Dive
+
+Block explorer Fee withdrawer
+
+Run a ZKsync Chain Launch a ZKsync chain Ownership Model Rollup as a Service
+
+Customizations Custom base tokens Validium in ZK Stack Transaction filtering
+
+Prividium™ Prividium™ Overview Features Architecture Deployment Model Proxy RPC API Administration and User Management Permissions and Access Control Prividium™ SDK Developer Considerations
+
+Open Source License
+
+ZK Stack
+* ZK Stack
+
+* Components
+
+## ZKsync OS Server
+
+Overview of the ZKsync OS sequencer.
+
+The ZKsync OS Sever is a complex system composed of several services and modules that work together to monitor Ethereum Layer 1 (L1),
+maintain Layer 2 (L2) state, and manage the order of incoming transactions.
+The new sequencer can process over 10,000 transactions per second through a single-binary architecture that dramatically reduces operational overhead.
+The system scales horizontally through Elastic Nodes, delivering enterprise performance without enterprise complexity or costs.
+With the ZKsync OS Sequencer, transaction costs drop to $0.0001 per transaction , a 99% reduction from Layer 1 solutions.
+This enables microtransactions, high-frequency applications, and business models that weren't economically viable before.
+
+##
+Components
+The server implementation consists of three main subsystems:
+
+* Sequencer :
+Executes transactions and sends the results downstream to other components.
+
+* RPC API :
+Implementation of the Web3 JSON-RPC API.
+
+* Batcher :
+Turns a stream of blocks into a stream of batches (1 batch = 1 proof = 1 L1 commit),
+exposes prover APIs, and submits batches and proofs to L1.
+
+For a more detailed overview, please refer to the ZKsync OS Server GitHub repository .
+
+##
+Design Principles
+The three main design principles that were used for the server are:
+
+* Minimal, async persistence to meet throughput and latency requirements.
+Synchronous persistence is avoided at the critical path.
+Additionally, the sequencer aims at storing only the data that is strictly needed, minimizing the potential for state inconsistency.
+
+* Easy to replay arbitrary blocks .
+The sequencer components are idempotent.
+The batcher component skips all blocks until the first uncommitted batch.
+Thus, downstream components only receive batches that they need need to act upon.
+
+* Strong separation between states .
+The actual state only includes data needed to execute the VM: key-value storage and a preimages map.
+The receipts repositories includes data only needed in the API.
+The data related to proofs and L1, which is not needed by the sequencer or JSON RPC, is only introduced downstream from batcher.
+
+ZKsync OS
+Introduction to ZKsync OS.
+
+Airbender Overview
+Introduction to ZKsync Airbender
+
+Table of Contents
+* Components
+
+* Design Principles
+
+Edit this page Share feedback Open in ChatGPT Open in Claude Get Help
+
+Made with ❤️ by the ZKsync Community

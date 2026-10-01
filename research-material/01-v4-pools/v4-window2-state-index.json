@@ -1,0 +1,109 @@
+{
+ "call_endpoints": [
+  "https://base-mainnet.public.blastapi.io",
+  "https://developer-access-mainnet.base.org",
+  "https://base.drpc.org",
+  "https://gateway.tenderly.co/public/base"
+ ],
+ "columns": {
+  "keys": [
+   "pool_id",
+   "currency0",
+   "currency1",
+   "fee_raw",
+   "tick_spacing",
+   "hooks",
+   "init_block",
+   "key_source"
+  ],
+  "state": [
+   "pool_id",
+   "active_window2",
+   "initialized_window2",
+   "snapshot_block",
+   "slot0_ok",
+   "sqrt_price_x96",
+   "tick",
+   "protocol_fee",
+   "lp_fee",
+   "liquidity_ok",
+   "liquidity"
+  ],
+  "tokens": [
+   "address",
+   "is_native",
+   "symbol_ok",
+   "symbol_call_mode",
+   "symbol_return_raw",
+   "symbol_error",
+   "symbol_decoded",
+   "name_ok",
+   "name_call_mode",
+   "name_return_raw",
+   "name_error",
+   "name_decoded",
+   "decimals_ok",
+   "decimals_call_mode",
+   "decimals_return_raw",
+   "decimals_error",
+   "decimals",
+   "total_supply_ok",
+   "total_supply_call_mode",
+   "total_supply_return_raw",
+   "total_supply_error",
+   "total_supply",
+   "call_block"
+  ]
+ },
+ "completed_utc": "2026-10-01T03:57:28Z",
+ "currencies_already_in_token_metadata": 1751,
+ "currencies_native": 1,
+ "currencies_total": 3676,
+ "files": {
+  "keys": "v4-window2-pool-keys.csv.gz",
+  "state": "v4-window2-state-snapshot.csv.gz",
+  "tokens": "v4-window2-token-metadata.csv.gz"
+ },
+ "keys": {
+  "from_pool_keys_snapshot": 2305,
+  "from_v4init_scan": 1532,
+  "from_window2_initialize": 965,
+  "unresolved": 0,
+  "v4init_scan_source": "initialize-part-0001..0022.csv.gz"
+ },
+ "pools": 4802,
+ "pools_active_window2": 4794,
+ "pools_initialized_after_snapshot_block": 6,
+ "pools_initialized_window2": 965,
+ "snapshot_block": 52017008,
+ "snapshot_block_source": "end of the valid V4 live test (02-v4-live-test), as specified for this task",
+ "token_recall_checks": {
+  "0x2929843e25beee024173e0f1d033b2714cc42bdc": {
+   "getcode_endpoint": "blastapi",
+   "no_code_at_snapshot": true
+  },
+  "0x349a345b126b9435e949e368b7a3cdfc285e9106": {
+   "getcode_endpoint": "blastapi",
+   "no_code_at_snapshot": true
+  },
+  "0x87aa4de41c1ee8a6b6697899137b18456e0f8b07": {
+   "getcode_endpoint": "blastapi",
+   "no_code_at_snapshot": true
+  },
+  "0x96588176b8c74fd7f6005f7206bd15ab53446680": {
+   "getcode_endpoint": "blastapi",
+   "no_code_at_snapshot": true
+  },
+  "0xe9551896c2b105ca41078da76fbd7590ce70da5a": {
+   "getcode_endpoint": "blastapi",
+   "no_code_at_snapshot": true
+  }
+ },
+ "tokens_called_at_snapshot_block": 1919,
+ "tokens_called_at_window_end_block": 5,
+ "tokens_new": 1924,
+ "window": [
+  52006433,
+  52017160
+ ]
+}

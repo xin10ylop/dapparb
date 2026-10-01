@@ -1,0 +1,52 @@
+[2026-10-01T04:38:22Z] reuse ../dex/defillama-protocols.json.gz (not refetched)
+[2026-10-01T04:38:22Z] 8440 entries in /protocols snapshot
+[2026-10-01T04:38:22Z] filter chains contains 'Binance' and category == 'Dexs': 249 entries (247 with chainTvls['Binance'], 2 without)
+[2026-10-01T04:38:22Z] selection written: ../dex/defillama-protocols-bsc-dex-selection.csv (249 rows, 15 selected)
+[2026-10-01T04:38:22Z]    1 pancakeswap-amm chainTvls[Binance]=1878556529.9054148
+[2026-10-01T04:38:22Z]    2 pancakeswap-amm-v3 chainTvls[Binance]=273439066.29749846
+[2026-10-01T04:38:22Z]    3 uniswap-v4 chainTvls[Binance]=92168996.83554688
+[2026-10-01T04:38:22Z]    4 pancakeswap-infinity chainTvls[Binance]=76794224.41983825
+[2026-10-01T04:38:22Z]    5 uniswap-v3 chainTvls[Binance]=45714367.887075186
+[2026-10-01T04:38:22Z]    6 fstswap chainTvls[Binance]=10665381.762353702
+[2026-10-01T04:38:22Z]    7 apeswap-amm chainTvls[Binance]=9510702.346464578
+[2026-10-01T04:38:22Z]    8 lista-dex chainTvls[Binance]=7522411.429020921
+[2026-10-01T04:38:22Z]    9 biswap-v2 chainTvls[Binance]=5999528.884171665
+[2026-10-01T04:38:22Z]   10 bscswap chainTvls[Binance]=5831290.359167092
+[2026-10-01T04:38:22Z]   11 dodo-amm chainTvls[Binance]=4406047.461285335
+[2026-10-01T04:38:22Z]   12 bakeryswap chainTvls[Binance]=4114110.8057658956
+[2026-10-01T04:38:22Z]   13 pancakeswap-stableswap chainTvls[Binance]=3275171.4335606564
+[2026-10-01T04:38:22Z]   14 thena-integral chainTvls[Binance]=3019722.6057376554
+[2026-10-01T04:38:22Z]   15 uniswap-v2 chainTvls[Binance]=2832538.1997123137
+[2026-10-01T04:38:22Z] fetch https://api.llama.fi/v2/chains
+[2026-10-01T04:38:22Z]   defillama-v2-chains.json.gz HTTP 200 64222 bytes application/json
+[2026-10-01T04:38:22Z] fetch https://api.llama.fi/protocol/pancakeswap-amm
+[2026-10-01T04:38:25Z]   defillama-protocol-bsc-dex-pancakeswap-amm.json.gz HTTP 200 14082221 bytes (gz 2973873) application/json
+[2026-10-01T04:38:25Z] fetch https://api.llama.fi/protocol/pancakeswap-amm-v3
+[2026-10-01T04:38:27Z]   defillama-protocol-bsc-dex-pancakeswap-amm-v3.json.gz HTTP 200 558131 bytes (gz 99638) application/json
+[2026-10-01T04:38:27Z] fetch https://api.llama.fi/protocol/uniswap-v4
+[2026-10-01T04:38:30Z]   defillama-protocol-bsc-dex-uniswap-v4.json.gz HTTP 200 449518 bytes (gz 70237) application/json
+[2026-10-01T04:38:30Z] fetch https://api.llama.fi/protocol/pancakeswap-infinity
+[2026-10-01T04:38:42Z]   defillama-protocol-bsc-dex-pancakeswap-infinity.json.gz HTTP 200 37322860 bytes (gz 11665043) application/json
+[2026-10-01T04:38:42Z] fetch https://api.llama.fi/protocol/uniswap-v3
+[2026-10-01T04:38:44Z]   defillama-protocol-bsc-dex-uniswap-v3.json.gz HTTP 200 1706983 bytes (gz 297907) application/json
+[2026-10-01T04:38:44Z] fetch https://api.llama.fi/protocol/fstswap
+[2026-10-01T04:38:47Z]   defillama-protocol-bsc-dex-fstswap.json.gz HTTP 200 3981049 bytes (gz 768290) application/json
+[2026-10-01T04:38:47Z] fetch https://api.llama.fi/protocol/apeswap-amm
+[2026-10-01T04:38:55Z]   defillama-protocol-bsc-dex-apeswap-amm.json.gz HTTP 200 31199988 bytes (gz 6986148) application/json
+[2026-10-01T04:38:55Z] fetch https://api.llama.fi/protocol/lista-dex
+[2026-10-01T04:38:58Z]   defillama-protocol-bsc-dex-lista-dex.json.gz HTTP 200 203153 bytes (gz 55709) application/json
+[2026-10-01T04:38:58Z] fetch https://api.llama.fi/protocol/biswap-v2
+[2026-10-01T04:39:01Z]   defillama-protocol-bsc-dex-biswap-v2.json.gz HTTP 200 19743288 bytes (gz 4785740) application/json
+[2026-10-01T04:39:01Z] fetch https://api.llama.fi/protocol/bscswap
+[2026-10-01T04:39:04Z]   defillama-protocol-bsc-dex-bscswap.json.gz HTTP 200 1777177 bytes (gz 371428) application/json
+[2026-10-01T04:39:04Z] fetch https://api.llama.fi/protocol/dodo-amm
+[2026-10-01T04:39:24Z]   defillama-protocol-bsc-dex-dodo-amm.json.gz HTTP 200 63844269 bytes (gz 15267925) application/json
+[2026-10-01T04:39:24Z] fetch https://api.llama.fi/protocol/bakeryswap
+[2026-10-01T04:39:29Z]   defillama-protocol-bsc-dex-bakeryswap.json.gz HTTP 200 15870808 bytes (gz 2851289) application/json
+[2026-10-01T04:39:29Z] fetch https://api.llama.fi/protocol/pancakeswap-stableswap
+[2026-10-01T04:39:33Z]   defillama-protocol-bsc-dex-pancakeswap-stableswap.json.gz HTTP 200 2049336 bytes (gz 566806) application/json
+[2026-10-01T04:39:33Z] fetch https://api.llama.fi/protocol/thena-integral
+[2026-10-01T04:39:36Z]   defillama-protocol-bsc-dex-thena-integral.json.gz HTTP 200 3421613 bytes (gz 884274) application/json
+[2026-10-01T04:39:36Z] fetch https://api.llama.fi/protocol/uniswap-v2
+[2026-10-01T04:39:39Z]   defillama-protocol-bsc-dex-uniswap-v2.json.gz HTTP 200 20325092 bytes (gz 5249977) application/json
+[2026-10-01T04:39:39Z] done; 15 selected, 0 not 200: []

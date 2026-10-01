@@ -1,0 +1,157 @@
+SOURCE_URL: https://docs.mantle.xyz/network/system-information/fee-mechanism.md
+FINAL_URL: https://docs.mantle.xyz/network/system-information/fee-mechanism.md
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:47Z
+EXTRACTION: raw markdown/plain-text body, unmodified; gzip copy in the .raw.gz file next to this one
+
+> For the complete documentation index, see [llms.txt](https://docs.mantle.xyz/network/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.mantle.xyz/network/system-information/fee-mechanism.md).
+
+# Fee Mechanism
+
+## Understanding Fee Basics on Mantle Network[​](https://docs-v2.mantle.xyz/devs/concepts/tx-fee/overviews#understanding-fee-basics-on-mantle-network) <a href="#understanding-fee-basics-on-mantle-network" id="understanding-fee-basics-on-mantle-network"></a>
+
+Transaction fees on Mantle network are similar to those on Ethereum. However, as Mantle Network operates as a layer 2 (L2) blockchain, there are new paradigms in the fee structure that distinguish it from Ethereum's fees.
+
+As Mantle Network continuously enhances its EVM compatibility, dApps can conveniently adapt to any changes with minimal modifications. Let's explore the two sources of transaction costs on Mantle:
+
+1. [**L2 Execution Fee**](#the-l2-execution-fee)
+   * Cost of executing transactions on L2
+2. [**L1 Rollup Fee**](#the-l1-rollup-fee)
+   * Cost of submitting rollup state root to L1 (distributed equally among users whose transactions are included in the batch)
+   * Write data credentials submitted to the DA contract on L1
+
+### The L2 Execution Fee[​](https://docs-v2.mantle.xyz/devs/concepts/tx-fee/overviews#the-l2-execution-fee) <a href="#the-l2-execution-fee" id="the-l2-execution-fee"></a>
+
+Similar to Ethereum, transactions on Mantle Network must pay the gas fee for the computational and storage resources used. Each L2 transaction incurs some execution fees, calculated as the product of the gas used and the gas price associated with the transaction.
+
+Mathematically, this is represented as:
+
+$$
+L2ExecutionFee=L2GasPrice∗L2GasUsed
+$$
+
+This fee reflects the computational and execution costs of completing transactions on the L2 network. The L2 execution fee paid by users is directly proportional to the computational and network resources consumed by their transactions.
+
+### The L1 Rollup Fee[​](https://docs-v2.mantle.xyz/devs/concepts/tx-fee/overviews#the-l1-rollup-fee) <a href="#the-l1-rollup-fee" id="the-l1-rollup-fee"></a>
+
+All state roots generated on L2 due to transaction execution are published to Ethereum. This step is crucial for the security properties of L2, ensuring that all the latest block data from the L2 network is consistently available on Ethereum L1 for sync nodes.
+
+L2 aggregates states and essential transaction data into batches, publishing them to Ethereum, with the cost distributed among users whose transactions are included in the batch. The L1 rollup Fee is calculated based on factors such as:
+
+* The current gas price on Ethereum
+* A fixed `overhead` (a fixed cost for committing data to L1, auto-adjusted and set into gas oracle)
+* The scaling factor `scalar`
+* Parameters related to the size of the transaction are stored as calldata in L1 called `rollupDataGas`
+
+{% hint style="info" %}
+Values such as `overhead` and `scalar` can be obtained through the [`BVM_GasPriceOracle`](/network/system-information/off-chain-system/key-l2-contract-address.md) contract or [`SystemConfigProxy`](/network/system-information/off-chain-system/key-l2-contract-address.md) contract.
+
+**We highly recommend fetching the `overhead` and `scalar` from the** [**`BVM_GasPriceOracle`**](/network/system-information/off-chain-system/key-l2-contract-address.md) **contract.** L1 Contracts may be subject to update delays.
+{% endhint %}
+
+Mathematically, this is represented as:
+
+$$
+L1RollupFee=(rollupDataGas+overhead)∗L1gasPrice∗scalar
+$$
+
+This fee covers the computational costs of integrating and submitting transaction batches from L2 to L1, including the gas needed for data storage and additional overhead. The L1 rollup fee is a crucial component ensuring the overall system's secure operation and also affects the overall transaction costs.
+
+{% hint style="info" %}
+For a more in-depth understanding, it is highly recommended to read the Mantle research team's study on fees in Rollups: [Transaction Fees on Rollups](https://www.mantle.xyz/blog/research/transaction-fees-on-rollups)
+{% endhint %}
+
+## Understanding Fees on Mantle v2[​](https://docs-v2.mantle.xyz/devs/concepts/tx-fee/overviews#understanding-fees-on-mantle-v2-tectonic) <a href="#understanding-fees-on-mantle-v2-tectonic" id="understanding-fees-on-mantle-v2-tectonic"></a>
+
+In Mantle v2, the introduction of Mantle's native token design incorporates a [`tokenRatio`](#control-of-tokenratio) parameter to adjust the fee:
+
+$$
+L2ExecutionFee=L2gasPrice∗L2gasUsed∗tokenRatio
+$$
+
+$$
+L1RollupFee=(rollupDataGas+overhead)∗L1gasPrice∗tokenRatio∗scalar
+$$
+
+### L2 Execution Fee in Mantle v2[​](https://docs-v2.mantle.xyz/devs/concepts/tx-fee/overviews#l2-execution-fee-in-mantle-v2-tectonic) <a href="#l2-execution-fee-in-mantle-v2-tectonic" id="l2-execution-fee-in-mantle-v2-tectonic"></a>
+
+The size of the L2 Execution Fee is primarily influenced by two key factors that directly shape the cost of executing transactions on L2.
+
+$$
+L2ExecutionFee=L2gasPrice∗L2gasUsed∗tokenRatio
+$$
+
+Let's delve into these factors:
+
+#### **L2 gasUsed - Complexity of Transaction Execution**[**​**](https://docs-v2.mantle.xyz/devs/concepts/tx-fee/overviews#l2-gasused---complexity-of-transaction-execution)
+
+L2 gasUsed is the amount of gas consumed to execute a transaction on layer 2. This value is directly related to the complexity of the transaction and reflects the amount of work involved in executing the contract, computing, and processing the data. As a result, more complex transactions typically require more gas to complete, directly affecting the size of the L2 execution fee. This factor ensures that the transaction fee is proportional to the actual computational resources used.
+
+#### **L2 gasPrice - Depends on the transaction type**[**​**](https://docs-v2.mantle.xyz/devs/concepts/tx-fee/overviews#l2-gasprice---depends-on-the-transaction-type)
+
+L2 gasPrice is the unit price of gas used on L2, which depends on the specific transaction type chosen. L2 gasPrice is calculated differently for different transaction types:
+
+* **For** [**EIP-1559 transaction types**](/network/more/glossary.md#eip-1559-transaction), L2 gasPrice is affected by the `GasTipCap` parameter, which is a parameter that is issued as a reward to sequencers and can be set to `0` by the user and does not affect the packing of transactions.
+* **For** [**legacy transaction types**](/network/more/glossary.md#legacy-transaction), `GasTipCap` takes the default value (0.1 GWEI). In this case, `eth_gasPrice` is equal to the sum of `GasTipCap` and `BASEFEE`. This mechanism ensures the relative stability of the transaction costs, while providing the user with default values and simplifying the setup of the transaction parameters.
+
+Due to EVM compatibility, transactions on Mantle Network generally have similar `gasUsed` to Ethereum. Gas prices fluctuate with time and congestion, but you can always check the current estimated L2 Gas prices on the public Mantle dashboard. Moreover, as gas fees on Mantle Network are denominated in `$MNT`, transaction costs remain significantly lower than other L2 networks using $ETH as the gas token, even at the same gas price.
+
+{% hint style="info" %}
+The ordering of transactions is influenced by various factors. Here are examples illustrating the role of `GasTipCap` and transaction submission order:
+
+1. Suppose Alice initiates a Legacy-type transfer transaction `tx_A`, followed by Bob initiating another Legacy-type transfer transaction `tx_B`. Since `tx_B` comes after `tx_A`, their order follows the First come first serve (FCFS) principle.
+2. Suppose Alice initiates an EIP-1559-type transfer transaction `tx_A` and, before it is packed, initiates another `tx_B` with a higher Priority Fee (GasTipCap) than `tx_A`. Due to nonce conflict, the Sequencer rejects `tx_A` with the lower GasTipCap and prioritizes packing `tx_B`.
+   {% endhint %}
+
+### L1 Rollup Fee in Mantle v2[​](https://docs-v2.mantle.xyz/devs/concepts/tx-fee/overviews#l1-rollup-fee-in-mantle-v2-tectonic) <a href="#l1-rollup-fee-in-mantle-v2-tectonic" id="l1-rollup-fee-in-mantle-v2-tectonic"></a>
+
+Since the cost of transaction on L1 is much higher than that of transaction on L2, this is the largest part of the total transaction cost, and calculating the cost of L1 is a complex task due to the volatility of gasPrice in L1.
+
+$$
+L1RollupFee=(rollupDataGas+overhead)∗L1gasPrice∗tokenRatio∗scalar
+$$
+
+Let's delve into these factors:
+
+#### **`rollupDataGas`Calculation**[**​**](https://docs-v2.mantle.xyz/devs/concepts/tx-fee/overviews#rollupdatagas-calculation)
+
+The major portion of the L1 gas fee is `rollupDataGas`, which relates to the size of the transaction stored as calldata in L1, and typically accounts for more than 85% of the L1 GasUsed.
+
+Mantle v2 Tectonic chooses the Op Stack's rollupDataGas calculation, which counts the number of zero bytes and non-zero bytes in the transaction data, with each zero byte costing 4 Gas and each non-zero byte costing 16 Gas, thus:
+
+$$
+rollupDataGas=count\_​zero\_​bytes(tx\_​data)∗4+count\_​non\_​zero\_​bytes(tx\_​data)∗16
+$$
+
+{% hint style="info" %}
+With the EigenDA module online with Mantle Mainnet, only state roots and a limited amount of necessary transaction data are sent to L1, while the transaction batch data is posted to the DA network. For dApps with high gas consumption, they can be executed at the same cost as an ordinary transaction (like a transfer), and the L1 fee will not increase with the complexity of L2 transaction execution. As a result, for transactions with high complexity, this can even save up to more than **90%** of the cost compared to the original L1 rollup fee.
+{% endhint %}
+
+#### **Fetch`overhead`and`scalar`**[**​**](https://docs-v2.mantle.xyz/devs/concepts/tx-fee/overviews#fetch-overhead-and-scalar)
+
+`overhead` and `scalar` are currently loaded from configurations, not supporting dynamic changes, you can fetch them from the [`BVM_GasPriceOracle`](/network/system-information/off-chain-system/key-l2-contract-address.md) contract, while `L1gasPrice` needs to be read from L1 blocks.
+
+#### **Control of tokenRatio**[**​**](https://docs-v2.mantle.xyz/devs/concepts/tx-fee/overviews#control-of-tokenratio)
+
+`tokenRatio` is a parameter adjusting fees in Mantle. By obtaining prices for ETH and MNT from multiple price oracles and calculating their exchange rate (`eth_price/mnt_price`), Mantle v2 Tectonic limits the value of the current `tokenRatio` to the interval of the previous `tokenRatio` to prevent sudden and significant fluctuations in gasPrice caused by abrupt changes in the exchange rate.
+
+Mantle v2 Tectonic introduces a [`BVM_GasPriceOracle`](/network/system-information/off-chain-system/key-l2-contract-address.md) contract in Layer 2 to manage permissions for setting and updating `tokenRatio`. Users with permission (a multi-signature address managed through [HSM](/network/more/glossary.md#hardware-security-module-hsm)) can update `tokenRatio` through an L2 transaction, dynamically adjusting gas fees.
+
+## Fee Optimization[​](https://docs-v2.mantle.xyz/devs/concepts/tx-fee/overviews#fee-optimization) <a href="#fee-optimization" id="fee-optimization"></a>
+
+Compared to Mantle v1, Mantle v2 Tectonic has made improvements and optimizations in fee design, including:
+
+* **EIP-1559 Support**: Mantle v2 Tectonic will support various transaction types, including EIP-1559, freeing users from the constraints of old transaction structures. For more details, refer to [this](/network/system-information/fee-mechanism/eip-1559-support.md).&#x20;
+
+{% hint style="info" %}
+**We highly recommend you to set the `baseFee` to `0.02 gwei` and `priorityfee` to `0` in your L2 transaction.** Refer to [this](/network/for-developers/optimize-your-transaction-fees.md) for more details.
+{% endhint %}
+
+* **Fee Estimation**: The `estimateGas` API in Mantle v1 only returns the L2 gas cost, the L1 gas estimation needs to be calculated separately, while in Mantle v2 Tectonic it will support returning the total gas of the user's transaction directly. Developers also need to be mindful of the impact this optimization may have on transaction construction. For more details about how to calculate the gas fee, refer to [this](/network/system-information/fee-mechanism/estimate-fees.md).
+
+### Mantle v2 Fee Showcase[​](https://docs-v2.mantle.xyz/devs/concepts/tx-fee/overviews#mantle-v2-tectonic-fee-showcase) <a href="#mantle-v2-tectonic-fee-showcase" id="mantle-v2-tectonic-fee-showcase"></a>
+
+|                                | Mantle v2 Tectonic                                                                                         | Mantle v1 Alpha                                                                                            |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Token Transfer**             | [0.0047 MNT](https://mantlescan.xyz/tx/0xba6ed5537f2eae416e0874a98f1523c70e3087225d21a2240864e0f720136b9e) | [0.3715 MNT](https://mantlescan.xyz/tx/0xc05fe72e047b8cdfa2ea6e31c26b0940844d4d7efbaadd9ffa3b2db9db20a139) |
+| **ERC-20 Contract Deployment** | [0.1088 MNT](https://mantlescan.xyz/tx/0x84c4ecb184fd198faa44fcbf57c8a0d4512c2993f2dc68d44d3cfd77595ca5b9) | [0.1304 MNT](https://mantlescan.xyz/tx/0xc4562d9622a9a5cc20a8c8aaa0df3b35e92066345835bd5fe95e94cd11fade7b) |

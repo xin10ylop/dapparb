@@ -33,10 +33,17 @@ at its 8-hour limit, about 2026-10-01T09:05Z. Until then it rewrites the Counts 
 appends one line to its log. fill_manifest.py also rewrites the first line that begins with `Status: `; the status at the top of this
 file was finalized by hand on 2026-10-01 and is not written in that form, so fill_manifest.py leaves it unchanged. Everything else in
 this file is static.
+*Corrected 2026-10-01 (fixup):* the waiter did not run until ~09:05Z. The main session stopped it; the last line of
+`collect/manifest_waiter.log` is `2026-10-01T02:56:31Z stopped by the main session (manifest counts finalized by the 2026-10-01
+verification pass)`. Its last refresh of the Counts section is the one stamped 2026-10-01T02:55:01Z. No waiter or fill_manifest.py
+process was running at the time of this fixup (~04:50Z), and the Counts section is no longer rewritten. The whole file is now static.
 
 This directory holds data only. Nothing here states a finding. The exception is `prior-summaries.md`, which quotes docs/ANALYSIS.md
 verbatim, including that document's own evaluative statements. Those statements are quoted text; they were not produced from the data in
 this folder.
+**Label (added 2026-10-01): `prior-summaries.md` is prior session text, not data.** It quotes conclusions and evaluative statements
+that an earlier session wrote in docs/ANALYSIS.md. Treat it as claims made by that session, not as measurements. Where it is listed
+below (question-line table, layout, inventory) the same label applies.
 
 ## Question lines served (mapping only)
 
@@ -47,7 +54,7 @@ Line numbers refer to the eight QUESTION LINES of this research task.
 | 1 | `scans/base/scan-base-config.log.gz`, `scans/base/scan-base-top.log.gz` (log lines `uniswap v4 candidates`, `uniswap v4 pools discovered`, `live pools` field `byDex.UniswapV4`); `scans/base/scan-base-config.meta.json`, `scans/base/scan-base-top.meta.json` (`live_pools.byDex.UniswapV4`); `scans/base/scan-base-config.jsonl.gz`, `scans/base/scan-base-top.jsonl.gz` (rows whose `route` contains `UniswapV4/`); the same log lines for Arbitrum and Ethereum in `scans/arbitrum/*.log.gz`, `scans/mainnet/*.log.gz`, `engine-detect/*/*.log.gz` |
 | 2 | `engine-detect/arbitrum/engine-detect-arbitrum.log.gz`, `engine-detect/mainnet/engine-detect-mainnet.log.gz` (log lines `factory enumerated`, `universe enumerated; resolving every venue per pair`); uncompressed copies `collect/engine-detect-arbitrum.log`, `collect/engine-detect-mainnet.log` |
 | 3 | `scans/*/*.log.gz` (log lines `pool discovery complete`, `live pools`); `scans/*/*.meta.json` (`live_pools`); `engine-detect/*/*.log.gz` (log lines `pool discovery complete`, `searcher ready`); `engine-detect/*/*.meta.json` (`searcher_ready`) |
-| 4 | `scans/arbitrum/*`, `scans/mainnet/*`, `scans/base/*`; `engine-detect/arbitrum/*`, `engine-detect/mainnet/*`; `collect/engine-blocker-check-arbitrum.log`, `collect/engine-blocker-check-mainnet.log`; `collect/smoke/selftest-engine-unknown-chain.log`; `prior-summaries.md` (Excerpts 1 and 3) |
+| 4 | `scans/arbitrum/*`, `scans/mainnet/*`, `scans/base/*`; `engine-detect/arbitrum/*`, `engine-detect/mainnet/*`; `collect/engine-blocker-check-arbitrum.log`, `collect/engine-blocker-check-mainnet.log`; `collect/smoke/selftest-engine-unknown-chain.log`; `prior-summaries.md` (Excerpts 1 and 3; prior session text, not data). The raw §2.1 scans themselves are in `../00-prior-runs/block-scans/` (mapped in that folder's manifest) |
 | 5 | none |
 | 6 | none |
 | 7 | none |
@@ -60,7 +67,7 @@ files only. The explanations that were provenance are kept in the method section
 
 ```
 MANIFEST.md
-prior-summaries.md                        verbatim excerpts of docs/ANALYSIS.md (no commentary added)
+prior-summaries.md                        verbatim excerpts of docs/ANALYSIS.md (no commentary added); prior session text, not data
 scans/<chain>/scan-<chain>-<universe>.jsonl.gz          raw rows written by scan.ts --out (or -part-NNNN.jsonl.gz if split; no file was split)
 scans/<chain>/scan-<chain>-<universe>.log.gz            raw stdout/stderr of scan.ts (pino JSON lines + plain-text SCAN SUMMARY if it finished)
 scans/<chain>/scan-<chain>-<universe>.blocks.csv.gz     DERIVED: one row per "block scanned" log line
@@ -112,6 +119,13 @@ code state is in its `*.code-provenance.txt`.
 
 The block-level scans summarized in docs/ANALYSIS.md §2.1 (excerpt in `prior-summaries.md`) did not keep their raw output; the scans in
 `scans/` are new runs with raw output kept.
+*Corrected 2026-10-01 (fixup):* the raw output of the §2.1 scans was kept after all. It was found later in the git-ignored `bot/data/` and
+copied (gzip, byte-identical after decompression) to `../00-prior-runs/block-scans/` on 2026-10-01 (commit 9c8a37c): `scan-arb.jsonl/.log`,
+`scan-arb2.jsonl/.log`, `scan-mainnet.jsonl/.log`, `scan-base.jsonl`, `scan-base-run1..4` logs, `scan-base-run4.jsonl`,
+`scan-base-longtail.jsonl/.log`, plus `prof.log` and `repro.log`. They were produced on 2026-09-30 between ~10:28Z and 12:15Z by
+`bot/src/research/scan.ts` as it was at that time (per `../00-prior-runs/MANIFEST.md`; whether that version equals the one used here was not
+checked). Inventory, checksums and per-file descriptions are in `../00-prior-runs/MANIFEST.md`. The scans in
+`scans/` are still separate, new runs.
 
 What the scanner does, from reading the code:
 - **Discovery (once):** token list = `cfg.tokens` (`--universe config`) or `buildTokenUniverse(pages=5, maxTokens=200)` (`--universe top`: the
@@ -343,7 +357,7 @@ exceeds 90 MB. Committed: 79 files, 26352688 bytes (MANIFEST.md not counted). Lo
 | `collect/exit-flush.mjs` | 1183 | 22 lines | - | `b43172aa7db1b1b676db489be830551db8695b25bd3c2108538b929e3175d6ca` | committed |
 | `collect/fill_manifest.py` | 5074 | 83 lines | - | `64724c179aa8d5cc1d1eca618c3d085b33a4d5c14a2394150884e72f57504175` | committed |
 | `collect/finalize.py` | 7108 | 153 lines | - | `7b60f5d67fa71f0a593db026a4a689a9491a76d9e47116fbb2f265acc04fd3a1` | committed |
-| `collect/manifest_waiter.log` | 4549 | 30 lines | still growing (one line per 5 min until about 09:05Z); bytes, lines and sha256 as of 02:50:30Z | `df779a749210b3b62ba706ecfacbc768ab662d4668cee6d25ac0644f26544ea6` | committed |
+| `collect/manifest_waiter.log` | 4833 | 32 lines | final (corrected 2026-10-01 fixup: the row previously read 4549 bytes, 30 lines, sha256 `df779a749210b3b62ba706ecfacbc768ab662d4668cee6d25ac0644f26544ea6`, "still growing ... until about 09:05Z", as of 02:50:30Z; the waiter was stopped at 02:56:31Z, see Run notes) | `889732ab52ac714b82aec2fe1b656f74a124542d6f5e69cbef879a0e1bac59a7` | committed (af9f68d) |
 | `collect/manifest_waiter.sh` | 743 | 15 lines | - | `e020ab66682e0db5f38c71ab8ea8b2b8bb8ce16703d36c72ce4df1b152df4488` | committed |
 | `collect/pipeline.log` | 7365 | 54 lines | - | `49230c361813281cd9627b6d83d777de182533e42053034683acf0d94cb4380f` | committed |
 | `collect/provenance.sh` | 830 | 15 lines | - | `b543562218de3a1fc569bf34f23698fafd044ae80c1441811f1db375db153a32` | committed |
@@ -421,7 +435,7 @@ exceeds 90 MB. Committed: 79 files, 26352688 bytes (MANIFEST.md not counted). Lo
 | `engine-detect/mainnet/engine-detect-mainnet.jsonl.gz` | 1664 | 15 rows | gzip -t OK; every line parses as JSON | `3b4c12a8b5822e31027b39487966527b577077c7f87337b7bade6e2c15bb9aeb` | committed |
 | `engine-detect/mainnet/engine-detect-mainnet.log.gz` | 3237 | 42 lines | gzip -t OK | `2e5b0be20ab416c98de0580d9b16853437f7ccea740646720d315c3a19d5ef0d` | committed |
 | `engine-detect/mainnet/engine-detect-mainnet.meta.json` | 1131 | 44 lines, no final newline | parses as JSON | `2d7a3ff416272b9a2dd34c185e5a1194f35653765b802f812fc0a1be539cd594` | committed |
-| `prior-summaries.md` | 3267 | 63 lines | - | `660c372b956f3afbf08fe4a313580bd2d62e5f70a81b1cc33757c8a69376e233` | committed |
+| `prior-summaries.md` | 3267 | 63 lines | prior session text, not data (label added 2026-10-01) | `660c372b956f3afbf08fe4a313580bd2d62e5f70a81b1cc33757c8a69376e233` | committed |
 | `scans/arbitrum/scan-arbitrum-config.blocks.csv.gz` | 11838 | 646 lines (header + 645 rows) | gzip -t OK | `85528cae30a6d09318c0ecdfada7ad1f2f97727aa92d57055ca99df067e15e4e` | committed |
 | `scans/arbitrum/scan-arbitrum-config.code-provenance.txt` | 4800 | 57 lines | - | `7f8bf54b871eabc7ff41553bd6391f8783e75c08fe706ff6f764d5ed44706074` | committed |
 | `scans/arbitrum/scan-arbitrum-config.jsonl.gz` | 7627037 | 132443 rows | gzip -t OK; every line parses as JSON | `f4d7dbaa895c0eb3f414b6b81c43296ec05301342356e28236f4bc4d8dd4c4dd` | committed |
@@ -496,7 +510,8 @@ How to regenerate the local-only files (run from this folder):
 - **Time cap:** runs ended by the 31-min SIGTERM have no plain-text SCAN SUMMARY. All their rows and per-block lines are kept.
 - **Base scans use a different RPC** (`base.meowrpc.com`) from the §2.1 Base scans (`base-rpc.publicnode.com`). Each run's `syncMs` is
   recorded per block in `blocks.csv`. *Corrected 2026-10-01:* removed a comparative statement about sync time and heads scanned
-  relative to the §2.1 scans, which this folder does not contain.
+  relative to the §2.1 scans, which this folder does not contain. (Fixup 2026-10-01: the raw §2.1 scans are in
+  `../00-prior-runs/block-scans/`.)
 - **Depth filter:** scans use the default `--min-depth-eth 0.2`; the engine runs use 0.1. Pools below these thresholds are not searched
   here. Only their counts are visible, via `pool discovery complete` (found) vs `live pools` (kept).
 - **`--universe all` on Arbitrum enumerates one factory** (SushiV2 newest 6,000 of its `allPairsLength`), because chains.ts has no other
@@ -516,3 +531,17 @@ How to regenerate the local-only files (run from this folder):
   failure-path self-test `selftest-engine` (`--chain selftestchain`, 3 attempts, each exit 1 before `searcher ready`); the
   `gaps.jsonl` entries and `collect/selftest-engine.attemptN.log` files that test wrote are not present; the attempt-1 log is kept as
   `collect/smoke/selftest-engine-unknown-chain.log`. The killed pre-restart `top` scan attempts were not recorded as gaps (see Run notes).
+
+## Fixup (2026-10-01): manifest corrections only
+
+Made by a fixup agent at ~04:50Z on 2026-10-01. No data file in this folder was changed; nothing was fetched.
+- "Method: block-level scans": the statement that the §2.1 scans did not keep their raw output is corrected. The raw §2.1 scans are in
+  `../00-prior-runs/block-scans/` (16 files, commit 9c8a37c). A pointer was also added to the "Base scans use a different RPC" item.
+- Run notes: the statement that `collect/manifest_waiter.sh` was still running until about 09:05Z is corrected. It was stopped at
+  2026-10-01T02:56:31Z (last line of `collect/manifest_waiter.log`). `ps` at ~04:50Z showed no `manifest_waiter` or `fill_manifest`
+  process.
+- Verified inventory: the `collect/manifest_waiter.log` row now gives the final file (4,833 bytes, 32 lines, sha256
+  `889732ab52ac714b82aec2fe1b656f74a124542d6f5e69cbef879a0e1bac59a7`, equal to the committed version; `git status` clean). The old
+  values are kept in the row.
+- `prior-summaries.md` is labelled "prior session text, not data" in the intro, the question-line table, the layout and the
+  inventory. Its sha256 is unchanged (`660c372b…`).

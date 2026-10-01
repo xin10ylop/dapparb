@@ -1,0 +1,22 @@
+[
+ {
+  "file": "docs.soneium.org_docs_builders_faq.txt",
+  "start": "The mempool is private (only visible to the Sequencer)",
+  "end": "(highest fee first)."
+ },
+ {
+  "file": "docs.soneium.org_docs_builders_notices_notice-restriction.txt",
+  "start": "As part of our compliance efforts, we will transition",
+  "end": "will no longer be supported."
+ },
+ {
+  "file": "docs.soneium.org_docs_builders_notices_notice-restriction.txt",
+  "start": "Both testnet (Soneium Minato) and mainnet will limit write requests",
+  "end": "compliance-approved RPCs only."
+ },
+ {
+  "file": "docs.soneium.org_docs_builders_notices_notice-restriction.txt",
+  "start": "The start date for restricting write-capable RPC paths on the mainnet",
+  "end": "rescheduled to October 28, 2025."
+ }
+]

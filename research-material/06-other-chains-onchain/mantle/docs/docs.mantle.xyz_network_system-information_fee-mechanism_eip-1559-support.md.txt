@@ -1,0 +1,40 @@
+SOURCE_URL: https://docs.mantle.xyz/network/system-information/fee-mechanism/eip-1559-support.md
+FINAL_URL: https://docs.mantle.xyz/network/system-information/fee-mechanism/eip-1559-support.md
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:47Z
+EXTRACTION: raw markdown/plain-text body, unmodified; gzip copy in the .raw.gz file next to this one
+
+> For the complete documentation index, see [llms.txt](https://docs.mantle.xyz/network/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.mantle.xyz/network/system-information/fee-mechanism/eip-1559-support.md).
+
+# EIP-1559 Support
+
+[EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md) is an upgrade proposal put forth by the Ethereum community, aiming to address network security issues by adjusting the structure of transaction fees. The core idea of this proposal is to burn transaction fees while providing miners (or proof-of-stake validators) with a more reliable permanent block reward, thus creating a more effective incentive mechanism.
+
+## Analysis of Factors Affecting Fees[​](https://docs-v2.mantle.xyz/devs/concepts/tx-fee/eip-1559#analysis-of-factors-affecting-fees) <a href="#analysis-of-factors-affecting-fees" id="analysis-of-factors-affecting-fees"></a>
+
+In EIP-1559, the composition of transaction fees undergoes significant changes with the introduction of `BASEFEE` and `GasTipCap` (or `MaxPriorityFeePerGas`), along with the addition of `GasFeeCap` to ensure transaction security. The Ethereum protocol dynamically adjusts `BASEFEE` based on network congestion, resolving potential security risks associated with external price discovery in transaction packing by burning all `BASEFEE`.
+
+## Why Was EIP-1559 Introduced[​](https://docs-v2.mantle.xyz/devs/concepts/tx-fee/eip-1559#why-was-eip-1559-introduced) <a href="#why-was-eip-1559-introduced" id="why-was-eip-1559-introduced"></a>
+
+The introduction of EIP-1559 aims to address the following issues:
+
+* **Inefficient price auctions**: The use of price auctions for different network congestion scenarios leads to inefficiency, and fee estimation is highly inaccurate.
+* **Inconsistent block utilization**: The native fee design results in inconsistent block utilization. EIP-1559 allows for the adjustment of block utilization, enabling a longer-term average block size limit.
+* **Enhancing network security**: Additional incentives (`GasTipCap`) help eliminate validators' dependence on block rewards, thereby strengthening network security.
+
+## Application of EIP-1559 in Mantle v2[​](https://docs-v2.mantle.xyz/devs/concepts/tx-fee/eip-1559#application-of-eip-1559-in-mantle-v2-tectonic) <a href="#application-of-eip-1559-in-mantle-v2-tectonic" id="application-of-eip-1559-in-mantle-v2-tectonic"></a>
+
+In Mantle v2, we have made the following adjustments to `BASEFEE` and `GasTipCap`:
+
+* **`BASEFEE` Adjustment Mechanism**:
+  * The `BASEFEE` for Mantle is a system parameter set through the [`SystemConfig`](/network/system-information/on-chain-system/contract-introduction.md#systemconfigproxy) contract on Ethereum L1 and synchronized to Mantle. You can check it [here](https://etherscan.io/address/0x427Ea0710FA5252057F0D88274f7aeb308386cAf#readProxyContract#F3) - currently, the Rollup BaseFee is fixed at 20,000,000 wei (0.02 gwei).
+  * `BASEFEE` will no longer burn and will be collected in [BaseFeeVault](https://github.com/mantlenetworkio/mantle-v2/blob/develop/specs/predeploys.md#basefeevault) while supporting withdrawal to L1.
+* **`GasTipCap` Adjustment Mechanism**:
+  * In each transaction, take the smallest value of `GasTip` and `(GasFeeCap - BaseFee)` and multiply it by `gasUsed` as an award to the validator, have it collected in [SequencerFeeVault](https://github.com/mantlenetworkio/mantle-v2/blob/develop/specs/predeploys.md#sequencerfeevault), and support withdrawal to L1.
+  * Mantle v2 Tectonic, in an effort to further reduce fees, chose the [FIFO](https://en.wikipedia.org/wiki/FIFO) method of transaction sequencing to minimize the impact of `priorityfee`.
+
+Through these adjustments, Mantle v2 Tectonic builds on EIP-1559 to provide a more flexible and efficient transaction fee management mechanism.
+
+{% hint style="info" %}
+Mantle v2 Tectonic sets a very low `BASEFEE`, we also recommend that you set the `MaxPriorityFeePerGas` of your EIP-1559 transactions to 0, so that your transaction fees will be very low!<br>
+{% endhint %}

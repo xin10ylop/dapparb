@@ -1,8 +1,8 @@
 # research-material: raw material for the eight question lines
 
 Entry point for the analysis session. Written 2026-10-01 from the folder manifests and a completeness check of the
-collection. Paths in this file are relative to `research-material/` unless they start with `bot/` or `docs/` (repository
-root).
+collection. Refreshed 2026-10-01 (~05:40Z) after the gap-fill round (section 7.2 lists what that round added). Paths in this
+file are relative to `research-material/` unless they start with `bot/` or `docs/` (repository root).
 
 ## 1. Purpose
 
@@ -31,7 +31,8 @@ schemas, methods and the full per-file inventory (bytes, row counts, sha256).
 Other key schemes used inside the folders:
 - `08-sources` uses `Q1-V4GAP`, `Q2-OLDV2`, `Q3-SMALLPOOLS`, `Q4-OTHERCHAINS`, `Q5-V4LAUNCH`, `Q5-CONTEST`, `Q6-BSCORDER`,
   `Q7-CHAINWIDE-METHOD`, `Q7-ARB-4700`, `Q7-BASE-21M`, `Q7-PROFIT-28` and `Q8-V4MEASURE` (field `question_line` in
-  `excerpts.jsonl`).
+  `excerpts.jsonl`). Since 2026-10-01 it also uses `DATA-AVAILABILITY`, which is not a question line: data and code
+  availability passages of the line-7 studies (it serves line 7).
 - `06-other-chains-onchain/MANIFEST-evm.md` uses `Q-V4BASE` … `Q-COVERAGE`, plus `Q-GAPS`, which is not one of the eight lines.
 - Some manifests note older Q1-Q10 numberings and give the mapping to line numbers. Every manifest now has a "Question lines
   served" table by line number.
@@ -51,14 +52,19 @@ describes the material and its limits. Notation:
   `02-v4-live-test/prior/live-base-all.jsonl.gz`, `02-v4-live-test/prior/dry-all.log.gz`, `04-shallow-pools/live-shallow.jsonl`,
   `04-shallow-pools/live-shallow.log`, `03-v2-older-pairs/pools-part-0001.csv.gz`, `03-v2-older-pairs/census-logs-part-0001.csv.gz`,
   `07-other-chains-engine/engine-detect/arbitrum/`, `07-other-chains-engine/engine-detect/mainnet/`,
-  `06-other-chains-onchain/*/candidates-*.jsonl.gz`
+  `06-other-chains-onchain/*/candidates-*.jsonl.gz`, `02-v4-live-test/v4universe-pools-prefilter.csv.gz`,
+  `02-v4-live-test/v4universe-meta.json`, `08-sources/defillama/protocols-base-dex-*.json.gz`,
+  `08-sources/defillama/protocols-base-dex-selection.csv`
 - Coverage: This is a comparison, and each gap was collected with a different method and window.
-  - V4: one 20-minute dry engine run (2026-10-01 02:36-02:56Z).
+  - V4: one 20-minute dry engine run (2026-10-01 02:36-02:56Z). A per-pool reconstruction of that run's universe at block
+    52,015,721 was made afterwards (V4UNIVERSE, 02).
   - Shallow pools: one 20-minute dry run at `--min-depth-eth 0.001` (2026-09-30 22:03-22:23Z).
   - Older V2 pairs: a pinned-block snapshot of a random sample plus a 24 h event census, with no engine run.
   - Other chains: single-window on-chain censuses, plus detection-only engine runs without simulation on Arbitrum and Ethereum.
 
-  No common measure across the gaps was collected.
+  No common measure across the gaps was collected. Base-wide DEX context: DefiLlama TVL histories of the 15 Base `Dexs`
+  entries selected by `chainTvls.Base` at one `/protocols` snapshot (2026-10-01T04:37:38Z); the values are DefiLlama's
+  computation.
 
 **Part: Clanker and Zora launch new tokens as V4 pools with hooks**
 - Files: `01-v4-pools/initialize-compact/pools-part-0001..0008.csv.gz`, `01-v4-pools/initialize-compact/hooks.csv`,
@@ -68,9 +74,10 @@ describes the material and its limits. Notation:
   `01-v4-pools/hook-docs/zora-hook-registry-logs.jsonl.gz`, `01-v4-pools/hook-docs/uniswap-hooklist-base.jsonl.gz`,
   `01-v4-pools/hook-docs/blockscout/`, `01-v4-pools/hook-docs/text/` (`clanker.gitbook.io_*`, `docs.zora.co_*`, clanker-devco and
   ourzora sources), `08-sources/texts/clanker-docs-v4*.txt.gz`, `08-sources/texts/zora-docs-coins-hook.txt.gz`,
-  `08-sources/texts/clanker-paragraph-v4-1-sniper-tech.txt.gz`, `excerpts.jsonl (Q1-V4GAP)`
+  `08-sources/texts/clanker-paragraph-v4-1-sniper-tech.txt.gz`, `excerpts.jsonl (Q1-V4GAP)`,
+  `01-v4-pools/v4-window2-initialize-part-0001.csv.gz`, `01-v4-pools/v4-window2-pool-keys.csv.gz`
 - Coverage: Every PoolManager Initialize event from the deployment block 25,350,988 to 52,006,302, plus a 7-day window to
-  52,006,432, with the hook address of each pool.
+  52,006,432 and window 2 (blocks 52,006,433-52,017,160), with the hook address of each pool.
   - Launchpad labels come from docs, registries and Blockscout, applied with a fixed precedence. They exist only for hooks with
     at least 20 pools or another label source (1,198 of 74,887 hook addresses).
   - Launch-tx samples: at most 3 per hook, for 213 hooks.
@@ -95,39 +102,52 @@ describes the material and its limits. Notation:
 **Part: "The engine supports V4"**
 - Files: `02-v4-live-test/MANIFEST.md` (sections "Engine changes" and the loader table), `02-v4-live-test/live-v4.log`,
   `02-v4-live-test/live-v4.jsonl`, `00-prior-runs/engine-runs/live-base-all.jsonl.gz`, `04-shallow-pools/pools-prefilter.csv.gz`
-  (`fee_by_dir_*` columns), `04-shallow-pools/cl-ticks-prefilter.csv.gz`
+  (`fee_by_dir_*` columns), `04-shallow-pools/cl-ticks-prefilter.csv.gz`, `02-v4-live-test/v4universe-pools-prefilter.csv.gz`
+  (`is_v4` rows, `v4_*` key columns), `02-v4-live-test/v4universe-meta.json` (`v4_loader_counts`)
 - Coverage: The engine searches only the V4 pools it can price locally (the existing `isPriceable`, described in the 02 loader
   table). These are static-fee pools whose hook has no swap or return-delta permission bits.
   - Dynamic-fee pools and hook-swap-flag pools are counted (`droppedDynamicFee`, `droppedHookSwapFlags`) but not searched.
+  - The V4UNIVERSE files list, one row per pool, the V4 pools that the engine's loader kept at block 52,015,721 (a
+    reconstruction run after the V4LIVE run, not the live engine's state). Rows dropped by the loader are counted in
+    `v4universe-meta.json`, not listed.
   - The engine source (`bot/src/pools/v4.ts`, `bot/src/pools/v4file.ts`) is in the repository, not in research-material.
 
 **Part: "It just doesn't list every V4 pool yet"**
 - Files: `00-prior-runs/engine-runs/dry-all.log.gz`, `02-v4-live-test/run-times.json`, `02-v4-live-test/live-v4.log`
   (`v4 pools loaded from file`), `02-v4-live-test/initialize-topup.csv.gz`, `02-v4-live-test/initialize-topup.json`,
-  `01-v4-pools/initialize-parts.json`, `01-v4-pools/initialize-compact/`
+  `01-v4-pools/initialize-parts.json`, `01-v4-pools/initialize-compact/`, `01-v4-pools/v4-window2-initialize-part-0001.csv.gz`,
+  `02-v4-live-test/v4universe-pools-prefilter.csv.gz`, `02-v4-live-test/v4universe-meta.json`
 - Coverage: In the earlier session the engine listed V4 pools through GeckoTerminal (`discoverV4Pools`).
   - During this collection, the opt-in flag `--v4-pools` was added (commit `5c1baf2`, 2026-10-01). It loads every Initialize
     event from files, and the V4LIVE run used it.
-  - Pools initialized after the top-up pin (block 52,015,481) or during the run are not in that list.
+  - Pools initialized after the top-up pin (block 52,015,481) or during the run are not in that list. Their Initialize events
+    (up to block 52,017,160) are in `v4-window2-initialize-part-0001.csv.gz`.
+  - The run logged only aggregate counts of the pools it loaded. The per-pool list in `v4universe-*` is a later
+    reconstruction at block 52,015,721; the 02 MANIFEST lists its counts next to the run's logged counts.
 
 ### Line 2: Older V2 pairs
 
 **Part: "I took the newest 6,000" (pairs per V2-style factory)**
 - Files: `00-prior-runs/engine-runs/dry-all.log.gz`, `00-prior-runs/engine-runs/dry-all-v0.log.gz`, `03-v2-older-pairs/factories.csv`,
   `03-v2-older-pairs/uniswapv2-sample-indices.csv.gz`, `04-shallow-pools/factory-enumeration.csv.gz`,
-  `04-shallow-pools/collect/snapshot.log`, `02-v4-live-test/live-v4.log`
+  `04-shallow-pools/collect/snapshot.log`, `02-v4-live-test/live-v4.log`, `02-v4-live-test/v4universe-pools-prefilter.csv.gz`,
+  `02-v4-live-test/v4universe-pools-pruned-empty.csv.gz`, `02-v4-live-test/collect/v4_universe_snapshot.log`
 - Coverage: The §2.6 log records the total and enumerated counts per factory (16:55:48-16:55:56Z).
   - 03 rebuilds the enumerated index range from those totals and the newest-first rule in `bot/src/pools/enumerate.ts`. The
     block of each enumeration call was not logged, so it is derived from the log time (±1-2 blocks).
   - 04 has the engine's own newest-6,000 enumeration at block 52,008,246. This is a later pass, not the §2.6 set.
+  - 02 V4UNIVERSE has the engine's newest-6,000 enumeration at block 52,015,721, a reconstruction of the V4LIVE run's
+    universe. Its factory totals differ from the run's log for UniswapV2 and AerodromeCL3 (02 MANIFEST, "Counts").
 
 **Part: "of about 3 million Uniswap V2 pairs"**
 - Files: `03-v2-older-pairs/factories.csv`, `03-v2-older-pairs/factory-length-history.csv`, `00-prior-runs/engine-runs/dry-all.log.gz`,
   `04-shallow-pools/collect/snapshot.log`, `02-v4-live-test/live-v4.log`, `08-sources/texts/docs-uniswap-v2-deployments.txt.gz`,
-  `08-sources/defillama/summary-dexs-uniswap-v2.json.gz`
+  `08-sources/defillama/summary-dexs-uniswap-v2.json.gz`, `08-sources/defillama/protocols-base-dex-uniswap-v2.json.gz`,
+  `02-v4-live-test/collect/v4_universe_snapshot.log`
 - Coverage: The UniswapV2 factory's `allPairsLength` on Base was read on-chain at three kinds of block: the pinned block
   52,008,400, the block matching the §2.6 log time, and a 500,000-block grid.
   - Engine logs also give the logged total at other run times: 2026-09-30 16:37Z, 16:55Z and 22:04Z, and 2026-10-01 02:05Z.
+    The V4UNIVERSE log gives it at block 52,015,721.
   - Base only.
 
 **Part: "Almost all the older ones are abandoned tokens"**
@@ -154,32 +174,43 @@ describes the material and its limits. Notation:
   `04-shallow-pools/tokens.csv.gz`, `04-shallow-pools/snapshot-meta.json`, `04-shallow-pools/v4-poolmanager-balances.csv.gz`,
   `03-v2-older-pairs/pools-part-0001.csv.gz`, `03-v2-older-pairs/price-reference-weth-pools.csv.gz`,
   `01-v4-pools/state-snapshot.csv.gz`, `01-v4-pools/pool-keys-snapshot.csv.gz`, `02-v4-live-test/live-v4.log`
-  (`v4AfterPruneEmpty`, `v4AfterDepthFilter`)
-- Coverage: Engine-defined depth (`poolDepthEth` with the anchored price map) is recorded per pool only for the engine
-  universe at block 52,008,246. That universe is the newest 6,000 per V2-style factory, all Slipstream pools, the V3 tiers for
-  the revealed pairs, and GeckoTerminal-listed V4.
+  (`v4AfterPruneEmpty`, `v4AfterDepthFilter`), `02-v4-live-test/v4universe-pools-prefilter.csv.gz` (`engine_depth_eth_derived`,
+  `passes_min_depth_0_1_derived`), `02-v4-live-test/v4universe-pools-pruned-empty.csv.gz`, `02-v4-live-test/v4universe-prices.csv.gz`,
+  `01-v4-pools/v4-window2-state-snapshot.csv.gz`, `01-v4-pools/v4-window2-pool-keys.csv.gz`, `01-v4-pools/v4-window2-token-metadata.csv.gz`
+- Coverage: Engine-defined depth (`poolDepthEth` with the anchored price map) is recorded per pool for two engine universes:
+  - at block 52,008,246 (04): the newest 6,000 per V2-style factory, all Slipstream pools, the V3 tiers for the revealed
+    pairs, and GeckoTerminal-listed V4;
+  - at block 52,015,721 (02 V4UNIVERSE): the same non-V4 rules plus the V4 pools of the `--v4-pools` loader. This is a
+    reconstruction of the V4LIVE run's universe, read from an archive node after the run, not the live engine's state.
+
+  Other material:
   - The older-V2 sample (03) has raw reserves but no engine depth.
-  - V4 pools in 01 have in-range liquidity at block 52,006,432, only for pools active in 24 h or initialized in 7 days.
-  - For the V4LIVE run there are only aggregate counters, not per-pool depth.
+  - V4 pools in 01 have in-range liquidity at block 52,006,432 (pools active in 24 h or initialized in 7 days) and at block
+    52,017,008 (pools with an event in window 2, blocks 52,006,433-52,017,160).
+  - The V4LIVE run itself logged only aggregate counters, not per-pool depth.
 
 **Part: "Profit is capped at a slice of a pool's liquidity"**
 - Files: `04-shallow-pools/live-shallow.jsonl`, `04-shallow-pools/pools-prefilter.csv.gz`, `04-shallow-pools/cl-ticks-prefilter.csv.gz`,
   `00-prior-runs/engine-runs/live-base-all.jsonl.gz`, `02-v4-live-test/live-v4.jsonl`,
-  `08-sources/texts/arxiv-2305.14604-milionis-moallemi-roughgarden-arbitrage-profits-fees.txt.gz`, `excerpts.jsonl (Q3-SMALLPOOLS)`
+  `08-sources/texts/arxiv-2305.14604-milionis-moallemi-roughgarden-arbitrage-profits-fees.txt.gz`, `excerpts.jsonl (Q3-SMALLPOOLS)`,
+  `02-v4-live-test/v4universe-pools-prefilter.csv.gz`
 - Coverage: This is a statement about mechanism. Candidate records give the input size and the predicted and simulated profit
   per route.
   - The pool state in 04 comes from a separate pass at block 52,008,246, not from each candidate's block.
   - Tick data covers only ±3000 ticks around the current tick.
+  - The V4UNIVERSE pool state (block 52,015,721, before the V4LIVE window) has no tick tables, only per-pool tick counts.
 
 **Part: "so these pay a few dollars at most"**
 - Files: `04-shallow-pools/live-shallow.jsonl`, `04-shallow-pools/live-shallow.log`, `04-shallow-pools/run-times.json`,
   `05-base-onchain/data/txs-fw-0001.csv.gz`, `05-base-onchain/data/candidates-fw-0001.jsonl.gz`,
-  `05-base-onchain/data/reverted-fw-0001.csv.gz`, `05-base-onchain/blocks.csv.gz`, `03-v2-older-pairs/census-logs-part-0001.csv.gz`
+  `05-base-onchain/data/reverted-fw-0001.csv.gz`, `05-base-onchain/blocks.csv.gz`, `03-v2-older-pairs/census-logs-part-0001.csv.gz`,
+  `01-v4-pools/v4-window2-swap-part-0001.csv.gz`, `01-v4-pools/v4-window2-modify-liquidity-part-0001.csv.gz`
 - Coverage: One 20-minute dry run at `--min-depth-eth 0.001`: ready 2026-09-30 22:03:50Z, stop 22:23:51Z, blocks
   ~52,008,242-52,008,842.
   - Pools below 0.001 ETH engine depth, and pools with neither side priced, were not searched.
   - USD values use the engine price map.
-  - 05 has receipts for every tx in that window, but logs only for candidate txs.
+  - 05 has receipts for every tx in that window, but logs only for candidate txs. 01 window 2 has every V4 PoolManager log in
+    that window.
   - The 03 census overlaps the window only up to block 52,008,400.
   - No repeat windows.
 
@@ -195,7 +226,7 @@ describes the material and its limits. Notation:
   - It covers the 33,597 tokens of the shallow-snapshot universe, which includes pools of all depths. 29,703 tokens had a
     holder; the other 3,894 were not probed.
   - Not covered: selling into a pool, `transferFrom` or router paths, tokens of the older V2 pairs (03), and V4 pools outside
-    the GeckoTerminal-listed set.
+    the GeckoTerminal-listed set (this includes the V4 tokens that only the V4UNIVERSE universe contains).
   - Engine simulation reverts exist only for routes the engine selected.
 
 ### Line 4: Other chains, live
@@ -230,10 +261,17 @@ describes the material and its limits. Notation:
   `08-sources/defillama/overview-dexs-bsc.json.gz`, `06-other-chains-onchain/bsc/dex/dex-address-excerpts.txt`,
   `06-other-chains-onchain/bsc/docs/pancakeswap-*.txt`, `06-other-chains-onchain/bsc/census/swap-topics.csv`,
   `06-other-chains-onchain/bsc/census/candidates-001.jsonl.gz`, `06-other-chains-onchain/bsc/census/candidates-002.jsonl.gz`,
-  `06-other-chains-onchain/bsc/census/topic0-inventory.csv.gz`
+  `06-other-chains-onchain/bsc/census/topic0-inventory.csv.gz`, `06-other-chains-onchain/bsc/dex/defillama-protocols.json.gz`,
+  `bsc/dex/defillama-protocols.meta.json`, `bsc/dex/defillama-protocols-bsc-dex-selection.csv`,
+  `bsc/dex/defillama-protocol-bsc-dex-*.json.gz` (15 files), `bsc/dex/defillama-tvl-index.csv`, `bsc/dex/defillama-v2-chains.json.gz`
+  (these under `06-other-chains-onchain/`), `08-sources/defillama/protocols-base-dex-*.json.gz` (Base counterpart)
 - Coverage: DefiLlama DEX volume overviews fetched on 2026-09-30, with daily points through 2026-09-30, and on-chain swap logs
   for one 60-minute window (8,000 blocks).
-  - No TVL or liquidity per DEX was collected.
+  - DefiLlama TVL (added 2026-10-01): one `/protocols` snapshot (2026-10-01T04:37:38Z, 8,440 entries), and the
+    `/protocol/<slug>` responses (TVL history, all chains of each protocol) of the 15 `Dexs` entries selected by
+    `chainTvls.Binance`. DefiLlama names BNB Smart Chain `Binance`; the filter used that name.
+  - The TVL values are DefiLlama's computation and were not checked on-chain. Only category `Dexs`; parent-protocol responses
+    were not fetched. No pool-level liquidity was read on BSC.
   - Swap topics are matched by topic0 without checking the emitter's factory, and some topic0 values are shared across
     protocols.
 
@@ -252,40 +290,61 @@ describes the material and its limits. Notation:
 
 **Part: "the other L2s were not measured"**
 - Files: `06-other-chains-onchain/optimism/`, `06-other-chains-onchain/unichain/`, `06-other-chains-onchain/polygon/`,
-  `06-other-chains-onchain/arbitrum/`, `06-other-chains-onchain/MANIFEST-evm.md`, `excerpts.jsonl (Q4-OTHERCHAINS)`,
-  `00-prior-runs/papers-fetched-earlier/optimistic-mev-l2s.txt.gz`
+  `06-other-chains-onchain/arbitrum/`, `06-other-chains-onchain/ink/`, `06-other-chains-onchain/mantle/`,
+  `06-other-chains-onchain/abstract/`, `06-other-chains-onchain/worldchain/`, `06-other-chains-onchain/zksync/`,
+  `06-other-chains-onchain/soneium/`, `06-other-chains-onchain/selection.csv`,
+  `06-other-chains-onchain/defillama-overview-dexs-all-chains.json.gz` (+ `.fetch.json`),
+  `06-other-chains-onchain/defillama-overview-dexs-candidates.jsonl.gz`, `06-other-chains-onchain/rpc-receipts-probe-candidates.jsonl.gz`,
+  `06-other-chains-onchain/MANIFEST-evm.md`, `excerpts.jsonl (Q4-OTHERCHAINS)`,
+  `00-prior-runs/papers-fetched-earlier/optimistic-mev-l2s.txt.gz`,
+  `08-sources/texts/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools*.txt.gz`,
+  `08-sources/texts/esma-trv-2025-maximal-extractable-value-crypto-markets.txt.gz`
 - Coverage: New 60-minute on-chain censuses (2026-09-30 ~20:07-21:07Z) for OP Mainnet, Unichain, Polygon PoS and Arbitrum.
-  - Each has receipts for all txs and logs only for candidate txs. The L2s also have ordering docs.
+  - Added 2026-10-01: 60-minute censuses for six more L2s (Ink, Mantle, Abstract, World Chain, ZKsync Era, Soneium), windows
+    2026-10-01 ~03:18-04:18Z. They were chosen from a fixed list of 11 candidates by DefiLlama 24 h DEX volume among chains
+    whose public RPC serves `eth_getBlockReceipts` (`selection.csv`). The L2s also have ordering docs with excerpts.
+  - Each census has receipts for all txs and logs only for candidate txs. The two sets of windows are from different hours and
+    days.
   - No engine runs and no USD profit computation on these chains.
-  - Other L2s (Blast, Linea, zkSync, Scroll, Mantle and others) are not covered.
+  - Not covered: the candidates that were not selected (Linea, Scroll, Blast, Mode, Taiko) and chains outside the candidate
+    list (the saved DefiLlama overview's `allChains` lists every chain DefiLlama tracks; whether each is an L2 was not checked).
 
 ### Line 5: V4 launches, contested flow, the RSR trade
 
 **Part: "V4 launches are the one place a bigger number could appear"**
 - Files: `02-v4-live-test/live-v4.jsonl`, `02-v4-live-test/live-v4.log`, `02-v4-live-test/run-times.json`, `02-v4-live-test/prior/`,
   `01-v4-pools/v4-initialize-7d-part-0001.csv.gz`, `01-v4-pools/v4-swap-part-0001.csv.gz`, `01-v4-pools/hooks.csv`,
-  `05-base-onchain/data/candidates-fw-0003.jsonl.gz`, `00-prior-runs/engine-runs/live-base-all.jsonl.gz`
+  `05-base-onchain/data/candidates-fw-0003.jsonl.gz`, `00-prior-runs/engine-runs/live-base-all.jsonl.gz`,
+  `01-v4-pools/v4-window2-initialize-part-0001.csv.gz`, `01-v4-pools/v4-window2-swap-part-0001.csv.gz`,
+  `02-v4-live-test/v4universe-pools-prefilter.csv.gz`, `02-v4-live-test/v4universe-meta.json`
 - Coverage: This part is a forward-looking judgement.
   - The direct measurement is one 20-minute V4LIVE window, which does not search dynamic-fee or hook-swap-flag pools.
   - No run was limited to newly launched pools.
-  - Block-level V4 launch activity in 01 covers 24 h only.
+  - Complete block-level V4 activity in 01 covers blocks 51,963,233-52,017,160 (~30 h): the 24 h window plus window 2, which
+    contains the shallow-run and V4LIVE windows.
 
 **Part: "New launches open large, short-lived price gaps"**
 - Files: `01-v4-pools/v4-initialize-7d-part-0001.csv.gz`, `01-v4-pools/v4-swap-part-0001.csv.gz`,
   `01-v4-pools/v4-modify-liquidity-part-0001.csv.gz`, `01-v4-pools/hook-docs/launch-tx-samples-tx.csv.gz`,
   `01-v4-pools/hook-docs/launch-tx-samples-logs.csv.gz`, `05-base-onchain/data/candidates-*.jsonl.gz`, `05-base-onchain/swap-topics.csv`,
   `02-v4-live-test/live-v4.jsonl` (`gapBps`), `excerpts.jsonl (Q5-V4LAUNCH)`, `08-sources/texts/clanker-docs-v4-mev-*.txt.gz`,
-  `08-sources/texts/clanker-docs-v4-sniper-auction-v0.txt.gz`, `08-sources/texts/arxiv-2606.00720-wu-oz-to-wait-or-to-probe.txt.gz`
-- Coverage: Complete PoolManager Swap, ModifyLiquidity and Donate events exist only for blocks 51,963,233-52,006,432 (24 h).
-  - After that, including the V4LIVE window, V4 swap logs exist only inside 05 candidate txs (criterion A/B).
+  `08-sources/texts/clanker-docs-v4-sniper-auction-v0.txt.gz`, `08-sources/texts/arxiv-2606.00720-wu-oz-to-wait-or-to-probe.txt.gz`,
+  `01-v4-pools/v4-window2-swap-part-0001.csv.gz`, `01-v4-pools/v4-window2-modify-liquidity-part-0001.csv.gz`,
+  `01-v4-pools/v4-window2-donate-part-0001.csv.gz`, `01-v4-pools/v4-window2-initialize-part-0001.csv.gz`,
+  `01-v4-pools/v4-window2-state-snapshot.csv.gz`, `01-v4-pools/v4-window2-pool-keys.csv.gz`, `01-v4-pools/v4-window2-token-metadata.csv.gz`
+- Coverage: Complete PoolManager Swap, ModifyLiquidity and Donate events exist for blocks 51,963,233-52,006,432 (24 h) and
+  52,006,433-52,017,160 (window 2, which includes the V4LIVE window). Both windows also have all Initialize events.
+  - Swap, ModifyLiquidity and Donate events before block 51,963,233 or after 52,017,160 were not collected. The 05 census range
+    (51,995,609-52,017,160) lies inside the complete window; its candidate txs also carry the logs of other venues.
   - Prices of the same tokens on other venues are available only where candidate-tx logs contain them.
   - Hook-set dynamic fees and anti-snipe state were not collected. The LP fee applied to each swap is in the Swap event.
 
 **Part: "It is also the most fought-over flow on Base"**
 - Files: `05-base-onchain/data/txs-*.csv.gz`, `05-base-onchain/data/reverted-*.csv.gz`, `05-base-onchain/blocks.csv.gz`,
-  `05-base-onchain/data/candidates-*.jsonl.gz`, `01-v4-pools/v4-swap-part-0001.csv.gz`,
+  `05-base-onchain/data/candidates-*.jsonl.gz`, `01-v4-pools/v4-swap-part-0001.csv.gz`, `01-v4-pools/v4-window2-swap-part-0001.csv.gz`,
   `00-prior-runs/competitor-ledgers/arbers_XDP.json.gz`, `00-prior-runs/competitor-ledgers/arbers_WETHUSDC.json.gz`,
-  `excerpts.jsonl (Q5-CONTEST, Q5-V4LAUNCH)`
+  `excerpts.jsonl (Q5-CONTEST, Q5-V4LAUNCH)`, `08-sources/texts/esma-trv-2025-maximal-extractable-value-crypto-markets.txt.gz`,
+  `08-sources/texts/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools*.txt.gz`
 - Coverage: The 05 census covers Base blocks 51,995,609-52,017,160 (~12 h, 2026-09-30 15:02Z to 2026-10-01 03:01Z). It has
   `tx_index`, `effective_gas_price`, `l1_fee` and `status` for every tx.
   - Priority fee per gas can be derived as `effective_gas_price` minus the block's `base_fee_per_gas`.
@@ -293,6 +352,9 @@ describes the material and its limits. Notation:
   - Reverted txs carry no logs, so their target pools are not identified.
   - No mempool, dropped or private txs.
   - Competitor sender lists exist only for two non-V4 pairs (XDP/USDC and WETH/USDC), over 3,000 blocks.
+  - The V4 Swap files of 01 cover every V4 swap in blocks 51,963,233-52,017,160 and carry `tx_hash` and `tx_index`, the 05 tx
+    keys. For window 2 the 01 MANIFEST records that every (`block_number`, `tx_index`) of its logs is in the 05 tx files with
+    the same `tx_hash`.
 
 **Part: "The RSR trade" (identification of the episode)**
 - Files: `00-prior-runs/engine-runs/live-base-all-v0.jsonl.gz` (record with `block` 51998756), `00-prior-runs/engine-runs/dry-all-v0.log.gz`,
@@ -332,13 +394,20 @@ describes the material and its limits. Notation:
 
 **Part: "The RSR trade shows how contested gaps end" (generalisation from one trade)**
 - Files: `00-prior-runs/competitor-ledgers/competitor_txs.json.gz`, `competitor_pnl.json.gz`, `competitor_perblock.json.gz`,
-  `ledger_0x778951.json.gz`, `ledger_0x0190f0.json.gz`, `arbers_XDP.json.gz` (all in `00-prior-runs/competitor-ledgers/`),
-  `05-base-onchain/data/txs-*.csv.gz`, `05-base-onchain/blocks.csv.gz`, `05-base-onchain/data/candidates-*.jsonl.gz`,
-  `excerpts.jsonl (Q5-CONTEST)`
+  `ledger_0x778951.json.gz`, `ledger_0x0190f0.json.gz`, `arbers_XDP.json.gz`, `ledger_0x000000c5.raw.csv.gz`,
+  `ledger_0x3be22b31.raw.csv.gz`, `receipts_0x000000c5.csv.gz`, `receipts_0x3be22b31.csv.gz`, `receipts_0x000000c5.full.jsonl.gz`,
+  `receipts_0x3be22b31.full.jsonl.gz` (all in `00-prior-runs/competitor-ledgers/`), `05-base-onchain/data/txs-*.csv.gz`,
+  `05-base-onchain/blocks.csv.gz`, `05-base-onchain/data/candidates-*.jsonl.gz`, `excerpts.jsonl (Q5-CONTEST)`
 - Coverage: The material holds the sender's last 50 txs over 1.82 h (blocks 51,995,475-51,998,757).
-  - Two of the four XDP-bot ledgers were saved (60 txs each); the other two were not.
+  - Ledgers exist for all four XDP bots, last 60 txs each, in two forms:
+    - `0x778951…` and `0x0190f0…`: saved by the earlier session as per-block derived values (`delta_eth`, `fee_eth`,
+      `xdp_units_delta`).
+    - `0x000000c5…` and `0x3be22b31…`: recomputed on 2026-10-01 as raw balances (ETH, WETH, USDC, XDP of the EOA and its one
+      `to` contract at blocks b-1 and b; 928 and 784 rows) plus the 60 + 60 receipts (summary CSV and verbatim JSONL with all
+      logs). Balances are per block, not per tx. The earlier session's values for these two senders exist only as summary rows
+      in `docs/ANALYSIS.md` §2.6.
   - The 05 census gives ~12 h of Base fees for every tx, but no per-tx `maxPriorityFeePerGas` and no traces outside the RSR
-    blocks.
+    blocks. The XDP-bot txs lie inside the 05 range.
 
 ### Line 6: BSC ordering
 
@@ -346,11 +415,14 @@ describes the material and its limits. Notation:
 - Files: `06-other-chains-onchain/bsc/census/txs-001.csv.gz`, `bsc/census/blocks.csv.gz`, `bsc/census/candidates-001.jsonl.gz`,
   `bsc/census/candidates-002.jsonl.gz`, `bsc/builder/builder-material-001.jsonl.gz`, `bsc/docs/` (all under
   `06-other-chains-onchain/`), `excerpts.jsonl (Q6-BSCORDER)`, `08-sources/texts/docs-base-transaction-ordering.txt.gz`,
-  `05-base-onchain/data/txs-*.csv.gz`
+  `05-base-onchain/data/txs-*.csv.gz`, `06-other-chains-onchain/{arbitrum,optimism,unichain}/docs/`,
+  `06-other-chains-onchain/{ink,mantle,abstract,worldchain,zksync,soneium}/docs/` (with `docs/excerpts.jsonl`)
 - Coverage: BSC: one 60-minute window (blocks 124,968,311-124,976,310, 2026-09-30 19:56-20:56Z) with `tx_index`, `gas_price`,
   `max_priority_fee_per_gas` and `effective_gas_price` for every tx.
   - The Base material is from separate windows.
   - The ordering rules for both chains come from published docs as fetched on 2026-09-30.
+  - Ordering docs of other chains are in their 06 directories (the six L2s added on 2026-10-01 also have verbatim excerpts).
+    The Ink docs site has no page describing its ordering rule.
 
 **Part: "Its transaction ordering goes through private block builders"**
 - Files: `06-other-chains-onchain/bsc/builder/block-mev-info.csv.gz`, `bsc/builder/block-mev-info-gaps.csv`, `bsc/builders.csv`,
@@ -380,16 +452,24 @@ describes the material and its limits. Notation:
   `08-sources/texts/arxiv-2506.14768-solmaz-et-al-optimistic-mev-l2s.txt.gz`, `08-sources/texts/arxiv-2509.22143-messias-torres-timeboost.txt.gz`,
   `08-sources/texts/arxiv-2607.24172-pahari-messias-torres-there-will-be-spam.txt.gz`,
   `08-sources/texts/arxiv-2405.00138-torres-et-al-rolling-in-the-shadows.txt.gz`, `08-sources/texts/dune-spellbook-*-sql.txt.gz`,
-  `08-sources/texts/docs-dune-dex-trades-overview.txt.gz`, `00-prior-runs/papers-fetched-earlier/`
+  `08-sources/texts/docs-dune-dex-trades-overview.txt.gz`, `00-prior-runs/papers-fetched-earlier/`, `excerpts.jsonl (DATA-AVAILABILITY)`,
+  `08-sources/texts/github-m1kuw1ll-base-arbitrage-competition-*.txt.gz` (5 files) and their `08-sources/raw/` bodies,
+  `08-sources/collect/list_repo_wu_oz.log`, `08-sources/texts/esma-trv-2025-maximal-extractable-value-crypto-markets.txt.gz`,
+  `08-sources/texts/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools*.txt.gz`
 - Coverage: Methodology passages, plus the Dune Spellbook model files that list which DEX projects feed `dex.trades` on Base,
   Arbitrum, Optimism and BNB.
   - The model files are from the main branch at fetch time, with no commit hash.
+  - Data availability (added 2026-10-01): the `DATA-AVAILABILITY` excerpts hold the availability passages and repository URLs
+    found by a text search of arXiv 2509.22143, 2606.00720 and 2607.24172. The repository named by arXiv 2606.00720
+    (`github.com/M1kuW1ll/base_arbitrage_competition`, commit `ea76128d`) is saved file by file: 4 Dune SQL queries and one
+    Python classifier, with no README and no data files.
   - Not collected: the Spellbook history over each study window, and the studies' underlying datasets.
 
 **Part: "On Arbitrum, atomic arbitrage totals about $4,700 a day for all bots combined"**
 - Files: `08-sources/texts/arxiv-2509.22143-messias-torres-timeboost.txt.gz`, `08-sources/texts/arxiv-2509.22143-messias-torres-timeboost.pdf.txt.gz`,
   `08-sources/texts/arxiv-2509.22143v1-messias-torres-timeboost.pdf.txt.gz`, `08-sources/raw/arxiv-2509.22143*`,
-  `excerpts.jsonl (Q7-ARB-4700)`, `08-sources/texts/arbitrum-forum-aip-pga-transition-incl-entropy-advisors-post7.txt.gz`,
+  `excerpts.jsonl (Q7-ARB-4700)`, `excerpts.jsonl (DATA-AVAILABILITY)` (arXiv 2509.22143 records),
+  `08-sources/texts/arbitrum-forum-aip-pga-transition-incl-entropy-advisors-post7.txt.gz`,
   `08-sources/texts/arxiv-2511.18328-timeboost-ahead-of-time-auctions.txt.gz`, `08-sources/texts/arxiv-2512.10094-auctioning-time-latency-races.txt.gz`,
   `00-prior-runs/misc/defillama-arbitrum-timeboost.json.gz`, `06-other-chains-onchain/arbitrum/`,
   `07-other-chains-engine/scans/arbitrum/`, `07-other-chains-engine/engine-detect/arbitrum/`, `00-prior-runs/block-scans/scan-arb*.gz`
@@ -400,15 +480,24 @@ describes the material and its limits. Notation:
   - The Arbitrum material collected here is from 2026-09-30/10-01: a 1 h census, ~30-minute scans and a 20-minute
     detection-only run. It has no USD profit attribution and no traces.
   - The Timeboost and PGA docs are saved, but which policy was active in the window was not determined.
+  - The `DATA-AVAILABILITY` records of arXiv 2509.22143 v2 name the Arbitrum Foundation's Timeboost bid history archive as a
+    data source. That archive was not fetched; 06 `arbitrum/` has on-chain Timeboost auction logs for its own 2026-09-30
+    window only.
 
 **Part: "On Base, 4,365 bots made 21.4 million arbitrages over nine months"**
 - Files: `08-sources/texts/arxiv-2606.00720-wu-oz-to-wait-or-to-probe.txt.gz`, `08-sources/texts/arxiv-2606.00720-wu-oz-to-wait-or-to-probe.pdf.txt.gz`,
-  `08-sources/raw/arxiv-2606.00720*`, `excerpts.jsonl (Q7-BASE-21M, Q7-CHAINWIDE-METHOD)`,
+  `08-sources/raw/arxiv-2606.00720*`, `excerpts.jsonl (Q7-BASE-21M, Q7-CHAINWIDE-METHOD, DATA-AVAILABILITY)`,
   `00-prior-runs/papers-fetched-earlier/arxiv-2606.00720-to-wait-or-to-probe.txt.gz`,
-  `08-sources/texts/dune-spellbook-dex-base-base-trades-sql.txt.gz`, `05-base-onchain/data/candidates-*.jsonl.gz`
+  `08-sources/texts/dune-spellbook-dex-base-base-trades-sql.txt.gz`, `05-base-onchain/data/candidates-*.jsonl.gz`,
+  `08-sources/texts/github-m1kuw1ll-base-arbitrage-competition-base-atomic-arbitrage-sql.txt.gz`,
+  `08-sources/texts/github-m1kuw1ll-base-arbitrage-competition-tx-classifier-subtree-py.txt.gz`,
+  `08-sources/texts/github-m1kuw1ll-base-arbitrage-competition-base-pool-commitment-inputs-by-hash-sql.txt.gz`
 - Coverage: The paper's data period is 2025-06-01 to 2026-02-28, per the 08 MANIFEST.
   - Its method extends arXiv 2506.14768, which uses Dune `dex.trades` and `dex.raw_pools`.
-  - The paper's dataset was not collected.
+  - The paper's dataset was not collected. Its repository (saved, commit `ea76128d`) holds the queries and the classifier code
+    only. The files name `compute_pool_commitment.py`, `datasets/Base_atomic_arbitrage.csv` and the Dune table
+    `dune.rig_ef.result_base_atomic_arbitrage`, none of which is in the repository; the query parameter values used for the
+    paper and the query outputs were not collected.
   - The Base census collected here covers ~12 h in 2026-09/10. It is a log-based candidate filter, not an arbitrage
     classification.
 
@@ -417,10 +506,16 @@ describes the material and its limits. Notation:
   `08-sources/texts/arxiv-2607.24172-pahari-messias-torres-there-will-be-spam.pdf.txt.gz`, `08-sources/raw/arxiv-2607.24172*`,
   `excerpts.jsonl (Q7-PROFIT-28)`, `08-sources/texts/arxiv-2506.14768-solmaz-et-al-optimistic-mev-l2s.txt.gz`,
   `08-sources/texts/arxiv-2410.19106-zhu-et-al-value-of-revert-protection.txt.gz`, `05-base-onchain/data/reverted-*.csv.gz`,
-  `05-base-onchain/data/txs-*.csv.gz`
+  `05-base-onchain/data/txs-*.csv.gz`, `excerpts.jsonl (DATA-AVAILABILITY)` (arXiv 2607.24172 records),
+  `08-sources/texts/github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-by-bot-sql.txt.gz`,
+  `08-sources/texts/github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-summary-sql.txt.gz`
 - Coverage: `docs/ANALYSIS.md` §4.1 names arXiv 2607.24172 as the source of this figure. Per the 08 MANIFEST it is Table 6 of
   that paper, with a data period of 2023-09-01 to 2025-07-31 and its own bot categories.
   - 08 files the 21.4 M / 4,365-bot figures under key Q7-BASE-21M, as arXiv 2606.00720 (data period 2025-06 to 2026-02).
+  - The two spam queries are files of the arXiv 2606.00720 repository (08 keys them Q7-PROFIT-28); they read a Dune table
+    and were not run.
+  - The text search of arXiv 2607.24172 found no passage on releasing the authors' own data or code. Its `DATA-AVAILABILITY`
+    records cover third-party datasets and tools it cites, which were not collected.
   - Per-bot data was not collected.
   - Material collected here: failed txs and fees per sender in the ~12 h Base census.
 
@@ -429,7 +524,8 @@ describes the material and its limits. Notation:
 **Part: "the search went far beyond selected pairs"**
 - Files: `00-prior-runs/engine-runs/dry-blocks-long5.log.gz`, `00-prior-runs/engine-runs/dry-all.log.gz`,
   `00-prior-runs/engine-runs/dry-all-v0.log.gz`, `00-prior-runs/block-scans/*.log.gz`, `03-v2-older-pairs/factories.csv`,
-  `04-shallow-pools/factory-enumeration.csv.gz`, `04-shallow-pools/pools-prefilter.csv.gz`, `07-other-chains-engine/scans/`
+  `04-shallow-pools/factory-enumeration.csv.gz`, `04-shallow-pools/pools-prefilter.csv.gz`, `07-other-chains-engine/scans/`,
+  `02-v4-live-test/v4universe-pools-prefilter.csv.gz`, `02-v4-live-test/v4universe-meta.json`
 - Coverage: The logs record the universe size of each run: `universe enumerated`, `pool discovery complete`, and the tokens,
   pools and cycles of `searcher ready`. The §2.6 universe consists of:
   - the newest 6,000 pools per V2-style factory;
@@ -437,16 +533,21 @@ describes the material and its limits. Notation:
   - the V3/Pancake tiers per pair;
   - GeckoTerminal-listed V4;
 
-  all with depth ≥ 0.1 ETH.
+  all with depth ≥ 0.1 ETH. Per-pool lists of an engine universe exist for two later passes: 04 (block 52,008,246, with
+  GeckoTerminal V4) and 02 V4UNIVERSE (block 52,015,721, with the `--v4-pools` loader). Neither is the §2.6 set.
 
 **Part: "but it did not cover everything"**
 - Files: `01-v4-pools/initialize-compact/`, `03-v2-older-pairs/pools-part-0001.csv.gz`, `04-shallow-pools/pools-prefilter.csv.gz`,
-  `04-shallow-pools/pools-pruned-empty.csv.gz`, `06-other-chains-onchain/`, `07-other-chains-engine/`
+  `04-shallow-pools/pools-pruned-empty.csv.gz`, `06-other-chains-onchain/`, `07-other-chains-engine/`,
+  `02-v4-live-test/v4universe-pools-pruned-empty.csv.gz`, `02-v4-live-test/v4universe-meta.json` (`v4_loader_counts`)
 - Coverage: Each folder's "Coverage limits and gaps" section lists what its own collection leaves out.
 
 **Part: full Uniswap V4 coverage on Base is the one gap where the result can't be predicted**
-- Files: `02-v4-live-test/live-v4.jsonl`, `02-v4-live-test/live-v4.log`, `02-v4-live-test/run-times.json`, `02-v4-live-test/prior/`
-- Coverage: A judgement about predictability. V4LIVE is the measurement made for it, in a single window.
+- Files: `02-v4-live-test/live-v4.jsonl`, `02-v4-live-test/live-v4.log`, `02-v4-live-test/run-times.json`, `02-v4-live-test/prior/`,
+  `02-v4-live-test/v4universe-*`, `01-v4-pools/v4-window2-*`
+- Coverage: A judgement about predictability. V4LIVE is the measurement made for it, in a single window. Added afterwards:
+  every V4 PoolManager log of the V4LIVE window (01 window 2) and a per-pool reconstruction of the run's universe (02
+  V4UNIVERSE).
 
 **Part: "Measuring it means listing every V4 pool from the pool manager's creation events"**
 - Files: `01-v4-pools/initialize-compact/pools-part-0001..0008.csv.gz`, `01-v4-pools/initialize-compact/hooks.csv`,
@@ -455,11 +556,17 @@ describes the material and its limits. Notation:
   (local-only), `01-v4-pools/collect/v4init_collector.py`, `01-v4-pools/collect/v4init.log`, `01-v4-pools/collect/find_deploy_block.py`,
   `01-v4-pools/collect/find_deploy_block.log`, `01-v4-pools/timestamps-check.csv`, `02-v4-live-test/initialize-topup.csv.gz`,
   `02-v4-live-test/initialize-topup.json`, `02-v4-live-test/collect/topup_initialize.py`,
-  `08-sources/texts/docs-uniswap-v4-poolmanager.txt.gz`, `08-sources/texts/uniswap-foundation-how-to-navigate-v4-data.txt.gz`
+  `08-sources/texts/docs-uniswap-v4-poolmanager.txt.gz`, `08-sources/texts/uniswap-foundation-how-to-navigate-v4-data.txt.gz`,
+  `01-v4-pools/v4-window2-initialize-part-0001.csv.gz`, `01-v4-pools/v4-window2-parts.json`, `01-v4-pools/collect/v4window2_collector.py`,
+  `01-v4-pools/collect/v4window2.log`, `01-v4-pools/collect/v4window2_consistency.log`
 - Coverage: Initialize events from the PoolManager deployment block (25,350,988) to 52,006,302: 15,333,247 rows, with no
   missing chunks.
   - Blocks 51,704,033-52,006,302 were collected independently by two collectors.
-  - A top-up adds blocks up to 52,015,481 (847 rows). Initialize events after 52,015,481 were not collected.
+  - A top-up adds blocks up to 52,015,481 (847 rows). The V4INIT parts plus this top-up are the input the V4LIVE engine
+    loaded.
+  - Window 2 (V4WINDOW2) adds blocks 52,006,433-52,017,160 (965 rows), each chunk fetched from two endpoints. On the overlap
+    with the top-up (blocks 52,006,433-52,015,481) both files hold the same 840 rows. Initialize events after 52,017,160 were
+    not collected.
   - The original 22 parts are local-only and can be rebuilt from `initialize-compact/`.
 
 **Part: "and rerunning the same 20-minute live test"**
@@ -468,7 +575,9 @@ describes the material and its limits. Notation:
   `02-v4-live-test/attempts/20261001T010337Z-no-blocks/`, `02-v4-live-test/prior/`, `05-base-onchain/data/txs-fw-0002.csv.gz`,
   `05-base-onchain/data/reverted-fw-0001.csv.gz`, `05-base-onchain/data/candidates-fw-0003.jsonl.gz`,
   `05-base-onchain/data/provenance-fw-0001.csv.gz`, `05-base-onchain/blocks.csv.gz`, `05-base-onchain/collect/census_fw.log`,
-  `05-base-onchain/integrity.json`
+  `05-base-onchain/integrity.json`, `02-v4-live-test/v4universe-*`, `02-v4-live-test/collect/v4_universe_snapshot.ts`,
+  `02-v4-live-test/collect/v4_universe_snapshot.log`, `01-v4-pools/v4-window2-swap-part-0001.csv.gz`,
+  `01-v4-pools/v4-window2-modify-liquidity-part-0001.csv.gz`, `01-v4-pools/v4-window2-state-snapshot.csv.gz`
 - Coverage: One valid 1,200 s window after `searcher ready`: 2026-10-01 02:36:04-02:56:04Z, blocks 52,016,408-52,017,008,
   516 ticks. The 02 MANIFEST records these differences from the §2.6 reference run:
   - HTTP `eth_blockNumber` polling (`NO_WS=1`) instead of websocket `newHeads`;
@@ -479,6 +588,13 @@ describes the material and its limits. Notation:
 
   The run used dry mode, with `eth_call` simulation only. An earlier invalid attempt is kept for provenance.
 
+  Material added after the run:
+  - `v4universe-*`: the run's engine universe, one row per pool, rebuilt with the engine's modules at block 52,015,721 (the
+    loader's `liquidityHeadAfter`). The live engine read at `latest` over several blocks and kept no per-pool list, so the two
+    sets cannot be compared pool by pool; the 02 MANIFEST gives the counts side by side.
+  - 01 window 2: every V4 PoolManager log in the run window, and StateView state at block 52,017,008, the last block of the
+    window.
+
 ## 4. Folder guide
 
 Each folder has a `MANIFEST.md`, which is the authority for schemas, methods and per-file counts. `06-other-chains-onchain/`
@@ -488,37 +604,47 @@ verified inventories. For engine outputs, candidate files and probe results, the
 
 | Folder | Chains | Window (UTC) | Sentinels | Manifest status |
 |---|---|---|---|---|
-| `00-prior-runs/` | Base (scans also Arbitrum, Ethereum) | 2026-09-30 ~10:28-17:25Z | none (not a collector) | COMPLETE WITH GAPS |
-| `01-v4-pools/` | Base | Initialize: blocks 25,350,988-52,006,302; activity: 51,963,233-52,006,432 | V4INIT, V4RECENT, V4STATE, HOOKLABELS: DONE | COMPLETE WITH GAPS |
-| `02-v4-live-test/` | Base | 2026-10-01 02:36:04-02:56:04Z, blocks 52,016,408-52,017,008 | V4LIVE: DONE | COMPLETE |
+| `00-prior-runs/` | Base (scans also Arbitrum, Ethereum) | 2026-09-30 ~10:28-17:25Z; XDP ledgers recomputed 2026-10-01 04:04-04:06Z (blocks 51,998,273-51,999,354) | none (not a collector) | COMPLETE WITH GAPS |
+| `01-v4-pools/` | Base | Initialize: blocks 25,350,988-52,006,302, 7-day window to 52,006,432, window 2 to 52,017,160; activity: 51,963,233-52,006,432 and 52,006,433-52,017,160; snapshots at 52,006,432 and 52,017,008 | V4INIT, V4RECENT, V4STATE, HOOKLABELS, V4WINDOW2: DONE | COMPLETE WITH GAPS |
+| `02-v4-live-test/` | Base | 2026-10-01 02:36:04-02:56:04Z, blocks 52,016,408-52,017,008; V4UNIVERSE reconstruction pinned at block 52,015,721 | V4LIVE, V4UNIVERSE: DONE | COMPLETE |
 | `03-v2-older-pairs/` | Base | snapshot block 52,008,400; census 51,965,201-52,008,400 | V2OLD_SNAPSHOT, V2OLD_CENSUS, V2OLD_TOKENS, V2OLD: DONE | COMPLETE |
 | `04-shallow-pools/` | Base | live 2026-09-30 22:03:50-22:23:51Z; snapshot block 52,008,246 | SHALLOW_LIVE, SHALLOW_SNAPSHOT, TRANSFER_PROBE: DONE | COMPLETE |
 | `05-base-onchain/` | Base | blocks 51,995,609-52,017,160 (2026-09-30 15:02:45Z to 2026-10-01 03:01:07Z) | BASE_CENSUS: DONE | COMPLETE WITH GAPS (manifest not independently verified, section 7.3) |
-| `06-other-chains-onchain/` | Arbitrum, OP Mainnet, Unichain, Ethereum, Polygon, BSC, Solana | one window per chain, 2026-09-30 | 13 sentinels, all DONE | COMPLETE WITH GAPS |
+| `06-other-chains-onchain/` | Arbitrum, OP Mainnet, Unichain, Ethereum, Polygon, BSC, Solana; since 2026-10-01 also Ink, Mantle, Abstract, World Chain, ZKsync Era, Soneium | one window per chain: 2026-09-30 for the first seven, 2026-10-01 ~03:18-04:18Z for the six L2s; BSC DefiLlama TVL fetched 2026-10-01 04:37-04:39Z | 25 sentinels, all DONE | COMPLETE WITH GAPS |
 | `07-other-chains-engine/` | Arbitrum, Ethereum, Base | 2026-09-30 22:14Z to 2026-10-01 02:02Z | SCANS, ENGINE_DETECT_ARBITRUM, ENGINE_DETECT_MAINNET: DONE; ENGINE_LIVE_ARBITRUM, ENGINE_LIVE_MAINNET: FAILED | COMPLETE WITH GAPS |
-| `08-sources/` | (published sources) | fetched 2026-09-30 21:55-22:21Z | SOURCES: DONE | COMPLETE WITH GAPS |
+| `08-sources/` | (published sources) | fetched 2026-09-30 21:55-22:21Z; additions 2026-10-01 04:34-04:41Z | SOURCES: DONE (counts of 2026-09-30, not rewritten) | COMPLETE WITH GAPS |
 
 ### 00-prior-runs/
 
-Gzip copies of raw outputs from the earlier session on 2026-09-30. The folder holds:
+Gzip copies of raw outputs from the earlier session on 2026-09-30, plus two recomputed XDP-bot ledgers collected on
+2026-10-01. The folder holds:
 - `engine-runs/`: engine dry-run detection records and logs, all on Base. The runs are:
   - flashblock-source runs, ~12:00-12:27Z;
   - blocks/logs-source attempts, 15:15-16:10Z;
   - the §2.5 reference run, 16:13-16:38Z;
   - the first `--universe all` run, 16:37-16:55Z;
   - the §2.6 run: log 16:55:48-17:25:47Z, records in blocks 51,999,244-51,999,900.
-- `block-scans/`: the §2.1 block-boundary scans on Base, Arbitrum and Ethereum, from ~10:28Z. Added on 2026-10-01; see
-  section 7.3.
+- `block-scans/`: the §2.1 block-boundary scans on Base, Arbitrum and Ethereum, from ~10:28Z (16 files, copied on
+  2026-10-01, commit `9c8a37c`). The MANIFEST gives records, distinct blocks and block range per scan file, and the time span
+  and token count per log.
 - `competitor-ledgers/`: collected 16:58-17:12Z. It holds the RSR sender's last 50 txs, the senders that swapped on both pools
   of the XDP/USDC pair and of the WETH/USDC pair over 3,000 blocks, and two of the four XDP-bot ledgers.
+  - Added 2026-10-01 (04:04-04:06Z, `competitor-ledgers/collect/xdp_ledgers.py`): the other two XDP-bot ledgers, recomputed
+    for senders `0x000000c5…` and `0x3be22b31…` from their last 60 txs in `arbers_XDP.json.gz`. Files:
+    `ledger_0x000000c5.raw.csv.gz` (928 rows) and `ledger_0x3be22b31.raw.csv.gz` (784 rows), with raw balances of ETH, WETH,
+    USDC and XDP for the EOA and its `to` contract at blocks b-1 and b; `receipts_*.csv.gz` (60 rows each) and
+    `receipts_*.full.jsonl.gz` (60 verbatim receipts each, with logs). Archive reads on blastapi; a spot check against
+    Tenderly found 0 mismatches.
 - `research-runs/`: fee timing, CEX/DEX lead-lag, CEX spreads and cross-chain prices, 15:16-16:15Z (the material behind
   `docs/ANALYSIS.md` §5).
-- `papers-fetched-earlier/`: the 8 paper texts read in the earlier session.
+- `papers-fetched-earlier/`: the 8 paper texts read in the earlier session. Since 2026-10-01 all eight also have fresh,
+  provenance-tracked copies in `08-sources/` (file-to-slug map in the 08 MANIFEST).
 - `misc/`: a GeckoTerminal top-pools page (~10:41Z), a PoolManager Initialize log sample (~12:09Z), a DefiLlama Timeboost
-  record, and `section-2.6-draft.md` (prose).
+  record, and `section-2.6-draft.md` (prose; labelled "prior session text, not data" in the MANIFEST).
 
-The 32 files in `engine-runs/` and `research-runs/` were checked byte-identical to their originals in `bot/data/`. The
-schema of the engine detection records is defined in this folder's MANIFEST (section "engine-runs/").
+The 32 files in `engine-runs/` and `research-runs/` and the 16 files in `block-scans/` were checked byte-identical to their
+originals in `bot/data/`. The schema of the engine detection records is defined in this folder's MANIFEST (section
+"engine-runs/").
 
 ### 01-v4-pools/
 
@@ -533,8 +659,20 @@ schema of the engine detection records is defined in this folder's MANIFEST (sec
   registry, the Uniswap hooklist and Blockscout, with a fixed precedence. `hook-pool-counts-all.csv.gz` gives the Initialize
   count for every hook address.
 - **Launch-tx samples**: 639 txs for 213 hooks, with all their logs.
+- **Window 2 (V4WINDOW2)**, blocks 52,006,433-52,017,160 (2026-09-30T21:03:33Z to 2026-10-01T03:01:07Z), from the end of the
+  24 h window to the end of the 05 census:
+  - complete PoolManager events: `v4-window2-swap-part-0001.csv.gz` (79,124 rows), `v4-window2-modify-liquidity-part-0001.csv.gz`
+    (38,952), `v4-window2-donate-part-0001.csv.gz` (15) and `v4-window2-initialize-part-0001.csv.gz` (965), with the same
+    columns as their 24 h / 7-day counterparts. Every 1,000-block chunk was fetched from Tenderly and again from
+    mainnet.base.org, with identical rows; `v4-window2-parts.json` holds the per-chunk record and the cross-folder checks.
+  - a StateView snapshot at block 52,017,008, the last block of the V4LIVE window: `v4-window2-state-snapshot.csv.gz` (4,802
+    pools, every pool with an event in window 2; columns 2-3 renamed `active_window2` / `initialized_window2`),
+    `v4-window2-pool-keys.csv.gz` (4,802) and `v4-window2-token-metadata.csv.gz` (1,924 currencies not already in
+    `token-metadata.csv.gz`; extra column `call_block`). The 6 pools initialized after block 52,017,008 have all-zero state
+    rows.
 
 Collectors ran on 2026-09-30 from 20:59Z. HOOKLABELS was OOM-killed at ~22:07Z and re-run on 2026-10-01 from 01:18Z to 02:09Z.
+V4WINDOW2 ran on 2026-10-01 from 03:55:24Z to 03:57:28Z.
 
 ### 02-v4-live-test/
 
@@ -553,6 +691,21 @@ Also kept:
 - `prior/`: copies of the §2.5, first-§2.6 and §2.6 runs.
 
 The MANIFEST documents the two engine commits and the loader counters.
+
+**V4UNIVERSE** (collected 2026-10-01 03:58-04:25Z, after the run): a per-pool reconstruction of the run's engine universe.
+`collect/v4_universe_snapshot.ts` calls the engine's own modules in the order of `bot/src/main.ts` for the run's flags, with
+every on-chain read pinned at block 52,015,721 (the run's logged `liquidityHeadAfter`) on one archive endpoint. Files:
+- `v4universe-pools-prefilter.csv.gz`: 118,168 pools after `pruneEmpty` (82,443 of them V4), with the 43 columns of
+  `04-shallow-pools/pools-prefilter.csv.gz`, including `engine_depth_eth_derived` and `passes_min_depth_0_1_derived`. 9 rows
+  have quoted line breaks.
+- `v4universe-pools-pruned-empty.csv.gz` (10,409 rows, no V4) and `v4universe-prices.csv.gz` (8,814 tokens).
+- `v4universe-meta.json`: pin, flags, input files, per-stage counts (`v4_loader_counts` uses the keys of the run's loader
+  record), `searcher_ready_equivalent`.
+- `v4universe-failed-calls.jsonl.gz` (49 lines) and `v4universe-rpc-errors.jsonl.gz` (0 lines).
+
+It is not output of the live engine; the MANIFEST section "V4UNIVERSE" lists the method deviations, the count differences
+from the run's log, and the three out-of-memory attempts before the completed run. Tick tables were not dumped, and dropped
+V4 candidates are counted, not listed.
 
 ### 03-v2-older-pairs/
 
@@ -600,21 +753,32 @@ mismatches. Files:
 File names carry the stream: `bf`/`bf2`/`bf3`/`bf4` (backfill), `gf1` (gap fill) and `fw` (forward). The range contains the
 RSR episode, the shallow-run window and the V4LIVE window; the MANIFEST maps each window to its files.
 
+`swap-topics.csv` holds the topic0 list of criterion A, with one example log per topic found on Blockscout. Its verification
+was re-run on 2026-10-01 (04:41-05:34Z, same pinned head 52,007,824, log `collect/verify_topics_rerun.log`); the census data
+files were not touched.
+
 `rsr-episode/` holds blocks 51,998,755-51,998,758 in more detail: full tx objects, receipts, callTracer traces and pool state.
 
 ### 06-other-chains-onchain/
 
-All windows are on 2026-09-30. Transaction counts are the rows of the `txs` file.
+The first seven windows are on 2026-09-30. The six L2 windows added by the 2026-10-01 collection are on 2026-10-01. Times
+are chain time (UTC). Transaction counts are the rows of the `txs` file.
 
 | Chain (dir) | Window | Blocks / slots | Transactions file rows |
 |---|---|---|---|
-| Arbitrum One (`arbitrum/`) | 20:07:21-21:07:20Z | 510,447,028-510,460,284 (13,257) | 62,119 |
-| OP Mainnet (`optimism/`) | 20:07:23-21:07:21Z | 157,600,033-157,601,832 (1,800) | 62,920 |
-| Unichain (`unichain/`) | 20:07:22-21:07:21Z | 60,050,483-60,054,082 (3,600) | 30,272 |
-| Ethereum (`ethereum/`) | 15:06:59-21:06:47Z (6 h) | 26,091,086-26,092,877 (1,792) | 534,635 |
-| Polygon PoS (`polygon/`) | 20:07:32-21:07:30Z | 94,729,141-94,731,540 (2,400) | 176,243 |
-| BSC (`bsc/`) | 19:56:37-20:56:37Z | 124,968,311-124,976,310 (8,000) | 502,872 |
-| Solana (`solana/`) | 21:25:34-21:28:13Z | slots 452,084,865-452,085,464 (600) | 348,614 non-vote (`txs-nonvote-001.csv.gz`) |
+| Arbitrum One (`arbitrum/`) | 2026-09-30 20:07:21-21:07:20Z | 510,447,028-510,460,284 (13,257) | 62,119 |
+| OP Mainnet (`optimism/`) | 2026-09-30 20:07:23-21:07:21Z | 157,600,033-157,601,832 (1,800) | 62,920 |
+| Unichain (`unichain/`) | 2026-09-30 20:07:22-21:07:21Z | 60,050,483-60,054,082 (3,600) | 30,272 |
+| Ethereum (`ethereum/`) | 2026-09-30 15:06:59-21:06:47Z (6 h) | 26,091,086-26,092,877 (1,792) | 534,635 |
+| Polygon PoS (`polygon/`) | 2026-09-30 20:07:32-21:07:30Z | 94,729,141-94,731,540 (2,400) | 176,243 |
+| BSC (`bsc/`) | 2026-09-30 19:56:37-20:56:37Z | 124,968,311-124,976,310 (8,000) | 502,872 |
+| Solana (`solana/`) | 2026-09-30 21:25:34-21:28:13Z | slots 452,084,865-452,085,464 (600) | 348,614 non-vote (`txs-nonvote-001.csv.gz`) |
+| Ink (`ink/`) | 2026-10-01 03:18:30-04:18:29Z | 57,326,299-57,329,898 (3,600) | 23,691 |
+| Mantle (`mantle/`) | 2026-10-01 03:18:30-04:18:28Z | 101,347,199-101,348,998 (1,800) | 2,444 |
+| Abstract (`abstract/`) | 2026-10-01 03:18:33-04:18:32Z | 86,310,808-86,315,526 (4,719) | 6,416 |
+| World Chain (`worldchain/`) | 2026-10-01 03:18:31-04:18:29Z | 35,744,536-35,746,335 (1,800) | 27,246 |
+| ZKsync Era (`zksync/`) | 2026-10-01 03:18:09-04:18:08Z | 72,284,916-72,285,498 (583) | 624 |
+| Soneium (`soneium/`) | 2026-10-01 03:18:31-04:18:29Z | 28,844,980-28,846,779 (1,800) | 21,002 |
 
 Contents by chain group:
 - **The five EVM chains** share one layout: `blocks`, `txs`, `reverted`, `candidates` (criterion A/B), `topic0-counts` and
@@ -626,13 +790,29 @@ Contents by chain group:
   - builder and validator registries (validator snapshot at block 124,979,813);
   - a validator MEV-RPC probe;
   - 92 doc entries;
-  - DefiLlama DEX volumes.
+  - DefiLlama DEX volumes;
+  - DefiLlama TVL (added 2026-10-01): the `/protocols` snapshot (`dex/defillama-protocols.json.gz`, 8,440 entries,
+    2026-10-01T04:37:38Z), the 15 selected `/protocol/<slug>` responses (`dex/defillama-protocol-bsc-dex-*.json.gz`), the
+    derived selection table (249 rows), a fetch index and DefiLlama's `/v2/chains` list.
 - **Solana** also has:
   - DEX-program txs (`dex-txs-00*.jsonl.gz`) and Jito tips and bundles;
   - 61 Jito tip-floor polls (21:30-22:30Z);
   - API snapshots, ordering docs and literature.
+- **The six L2s added on 2026-10-01** (Ink, Mantle, Abstract, World Chain, ZKsync Era, Soneium) use the five-chain EVM layout and
+  the unmodified shared scripts (run through thin wrappers in `collect/`), plus `docs/` with `docs/excerpts.jsonl` (verbatim
+  ordering-doc excerpts with character offsets). Each has its own `MANIFEST.md`. The selection material is at the folder top
+  level: `selection.csv` (11 candidates), the DefiLlama all-chains DEX overview, the candidates' per-chain overviews and an
+  `eth_getBlockReceipts` probe of their public RPCs. Chain notes recorded in the manifests:
+  - ZKsync Era and Abstract: the system contract `0x…800a` emits Transfer-style logs for ETH movements, and criterion B counts
+    them like ERC-20 Transfers.
+  - ZKsync Era: the 60-minute window holds 583 blocks.
+  - World Chain: PBH (priority blockspace) transactions are not flagged in the census; its token step ran four times (endpoint
+    rate limits), and only the fourth run wrote the stored files.
+  - Ink: the docs site has no page describing the ordering rule.
 
-The last data write was at 22:30Z on 2026-09-30, and no collector here was interrupted.
+The 2026-09-30 collections last wrote data at 22:30Z on 2026-09-30, and none was interrupted. The 2026-10-01 additions were
+written later: the six L2s from 04:10Z to 04:40Z (12 DONE sentinels, no FAILED sentinel) and the BSC TVL files from 04:37Z to
+04:39Z (no sentinel; all requests HTTP 200).
 
 ### 07-other-chains-engine/
 
@@ -644,18 +824,31 @@ The last data write was at 22:30Z on 2026-09-30, and no collector here was inter
   - Ethereum: 01:41:20-02:01:21Z.
 - **Blocker evidence** for the simulation-based dry run on these chains: `collect/engine-blocker-check-*.log`.
 - **Code state** of each run: `*.code-provenance.txt`.
-- **`prior-summaries.md`**: verbatim excerpts of `docs/ANALYSIS.md`.
+- **`prior-summaries.md`**: verbatim excerpts of `docs/ANALYSIS.md` (labelled "prior session text, not data" in the MANIFEST).
 
 ### 08-sources/
 
-Published sources fetched on 2026-09-30 from 21:55Z to 22:21Z:
-- `sources.csv`: 92 sources, with provenance and the question-line keys of each.
-- `texts/` (123 extracted texts) and `raw/` (157 raw HTTP bodies).
-- `excerpts.jsonl`: 206 verbatim excerpts, each with exact character offsets into its text file.
-- `searches.csv`: 58 search records.
-- `defillama/`: 12 raw DefiLlama DEX-volume responses, with daily points up to 2026-09-30T00:00Z.
+Published sources fetched on 2026-09-30 from 21:55Z to 22:21Z, with additions on 2026-10-01 from 04:34Z to 04:41Z. Counts
+after the additions (2026-09-30 counts in brackets):
+- `sources.csv`: 99 sources [92], with provenance and the question-line keys of each.
+- `texts/` (131 extracted texts [123]) and `raw/` (166 raw HTTP bodies [157]).
+- `excerpts.jsonl`: 246 verbatim excerpts [206], each with exact character offsets into its text file.
+- `searches.csv`: 66 search records [58].
+- `defillama/`: 12 raw DefiLlama DEX-volume responses (daily points up to 2026-09-30T00:00Z) plus 15 Base DEX TVL responses
+  and their selection table (added 2026-10-01).
 
-The arXiv versions are pinned in `sources.csv` and in the text headers. All 313 files are committed.
+The 2026-10-01 additions:
+- the ESMA TRV MEV risk analysis (1 July 2025) and arXiv 2601.19570 (Gogol et al., "How to Serve Your Sandwich?"), which
+  before existed only as text extractions in `00-prior-runs/papers-fetched-earlier/`;
+- the five files of the repository named by arXiv 2606.00720 (`github.com/M1kuW1ll/base_arbitrage_competition`, pinned to
+  commit `ea76128d`; no README);
+- 12 `DATA-AVAILABILITY` excerpts from arXiv 2509.22143, 2606.00720 and 2607.24172, plus excerpts of the new sources;
+- `defillama/protocols-base-dex-<slug>.json.gz`: `/protocol/<slug>` responses for the 15 Base `Dexs` entries selected by
+  `chainTvls.Base` in the `/protocols` snapshot saved under `06-other-chains-onchain/bsc/dex/`, and
+  `defillama/protocols-base-dex-selection.csv` (derived, 172 rows).
+
+The arXiv versions are pinned in `sources.csv` and in the text headers. The 313 files of 2026-09-30 are committed; the folder
+now holds 351 files. The sentinel `SOURCES.DONE` still carries the 2026-09-30 counts.
 
 ## 5. Conventions
 
@@ -666,8 +859,8 @@ The arXiv versions are pinned in `sources.csv` and in the text headers. All 313 
 - Some `.gz` files hold several concatenated gzip members: the 05 data parts and `rsr-episode/block_traces.jsonl.gz`. `zcat`
   and Python `gzip` read them whole.
 - Some CSVs have quoted fields that contain line breaks, so read them with a CSV parser, not line by line. Examples:
-  `04-shallow-pools/tokens.csv.gz`, `01-v4-pools/hook-docs/doc-address-excerpts.csv.gz`, `06-other-chains-onchain/bsc/builders.csv`
-  and `bsc/validators-onchain.csv`.
+  `04-shallow-pools/tokens.csv.gz`, `01-v4-pools/hook-docs/doc-address-excerpts.csv.gz`, `06-other-chains-onchain/bsc/builders.csv`,
+  `bsc/validators-onchain.csv` and `02-v4-live-test/v4universe-pools-prefilter.csv.gz`.
 - Engine detection outputs are kept as plain, uncompressed JSONL (`02-v4-live-test/live-v4.jsonl`, `04-shallow-pools/live-shallow.jsonl`),
   because `bot/src/research/analyze.ts` reads plain JSONL.
 - Engine logs come in two formats:
@@ -708,15 +901,19 @@ The arXiv versions are pinned in `sources.csv` and in the text headers. All 313 
   | 01 activity window (24 h) | 51,963,233-52,006,432 |
   | 03 census window | 51,965,201-52,008,400 |
   | 05 census range | 51,995,609-52,017,160 |
+  | 00 recomputed XDP-bot ledgers (queried blocks) | 51,998,273-51,999,354 |
   | RSR episode | 51,998,755-51,998,758 (detection record at 51,998,756) |
   | §2.6 run detection records | 51,999,244-51,999,900 |
   | 01 V4INIT pin / V4STATE snapshot | 52,006,302 / 52,006,432 |
+  | 01 window 2 (V4WINDOW2) | 52,006,433-52,017,160 |
   | 04 snapshot and transfer probe | 52,008,246 |
   | 04 live run (heads) | 52,008,242-52,008,842 |
   | 03 snapshot | 52,008,400 |
   | 07 Base scans | 52,008,645-52,009,606 (`config`), 52,014,010-52,014,982 (`top`) |
   | 02 top-up pin | 52,015,481 |
+  | 02 V4UNIVERSE pin | 52,015,721 |
   | 02 V4LIVE window | 52,016,408-52,017,008 |
+  | 01 V4WINDOW2 snapshot | 52,017,008 |
 
 - **V4 pools** are keyed by `pool_id` (bytes32) = `keccak256(abi.encode(currency0, currency1, fee, tickSpacing, hooks))`.
   - Currency `0x000…000` is native ETH. `fee_raw` 8388608 (0x800000) marks a dynamic fee.
@@ -758,14 +955,16 @@ The commands below come from the manifests, which hold the full details and sha2
 | `06-other-chains-onchain/bsc/census/raw/chunk-*.jsonl.gz` (verbatim `eth_getBlockByNumber(n,true)` + `eth_getBlockReceipts`, including full calldata) | 40 files, 434,972,682 bytes | `cd 06-other-chains-onchain/bsc/collect && python3 download.py`. It reads the committed `census/window.json`. It needs an endpoint with receipt history for blocks 124,968,311-124,976,310: the dataseed nodes served ~12.5 h of history on 2026-09-30, so edit `DEFAULT_ENDPOINTS` in `rpc.py`. The checksums can differ (per-line `src` field) |
 | `06-other-chains-onchain/solana/data/raw-slots/slot-*.json.gz` (verbatim `getBlock`) | 600 files, 564,677,263 bytes | Recreate `solana/collect/state/pin.json` with the exact content given in the Solana MANIFEST, then run `cd solana/collect && python3 -u sol_fetch.py --n 600`. It needs RPC endpoints that still serve slots 452,084,865-452,085,464. The checksums will differ |
 | `solana/data/jito-bundles-by-slot.parts/`, `solana/data/prices.parts/` | 600 + 72 files | Exact offline rebuild from the committed `data/jito-bundles-by-slot.jsonl.gz` and `prices-defillama-historical.jsonl.gz` (one-line commands in the Solana MANIFEST) |
-| `01-v4-pools/collect/state/`, `collect/work/` | 10 + 13,654 files | Notes R2-R8 in the 01 MANIFEST. The pins come from the `pin` objects of `initialize-parts.json` and `recent-parts.json`. The chunk checkpoints come from re-running the collectors or from splitting the R1 output. The hook candidate lists come from `hook-docs/blockscout/index.jsonl.gz` |
+| `01-v4-pools/collect/state/`, `collect/work/` | 10 + 13,654 files (before V4WINDOW2) | Notes R2-R8 in the 01 MANIFEST. The pins come from the `pin` objects of `initialize-parts.json` and `recent-parts.json`. The chunk checkpoints come from re-running the collectors or from splitting the R1 output. The hook candidate lists come from `hook-docs/blockscout/index.jsonl.gz` |
+| `01-v4-pools/collect/work/v4window2/`, `collect/state/v4window2-*.json` (V4WINDOW2 chunk checkpoints with per-block `blockHash`, cross-check results, run and snapshot state) | 44 files (9,765,136 bytes) + 5 files | Re-run `collect/v4window2_collector.py` (01 MANIFEST, "Reproduce (V4WINDOW2)"). The window is a constant in the script, so it re-fetches the same blocks; the snapshot reads need archive `eth_call` at block 52,017,008 |
 | `02-v4-live-test/collect/state/`, `collect/work/topup*/` | 9 files + 11 chunk files | The top-up chunks hold the rows of `initialize-topup.csv.gz` (and of the smoke test). `run.kv` and `concurrent-engines.jsonl` were written live by the runner. The 02 MANIFEST lists them with sha256 and gives no regeneration command; `run-times.json` is built from `run.kv` |
+| `02-v4-live-test/collect/work/v4universe/` (V4UNIVERSE checkpoints, including the CL/V4 tick data that the output files do not contain) | 19 files, 38,617,440 bytes | Re-run `collect/run_v4_universe.sh` with the same pin, spec, endpoint and batch size (02 MANIFEST, section "V4UNIVERSE"); it needs the local V4 Initialize originals or a rebuild of them |
 | `03-v2-older-pairs/collect/state/` | 96 files | R2: census chunks, rebuilt offline from `census-logs-part-0001.csv.gz` and `census-chunks.csv` (script in the 03 MANIFEST). R1: undecoded Multicall3 batch results, re-fetched with `snapshot.py`, `census.py` and `tokens.py` at `--pin 52008400` into a scratch directory. R1 needs archive `eth_call` and address-less `eth_getLogs` |
 | `04-shallow-pools/transfer-probe/collect/work/` | 4 files | Copies of committed files (`cp ../holders.csv.gz work/` and `gunzip -c ../probe-batches-raw.jsonl.gz > work/probe-batches.jsonl`). Restore them before re-running `run_probe.py` or `build_table.py` |
 | `05-base-onchain/collect/state/` | blocks-parts, checkpoints, config, first-seen, finalize summary, gap lists | Notes R2-R7 in the 05 MANIFEST. Each final checkpoint and the config are printed verbatim in the committed `census_<stream>.log` and `supervisor.log`. `blocks-parts` can be split from `blocks.csv.gz`. `finalize.py` needs these files; do not run it without them |
 | `07-other-chains-engine/collect/work/`, `collect/state/` | work JSONL, window files, markers, pids | Notes L1-L4 in the 07 MANIFEST: gunzip the committed JSONL, take `window.json` from `meta.json`, and `touch` the `.done` markers. The pids cannot be regenerated. Without the markers, `run_all.sh` in a fresh checkout re-collects live and overwrites the committed outputs |
 | `__pycache__/` (several folders) | bytecode | Recreated when the scripts are imported |
-| `.sentinels/` | 32 files | Not regenerable. The manifests quote or describe the sentinels of their folder (03, 04, 06 and 07 quote the texts) |
+| `.sentinels/` | 46 files | Not regenerable. The manifests quote or describe the sentinels of their folder (03, 04, 06 and 07 quote the texts) |
 
 **V4 Initialize originals.** These are the V4INIT parts in `01-v4-pools/`. The steps are:
 1. Run `cd 01-v4-pools/collect && python3 expand_initialize.py > initialize-full.csv`. It needs pycryptodome and gives the same
@@ -777,42 +976,57 @@ The commands below come from the manifests, which hold the full details and sha2
 4. Alternatively, re-collect with `v4init_collector.py` after restoring the pin.
 
 The 2026-10-01 check found 0 mismatches over 15,333,247 rows in the 26 columns other than `tx_hash`. Several scripts read
-these parts: the 01 hook scripts, and the V4LIVE `--v4-pools` glob, which points at
-`01-v4-pools/initialize-part-*.csv.gz`.
+these parts: the 01 hook scripts, the V4LIVE `--v4-pools` glob, which points at `01-v4-pools/initialize-part-*.csv.gz`, the
+V4UNIVERSE spec (the same glob), and the V4WINDOW2 pool-key lookup (which falls back to `initialize-compact/` when the
+originals are absent).
+
+**Files added in the 2026-10-01 gap-fill round.** When this README was refreshed (~05:40Z), the new data files, scripts and
+logs of that round (section 7.2) were untracked in git but not git-ignored; only the checkpoint directories in the table
+above are git-ignored. The result cache of the XDP-ledger collector (`00-prior-runs/competitor-ledgers/collect/state/`) was
+deleted after its run, so a re-run fetches everything again.
 
 ## 7. Known gaps, coverage limits and run history
 
 ### 7.1 Not collected
 
-These gaps come from the completeness check. "Collectable" means the gap could still be filled by collection. Past live windows
-cannot be replayed.
+These gaps come from the completeness check and remain after the gap-fill round of 2026-10-01. The gaps that round filled
+were removed from this table; section 7.2 lists what it added. "Collectable" means the gap could still be filled by
+collection.
 
 | Line(s) | Not collected | Collectable? | How (as recorded) |
 |---|---|---|---|
-| 1, 5, 8 | Complete PoolManager Swap, ModifyLiquidity, Donate and Initialize logs for Base blocks 52,006,433-52,017,160 (for Initialize: after 52,015,481). This range covers the shallow-pool and V4LIVE windows. Today the V4 logs there exist only inside 05 candidate txs | yes | `eth_getLogs` on PoolManager `0x498581ff718922c3f8e6a244956af099b2652b2b` with the four topic0 values; reuse the logic of `01-v4-pools/collect/v4recent_collector.py` with public endpoints |
 | 1 | A census of launchpad factory and token-creation events (Clanker, Zora, Flaunch, Doppler) linking each V4 pool to its launchpad and creation tx | yes | `eth_getLogs` over the factory and deployer addresses found in `01-v4-pools/hook-docs/`, from the deployment block; fill `tx_hash` with `expand_initialize.py --rpc` |
 | 1 | Labels for hook addresses below the 20-pool threshold that have no other label source | yes | `01-v4-pools/collect/hook_blockscout.py` on a wider candidate list taken from `hook-pool-counts-all.csv.gz` |
-| 1, 8 | The GeckoTerminal V4 listings that the §2.6 runs actually received | no | Listings are live and not block-pinned |
-| 1, 3, 8 | A per-pool record of which V4 pools the V4LIVE engine kept after its filters, with their depth. Also tick-level V4 liquidity and hook internal state (dynamic fees, anti-snipe windows) | partly | A pinned-block snapshot in the style of `04-shallow-pools/collect/snapshot.ts` with the `--v4-pools` list, at a block inside the V4LIVE window, plus StateView tick reads and hook getters. This gives state at that block, not the engine's live state |
+| 1, 3, 8 | For the V4LIVE universe: tick-level V4 and CL liquidity, hook internal state (dynamic fees, anti-snipe windows), PoolManager-held balances of V4 currencies, and per-pool lists of the V4 candidates the loader dropped. (Filled in part: V4UNIVERSE lists the kept pools with their engine depth at block 52,015,721.) | partly | V4UNIVERSE fetched the tick data at block 52,015,721 but kept it only in its local-only checkpoints (`02-v4-live-test/collect/work/v4universe/C-sync-*`); the dropped candidates' keys are in the Initialize files. StateView tick reads and hook getters at a pinned block give state at that block, not the engine's live state |
 | 2 | Pair creation blocks and times for the V2-style pairs (no PairCreated scan) | yes | `eth_getLogs` on factory `0x8909dc15e40173ff4699343b6eb8132c65e18ec6` with the PairCreated topic, or a binary search over `allPairsLength` |
-| 2 | The full population of older UniswapV2 pairs, and activity beyond 24 h | yes | `03-v2-older-pairs/collect/snapshot.py` over all indices at block 52,008,400; `census.py` over longer windows |
-| 2, 3 | USD prices and transfer-behaviour results for tokens of the older V2 pairs (03) and of V4 pools outside the engine universe | yes | DefiLlama coins API (historical); re-run the transfer probe at a pinned block on an archive endpoint |
+| 2 | Activity of the older UniswapV2 pairs beyond the 24 h census | yes | `03-v2-older-pairs/collect/census.py` over longer windows |
+| 2, 3 | USD prices and transfer-behaviour results for tokens of the older V2 pairs (03) and of V4 pools outside the 04 snapshot universe (this includes the V4 tokens that only the V4UNIVERSE list contains) | yes | DefiLlama coins API (historical); re-run the transfer probe at a pinned block on an archive endpoint |
 | 2 | LP-holder and liquidity-lock data for older pairs | yes | LP-token `balanceOf` and Transfer logs per pair |
 | 3 | Sell-direction, `transferFrom` and router-path simulations, and a measured tax on swaps | yes | Extend `TransferProbe.sol` to transfer into the pool or call swap/router at block 52,008,246 |
-| 3, 5, 8 | Repeated live windows at other times of day and on other days | prospective only | Re-run `04-shallow-pools/collect/run_live_shallow.py` and `02-v4-live-test/collect/run_v4_live.sh` |
-| 4 | Live engine searches on BSC, Solana, OP Mainnet, Unichain, Polygon and other L2s; simulation-based dry runs on Arbitrum and Ethereum | no (needs code changes) | `chains.ts`, `client.ts`, `tokens.ts` and `v4.ts` accept only base, arbitrum and mainnet, and the dry-run code override is set only for chain 8453 (07 MANIFEST) |
-| 4 | On-chain censuses for other L2s (Blast, Linea, zkSync, Scroll, Mantle, …) | yes | `06-other-chains-onchain/_shared_collect/census.py` against RPCs that serve `eth_getBlockReceipts` |
-| 4, 6, 7 | More than one census window per chain (each other-chain census is one window on 2026-09-30; Solana is ~2.6 min) | yes, for new windows | Re-run `census.py`, `bsc/collect/download.py` and `solana/collect/sol_fetch.py`; past windows need endpoints with history |
-| 4 | TVL or liquidity per DEX on BSC | yes | DefiLlama `/protocols` and `/protocol/<slug>` |
-| 5 | Per-tx `maxPriorityFeePerGas`, calldata and traces for census txs outside the 4 RSR blocks; other contested episodes captured at the depth of `rsr-episode/` | yes | `eth_getBlockByNumber(n,true)` for blocks 51,995,609-52,017,160; `debug_traceBlockByNumber` where served; reuse `05-base-onchain/collect/rsr_episode.py` and `rsr_traces.py` |
-| 5 | Base mempool, pending, dropped or private-flow data (losing bids) | no | Txs that never landed cannot be retrieved later |
-| 5 | Ledgers of XDP senders `0x000000c557fa9a96d66cd6371abde62d879d0e61` and `0x3be22b314654c396a12c5e8d79abdd65aac3caaf` (computed earlier, not saved) | yes | Recompute from the tx lists in `00-prior-runs/competitor-ledgers/arbers_XDP.json.gz` with archive `eth_getBalance`/`balanceOf`, using the method in the 00 MANIFEST |
-| 6 | BSC mempool and bundle-submission data, losing bids, and the inclusion outcome of a public bot's own submissions | no | Builder auctions are not public; an inclusion test needs sending transactions |
+| 3, 5, 8 | Repeated live windows at other times of day and on other days | new windows only | Re-run `04-shallow-pools/collect/run_live_shallow.py` and `02-v4-live-test/collect/run_v4_live.sh` |
+| 4 | On-chain censuses for the L2 candidates that were not selected (Linea, Scroll, Blast, Mode, Taiko) and for chains outside the fixed 11-candidate list. (Filled in part: Ink, Mantle, Abstract, World Chain, ZKsync Era and Soneium were added on 2026-10-01.) | yes | `06-other-chains-onchain/collect/census_l2.py` with an entry in `collect/l2_config.py`, against RPCs that serve `eth_getBlockReceipts` (`rpc-receipts-probe-candidates.jsonl.gz` records which endpoints served them for the 11 candidates) |
+| 4, 6, 7 | More than one census window per chain (each other-chain census is one window: 2026-09-30 for the first seven chains, 2026-10-01 ~03:18-04:18Z for the six L2s; Solana is ~2.6 min) | yes, for new windows | Re-run `census.py` (`census_l2.py` for the six L2s), `bsc/collect/download.py` and `solana/collect/sol_fetch.py`; past windows need endpoints with history |
+| 5 | Per-tx `maxPriorityFeePerGas`, calldata and traces for census txs outside the 4 RSR blocks (this includes the 120 txs of the recomputed XDP-bot ledgers, for which only receipts were read); other contested episodes captured at the depth of `rsr-episode/` | yes | `eth_getBlockByNumber(n,true)` for blocks 51,995,609-52,017,160; `debug_traceBlockByNumber` where served; reuse `05-base-onchain/collect/rsr_episode.py` and `rsr_traces.py` |
 | 6 | Full BSC calldata in the repository (it exists only in the local-only `bsc/census/raw/`) | yes | Keep the local files, or re-download with `bsc/collect/download.py` |
-| 7 | The datasets or queries behind arXiv 2509.22143, 2606.00720 and 2607.24172, and the Entropy Advisors data behind forum post #7 | partly | Check each paper's data or code availability statement; Dune needs an API key |
+| 7 | The datasets behind arXiv 2509.22143, 2606.00720 and 2607.24172, and the Entropy Advisors data behind forum post #7. (Filled in part: the availability statements were searched and excerpted as `DATA-AVAILABILITY`, and the repository named by arXiv 2606.00720 was saved.) Not collected: the outputs and parameter values of that repository's Dune queries, the files it names but does not contain, the Timeboost bid history archive named by arXiv 2509.22143, and the third-party datasets cited by arXiv 2607.24172 | partly | Dune needs an API key to run the saved queries, and their parameter values are not recorded; the bid history access is described at the docs.arbitrum.io URL of arXiv 2509.22143 reference [31]; the Entropy Advisors data was not located |
 | 7 | Dune Spellbook history over each study window, and the commit hash of the saved model files | yes | `git clone https://github.com/duneanalytics/spellbook` and run `git log` on the saved model paths |
 | 7 | Own measurements of Arbitrum or Base atomic-arbitrage profit over periods comparable to the studies (own Arbitrum census: 1 h; Base: ~12 h) | partly | Longer `census.py` ranges; USD attribution would also need traces and prices |
-| 7 | Provenance-tracked copies of the ESMA TRV MEV risk analysis (1 July 2025) and of Gogol et al., "How to Serve Your Sandwich?" (only the text extractions in `00-prior-runs/papers-fetched-earlier/` exist) | yes | Add them to `08-sources/collect/sources.json` and run `fetch_sources.py --only <slug>` |
+
+**Not collectable in this collection:**
+- **Live engine runs on chains other than Base.** On BSC, Solana, OP Mainnet, Unichain, Polygon, the six added L2s and others
+  the engine does not run at all, and on Arbitrum and Ethereum only detection-only runs (no simulation) were possible. Both
+  need engine code changes: `chains.ts`, `client.ts`, `tokens.ts` and `v4.ts` accept only base, arbitrum and mainnet, and the
+  dry-run code override is set only for chain 8453 (07 MANIFEST; sentinels `ENGINE_LIVE_*.FAILED`). The engine is EVM-only.
+- **Mempool, bundle and losing-bid data.** These are not public: Base pending, dropped or private-flow txs, BSC mempool and
+  bundle submissions, builder auction bids, and the inclusion outcome of a public bot's own submissions (which would need
+  sending transactions). Txs that never landed cannot be retrieved later.
+- **Past GeckoTerminal listings and past live windows.** GeckoTerminal listings are live and not block-pinned, so the V4
+  listings the §2.6 runs received cannot be fetched again. Past live windows cannot be replayed: the engines' in-memory state
+  during the §2.6, shallow and V4LIVE runs exists only as far as the runs logged it. The 04 snapshot and V4UNIVERSE are later
+  pinned-block reconstructions.
+- **The full ~3 M UniswapV2 pair population** was sampled, not enumerated: 03 holds 60,000 uniform random indices below the
+  §2.6 range plus the newest 6,000. A full read of every index at one pinned block (`03-v2-older-pairs/collect/snapshot.py`)
+  was not run.
 
 Other coverage limits stated in the manifests:
 - **Single windows.** Every live engine run (§2.6 reference, shallow, V4LIVE, 07 detection-only) and every census ran once, at
@@ -822,14 +1036,29 @@ Other coverage limits stated in the manifests:
 - **Signature-based swap detection.** Swaps are found by event signature in every census. The unmatched venue types are listed
   in each `swap-topics.csv` and MANIFEST. For example, 05 criterion A misses Ekubo-style anonymous logs, custom hook events
   other than `HookSwap`, and RFQ/aggregator events.
-- **05 `swap-topics.csv`** has unfinished topic verification: 1 row still reads `pending`, and 4 rows list failed Blockscout
-  windows. This affects only the verification columns, not the census.
+- **05 `swap-topics.csv`** topic verification was re-run on 2026-10-01 with the first run's pinned head. 0 rows read `pending`,
+  22 rows have a verified example and 4 read "no log found". One of those 4 (Clipper, `0x4be05c8d…`) still has one failed
+  Blockscout window (51,507,825-52,007,824, read timeouts in two passes). This affects only the verification columns, not
+  the census.
+- **V4 PoolManager activity (01).** Swap, ModifyLiquidity and Donate events are complete only for blocks 51,963,233-52,017,160;
+  Initialize events are complete from the deployment block to 52,017,160. The window-2 snapshot did not re-query currencies
+  already in `token-metadata.csv.gz` (their values are as of block 52,006,432).
+- **V4UNIVERSE (02)** is a reconstruction at block 52,015,721, read ~1-2 h after the run from one archive endpoint. It is not
+  the live engine's state, and equal counts do not establish identical per-pool sets.
+- **Recomputed XDP-bot ledgers (00).** Balances are per block, not per tx, and other txs in the same block can touch the same
+  addresses. Only ETH, WETH, USDC and XDP of the EOA and its one `to` contract were read. No tx objects or traces.
+- **DefiLlama TVL (BSC and Base).** One `/protocols` snapshot (2026-10-01T04:37:38Z) decides each selection; category `Dexs`
+  only; parent-protocol responses were not fetched; the values are DefiLlama's computation. The responses for uniswap-v2,
+  uniswap-v3, uniswap-v4 and pancakeswap-amm-v3 are saved in both folders, with identical uncompressed bodies.
+- **Six L2s (2026-10-01).** One 60-minute window each, at another hour and day than the 2026-09-30 windows. Chain notes are in
+  section 4 (06-other-chains-onchain/).
 - **BSC.** 5 of the 28 swap topics were not observed in the window; 11 of 44 validator MEV RPCs did not answer; 5 of 92 docs
   have no content.
 - **Solana.** 1 of 61 tip-floor polls failed; 15 of 600 slots returned HTTP 404 from the Jito bundles endpoint; 4 doc URLs were
   not retrieved; 2,342 of 2,854 requested coins have no DefiLlama price.
 - **Unichain.** 1 documentation URL was not retrieved.
-- **08.** No x.com posts or Dune dashboards; Spellbook files have no commit hash.
+- **08.** No x.com posts or Dune dashboards; Spellbook files have no commit hash. The Wu & Oz repository files are pinned to
+  commit `ea76128d`.
 - **One failed Blockscout fetch** was kept unchanged: `01-v4-pools/hook-docs/blockscout/0x7facd8b3…7fc.address.json.gz`.
 
 ### 7.2 Run history a reader needs
@@ -851,7 +1080,7 @@ All times are UTC.
 - **Container restart (~22:58-23:00Z).** All processes died. Effects:
   - The 05 forward stream (`fw`) resumed from its checkpoint at 01:03Z on 2026-10-01 (block 52,009,870), with no block gap.
     After that it read blocks up to ~2 h old and caught up at ~1 block/s.
-  - `05-base-onchain/collect/verify_topics.py` was killed and not re-run.
+  - `05-base-onchain/collect/verify_topics.py` was killed. (It was re-run on 2026-10-01 from 04:41Z, see below.)
   - The three 07 `top` scans were killed and re-run from scratch from 2026-10-01 01:04:58Z. The interrupted attempts were not
     kept.
   - The first V4LIVE launch had not happened yet.
@@ -885,39 +1114,72 @@ All times are UTC.
   whose `bot/src` is identical to the `top` scans'. No 07 run passes `--v4-pools`.
 - **Detection-only engine runs (01:41-02:02Z)** on Arbitrum and Ethereum (07).
 - **Transfer probe (02:12-02:19Z)**, attempt 3 (04).
+- **Commit `9c8a37c` (02:57:03Z):** the main session copied the §2.1 block scans to `00-prior-runs/block-scans/` and corrected
+  `bytes`/`sha256` in `01-v4-pools/initialize-compact/compact-index.json`.
+- **Commit `5119e45` (03:49:45Z):** the first version of this README and the finalized 05 MANIFEST.
 
-### 7.3 Documentation discrepancies to keep in mind (manifests left unchanged)
+**2026-10-01, gap-fill round** (after the completeness check; the files are described in sections 3 and 4):
+- **V4WINDOW2 (01), 03:55:24-03:57:28Z.** PoolManager logs for blocks 52,006,433-52,017,160 and the snapshot at block
+  52,017,008. Sentinel `V4WINDOW2.DONE`.
+- **V4UNIVERSE (02), 03:58:08-04:24:41Z.** Enumeration finished at 04:06:31Z; three attempts then ended with a V8 heap
+  out-of-memory error while the V4 files were parsed, and `V4UNIVERSE.FAILED` was written. The relaunch at 04:13:35Z, with a
+  memory fix, resumed from the enumeration checkpoint and completed; `.sentinels/` now holds only `V4UNIVERSE.DONE`
+  (04:24:40Z). `bot/src` was not changed.
+- **XDP-bot ledgers (00), 04:04:37-04:06:38Z,** including the verification pass.
+- **Six L2 censuses (06), 04:10-04:40Z.** Windows of chain time ~03:18-04:18Z, pinned at 04:18:40-04:18:42Z; 12 DONE
+  sentinels. The World Chain token step ran four times (endpoint rate limits).
+- **Papers, data availability and DEX TVL (08 and 06 `bsc/`), 04:34:24-04:41:20Z.** All requests HTTP 200. `SOURCES.DONE`
+  was not rewritten.
+- **05 `verify_topics.py` re-run, 04:41:16-05:34:26Z,** in three passes with the first run's pinned head 52,007,824. It
+  rewrote `swap-topics.csv` (verification columns) and modified `collect/verify_topics.py` (optional `--head`, waiting out
+  Blockscout HTTP 429). The first pass was stopped by its operator to add the 429 handling.
+- **Manifest fixups (00, 01, 04, 07), ~04:45-05:00Z.** Corrections of statements that no longer matched the files (section
+  7.3); no data file changed.
+- **This README refresh, ~05:40Z.** None of the gap-fill files had been committed at that time.
 
-- **`00-prior-runs/MANIFEST.md` contradicts itself about the block scans.** Gap 4 says the `scan-*` files, `prof.log` and
-  `repro.log` were not copied. The later section "block-scans/ (added 2026-10-01)" lists those 16 files as present, and they
-  are on disk.
-  - Its "Verified inventory" says 53 files and has no rows for `block-scans/`; the folder now holds 69 files.
-  - Its "Question lines served" table does not map `block-scans/`, although the block-scans section says those files serve
-    lines 4 and 8.
-- **`00-prior-runs/MANIFEST.md` says every file except `live-base-all.jsonl` was produced before commit `fd8d236`.** But
-  `dry-all.log` is the log of the same anchored §2.6 run (16:55:48-17:25:47Z, with `fd8d236` committed at 16:57:59Z). The 02
-  MANIFEST says that reference run used `fd8d236` code.
-- **`07-other-chains-engine/MANIFEST.md` says the §2.1 scans did not keep their raw output.** The raw §2.1 scans were found later
-  and are in `00-prior-runs/block-scans/`.
-- **The same 07 manifest describes `manifest_waiter.sh` as still running until ~09:05Z.** The last line of
-  `collect/manifest_waiter.log` is `2026-10-01T02:56:31Z stopped by the main session`.
-- **`08-sources/MANIFEST.md` says 08 holds fresh copies of the papers in `00-prior-runs/papers-fetched-earlier/`.** Two of the
-  eight are not in `08-sources/sources.csv`: the ESMA TRV MEV risk analysis and Gogol et al., "How to Serve Your Sandwich?".
-- **`04-shallow-pools/MANIFEST.md` coverage item 9 says a V4 live-test engine shared the endpoints during both runs.** The 02
-  timeline has no V4 engine running during the shallow live run (2026-09-30 21:53:55-22:23:51Z). Only the 04 snapshot
-  (22:04-22:49Z) overlaps a V4 engine startup, the verification startup at 22:23:56Z.
-- **`05-base-onchain/MANIFEST.md` has uncommitted working-tree changes** against commit `002dc86`, and it was not independently
-  verified. Its text has its own "Verified inventory (2026-10-01)" section (~03:18-03:26Z).
-- **`01-v4-pools/initialize-compact/compact-index.json` has wrong `bytes` and `sha256` values for all 8 parts.** This is
-  documented, and the correct values are in the 01 inventory. `tx-hash-recovery-check.json` was written by a script that is not
-  in the folder.
+### 7.3 Documentation discrepancies to keep in mind
+
+The 2026-10-01 fixups corrected the manifest statements that this section listed before the gap-fill round. Each correction is
+a dated note in the manifest, and the earlier wording is kept there:
+- `00-prior-runs/MANIFEST.md`: gap 4 no longer says the block scans were not copied; `block-scans/` now has inventory rows
+  and question-line rows; the `fd8d236` sentence now also excepts `dry-all.log`.
+- `07-other-chains-engine/MANIFEST.md`: the §2.1 scans' raw output is pointed to `00-prior-runs/block-scans/`, and
+  `manifest_waiter.sh` is recorded as stopped at 2026-10-01T02:56:31Z.
+- `04-shallow-pools/MANIFEST.md`: coverage item 9 has a correction. No V4 engine ran during the shallow live run; the V4
+  verification startup overlapped only the 04 snapshot.
+- `01-v4-pools/MANIFEST.md`: `compact-index.json` was corrected in commit `9c8a37c` and re-checked against all 8 parts, and
+  `tx-hash-recovery-check.json` is described as written by an inline script that was not saved.
+- `08-sources/MANIFEST.md`: all eight papers of `00-prior-runs/papers-fetched-earlier/` now have fresh copies in 08 (the ESMA
+  analysis and arXiv 2601.19570 were added), with a file-to-slug map.
+
+These remain:
+- **`05-base-onchain/MANIFEST.md` was not independently verified.** The version this README first described was committed in
+  `5119e45` (2026-10-01 03:49:45Z). Its text has its own "Verified inventory (2026-10-01)" section (~03:18-03:26Z). The
+  `verify_topics.py` re-run later added correction notes and an appended section (not committed when this README was
+  refreshed).
+- **Older counts kept in place.** Several manifests keep their pre-gap-fill counts in the older sections and give the new
+  files in dated notes or appended sections: the 00 inventory count of 53 files, the 01 inventory totals, the 06 folder
+  totals and the "13 collectors" status line, and the 08 status counts and `SOURCES.DONE` (2026-09-30 counts, not rewritten).
+- **`01-v4-pools/MANIFEST.md` marks the V4WINDOW2 files `committed`** in its V4WINDOW2 inventory table. When this README was
+  refreshed, `git status` listed them as untracked (not git-ignored). The 00, 02 and 06 (six L2s) manifests mark their
+  gap-fill files as untracked, new or not yet committed; the 08 and 06 `bsc/` inventories of the added files give no commit
+  status.
+- **`00-prior-runs/MANIFEST.md` block-scans table** says "20 tokens" for Base runs 1-3. The logs print `tokens: 20` for run 1
+  and `tokens: 19` for runs 2 and 3; the fixup recorded this as a note and left the table row as it was.
+- **08 regeneration.** Re-running `08-sources/collect/make_manifest.py` regenerates the 2026-09-30 text and drops every
+  hand-written section, including the 2026-10-01 additions. The `DATA-AVAILABILITY` key exists only in `excerpts.jsonl`; the
+  `sources.csv` rows of the three papers do not list it.
 - **02 depends on files outside its own committed content.** These dependencies are documented:
-  - The valid run's `--v4-pools` input was the local-only `01-v4-pools/initialize-part-*.csv.gz`.
+  - The valid run's `--v4-pools` input was the local-only `01-v4-pools/initialize-part-*.csv.gz`; V4UNIVERSE read the same
+    files.
   - The verification startup ran an uncommitted loader version.
   - `run-times.json` `env` omits `NO_WS=1`.
+  - V4UNIVERSE replaced keys in viem's in-memory `isAddressCache` with flat copies to bound memory (no returned value
+    changes); the installed viem files were not edited.
 - **Conclusion-bearing prose sits inside data folders:** `00-prior-runs/misc/section-2.6-draft.md` (the earlier session's
   draft, later inserted into `docs/ANALYSIS.md`) and `07-other-chains-engine/prior-summaries.md` (verbatim `docs/ANALYSIS.md`
-  excerpts, including evaluative statements). Both manifests acknowledge this. Treat these files as claims, not data.
+  excerpts, including evaluative statements). Both manifests now label them "prior session text, not data". Treat these files
+  as claims, not data.
 - **Two notes in `08-sources/MANIFEST.md` "Coverage limits and gaps" are worded as descriptions of searches** (the per-day text
   search of arXiv 2509.22143, and the search for launch-sniping studies on Base). Read them as search records. The sources
   themselves are in `texts/`.

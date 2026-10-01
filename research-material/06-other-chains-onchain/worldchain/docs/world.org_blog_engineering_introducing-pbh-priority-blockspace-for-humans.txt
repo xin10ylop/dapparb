@@ -1,0 +1,205 @@
+SOURCE_URL: https://world.org/blog/engineering/introducing-pbh-priority-blockspace-for-humans
+FINAL_URL: https://world.org/blog/engineering/introducing-pbh-priority-blockspace-for-humans
+HTTP_STATUS: 200
+FETCHED_AT_UTC: 2026-10-01T04:22:48Z
+EXTRACTION: verbatim visible text of the HTML (tags stripped, scripts/styles dropped); raw HTML in the .html.gz file next to this one
+
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* Introducing PBH: Priority Blockspace for Humans
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+
+EN
+
+## Apps
+
+* World ID app
+* About the Orb
+
+* Find an Orb
+
+* World Money
+
+## World ID Products
+
+* World ID for Zoom
+
+* World ID for Tinder
+
+* World ID Live Check
+
+## Solutions
+
+* World for You
+
+* World for Enterprise
+
+* World for Governments
+
+* World for Developers
+
+## Discover
+
+* About World
+
+* World Blogs
+
+* World Flagships
+
+* Help World Grow
+
+## Protocol
+
+* World ID
+
+* World Chain
+
+## Resources
+
+* Whitepaper
+
+* Learn Center
+
+* Support
+
+* Open Source
+
+* Privacy
+
+* Media Center
+
+* Careers
+
+* World Foundation
+
+Search
+
+October 17, 2024 4 Minute Read
+
+## Introducing PBH: Priority Blockspace for Humans
+
+Table of contents
+Lifecycle of a transaction on the OP Stack Transaction ordering in the OP Stack World Chain Payload Builder Next steps
+
+Lifecycle of a transaction on the OP Stack
+Transaction ordering in the OP Stack
+World Chain Payload Builder
+Next steps
+
+World Chain was introduced earlier this year as a new blockchain for humans, and today its mainnet launch was announced.
+While it’s open for everyone, World Chain was designed to prioritize anonymously verified human interactions over bots and AI through direct protocol integrations with World ID for proof-of-human verification. One of the initial protocol integrations will be Priority Blockspace for Humans (PBH).
+PBH enables verified users to execute transactions with top of block priority, enabling a more frictionless user experience. PBH is designed to ensure that ordinary users aren’t unfairly disadvantaged by automated systems, greatly mitigates the impact of MEV attacks and exploits, and reduces the need to pay significant gas fees to be included in a block. PBH also enables future flexibility, allowing for a separate EIP-1559-style fee market mechanism for verified transactions.
+
+## Lifecycle of a transaction on the OP Stack
+
+To understand how PBH works, let's review how transactions are included within the OP Stack today. The diagram below demonstrates an abridged version of the lifecycle of a transaction on standard OP Stack rollups, or L2s as they’re known.
+
+When a user sends a transaction to a node, the pending transaction is forwarded to the sequencer and added to the sequencer’s mempool. The sequencer is no different than any other node in the network, with the only exception being that it can propose new blocks and advance the chain. Every node in the OP Stack has an execution client (EL) and a consensus client (CL).
+The Engine API defines the communication protocol between the CL and the EL and is responsible for orchestrating block production as well as advancing the unsafe/safe head of the chain. Periodically, the CL will send a request to the EL signaling for a new block to be built. After a series of API calls between the CL and EL, the EL will return a new ExecutionPayload containing a newly constructed block. The CL will then advance the unsafe head of the chain and peer the new block to other nodes in the network.
+The unsafe head consists of the set of blocks that have not yet been posted to Ethereum by the op-batcher. Periodically, the batcher will transform the blocks/transactions contained in the unsafe head into “ channels and frames” which are essentially compressed data representing the transactions in a block. This compressed data is then posted to the L1BatchInbox where the op-node is continuously listening for the newly posted data. The op-node then decompresses the data through the “derivation pipeline”, transforming the compressed data back into transactions and blocks. Once the L2 blocks are reconstructed, the safe head is advanced to the latest block that has been posted to the L1BatchInbox.
+
+## Transaction ordering in the OP Stack
+
+Transaction ordering occurs in the payload builder which is responsible for building a new block in response to a fork choice update (FCU) message from the op-node while the derivation pipeline is responsible for reconstructing L2 blocks from compressed calldata posted to L1 (or an alt DA).
+
+Note that transaction ordering within the payload builder is not enforced at the protocol level. A block builder can construct a valid block with any combination of pending transactions, in any order. Eventually though, it may be possible to enforce ordering at a protocol level through the derivation pipeline. Currently, there is an experimental spec outlining a transaction ordering policy for OP Stack chains.
+
+## World Chain Payload Builder
+
+Recently, Flashbots proposed a new spec detailing external block production for the OP Stack . In this design, a "block builder sidecar" sits between the op-node and op-geth components within the Sequencer. Whenever the Sequencer needs a new block to be built, op-node will send a Fork Choice Update (FCU) notification to the sidecar, which will multiplex the FCU to the Sequencer's execution client as well as any external builders. Shortly after, op-node will send a getPayload request to the sidecar, which will forward the request to all builders as well as the sequencer's execution client. Each of the payload builders will send a built block back to the sidecar, which will evaluate which block is best and send this back to op-node .
+
+In order to implement priority blockspace for humans, a World Chain block builder is being developed which ensures that verified human transactions are included at the top of the block. While this logic could be implemented directly in the sequencer’s execution client, a more modular approach with better liveness guarantees is to run the World Chain payload builder alongside the sequencer as a builder participating in the network.
+In the event that the builder does not respond with a constructed block in time or returns an invalid block, the builder sidecar will use the default block produced by the Sequencer’s execution client instead. This design ensures that block production is never interrupted due to issues with the builder. An updated diagram demonstrating OP stack sequencing including communication with the builder can be seen below.
+
+## Next steps
+
+Recently, Flashbots created a spec for External Block Production on the OP Stack, which was recently merged into the Optimism design-docs repo . This marks the first step in formalizing the communication between the OP Stack's sequencer and external block builders. In addition to this, Flashbots has started development on rollup-boost , a Reth-based sidecar which acts as a relay between the sequencer and block builders on the OP Stack. Currently, we are testing the Worldchain builder alongside rollup-boost in a devnet and plan to deploy the World Chain block builder to testnet, bringing Priority Blockspace for Humans to World Chain Sepolia in the near future. As part of our broader commitment to advancing the OP Stack, we intend to work closely with Flashbots and the Optimism Collective to accelerate this initiative throughout the Superchain .
+
+## Disclaimer
+The above content speaks only as of the date indicated. Further, it is subject to risks, uncertainties and assumptions, and so may be incorrect and may change without notice. A full disclaimer can be found in our Terms of Use and Important User Information can be found on our Risks page.
+The information in this article is over 12 months old and may be outdated. Please visit world.org/blog for the most recent information about the project.
+
+## Join the real human network.
+Get World ID app
+
+World ID
+World ID app
+World Money
+World Chain
+
+About World
+World Flagships
+World Blogs World View
+World Tech
+
+World for You
+World for Enterprise
+World for Governments
+World for Developers
+
+About the Orb
+Find an Orb
+Help World Grow
+Retail Operators
+
+Whitepaper
+Open Source
+Privacy
+
+Media Center
+World Foundation
+Learn Center
+Support
+FAQs
+Careers
+
+X
+WhatsApp
+LinkedIn
+Telegram
+YouTube
+Instagram
+TikTok
+Reddit
+* Eligibility for Worldcoin (WLD) tokens is restricted based on geography, age, and other factors. World Assets, Ltd. and World Foundation are not responsible for the availability of WLD on third party platforms, such as centralized or decentralized exchanges. For details, go to: https://world.org/legal/user-terms-and-conditions . Crypto products can be highly risky. Important User Information can be found at https://world.org/risks .
+
+Cookie Settings Cookie Policy Privacy Notice Trademark Policy Data Requests User Terms Risks Community Alerts ™ 2026 World

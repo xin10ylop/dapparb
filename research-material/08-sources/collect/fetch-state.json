@@ -1474,5 +1474,113 @@
   "access_notes": "HTTP 200, 60383 bytes, saved unchanged",
   "status": "ok",
   "fetched_at": "2026-09-30T22:21:45Z"
+ },
+ "esma-trv-2025-maximal-extractable-value-crypto-markets": {
+  "url": "https://www.esma.europa.eu/sites/default/files/2025-07/ESMA50-481369926-29744_Maximal_Extractable_Value_Implications_for_crypto_markets.pdf",
+  "title": "",
+  "authors": "ESMA",
+  "date": "D:20250701095947+02'00'",
+  "raw_files": [
+   "raw/esma-trv-2025-maximal-extractable-value-crypto-markets.doc.pdf.gz"
+  ],
+  "text_files": [
+   "texts/esma-trv-2025-maximal-extractable-value-crypto-markets.txt.gz"
+  ],
+  "access_notes": "PDF 17 pages; title/author/date from PDF metadata unless overridden",
+  "status": "ok",
+  "fetched_at": "2026-10-01T04:34:42Z"
+ },
+ "arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools": {
+  "url": "https://arxiv.org/abs/2601.19570v1",
+  "title": "How to Serve Your Sandwich? MEV Attacks in Private L2 Mempools",
+  "authors": "Gogol, Krzysztof; Schneider, Manvir; Gorzny, Jan; Tessone, Claudio",
+  "date": "v1 2026/01/27; latest v1; history: Submission history From: Krzysztof Gogol [ view email ] [v1] Tue, 27 Jan 2026 13:00:33 UTC (519 KB)",
+  "raw_files": [
+   "raw/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools.abs.html.gz",
+   "raw/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools.html-v1.html.gz",
+   "raw/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools.pdf-v1.pdf.gz"
+  ],
+  "text_files": [
+   "texts/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools.txt.gz",
+   "texts/arxiv-2601.19570-gogol-schneider-gorzny-tessone-sandwich-private-l2-mempools.pdf.txt.gz"
+  ],
+  "access_notes": "html v1 ok; pdf v1 18 pages",
+  "status": "ok",
+  "fetched_at": "2026-10-01T04:34:49Z"
+ },
+ "github-m1kuw1ll-base-arbitrage-competition-base-atomic-arbitrage-sql": {
+  "url": "https://raw.githubusercontent.com/M1kuW1ll/base_arbitrage_competition/ea76128dc4ca9147941aee9da352ac608ecc6a79/base_atomic_arbitrage.sql",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/github-m1kuw1ll-base-arbitrage-competition-base-atomic-arbitrage-sql.body.sql.gz"
+  ],
+  "text_files": [
+   "texts/github-m1kuw1ll-base-arbitrage-competition-base-atomic-arbitrage-sql.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 9752 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-10-01T04:34:50Z"
+ },
+ "github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-by-bot-sql": {
+  "url": "https://raw.githubusercontent.com/M1kuW1ll/base_arbitrage_competition/ea76128dc4ca9147941aee9da352ac608ecc6a79/base_bot_spam_weekly_by_bot.sql",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-by-bot-sql.body.sql.gz"
+  ],
+  "text_files": [
+   "texts/github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-by-bot-sql.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 7036 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-10-01T04:34:52Z"
+ },
+ "github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-summary-sql": {
+  "url": "https://raw.githubusercontent.com/M1kuW1ll/base_arbitrage_competition/ea76128dc4ca9147941aee9da352ac608ecc6a79/base_bot_spam_weekly_summary.sql",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-summary-sql.body.sql.gz"
+  ],
+  "text_files": [
+   "texts/github-m1kuw1ll-base-arbitrage-competition-base-bot-spam-weekly-summary-sql.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 6764 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-10-01T04:34:53Z"
+ },
+ "github-m1kuw1ll-base-arbitrage-competition-base-pool-commitment-inputs-by-hash-sql": {
+  "url": "https://raw.githubusercontent.com/M1kuW1ll/base_arbitrage_competition/ea76128dc4ca9147941aee9da352ac608ecc6a79/base_pool_commitment_inputs_by_hash.sql",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/github-m1kuw1ll-base-arbitrage-competition-base-pool-commitment-inputs-by-hash-sql.body.sql.gz"
+  ],
+  "text_files": [
+   "texts/github-m1kuw1ll-base-arbitrage-competition-base-pool-commitment-inputs-by-hash-sql.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 2011 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-10-01T04:34:55Z"
+ },
+ "github-m1kuw1ll-base-arbitrage-competition-tx-classifier-subtree-py": {
+  "url": "https://raw.githubusercontent.com/M1kuW1ll/base_arbitrage_competition/ea76128dc4ca9147941aee9da352ac608ecc6a79/tx_classifier_subtree.py",
+  "title": "",
+  "authors": "",
+  "date": "",
+  "raw_files": [
+   "raw/github-m1kuw1ll-base-arbitrage-competition-tx-classifier-subtree-py.body.py.gz"
+  ],
+  "text_files": [
+   "texts/github-m1kuw1ll-base-arbitrage-competition-tx-classifier-subtree-py.txt.gz"
+  ],
+  "access_notes": "HTTP 200, 52535 bytes, saved unchanged",
+  "status": "ok",
+  "fetched_at": "2026-10-01T04:34:57Z"
  }
 }

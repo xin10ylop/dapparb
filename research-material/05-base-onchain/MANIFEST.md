@@ -38,6 +38,16 @@ integrity checks listed under "Verified inventory (2026-10-01)".
   To retry, run `python3 verify_topics.py` in `collect/` (section 5). It was not re-run during finalization because it
   rewrites `swap-topics.csv` and data files were not modified.
 
+  *Corrected 2026-10-01 (fixup, ~05:35Z):* the three sub-items above are no longer true. `verify_topics.py` was re-run on
+  2026-10-01 from 04:41:16Z to 05:34:26Z with the same pinned head (`--head 52007824`); log `collect/verify_topics_rerun.log`.
+  See the section "verify_topics.py re-run (2026-10-01)" at the end of this file.
+  - `swap-topics.csv` now has no `pending` row: 22 rows have a verified example and 4 rows read "no log found".
+  - The SmarDex row `0xa4228e1e…` now has a verified example.
+  - Only 1 row still lists a failed window: Clipper `Swapped(address,address,address,uint256,uint256,bytes)`
+    (`0x4be05c8d…`), window 51507825-52007824. That window got 12 read timeouts of 120 s over two runs. The other three
+    windows of that row, including the enclosing 10M window 42007825-52007824, were answered "No logs found".
+  - The remaining gap is this one failed window, in topic-verification metadata only.
+
 *Provenance of this file:* first written 2026-09-30 while the collectors were running. `collect/finalize.py` rewrote the
 AUTO-STATUS block at 2026-10-01T03:10:56Z, and that version was committed in `002dc86` (2026-10-01T03:14:08Z). This version
 (2026-10-01) adds the status line above and these sections: "Run history", "Time windows inside the range", the
@@ -129,6 +139,7 @@ and the sentinels in `/home/user/dapparb/research-material/.sentinels/`.
 | 21:48:54Z-21:49:34Z | bf stopped (rc -15), restarted by the supervisor with end 51998608, finished. `bf4` (51998609-51998799) and `gf1` (block 51998605) were run by hand and finished at 21:49:25Z and 21:49:01Z | supervisor.log, census_bf4.log, census_gf1.log; `bf4_split_note` |
 | 21:50:36Z | `verify_topics.py` started (Blockscout head pinned 52007824) | verify_topics.log |
 | ~22:58Z | Container restart: all processes died (supervisor, fw, verify_topics.py). Last fw progress line: 22:57:50Z. fw checkpoint `next` = 52009870, so the last block written was 52009869 (timestamp 22:58:05Z). Last verify_topics.log line: 22:58:08Z | census_fw.log, supervisor.log, verify_topics.log |
+| 2026-10-01T04:41:16Z-05:34:26Z | (row added 2026-10-01, fixup) `verify_topics.py --head 52007824` re-run in three passes (04:41:16Z, stopped by the fixup agent ~04:45Z to add rate-limit handling; 04:45:52Z-05:17:17Z; 05:17:27Z-05:34:26Z). No `pending` row left; 1 window still failed. Details in "verify_topics.py re-run (2026-10-01)" | verify_topics_rerun.log |
 | 2026-10-01T01:03:10Z | Supervisor restarted. bf, bf2, bf3 and bf4 log `stream already done`. fw resumes from checkpoint `next` = 52009870 (first progress line after the restart, 01:04:13Z: `next=52009930` after 60 blocks). No census log has a `truncated` or `removed stale part` line | supervisor.log, census_*.log |
 | 01:57:19.654Z | `V4LIVE.DONE` written by a V4 live attempt that processed no blocks. It is now kept as `../02-v4-live-test/attempts/20261001T010337Z-no-blocks/V4LIVE.DONE.invalidated` | ../02-v4-live-test/attempts/20261001T010337Z-no-blocks/ATTEMPT-NOTE.md |
 | 01:57:30Z | fw detects the stop condition (`V4LIVE.*` and `SHALLOW_LIVE.*` both present): head 52015251, `stop_block` 52015391 | census_fw.log |
@@ -189,6 +200,14 @@ Line numbers refer to the eight research question lines as given on 2026-10-01. 
 
 Coverage and provenance files for every line above: `gaps.csv`, `gaps-final.csv`, `integrity.json`, `data/file_index.csv`,
 `data/provenance-*.csv.gz`, `collect/*.py`, `collect/*.log`, `collect/swap_topics_used.csv`, `collect/state/` (local-only).
+
+Files added or rewritten 2026-10-01 by the verify_topics.py re-run (fixup), one row per file:
+
+| file | line |
+|---|---|
+| `swap-topics.csv` (rewritten; same rows and columns) | 1, 2, 5, 7 (as above) |
+| `collect/verify_topics_rerun.log` (new) | provenance of `swap-topics.csv` for lines 1, 2, 5, 7 |
+| `collect/verify_topics.py` (modified) | provenance of `swap-topics.csv` for lines 1, 2, 5, 7 |
 
 The forward part of the census (`*-fw-*`) was timed to overlap the engine runs whose sentinels are `V4LIVE.*` (lines 1, 5,
 8) and `SHALLOW_LIVE.*` (line 3). The census and the engine runs can be aligned by block number and timestamp.
@@ -276,6 +295,8 @@ cat swap_topics_used.csv
 BF2_BLOCKS=6400 setsid nohup python3 -u supervisor.py > supervisor.log 2>&1 < /dev/null &
 # topic verification (writes ../swap-topics.csv; finalize.py later adds census_first_seen_* columns)
 setsid nohup python3 -u verify_topics.py > verify_topics.log 2>&1 < /dev/null &
+# (added 2026-10-01) re-run with the first run's pinned head; resumable, keeps finished rows and the census_* columns:
+setsid nohup python3 -u verify_topics.py --head 52007824 >> verify_topics_rerun.log 2>&1 < /dev/null &
 # RSR episode (one-off, raw)
 python3 rsr_episode.py > rsr_episode.log 2>&1
 python3 rsr_traces.py  > rsr_traces.log 2>&1
@@ -300,6 +321,7 @@ python3 finalize.py
 - Scripts: `census.py` (per-block fetch, validation, filtering, writing), `supervisor.py` (orchestration, restarts, sentinel),
   `finalize.py` (merge blocks, integrity lists, file index, manifest status), `verify_topics.py`, `rsr_episode.py`, `rsr_traces.py`.
 - Logs: `supervisor.log`, `census_{bf,bf2,bf3,bf4,gf1,fw,gf}.log`, `verify_topics.log`, `rsr_episode.log`, `rsr_traces.log`.
+  (Added 2026-10-01: `verify_topics_rerun.log`, the log of the 2026-10-01 re-run of `verify_topics.py`.)
   `rsr_traces.log` holds only the output of the second trace run (blocks 51998755-51998756); see section 6.
 
 ### Fetch / validation / write rules (census.py)
@@ -427,6 +449,17 @@ base.blockscout.com was returning HTTP 429 and timeouts while it ran. Its state 
 
 Re-run `python3 verify_topics.py` to retry. It rewrites the file after every topic, keeps rows that already have an example,
 and keeps any `census_*` columns.
+
+*Corrected 2026-10-01 (fixup):* "was not re-run" and the state listed above describe the file before 2026-10-01T04:41Z.
+- The script was re-run with `--head 52007824`, so the windows are the same as in the first run. Since then:
+  - no row is `pending`;
+  - 22 rows have `verified_example_*`;
+  - 4 rows read "no log found".
+- Of the 4 "no log found" rows, 3 searched all 4 windows: `0xd013ca23…`, `0x29872dc2…` and `0xefce4460…`. The fourth,
+  `0x4be05c8d…` (Clipper), has `failed: 51507825-52007824 failed`.
+- Changes to the script: an optional `--head` argument; a wait on Blockscout's `x-ratelimit-reset` header after HTTP 429; and
+  resume now also keeps rows whose "no log found" search covered all 4 windows of the same head.
+- Details are in "verify_topics.py re-run (2026-10-01)".
 Search windows: the newest 1k, 16k, 500k and 10M blocks before the pinned head, with 6 tries each.
 
 ### `gaps.csv` / `gaps-final.csv` / `integrity.json` / `data/file_index.csv`
@@ -491,6 +524,9 @@ These four blocks are also in the census (stream `bf4`), with the census fields 
 - **Topic verification incomplete**: see the status line and section 5 (`verify_topics.py` stopped by the container restart;
   1 row `pending`, 4 rows with failed Blockscout windows). This affects only the `verified_example_*` / `verification_method`
   columns of `swap-topics.csv`, not the census or the candidate filter.
+  *Corrected 2026-10-01 (fixup):* after the 2026-10-01 re-run, 0 rows are `pending`, and 1 row has a failed Blockscout window:
+  `0x4be05c8d…` (Clipper), window 51507825-52007824, 12 read timeouts of 120 s. The enclosing window 42007825-52007824 of
+  the same row was answered "No logs found".
 - **Criterion B** counts only 3-topic ERC-20 `Transfer` events. It misses native ETH movements (no logs), ERC-1155/721 transfers,
   and tokens with non-standard transfer events.
 - **Candidates are a filter, not a classification.** Membership is decided only by the log rule above and says nothing about a tx's
@@ -510,7 +546,9 @@ These four blocks are also in the census (stream `bf4`), with the census fields 
 
 ## Verified inventory (2026-10-01)
 
-Checked on 2026-10-01 between ~03:18Z and ~03:26Z, over every file in this folder (recursive, 89 files). Method:
+Checked on 2026-10-01 between ~03:18Z and ~03:26Z, over every file in this folder (recursive, 89 files). (Fixup 2026-10-01:
+the verify_topics.py re-run changed `swap-topics.csv` and `collect/verify_topics.py` and added `collect/verify_topics_rerun.log`.
+These three have "row added 2026-10-01 fixup" rows in the table below, so the folder now holds 90 files.) Method:
 - Lines: newline count, streamed. For `.gz` files it counts the decompressed content. CSV line counts include the header.
   "(+1 unterminated)" marks a file whose last line has no trailing newline.
 - Every `.gz` file passed `gzip -t` and a full streamed decompression.
@@ -536,6 +574,7 @@ below the table say how to regenerate each local-only file.
 | `gaps.csv` | 156 | 2 | `9cf6fe12a88d0b5792fca384139ea17ce1e062a5538d9226c597da927a1aebac` | committed |
 | `integrity.json` | 711 | 22 (+1 unterminated) | `68ce55941f6efc1cce52d56bcc122484333f33ce78b690aae5172eb4eb8a7da8` | committed |
 | `swap-topics.csv` | 15298 | 27 | `bf81ba61d0203b055a56b1b95f4e7ead174c011acc55ea86d9c86813c40a2052` | committed |
+| `swap-topics.csv` (row added 2026-10-01 fixup; supersedes the row above, which is the committed version, after the verify_topics.py re-run) | 15513 | 27 | `ec713da5c98a68f28ad25e723c9223d8a08ef8438eb71e2b43c122b6fd9f082b` | modified, not committed |
 | `data/candidates-bf-0001.jsonl.gz` | 89975717 | 76441 | `88f1240a70a2891a51248291fa4fd5339f5472115f50c4d644ea0e837d101e4c` | committed |
 | `data/candidates-bf-0002.jsonl.gz` | 13046151 | 10537 | `c5fb4456259e6260c0f7d1ba5e1580246a90be06cc354b89482de79fec8a611d` | committed |
 | `data/candidates-bf2-0001.jsonl.gz` | 89469113 | 73724 | `0d86edcb15a274c7eb6e87525aa3ac3aad3bceea29ae8165b6d3789d7dc6ae9d` | committed |
@@ -595,6 +634,8 @@ below the table say how to regenerate each local-only file.
 | `collect/swap_topics_used.csv` | 6708 | 27 | `6feaa987f672ad4a2f4f99d4b10402e804c1ba500e0d6a9d9563ce98095466c1` | committed |
 | `collect/verify_topics.log` | 12624 | 110 | `2e4dcc3896ab354584cb127395c84059de01c928c37d30a1e510675913274f51` | committed |
 | `collect/verify_topics.py` | 7121 | 148 | `7cf02f5874bed38d197e82fe1fcf6a74c59c35b24d4c93f4ea1bf17cd85a262b` | committed |
+| `collect/verify_topics.py` (row added 2026-10-01 fixup; supersedes the row above, which is the committed version) | 9185 | 173 | `088f3eb9ded666c89e4d8461796e68f0247f4e546ffedf6224fa0b3d98497031` | modified, not committed |
+| `collect/verify_topics_rerun.log` (row added 2026-10-01 fixup) | 13829 | 100 | `9bc2e0e4df4f71e59c639642ed65ea75f57d8a5e00a770510300557b73c4165a` | new, not committed |
 | `collect/__pycache__/census.cpython-311.pyc` | 38360 | n/a (binary) | `2cfdf6a21c5d8cf56d5b13aef8003ef56e892ecc25b5aff041bfaf5191f9fc91` | local-only (R1) |
 | `collect/state/bf.ckpt.json` | 537 | 35 (+1 unterminated) | `ef1cfcbd91d461bc1c193816fb30bc15d74ff2a0562154f4978119a08432fb5e` | local-only (R3) |
 | `collect/state/bf2.ckpt.json` | 553 | 36 (+1 unterminated) | `4790a19ac400c4037eeeef8a99f23887c5587c4769ab20e804abfa3dfa105cf8` | local-only (R3) |
@@ -668,3 +709,70 @@ How to regenerate the local-only files (all in `collect/`):
 - Section 7: "Window ... (7 h after launch at most)" now gives the actual end block. "The forward stream stays 10 blocks
   behind the head" now covers the catch-up after the restart. "Unrecoverable blocks, if any" now reads none.
 - Added the "Verified inventory (2026-10-01)" table, with regeneration notes for the local-only files.
+
+## verify_topics.py re-run (2026-10-01)
+
+Done by a fixup agent to finish the topic verification that the container restart interrupted. It rewrote
+`swap-topics.csv`, which this task allowed. No census data file was touched.
+
+**Method and endpoints.** The method is the one in the docstring of `collect/verify_topics.py`:
+- Blockscout `https://base.blockscout.com/api?module=logs&action=getLogs&fromBlock=..&toBlock=..&topic0=..` over the newest
+  1k, 16k, 500k and 10M blocks before the pinned head. One request in flight, 3 s pause before each request, 120 s timeout.
+- The newest returned log is re-checked in `eth_getTransactionReceipt` on `https://gateway.tenderly.co/public/base`
+  (fallbacks publicnode, drpc; no fallback was needed).
+
+**Pinned head**: 52007824, the same head as the first run (2026-09-30T21:50:36Z), passed as `--head 52007824`. All 26 rows
+therefore use the same windows: 52006825-52007824, 51991825-52007824, 51507825-52007824 and 42007825-52007824.
+
+**Script changes** (`collect/verify_topics.py`, before the first pass and between passes 1 and 2; the committed version is the
+"committed" inventory row):
+1. Optional `--head N`. Without it the head is live `eth_blockNumber - 20`, as before.
+2. HTTP 429 handling. Blockscout's 429 answers carry `x-ratelimit-limit: 10` and `x-ratelimit-reset` (ms until the quota
+   resets). Such a 429 is now waited out (reset + 5 s, at most 1,800 s), up to 8 times per window, without using one of the 6
+   tries.
+3. Resume also keeps rows whose "no log found" search covered all 4 windows of the same head with no failed window. Rows with
+   a verified example were already kept.
+The output format and the `census_*` column handling are unchanged.
+
+**Passes** (all logged in `collect/verify_topics_rerun.log`, appended; the first run's `collect/verify_topics.log` is unchanged):
+
+| pass | UTC (2026-10-01) | what happened |
+|---|---|---|
+| 1 | 04:41:16Z-~04:45Z | Original 429 handling, plus `--head` and the old resume rule. Re-searched `0xd013ca23…` (4 windows, no log), `0x0fe977d6…` (example found in the 1k window) and `0x29872dc2…` (4 windows, no log, same as before). Then 6 HTTP 429 retries for `0xefce4460…` window 1. The process (pid 5779, started by the fixup agent) was stopped with SIGTERM to add the 429 handling. The rows already written were kept |
+| 2 | 04:45:52Z-05:17:17Z | pid 7539. `0xefce4460…`: 4 windows, no log. `0x4be05c8d…`: one 429 wait of 805 s (`x-ratelimit-reset` 799,631 ms). Window 51507825-52007824 then failed after 6 read timeouts (120 s each); the 1k, 16k and 10M windows answered "No logs found". `0xa4228e1e…`: example found in the 16k window |
+| 3 | 05:17:27Z-05:34:26Z | pid 10794, retry of the row with a failed window. `0x4be05c8d…` window 51507825-52007824 failed again (6 read timeouts); the other 3 windows again "No logs found". The row is unchanged from pass 2 |
+
+**Rows changed in `swap-topics.csv`** (the other 21 rows are byte-identical; header and the `census_first_seen_*` columns
+unchanged):
+
+| topic0 | signature | before | after |
+|---|---|---|---|
+| `0xd013ca23e77a65003c2c659c5442c00c805371b7fc1ebd4c206c41d1536bd90b` | TokenExchangeUnderlying(address,int128,uint256,int128,uint256) | no log found; 2 windows failed | no log found; all 4 windows searched |
+| `0x0fe977d619f8172f7fdbe8bb8928ef80952817d96936509f67d66346bc4cd10f` | Swap(address,address,uint24,bool,uint256,uint256,int24) | no log found; all 4 windows failed | example tx `0xa36abbf2414ccdf99bc33d0ea0accd3ab1f696b1fe0fd278dcafd5da5a16ec36`, block 52007512, emitter `0xdb5d62f06eecef0da7506e0700c2f03c57016de5`, log index 172 (window 52006825-52007824) |
+| `0xefce44603748d0427b3ebdff9018999a004811d9cfe45e6bbf7357b2547bae50` | Swap(bytes32,address,uint24,bytes32,uint24,uint16) | no log found; 2 windows failed | no log found; all 4 windows searched |
+| `0x4be05c8d54f5e056ab2cfa033e9f582057001268c3e28561bb999d35d2c8f2c8` | Swapped(address,address,address,uint256,uint256,bytes) | no log found; all 4 windows failed | no log found; windows 52006825-52007824, 51991825-52007824 and 42007825-52007824 searched; **failed: 51507825-52007824** |
+| `0xa4228e1eb11eb9b31069d9ed20e7af9a010ca1a02d4855cee54e08e188fcc32c` | Swap(address,address,int256,int256) | `pending: collect/verify_topics.py running` | example tx `0x3081b246b4f9e204eb5bbc3ad84d3c92388ab9b99eea9ca37db505c66847e588`, block 51997691, emitter `0x01b7c0d053eb4b8862c69172ac06a7653d83641f`, log index 715 (window 51991825-52007824) |
+
+`0x29872dc2…` was searched again in pass 1 with the same result: no log found, all 4 windows searched. Its row text is
+unchanged.
+
+**Result**: 26 rows (27 lines with the header).
+- 0 rows `pending`.
+- 22 rows with `verified_example_*`.
+- 4 rows "no log found". 3 of them searched all 4 windows. One (`0x4be05c8d…`) has a failed window.
+
+**Hand check**: the two new examples were re-read from tenderly with `eth_getTransactionReceipt`:
+- `0x3081b246…`: block 51997691, status 1, log 715 at `0x01b7c0d0…` with topic0 `0xa4228e1e…`;
+- `0xa36abbf2…`: block 52007512, status 1, log 172 at `0xdb5d62f0…` with topic0 `0x0fe977d6…`.
+
+**Command** (from `collect/`): `setsid nohup python3 -u verify_topics.py --head 52007824 >> verify_topics_rerun.log 2>&1 < /dev/null &`.
+The run is resumable: running it again re-queries only the `0x4be05c8d…` row.
+
+**Coverage limits**:
+- The Blockscout window 51507825-52007824 for `0x4be05c8d…` (Clipper) could not be read: 12 read timeouts over passes 2 and
+  3. The enclosing 10M window 42007825-52007824 was answered "No logs found" in both passes.
+- As before, an example is the newest log in the first window that has one. "No log found" covers only the 4 windows, not
+  blocks before 42007825.
+- Blockscout's limit observed in the headers: `x-ratelimit-limit` 10, with a reset of up to ~15 min.
+- New and changed files are not committed: `swap-topics.csv` and `collect/verify_topics.py` are modified,
+  `collect/verify_topics_rerun.log` is new. Their sizes and sha256 are in the "row added 2026-10-01 fixup" rows of the inventory.
