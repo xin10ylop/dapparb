@@ -12,3 +12,4 @@
 2026-09-30T21:24:51Z progress stream=bf2 next=52006080 blocks/s=8.77 stats={'ok': 6080, '429': 6} parts={'blocks': 1, 'txs': 2, 'reverted': 1, 'candidates': 3, 'provenance': 1}
 2026-09-30T21:25:28Z stream done bf2 {'stream': 'bf2', 'start': 52000000, 'end': 52006399, 'next': 52006400, 'created_utc': '2026-09-30T21:12:17Z', 'topics_n': 26, 'parts': {'blocks': {'part': 1, 'size': 384225}, 'txs': {'part': 2, 'size': 11671888}, 'reverted': {'part': 1, 'size': 9526923}, 'candidates': {'part': 3, 'size': 14738382}, 'provenance': {'part': 1, 'size': 35866}}, 'last_written_utc': '2026-09-30T21:25:28Z', 'stats': {'ok': 6400, '429': 6}, 'done': True, 'done_utc': '2026-09-30T21:25:28Z'}
 2026-09-30T21:26:04Z stream already done bf2
+2026-10-01T01:03:11Z stream already done bf2

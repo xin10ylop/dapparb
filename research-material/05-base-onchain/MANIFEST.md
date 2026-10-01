@@ -9,11 +9,63 @@ This file only maps the data. It contains no findings, rankings or conclusions.
 
 <!-- AUTO-STATUS-BEGIN -->
 
-**Status: IN PROGRESS.** When this manifest was written (2026-09-30 ~21:55Z), the backfill (51995609-52006399) was complete and
-the forward stream `fw` and `verify_topics.py` were still running.
-When the census finishes, `collect/finalize.py` replaces this block with the final block range, per-file row counts and
-integrity counts. It also writes `/home/user/dapparb/research-material/.sentinels/BASE_CENSUS.DONE` (or `.FAILED`).
-Until then, live progress is in `collect/state/fw.ckpt.json` (`next` = next block to write) and in `collect/census_fw.log`.
+**Status: COMPLETE** (written by collect/finalize.py at 2026-10-01T03:10:56Z)
+
+```json
+{
+ "finalized_utc": "2026-10-01T03:10:56Z",
+ "range_first_block": 51995609,
+ "range_last_block": 52017160,
+ "range_first_block_timestamp_utc": "2026-09-30T15:02:45Z",
+ "range_last_block_timestamp_utc": "2026-10-01T03:01:07Z",
+ "blocks_present": 21552,
+ "blocks_expected": 21552,
+ "missing_blocks": 0,
+ "parent_hash_mismatches": 0,
+ "txcount_mismatches": 0,
+ "conflicting_duplicate_block_rows": 0,
+ "oversize_files": [],
+ "fw_stop_reason": "sentinels V4LIVE.* and SHALLOW_LIVE.* both present",
+ "fw_stop_detected_utc": "2026-10-01T02:56:28Z",
+ "fw_stop_block": 52017160,
+ "gf_ran": true
+}
+```
+
+| file | bytes | rows | min_block | max_block |
+|---|---|---|---|---|
+| blocks.csv.gz | 1251161 | 21552 | 51995609 | 52017160 |
+| data/candidates-bf-0001.jsonl.gz | 89975717 | 76441 | 51995609 | 51998168 |
+| data/candidates-bf-0002.jsonl.gz | 13046151 | 10537 | 51998169 | 51998608 |
+| data/candidates-bf2-0001.jsonl.gz | 89469113 | 73724 | 52000000 | 52003079 |
+| data/candidates-bf2-0002.jsonl.gz | 89615211 | 66992 | 52003080 | 52005799 |
+| data/candidates-bf2-0003.jsonl.gz | 14738382 | 10984 | 52005800 | 52006399 |
+| data/candidates-bf3-0001.jsonl.gz | 36328805 | 30655 | 51998800 | 51999999 |
+| data/candidates-bf4-0001.jsonl.gz | 6054063 | 4782 | 51998609 | 51998799 |
+| data/candidates-fw-0001.jsonl.gz | 89487257 | 69820 | 52006400 | 52010049 |
+| data/candidates-fw-0002.jsonl.gz | 89390492 | 73318 | 52010050 | 52014129 |
+| data/candidates-fw-0003.jsonl.gz | 72296298 | 63910 | 52014130 | 52017160 |
+| data/candidates-gf1-0001.jsonl.gz | 48166 | 20 | 51998605 | 51998605 |
+| data/provenance-bf-0001.csv.gz | 10500 | 2039 | 51996569 | 51998608 |
+| data/provenance-bf2-0001.csv.gz | 35866 | 6400 | 52000000 | 52006399 |
+| data/provenance-bf3-0001.csv.gz | 6737 | 1200 | 51998800 | 51999999 |
+| data/provenance-bf4-0001.csv.gz | 1125 | 191 | 51998609 | 51998799 |
+| data/provenance-fw-0001.csv.gz | 206251 | 10479 | 52006682 | 52017160 |
+| data/provenance-gf1-0001.csv.gz | 137 | 1 | 51998605 | 51998605 |
+| data/reverted-bf-0001.csv.gz | 5586973 | 75416 | 51995609 | 51998608 |
+| data/reverted-bf2-0001.csv.gz | 9526923 | 150436 | 52000000 | 52006399 |
+| data/reverted-bf3-0001.csv.gz | 2414348 | 36117 | 51998800 | 51999999 |
+| data/reverted-bf4-0001.csv.gz | 391189 | 5828 | 51998609 | 51998799 |
+| data/reverted-fw-0001.csv.gz | 15844055 | 249815 | 52006400 | 52017160 |
+| data/reverted-gf1-0001.csv.gz | 1246 | 16 | 51998605 | 51998605 |
+| data/txs-bf-0001.csv.gz | 68710314 | 849509 | 51995609 | 51998608 |
+| data/txs-bf2-0001.csv.gz | 89183753 | 1136687 | 52000000 | 52005559 |
+| data/txs-bf2-0002.csv.gz | 11671888 | 152007 | 52005560 | 52006399 |
+| data/txs-bf3-0001.csv.gz | 22944030 | 288165 | 51998800 | 51999999 |
+| data/txs-bf4-0001.csv.gz | 3502280 | 43633 | 51998609 | 51998799 |
+| data/txs-fw-0001.csv.gz | 89187758 | 1132643 | 52006400 | 52012719 |
+| data/txs-fw-0002.csv.gz | 62363641 | 810133 | 52012720 | 52017160 |
+| data/txs-gf1-0001.csv.gz | 15894 | 185 | 51998605 | 51998605 |
 
 <!-- AUTO-STATUS-END -->
 

@@ -25,3 +25,4 @@
 2026-09-30T21:46:46Z GAP 51998605 block 51998605 failed after 14 attempts: 429: http 429 via https://base.drpc.org
 2026-09-30T21:46:47Z progress stream=bf next=51998609 blocks/s=0.07 stats={'ok': 799, '429': 174} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
 2026-09-30T21:49:24Z stream done bf {'created_utc': '2026-09-30T21:02:45Z', 'end': 51998608, 'last_written_utc': '2026-09-30T21:46:47Z', 'next': 51998609, 'parts': {'blocks': {'part': 1, 'size': 181028}, 'candidates': {'part': 2, 'size': 13046151}, 'provenance': {'part': 1, 'size': 10500}, 'reverted': {'part': 1, 'size': 5586973}, 'txs': {'part': 1, 'size': 68710314}}, 'start': 51995609, 'stats': {'ok': 0}, 'stream': 'bf', 'topics_n': 26, 'done': True, 'done_utc': '2026-09-30T21:49:24Z'}
+2026-10-01T01:03:11Z stream already done bf

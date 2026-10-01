@@ -1,0 +1,23 @@
+{
+ "summary": {
+  "finalized_utc": "2026-10-01T03:10:56Z",
+  "range_first_block": 51995609,
+  "range_last_block": 52017160,
+  "range_first_block_timestamp_utc": "2026-09-30T15:02:45Z",
+  "range_last_block_timestamp_utc": "2026-10-01T03:01:07Z",
+  "blocks_present": 21552,
+  "blocks_expected": 21552,
+  "missing_blocks": 0,
+  "parent_hash_mismatches": 0,
+  "txcount_mismatches": 0,
+  "conflicting_duplicate_block_rows": 0,
+  "oversize_files": [],
+  "fw_stop_reason": "sentinels V4LIVE.* and SHALLOW_LIVE.* both present",
+  "fw_stop_detected_utc": "2026-10-01T02:56:28Z",
+  "fw_stop_block": 52017160,
+  "gf_ran": true
+ },
+ "missing_blocks": [],
+ "parent_hash_mismatch_blocks": [],
+ "txcount_mismatch_blocks": []
+}

@@ -1,0 +1,239 @@
+2026-09-30T21:03:48Z progress stream=fw next=52006430 blocks/s=0.48 stats={'ok': 30} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1}
+2026-09-30T21:04:48Z progress stream=fw next=52006460 blocks/s=0.50 stats={'ok': 60} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1}
+2026-09-30T21:05:50Z progress stream=fw next=52006491 blocks/s=0.50 stats={'ok': 91} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1}
+2026-09-30T21:06:50Z progress stream=fw next=52006521 blocks/s=0.50 stats={'ok': 121} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1}
+2026-09-30T21:07:52Z progress stream=fw next=52006552 blocks/s=0.50 stats={'ok': 152} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1}
+2026-09-30T21:08:54Z progress stream=fw next=52006583 blocks/s=0.50 stats={'ok': 183} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1}
+2026-09-30T21:09:56Z progress stream=fw next=52006614 blocks/s=0.50 stats={'ok': 214} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1}
+2026-09-30T21:10:58Z progress stream=fw next=52006645 blocks/s=0.50 stats={'ok': 245} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1}
+2026-09-30T21:12:00Z progress stream=fw next=52006676 blocks/s=0.50 stats={'ok': 276} parts={'blocks': 1, 'txs': 1, 'reverted': 1, 'candidates': 1}
+2026-09-30T21:13:20Z progress stream=fw next=52006716 blocks/s=0.54 stats={'ok': 34} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:14:22Z progress stream=fw next=52006747 blocks/s=0.50 stats={'ok': 65} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:15:24Z progress stream=fw next=52006778 blocks/s=0.50 stats={'ok': 96} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:16:24Z progress stream=fw next=52006808 blocks/s=0.50 stats={'ok': 126} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:17:25Z progress stream=fw next=52006838 blocks/s=0.50 stats={'ok': 156} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:18:26Z progress stream=fw next=52006869 blocks/s=0.50 stats={'ok': 187} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:19:26Z progress stream=fw next=52006899 blocks/s=0.50 stats={'ok': 217} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:20:27Z progress stream=fw next=52006929 blocks/s=0.50 stats={'ok': 247} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:21:28Z progress stream=fw next=52006960 blocks/s=0.50 stats={'ok': 278} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:22:28Z progress stream=fw next=52006990 blocks/s=0.50 stats={'ok': 308} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:23:29Z progress stream=fw next=52007020 blocks/s=0.50 stats={'ok': 338} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:24:30Z progress stream=fw next=52007051 blocks/s=0.51 stats={'ok': 369} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:25:30Z progress stream=fw next=52007081 blocks/s=0.50 stats={'ok': 399} parts={'blocks': 1, 'candidates': 1, 'reverted': 1, 'txs': 1, 'provenance': 1}
+2026-09-30T21:27:04Z progress stream=fw next=52007128 blocks/s=0.53 stats={'ok': 32} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:28:06Z progress stream=fw next=52007159 blocks/s=0.51 stats={'ok': 63} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:29:06Z progress stream=fw next=52007189 blocks/s=0.50 stats={'ok': 93, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:30:06Z progress stream=fw next=52007219 blocks/s=0.50 stats={'ok': 123, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:31:08Z progress stream=fw next=52007250 blocks/s=0.50 stats={'ok': 154, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:32:08Z progress stream=fw next=52007280 blocks/s=0.50 stats={'ok': 184, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:33:08Z progress stream=fw next=52007310 blocks/s=0.50 stats={'ok': 214, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:34:10Z progress stream=fw next=52007341 blocks/s=0.50 stats={'ok': 245, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:35:10Z progress stream=fw next=52007371 blocks/s=0.50 stats={'ok': 275, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:36:13Z progress stream=fw next=52007402 blocks/s=0.49 stats={'ok': 306, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:37:16Z progress stream=fw next=52007434 blocks/s=0.51 stats={'ok': 338, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:38:16Z progress stream=fw next=52007464 blocks/s=0.50 stats={'ok': 368, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:39:18Z progress stream=fw next=52007495 blocks/s=0.50 stats={'ok': 399, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:40:18Z progress stream=fw next=52007525 blocks/s=0.50 stats={'ok': 429, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:41:20Z progress stream=fw next=52007556 blocks/s=0.50 stats={'ok': 460, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:42:20Z progress stream=fw next=52007586 blocks/s=0.50 stats={'ok': 490, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:43:21Z progress stream=fw next=52007616 blocks/s=0.50 stats={'ok': 520, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:44:22Z progress stream=fw next=52007647 blocks/s=0.50 stats={'ok': 551, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:45:23Z progress stream=fw next=52007677 blocks/s=0.50 stats={'ok': 581, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:46:24Z progress stream=fw next=52007708 blocks/s=0.51 stats={'ok': 612, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:47:25Z progress stream=fw next=52007738 blocks/s=0.50 stats={'ok': 642, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:48:26Z progress stream=fw next=52007769 blocks/s=0.50 stats={'ok': 673, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:49:27Z progress stream=fw next=52007799 blocks/s=0.50 stats={'ok': 703, 'net': 1} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:50:27Z progress stream=fw next=52007829 blocks/s=0.50 stats={'ok': 733, 'net': 2} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:51:28Z progress stream=fw next=52007860 blocks/s=0.50 stats={'ok': 764, 'net': 2} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:52:30Z progress stream=fw next=52007891 blocks/s=0.51 stats={'ok': 795, 'net': 2} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:53:30Z progress stream=fw next=52007921 blocks/s=0.49 stats={'ok': 825, 'net': 2} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:54:32Z progress stream=fw next=52007952 blocks/s=0.51 stats={'ok': 856, 'net': 2} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:55:32Z progress stream=fw next=52007982 blocks/s=0.50 stats={'ok': 886, 'net': 2} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:56:34Z progress stream=fw next=52008013 blocks/s=0.51 stats={'ok': 917, 'net': 2} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:57:34Z progress stream=fw next=52008043 blocks/s=0.50 stats={'ok': 947, 'net': 2} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:58:38Z progress stream=fw next=52008075 blocks/s=0.50 stats={'ok': 979, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T21:58:55Z head err net: ProxyError(MaxRetryError("HTTPSConnectionPool(host='base-rpc.publicnode.com', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote
+2026-09-30T21:59:40Z progress stream=fw next=52008106 blocks/s=0.50 stats={'ok': 1010, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:00:40Z progress stream=fw next=52008136 blocks/s=0.50 stats={'ok': 1040, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:01:42Z head err net: ProxyError(MaxRetryError("HTTPSConnectionPool(host='base-rpc.publicnode.com', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote
+2026-09-30T22:01:42Z head err 429: http 429
+2026-09-30T22:01:53Z progress stream=fw next=52008170 blocks/s=0.47 stats={'ok': 1074, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:02:56Z progress stream=fw next=52008204 blocks/s=0.54 stats={'ok': 1108, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:03:57Z progress stream=fw next=52008234 blocks/s=0.50 stats={'ok': 1138, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:04:58Z progress stream=fw next=52008265 blocks/s=0.50 stats={'ok': 1169, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:05:59Z progress stream=fw next=52008295 blocks/s=0.50 stats={'ok': 1199, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:07:00Z progress stream=fw next=52008326 blocks/s=0.50 stats={'ok': 1230, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:08:02Z progress stream=fw next=52008357 blocks/s=0.50 stats={'ok': 1261, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:09:02Z progress stream=fw next=52008387 blocks/s=0.50 stats={'ok': 1291, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:10:07Z progress stream=fw next=52008416 blocks/s=0.44 stats={'ok': 1320, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:11:09Z progress stream=fw next=52008450 blocks/s=0.56 stats={'ok': 1354, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:12:10Z progress stream=fw next=52008481 blocks/s=0.51 stats={'ok': 1385, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:13:10Z progress stream=fw next=52008511 blocks/s=0.50 stats={'ok': 1415, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:14:10Z progress stream=fw next=52008541 blocks/s=0.50 stats={'ok': 1445, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:15:10Z progress stream=fw next=52008571 blocks/s=0.50 stats={'ok': 1475, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:16:12Z progress stream=fw next=52008602 blocks/s=0.50 stats={'ok': 1506, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:17:12Z progress stream=fw next=52008632 blocks/s=0.50 stats={'ok': 1536, 'net': 3} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:18:16Z progress stream=fw next=52008664 blocks/s=0.50 stats={'ok': 1568, 'net': 4} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:19:16Z progress stream=fw next=52008694 blocks/s=0.50 stats={'ok': 1598, 'net': 4} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:20:18Z progress stream=fw next=52008725 blocks/s=0.51 stats={'ok': 1629, 'net': 4} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:21:20Z progress stream=fw next=52008756 blocks/s=0.50 stats={'ok': 1660, 'net': 5} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:22:22Z progress stream=fw next=52008787 blocks/s=0.50 stats={'ok': 1691, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:23:22Z progress stream=fw next=52008817 blocks/s=0.50 stats={'ok': 1721, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:24:22Z progress stream=fw next=52008847 blocks/s=0.50 stats={'ok': 1751, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:25:24Z progress stream=fw next=52008878 blocks/s=0.51 stats={'ok': 1782, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:26:24Z progress stream=fw next=52008908 blocks/s=0.50 stats={'ok': 1812, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:27:24Z progress stream=fw next=52008938 blocks/s=0.50 stats={'ok': 1842, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:28:25Z progress stream=fw next=52008968 blocks/s=0.50 stats={'ok': 1872, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:29:26Z progress stream=fw next=52008999 blocks/s=0.51 stats={'ok': 1903, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:30:26Z progress stream=fw next=52009029 blocks/s=0.50 stats={'ok': 1933, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:31:26Z progress stream=fw next=52009059 blocks/s=0.50 stats={'ok': 1963, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:32:28Z progress stream=fw next=52009090 blocks/s=0.51 stats={'ok': 1994, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:33:28Z progress stream=fw next=52009120 blocks/s=0.50 stats={'ok': 2024, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:34:28Z progress stream=fw next=52009150 blocks/s=0.50 stats={'ok': 2054, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:35:29Z progress stream=fw next=52009180 blocks/s=0.50 stats={'ok': 2084, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:36:30Z progress stream=fw next=52009211 blocks/s=0.51 stats={'ok': 2115, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:37:31Z progress stream=fw next=52009241 blocks/s=0.49 stats={'ok': 2145, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:38:32Z progress stream=fw next=52009272 blocks/s=0.50 stats={'ok': 2176, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:39:32Z progress stream=fw next=52009302 blocks/s=0.50 stats={'ok': 2206, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:40:32Z progress stream=fw next=52009332 blocks/s=0.50 stats={'ok': 2236, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:41:34Z progress stream=fw next=52009363 blocks/s=0.51 stats={'ok': 2267, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:42:34Z progress stream=fw next=52009393 blocks/s=0.50 stats={'ok': 2297, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:43:34Z progress stream=fw next=52009423 blocks/s=0.50 stats={'ok': 2327, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:44:35Z progress stream=fw next=52009453 blocks/s=0.50 stats={'ok': 2357, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:45:36Z progress stream=fw next=52009484 blocks/s=0.51 stats={'ok': 2388, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:46:36Z progress stream=fw next=52009514 blocks/s=0.50 stats={'ok': 2418, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:47:36Z progress stream=fw next=52009544 blocks/s=0.50 stats={'ok': 2448, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:48:37Z progress stream=fw next=52009574 blocks/s=0.50 stats={'ok': 2478, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:49:38Z progress stream=fw next=52009605 blocks/s=0.51 stats={'ok': 2509, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:50:38Z progress stream=fw next=52009635 blocks/s=0.50 stats={'ok': 2539, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:51:39Z progress stream=fw next=52009665 blocks/s=0.50 stats={'ok': 2569, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:52:40Z progress stream=fw next=52009696 blocks/s=0.50 stats={'ok': 2600, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:53:44Z progress stream=fw next=52009728 blocks/s=0.50 stats={'ok': 2632, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:54:44Z progress stream=fw next=52009758 blocks/s=0.50 stats={'ok': 2662, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:55:49Z progress stream=fw next=52009791 blocks/s=0.51 stats={'ok': 2695, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:56:50Z progress stream=fw next=52009821 blocks/s=0.50 stats={'ok': 2725, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-09-30T22:57:50Z progress stream=fw next=52009851 blocks/s=0.50 stats={'ok': 2755, 'net': 6} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:04:13Z progress stream=fw next=52009930 blocks/s=0.97 stats={'ok': 60} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:05:14Z progress stream=fw next=52009990 blocks/s=0.98 stats={'ok': 120} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:06:15Z progress stream=fw next=52010050 blocks/s=0.98 stats={'ok': 180} parts={'blocks': 1, 'candidates': 1, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:07:16Z progress stream=fw next=52010110 blocks/s=0.98 stats={'ok': 240} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:08:17Z progress stream=fw next=52010170 blocks/s=0.98 stats={'ok': 300} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:09:19Z progress stream=fw next=52010230 blocks/s=0.97 stats={'ok': 360} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:10:50Z progress stream=fw next=52010290 blocks/s=0.66 stats={'ok': 420, 'net': 1} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:12:07Z progress stream=fw next=52010350 blocks/s=0.78 stats={'ok': 480, 'net': 1} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:13:09Z progress stream=fw next=52010410 blocks/s=0.96 stats={'ok': 540, 'net': 2} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:14:12Z progress stream=fw next=52010470 blocks/s=0.96 stats={'ok': 600, 'net': 2} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:15:13Z progress stream=fw next=52010530 blocks/s=0.98 stats={'ok': 660, 'net': 2} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:16:14Z progress stream=fw next=52010590 blocks/s=0.98 stats={'ok': 720, 'net': 2} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:17:15Z progress stream=fw next=52010650 blocks/s=0.99 stats={'ok': 780, 'net': 2} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:18:19Z progress stream=fw next=52010710 blocks/s=0.94 stats={'ok': 840, 'net': 3} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:19:21Z progress stream=fw next=52010770 blocks/s=0.97 stats={'ok': 900, 'net': 4} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:20:23Z progress stream=fw next=52010830 blocks/s=0.97 stats={'ok': 960, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:21:24Z progress stream=fw next=52010890 blocks/s=0.98 stats={'ok': 1020, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:22:25Z progress stream=fw next=52010950 blocks/s=0.98 stats={'ok': 1080, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:23:26Z progress stream=fw next=52011010 blocks/s=0.98 stats={'ok': 1140, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:24:27Z progress stream=fw next=52011070 blocks/s=0.98 stats={'ok': 1200, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:25:28Z progress stream=fw next=52011130 blocks/s=0.99 stats={'ok': 1260, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:26:29Z progress stream=fw next=52011190 blocks/s=0.98 stats={'ok': 1320, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:27:30Z progress stream=fw next=52011250 blocks/s=0.98 stats={'ok': 1380, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:28:31Z progress stream=fw next=52011310 blocks/s=0.98 stats={'ok': 1440, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:29:32Z progress stream=fw next=52011370 blocks/s=0.98 stats={'ok': 1500, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:30:33Z progress stream=fw next=52011430 blocks/s=0.98 stats={'ok': 1560, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:31:34Z progress stream=fw next=52011490 blocks/s=0.98 stats={'ok': 1620, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:32:35Z progress stream=fw next=52011550 blocks/s=0.98 stats={'ok': 1680, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:33:36Z progress stream=fw next=52011610 blocks/s=0.98 stats={'ok': 1740, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:34:37Z progress stream=fw next=52011670 blocks/s=0.98 stats={'ok': 1800, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:35:38Z progress stream=fw next=52011730 blocks/s=0.98 stats={'ok': 1860, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:36:40Z progress stream=fw next=52011790 blocks/s=0.98 stats={'ok': 1920, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:37:41Z progress stream=fw next=52011850 blocks/s=0.98 stats={'ok': 1980, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:38:42Z progress stream=fw next=52011910 blocks/s=0.98 stats={'ok': 2040, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:39:43Z progress stream=fw next=52011970 blocks/s=0.98 stats={'ok': 2100, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:40:44Z progress stream=fw next=52012030 blocks/s=0.98 stats={'ok': 2160, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:41:45Z progress stream=fw next=52012090 blocks/s=0.98 stats={'ok': 2220, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:42:46Z progress stream=fw next=52012150 blocks/s=0.98 stats={'ok': 2280, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:43:47Z progress stream=fw next=52012210 blocks/s=0.98 stats={'ok': 2340, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:44:48Z progress stream=fw next=52012270 blocks/s=0.98 stats={'ok': 2400, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:45:49Z progress stream=fw next=52012330 blocks/s=0.98 stats={'ok': 2460, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:46:50Z progress stream=fw next=52012390 blocks/s=0.98 stats={'ok': 2520, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:47:51Z progress stream=fw next=52012450 blocks/s=0.98 stats={'ok': 2580, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:48:52Z progress stream=fw next=52012510 blocks/s=0.98 stats={'ok': 2640, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:49:53Z progress stream=fw next=52012570 blocks/s=0.98 stats={'ok': 2700, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:50:54Z progress stream=fw next=52012630 blocks/s=0.98 stats={'ok': 2760, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:51:55Z progress stream=fw next=52012690 blocks/s=0.98 stats={'ok': 2820, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 1}
+2026-10-01T01:52:56Z progress stream=fw next=52012750 blocks/s=0.98 stats={'ok': 2880, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T01:53:57Z progress stream=fw next=52012810 blocks/s=0.98 stats={'ok': 2940, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T01:54:58Z progress stream=fw next=52012870 blocks/s=0.98 stats={'ok': 3000, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T01:55:59Z progress stream=fw next=52012930 blocks/s=0.98 stats={'ok': 3060, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T01:57:00Z progress stream=fw next=52012990 blocks/s=0.98 stats={'ok': 3120, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T01:57:30Z STOP condition: sentinels V4LIVE.* and SHALLOW_LIVE.* both present stop_block 52015391
+2026-10-01T01:58:01Z progress stream=fw next=52013050 blocks/s=0.98 stats={'ok': 3180, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T01:59:02Z progress stream=fw next=52013110 blocks/s=0.98 stats={'ok': 3240, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:00:03Z progress stream=fw next=52013170 blocks/s=0.99 stats={'ok': 3300, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:01:04Z progress stream=fw next=52013230 blocks/s=0.98 stats={'ok': 3360, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:02:05Z progress stream=fw next=52013290 blocks/s=0.98 stats={'ok': 3420, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:03:06Z progress stream=fw next=52013350 blocks/s=0.98 stats={'ok': 3480, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:04:07Z progress stream=fw next=52013410 blocks/s=0.98 stats={'ok': 3540, 'net': 5} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:06:01Z progress stream=fw next=52013470 blocks/s=0.99 stats={'ok': 60} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:07:02Z progress stream=fw next=52013530 blocks/s=0.98 stats={'ok': 120} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:08:03Z progress stream=fw next=52013590 blocks/s=0.99 stats={'ok': 180} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:09:04Z progress stream=fw next=52013650 blocks/s=0.98 stats={'ok': 240} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:10:05Z progress stream=fw next=52013710 blocks/s=0.98 stats={'ok': 300} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:11:06Z progress stream=fw next=52013770 blocks/s=0.98 stats={'ok': 360} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:12:07Z progress stream=fw next=52013830 blocks/s=0.98 stats={'ok': 420} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:13:08Z progress stream=fw next=52013890 blocks/s=0.98 stats={'ok': 480} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:14:09Z progress stream=fw next=52013950 blocks/s=0.98 stats={'ok': 540} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:15:10Z progress stream=fw next=52014010 blocks/s=0.98 stats={'ok': 600} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:16:11Z progress stream=fw next=52014070 blocks/s=0.98 stats={'ok': 660} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:17:12Z progress stream=fw next=52014130 blocks/s=0.98 stats={'ok': 720} parts={'blocks': 1, 'candidates': 2, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:18:14Z progress stream=fw next=52014190 blocks/s=0.98 stats={'ok': 780} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:19:14Z progress stream=fw next=52014250 blocks/s=0.98 stats={'ok': 840} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:20:15Z progress stream=fw next=52014310 blocks/s=0.98 stats={'ok': 900} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:21:16Z progress stream=fw next=52014370 blocks/s=0.98 stats={'ok': 960} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:22:18Z progress stream=fw next=52014430 blocks/s=0.98 stats={'ok': 1020} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:23:20Z progress stream=fw next=52014490 blocks/s=0.96 stats={'ok': 1080} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:24:21Z progress stream=fw next=52014550 blocks/s=0.98 stats={'ok': 1140} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:25:22Z progress stream=fw next=52014610 blocks/s=0.99 stats={'ok': 1200} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:26:23Z progress stream=fw next=52014670 blocks/s=0.98 stats={'ok': 1260} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:27:24Z progress stream=fw next=52014730 blocks/s=0.98 stats={'ok': 1320} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:28:26Z progress stream=fw next=52014790 blocks/s=0.98 stats={'ok': 1380, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:29:27Z progress stream=fw next=52014850 blocks/s=0.98 stats={'ok': 1440, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:30:28Z progress stream=fw next=52014910 blocks/s=0.98 stats={'ok': 1500, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:31:29Z progress stream=fw next=52014970 blocks/s=0.98 stats={'ok': 1560, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:32:30Z progress stream=fw next=52015030 blocks/s=0.98 stats={'ok': 1620, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:33:31Z progress stream=fw next=52015090 blocks/s=0.98 stats={'ok': 1680, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:34:32Z progress stream=fw next=52015150 blocks/s=0.98 stats={'ok': 1740, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:35:33Z progress stream=fw next=52015210 blocks/s=0.98 stats={'ok': 1800, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:36:34Z progress stream=fw next=52015270 blocks/s=0.98 stats={'ok': 1860, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:37:35Z progress stream=fw next=52015330 blocks/s=0.98 stats={'ok': 1920, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:38:37Z progress stream=fw next=52015390 blocks/s=0.96 stats={'ok': 1980, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:39:40Z progress stream=fw next=52015450 blocks/s=0.96 stats={'ok': 2040, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:40:42Z progress stream=fw next=52015510 blocks/s=0.97 stats={'ok': 2100, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:41:42Z progress stream=fw next=52015570 blocks/s=0.98 stats={'ok': 2160, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:42:44Z progress stream=fw next=52015630 blocks/s=0.98 stats={'ok': 2220, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:43:45Z progress stream=fw next=52015690 blocks/s=0.98 stats={'ok': 2280, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:44:46Z progress stream=fw next=52015750 blocks/s=0.98 stats={'ok': 2340, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:45:47Z progress stream=fw next=52015810 blocks/s=0.98 stats={'ok': 2400, 'net': 1} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:46:48Z progress stream=fw next=52015870 blocks/s=0.98 stats={'ok': 2460, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:47:49Z progress stream=fw next=52015930 blocks/s=0.98 stats={'ok': 2520, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:48:50Z progress stream=fw next=52015990 blocks/s=0.98 stats={'ok': 2580, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:49:51Z progress stream=fw next=52016050 blocks/s=0.98 stats={'ok': 2640, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:50:52Z progress stream=fw next=52016110 blocks/s=0.98 stats={'ok': 2700, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:51:53Z progress stream=fw next=52016170 blocks/s=0.98 stats={'ok': 2760, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:52:54Z progress stream=fw next=52016230 blocks/s=0.98 stats={'ok': 2820, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:53:55Z progress stream=fw next=52016290 blocks/s=0.98 stats={'ok': 2880, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:54:56Z progress stream=fw next=52016350 blocks/s=0.98 stats={'ok': 2940, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:55:57Z progress stream=fw next=52016410 blocks/s=0.98 stats={'ok': 3000, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:56:28Z STOP condition: sentinels V4LIVE.* and SHALLOW_LIVE.* both present stop_block 52017160
+2026-10-01T02:56:58Z progress stream=fw next=52016470 blocks/s=0.99 stats={'ok': 3060, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:57:59Z progress stream=fw next=52016530 blocks/s=0.98 stats={'ok': 3120, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T02:59:00Z progress stream=fw next=52016590 blocks/s=0.98 stats={'ok': 3180, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T03:00:01Z progress stream=fw next=52016650 blocks/s=0.98 stats={'ok': 3240, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T03:01:02Z progress stream=fw next=52016710 blocks/s=0.98 stats={'ok': 3300, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T03:02:03Z progress stream=fw next=52016770 blocks/s=0.98 stats={'ok': 3360, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T03:03:04Z progress stream=fw next=52016830 blocks/s=0.98 stats={'ok': 3420, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T03:04:05Z progress stream=fw next=52016890 blocks/s=0.98 stats={'ok': 3480, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T03:05:06Z progress stream=fw next=52016950 blocks/s=0.98 stats={'ok': 3540, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T03:06:07Z progress stream=fw next=52017010 blocks/s=0.98 stats={'ok': 3600, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T03:07:08Z progress stream=fw next=52017070 blocks/s=0.98 stats={'ok': 3660, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T03:08:09Z progress stream=fw next=52017130 blocks/s=0.98 stats={'ok': 3720, 'net': 2} parts={'blocks': 1, 'candidates': 3, 'provenance': 1, 'reverted': 1, 'txs': 2}
+2026-10-01T03:08:41Z stream done fw {'created_utc': '2026-09-30T21:02:45Z', 'end': None, 'last_written_utc': '2026-10-01T03:08:41Z', 'next': 52017161, 'parts': {'blocks': {'part': 1, 'size': 811704}, 'candidates': {'part': 3, 'size': 72296298}, 'provenance': {'part': 1, 'size': 206251}, 'reverted': {'part': 1, 'size': 15844055}, 'txs': {'part': 2, 'size': 62363641}}, 'start': 52006400, 'stats': {'ok': 3751, 'net': 2}, 'stream': 'fw', 'topics_n': 26, 'notes': [{'utc': '2026-10-01T02:04:41Z', 'note': 'stop condition cleared by operator: the V4LIVE.DONE that triggered it came from an invalid attempt (no blocks processed; websocket upgrades unsupported after the container restart). The forward stream continues through the repeated V4 live test.', 'removed': {'stop_block': 52015391, 'stop_reason': 'sentinels V4LIVE.* and SHALLOW_LIVE.* both present', 'stop_detected_utc': '2026-10-01T01:57:30Z', 'stop_detected_head': 52015251}}], 'stop_block': 52017160, 'stop_reason': 'sentinels V4LIVE.* and SHALLOW_LIVE.* both present', 'stop_detected_utc': '2026-10-01T02:56:28Z', 'stop_detected_head': 52017020, 'done': True, 'done_utc': '2026-10-01T03:08:41Z'}

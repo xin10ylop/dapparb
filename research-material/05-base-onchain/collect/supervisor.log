@@ -1,0 +1,54 @@
+2026-09-30T21:02:45Z pinned config {'launch_unix': 1790802165.1229582, 'launch_utc': '2026-09-30T21:02:45Z', 'launch_head': 52006409, 'launch_head_source': 'https://base-rpc.publicnode.com', 'backfill_blocks': 10800, 'head_lag': 10, 'stop_margin_blocks': 150, 'max_follow_seconds': 25200, 'sentinel_dir': '/home/user/dapparb/research-material/.sentinels', 'bf_start': 51995609, 'bf_end': 52006399, 'fw_start': 52006400}
+2026-09-30T21:02:45Z started bf pid 3778 ['--start', '51995609', '--end', '52006399', '--chunk', '40', '--workers', '3']
+2026-09-30T21:02:45Z started fw pid 3779 ['--start', '52006400', '--chunk', '30', '--workers', '2']
+2026-09-30T21:12:17Z resuming with config {'backfill_blocks': 10800, 'bf2_start': 52000000, 'bf_end': 52006399, 'bf_split_end': 51999999, 'bf_split_note': '2026-09-30T21:13Z: backfill split because base.drpc.org throughput fell to ~1 block/s with HTTP 429; bf (drpc) keeps [bf_start, bf_split_end], bf2 (gateway.tenderly.co/public/base, fallback base-rpc.publicnode.com) does [bf2_start, bf_end]. Blocks written before this change: bf all via drpc, fw all via publicnode (fw stats had no errors, so no fallback).', 'bf_start': 51995609, 'fw_start': 52006400, 'head_lag': 10, 'launch_head': 52006409, 'launch_head_source': 'https://base-rpc.publicnode.com', 'launch_unix': 1790802165.1229582, 'launch_utc': '2026-09-30T21:02:45Z', 'max_follow_seconds': 25200, 'pre_provenance': {'bf_blocks_before_provenance': [51995609, 51996568], 'bf_endpoint': 'https://base.drpc.org', 'fw_blocks_before_provenance': [52006400, 52006681], 'fw_stats_at_restart': {'ok': 282}}, 'sentinel_dir': '/home/user/dapparb/research-material/.sentinels', 'stop_margin_blocks': 150}
+2026-09-30T21:12:17Z started bf pid 17146 ['--start', '51995609', '--end', '51999999', '--chunk', '40', '--workers', '3']
+2026-09-30T21:12:17Z started fw pid 17147 ['--start', '52006400', '--chunk', '30', '--workers', '2']
+2026-09-30T21:12:17Z started bf2 pid 17148 ['--start', '52000000', '--end', '52006399', '--chunk', '40', '--workers', '3']
+2026-09-30T21:25:37Z bf2 finished rc 0
+2026-09-30T21:26:04Z resuming with config {'backfill_blocks': 10800, 'bf2_end': 52006399, 'bf2_start': 52000000, 'bf3_split_note': '2026-09-30T21:26Z: bf (drpc) shrunk to end at 51998799; bf3 (gateway.tenderly.co/public/base, fallback base-rpc.publicnode.com) does [51998800, 51999999]. Reason: drpc throughput 0.3-2 blocks/s with HTTP 429; frees drpc for other collectors.', 'bf_end': 52006399, 'bf_split_end': 51998799, 'bf_split_note': '2026-09-30T21:13Z: backfill split because base.drpc.org throughput fell to ~1 block/s with HTTP 429; bf (drpc) keeps [bf_start, bf_split_end], bf2 (gateway.tenderly.co/public/base, fallback base-rpc.publicnode.com) does [bf2_start, bf_end]. Blocks written before this change: bf all via drpc, fw all via publicnode (fw stats had no errors, so no fallback).', 'bf_start': 51995609, 'extra_streams': [{'end': 51999999, 'name': 'bf3', 'start': 51998800}], 'fw_start': 52006400, 'head_lag': 10, 'launch_head': 52006409, 'launch_head_source': 'https://base-rpc.publicnode.com', 'launch_unix': 1790802165.1229582, 'launch_utc': '2026-09-30T21:02:45Z', 'max_follow_seconds': 25200, 'pre_provenance': {'bf_blocks_before_provenance': [51995609, 51996568], 'bf_endpoint': 'https://base.drpc.org', 'fw_blocks_before_provenance': [52006400, 52006681], 'fw_stats_at_restart': {'ok': 282}}, 'sentinel_dir': '/home/user/dapparb/research-material/.sentinels', 'stop_margin_blocks': 150}
+2026-09-30T21:26:04Z started bf pid 1860 ['--start', '51995609', '--end', '51998799', '--chunk', '40', '--workers', '3']
+2026-09-30T21:26:04Z started fw pid 1861 ['--start', '52006400', '--chunk', '30', '--workers', '2']
+2026-09-30T21:26:04Z started bf2 pid 1862 ['--start', '52000000', '--end', '52006399', '--chunk', '40', '--workers', '3']
+2026-09-30T21:26:04Z started bf3 pid 1863 ['--start', '51998800', '--end', '51999999', '--chunk', '40', '--workers', '3']
+2026-09-30T21:26:14Z bf2 finished rc 0
+2026-09-30T21:28:44Z bf3 finished rc 0
+2026-09-30T21:48:54Z bf exited rc -15 restart 1
+2026-09-30T21:49:24Z started bf pid 3593 ['--start', '51995609', '--end', '51998799', '--chunk', '40', '--workers', '3']
+2026-09-30T21:49:34Z bf finished rc 0
+2026-10-01T01:03:10Z restart after container restart (all processes died ~22:58Z); fw resumes from checkpoint next=52009870
+2026-10-01T01:03:10Z resuming with config {'backfill_blocks': 10800, 'bf2_end': 52006399, 'bf2_start': 52000000, 'bf3_split_note': '2026-09-30T21:26Z: bf (drpc) shrunk to end at 51998799; bf3 (gateway.tenderly.co/public/base, fallback base-rpc.publicnode.com) does [51998800, 51999999]. Reason: drpc throughput 0.3-2 blocks/s with HTTP 429; frees drpc for other collectors.', 'bf4_split_note': '2026-09-30T21:50Z: base.drpc.org fell to 0.07 blocks/s (HTTP 429) and bf recorded gap 51998605; bf stopped at 51998608; bf4 (tenderly, fallback publicnode) does [51998609, 51998799]; gap block 51998605 re-fetched immediately by stream gf1 (tenderly first).', 'bf_end': 52006399, 'bf_split_end': 51998608, 'bf_split_note': '2026-09-30T21:13Z: backfill split because base.drpc.org throughput fell to ~1 block/s with HTTP 429; bf (drpc) keeps [bf_start, bf_split_end], bf2 (gateway.tenderly.co/public/base, fallback base-rpc.publicnode.com) does [bf2_start, bf_end]. Blocks written before this change: bf all via drpc, fw all via publicnode (fw stats had no errors, so no fallback).', 'bf_start': 51995609, 'extra_streams': [{'end': 51999999, 'name': 'bf3', 'start': 51998800}, {'end': 51998799, 'name': 'bf4', 'start': 51998609}], 'fw_start': 52006400, 'head_lag': 10, 'launch_head': 52006409, 'launch_head_source': 'https://base-rpc.publicnode.com', 'launch_unix': 1790802165.1229582, 'launch_utc': '2026-09-30T21:02:45Z', 'max_follow_seconds': 25200, 'pre_provenance': {'bf_blocks_before_provenance': [51995609, 51996568], 'bf_endpoint': 'https://base.drpc.org', 'fw_blocks_before_provenance': [52006400, 52006681], 'fw_stats_at_restart': {'ok': 282}}, 'sentinel_dir': '/home/user/dapparb/research-material/.sentinels', 'stop_margin_blocks': 150}
+2026-10-01T01:03:10Z started bf pid 567 ['--start', '51995609', '--end', '51998608', '--chunk', '40', '--workers', '3']
+2026-10-01T01:03:10Z started fw pid 568 ['--start', '52006400', '--chunk', '30', '--workers', '2']
+2026-10-01T01:03:10Z started bf2 pid 569 ['--start', '52000000', '--end', '52006399', '--chunk', '40', '--workers', '3']
+2026-10-01T01:03:10Z started bf3 pid 570 ['--start', '51998800', '--end', '51999999', '--chunk', '40', '--workers', '3']
+2026-10-01T01:03:10Z started bf4 pid 571 ['--start', '51998609', '--end', '51998799', '--chunk', '40', '--workers', '3']
+2026-10-01T01:03:20Z bf finished rc 0
+2026-10-01T01:03:20Z bf2 finished rc 0
+2026-10-01T01:03:20Z bf3 finished rc 0
+2026-10-01T01:03:20Z bf4 finished rc 0
+2026-10-01T02:04:30Z fw exited rc -15 restart 1
+2026-10-01T02:04:41Z operator: fw stop condition cleared in state/fw.ckpt.json (V4LIVE.DONE came from an invalid attempt, now archived in 02-v4-live-test/attempts/); supervisor restarts fw from next
+2026-10-01T02:05:00Z started fw pid 31676 ['--start', '52006400', '--chunk', '30', '--workers', '2']
+2026-10-01T03:08:50Z fw finished rc 0
+2026-10-01T03:09:00Z started gf pid 21459 ['--blocks-file', '/home/user/dapparb/research-material/05-base-onchain/collect/state/gf_blocks.txt', '--chunk', '10', '--workers', '2']
+2026-10-01T03:09:10Z gf finished rc 0
+{
+ "finalized_utc": "2026-10-01T03:10:56Z",
+ "range_first_block": 51995609,
+ "range_last_block": 52017160,
+ "range_first_block_timestamp_utc": "2026-09-30T15:02:45Z",
+ "range_last_block_timestamp_utc": "2026-10-01T03:01:07Z",
+ "blocks_present": 21552,
+ "blocks_expected": 21552,
+ "missing_blocks": 0,
+ "parent_hash_mismatches": 0,
+ "txcount_mismatches": 0,
+ "conflicting_duplicate_block_rows": 0,
+ "oversize_files": [],
+ "fw_stop_reason": "sentinels V4LIVE.* and SHALLOW_LIVE.* both present",
+ "fw_stop_detected_utc": "2026-10-01T02:56:28Z",
+ "fw_stop_block": 52017160,
+ "gf_ran": true
+}
+2026-10-01T03:10:56Z wrote sentinel DONE
