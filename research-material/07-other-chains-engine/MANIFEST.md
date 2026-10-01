@@ -1,6 +1,6 @@
 # 07-other-chains-engine: repository scanner and engine on Arbitrum and Ethereum, with a same-method Base scan
 
-Status: IN PROGRESS (counts last refreshed 2026-10-01T01:45:01Z; waiting for sentinels: SCANS, ENGINE_DETECT_ARBITRUM, ENGINE_DETECT_MAINNET).
+Status: COMPLETE (2026-10-01T02:05:01Z). All collectors finished; ENGINE_LIVE_ARBITRUM/MAINNET are FAILED by design (simulation blocked without a code change, see below).
 
 Run notes: collectors were launched 2026-09-30T22:14:28Z (master PID in `collect/state/run_all.pid`, log `collect/run_all.log`,
 step log `collect/pipeline.log`). The Status line above and the "Counts" section are rewritten by `collect/fill_manifest.py`
@@ -197,15 +197,18 @@ the run window (attempt, exit code, time_capped, cap_minutes, blocks_flag, SIGIN
 ## Counts
 
 <!-- COUNTS:BEGIN -->
-Filled by `collect/fill_manifest.py` at 2026-10-01T01:45:01Z.
+Filled by `collect/fill_manifest.py` at 2026-10-01T02:05:01Z.
 
-Sentinels: `SCANS` missing, `ENGINE_DETECT_ARBITRUM` missing, `ENGINE_DETECT_MAINNET` missing, `ENGINE_LIVE_ARBITRUM.FAILED`, `ENGINE_LIVE_MAINNET.FAILED`
+Sentinels: `SCANS.DONE`, `ENGINE_DETECT_ARBITRUM.DONE`, `ENGINE_DETECT_MAINNET.DONE`, `ENGINE_LIVE_ARBITRUM.FAILED`, `ENGINE_LIVE_MAINNET.FAILED`
 
 | Dir / run | JSONL files | JSONL rows | rows announced in log (scan) | unparseable lines | block-scanned / heartbeat lines | first block | last block | window start (UTC) | window end (UTC) | pools after depth filter | exit | time-capped | SCAN SUMMARY present | warn / error log lines |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| engine-detect/arbitrum/engine-detect-arbitrum | engine-detect-arbitrum.jsonl.gz | 0 | - | 0 | 401 | None | None | 2026-10-01T01:42:43Z | 2026-10-01T02:02:43Z | 83 | 130 | - | - | 2 / 0 |
+| engine-detect/mainnet/engine-detect-mainnet | engine-detect-mainnet.jsonl.gz | 15 | - | 0 | 10 | 26094243 | 26094323 | 2026-10-01T01:41:20Z | 2026-10-01T02:01:21Z | 1740 | 130 | - | - | 2 / 0 |
 | scans/arbitrum/scan-arbitrum-config | scan-arbitrum-config.jsonl.gz | 132443 | 132443 | 0 | 645 | 510475000 | 510481479 | 2026-09-30T22:15:07.557Z | 2026-09-30T22:46:00.364Z | 151 | 143 | 1 | False | 2 / 0 |
 | scans/arbitrum/scan-arbitrum-top | scan-arbitrum-top.jsonl.gz | 109075 | 109075 | 0 | 495 | 510511390 | 510517978 | 2026-10-01T01:10:39.280Z | 2026-10-01T01:41:45.963Z | 230 | 143 | 1 | False | 11 / 0 |
 | scans/base/scan-base-config | scan-base-config.jsonl.gz | 65207 | 65207 | 0 | 248 | 52008645 | 52009606 | 2026-09-30T22:18:17.563Z | 2026-09-30T22:49:22.659Z | 255 | 143 | 1 | False | 1 / 0 |
+| scans/base/scan-base-top | scan-base-top.jsonl.gz | 56322 | 56322 | 0 | 209 | 52014010 | 52014982 | 2026-10-01T01:17:24.600Z | 2026-10-01T01:48:35.717Z | 558 | 143 | 1 | False | 5 / 0 |
 | scans/mainnet/scan-mainnet-config | scan-mainnet-config.jsonl.gz | 13385 | 13385 | 0 | 151 | 26093214 | 26093364 | 2026-09-30T22:14:50.493Z | 2026-09-30T22:45:04.686Z | 112 | 0 | 0 | True | 2 / 0 |
 | scans/mainnet/scan-mainnet-top | scan-mainnet-top.jsonl.gz | 18048 | 18048 | 0 | 151 | 26094082 | 26094232 | 2026-10-01T01:09:28.771Z | 2026-10-01T01:39:19.823Z | 367 | 0 | 0 | True | 12 / 0 |
 
@@ -214,7 +217,15 @@ Scan windows: first/last `block scanned` log time. Engine windows: `searcher rea
 File sizes (bytes):
 
 - `engine-detect/arbitrum/engine-detect-arbitrum.code-provenance.txt`: 4427
+- `engine-detect/arbitrum/engine-detect-arbitrum.heartbeats.csv.gz`: 7458
+- `engine-detect/arbitrum/engine-detect-arbitrum.jsonl.gz`: 59
+- `engine-detect/arbitrum/engine-detect-arbitrum.log.gz`: 7388
+- `engine-detect/arbitrum/engine-detect-arbitrum.meta.json`: 1120
 - `engine-detect/mainnet/engine-detect-mainnet.code-provenance.txt`: 4427
+- `engine-detect/mainnet/engine-detect-mainnet.heartbeats.csv.gz`: 529
+- `engine-detect/mainnet/engine-detect-mainnet.jsonl.gz`: 1664
+- `engine-detect/mainnet/engine-detect-mainnet.log.gz`: 3237
+- `engine-detect/mainnet/engine-detect-mainnet.meta.json`: 1131
 - `scans/arbitrum/scan-arbitrum-config.blocks.csv.gz`: 11838
 - `scans/arbitrum/scan-arbitrum-config.code-provenance.txt`: 4800
 - `scans/arbitrum/scan-arbitrum-config.jsonl.gz`: 7627037
@@ -230,7 +241,11 @@ File sizes (bytes):
 - `scans/base/scan-base-config.jsonl.gz`: 3960257
 - `scans/base/scan-base-config.log.gz`: 15551
 - `scans/base/scan-base-config.meta.json`: 1344
+- `scans/base/scan-base-top.blocks.csv.gz`: 4775
 - `scans/base/scan-base-top.code-provenance.txt`: 4427
+- `scans/base/scan-base-top.jsonl.gz`: 3790930
+- `scans/base/scan-base-top.log.gz`: 11551
+- `scans/base/scan-base-top.meta.json`: 1361
 - `scans/mainnet/scan-mainnet-config.blocks.csv.gz`: 4132
 - `scans/mainnet/scan-mainnet-config.code-provenance.txt`: 4800
 - `scans/mainnet/scan-mainnet-config.jsonl.gz`: 636074

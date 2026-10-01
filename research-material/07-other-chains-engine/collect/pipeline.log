@@ -49,3 +49,6 @@
 [run_scan 2026-10-01T01:48:30Z] scan-base-top time cap reached; SIGTERM
 [run_scan 2026-10-01T01:48:37Z] scan-base-top done (exit=143 capped=1)
 [run_all 2026-10-01T01:48:37Z] SCANS sentinel written
+[run_engine_detect 2026-10-01T02:01:27Z] engine-detect-mainnet done
+[run_engine_detect 2026-10-01T02:02:49Z] engine-detect-arbitrum done
+[run_all 2026-10-01T02:02:49Z] pipeline end

@@ -8,3 +8,15 @@
 2026-10-01T01:03:40Z chunk 52012303 52013302 rows 72 via publicnode
 2026-10-01T01:03:40Z chunk 52013303 52013625 rows 22 via publicnode
 2026-10-01T01:03:40Z done 678 rows 52006303 - 52013625 -> /home/user/dapparb/research-material/02-v4-live-test/initialize-topup.csv.gz
+2026-10-01T02:05:29Z pinned {'from_block': 52006303, 'to_block': 52015481, 'to_block_source': 'eth_blockNumber(publicnode) - 10', 'head_at_pin': 52015491, 'pinned_at_utc': '2026-10-01T02:05:29Z', 'v4init_block_to': 52006302, 'chunk_size': 1000, 'topic0': '0xdd466e674ea557f56295e2d0218a125ea4b4f0f6f3307b95f85e6110838d6438', 'address': '0x498581ff718922c3f8e6a244956af099b2652b2b'}
+2026-10-01T02:05:29Z chunk 52006303 52007302 rows 97 via publicnode
+2026-10-01T02:05:30Z chunk 52007303 52008302 rows 143 via publicnode
+2026-10-01T02:05:30Z chunk 52008303 52009302 rows 94 via publicnode
+2026-10-01T02:05:30Z chunk 52009303 52010302 rows 76 via publicnode
+2026-10-01T02:05:31Z chunk 52010303 52011302 rows 82 via publicnode
+2026-10-01T02:05:31Z chunk 52011303 52012302 rows 92 via publicnode
+2026-10-01T02:05:31Z chunk 52012303 52013302 rows 72 via publicnode
+2026-10-01T02:05:31Z chunk 52013303 52014302 rows 68 via publicnode
+2026-10-01T02:05:31Z chunk 52014303 52015302 rows 103 via publicnode
+2026-10-01T02:05:31Z chunk 52015303 52015481 rows 20 via publicnode
+2026-10-01T02:05:31Z done 847 rows 52006303 - 52015481 -> /home/user/dapparb/research-material/02-v4-live-test/initialize-topup.csv.gz

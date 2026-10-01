@@ -1,0 +1,48 @@
+[run_all 2026-09-30T22:14:28Z] pipeline start
+[run_scan 2026-09-30T22:14:28Z] scan-arbitrum-config attempt 1 started pid=20658 flags: --chain arbitrum --universe config --blocks 7201 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-arbitrum-config.jsonl cap=31min
+[run_scan 2026-09-30T22:14:28Z] scan-mainnet-config attempt 1 started pid=20662 flags: --chain mainnet --universe config --blocks 151 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-mainnet-config.jsonl cap=31min
+[run_scan 2026-09-30T22:14:28Z] scan-base-config attempt 1 started pid=20666 flags: --chain base --universe config --blocks 901 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-base-config.jsonl cap=31min
+[run_scan 2026-09-30T22:14:53Z] scan-mainnet-config first block scanned
+[run_scan 2026-09-30T22:15:08Z] scan-arbitrum-config first block scanned
+[run_scan 2026-09-30T22:18:18Z] scan-base-config first block scanned
+{"name": "scan-mainnet-config", "jsonl_rows": 13385, "jsonl_distinct_blocks": 151, "log_block_scanned_lines": 151, "log_heartbeat_lines": 0}
+[run_scan 2026-09-30T22:45:10Z] scan-mainnet-config done (exit=0 capped=0)
+[run_scan 2026-09-30T22:45:10Z] scan-mainnet-top attempt 1 started pid=1011 flags: --chain mainnet --universe top --blocks 151 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-mainnet-top.jsonl cap=31min
+[run_scan 2026-09-30T22:46:09Z] scan-arbitrum-config time cap reached; SIGTERM
+{"name": "scan-arbitrum-config", "jsonl_rows": 132443, "jsonl_distinct_blocks": 645, "log_block_scanned_lines": 645, "log_heartbeat_lines": 0}
+[run_scan 2026-09-30T22:46:18Z] scan-arbitrum-config done (exit=143 capped=1)
+[run_scan 2026-09-30T22:46:18Z] scan-arbitrum-top attempt 1 started pid=1279 flags: --chain arbitrum --universe top --blocks 7201 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-arbitrum-top.jsonl cap=31min
+[run_scan 2026-09-30T22:48:30Z] scan-mainnet-top first block scanned
+[run_scan 2026-09-30T22:49:20Z] scan-base-config time cap reached; SIGTERM
+{"name": "scan-base-config", "jsonl_rows": 65207, "jsonl_distinct_blocks": 246, "log_block_scanned_lines": 248, "log_heartbeat_lines": 0}
+[run_scan 2026-09-30T22:49:27Z] scan-base-config done (exit=143 capped=1)
+[run_scan 2026-09-30T22:49:27Z] scan-base-top attempt 1 started pid=1938 flags: --chain base --universe top --blocks 901 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-base-top.jsonl cap=31min
+[run_scan 2026-09-30T22:49:48Z] scan-arbitrum-top first block scanned
+[run_all 2026-10-01T01:04:58Z] pipeline start
+[run_scan 2026-10-01T01:04:58Z] scan-base-config already done; skipping
+[run_scan 2026-10-01T01:04:58Z] scan-mainnet-config already done; skipping
+[run_scan 2026-10-01T01:04:58Z] scan-arbitrum-config already done; skipping
+[run_scan 2026-10-01T01:04:58Z] scan-mainnet-top attempt 1 started pid=1070 flags: --chain mainnet --universe top --blocks 151 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-mainnet-top.jsonl cap=31min
+[run_scan 2026-10-01T01:04:58Z] scan-base-top attempt 1 started pid=1067 flags: --chain base --universe top --blocks 901 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-base-top.jsonl cap=31min
+[run_scan 2026-10-01T01:04:58Z] scan-arbitrum-top attempt 1 started pid=1079 flags: --chain arbitrum --universe top --blocks 7201 --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/scan-arbitrum-top.jsonl cap=31min
+[run_scan 2026-10-01T01:09:28Z] scan-mainnet-top first block scanned
+[run_scan 2026-10-01T01:10:43Z] scan-arbitrum-top first block scanned
+[run_scan 2026-10-01T01:17:29Z] scan-base-top first block scanned
+{"name": "scan-mainnet-top", "jsonl_rows": 18048, "jsonl_distinct_blocks": 151, "log_block_scanned_lines": 151, "log_heartbeat_lines": 0}
+[run_scan 2026-10-01T01:39:25Z] scan-mainnet-top done (exit=0 capped=0)
+[run_engine_detect 2026-10-01T01:39:25Z] engine-detect-mainnet attempt 1 started pid=19615 flags: --chain mainnet --mode dry --contract  --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/engine-detect-mainnet.jsonl --source logs --universe all --max-per-factory 6000 --min-depth-eth 0.1 --min-profit-usd 0.01 --top 6
+[run_engine_detect 2026-10-01T01:41:20Z] engine-detect-mainnet searcher ready; running 20 min
+[run_scan 2026-10-01T01:41:45Z] scan-arbitrum-top time cap reached; SIGTERM
+{"name": "scan-arbitrum-top", "jsonl_rows": 109075, "jsonl_distinct_blocks": 495, "log_block_scanned_lines": 495, "log_heartbeat_lines": 0}
+[run_scan 2026-10-01T01:41:52Z] scan-arbitrum-top done (exit=143 capped=1)
+[run_engine_detect 2026-10-01T01:41:52Z] engine-detect-arbitrum attempt 1 started pid=20568 flags: --chain arbitrum --mode dry --contract  --out /home/user/dapparb/research-material/07-other-chains-engine/collect/work/engine-detect-arbitrum.jsonl --source logs --universe all --max-per-factory 6000 --min-depth-eth 0.1 --min-profit-usd 0.01 --top 6
+[run_engine_detect 2026-10-01T01:42:43Z] engine-detect-arbitrum searcher ready; running 20 min
+[run_scan 2026-10-01T01:48:30Z] scan-base-top time cap reached; SIGTERM
+{"name": "scan-base-top", "jsonl_rows": 56322, "jsonl_distinct_blocks": 209, "log_block_scanned_lines": 209, "log_heartbeat_lines": 0}
+[run_scan 2026-10-01T01:48:37Z] scan-base-top done (exit=143 capped=1)
+[run_all 2026-10-01T01:48:37Z] SCANS sentinel written
+{"name": "engine-detect-mainnet", "jsonl_rows": 15, "jsonl_distinct_blocks": 9, "log_block_scanned_lines": 0, "log_heartbeat_lines": 10}
+[run_engine_detect 2026-10-01T02:01:27Z] engine-detect-mainnet done
+{"name": "engine-detect-arbitrum", "jsonl_rows": 0, "jsonl_distinct_blocks": 0, "log_block_scanned_lines": 0, "log_heartbeat_lines": 401}
+[run_engine_detect 2026-10-01T02:02:49Z] engine-detect-arbitrum done
+[run_all 2026-10-01T02:02:49Z] pipeline end

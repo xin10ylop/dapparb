@@ -1,0 +1,44 @@
+{
+ "name": "engine-detect-arbitrum",
+ "finalized_utc": "2026-10-01T02:02:49Z",
+ "jsonl_files": [
+  "engine-detect-arbitrum.jsonl.gz"
+ ],
+ "jsonl_rows": 0,
+ "jsonl_unparseable_lines": 0,
+ "jsonl_distinct_blocks": 0,
+ "jsonl_first_block": null,
+ "jsonl_last_block": null,
+ "log_block_scanned_lines": 0,
+ "log_block_scanned_first_block": null,
+ "log_block_scanned_last_block": null,
+ "log_rows_announced_by_block_scanned_lines": null,
+ "log_heartbeat_lines": 401,
+ "first_block_scanned_utc": null,
+ "last_block_scanned_utc": null,
+ "searcher_ready": {
+  "time": 1790818962651,
+  "tokens": 5863,
+  "pools": 83,
+  "cycles": 92,
+  "minDepthEth": 0.1,
+  "source": "logs",
+  "mode": "dry",
+  "contract": "",
+  "codeOverride": false,
+  "msg": "searcher ready"
+ },
+ "live_pools": null,
+ "exit_line": "exit=130",
+ "signal_line": "[exit-flush] SIGINT received at 2026-10-01T02:02:43.932Z; flushing for 5 s then exiting 130",
+ "summary_present": false,
+ "warn_lines": 2,
+ "error_lines": 0,
+ "window": {
+  "attempt": 1,
+  "ready_utc": "2026-10-01T01:42:43Z",
+  "sigint_utc": "2026-10-01T02:02:43Z",
+  "minutes": 20,
+  "exit": 130
+ }
+}

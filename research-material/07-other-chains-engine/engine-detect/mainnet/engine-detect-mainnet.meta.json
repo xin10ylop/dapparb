@@ -1,0 +1,44 @@
+{
+ "name": "engine-detect-mainnet",
+ "finalized_utc": "2026-10-01T02:01:27Z",
+ "jsonl_files": [
+  "engine-detect-mainnet.jsonl.gz"
+ ],
+ "jsonl_rows": 15,
+ "jsonl_unparseable_lines": 0,
+ "jsonl_distinct_blocks": 9,
+ "jsonl_first_block": 26094243,
+ "jsonl_last_block": 26094323,
+ "log_block_scanned_lines": 0,
+ "log_block_scanned_first_block": null,
+ "log_block_scanned_last_block": null,
+ "log_rows_announced_by_block_scanned_lines": null,
+ "log_heartbeat_lines": 10,
+ "first_block_scanned_utc": null,
+ "last_block_scanned_utc": null,
+ "searcher_ready": {
+  "time": 1790818877867,
+  "tokens": 15834,
+  "pools": 1740,
+  "cycles": 1642,
+  "minDepthEth": 0.1,
+  "source": "logs",
+  "mode": "dry",
+  "contract": "",
+  "codeOverride": false,
+  "msg": "searcher ready"
+ },
+ "live_pools": null,
+ "exit_line": "exit=130",
+ "signal_line": "[exit-flush] SIGINT received at 2026-10-01T02:01:21.535Z; flushing for 5 s then exiting 130",
+ "summary_present": false,
+ "warn_lines": 2,
+ "error_lines": 0,
+ "window": {
+  "attempt": 1,
+  "ready_utc": "2026-10-01T01:41:20Z",
+  "sigint_utc": "2026-10-01T02:01:21Z",
+  "minutes": 20,
+  "exit": 130
+ }
+}
