@@ -1,6 +1,6 @@
 # 07-other-chains-engine: repository scanner and engine on Arbitrum and Ethereum, with a same-method Base scan
 
-Status: COMPLETE (2026-10-01T02:15:01Z). All collectors finished; ENGINE_LIVE_ARBITRUM/MAINNET are FAILED by design (simulation blocked without a code change, see below).
+Status: COMPLETE (2026-10-01T02:35:01Z). All collectors finished; ENGINE_LIVE_ARBITRUM/MAINNET are FAILED by design (simulation blocked without a code change, see below).
 
 Run notes: collectors were launched 2026-09-30T22:14:28Z (master PID in `collect/state/run_all.pid`, log `collect/run_all.log`,
 step log `collect/pipeline.log`). The Status line above and the "Counts" section are rewritten by `collect/fill_manifest.py`
@@ -197,7 +197,7 @@ the run window (attempt, exit code, time_capped, cap_minutes, blocks_flag, SIGIN
 ## Counts
 
 <!-- COUNTS:BEGIN -->
-Filled by `collect/fill_manifest.py` at 2026-10-01T02:15:01Z.
+Filled by `collect/fill_manifest.py` at 2026-10-01T02:35:01Z.
 
 Sentinels: `SCANS.DONE`, `ENGINE_DETECT_ARBITRUM.DONE`, `ENGINE_DETECT_MAINNET.DONE`, `ENGINE_LIVE_ARBITRUM.FAILED`, `ENGINE_LIVE_MAINNET.FAILED`
 

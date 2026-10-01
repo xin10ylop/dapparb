@@ -4,6 +4,18 @@ Raw material only. This file maps the data, says how it was produced, and lists 
 rankings or conclusions. Every value below that is not a copy of an RPC response is marked **derived**, and each derivation
 is deterministic and lossless (a decoded ABI field, a flag computed from an index, or a sum or count of raw event fields).
 
+**Status: COMPLETE** (set 2026-10-01 after re-verification). In `/home/user/dapparb/research-material/.sentinels/`:
+`V2OLD_SNAPSHOT.DONE` (22:17:38Z, `rows=125197 parts=1 snapshot_gaps=0`), `V2OLD_CENSUS.DONE` (22:18:46Z, `log_rows=304359
+activity_rows=30921 emitters=4385 window=51965201-52008400`), `V2OLD_TOKENS.DONE` (22:23:43Z) and `V2OLD.DONE` (22:24:35Z,
+`gaps=0 too_big=[]`), all 2026-09-30; no `V2OLD*.FAILED` sentinel exists. `gaps.csv` does not exist (0 unrecoverable batches or
+ranges). Every file in the directory was re-read on 2026-10-01 (see "Verified inventory (2026-10-01)"); no committed file is over
+90 MB. All collectors of this directory finished at 22:24:35Z on 2026-09-30, before the container restart at ~23:00Z, and none was
+re-run. The coverage limits that are part of the design (Uniswap V2 sampled, one pinned block, four event topics) are in section 7.
+
+The block below was written by `collect/finalize.py` at the end of the run (re-running `finalize.py` rewrites only this block,
+`file-index.csv` and the `V2OLD` sentinel). Its row counts, byte sizes and sha256 prefixes were re-checked on 2026-10-01 and all
+match the files.
+
 <!-- AUTO-STATUS-BEGIN -->
 
 **Status: COMPLETE** (filled by `collect/finalize.py` at 2026-09-30T22:24:35Z).
@@ -46,6 +58,201 @@ Full per-file list with complete sha256: `file-index.csv`.
 
 <!-- AUTO-STATUS-END -->
 
+## Verified inventory (2026-10-01)
+
+Every file under this directory, recursively: 125 files. 29 are committed (this manifest, 18 data/metadata files at the top level,
+10 scripts and logs in `collect/`). 96 are local-only: everything under `collect/state/` is git-ignored
+(`research-material/**/collect/state/` in the repository `.gitignore`) and will **not** be in the repository.
+The largest committed file is `census-logs-part-0001.csv.gz` (29,589,834 bytes); no committed file is over 90 MB.
+
+How each file was checked (streamed, at most ~22 MB RSS): bytes from the file system; sha256 of the file as stored;
+`gzip -t` for every `.gz`; for CSV, the number of records read with Python's `csv` module (equal to the number of newline
+characters in every CSV here, so no field contains a line break) and the set of column counts per record; every `.json` file and
+every line of every `.jsonl.gz` file parsed with Python's `json`. "Rows / lines" for CSV = data records (header excluded);
+the `collect/state/census/chunks/*.csv.gz` files have no header. Every count that the auto-status block, `file-index.csv`, the
+`*-meta.json` files or the sentinels state matches the verified count, and the sha256 values equal those in `file-index.csv`. In addition, each `collect/state/census/chunks/<a>_<b>.csv.gz`
+decompresses to exactly the same bytes as the rows of `census-logs-part-0001.csv.gz` with `block_number` in [a, b]
+(checked by sha256 for all 87 chunks; the row counts per chunk also equal `census-chunks.csv` `log_rows`), and the 87 lines
+of `collect/state/census/chunks.jsonl.gz` hold the same values as `census-chunks.csv` (fields `a`, `b`, `n`, `endpoints`,
+`secs`, `utc` = `chunk_start`, `chunk_end`, `log_rows`, `endpoints_used`, `fetch_secs`, `fetched_utc`).
+
+| File | Bytes | Rows / lines | Check | sha256 | Git |
+|---|---:|---|---|---|---|
+| `MANIFEST.md` | (this file) | | | (not hashed: changes with every edit) | committed |
+| `activity-pool-hour.csv.gz` | 1,270,678 | 30,921 data rows + header | gzip -t ok; 18 columns in every row | `0d5245559cf5e02eba3251dc38a295617b8f30afeeb16f34411c066118c770dd` | committed |
+| `buckets.csv` | 5,391 | 24 data rows + header | 9 columns in every row | `cea2da263c7c7424eb3333d0b6a658c55818d565d664e5d9cd952fd115862585` | committed |
+| `census-chunks.csv` | 9,377 | 87 data rows + header | 7 columns in every row | `32c149c18327c2b82731909370e0d4fb9c9b3eb0e4567c29132c9edd0e967395` | committed |
+| `census-crosscheck.csv` | 309 | 3 data rows + header | 9 columns in every row | `ca0069d5d0985c7eb13e55f6e9571dcb8e64bad983485006084a10e1111c41c0` | committed |
+| `census-logs-part-0001.csv.gz` | 29,589,834 | 304,359 data rows + header | gzip -t ok; 23 columns in every row | `6485a7a9fa71a982d6ee5565026810d650307a368ec29e4c4bfe49586c1dfb91` | committed |
+| `census-meta.json` | 1,339 | 47 lines | parses as JSON | `e7455c7de408861217ab53cef517c6d40a954949811b384e5277e2e03c34d047` | committed |
+| `emitters.csv.gz` | 375,763 | 4,385 data rows + header | gzip -t ok; 19 columns in every row | `5b4200c6c01c10f882e5c52a19ed5eaf8166b3e66821959e59cdbb07d5842e37` | committed |
+| `factories.csv` | 2,514 | 8 data rows + header | 23 columns in every row | `5724ffc98b437801059c7c97bde4fbfeb24c83ab319dabc01c8a045c8c1f7670` | committed |
+| `factory-length-history.csv` | 81,802 | 840 data rows + header | 7 columns in every row | `757aa59cceec45fa3e7db6957bf6faeb3faf1bbd996954df5c5c06a7c617b7eb` | committed |
+| `file-index.csv` | 1,747 | 17 data rows + header | 5 columns in every row | `cfaeda2c559201bdbf8804026d445a94cc1158360d4a99bef4973f41db747805` | committed |
+| `getreserves-abi.csv` | 2,642 | 5 data rows + header | 9 columns in every row | `b31d0d24588d5c2b4c0bd13210e71523f2497f0f9b7c47531c0e67637937b6d1` | committed |
+| `pools-part-0001.csv.gz` | 9,340,614 | 125,197 data rows + header | gzip -t ok; 26 columns in every row | `887bbcf42c613eca2c9f810740e1e05dde12a3666d302b141fdd85834a2b92d4` | committed |
+| `price-reference-weth-pools.csv.gz` | 583,851 | 7,640 data rows + header | gzip -t ok; 25 columns in every row | `313adafa3a4f51e0d19b63f00134b6cae55aaad7890492c3de6bcdaa37792ade` | committed |
+| `snapshot-meta.json` | 962 | 35 lines | parses as JSON | `320e66f35a648f1d5b936f308a18eeba2805a2143cc8e529ffc5d1dd4843d5ba` | committed |
+| `tokens-meta.json` | 287 | 16 lines | parses as JSON | `782192e8dc99dafe890f75803fac00ff7c6ae59037771bcb10582e005cd12dc6` | committed |
+| `tokens.csv.gz` | 4,793,479 | 111,983 data rows + header | gzip -t ok; 16 columns in every row | `d78f917a5f2af35d383bb7ec0aeca7ddeecb93648ad01a6fad8c388d8d0593c3` | committed |
+| `topics.csv` | 2,196 | 4 data rows + header | 13 columns in every row | `0326e19622995abc3d732ab13632bc7af3e1c381be02cb3f7e64fef3ab06c064` | committed |
+| `uniswapv2-sample-indices.csv.gz` | 222,474 | 66,000 data rows + header | gzip -t ok; 6 columns in every row | `0eb7a12b2bd99a518222784781e5f2acbe22bf2d29fa91b5c44c2e4e658acf5d` | committed |
+| `collect/abi_shapes.log` | 2,637 | 7 lines |  | `a631a3ce2acee2388361d9c046e3844afcaaa9d8e410619e71027c02f7b89d12` | committed |
+| `collect/abi_shapes.py` | 2,443 | 41 lines |  | `c2fecf8b517481940826108dda8cec658f5b5bfad26c8027d8d2ebd3aece2c97` | committed |
+| `collect/census.log` | 2,293 | 15 lines |  | `992ea711f69dd1893efe8175f1477e9e78d586d3abcb3743bbb188ba0e5777bd` | committed |
+| `collect/census.py` | 23,143 | 441 lines |  | `f09364255bfc8009de73efcf803247f084d7d2cad4c47a5224b3d7d8312105a6` | committed |
+| `collect/finalize.py` | 4,773 | 90 lines |  | `e154f1b28ab34ce39663a9d026c3771e2b56c279bb24458ef59d5f26784ee2ee` | committed |
+| `collect/rpclib.py` | 13,091 | 350 lines |  | `78e50b08b7fd78dae30e0405d56d0407aae7dddffeb0530f20dc76d0e9bf539b` | committed |
+| `collect/snapshot.log` | 3,677 | 42 lines |  | `1b2325f01fec095c29525505b4f1ff868cc4f52b3ddf7aaf4530f1848f0e77e8` | committed |
+| `collect/snapshot.py` | 18,544 | 345 lines |  | `df2da2089ad53b01b4ae5da358729c509ce3dc35c66386d5afc68412757f4c52` | committed |
+| `collect/tokens.log` | 1,614 | 26 lines |  | `977acce25d8089b9fbb4bc8b394888d2c7ed4b9434202ebf5448b4d14beab9ff` | committed |
+| `collect/tokens.py` | 14,888 | 261 lines |  | `1efcd0672aa44b04b41555408e348f25da315756c575bcbd10bac14402db905d` | committed |
+| `collect/state/aerofee.jsonl.gz` | 10,154 | 60 lines (one batch each) | gzip -t ok; every line parses as JSON | `08bb430c43dc5ee6dc01df89247b99bd02bbece222536862e9b2f6dc7c0dad39` | local-only (R1) |
+| `collect/state/census/chunks.jsonl.gz` | 1,427 | 87 lines (one per census chunk) | gzip -t ok; every line parses as JSON | `47577f3dac524303ce38a9a3379c11a63bc87d7208ec03a6d224666549fbb25d` | local-only (R2) |
+| `collect/state/census/chunks/051965201_051965700.csv.gz` | 277,370 | 2,767 rows (no header) | gzip -t ok; 23 columns in every row | `24597d1aee8c16eecc642cf3eff77cdd6c36aa8eb5a972ea4cbef4d1c334a0a7` | local-only (R2) |
+| `collect/state/census/chunks/051965701_051966200.csv.gz` | 300,885 | 3,050 rows (no header) | gzip -t ok; 23 columns in every row | `8383eaec7e2cb6ba0364e609ea6eaf9f3040e529ba4d9deeaea2bf43c9a67d6c` | local-only (R2) |
+| `collect/state/census/chunks/051966201_051966700.csv.gz` | 282,945 | 2,802 rows (no header) | gzip -t ok; 23 columns in every row | `b1b9eb168bcab3d2117b9269cb9c1d5347f2f94b5a65f9759f26d2cf2c5b28e0` | local-only (R2) |
+| `collect/state/census/chunks/051966701_051967200.csv.gz` | 289,634 | 2,900 rows (no header) | gzip -t ok; 23 columns in every row | `67fcd3b9a11e30bc0b30b5aecbaf1f7639b70b239890c98b88b5e22ae5b5b2d8` | local-only (R2) |
+| `collect/state/census/chunks/051967201_051967700.csv.gz` | 348,093 | 3,541 rows (no header) | gzip -t ok; 23 columns in every row | `d9a02902ee9a9745ccf3308eeadd45926d6bb5bb4c69b6a85bd79f2b36f2ab32` | local-only (R2) |
+| `collect/state/census/chunks/051967701_051968200.csv.gz` | 389,763 | 4,080 rows (no header) | gzip -t ok; 23 columns in every row | `444acb2aa86a969509f6f3cdd2a3a60c2abef2a7fa4501d72c4019e06719e7a7` | local-only (R2) |
+| `collect/state/census/chunks/051968201_051968700.csv.gz` | 375,630 | 3,837 rows (no header) | gzip -t ok; 23 columns in every row | `c806bc6284103ed1d1d55c54c945e1d0af0c92d6b69a87e12e60105d6c62c820` | local-only (R2) |
+| `collect/state/census/chunks/051968701_051969200.csv.gz` | 395,780 | 4,083 rows (no header) | gzip -t ok; 23 columns in every row | `0cdc86c42073285cee483400b53a64f026137efd64257d6bd581eee3e2fb59cb` | local-only (R2) |
+| `collect/state/census/chunks/051969201_051969700.csv.gz` | 376,751 | 3,785 rows (no header) | gzip -t ok; 23 columns in every row | `2665058b188a8f711652df3298a6eb707cae2e2529c00d5ee097fafcadd2a722` | local-only (R2) |
+| `collect/state/census/chunks/051969701_051970200.csv.gz` | 320,531 | 3,278 rows (no header) | gzip -t ok; 23 columns in every row | `8047f390fb9c49ad597cce8c0407554001ff4af041ef8cd4c1ac1457cf37913f` | local-only (R2) |
+| `collect/state/census/chunks/051970201_051970700.csv.gz` | 326,728 | 3,230 rows (no header) | gzip -t ok; 23 columns in every row | `a18a647a79a491dad41c538797434d9de936e6d5b0ed300a89075f38a3bf05e9` | local-only (R2) |
+| `collect/state/census/chunks/051970701_051971200.csv.gz` | 347,412 | 3,481 rows (no header) | gzip -t ok; 23 columns in every row | `ee90f63485704490bd345e2c7441daea0ccde0c08b37bd0b2ec1a00dc46ea68b` | local-only (R2) |
+| `collect/state/census/chunks/051971201_051971700.csv.gz` | 280,622 | 2,805 rows (no header) | gzip -t ok; 23 columns in every row | `d3fdddbd91210c98d150c2d856a2ad3f1faef3389e683b6427e9211df1b49d37` | local-only (R2) |
+| `collect/state/census/chunks/051971701_051972200.csv.gz` | 301,023 | 3,003 rows (no header) | gzip -t ok; 23 columns in every row | `a4a22c6378942068bc2a4e069c73eaedad7062f0f41882f31cbd6f0ebd0583fa` | local-only (R2) |
+| `collect/state/census/chunks/051972201_051972700.csv.gz` | 281,183 | 2,792 rows (no header) | gzip -t ok; 23 columns in every row | `b7d3f678223fbaa0fb51f627edbe45578bfde763bef50a9d83e94fec9170251a` | local-only (R2) |
+| `collect/state/census/chunks/051972701_051973200.csv.gz` | 282,300 | 2,804 rows (no header) | gzip -t ok; 23 columns in every row | `4fecc68fb9d51714ab99d3dd93f283c94ff88d3d5265fc98fed7af562c60f5e8` | local-only (R2) |
+| `collect/state/census/chunks/051973201_051973700.csv.gz` | 300,405 | 3,138 rows (no header) | gzip -t ok; 23 columns in every row | `d0778ddf5424efc0f141cdedd91b0df8fbc0f2e2cec24773e39f47916d728650` | local-only (R2) |
+| `collect/state/census/chunks/051973701_051974200.csv.gz` | 297,570 | 3,021 rows (no header) | gzip -t ok; 23 columns in every row | `1e87a8b39f52558f990cc76f71a7c61554ae5946acef6fcce0930c9f5647064d` | local-only (R2) |
+| `collect/state/census/chunks/051974201_051974700.csv.gz` | 294,129 | 2,925 rows (no header) | gzip -t ok; 23 columns in every row | `9847826a280fe7c82ad867009a3a6278ba6f8738e7a6f4324c0bd257058aae99` | local-only (R2) |
+| `collect/state/census/chunks/051974701_051975200.csv.gz` | 292,534 | 2,986 rows (no header) | gzip -t ok; 23 columns in every row | `23a055a5068929e86b79752bf22f0049b094014a9ea2595adbf0785cc414c994` | local-only (R2) |
+| `collect/state/census/chunks/051975201_051975700.csv.gz` | 271,832 | 2,747 rows (no header) | gzip -t ok; 23 columns in every row | `c97878756722ac8d40a74258b7f9906342f2ba5ec582e5d4db3ae0f101975276` | local-only (R2) |
+| `collect/state/census/chunks/051975701_051976200.csv.gz` | 269,044 | 2,724 rows (no header) | gzip -t ok; 23 columns in every row | `77197a730a893ee210f0133147da32f0a6624082488a0af0c7e9a5c855b79370` | local-only (R2) |
+| `collect/state/census/chunks/051976201_051976700.csv.gz` | 272,338 | 2,701 rows (no header) | gzip -t ok; 23 columns in every row | `018843b7846fa3c30a6c4b4a751838672a59b2e5ee3f236c0cbb58c0a870db61` | local-only (R2) |
+| `collect/state/census/chunks/051976701_051977200.csv.gz` | 317,425 | 3,172 rows (no header) | gzip -t ok; 23 columns in every row | `79953d34c1c8f73d9a2c6602cd6ead1a757504059ba21a144fd7abf48b539c1d` | local-only (R2) |
+| `collect/state/census/chunks/051977201_051977700.csv.gz` | 320,947 | 3,331 rows (no header) | gzip -t ok; 23 columns in every row | `db9bcdbe8027b41af707658742fc89c041780715ad5bd2df89fb2f8e1594e34b` | local-only (R2) |
+| `collect/state/census/chunks/051977701_051978200.csv.gz` | 284,251 | 2,839 rows (no header) | gzip -t ok; 23 columns in every row | `4c30b7890e7066b02a93ff0c00dd89f5d59758e1a84313072554047641f89dfd` | local-only (R2) |
+| `collect/state/census/chunks/051978201_051978700.csv.gz` | 310,250 | 3,088 rows (no header) | gzip -t ok; 23 columns in every row | `82ef5c38d73ccd5f4654a28aeb830800a7942bfe6afff3bcf0c91871b2552234` | local-only (R2) |
+| `collect/state/census/chunks/051978701_051979200.csv.gz` | 287,803 | 2,870 rows (no header) | gzip -t ok; 23 columns in every row | `54c26fb1115ce2a25e62e670afebb7b87de228c2bde77f341de629eb4bf5aec1` | local-only (R2) |
+| `collect/state/census/chunks/051979201_051979700.csv.gz` | 311,015 | 3,126 rows (no header) | gzip -t ok; 23 columns in every row | `7d3d016b862de906dc4a84e4e90ecca53a2e550cf8d58deec52baec0190d8be2` | local-only (R2) |
+| `collect/state/census/chunks/051979701_051980200.csv.gz` | 378,031 | 3,760 rows (no header) | gzip -t ok; 23 columns in every row | `93840d740c614831b8b915e1ab378ce173a1049ac54c66382ef5a0274262bc06` | local-only (R2) |
+| `collect/state/census/chunks/051980201_051980700.csv.gz` | 299,963 | 3,037 rows (no header) | gzip -t ok; 23 columns in every row | `7fd3af697f1fdf9bd19867cb6a2014b0f310fa69689f1fd009d9626fb889d17a` | local-only (R2) |
+| `collect/state/census/chunks/051980701_051981200.csv.gz` | 360,468 | 3,596 rows (no header) | gzip -t ok; 23 columns in every row | `1474dfb00bb3da853b61700441ac3b023c949ca231648c7756c879f274283fb6` | local-only (R2) |
+| `collect/state/census/chunks/051981201_051981700.csv.gz` | 341,858 | 3,549 rows (no header) | gzip -t ok; 23 columns in every row | `717b704fe49852f59bc12170f6fa81b5e5e290343023364cd77435230f343107` | local-only (R2) |
+| `collect/state/census/chunks/051981701_051982200.csv.gz` | 401,886 | 4,246 rows (no header) | gzip -t ok; 23 columns in every row | `101008b7f50242a3df84118bd38d9e65ceff40f98df355438e29bf79a2a4f279` | local-only (R2) |
+| `collect/state/census/chunks/051982201_051982700.csv.gz` | 337,956 | 3,469 rows (no header) | gzip -t ok; 23 columns in every row | `06cbf61ce9e92000a518b94d2c752ca5b4c07775502b14b32987f4602a01de63` | local-only (R2) |
+| `collect/state/census/chunks/051982701_051983200.csv.gz` | 326,651 | 3,414 rows (no header) | gzip -t ok; 23 columns in every row | `26b8dbbc015ec9e5d267ef11fda7ade794672ad4eb831d6e72cc013d47926000` | local-only (R2) |
+| `collect/state/census/chunks/051983201_051983700.csv.gz` | 330,689 | 3,484 rows (no header) | gzip -t ok; 23 columns in every row | `e25a99fc2219dadf76a49b12f42a164bf4a8f6019dd8e7f8758a0b9c6f50005e` | local-only (R2) |
+| `collect/state/census/chunks/051983701_051984200.csv.gz` | 303,336 | 3,145 rows (no header) | gzip -t ok; 23 columns in every row | `df7bb28b69c5b736774b1a9979ff20932447664745473c7712c4dbbafa7d5dc1` | local-only (R2) |
+| `collect/state/census/chunks/051984201_051984700.csv.gz` | 320,592 | 3,278 rows (no header) | gzip -t ok; 23 columns in every row | `ed914354a6082f8e1800d8c67cc84487020c5cf62fc42a56f70feb423b8041f3` | local-only (R2) |
+| `collect/state/census/chunks/051984701_051985200.csv.gz` | 312,187 | 3,215 rows (no header) | gzip -t ok; 23 columns in every row | `20830b79620b67120e1b959da755fadcec96dc8090944d01657cec8b47c6d8df` | local-only (R2) |
+| `collect/state/census/chunks/051985201_051985700.csv.gz` | 403,735 | 4,641 rows (no header) | gzip -t ok; 23 columns in every row | `44933bec4fe4e66026ba80be418e2b2e3da544df1f106b4ec43840f7528cabfd` | local-only (R2) |
+| `collect/state/census/chunks/051985701_051986200.csv.gz` | 339,733 | 3,434 rows (no header) | gzip -t ok; 23 columns in every row | `18ec614cf1d3487bc0f3206b17f90a050c603392af016bb75ce63ea691977f07` | local-only (R2) |
+| `collect/state/census/chunks/051986201_051986700.csv.gz` | 334,629 | 3,442 rows (no header) | gzip -t ok; 23 columns in every row | `bdb1d5934675c138cd9025a44c889ba5b15891cde915a2f70867608275fd7774` | local-only (R2) |
+| `collect/state/census/chunks/051986701_051987200.csv.gz` | 354,318 | 3,606 rows (no header) | gzip -t ok; 23 columns in every row | `46539d0e29394b3ad80682210f869ce27256ed24ea776cb21ecec3514e58046e` | local-only (R2) |
+| `collect/state/census/chunks/051987201_051987700.csv.gz` | 328,304 | 3,317 rows (no header) | gzip -t ok; 23 columns in every row | `760b098a4c08649f3621fb7de342739d1ba21c8533e4635a7b17d8e0f352bff5` | local-only (R2) |
+| `collect/state/census/chunks/051987701_051988200.csv.gz` | 315,761 | 3,192 rows (no header) | gzip -t ok; 23 columns in every row | `2ffa2e75e87d1f0971af331090ca191dc775f230fa7939a814f9eb290bd27c7e` | local-only (R2) |
+| `collect/state/census/chunks/051988201_051988700.csv.gz` | 351,564 | 3,645 rows (no header) | gzip -t ok; 23 columns in every row | `617d1d256b34c755252ddc27a9aa808fb9fc6828ff4c818cea101bbb968e0e43` | local-only (R2) |
+| `collect/state/census/chunks/051988701_051989200.csv.gz` | 408,894 | 4,420 rows (no header) | gzip -t ok; 23 columns in every row | `7e77f4deccdd288b5962bc9e73c95dbf1ca1c3f6878be8b6c986f3e448733b43` | local-only (R2) |
+| `collect/state/census/chunks/051989201_051989700.csv.gz` | 329,769 | 3,319 rows (no header) | gzip -t ok; 23 columns in every row | `9d94d87fa9fabcbfc6d74e1433bf5ccf554bb3001ab29425a9138b28bfa3d7fa` | local-only (R2) |
+| `collect/state/census/chunks/051989701_051990200.csv.gz` | 320,770 | 3,259 rows (no header) | gzip -t ok; 23 columns in every row | `bbed8aa35a9edf502d647a465534e4961b9d17f37ccc27291051be7e40fd36c2` | local-only (R2) |
+| `collect/state/census/chunks/051990201_051990700.csv.gz` | 326,156 | 3,388 rows (no header) | gzip -t ok; 23 columns in every row | `f6a8e7d9d3efdc439322dc51b801f61d4fd869acb06af0cc455bbc6c6ca0770d` | local-only (R2) |
+| `collect/state/census/chunks/051990701_051991200.csv.gz` | 593,947 | 6,306 rows (no header) | gzip -t ok; 23 columns in every row | `cff06bac8e8846d7d4c962032d607d591147368ee92b70d5fc3e9bb4ab035234` | local-only (R2) |
+| `collect/state/census/chunks/051991201_051991700.csv.gz` | 441,533 | 4,600 rows (no header) | gzip -t ok; 23 columns in every row | `c92c41f770050ad1ee03f23826e9693cecc4c18526ed44a3177b39bc5b099c80` | local-only (R2) |
+| `collect/state/census/chunks/051991701_051992200.csv.gz` | 410,850 | 4,363 rows (no header) | gzip -t ok; 23 columns in every row | `2b95b45375254a80d745296d5105b8286776364375701f060beda09734654e3f` | local-only (R2) |
+| `collect/state/census/chunks/051992201_051992700.csv.gz` | 258,495 | 2,728 rows (no header) | gzip -t ok; 23 columns in every row | `db1b7957d34a3ae9b4b7a9ff40e7ee3032f8272187ef1c9bcb90c69b7176dbbf` | local-only (R2) |
+| `collect/state/census/chunks/051992701_051993200.csv.gz` | 353,562 | 3,710 rows (no header) | gzip -t ok; 23 columns in every row | `9b9763deaf9a80a5f031313c72d78b86d464327c875b6d67a33815f18c0fb00a` | local-only (R2) |
+| `collect/state/census/chunks/051993201_051993700.csv.gz` | 457,415 | 4,913 rows (no header) | gzip -t ok; 23 columns in every row | `83caff5bc8367f781b208e7c9e47849c6fdaae1d182f5557605819f916388a22` | local-only (R2) |
+| `collect/state/census/chunks/051993701_051994200.csv.gz` | 459,236 | 4,840 rows (no header) | gzip -t ok; 23 columns in every row | `d5b9fe817cc1017016c8f9ab1d5b9b17c83deef37556d01d055ed0c887601916` | local-only (R2) |
+| `collect/state/census/chunks/051994201_051994700.csv.gz` | 565,715 | 5,855 rows (no header) | gzip -t ok; 23 columns in every row | `cc67af8989352d3946c304a0ffa55451ccdfa76a7812299095edb43132e3a1d3` | local-only (R2) |
+| `collect/state/census/chunks/051994701_051995200.csv.gz` | 530,407 | 5,513 rows (no header) | gzip -t ok; 23 columns in every row | `a180c74dc37fca772f9e144fc52ed960ab3146f963e190b65b2be2f8cf9ed689` | local-only (R2) |
+| `collect/state/census/chunks/051995201_051995700.csv.gz` | 408,052 | 4,320 rows (no header) | gzip -t ok; 23 columns in every row | `ad1ba50bb4e230ff9f7bd428581d96ef658036e6a2dcfecac6788ce08d0005b9` | local-only (R2) |
+| `collect/state/census/chunks/051995701_051996200.csv.gz` | 380,887 | 3,918 rows (no header) | gzip -t ok; 23 columns in every row | `07d88898e33fa98d9bd3ca9420060950fb7dc35c012992eca5bf89cdbc981811` | local-only (R2) |
+| `collect/state/census/chunks/051996201_051996700.csv.gz` | 407,488 | 4,188 rows (no header) | gzip -t ok; 23 columns in every row | `efea96de2ec69558b96094de82837f0e77d7439ed0626618e049700cce73e28d` | local-only (R2) |
+| `collect/state/census/chunks/051996701_051997200.csv.gz` | 377,954 | 3,910 rows (no header) | gzip -t ok; 23 columns in every row | `4fa164d5dce2af579c69be0b757cdb6e6b0510667a6064319c6e4b04bfb8c376` | local-only (R2) |
+| `collect/state/census/chunks/051997201_051997700.csv.gz` | 473,153 | 4,921 rows (no header) | gzip -t ok; 23 columns in every row | `e692da160187874b5b67e5859f2cb64865291c385574260a94f0f6d19805da95` | local-only (R2) |
+| `collect/state/census/chunks/051997701_051998200.csv.gz` | 376,908 | 3,763 rows (no header) | gzip -t ok; 23 columns in every row | `5f308687a6892b5d175ab62f100033bd0f491fd63520784f418cc657dfd526ca` | local-only (R2) |
+| `collect/state/census/chunks/051998201_051998700.csv.gz` | 336,281 | 3,421 rows (no header) | gzip -t ok; 23 columns in every row | `4a8852a8426a41d4b0deadd5cd29129c575fe3873e68158551ca47c801810c8c` | local-only (R2) |
+| `collect/state/census/chunks/051998701_051999200.csv.gz` | 368,490 | 3,795 rows (no header) | gzip -t ok; 23 columns in every row | `6931e7a2fb1b05b75e1cfe6dea8d03a553a98464a2adb9320e59d81a10908824` | local-only (R2) |
+| `collect/state/census/chunks/051999201_051999700.csv.gz` | 390,936 | 4,071 rows (no header) | gzip -t ok; 23 columns in every row | `da5e92998fef66f2a679f46f9082a545c4a41b1e48123964b29151959eef87a8` | local-only (R2) |
+| `collect/state/census/chunks/051999701_052000200.csv.gz` | 327,336 | 3,395 rows (no header) | gzip -t ok; 23 columns in every row | `5036640f1bdd562541b658736386eb54df5b7bdfef98da62da1416bc1f07dae1` | local-only (R2) |
+| `collect/state/census/chunks/052000201_052000700.csv.gz` | 334,810 | 3,404 rows (no header) | gzip -t ok; 23 columns in every row | `255e063e975b792b08b9f2d2f0463c3d98c7943a701f0f7ae6253112dec56fa6` | local-only (R2) |
+| `collect/state/census/chunks/052000701_052001200.csv.gz` | 349,651 | 3,606 rows (no header) | gzip -t ok; 23 columns in every row | `4affc50ecb1b7b2192f21a11f6a35eb05a00f6f61a34b1f2ef79487f13814fcd` | local-only (R2) |
+| `collect/state/census/chunks/052001201_052001700.csv.gz` | 289,283 | 2,944 rows (no header) | gzip -t ok; 23 columns in every row | `ea0a723cfde9b0dc334b2faad5d83caa7c526d74a70b42870c5285fb221f9c07` | local-only (R2) |
+| `collect/state/census/chunks/052001701_052002200.csv.gz` | 387,266 | 4,083 rows (no header) | gzip -t ok; 23 columns in every row | `d98f59b01889520bacf9e75d670efddd8274a1b7efa135c464555a1807cd6009` | local-only (R2) |
+| `collect/state/census/chunks/052002201_052002700.csv.gz` | 332,197 | 3,446 rows (no header) | gzip -t ok; 23 columns in every row | `793ce96db840e2869793f3db08eaf34be32aefaee36d419015c1272c4337a069` | local-only (R2) |
+| `collect/state/census/chunks/052002701_052003200.csv.gz` | 333,497 | 3,479 rows (no header) | gzip -t ok; 23 columns in every row | `a05dee4e4ea134f29abab13bcadb9f4b0005fe3de4e12be902a1d701f58dbc73` | local-only (R2) |
+| `collect/state/census/chunks/052003201_052003700.csv.gz` | 306,849 | 3,105 rows (no header) | gzip -t ok; 23 columns in every row | `bf9bf1aa3f06b27592f1b5a3c21625a6f74b282fa1abbc3c20ad6bf3f5b2aabf` | local-only (R2) |
+| `collect/state/census/chunks/052003701_052004200.csv.gz` | 282,167 | 2,844 rows (no header) | gzip -t ok; 23 columns in every row | `2b2baf749a2e002783dd03fe400574eab366f412dbee969a9b1b7bded742455c` | local-only (R2) |
+| `collect/state/census/chunks/052004201_052004700.csv.gz` | 345,678 | 3,563 rows (no header) | gzip -t ok; 23 columns in every row | `2171824039ca7f1707ddf6081e09545d210e975fe55cae168bc3096100897217` | local-only (R2) |
+| `collect/state/census/chunks/052004701_052005200.csv.gz` | 312,170 | 3,174 rows (no header) | gzip -t ok; 23 columns in every row | `805818ffad2e1829ae63be86be4e61d2d82457a38885647c3ee228acfa7b5228` | local-only (R2) |
+| `collect/state/census/chunks/052005201_052005700.csv.gz` | 330,009 | 3,328 rows (no header) | gzip -t ok; 23 columns in every row | `cc0f752281bc9c85630ed7d9d059c8b4a08a04c92f983236770b34e8193e3aaf` | local-only (R2) |
+| `collect/state/census/chunks/052005701_052006200.csv.gz` | 290,320 | 2,916 rows (no header) | gzip -t ok; 23 columns in every row | `95430bedc85465f13b8196c6948fb6e72d6a7f957cb756a6f8528ff0fcbb43ed` | local-only (R2) |
+| `collect/state/census/chunks/052006201_052006700.csv.gz` | 296,091 | 2,995 rows (no header) | gzip -t ok; 23 columns in every row | `36dd989ccbe41e406c6ea90b34d78d2fc508c06385bd5f26b68257e3489b5bd7` | local-only (R2) |
+| `collect/state/census/chunks/052006701_052007200.csv.gz` | 273,301 | 2,711 rows (no header) | gzip -t ok; 23 columns in every row | `332608b31957eb2461d7ad65fff6f7978116bcd8d2fe9369a8b95b8d68eeb87d` | local-only (R2) |
+| `collect/state/census/chunks/052007201_052007700.csv.gz` | 279,881 | 2,835 rows (no header) | gzip -t ok; 23 columns in every row | `7eb0de7d60e5546277da183ea0c7ae3e902202ec6ac29d6e530ef92f0bf7b153` | local-only (R2) |
+| `collect/state/census/chunks/052007701_052008200.csv.gz` | 300,433 | 3,132 rows (no header) | gzip -t ok; 23 columns in every row | `382a379382d811935948eb821db674bab08f5e9233273f73e1074e71cc478648` | local-only (R2) |
+| `collect/state/census/chunks/052008201_052008400.csv.gz` | 145,233 | 1,502 rows (no header) | gzip -t ok; 23 columns in every row | `3834cd26274669e7473c6098c6f4fd6c33163a33dd95aa7de5e6dad54b2567d7` | local-only (R2) |
+| `collect/state/census/emitters.jsonl.gz` | 272,263 | 44 lines (one batch each) | gzip -t ok; every line parses as JSON | `7803754f8bfc4ee8dee2e66ba0b32b7307e1c682e924e7d416977f8b6f5c2624` | local-only (R1) |
+| `collect/state/lenhist.jsonl.gz` | 2,394 | 105 lines (one batch each) | gzip -t ok; every line parses as JSON | `6805011b2d4234a7e62ccf89fd5e210e8dc861a3cd7eedc483d86979559b6046` | local-only (R1) |
+| `collect/state/pairs.jsonl.gz` | 3,198,554 | 126 lines (one batch each) | gzip -t ok; every line parses as JSON | `897c4c0ea9a3750d6b00b6d46a381902064af717bb0f84c339b43d8bca2bd4e8` | local-only (R1) |
+| `collect/state/poolfields.jsonl.gz` | 5,791,611 | 1,252 lines (one batch each) | gzip -t ok; every line parses as JSON | `b87c200eaf5755d20c8e5b83bb9e8d5680dc3ee3484a12c651ca2dc7f85fe7a2` | local-only (R1) |
+| `collect/state/tokens/lookups.jsonl.gz` | 293,306 | 572 lines (one batch each) | gzip -t ok; every line parses as JSON | `5b0f49060a95ad1e29c50f5aaf9975b082d658ab714cd0c5b3814a20c92b9496` | local-only (R1) |
+| `collect/state/tokens/meta.jsonl.gz` | 3,216,242 | 1,120 lines (one batch each) | gzip -t ok; every line parses as JSON | `80d75483e16a4de1fc59d04289388fcb6eb3164562c6109d7fee72453111ea3f` | local-only (R1) |
+| `collect/state/tokens/routestate.jsonl.gz` | 316,832 | 96 lines (one batch each) | gzip -t ok; every line parses as JSON | `0dbab543cd3eeab166a9a897c25dd7388273eff248e4620bea528e030ea123e5` | local-only (R1) |
+
+### Regenerating the local-only files
+
+- **R2** (`collect/state/census/chunks/*.csv.gz`, `collect/state/census/chunks.jsonl.gz`): rebuild from committed files, no RPC
+  needed. Tested on 2026-10-01 in a scratch copy: all 87 chunk files decompress to exactly the original bytes, and `chunks.jsonl`
+  has the same 87 lines, in block order (the original lists them in the order the chunks finished). The `.gz` bytes (and so the
+  sha256 above) can differ because of the gzip header.
+
+  ```bash
+  cd /home/user/dapparb/research-material/03-v2-older-pairs
+  python3 - <<'PY'
+  import csv, gzip, json, os
+  os.makedirs('collect/state/census/chunks', exist_ok=True)
+  chunks = [(int(r['chunk_start']), int(r['chunk_end'])) for r in csv.DictReader(open('census-chunks.csv'))]
+  src = gzip.open('census-logs-part-0001.csv.gz', 'rb'); src.readline()        # drop the header
+  line = src.readline()
+  for a, b in chunks:
+      with gzip.open('collect/state/census/chunks/%09d_%09d.csv.gz' % (a, b), 'wb') as out:
+          while line and int(line.split(b',', 1)[0]) <= b:
+              out.write(line); line = src.readline()
+  with open('collect/state/census/chunks.jsonl', 'w') as f:
+      for r in csv.DictReader(open('census-chunks.csv')):
+          f.write(json.dumps({'a': int(r['chunk_start']), 'b': int(r['chunk_end']), 'n': int(r['log_rows']),
+                              'endpoints': json.loads(r['endpoints_used']), 'secs': float(r['fetch_secs']),
+                              'utc': r['fetched_utc']}) + '\n')
+  PY
+  gzip collect/state/census/chunks.jsonl
+  ```
+
+- **R1** (`collect/state/{aerofee,lenhist,pairs,poolfields}.jsonl.gz`, `collect/state/census/emitters.jsonl.gz`,
+  `collect/state/tokens/{meta,lookups,routestate}.jsonl.gz`): the undecoded Multicall3 batch results (format in section 4).
+  They cannot be rebuilt from the committed files; they are re-fetched by the committed collectors, which needs an archive
+  `eth_call` endpoint for block 52008400 (and, for `census.py`, an endpoint that accepts address-less `eth_getLogs`). Write to a
+  scratch directory so the committed outputs, the manifest and the shared sentinels are not touched:
+
+  ```bash
+  cd /home/user/dapparb/research-material/03-v2-older-pairs/collect
+  X=/path/to/scratch
+  python3 snapshot.py --pin 52008400 --out $X/out --state $X/state --sentinel none --smoke 0   # --smoke 0 = full run; it only stops a crash from writing .sentinels/V2OLD_SNAPSHOT.FAILED
+  python3 census.py --pin 52008400 --out $X/out --state $X/state/census --sentinel none
+  python3 tokens.py --out $X/out --state $X/state/tokens --sentinel none --no-wait --no-finalize
+  gzip $X/state/*.jsonl $X/state/census/*.jsonl $X/state/tokens/*.jsonl
+  # then copy $X/state/ to collect/state/ if the checkpoints are wanted here
+  ```
+
+  The scripts write the checkpoints as plain `.jsonl`; the `.gz` copies listed above were made with `gzip` after the 2026-09-30
+  run. A re-fetch reproduces the original bytes only if the RPC returns the same data for the pinned block. `tokens.py` reads
+  `snapshot-meta.json`, `pools-part-*.csv.gz` and `emitters.csv.gz` from `--out`, so the snapshot and census steps must run first
+  with the same `--out`. (`census.py --state $X/state/census` also re-creates the R2 files.)
+
 ## Collectors and sentinels
 
 | Collector | Script | Log | Sentinel (in `/home/user/dapparb/research-material/.sentinels/`) |
@@ -59,35 +266,25 @@ Full per-file list with complete sha256: `file-index.csv`.
 Shared code: `collect/rpclib.py` (JSON-RPC client with a per-endpoint in-flight cap, retries, a hand-written Multicall3
 `aggregate3` encoder and decoder, lossless return-data decoders, and a resumable batch store).
 
-## 1. Question lines this directory serves (mapping only)
+## 1. Question lines served
 
-Question lines are numbered in the order they appear in the user's text:
+Mapping only. Numbers are the question lines 1–8 as given on 2026-10-01. (Corrected 2026-10-01: the earlier version of this
+section numbered the question text Q1–Q10, counting two headings; old Q2→1, Q3→2, Q4→3, Q5→4, Q7→5, Q8→6, Q9→7, Q10→8.)
 
-- Q1 "What is still unmeasured:" (heading)
-- Q2 Uniswap V4 on Base: Clanker/Zora V4 pools with hooks, "I only had 20 V4 pools"
-- Q3 "Older V2 pairs. I took the newest 6,000 of about 3 million Uniswap V2 pairs. Almost all the older ones are abandoned tokens."
-- Q4 "Pools under 0.1 ETH of liquidity. Profit is capped at a slice of a pool's liquidity … where most tokens that block or tax transfers sit."
-- Q5 Other chains, live
-- Q6 "Would the gaps change the answer?" (heading)
-- Q7 V4 launches / most fought-over flow on Base / RSR trade
-- Q8 BSC ordering through private block builders
-- Q9 Chain-wide studies (Arbitrum ~$4,700/day; Base 4,365 bots, 21.4 M arbitrages, 28 % profitable)
-- Q10 "So the search went far beyond selected pairs, but it did not cover everything." / full V4 coverage re-run
+| Line | Question line (first words) | Files in this directory |
+|---|---|---|
+| 1 | "Uniswap V4 on Base. This is the biggest gap. …" | none |
+| 2 | "Older V2 pairs. I took the newest 6,000 of about 3 million Uniswap V2 pairs. …" | `factories.csv`, `factory-length-history.csv`, `uniswapv2-sample-indices.csv.gz`, `pools-part-0001.csv.gz`, `tokens.csv.gz`, `price-reference-weth-pools.csv.gz`, `census-logs-part-0001.csv.gz`, `activity-pool-hour.csv.gz`, `emitters.csv.gz`, `buckets.csv` |
+| 3 | "Pools under 0.1 ETH of liquidity. …" | `pools-part-0001.csv.gz`, `tokens.csv.gz`, `price-reference-weth-pools.csv.gz`, `census-logs-part-0001.csv.gz`, `activity-pool-hour.csv.gz`, `emitters.csv.gz`, `buckets.csv` |
+| 4 | "Other chains, live. …" | none |
+| 5 | "V4 launches are the one place a bigger number could appear. …" | none |
+| 6 | "BSC has the same ordering problem. …" | none |
+| 7 | "Chain-wide studies already count every pool. …" | `census-logs-part-0001.csv.gz`, `activity-pool-hour.csv.gz`, `emitters.csv.gz`, `buckets.csv` |
+| 8 | "So the search went far beyond selected pairs, but it did not cover everything. …" | `factories.csv`, `pools-part-0001.csv.gz`, `census-logs-part-0001.csv.gz` |
 
-| File(s) | Serves |
-|---|---|
-| `factories.csv` | Q3 ("newest 6,000 of about 3 million": pair counts at the pinned block, at the §2.6 enumeration block and at the earlier v0 run's block; the index range each run enumerated), Q10 |
-| `factory-length-history.csv` | Q3 (pair count of each factory every 500,000 blocks, so a pair index can be placed in time; "older") |
-| `uniswapv2-sample-indices.csv.gz` | Q3 (exact index sample, seed, population) |
-| `pools-part-0001.csv.gz` | Q3 (every not-enumerated pool of Aerodrome V2, PancakeV2, BaseSwap and SushiV2, plus a 60,000-index random sample of older Uniswap V2 pairs and the newest 6,000 for comparison: tokens, reserves, last-update time `block_timestamp_last`, LP supply), Q4 (reserves of the same pools; Aerodrome stable flag and fee), Q10 |
-| `tokens.csv.gz` | Q3, Q4 (symbol, name, decimals and totalSupply of every token in the files above) |
-| `price-reference-weth-pools.csv.gz` | Q3, Q4 (raw state of the token/WETH pools of every token that sits in a pool with neither a WETH nor a stablecoin side, so that those reserves can be expressed in ETH) |
-| `census-logs-part-0001.csv.gz` | Q3, Q4 (which V2-style pools traded or synced in the 24 h up to the pinned block), Q9 (V2-style Sync/Swap events chain-wide on Base for 24 h, from any address; V2-style topics only), Q10 |
-| `activity-pool-hour.csv.gz` | Same as the census logs, aggregated per pool, topic and hour (derived) |
-| `emitters.csv.gz` | Q3, Q4, Q9 (identity of every address that emitted one of the four topics: factory(), token0, token1, reserves at the pinned block) |
-| `buckets.csv` | Hour-bucket block and time boundaries for `activity-pool-hour.csv.gz` |
-| `topics.csv`, `census-crosscheck.csv`, `census-chunks.csv`, `getreserves-abi.csv`, `*-meta.json`, `gaps.csv` (if present), `file-index.csv` | Method, verification and coverage metadata for the files above |
-| none | Q2, Q7 (Uniswap V4: see `../01-v4-pools`), Q5, Q8 (other chains: `../06-other-chains-onchain`, `../07-other-chains-engine`), Q9 study figures (`../08-sources`), transfer-blocking/taxing behaviour in Q4 (not collected here; see Coverage limits) |
+Method, verification and coverage metadata for the files of lines 2, 3, 7 and 8: `snapshot-meta.json`, `census-meta.json`,
+`tokens-meta.json`, `topics.csv`, `census-chunks.csv`, `census-crosscheck.csv`, `getreserves-abi.csv`, `file-index.csv`,
+`collect/*.py`, `collect/*.log`.
 
 ## 2. Sources and endpoints
 
@@ -95,7 +292,7 @@ All data is from Base mainnet (chain id 8453) through public JSON-RPC, requested
 
 | Use | Endpoint | Notes |
 |---|---|---|
-| `eth_call` at the pinned block (Multicall3 `aggregate3`) and archive `eth_call` at older blocks | `https://base-mainnet.public.blastapi.io` (primary, ≤ 2 in flight per collector) | Every snapshot and token call in this run was served here. The `endpoint_stats` in `*-meta.json` show that `base.drpc.org`, the fallback, was not needed. |
+| `eth_call` at the pinned block (Multicall3 `aggregate3`) and archive `eth_call` at older blocks | `https://base-mainnet.public.blastapi.io` (primary, ≤ 2 in flight per collector) | Every snapshot and token call in this run was served here. The `endpoint_stats` in `*-meta.json` record 0 requests to `base.drpc.org`, the fallback. |
 | same, fallback | `https://base.drpc.org` (1 in flight) | |
 | `eth_getLogs`, topic-only filter (no address) | `https://gateway.tenderly.co/public/base` (≤ 1,000 blocks per request; 500 used; 2 in flight) | This endpoint served all 87 chunks (`census-chunks.csv`). |
 | same, fallback and cross-check | `https://mainnet.base.org` (≤ 2,000 blocks; 1 in flight, ≥ 1 s spacing) | Used for the 3-chunk cross-check. |
@@ -142,8 +339,12 @@ python3 finalize.py
 Checkpoints: `collect/state/*.jsonl.gz`, `collect/state/tokens/*.jsonl.gz` and `collect/state/census/*.jsonl.gz` were gzipped after
 all collectors finished. Each line is one finished batch `{"b": batch_id, "rows": [[status, returnData_hex, rpc_error], ...]}`,
 and the calls are in the order the scripts build them. These are the undecoded Multicall3 results behind every decoded column.
+(`collect/state/census/chunks.jsonl.gz` is different: one line per finished census chunk, `{"a", "b", "n", "endpoints", "secs", "utc"}`.)
 `collect/state/census/chunks/<a>_<b>.csv.gz` are the per-chunk raw log rows (no header, columns as `census-logs-part-*`). To resume
 or re-derive from them, gunzip the `.jsonl.gz` files in place first. Without them, the scripts fetch the same pinned block again.
+Note (added 2026-10-01): everything under `collect/state/` is git-ignored and local-only; it will not be in the repository.
+How to rebuild it is in "Verified inventory (2026-10-01)" → "Regenerating the local-only files". The commands above write
+into this directory and the shared `.sentinels/` (they overwrite the committed outputs).
 
 Smoke tests used before the full runs (they write only to scratch, not here):
 `snapshot.py --pin 52008400 --smoke 30 --out <scratch> --state <scratch>/state --sentinel none` (300 pools),
@@ -304,7 +505,8 @@ Cross-check: `chunk_start`, `chunk_end`, `primary_rows`, `check_endpoint`, `chec
 
 ### snapshot-meta.json, census-meta.json, tokens-meta.json, file-index.csv, gaps.csv
 Run metadata (pinned block and hash, seeds, row counts by group, endpoint ok/error counters, start/finish times); per-file
-rows, bytes and sha256 (written by finalize.py); unrecoverable batches or ranges (the file exists only if there was at least one).
+rows, bytes and sha256 (written by finalize.py; covers the top-level files except `MANIFEST.md` and itself); unrecoverable batches
+or ranges (`gaps.csv` exists only if there was at least one; it does not exist in this directory).
 
 ## 7. Coverage limits and gaps
 
@@ -315,15 +517,19 @@ rows, bytes and sha256 (written by finalize.py); unrecoverable batches or ranges
   time series apart from `block_timestamp_last` (the pool's last reserve update) and the 24 h census.
 - **Census scope**: only the four V2-style topics above. Uniswap V3, Slipstream, PancakeV3 and Uniswap V4 events were not collected here
   (V4 is in `../01-v4-pools`). The window is 24 h (43,200 blocks); anything older shows only through `block_timestamp_last`. Topic-only
-  filters also catch any contract that emits the same topic. `emitters.csv.gz` identifies them: 42 emitters' `factory()` reverted, and
-  416 returned a factory that is not one of the five. Of the Aerodrome-style Swap logs, 31 have 1 topic and 192 data bytes, a different
-  layout from the one decoded (`layout_mismatch`); their raw topics and data are kept.
-- **Transfer behaviour** (whether a token blocks or taxes transfers, Q4) was **not** collected in this directory. Only ERC-20 metadata was
-  read; no transfer or swap simulation was made. (`../04-shallow-pools` records a transfer probe as `TRANSFER_PROBE.FAILED`.)
-- **Pricing**: no token prices or USD/ETH conversions are computed here. Pools with a WETH side can be valued from their own reserves. For
-  stablecoin-side pools, the Aerodrome WETH/USDC pools are in `pools-part-0001.csv.gz` (for example vAMM `0xcdac0d6c…5c43`). Other pools
-  need `price-reference-weth-pools.csv.gz`, which covers only direct token/WETH pools on the 11 configured factories: no multi-hop routes,
-  no other DEXes, no Uniswap V4. `../04-shallow-pools/prices.csv.gz` holds the engine's own anchored price map at block 52008246, 154 blocks earlier.
+  filters also catch any contract that emits the same topic; `emitters.csv.gz` records `factory()` for every emitter (row counts
+  verified 2026-10-01: 4,385 rows, of which 42 have `factory_status` = `revert` and 416 have `factory_status` = `ok` with an empty
+  `known_factory_name_derived`). In `census-logs-part-0001.csv.gz`, 31 rows with event `swap_aero_v2` have 1 topic and 192 data
+  bytes, a different layout from the one decoded; they carry `decode_status` = `layout_mismatch`, and their raw topics and data are kept.
+  (Reworded 2026-10-01 as row counts by column value; the numbers are unchanged.)
+- **Transfer behaviour** (whether a token blocks or taxes transfers, question line 3) was **not** collected in this directory. Only ERC-20
+  metadata was read; no transfer or swap simulation was made. A separate transfer probe is in `../04-shallow-pools/transfer-probe/`
+  (sentinel `TRANSFER_PROBE.DONE`, 2026-10-01T02:19:45Z). (Corrected 2026-10-01: this line previously said that
+  `../04-shallow-pools` records the probe as `TRANSFER_PROBE.FAILED`; that sentinel no longer exists.)
+- **Pricing**: no token prices or USD/ETH conversions are computed here. Pools with a WETH side carry the WETH reserve in their own row.
+  The Aerodrome WETH/USDC pools are in `pools-part-0001.csv.gz` (for example vAMM `0xcdac0d6c…5c43`). For tokens in pools with neither
+  a WETH nor a stablecoin side, `price-reference-weth-pools.csv.gz` holds only direct token/WETH pools on the 11 configured factories:
+  no multi-hop routes, no other DEXes, no Uniswap V4. `../04-shallow-pools/prices.csv.gz` holds the engine's own anchored price map at block 52008246, 154 blocks earlier.
 - **Section 2.6 range reconstruction**: the §2.6 index ranges come from the run's log totals and the newest-first rule in
   `bot/src/pools/enumerate.ts`. The on-chain lengths at the matching blocks equal the logged totals (`factories.csv`). The exact block of
   each enumeration `eth_call` was not logged, so the block is derived from the log time (±1–2 blocks).
@@ -331,7 +537,8 @@ rows, bytes and sha256 (written by finalize.py); unrecoverable batches or ranges
   against a second provider.
 - **Not collected**: pair creation blocks or times (no `PairCreated` scan; `factory-length-history.csv` is the only index-to-time material),
   per-pool bytecode, and LP-holder or liquidity-lock data.
-- Unrecoverable batches or ranges, if any, are in `gaps.csv`. The auto-status block above gives the count after the run.
+- Unrecoverable batches or ranges would be in `gaps.csv`. That file does not exist: 0 unrecoverable batches or ranges (auto-status
+  block, `V2OLD.DONE` `gaps=0`; checked again 2026-10-01).
 
 ## 8. Related material elsewhere in research-material/ (pointers only)
 
