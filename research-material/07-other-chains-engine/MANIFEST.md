@@ -1,6 +1,6 @@
 # 07-other-chains-engine: repository scanner and engine on Arbitrum and Ethereum, with a same-method Base scan
 
-Status: IN PROGRESS (counts last refreshed 2026-10-01T01:35:01Z; waiting for sentinels: SCANS, ENGINE_DETECT_ARBITRUM, ENGINE_DETECT_MAINNET).
+Status: IN PROGRESS (counts last refreshed 2026-10-01T01:45:01Z; waiting for sentinels: SCANS, ENGINE_DETECT_ARBITRUM, ENGINE_DETECT_MAINNET).
 
 Run notes: collectors were launched 2026-09-30T22:14:28Z (master PID in `collect/state/run_all.pid`, log `collect/run_all.log`,
 step log `collect/pipeline.log`). The Status line above and the "Counts" section are rewritten by `collect/fill_manifest.py`
@@ -197,26 +197,34 @@ the run window (attempt, exit code, time_capped, cap_minutes, blocks_flag, SIGIN
 ## Counts
 
 <!-- COUNTS:BEGIN -->
-Filled by `collect/fill_manifest.py` at 2026-10-01T01:35:01Z.
+Filled by `collect/fill_manifest.py` at 2026-10-01T01:45:01Z.
 
 Sentinels: `SCANS` missing, `ENGINE_DETECT_ARBITRUM` missing, `ENGINE_DETECT_MAINNET` missing, `ENGINE_LIVE_ARBITRUM.FAILED`, `ENGINE_LIVE_MAINNET.FAILED`
 
 | Dir / run | JSONL files | JSONL rows | rows announced in log (scan) | unparseable lines | block-scanned / heartbeat lines | first block | last block | window start (UTC) | window end (UTC) | pools after depth filter | exit | time-capped | SCAN SUMMARY present | warn / error log lines |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | scans/arbitrum/scan-arbitrum-config | scan-arbitrum-config.jsonl.gz | 132443 | 132443 | 0 | 645 | 510475000 | 510481479 | 2026-09-30T22:15:07.557Z | 2026-09-30T22:46:00.364Z | 151 | 143 | 1 | False | 2 / 0 |
+| scans/arbitrum/scan-arbitrum-top | scan-arbitrum-top.jsonl.gz | 109075 | 109075 | 0 | 495 | 510511390 | 510517978 | 2026-10-01T01:10:39.280Z | 2026-10-01T01:41:45.963Z | 230 | 143 | 1 | False | 11 / 0 |
 | scans/base/scan-base-config | scan-base-config.jsonl.gz | 65207 | 65207 | 0 | 248 | 52008645 | 52009606 | 2026-09-30T22:18:17.563Z | 2026-09-30T22:49:22.659Z | 255 | 143 | 1 | False | 1 / 0 |
 | scans/mainnet/scan-mainnet-config | scan-mainnet-config.jsonl.gz | 13385 | 13385 | 0 | 151 | 26093214 | 26093364 | 2026-09-30T22:14:50.493Z | 2026-09-30T22:45:04.686Z | 112 | 0 | 0 | True | 2 / 0 |
+| scans/mainnet/scan-mainnet-top | scan-mainnet-top.jsonl.gz | 18048 | 18048 | 0 | 151 | 26094082 | 26094232 | 2026-10-01T01:09:28.771Z | 2026-10-01T01:39:19.823Z | 367 | 0 | 0 | True | 12 / 0 |
 
 Scan windows: first/last `block scanned` log time. Engine windows: `searcher ready` to SIGINT. Engine block range: first/last block among written rows (empty if no row was written).
 
 File sizes (bytes):
 
+- `engine-detect/arbitrum/engine-detect-arbitrum.code-provenance.txt`: 4427
+- `engine-detect/mainnet/engine-detect-mainnet.code-provenance.txt`: 4427
 - `scans/arbitrum/scan-arbitrum-config.blocks.csv.gz`: 11838
 - `scans/arbitrum/scan-arbitrum-config.code-provenance.txt`: 4800
 - `scans/arbitrum/scan-arbitrum-config.jsonl.gz`: 7627037
 - `scans/arbitrum/scan-arbitrum-config.log.gz`: 28144
 - `scans/arbitrum/scan-arbitrum-config.meta.json`: 1236
+- `scans/arbitrum/scan-arbitrum-top.blocks.csv.gz`: 9219
 - `scans/arbitrum/scan-arbitrum-top.code-provenance.txt`: 4427
+- `scans/arbitrum/scan-arbitrum-top.jsonl.gz`: 6711231
+- `scans/arbitrum/scan-arbitrum-top.log.gz`: 22416
+- `scans/arbitrum/scan-arbitrum-top.meta.json`: 1233
 - `scans/base/scan-base-config.blocks.csv.gz`: 5029
 - `scans/base/scan-base-config.code-provenance.txt`: 4800
 - `scans/base/scan-base-config.jsonl.gz`: 3960257
@@ -228,7 +236,11 @@ File sizes (bytes):
 - `scans/mainnet/scan-mainnet-config.jsonl.gz`: 636074
 - `scans/mainnet/scan-mainnet-config.log.gz`: 11422
 - `scans/mainnet/scan-mainnet-config.meta.json`: 1170
+- `scans/mainnet/scan-mainnet-top.blocks.csv.gz`: 4138
 - `scans/mainnet/scan-mainnet-top.code-provenance.txt`: 4427
+- `scans/mainnet/scan-mainnet-top.jsonl.gz`: 1132513
+- `scans/mainnet/scan-mainnet-top.log.gz`: 10312
+- `scans/mainnet/scan-mainnet-top.meta.json`: 1168
 
 `collect/gaps.jsonl`: 0 line(s).
 <!-- COUNTS:END -->
