@@ -253,3 +253,61 @@ PoolManager file) 3,894. Unique holder addresses: 29,478.
 
 Not collected: the per-token eth_call transfer probe (step 2 of the task: probe contract, batcher, state-override calls at
 block 52008246) and its outputs. The attempt stopped before the probe contract was written.
+
+## Transfer-behaviour probe (attempt 3, 2026-10-01, collected by the main session)
+
+Status: DONE (sentinel TRANSFER_PROBE.DONE). Attempts 1 and 2 (see above) did not produce probe data; attempt 2 produced
+the holder selection `transfer-probe/holders.csv.gz`, which this attempt uses unchanged.
+
+Serves: "Pools under 0.1 ETH of liquidity ... They are also where most tokens that block or tax transfers sit."
+
+Method:
+- Holder per token (from `holders.csv.gz`): the non-V4 pool with the largest snapshot balance of the token among
+  `pools-prefilter.csv.gz` and `pools-pruned-empty.csv.gz` (rows with `token*_balance_ok=true`; tie-break lowest pool
+  address). 29,703 tokens have a holder, 3,894 have none (`no_holder`).
+- One `eth_call` per batch of 16 tokens at Base block **52008246** (the snapshot block) on
+  `https://base-mainnet.public.blastapi.io`, with state overrides: the runtime of `collect/src/TransferProbe.sol`
+  (solc 0.8.28, optimizer 200, evm cancun) is placed at the batcher `0x000000000000000000000000000000000070b3e1` and at
+  every holder in the batch. `run` calls `probeOne` on each holder; `probeOne` executes at the holder address, so the
+  token sees `msg.sender == holder pool` (the token movement of a buy out of that pool). It reads
+  `balanceOf(holder)`, sets `amount = balance * bps / 10000`, reads the recipient balance, calls
+  `transfer(recipient, amount)` with a 1,500,000 gas cap (low-level call, never reverts the batch), then reads both
+  balances again.
+- Two passes in separate `eth_call`s: bps 100 (1 %) and bps 1 (0.01 %). Recipient
+  `0xa875ba6c6102637ce162c2fb6c20ebaa6e411629` (= last 20 bytes of keccak256("dapparb transfer probe recipient");
+  no code at the block).
+- Within one batch, state changes of earlier items are visible to later items (same `eth_call`). Holders' own pool code
+  is replaced by the probe for the whole call, so a token whose transfer logic calls into one of those pools sees the
+  probe code there.
+
+Commands:
+```
+cd research-material/04-shallow-pools/transfer-probe/collect
+forge build                                   # compiles src/TransferProbe.sol -> probe-runtime.hex
+python3 run_probe.py --smoke                  # 32 tokens (results: collect/probe-batches-smoke.jsonl.gz)
+python3 run_probe.py --batch 16 --workers 3   # full run, 3,714 eth_calls, 2026-10-01 02:12-02:19 UTC
+python3 build_table.py                        # -> transfer-probe.csv.gz, probe-meta.json
+```
+
+Files (in `transfer-probe/`):
+
+| File | Rows | Content |
+|---|---|---|
+| transfer-probe.csv.gz | 67,194 (33,597 tokens x 2 bps) | one row per (token, bps); status `ok` 59,406, `no_holder` 7,788 |
+| holders.csv.gz | 33,597 | token, symbol, decimals, holder, holder_kind (v2/cl), holder_dex, holder_balance_snapshot, source file, pool counts |
+| probe-batches-raw.jsonl.gz | 3,714 | raw `eth_call` result hex per batch, with the items probed |
+| probe-meta.json | - | block, endpoint, recipient, batcher, gas settings, compiler, runtime sha256, row counts by status |
+
+`transfer-probe.csv.gz` columns (all raw; integers in token base units):
+token, symbol, holder, holder_kind, holder_dex, holder_balance_snapshot (from the snapshot files), bps, status
+(`ok` = the probe returned; `no_holder`; `probe_call_failed` = the call into the holder reverted, data in
+outer_revert_hex; `rpc_error`), balance_of_ok (balanceOf(holder) returned >= 32 bytes), holder_balance_at_call,
+amount (transfer argument), call_success (the token's `transfer` call did not revert), returned_bool (`true`/`false` when
+the return data is exactly 32 bytes with value 1/0, else `none`), return_or_revert_data_hex (return data on success, revert
+data on failure), gas_used (gas consumed by the transfer call), recipient_before, recipient_after, received
+(= recipient_after - recipient_before, signed), holder_before, holder_after, holder_debited (= holder_before -
+holder_after, signed), outer_revert_hex, rpc_error, pinned_block, endpoint, batch_id.
+
+Coverage limits: one block (52008246); one holder per token; the 3,894 tokens without a positive pool balance in the
+snapshot were not probed; only `transfer` from a pool to a fresh EOA-like address was simulated (no transferFrom, no
+sell direction into a pool, no router path); per-transfer gas cap 1.5 M.

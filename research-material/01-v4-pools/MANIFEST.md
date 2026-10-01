@@ -314,3 +314,114 @@ recomputed with 0 mismatches). They are not described or maintained by this mani
 
 Stable file layout for downstream readers: `initialize-parts.json` lists the V4INIT parts (`initialize-part-NNNN.csv.gz`, NNNN = 0001..0022).
 `recent-parts.json` lists the V4RECENT parts, and `state-index.json` lists the V4STATE files.
+
+## HOOKLABELS re-run 2026-10-01 (memory fix of launch_tx_samples.py)
+
+Sentinel: `.sentinels/HOOKLABELS.DONE` (written 2026-10-01T02:09:44Z after the manual checks below; `HOOKLABELS.FAILED` deleted).
+Logs: `collect/hooks_pipeline.log`, `collect/launch_tx_samples.log` (lines of the killed run are kept above the `====` separators),
+`collect/build_hooks_csv.log`, `collect/verify_launch_tx_selection.log`.
+
+**What failed.** Step 1 of `collect/hooks_pipeline.sh` (`hook_blockscout.py` on `state/hooks-candidates-2.txt`) finished at
+2026-09-30 22:01:19Z (`hook-docs/blockscout/index.jsonl.gz`: 213 addresses, all HTTP 200). Step 2 `launch_tx_samples.py` was killed
+(SIGKILL, "Killed" in `hooks_pipeline.log`) at about 22:09Z at 6.5 GB RSS, in its Blockscout ABI phase. It had logged
+`hooks 213 samples 639` and `txs 639 logs 18869 distinct emitters 1374` and had written no output table. The kill left a truncated
+`hook-docs/blockscout/0x111111125421ca6dc452d289314280a0f8842a65.smart_contract.json.gz.tmp` (gzip: unexpected end of file).
+Step 3 (`build_hooks_csv.py`) did not run.
+
+**Cause.** The sample selection kept one Python tuple (block_number, log_index, tx_hash, pool_id) for every Initialize row whose hook
+is a candidate, plus a set of all their pool-id strings. That is 15,033,116 rows; one hook alone has 8,170,323. Both were
+module-level variables, so they stayed in memory until the process exited, at roughly 400 bytes per row.
+
+**Fix** (`collect/launch_tx_samples.py`; the killed version is kept as `collect/launch_tx_samples.oom-version.py.txt`). The sampling
+rule, the input files, the output files and their columns are unchanged. Per hook the script still picks the earliest, the middle
+(index n//2) and the latest row in (block_number, log_index) order. Before picking, it de-duplicates by pool_id and keeps the first
+occurrence. The inputs are still the V4INIT parts listed in `initialize-parts.json`, then `collect/work/v4recent/init_*.csv.gz`.
+The selection now streams the inputs three times:
+1. Pass 1 stores one 8-byte sort key per row (block_number*2^24 + log_index) in a per-hook `array('q')`. A 2^31-bit bitmap
+   (256 MB) is indexed by 31 bits of the pool_id. When a row's bit is already set, the row is recorded as a possible duplicate.
+2. Pass 2 is an exact check on full pool_id strings, done only for the possible duplicates. Each occurrence after the first is
+   removed from the arrays.
+3. Each per-hook array is sorted. All 213 were already in order, and a tie on the key aborts the run. The script then picks the
+   keys and reads back their rows (tx_hash, pool_id).
+
+Other changes do not alter values:
+- The V4RECENT chunk list is read in sorted file-name order instead of `os.listdir` order. This only decides which copy of an
+  identical duplicate row is met first.
+- Checkpoints:
+  - `collect/state/launch-tx-samples-selection.json` holds the 639 picked rows and the input file list with sizes.
+  - `collect/work/launch_tx_cache.jsonl` is an intermediate cache: one line per tx hash with from, to, selector, value, receipt
+    status and logs.
+- A null RPC result counts as an error and moves on to the fallback endpoint.
+- The output tables are written to `.tmp` and then renamed.
+- Peak RSS is logged after each phase.
+
+The run used `ulimit -v 3000000`. **Peak RSS of the full run was 424 MB** (ru_maxrss).
+
+**Commands** (in `collect/`, with `REQUESTS_CA_BUNDLE=/root/.ccr/ca-bundle.crt`):
+```
+setsid nohup ./hooks_pipeline_resume.sh &     # runs steps 2 and 3 only (step 1 had completed and was not re-run):
+#   python3 -u launch_tx_samples.py state/hooks-candidates-all.txt >> launch_tx_samples.log
+#   python3 -u build_hooks_csv.py > build_hooks_csv.log
+python3 -u launch_tx_samples.py state/hooks-candidates-all.txt >> launch_tx_samples.log   # 02:08:53Z re-run from checkpoints (see below)
+python3 -u verify_launch_tx_selection.py state/hooks-candidates-all.txt > verify_launch_tx_selection.log
+```
+The resume script does not write `HOOKLABELS.DONE`. It rewrites `HOOKLABELS.FAILED` if a step fails.
+
+**Timeline (UTC, 2026-10-01).**
+- Selection: 01:18:24 to 01:20:30.
+- Tx and receipt fetch: until 01:24:18. 611 txs were fetched in this run. 15 more had been fetched at 01:17 by a smoke test with
+  the same code and were reused from the cache.
+- Blockscout ABI phase: until 02:07:01.
+- `build_hooks_csv.py`: 02:07:01 to 02:08:11.
+- 8 Blockscout responses (5 address, 3 smart_contract, fetched 01:30 to 02:05) were saved with `http_status` -1 (all retries
+  failed). The script was re-run from its checkpoints at 02:08:53 with no RPC calls. It re-fetched those 8 (all HTTP 200) and
+  rewrote both launch-tx tables at 02:09:00 (tx table 639 rows, logs table 18,869 rows, as before).
+
+**Endpoints.**
+- Tx and receipt: `https://gateway.tenderly.co/public/base` first, then `https://mainnet.base.org`. Which endpoint served each tx is
+  not recorded.
+- Event ABIs: `https://base.blockscout.com/api/v2`.
+- No new block pin. The samples come from the Initialize data pinned at 52,006,302 (V4INIT) and 52,006,432 (V4RECENT).
+
+**Checks done by hand.**
+- Smoke test on 5 hooks (5, 5, 25, 274 and 631,597 pools). The fixed selection equals the output of the killed version's selection
+  code run on the same 5 hooks (15 samples). The full run's tx and log rows for these hooks equal the smoke-test rows.
+- Independent selection check with `collect/verify_launch_tx_selection.py`. It uses no bitmap and no sort. Per hook,
+  n = the V4INIT count from `state/hook-counts-final.json` plus the V4RECENT rows after block 52,006,302. It takes the 0th, (n//2)-th
+  and (n-1)-th row in stream order. Result: 639 of 639 samples equal, 0 mismatches.
+- The 12 samples of `0xc8d077444625eb300a427a6dfb2b1dbf9b159040`, `0x9ea932730a7787000042e34390b8e435dd839040`,
+  `0xbb7784a4d481184283ed89619a3e3ed143e1adc0` and `0x0469a4bd3724dc86c9542f4694c976da13c450c0` were re-fetched from
+  base-mainnet.public.blastapi.io. These fields all match: tx from, to, selector and block; receipt status; number of logs; every log
+  address and data. The log at the sampled log_index is emitted by the PoolManager, and its topic1 equals sample_pool_id.
+- No `*.tmp` file is left in `hook-docs/`. The stray `.tmp` was deleted, and the AggregationRouterV6 smart_contract response for
+  `0x111111125421ca6dc452d289314280a0f8842a65` was re-fetched (2026-10-01T01:24:19Z, HTTP 200). Every `hook-docs/blockscout/*.json.gz`
+  passes `gzip -t` and parses.
+
+**Row counts.**
+
+| file | rows | notes |
+|---|---|---|
+| `hook-docs/launch-tx-samples-tx.csv.gz` | 639 | 213 hooks x 3 samples; 639 distinct sample_pool_id; 626 distinct tx_hash (a tx hash can appear in more than one row); blocks 25,477,714-52,006,386; receipt_status 0x1 on all rows |
+| `hook-docs/launch-tx-samples-logs.csv.gz` | 18,869 | equals the sum of n_logs; 1,374 distinct log_address; 14,279 rows with a non-empty event_resolved_derived |
+| `hooks.csv` | 1,198 | rebuilt 02:08:11Z (count_source v4init_final, count_block_range 25,350,988-52,006,302); replaces the 22:00Z build |
+| `hook-labels-long.csv` | 1,388 | rebuilt 02:08:11Z; replaces the 22:00Z build (1,363) |
+| `hook-docs/blockscout/index.jsonl.gz` | 213 | all http_status 200; not changed by the re-run |
+| `hook-docs/blockscout/<addr>.*.json.gz` | 2,932 | address 1,859 (1,858 HTTP 200, 1 http_status -1, see below); creation_tx 150; smart_contract 923. 1,549 fetched on 2026-10-01, 1,383 on 2026-09-30 |
+| `collect/state/launch-tx-samples-selection.json` | 639 samples | checkpoint, plus selection stats |
+| `collect/work/launch_tx_cache.jsonl` | 626 | intermediate cache, one line per tx hash |
+
+**Selection stats** (descriptive):
+- 15,033,116 input rows have a candidate hook: 15,016,221 from V4INIT and 16,895 from the V4RECENT chunks.
+- The bitmap flagged 69,023 rows as possible duplicates.
+- 16,891 rows were dropped as pool_id duplicates. These are V4RECENT rows at or below block 52,006,302, which are the same events
+  as in V4INIT.
+- 4 rows (4 hooks) after block 52,006,302 come only from V4RECENT.
+
+**Coverage limits.**
+- At most 3 samples per hook, and only for the 213 hooks in `state/hooks-candidates-all.txt`. This is not a census of
+  factory or launch transactions.
+- `hook_pools_in_local_data` counts V4INIT and V4RECENT rows up to block 52,006,432.
+- `event_resolved_derived` is filled only when the emitter, or its proxy implementation, was verified on Blockscout at fetch time.
+  Blockscout responses were fetched at different times: 2026-09-30 about 21:2x-22:09Z and 2026-10-01 01:17-02:09Z.
+- `hook-docs/blockscout/0x7facd8b3a38e873bc338b65f5b7375a242c7e7fc.address.json.gz` (fetched 2026-09-30T21:40:20Z, http_status -1)
+  is left over from an earlier run. The current launch-tx tables and candidate lists do not reference it. It was not re-fetched.
